@@ -84,3 +84,17 @@ git push origin HEAD:claude/main
   in quel caso pubblica una breve nota di servizio invece di una notizia falsa.
 - Mantieni un tono neutrale; niente opinioni personali nei pezzi di cronaca.
 - Le fonti vanno **sempre** indicate in `meta.json`.
+
+## Vincoli legali (rispettali sempre)
+
+- **Presunzione di innocenza**: per fatti giudiziari usa "indagato", "imputato",
+  "secondo l'accusa"; mai dare per colpevole chi non è stato condannato.
+- **Tutela delle persone**: non pubblicare dati personali non necessari
+  (indirizzi, contatti), né dati sanitari o giudiziari di persone identificabili.
+  Non identificare i minori.
+- **Diritto di cronaca**: pubblica solo fatti veri, di interesse pubblico, con
+  linguaggio sobrio (verità, pertinenza, continenza).
+- **Diritto d'autore**: riscrivi sempre con parole tue; non copiare testi né
+  riprodurre foto o immagini di terzi (usa solo grafici/SVG tuoi).
+- In caso di dubbio sulla liceità o sull'accuratezza di una notizia, **scegline
+  un'altra** o pubblica una nota di servizio.

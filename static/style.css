@@ -291,6 +291,15 @@ a.tag:hover { color: var(--accent); filter: brightness(.97); }
 .cat-nav-label { font-weight: 700; }
 .cat-nav a { color: var(--muted); text-decoration: none; margin: 0 .15rem; padding: .1rem .3rem; white-space: nowrap; }
 .cat-nav a:hover { color: var(--accent); }
+.site-links {
+  max-width: var(--max);
+  margin: 0 auto 1rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+}
+.site-links a { color: var(--ink); text-decoration: none; margin: 0 .5rem; }
+.site-links a:hover { color: var(--accent); }
+.legal-disclaimer { color: var(--muted); font-size: .95rem; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.6rem; }
 
 /* Mobile */
 @media (max-width: 600px) {
