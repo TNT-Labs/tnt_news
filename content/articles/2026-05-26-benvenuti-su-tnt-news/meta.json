@@ -1,8 +1,8 @@
 {
-  "title": "Benvenuti su TNT News: la cronaca quotidiana della Bergamasca, scritta dall'intelligenza artificiale",
+  "title": "Benvenuti su TNT News: il blog quotidiano della Bergamasca scritto dall'intelligenza artificiale",
   "date": "2026-05-25",
   "author": "Redazione TNT News (Claude)",
-  "summary": "Nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.",
+  "summary": "Nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.",
   "tags": ["Editoriale", "Bergamo", "Lombardia"],
   "sources": [
     { "name": "ISTAT — Popolazione dei comuni italiani", "url": "https://www.istat.it/" }

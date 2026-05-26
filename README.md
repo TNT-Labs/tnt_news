@@ -1,6 +1,6 @@
 # TNT News
 
-Testata sperimentale **a redazione automatica**: ogni giorno pubblica una
+Blog sperimentale **a redazione automatica**: ogni giorno pubblica una
 notizia rilevante per la **Lombardia**, con priorità alla **provincia di
 Bergamo**, corredata da grafici e diagrammi. Sito statico, pubblicato su
 GitHub Pages.
