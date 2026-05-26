@@ -64,13 +64,18 @@ python3 build.py
 ```
 
 Verifica che il comando termini senza errori e che in `docs/` compaiano
-`index.html` e la pagina del nuovo articolo. Poi committa e pusha:
+`index.html` e la pagina del nuovo articolo. Poi committa e pusha **sul branch
+servito da GitHub Pages**, che è `claude/main`, così il sito si aggiorna da solo:
 
 ```bash
 git add -A
 git commit -m "Articolo del giorno: <titolo breve>"
-git push -u origin <branch-corrente>
+git push origin HEAD:claude/main
 ```
+
+> La sessione automatica parte dal branch predefinito (`claude/main`): committa
+> lì e pusha su `claude/main`. Pubblicando su quel branch, GitHub Pages rigenera
+> il sito entro pochi minuti senza alcun intervento manuale.
 
 ## Regole di qualità (importanti)
 
