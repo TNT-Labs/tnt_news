@@ -21,7 +21,23 @@
   <p>Ogni giorno una notizia rilevante per la Lombardia e per la provincia di Bergamo, selezionata e raccontata in modo chiaro, con grafici e dati a supporto.</p>
 </section>
 
-<div class="card-grid"><article class="card featured"><a class="card-link" href="articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Bergamo</span><span class="tag">Elezioni</span><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article><article class="card"><a class="card-link" href="articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Editoriale</span><span class="tag">Bergamo</span><span class="tag">Lombardia</span></div><h2 class="card-title">Benvenuti su TNT News: la cronaca quotidiana della Bergamasca, scritta dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article></div>
+<div class="toolbar">
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M21 21l-4.3-4.3M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <input type="search" id="search" placeholder="Cerca tra le notizie&hellip;" aria-label="Cerca tra le notizie" autocomplete="off">
+  </div>
+  <div class="tag-filters" id="tagFilters" role="group" aria-label="Filtra per categoria">
+    <button type="button" class="tag-filter is-active" data-tag="all">Tutte</button><button type="button" class="tag-filter" data-tag="Bergamo">Bergamo</button><button type="button" class="tag-filter" data-tag="Editoriale">Editoriale</button><button type="button" class="tag-filter" data-tag="Elezioni">Elezioni</button><button type="button" class="tag-filter" data-tag="Lombardia">Lombardia</button><button type="button" class="tag-filter" data-tag="Politica">Politica</button>
+  </div>
+</div>
+
+<p class="result-count" id="resultCount" aria-live="polite"></p>
+
+<div class="card-grid" id="cardGrid"><article class="card featured" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. bergamo elezioni politica" data-tags="Bergamo|Elezioni|Politica"><a class="card-link" href="articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Bergamo</span><span class="tag">Elezioni</span><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article><article class="card" data-search="benvenuti su tnt news: la cronaca quotidiana della bergamasca, scritta dall&#x27;intelligenza artificiale nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. editoriale bergamo lombardia" data-tags="Editoriale|Bergamo|Lombardia"><a class="card-link" href="articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Editoriale</span><span class="tag">Bergamo</span><span class="tag">Lombardia</span></div><h2 class="card-title">Benvenuti su TNT News: la cronaca quotidiana della Bergamasca, scritta dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article></div>
+
+<p class="no-results" id="noResults" hidden>Nessuna notizia corrisponde alla tua ricerca.</p>
 
   </main>
 
@@ -31,5 +47,7 @@
       Gli articoli sono rielaborati a partire dalle fonti citate in fondo a ciascun pezzo.
     </p>
   </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>

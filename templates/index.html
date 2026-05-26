@@ -3,4 +3,20 @@
   <p>Ogni giorno una notizia rilevante per la Lombardia e per la provincia di Bergamo, selezionata e raccontata in modo chiaro, con grafici e dati a supporto.</p>
 </section>
 
+<div class="toolbar">
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M21 21l-4.3-4.3M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <input type="search" id="search" placeholder="Cerca tra le notizie&hellip;" aria-label="Cerca tra le notizie" autocomplete="off">
+  </div>
+  <div class="tag-filters" id="tagFilters" role="group" aria-label="Filtra per categoria">
+    {{TAGFILTERS}}
+  </div>
+</div>
+
+<p class="result-count" id="resultCount" aria-live="polite"></p>
+
 {{CARDS}}
+
+<p class="no-results" id="noResults" hidden>Nessuna notizia corrisponde alla tua ricerca.</p>

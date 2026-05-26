@@ -123,15 +123,34 @@ def build_article_page(article: dict, base: str) -> str:
 
 
 def build_index_page(articles: list[dict], base: str) -> str:
+    index_tpl = load_template("index.html")
     if not articles:
-        cards = '<p class="empty">Nessun articolo ancora pubblicato.</p>'
+        content = render(
+            index_tpl,
+            TAGFILTERS="",
+            CARDS='<p class="empty">Nessun articolo ancora pubblicato.</p>',
+        )
     else:
+        all_tags = sorted({t for a in articles for t in a["tags"]})
+        filters = [
+            '<button type="button" class="tag-filter is-active" data-tag="all">Tutte</button>'
+        ]
+        for t in all_tags:
+            filters.append(
+                f'<button type="button" class="tag-filter" data-tag="{escape(t)}">{escape(t)}</button>'
+            )
+        tagfilters = "".join(filters)
+
         cards_html = []
         for i, a in enumerate(articles):
             url = f"articoli/{a['slug']}/"
             featured = " featured" if i == 0 else ""
+            blob = escape(
+                " ".join([a["title"], a["summary"], " ".join(a["tags"])]).lower()
+            )
+            data_tags = escape("|".join(a["tags"]))
             cards_html.append(
-                f'<article class="card{featured}">'
+                f'<article class="card{featured}" data-search="{blob}" data-tags="{data_tags}">'
                 f'<a class="card-link" href="{escape(url)}">'
                 f'<div class="card-body">'
                 f'{render_tags(a["tags"])}'
@@ -140,9 +159,8 @@ def build_index_page(articles: list[dict], base: str) -> str:
                 f'<p class="card-meta">{format_date_it(a["date"])}</p>'
                 f"</div></a></article>"
             )
-        cards = '<div class="card-grid">' + "".join(cards_html) + "</div>"
-    index_tpl = load_template("index.html")
-    content = render(index_tpl, CARDS=cards)
+        cards = '<div class="card-grid" id="cardGrid">' + "".join(cards_html) + "</div>"
+        content = render(index_tpl, TAGFILTERS=tagfilters, CARDS=cards)
     return render(
         base,
         TITLE=SITE_NAME + " — " + SITE_DESC,
