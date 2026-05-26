@@ -3,12 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <link rel="stylesheet" href="{{ROOT}}style.css">
 </head>
 <body>
   <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
     <a class="brand" href="{{ROOT}}index.html">
       <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
     </a>
@@ -20,6 +32,7 @@
   </main>
 
   <footer class="site-footer">
+    {{CATEGORIES}}
     <p>
       <strong>TNT News</strong> &mdash; testata sperimentale a redazione automatica.
       Gli articoli sono rielaborati a partire dalle fonti citate in fondo a ciascun pezzo.

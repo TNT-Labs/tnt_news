@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Editoriale — TNT News</title>
+  <meta name="description" content="Notizie nella categoria Editoriale su TNT News">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Cronaca e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a><section class="hero-intro"><h1>Categoria: Editoriale</h1><p>1 notizia in questa categoria.</p></section><div class="card-grid"><article class="card" data-search="benvenuti su tnt news: la cronaca quotidiana della bergamasca, scritta dall&#x27;intelligenza artificiale nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. editoriale bergamo lombardia" data-tags="Editoriale|Bergamo|Lombardia"><a class="card-link" href="../../articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Editoriale</span><span class="tag">Bergamo</span><span class="tag">Lombardia</span></div><h2 class="card-title">Benvenuti su TNT News: la cronaca quotidiana della Bergamasca, scritta dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce una testata sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article></div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/bergamo/">Bergamo</a><a href="../../categorie/editoriale/">Editoriale</a><a href="../../categorie/elezioni/">Elezioni</a><a href="../../categorie/lombardia/">Lombardia</a><a href="../../categorie/politica/">Politica</a></nav>
+    <p>
+      <strong>TNT News</strong> &mdash; testata sperimentale a redazione automatica.
+      Gli articoli sono rielaborati a partire dalle fonti citate in fondo a ciascun pezzo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

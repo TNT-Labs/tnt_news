@@ -1,6 +1,33 @@
 (function () {
   "use strict";
 
+  // --- Tema chiaro/scuro (attivo su tutte le pagine) ---
+  var toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    var root = document.documentElement;
+    function syncLabel() {
+      var dark = root.getAttribute("data-theme") === "dark";
+      toggle.textContent = dark ? "Tema chiaro" : "Tema scuro";
+      toggle.setAttribute(
+        "aria-label",
+        dark ? "Passa al tema chiaro" : "Passa al tema scuro"
+      );
+    }
+    syncLabel();
+    toggle.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (e) {}
+      syncLabel();
+    });
+  }
+})();
+
+(function () {
+  "use strict";
+
   var search = document.getElementById("search");
   var grid = document.getElementById("cardGrid");
   if (!search || !grid) return;
