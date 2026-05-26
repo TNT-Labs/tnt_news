@@ -23,7 +23,7 @@ STATIC_DIR = ROOT / "static"
 OUTPUT_DIR = ROOT / "docs"
 
 SITE_NAME = "TNT News"
-SITE_DESC = "Cronaca e fatti dalla Lombardia e dalla provincia di Bergamo"
+SITE_DESC = "Notizie e fatti dalla Lombardia e dalla provincia di Bergamo"
 SITE_URL = "https://tnt-labs.github.io/tnt_news"
 OG_IMAGE = f"{SITE_URL}/og-default.svg"
 # Recapito per rettifiche, privacy e segnalazioni. Da personalizzare.
@@ -335,8 +335,8 @@ def about_body() -> str:
     return (
         '<article class="article">'
         '<header class="article-header"><h1>Chi siamo</h1>'
-        '<p class="article-summary">TNT News è una testata sperimentale a redazione '
-        "automatica dedicata alla Lombardia e alla provincia di Bergamo.</p></header>"
+        '<p class="article-summary">TNT News è un blog sperimentale a redazione '
+        "automatica dedicato alla Lombardia e alla provincia di Bergamo.</p></header>"
         '<div class="article-body">'
         "<p>TNT News pubblica ogni giorno una notizia rilevante per il territorio, "
         "raccontata in modo chiaro e corredata da grafici e dati.</p>"
@@ -373,7 +373,7 @@ def legal_body() -> str:
         f"<p>Il sito è gestito da [nome o ragione sociale del titolare]. Per qualsiasi "
         f"comunicazione: {escape(CONTACT)}.</p>"
         "<h2>Natura dei contenuti</h2>"
-        "<p>TNT News è una testata sperimentale i cui articoli sono generati "
+        "<p>TNT News è un blog sperimentale i cui articoli sono generati "
         "automaticamente da un sistema di intelligenza artificiale, senza supervisione "
         "redazionale sui singoli contenuti. I testi hanno finalità informativa e possono "
         "contenere errori o imprecisioni.</p>"
