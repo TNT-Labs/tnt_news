@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="TNT News">
+  <rect width="1200" height="630" fill="#faf8f5"/>
+  <rect width="1200" height="14" fill="#b3001b"/>
+  <g transform="translate(90,250)" font-family="Helvetica Neue, Arial, sans-serif">
+    <text x="0" y="0" font-size="120" font-weight="800" fill="#1a1a1a">
+      <tspan fill="#b3001b">TNT</tspan> News
+    </text>
+    <text x="6" y="70" font-size="38" fill="#5f6b7a">
+      Cronaca e fatti dalla Lombardia e dalla provincia di Bergamo
+    </text>
+    <text x="6" y="140" font-size="26" fill="#5f6b7a" font-style="italic">
+      Testata sperimentale a redazione automatica
+    </text>
+  </g>
+</svg>

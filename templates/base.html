@@ -16,6 +16,21 @@
   </script>
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+
+  <meta property="og:type" content="{{OG_TYPE}}">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="{{OG_IMAGE}}">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="{{ROOT}}feed.xml">
   <link rel="stylesheet" href="{{ROOT}}style.css">
 </head>
 <body>
@@ -33,9 +48,16 @@
 
   <footer class="site-footer">
     {{CATEGORIES}}
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="{{ROOT}}index.html">Home</a>
+      <a href="{{ROOT}}chi-siamo/">Chi siamo</a>
+      <a href="{{ROOT}}note-legali/">Note legali e privacy</a>
+      <a href="{{ROOT}}feed.xml">RSS</a>
+    </nav>
     <p>
       <strong>TNT News</strong> &mdash; testata sperimentale a redazione automatica.
-      Gli articoli sono rielaborati a partire dalle fonti citate in fondo a ciascun pezzo.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun pezzo.
     </p>
   </footer>
 

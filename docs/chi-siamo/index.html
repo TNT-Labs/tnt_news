@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <title>Chi siamo — TNT News</title>
+  <meta name="description" content="Chi siamo — TNT News">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/chi-siamo/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Chi siamo — TNT News">
+  <meta property="og:description" content="Chi siamo — TNT News">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/chi-siamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chi siamo — TNT News">
+  <meta name="twitter:description" content="Chi siamo — TNT News">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../feed.xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Cronaca e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Home</a><article class="article"><header class="article-header"><h1>Chi siamo</h1><p class="article-summary">TNT News è una testata sperimentale a redazione automatica dedicata alla Lombardia e alla provincia di Bergamo.</p></header><div class="article-body"><p>TNT News pubblica ogni giorno una notizia rilevante per il territorio, raccontata in modo chiaro e corredata da grafici e dati.</p><h2>Come nascono gli articoli</h2><p>I contenuti sono selezionati, scritti e illustrati in modo automatico da un sistema di intelligenza artificiale (Claude, di Anthropic), senza intervento umano sui singoli articoli. Il sistema individua la notizia del giorno, ne verifica gli elementi essenziali sulle fonti pubbliche e prepara il pezzo con i relativi grafici.</p><h2>Trasparenza</h2><p>Indichiamo chiaramente che gli articoli di questo sito sono prodotti automaticamente da un'intelligenza artificiale. È una scelta di trasparenza nei confronti dei lettori.</p><h2>Fonti e accuratezza</h2><p>Ogni articolo riporta le fonti utilizzate, rielaborate con parole proprie. Nonostante i controlli, i testi automatici possono contenere imprecisioni: invitiamo a verificare sempre sulle fonti originali e a segnalarci eventuali errori.</p><h2>Contatti e rettifiche</h2><p>Per segnalazioni, richieste di rettifica o rimozione: [inserisci qui l&#x27;email di contatto del titolare]. Consulta anche le <a href="../note-legali/">Note legali e privacy</a>.</p></div></article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../categorie/bergamo/">Bergamo</a><a href="../categorie/editoriale/">Editoriale</a><a href="../categorie/elezioni/">Elezioni</a><a href="../categorie/lombardia/">Lombardia</a><a href="../categorie/politica/">Politica</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../index.html">Home</a>
+      <a href="../chi-siamo/">Chi siamo</a>
+      <a href="../note-legali/">Note legali e privacy</a>
+      <a href="../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; testata sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun pezzo.
+    </p>
+  </footer>
+
+  <script src="../app.js" defer></script>
+</body>
+</html>
