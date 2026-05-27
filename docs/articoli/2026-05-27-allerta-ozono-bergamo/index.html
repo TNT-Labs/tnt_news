@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record — TNT News</title>
+  <meta name="description" content="Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-allerta-ozono-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record — TNT News">
+  <meta property="og:description" content="Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-allerta-ozono-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record — TNT News">
+  <meta name="twitter:description" content="Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Ozono</span><span class="tag">ARPA Lombardia</span><span class="tag">Qualità dell&#x27;aria</span></div>
+    <h1>Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h1>
+    <p class="article-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-27">27 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  Il caldo improvvisamente estivo che ha investito la pianura padana in questa fine di maggio ha portato con sé
+  un ospite indesiderato: l'ozono troposferico. Le stazioni di monitoraggio dell'atmosfera gestite da ARPA
+  Lombardia a Bergamo città e a Calusco d'Adda hanno registrato mercoledì 27 maggio concentrazioni di ozono
+  vicine ai 200 microgrammi per metro cubo (µg/m³), superando nettamente la <strong>soglia di informazione
+  di 180 µg/m³</strong> fissata dalla normativa europea. Quasi tutta la Lombardia risulta in allerta gialla.
+</p>
+
+<h2>Perché l'ozono aumenta con il caldo</h2>
+<p>
+  L'ozono troposferico — diverso dallo strato protettivo dell'alta atmosfera — non viene emesso direttamente
+  dalle fonti inquinanti, ma si forma per reazione chimica in presenza di intensa radiazione solare, ossidi di
+  azoto (NO<sub>x</sub>) e composti organici volatili emessi da traffico e industria. Quando un anticiclone
+  staziona sull'Europa centro-occidentale, come accade in questi giorni, l'aria rimane stagnante, il sole
+  scalda la superficie e le condizioni sono ideali per l'accumulo di ozono.
+</p>
+<p>
+  Secondo ARPA Lombardia, l'episodio attuale è il <strong>primo superamento diffuso del 2026</strong> e si
+  è sviluppato in anticipo rispetto agli anni precedenti: le stazioni di Varese e Lecco avevano già registrato
+  valori oltre la soglia venerdì 22 maggio, seguite da Monza-Brianza e Brescia il giorno successivo. Nell'arco
+  di pochi giorni, con le temperature salite a 33-34°C in pianura, l'episodio si è allargato alla provincia
+  bergamasca.
+</p>
+
+<h2>La situazione a Bergamo e Calusco</h2>
+<p>
+  Le due stazioni bergamasche indicate da ARPA in stato critico sono la centralina urbana di Bergamo e quella
+  di Calusco d'Adda, nel settore nord-occidentale della provincia. Entrambe hanno sfiorato o superato i
+  200 µg/m³ nelle misurazioni orarie di punta della giornata. Il valore di riferimento per scattare la
+  <em>soglia di informazione</em> è 180 µg/m³ su media oraria; la <em>soglia di allarme</em> — che comporta
+  misure più restrittive — è fissata a 240 µg/m³, livello non raggiunto.
+</p>
+<p>
+  Anche la stazione di Moggio in Valsassina (Lecco) ha registrato valori prossimi a 200 µg/m³. Il resto del
+  territorio regionale è classificato in "zona gialla", con concentrazioni che si avvicinano ma non superano
+  la soglia di informazione.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre: concentrazioni massime di ozono rilevate nelle stazioni di monitoraggio ARPA Lombardia tra il 22 e il 27 maggio 2026. Soglia di informazione a 180 µg/m³, soglia di allarme a 240 µg/m³.">
+    <!-- Sfondo -->
+    <rect width="640" height="340" fill="#f8f9fa" rx="6"/>
+
+    <!-- Titolo -->
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#333">
+      Ozono: valori massimi orari per stazione (22–27 maggio 2026)
+    </text>
+
+    <!-- Assi -->
+    <!-- Asse Y: 0 a 250, altezza utile 240px, baseline a y=290 -->
+    <!-- Scala: 240px / 250µg = 0.96 px per µg -->
+    <!-- y_pixel = 290 - valore * 0.96 -->
+
+    <!-- Griglia e etichette Y -->
+    <!-- 0 -->
+    <line x1="80" y1="290" x2="610" y2="290" stroke="#ccc" stroke-width="1"/>
+    <text x="70" y="294" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">0</text>
+    <!-- 50 -->
+    <line x1="80" y1="242" x2="610" y2="242" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="70" y="246" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">50</text>
+    <!-- 100 -->
+    <line x1="80" y1="194" x2="610" y2="194" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="70" y="198" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">100</text>
+    <!-- 150 -->
+    <line x1="80" y1="146" x2="610" y2="146" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="70" y="150" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">150</text>
+    <!-- 200 -->
+    <line x1="80" y1="98" x2="610" y2="98" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="70" y="102" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">200</text>
+    <!-- 250 -->
+    <line x1="80" y1="50" x2="610" y2="50" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="70" y="54" text-anchor="end" font-family="sans-serif" font-size="11" fill="#666">250</text>
+
+    <!-- Soglia di informazione: 180 µg → y = 290 - 180*0.96 = 290-172.8 = 117.2 -->
+    <line x1="80" y1="117" x2="610" y2="117" stroke="#e67e00" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="614" y="121" font-family="sans-serif" font-size="10" fill="#e67e00">Soglia inf. 180</text>
+
+    <!-- Soglia di allarme: 240 µg → y = 290 - 240*0.96 = 290-230.4 = 59.6 -->
+    <line x1="80" y1="60" x2="610" y2="60" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="614" y="64" font-family="sans-serif" font-size="10" fill="#c0392b">Soglia all. 240</text>
+
+    <!-- Barre (larghezza 60, gap ~17, x0=95) -->
+    <!-- Stazione 1: Bergamo ~198 µg → altezza = 198*0.96=190 → y=290-190=100 -->
+    <rect x="95" y="100" width="60" height="190" fill="#e74c3c" rx="3"/>
+    <text x="125" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c0392b">~198</text>
+    <text x="125" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Bergamo</text>
+    <text x="125" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(BG)</text>
+
+    <!-- Stazione 2: Calusco d'Adda ~196 µg → altezza=188.2 → y=101.8 -->
+    <rect x="172" y="102" width="60" height="188" fill="#e74c3c" rx="3"/>
+    <text x="202" y="97" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c0392b">~196</text>
+    <text x="202" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Calusco</text>
+    <text x="202" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(BG)</text>
+
+    <!-- Stazione 3: Moggio (LC) 187 µg → altezza=179.5 → y=110.5 -->
+    <rect x="249" y="111" width="60" height="179" fill="#e67e22" rx="3"/>
+    <text x="279" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b06000">187</text>
+    <text x="279" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Moggio</text>
+    <text x="279" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(LC)</text>
+
+    <!-- Stazione 4: Monza Parco 186 µg → altezza=178.6 → y=111.4 -->
+    <rect x="326" y="112" width="60" height="178" fill="#e67e22" rx="3"/>
+    <text x="356" y="107" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b06000">186</text>
+    <text x="356" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Monza P.</text>
+    <text x="356" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(MB)</text>
+
+    <!-- Stazione 5: Ferno (VA) 185 µg → altezza=177.6 → y=112.4 -->
+    <rect x="403" y="113" width="60" height="177" fill="#f0a500" rx="3"/>
+    <text x="433" y="108" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#8a5d00">185</text>
+    <text x="433" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Ferno</text>
+    <text x="433" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(VA)</text>
+
+    <!-- Stazione 6: Lonato (BS) 181 µg → altezza=173.8 → y=116.2 -->
+    <rect x="480" y="117" width="60" height="173" fill="#f0a500" rx="3"/>
+    <text x="510" y="112" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#8a5d00">181</text>
+    <text x="510" y="310" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Lonato</text>
+    <text x="510" y="323" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">(BS)</text>
+
+    <!-- Asse Y label -->
+    <text x="16" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555" transform="rotate(-90,16,200)">µg/m³ (media oraria max)</text>
+
+    <!-- Legenda -->
+    <rect x="88" y="42" width="12" height="12" fill="#e74c3c" rx="2"/>
+    <text x="104" y="52" font-family="sans-serif" font-size="10" fill="#333">Oltre 190 µg/m³</text>
+    <rect x="188" y="42" width="12" height="12" fill="#e67e22" rx="2"/>
+    <text x="204" y="52" font-family="sans-serif" font-size="10" fill="#333">181–190 µg/m³</text>
+    <rect x="288" y="42" width="12" height="12" fill="#f0a500" rx="2"/>
+    <text x="304" y="52" font-family="sans-serif" font-size="10" fill="#333">180–181 µg/m³</text>
+  </svg>
+  <figcaption>
+    Concentrazioni massime di ozono (µg/m³ su media oraria) rilevate nelle principali stazioni di monitoraggio
+    ARPA Lombardia durante l'episodio di fine maggio 2026. I valori di Bergamo e Calusco d'Adda sono indicativi
+    (circa 196–198 µg/m³) poiché desunti da fonti giornalistiche; gli altri provengono da comunicati ARPA.
+    La soglia di informazione è 180 µg/m³; quella di allarme 240 µg/m³.
+    Fonti: Zazoom, Prima Bergamo, Il Giorno, Resegone Online.
+  </figcaption>
+</figure>
+
+<h2>I rischi per la salute</h2>
+<p>
+  L'ozono in alta concentrazione è un irritante per le vie respiratorie. Può causare bruciore agli occhi,
+  tosse, senso di costrizione al petto e, nelle persone più fragili, una riduzione della funzionalità
+  polmonare. I soggetti a maggior rischio sono bambini, anziani e chiunque soffra di asma o malattie
+  broncopolmonari croniche.
+</p>
+<p>
+  ARPA Lombardia invita a <strong>evitare attività fisiche intense all'aperto nelle ore di punta</strong>,
+  in particolare tra le 12 e le 16, quando la radiazione solare è massima e le concentrazioni di ozono
+  raggiungono i picchi giornalieri. È consigliato privilegiare le ore mattutine o serali per passeggiate,
+  sport all'aperto e attività dei più piccoli.
+</p>
+
+<h2>Quando migliorerà la situazione</h2>
+<p>
+  Secondo le previsioni del Servizio Meteorologico di ARPA Lombardia, il cedimento dell'anticiclone è atteso
+  nella seconda metà della settimana, con il possibile ingresso di correnti atlantiche più fresche. Finché
+  le condizioni di alta pressione e forte insolazione permarranno, le concentrazioni di ozono potrebbero
+  restare elevate nelle ore pomeridiane, soprattutto nelle aree a maggiore densità di traffico e insediamenti
+  industriali della pianura bergamasca.
+</p>
+<p>
+  Per monitorare in tempo reale la qualità dell'aria è possibile consultare il portale di ARPA Lombardia
+  (arpalombardia.it), dove vengono aggiornate quotidianamente le mappe delle stazioni di rilevamento e i
+  bollettini di previsione della qualità dell'aria.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.zazoom.it/2026-05-27/lombardia-picco-di-ozono-dopo-il-caldo-allerta-gialla-in-regione/19257128/" rel="noopener" target="_blank">Zazoom — Lombardia, picco di ozono dopo il caldo: allerta gialla in regione (27 maggio 2026)</a></li><li><a href="https://primabergamo.it/attualita/i-livelli-di-ozono-in-bergamasca-rimangono-critici-bergamo-oltre-la-soglia-dallarme-insieme-a-calusco/" rel="noopener" target="_blank">Prima Bergamo — I livelli di ozono in Bergamasca rimangono critici: Bergamo oltre la soglia d&#x27;allarme insieme a Calusco</a></li><li><a href="https://www.resegoneonline.it/aria-scatta-lallerta-ozono-nel-2026-i-consigli-di-arpa-per-bambini-anziani-e-soggetti-a-rischio/36616/" rel="noopener" target="_blank">Resegone Online — Aria, scatta l&#x27;allerta ozono nel 2026: i consigli di ARPA per bambini, anziani e soggetti a rischio</a></li><li><a href="https://www.ilgiorno.it/cronaca/ozono-ev71f01b" rel="noopener" target="_blank">Il Giorno — Ozono, suona già il primo allarme: le temperature estive fanno sforare il livello di guardia</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="giro d&#x27;italia 2026, la tappa 17 attraversa la bergamasca: bassa e sebino in festa con la corsa rosa la diciassettesima tappa cassano d&#x27;adda–andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di bergamo, toccando verdello, urgnano, ghisalba, grumello del monte e sarnico. jonas vingegaard guida la classifica generale con oltre quattro minuti di vantaggio. sport bergamo ciclismo giro d&#x27;italia sebino" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa</h2><p class="card-summary">La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in medio oriente. economia bergamo industria manifattura confindustria" data-cat="Economia"><a class="card-link" href="../../articoli/2026-05-27-manifattura-bergamasca-q1-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative</h2><p class="card-summary">Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. politica bergamo elezioni" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
