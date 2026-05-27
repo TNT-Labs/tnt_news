@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa — TNT News</title>
+  <meta name="description" content="La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa — TNT News">
+  <meta property="og:description" content="La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa — TNT News">
+  <meta name="twitter:description" content="La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">Ciclismo</span><span class="tag">Giro d&#x27;Italia</span><span class="tag">Sebino</span></div>
+    <h1>Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa</h1>
+    <p class="article-summary">La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-27">27 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il Giro d'Italia 2026 colora di rosa la Bergamasca. Mercoledì 27 maggio la diciassettesima tappa — <strong>202 chilometri da Cassano d'Adda ad Andalo</strong>, in Trentino — attraversa la provincia per circa quaranta chilometri, portando la festa della Corsa Rosa nella Bassa e sulle rive del Lago d'Iseo.</p>
+
+<h2>Il percorso in Bergamasca</h2>
+
+<p>Dopo la partenza ufficiale fissata alle 12:10, il gruppo ciclistico tocca cinque comuni bergamaschi nel corso del pomeriggio: <strong>Verdello</strong> (orario previsto: 12:23), <strong>Urgnano</strong> (via Roma / SP 591, ore 12:42), <strong>Ghisalba</strong>, <strong>Grumello del Monte</strong> (ore 13:08) e infine <strong>Sarnico</strong> (ore 13:17), dove il tracciato lambisce il Lago d'Iseo prima di proseguire verso nord in direzione del Trentino.</p>
+
+<p>A Sarnico, il Comune ha disposto la <strong>chiusura totale in entrambe le direzioni</strong> della SP 91 (verso Bergamo) e della SS 469 (verso Paratico) dalle ore 10:40 fino alle 13:20 circa. Anche il trasporto pubblico locale subisce modifiche: le linee E ed E20b di Arriva Bergamo vengono deviate per tutta la durata del transito della carovana.</p>
+
+<h2>Una tappa tutt'altro che pianeggiante</h2>
+
+<p>Nonostante i primi chilometri si svolgano interamente in pianura, la diciassettesima frazione accumula <strong>3.300 metri di dislivello</strong> e tre Gran Premi della Montagna di terza categoria. I corridori affrontano dapprima il <em>Passo dei Tre Termini</em> (8,2 km con pendenza media del 5,9%) e la <em>Cocca di Lodrino</em> (8,2 km al 4,1%), per poi concludere con la salita verso <strong>Andalo</strong> (1.018 m s.l.m.). L'arrivo in quota è previsto intorno alle 17:15. La cittadina trentina vanta due arrivi storici del Giro: Eddy Merckx nel 1973 e Alejandro Valverde nel 2016.</p>
+
+<h2>Classifica generale: Vingegaard in fuga</h2>
+
+<p>La tappa si disputa con il danese <strong>Jonas Vingegaard</strong> (<em>Visma-Lease a Bike</em>) saldamente in maglia rosa. Vincitore di quattro frazioni in questa edizione, Vingegaard ha guadagnato un vantaggio considerevole sui suoi rivali, frutto di una superiorità in salita già evidente nelle settimane precedenti. Il secondo classificato, l'austriaco Felix Gall (Decathlon CMA CGM), accusa oltre quattro minuti di ritardo. Più indietro Thymen Arensman, Jai Hindley e Afonso Eulálio, con distacchi che vanno dai 4'27" ai 5'40". Tra gli italiani, Davide Piganzoli occupa una posizione in top 10; Filippo Pellizzari ha invece perso terreno nelle ultime tappe di montagna.</p>
+
+<figure>
+<svg viewBox="0 0 640 290" role="img" aria-label="Grafico a barre dei distacchi in classifica generale nel Giro d'Italia 2026 dopo la sedicesima tappa: Gall a 4 minuti e 3 secondi, Arensman a 4 minuti e 27 secondi, Hindley a 5 minuti, Eulálio a 5 minuti e 40 secondi" xmlns="http://www.w3.org/2000/svg">
+  <title>Distacchi dalla maglia rosa — Classifica generale Giro d'Italia 2026 (dopo tappa 16)</title>
+  <!-- Intestazione -->
+  <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a" font-family="sans-serif">Distacchi dalla maglia rosa — Giro d'Italia 2026</text>
+  <text x="320" y="38" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">Classifica generale dopo la 16ª tappa (Vingegaard = riferimento)</text>
+
+  <!-- Etichette asse Y -->
+  <text x="162" y="75" text-anchor="end" font-size="12" fill="#333" dominant-baseline="middle" font-family="sans-serif">Gall (2°)</text>
+  <text x="162" y="125" text-anchor="end" font-size="12" fill="#333" dominant-baseline="middle" font-family="sans-serif">Arensman (3°)</text>
+  <text x="162" y="175" text-anchor="end" font-size="12" fill="#333" dominant-baseline="middle" font-family="sans-serif">Hindley (4°)</text>
+  <text x="162" y="225" text-anchor="end" font-size="12" fill="#333" dominant-baseline="middle" font-family="sans-serif">Eulálio (5°)</text>
+
+  <!-- Linee griglia verticali (0', 2', 4', 6') -->
+  <line x1="170" y1="50" x2="170" y2="248" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="320" y1="50" x2="320" y2="248" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="470" y1="50" x2="470" y2="248" stroke="#e0e0e0" stroke-width="1"/>
+  <line x1="620" y1="50" x2="620" y2="248" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Asse X -->
+  <line x1="170" y1="248" x2="625" y2="248" stroke="#888" stroke-width="1.5"/>
+
+  <!-- Etichette asse X -->
+  <text x="170" y="263" text-anchor="middle" font-size="10" fill="#666" font-family="sans-serif">0'</text>
+  <text x="320" y="263" text-anchor="middle" font-size="10" fill="#666" font-family="sans-serif">2'</text>
+  <text x="470" y="263" text-anchor="middle" font-size="10" fill="#666" font-family="sans-serif">4'</text>
+  <text x="620" y="263" text-anchor="middle" font-size="10" fill="#666" font-family="sans-serif">6'</text>
+
+  <!-- Linea di riferimento Vingegaard -->
+  <line x1="170" y1="50" x2="170" y2="248" stroke="#e91e63" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="174" y="46" text-anchor="start" font-size="10" fill="#e91e63" font-weight="bold" font-family="sans-serif">Vingegaard (1°)</text>
+
+  <!-- Scala: 6 min = 360 s su 450 px => 1,25 px/s -->
+  <!-- Gall: 243 s => 304 px -->
+  <rect x="170" y="57" width="304" height="30" fill="#f4a261" rx="4"/>
+  <text x="480" y="75" font-size="11" fill="#333" dominant-baseline="middle" font-family="sans-serif">+4'03"</text>
+
+  <!-- Arensman: 267 s => 334 px -->
+  <rect x="170" y="107" width="334" height="30" fill="#e76f51" rx="4"/>
+  <text x="510" y="125" font-size="11" fill="#333" dominant-baseline="middle" font-family="sans-serif">+4'27"</text>
+
+  <!-- Hindley: 300 s => 375 px -->
+  <rect x="170" y="157" width="375" height="30" fill="#e63946" rx="4"/>
+  <text x="551" y="175" font-size="11" fill="#333" dominant-baseline="middle" font-family="sans-serif">+5'00"</text>
+
+  <!-- Eulálio: 340 s => 425 px -->
+  <rect x="170" y="207" width="425" height="30" fill="#c1121f" rx="4"/>
+  <text x="601" y="225" font-size="11" fill="#fff" dominant-baseline="middle" font-family="sans-serif">+5'40"</text>
+</svg>
+<figcaption>Distacchi in classifica generale dalla maglia rosa Jonas Vingegaard dopo la 16ª tappa del Giro d'Italia 2026. Fonte: Giro d'Italia ufficiale / OA Sport. Valori espressi in minuti e secondi; scala lineare.</figcaption>
+</figure>
+
+<h2>Una festa attesa dal territorio</h2>
+
+<p>Il passaggio del Giro d'Italia rappresenta ogni anno un momento di festa collettiva per le comunità attraversate. La Bergamasca ha radici profonde nel ciclismo: basti ricordare Felice Gimondi, nato a Sedrina (BG), vincitore di Giro, Tour de France e Vuelta. Vedere la Corsa Rosa percorrere la Bassa e il lungolago di Sarnico è, per residenti e appassionati, un'occasione di festa popolare e di visibilità internazionale per il territorio. La tappa è trasmessa in diretta televisiva su RAI Sport e Eurosport.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/05/26/la-magia-rosa-accende-anche-la-provincia-di-bergamo-mercoledi-il-giro-ditalia-attraversa-la-bassa-e-il-sebino/896755/" rel="noopener" target="_blank">BergamoNews — La magia rosa accende la provincia di Bergamo: il Giro attraversa la Bassa e il Sebino</a></li><li><a href="https://www.giroditalia.it/news/giro-ditalia-2026-la-classifica-generale-dopo-cari-vingegaard-vola-pellizzari-crolla/" rel="noopener" target="_blank">Giro d&#x27;Italia Ufficiale — Classifica generale dopo Carì: Vingegaard vola</a></li><li><a href="https://www.oasport.it/2026/05/classifica-giro-ditalia-2026-sedicesima-tappa-pellizzari-affonda-in-salita-vingegaard-dominatore-piganzoli-miglior-azzurro/" rel="noopener" target="_blank">OA Sport — Classifica Giro d&#x27;Italia 2026, 16ª tappa</a></li><li><a href="https://www.comune.sarnico.bg.it/it/news/avviso-variazione-viabilita-per-transito-tappa-giro-ditalia-mercoledi-27-maggio-2026" rel="noopener" target="_blank">Comune di Sarnico — Avviso variazione viabilità per transito Giro d&#x27;Italia 27 maggio 2026</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. politica bergamo elezioni" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article><article class="card" data-search="benvenuti su tnt news: il blog quotidiano della bergamasca scritto dall&#x27;intelligenza artificiale nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. attualità editoriale bergamo lombardia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Benvenuti su TNT News: il blog quotidiano della Bergamasca scritto dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
