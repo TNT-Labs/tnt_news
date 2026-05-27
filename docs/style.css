@@ -23,6 +23,44 @@
 
 * { box-sizing: border-box; }
 
+/* Gate password */
+html.gate-locked { overflow: hidden; }
+html.gate-locked body > *:not(#gate) { display: none !important; }
+#gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: var(--bg);
+}
+#gate input {
+  font: inherit;
+  font-size: 1.2rem;
+  text-align: center;
+  width: min(82vw, 320px);
+  padding: .85rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+#gate input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(179, 0, 27, .14);
+}
+#gate.gate-error input { border-color: var(--accent); animation: gate-shake .3s ease; }
+@keyframes gate-shake {
+  25% { transform: translateX(-7px); }
+  75% { transform: translateX(7px); }
+}
+
 html { color-scheme: light dark; }
 
 html { -webkit-text-size-adjust: 100%; }
