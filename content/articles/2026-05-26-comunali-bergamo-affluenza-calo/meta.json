@@ -3,7 +3,8 @@
   "date": "2026-05-26",
   "author": "Redazione TNT News (Claude)",
   "summary": "Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l'affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.",
-  "tags": ["Bergamo", "Elezioni", "Politica"],
+  "category": "Politica",
+  "tags": ["Bergamo", "Elezioni"],
   "sources": [
     { "name": "Il Giorno — Elezioni comunali 2026 in provincia di Bergamo, i risultati e i sindaci eletti", "url": "https://www.ilgiorno.it/bergamo/politica/elezioni-comunali-2026-risultati-njt4akqe" },
     { "name": "Il Giorno — Elezioni comunali in Lombardia, affluenza definitiva al 52,69%", "url": "https://www.ilgiorno.it/politica/elezioni-comunali-2026--e8c1oink" },

@@ -29,6 +29,15 @@ OG_IMAGE = f"{SITE_URL}/og-default.svg"
 # Recapito per rettifiche, privacy e segnalazioni. Da personalizzare.
 CONTACT = "[inserisci qui l'email di contatto del titolare]"
 
+# Insieme chiuso di categorie usate per la navigazione (ordine canonico fisso).
+# I tag liberi restano nel meta.json come semplici etichette dell'articolo.
+CATEGORIES = [
+    "Cronaca", "Politica", "Economia", "Trasporti",
+    "Sanità", "Ambiente", "Cultura", "Sport", "Attualità",
+]
+CATEGORY_SET = set(CATEGORIES)
+DEFAULT_CATEGORY = "Attualità"
+
 MONTHS_IT = [
     "", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
     "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
@@ -83,40 +92,35 @@ def load_articles() -> list[dict]:
         meta.setdefault("tags", [])
         meta.setdefault("sources", [])
         meta.setdefault("author", "Redazione TNT News (Claude)")
+        if meta.get("category") not in CATEGORY_SET:
+            meta["category"] = DEFAULT_CATEGORY
         articles.append(meta)
     # piu recenti in cima
     articles.sort(key=lambda a: a["date"], reverse=True)
     return articles
 
 
-def all_tags_of(articles: list[dict]) -> list[str]:
-    return sorted({t for a in articles for t in a["tags"]})
+def categories_in_use(articles: list[dict]) -> list[str]:
+    """Categorie effettivamente presenti, nell'ordine canonico fisso."""
+    used = {a["category"] for a in articles}
+    return [c for c in CATEGORIES if c in used]
 
 
-def render_tags(tags: list[str]) -> str:
-    """Tag non cliccabili (usati dentro le card, che sono gia un link)."""
-    if not tags:
-        return ""
-    chips = "".join(f'<span class="tag">{escape(t)}</span>' for t in tags)
-    return f'<div class="tags">{chips}</div>'
+def render_article_taxonomy(article: dict, prefix: str) -> str:
+    """Categoria (cliccabile) + tag liberi (etichette) in testa all'articolo."""
+    cat = article["category"]
+    parts = [
+        f'<a class="tag tag-cat" href="{prefix}categorie/{slugify(cat)}/">{escape(cat)}</a>'
+    ]
+    parts += [f'<span class="tag">{escape(t)}</span>' for t in article["tags"]]
+    return f'<div class="tags">{"".join(parts)}</div>'
 
 
-def render_tag_links(tags: list[str], prefix: str) -> str:
-    """Tag cliccabili che portano alla pagina di categoria."""
-    if not tags:
-        return ""
-    chips = "".join(
-        f'<a class="tag" href="{prefix}categorie/{slugify(t)}/">{escape(t)}</a>'
-        for t in tags
-    )
-    return f'<div class="tags">{chips}</div>'
-
-
-def render_categories_nav(tags: list[str], prefix: str) -> str:
-    if not tags:
+def render_categories_nav(categories: list[str], prefix: str) -> str:
+    if not categories:
         return ""
     links = "".join(
-        f'<a href="{prefix}categorie/{slugify(t)}/">{escape(t)}</a>' for t in tags
+        f'<a href="{prefix}categorie/{slugify(c)}/">{escape(c)}</a>' for c in categories
     )
     return (
         '<nav class="cat-nav" aria-label="Categorie">'
@@ -149,14 +153,13 @@ def render_card(a: dict, prefix: str, featured: bool = False) -> str:
     url = f"{prefix}articoli/{a['slug']}/"
     cls = "card featured" if featured else "card"
     blob = escape(
-        " ".join([a["title"], a["summary"], " ".join(a["tags"])]).lower()
+        " ".join([a["title"], a["summary"], a["category"], " ".join(a["tags"])]).lower()
     )
-    data_tags = escape("|".join(a["tags"]))
     return (
-        f'<article class="{cls}" data-search="{blob}" data-tags="{data_tags}">'
+        f'<article class="{cls}" data-search="{blob}" data-cat="{escape(a["category"])}">'
         f'<a class="card-link" href="{escape(url)}">'
         f'<div class="card-body">'
-        f'{render_tags(a["tags"])}'
+        f'<div class="tags"><span class="tag">{escape(a["category"])}</span></div>'
         f'<h2 class="card-title">{escape(a["title"])}</h2>'
         f'<p class="card-summary">{escape(a["summary"])}</p>'
         f'<p class="card-meta">{format_date_it(a["date"])}</p>'
@@ -166,9 +169,11 @@ def render_card(a: dict, prefix: str, featured: bool = False) -> str:
 
 def related_articles(article: dict, articles: list[dict], limit: int = 3) -> list[dict]:
     tagset = set(article["tags"])
+    cat = article["category"]
     others = [a for a in articles if a["slug"] != article["slug"]]
     others.sort(
-        key=lambda a: (len(tagset & set(a["tags"])), a["date"]), reverse=True
+        key=lambda a: (a["category"] == cat, len(tagset & set(a["tags"])), a["date"]),
+        reverse=True,
     )
     return others[:limit]
 
@@ -200,7 +205,7 @@ def page(base: str, *, title: str, description: str, root: str, canonical: str,
     )
 
 
-def build_article_page(article: dict, articles: list[dict], all_tags: list[str], base: str) -> str:
+def build_article_page(article: dict, articles: list[dict], categories: list[str], base: str) -> str:
     prefix = "../../"
     article_tpl = load_template("article.html")
     content = render(
@@ -209,7 +214,7 @@ def build_article_page(article: dict, articles: list[dict], all_tags: list[str],
         DATE_HUMAN=format_date_it(article["date"]),
         DATE_ISO=escape(article["date"]),
         AUTHOR=escape(article["author"]),
-        TAGS=render_tag_links(article["tags"], prefix),
+        TAGS=render_article_taxonomy(article, prefix),
         SUMMARY=escape(article["summary"]),
         BODY=article["body"],
         SOURCES=render_sources(article["sources"]),
@@ -222,34 +227,34 @@ def build_article_page(article: dict, articles: list[dict], all_tags: list[str],
         root=prefix,
         canonical=f"{SITE_URL}/articoli/{article['slug']}/",
         og_type="article",
-        categories=render_categories_nav(all_tags, prefix),
+        categories=render_categories_nav(categories, prefix),
         content=content,
     )
 
 
-def build_category_page(tag: str, articles: list[dict], all_tags: list[str], base: str) -> str:
+def build_category_page(category: str, articles: list[dict], categories: list[str], base: str) -> str:
     prefix = "../../"
-    items = [a for a in articles if tag in a["tags"]]
+    items = [a for a in articles if a["category"] == category]
     cards = "".join(render_card(a, prefix) for a in items)
     content = (
         f'<a class="back-link" href="{prefix}index.html">&larr; Tutte le notizie</a>'
-        f'<section class="hero-intro"><h1>Categoria: {escape(tag)}</h1>'
+        f'<section class="hero-intro"><h1>Categoria: {escape(category)}</h1>'
         f"<p>{count_phrase(len(items))} in questa categoria.</p></section>"
         f'<div class="card-grid">{cards}</div>'
     )
     return page(
         base,
-        title=f"{escape(tag)} — {SITE_NAME}",
-        description=escape(f"Notizie nella categoria {tag} su {SITE_NAME}"),
+        title=f"{escape(category)} — {SITE_NAME}",
+        description=escape(f"Notizie nella categoria {category} su {SITE_NAME}"),
         root=prefix,
-        canonical=f"{SITE_URL}/categorie/{slugify(tag)}/",
+        canonical=f"{SITE_URL}/categorie/{slugify(category)}/",
         og_type="website",
-        categories=render_categories_nav(all_tags, prefix),
+        categories=render_categories_nav(categories, prefix),
         content=content,
     )
 
 
-def build_index_page(articles: list[dict], all_tags: list[str], base: str) -> str:
+def build_index_page(articles: list[dict], categories: list[str], base: str) -> str:
     index_tpl = load_template("index.html")
     if not articles:
         content = render(
@@ -259,11 +264,11 @@ def build_index_page(articles: list[dict], all_tags: list[str], base: str) -> st
         )
     else:
         filters = [
-            '<button type="button" class="tag-filter is-active" data-tag="all">Tutte</button>'
+            '<button type="button" class="tag-filter is-active" data-cat="all">Tutte</button>'
         ]
-        for t in all_tags:
+        for c in categories:
             filters.append(
-                f'<button type="button" class="tag-filter" data-tag="{escape(t)}">{escape(t)}</button>'
+                f'<button type="button" class="tag-filter" data-cat="{escape(c)}">{escape(c)}</button>'
             )
         tagfilters = "".join(filters)
 
@@ -277,12 +282,12 @@ def build_index_page(articles: list[dict], all_tags: list[str], base: str) -> st
         root="",
         canonical=f"{SITE_URL}/",
         og_type="website",
-        categories=render_categories_nav(all_tags, ""),
+        categories=render_categories_nav(categories, ""),
         content=content,
     )
 
 
-def build_simple_page(slug: str, title: str, body: str, all_tags: list[str], base: str) -> str:
+def build_simple_page(slug: str, title: str, body: str, categories: list[str], base: str) -> str:
     prefix = "../"
     content = (
         f'<a class="back-link" href="{prefix}index.html">&larr; Home</a>{body}'
@@ -294,7 +299,7 @@ def build_simple_page(slug: str, title: str, body: str, all_tags: list[str], bas
         root=prefix,
         canonical=f"{SITE_URL}/{slug}/",
         og_type="website",
-        categories=render_categories_nav(all_tags, prefix),
+        categories=render_categories_nav(categories, prefix),
         content=content,
     )
 
@@ -415,7 +420,7 @@ def legal_body() -> str:
 def main() -> None:
     base = load_template("base.html")
     articles = load_articles()
-    all_tags = all_tags_of(articles)
+    cats = categories_in_use(articles)
 
     # pulizia output (la cartella docs e dedicata al sito generato)
     if OUTPUT_DIR.exists():
@@ -438,7 +443,7 @@ def main() -> None:
 
     # pagina indice
     (OUTPUT_DIR / "index.html").write_text(
-        build_index_page(articles, all_tags, base), encoding="utf-8"
+        build_index_page(articles, cats, base), encoding="utf-8"
     )
 
     # pagine articolo
@@ -446,15 +451,15 @@ def main() -> None:
         dest = OUTPUT_DIR / "articoli" / a["slug"]
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "index.html").write_text(
-            build_article_page(a, articles, all_tags, base), encoding="utf-8"
+            build_article_page(a, articles, cats, base), encoding="utf-8"
         )
 
     # pagine categoria
-    for t in all_tags:
-        dest = OUTPUT_DIR / "categorie" / slugify(t)
+    for c in cats:
+        dest = OUTPUT_DIR / "categorie" / slugify(c)
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "index.html").write_text(
-            build_category_page(t, articles, all_tags, base), encoding="utf-8"
+            build_category_page(c, articles, cats, base), encoding="utf-8"
         )
 
     # pagine informative
@@ -465,14 +470,14 @@ def main() -> None:
         dest = OUTPUT_DIR / slug
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "index.html").write_text(
-            build_simple_page(slug, title, body, all_tags, base), encoding="utf-8"
+            build_simple_page(slug, title, body, cats, base), encoding="utf-8"
         )
 
     # feed RSS
     (OUTPUT_DIR / "feed.xml").write_text(build_feed(articles), encoding="utf-8")
 
     print(
-        f"Generati {len(articles)} articoli, {len(all_tags)} categorie, "
+        f"Generati {len(articles)} articoli, {len(cats)} categorie, "
         f"2 pagine informative e il feed RSS in {OUTPUT_DIR}"
     )
 

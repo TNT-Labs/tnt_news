@@ -33,26 +33,26 @@
   if (!search || !grid) return;
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll(".card"));
-  var tagButtons = Array.prototype.slice.call(
+  var catButtons = Array.prototype.slice.call(
     document.querySelectorAll(".tag-filter")
   );
   var noResults = document.getElementById("noResults");
   var resultCount = document.getElementById("resultCount");
 
   var query = "";
-  var activeTag = "all";
+  var activeCat = "all";
 
   function apply() {
     var q = query.trim().toLowerCase();
-    var filtering = q !== "" || activeTag !== "all";
+    var filtering = q !== "" || activeCat !== "all";
     var visible = 0;
 
     cards.forEach(function (card) {
       var blob = card.getAttribute("data-search") || "";
-      var tags = (card.getAttribute("data-tags") || "").split("|");
+      var cat = card.getAttribute("data-cat") || "";
       var matchQuery = q === "" || blob.indexOf(q) !== -1;
-      var matchTag = activeTag === "all" || tags.indexOf(activeTag) !== -1;
-      var show = matchQuery && matchTag;
+      var matchCat = activeCat === "all" || cat === activeCat;
+      var show = matchQuery && matchCat;
       card.hidden = !show;
       if (show) visible++;
     });
@@ -75,10 +75,10 @@
     apply();
   });
 
-  tagButtons.forEach(function (btn) {
+  catButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      activeTag = btn.getAttribute("data-tag");
-      tagButtons.forEach(function (b) {
+      activeCat = btn.getAttribute("data-cat");
+      catButtons.forEach(function (b) {
         b.classList.toggle("is-active", b === btn);
       });
       apply();
