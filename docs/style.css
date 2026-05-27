@@ -265,6 +265,8 @@ a { color: var(--accent); }
   text-decoration: none;
 }
 a.tag:hover { color: var(--accent); filter: brightness(.97); }
+.tag-cat { background: var(--accent); color: #fff; }
+a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 
 /* Article */
 .back-link {

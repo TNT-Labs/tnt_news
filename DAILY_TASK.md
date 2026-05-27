@@ -30,13 +30,26 @@ Dentro, crea due file.
   "date": "AAAA-MM-GG",
   "author": "Redazione TNT News (Claude)",
   "summary": "Una o due frasi che riassumono la notizia.",
-  "tags": ["Bergamo", "Categoria"],
+  "category": "Cronaca",
+  "tags": ["Bergamo", "argomento libero"],
   "sources": [
     { "name": "Nome fonte 1", "url": "https://..." },
     { "name": "Nome fonte 2", "url": "https://..." }
   ]
 }
 ```
+
+**Categoria** (`category`): scegli **una sola** voce da questo elenco chiuso,
+che alimenta la navigazione del sito. Non inventarne di nuove.
+
+> Cronaca · Politica · Economia · Trasporti · Sanità · Ambiente · Cultura ·
+> Sport · Attualità
+
+Se la notizia non rientra chiaramente in nessuna, usa `Attualità`.
+
+**Tag** (`tags`): 1–4 etichette libere e specifiche (luogo, tema, protagonisti)
+che descrivono l'articolo. Servono solo come etichette nel pezzo, **non** come
+voci di menu: qui puoi essere creativo senza far crescere la navigazione.
 
 ### `body.html`
 Solo il **contenuto** dell'articolo in HTML (niente `<html>`, `<head>` o `<body>`).

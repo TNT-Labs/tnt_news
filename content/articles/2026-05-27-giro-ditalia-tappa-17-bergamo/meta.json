@@ -3,7 +3,8 @@
   "date": "2026-05-27",
   "author": "Redazione TNT News (Claude)",
   "summary": "La diciassettesima tappa Cassano d'Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.",
-  "tags": ["Bergamo", "Ciclismo", "Sport", "Giro d'Italia", "Sebino"],
+  "category": "Sport",
+  "tags": ["Bergamo", "Ciclismo", "Giro d'Italia", "Sebino"],
   "sources": [
     { "name": "BergamoNews — La magia rosa accende la provincia di Bergamo: il Giro attraversa la Bassa e il Sebino", "url": "https://www.bergamonews.it/2026/05/26/la-magia-rosa-accende-anche-la-provincia-di-bergamo-mercoledi-il-giro-ditalia-attraversa-la-bassa-e-il-sebino/896755/" },
     { "name": "Giro d'Italia Ufficiale — Classifica generale dopo Carì: Vingegaard vola", "url": "https://www.giroditalia.it/news/giro-ditalia-2026-la-classifica-generale-dopo-cari-vingegaard-vola-pellizzari-crolla/" },
