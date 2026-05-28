@@ -341,6 +341,127 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 .site-links a:hover { color: var(--accent); }
 .legal-disclaimer { color: var(--muted); font-size: .95rem; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.6rem; }
 
+/* Bollettino pendolare */
+.bollettino-header { margin-bottom: 1.4rem; }
+.bollettino-meta {
+  color: var(--muted);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 0 0 .3rem;
+}
+.bollettino-route { color: var(--muted); font-style: italic; margin: .3rem 0 0; }
+.verdict {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  margin: 1.4rem 0;
+}
+.verdict-label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+.verdict-reasons {
+  margin: .6rem 0 0;
+  padding-left: 1.2rem;
+  font-size: .95rem;
+}
+.verdict-go { background: #1f7a3c; color: #fff; }
+.verdict-caution { background: #d59500; color: #1a1a1a; }
+.verdict-no { background: #b3001b; color: #fff; }
+.bollettino-section { margin-top: 2rem; }
+.bollettino-section h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 .8rem;
+}
+.bollettino-section h3 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  margin: 1.4rem 0 .4rem;
+  color: var(--muted);
+}
+.travel-time { font-size: 1.1rem; margin: .4rem 0 1rem; }
+.travel-time strong { font-size: 1.8rem; color: var(--accent); }
+.travel-meta { color: var(--muted); font-size: .95rem; }
+.traffic-table { width: 100%; border-collapse: collapse; margin-top: .4rem; }
+.traffic-table td { border-bottom: 1px solid var(--border); padding: .55rem .4rem; }
+.traffic-table td.num {
+  text-align: right;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.incidents { margin: .4rem 0 0; padding-left: 1.2rem; font-size: .95rem; }
+.incidents li { margin: .3rem 0; }
+.incidents-none { color: var(--muted); font-style: italic; margin: .4rem 0; }
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .8rem;
+}
+.weather-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  text-align: center;
+}
+.weather-where {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  color: var(--muted);
+  margin: 0 0 .3rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.weather-cond { font-size: 1.05rem; margin: .2rem 0; }
+.weather-data { color: var(--muted); font-size: .88rem; margin: .2rem 0 0; }
+.weather-summary { color: var(--muted); font-style: italic; margin-top: .8rem; }
+.bollettino-history {
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.4rem;
+}
+.bollettino-history h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 .8rem;
+}
+.bollettino-history ul { list-style: none; padding: 0; margin: 0; }
+.bollettino-history li { margin: .4rem 0; }
+.bollettino-history a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+  padding: .6rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+.bollettino-history a:hover { border-color: var(--accent); }
+.hist-date { flex: 1; font-family: "Helvetica Neue", Arial, sans-serif; }
+.hist-verdict {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .2rem .55rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.hist-time {
+  color: var(--muted);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .9rem;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .site-header { padding: .9rem 1rem .7rem; }

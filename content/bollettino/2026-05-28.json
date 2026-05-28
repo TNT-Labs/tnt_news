@@ -1,0 +1,36 @@
+{
+  "date": "2026-05-28",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Mattinata stabile su tutta la tratta: cielo sereno o poco nuvoloso, niente precipitazioni, vento debole. Condizioni favorevoli alla moto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Sereno",        "temp_c": 11, "precip_mm": 0.0, "wind_kmh": 7,  "wind_dir": "N"},
+      {"name": "Carugate (08:15)",   "cond": "Poco nuvoloso", "temp_c": 13, "precip_mm": 0.0, "wind_kmh": 9,  "wind_dir": "NE"},
+      {"name": "San Donato (08:45)", "cond": "Poco nuvoloso", "temp_c": 14, "precip_mm": 0.0, "wind_kmh": 11, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 85,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 40},
+      {"name": "Surface Agrate → Carugate",          "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 30}
+    ],
+    "incidents": []
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto",
+      "Temperatura sopra i 7 °C in tutti i punti",
+      "Vento debole, raffiche entro i limiti"
+    ]
+  },
+  "sources": [
+    {"name": "Open-Meteo", "url": "https://open-meteo.com/"},
+    {"name": "Autostrade per l'Italia — Traffico", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Tangenziali Milano (Milano Serravalle) — Traffico", "url": "https://www.serravalle.it/traffico"}
+  ]
+}

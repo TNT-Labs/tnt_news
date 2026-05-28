@@ -18,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 CONTENT_DIR = ROOT / "content" / "articles"
+BOLLETTINO_DIR = ROOT / "content" / "bollettino"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 OUTPUT_DIR = ROOT / "docs"
@@ -37,6 +38,12 @@ CATEGORIES = [
 ]
 CATEGORY_SET = set(CATEGORIES)
 DEFAULT_CATEGORY = "Attualità"
+
+VERDICT_LABELS = {
+    "go": "Moto OK",
+    "caution": "Moto con cautela",
+    "no": "Niente moto",
+}
 
 MONTHS_IT = [
     "", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
@@ -417,6 +424,223 @@ def legal_body() -> str:
     )
 
 
+# --- Bollettino pendolare ---------------------------------------------------
+
+def load_bollettini() -> list[dict]:
+    items: list[dict] = []
+    if not BOLLETTINO_DIR.exists():
+        return items
+    for f in sorted(BOLLETTINO_DIR.glob("*.json"), reverse=True):
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        data.setdefault("date", f.stem)
+        items.append(data)
+    return items
+
+
+def render_weather_cards(weather: dict) -> str:
+    pts = (weather or {}).get("by_point") or []
+    if not pts:
+        return ""
+    out = ['<div class="weather-grid">']
+    for p in pts:
+        parts = []
+        if p.get("temp_c") is not None:
+            parts.append(f'<span>{escape(str(p["temp_c"]))}°C</span>')
+        if p.get("precip_mm") is not None:
+            parts.append(f'<span>{escape(str(p["precip_mm"]))} mm</span>')
+        if p.get("wind_kmh") is not None:
+            wd = p.get("wind_dir")
+            wd_str = f' {escape(str(wd))}' if wd else ""
+            parts.append(f'<span>{escape(str(p["wind_kmh"]))} km/h{wd_str}</span>')
+        out.append(
+            '<div class="weather-card">'
+            f'<p class="weather-where">{escape(str(p.get("name", "")))}</p>'
+            f'<p class="weather-cond">{escape(str(p.get("cond", "")))}</p>'
+            f'<p class="weather-data">{" · ".join(parts)}</p>'
+            '</div>'
+        )
+    out.append('</div>')
+    return "".join(out)
+
+
+def render_traffic_segments(traffic: dict) -> str:
+    segs = (traffic or {}).get("segments") or []
+    if not segs:
+        return ""
+    rows = "".join(
+        '<tr>'
+        f'<td>{escape(str(s.get("name", "")))}</td>'
+        f'<td class="num">{escape(str(s.get("minutes", "")))} min</td>'
+        '</tr>'
+        for s in segs
+    )
+    return f'<table class="traffic-table"><tbody>{rows}</tbody></table>'
+
+
+def render_incidents(traffic: dict) -> str:
+    items = (traffic or {}).get("incidents") or []
+    if not items:
+        return '<p class="incidents-none">Nessuna segnalazione rilevante al momento del bollettino.</p>'
+    lis = "".join(
+        f'<li><strong>{escape(str(it.get("where", "")))}:</strong> {escape(str(it.get("desc", "")))}</li>'
+        for it in items
+    )
+    return f'<ul class="incidents">{lis}</ul>'
+
+
+def render_verdict(moto: dict) -> str:
+    m = moto or {}
+    v = m.get("verdict", "no")
+    if v not in ("go", "caution", "no"):
+        v = "no"
+    label = m.get("label") or VERDICT_LABELS[v]
+    reasons = m.get("reasons") or []
+    rs = "".join(f"<li>{escape(str(r))}</li>" for r in reasons)
+    return (
+        f'<section class="verdict verdict-{v}">'
+        f'<p class="verdict-label">{escape(str(label))}</p>'
+        + (f'<ul class="verdict-reasons">{rs}</ul>' if rs else "")
+        + "</section>"
+    )
+
+
+def render_bollettino_history(items: list[dict], prefix: str, exclude_date: str | None = None) -> str:
+    rows = []
+    for b in items:
+        if b.get("date") == exclude_date:
+            continue
+        if len(rows) >= 7:
+            break
+        v = (b.get("moto") or {}).get("verdict", "no")
+        if v not in ("go", "caution", "no"):
+            v = "no"
+        label = (b.get("moto") or {}).get("label") or VERDICT_LABELS[v]
+        minutes = (b.get("traffic") or {}).get("estimated_minutes")
+        time_html = (
+            f'<span class="hist-time">{escape(str(minutes))} min</span>'
+            if minutes is not None else ""
+        )
+        rows.append(
+            f'<li><a href="{prefix}bollettino/{escape(b["date"])}/">'
+            f'<span class="hist-date">{format_date_it(b["date"])}</span>'
+            f'<span class="hist-verdict verdict-{v}">{escape(str(label))}</span>'
+            f'{time_html}'
+            '</a></li>'
+        )
+    if not rows:
+        return ""
+    return (
+        '<section class="bollettino-history">'
+        '<h2>Ultimi bollettini</h2>'
+        f'<ul>{"".join(rows)}</ul>'
+        "</section>"
+    )
+
+
+def build_bollettino_page(
+    data: dict,
+    history: list[dict],
+    categories: list[str],
+    base: str,
+    *,
+    is_archive: bool = False,
+) -> str:
+    prefix = "../../" if is_archive else "../"
+    date_iso = data["date"]
+    weather = data.get("weather") or {}
+    traffic = data.get("traffic") or {}
+    travel = traffic.get("estimated_minutes")
+    departure = escape(str(data.get("departure", "07:30")))
+    route_txt = escape(str(data.get("route", "Bergamo → San Donato Milanese")))
+    weather_summary = escape(weather.get("summary_text", "") or "")
+    travel_html = (
+        f"<strong>{escape(str(travel))} min</strong>"
+        if travel is not None else "<em>non disponibile</em>"
+    )
+
+    if is_archive:
+        top_link = f'<a class="back-link" href="{prefix}bollettino/">&larr; Bollettino di oggi</a>'
+        history_html = ""
+    else:
+        top_link = f'<a class="back-link" href="{prefix}index.html">&larr; Home</a>'
+        history_html = render_bollettino_history(history, prefix, exclude_date=date_iso)
+
+    parts = [
+        top_link,
+        '<article class="bollettino">',
+        '<header class="bollettino-header">',
+        f'<p class="bollettino-meta">Bollettino pendolare · {format_date_it(date_iso)}</p>',
+        '<h1>Bergamo &rarr; San Donato Milanese</h1>',
+        f'<p class="bollettino-route">{route_txt}</p>',
+        '</header>',
+        render_verdict(data.get("moto")),
+        '<section class="bollettino-section">',
+        '<h2>Tempo stimato in auto</h2>',
+        f'<p class="travel-time">{travel_html} <span class="travel-meta">· partenza prevista {departure}</span></p>',
+        render_traffic_segments(traffic),
+        '<h3>Segnalazioni su A4 / A51</h3>',
+        render_incidents(traffic),
+        '</section>',
+        '<section class="bollettino-section">',
+        '<h2>Meteo lungo il percorso</h2>',
+        render_weather_cards(weather),
+        f'<p class="weather-summary">{weather_summary}</p>' if weather_summary else "",
+        '</section>',
+        render_sources(data.get("sources", [])),
+        '</article>',
+        history_html,
+    ]
+    content = "".join(p for p in parts if p)
+
+    canonical = (
+        f"{SITE_URL}/bollettino/{date_iso}/" if is_archive
+        else f"{SITE_URL}/bollettino/"
+    )
+    verdict_label = (data.get("moto") or {}).get("label") or "Bollettino pendolare"
+    desc = (
+        f"{verdict_label} — {travel} min stimati"
+        if travel is not None else verdict_label
+    )
+    return page(
+        base,
+        title=f"Bollettino pendolare {format_date_it(date_iso)} — {SITE_NAME}",
+        description=escape(desc),
+        root=prefix,
+        canonical=canonical,
+        og_type="website",
+        categories=render_categories_nav(categories, prefix),
+        content=content,
+    )
+
+
+def build_empty_bollettino_page(categories: list[str], base: str) -> str:
+    prefix = "../"
+    content = (
+        f'<a class="back-link" href="{prefix}index.html">&larr; Home</a>'
+        '<article class="bollettino">'
+        '<header class="bollettino-header">'
+        '<p class="bollettino-meta">Bollettino pendolare</p>'
+        '<h1>Bergamo &rarr; San Donato Milanese</h1>'
+        '</header>'
+        '<p class="empty">Nessun bollettino ancora pubblicato. Il prossimo verr&agrave; '
+        'generato il prossimo giorno feriale alle 7:00.</p>'
+        '</article>'
+    )
+    return page(
+        base,
+        title=f"Bollettino pendolare — {SITE_NAME}",
+        description=escape("Bollettino pendolare Bergamo → San Donato Milanese"),
+        root=prefix,
+        canonical=f"{SITE_URL}/bollettino/",
+        og_type="website",
+        categories=render_categories_nav(categories, prefix),
+        content=content,
+    )
+
+
 def main() -> None:
     base = load_template("base.html")
     articles = load_articles()
@@ -473,12 +697,33 @@ def main() -> None:
             build_simple_page(slug, title, body, cats, base), encoding="utf-8"
         )
 
+    # bollettino pendolare (fuori dal feed e dall'archivio articoli)
+    bollettini = load_bollettini()
+    bdir = OUTPUT_DIR / "bollettino"
+    bdir.mkdir(parents=True, exist_ok=True)
+    if bollettini:
+        for b in bollettini:
+            d = bdir / b["date"]
+            d.mkdir(parents=True, exist_ok=True)
+            (d / "index.html").write_text(
+                build_bollettino_page(b, bollettini, cats, base, is_archive=True),
+                encoding="utf-8",
+            )
+        (bdir / "index.html").write_text(
+            build_bollettino_page(bollettini[0], bollettini, cats, base, is_archive=False),
+            encoding="utf-8",
+        )
+    else:
+        (bdir / "index.html").write_text(
+            build_empty_bollettino_page(cats, base), encoding="utf-8"
+        )
+
     # feed RSS
     (OUTPUT_DIR / "feed.xml").write_text(build_feed(articles), encoding="utf-8")
 
     print(
         f"Generati {len(articles)} articoli, {len(cats)} categorie, "
-        f"2 pagine informative e il feed RSS in {OUTPUT_DIR}"
+        f"{len(bollettini)} bollettini, 2 pagine informative e il feed RSS in {OUTPUT_DIR}"
     )
 
 
