@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca — TNT News</title>
+  <meta name="description" content="Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-28-sciopero-generale-29-maggio/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca — TNT News">
+  <meta property="og:description" content="Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-28-sciopero-generale-29-maggio/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca — TNT News">
+  <meta name="twitter:description" content="Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Sciopero</span><span class="tag">Trenord</span><span class="tag">Trasporti</span></div>
+    <h1>Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h1>
+    <p class="article-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-28">28 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  Venerdì 29 maggio 2026 è in programma uno <strong>sciopero generale nazionale di 24 ore</strong> che
+  coinvolgerà trasporti, scuole e sanità in tutta Italia, Bergamo compresa. L'agitazione è stata proclamata
+  da una coalizione di sindacati autonomi e di base: CUB, USI CIT, SGB, SI Cobas, ADL Varese, USI 1912,
+  SBM, Fi-si e Fisi.
+</p>
+
+<h2>Le motivazioni della protesta</h2>
+<p>
+  I sindacati proclamanti elencano una serie di ragioni economiche e politiche. Sul fronte salariale, i
+  promotori citano un'erosione del potere d'acquisto di circa l'<strong>8% in termini reali</strong> dal
+  2021, con le pensioni che avrebbero perso oltre il <strong>9%</strong> rispetto all'aumento del costo
+  della vita. L'IRPEF graverebbe per quasi l'85% su lavoratori dipendenti e pensionati. Si denuncia inoltre
+  la diffusione della precarietà: secondo i promotori, oltre il 60% dei nuovi contratti di lavoro si esaurisce
+  entro un anno. Tra le altre motivazioni figurano l'aumento delle spese militari, le politiche del decreto
+  legge 23/2026 e la situazione geopolitica internazionale.
+</p>
+
+<h2>Treni Trenord: garantiti solo nelle fasce di punta</h2>
+<p>
+  Per i pendolari bergamaschi l'impatto più diretto riguarderà il trasporto ferroviario regionale. Lo
+  sciopero del personale del Gruppo FS, Trenitalia e <strong>Trenord</strong> decorre dalle
+  <strong>21:00 di giovedì 28 maggio</strong> e termina alle <strong>21:00 di venerdì 29 maggio</strong>.
+</p>
+<p>
+  Nelle ore intermedie, i treni sono garantiti <strong>esclusivamente nelle fasce</strong>
+  <strong>6:00–9:00</strong> e <strong>18:00–21:00</strong>: fuori da queste finestre le corse possono
+  essere soppresse o modificate senza preavviso. Le linee che servono la provincia di Bergamo —
+  tra cui Bergamo–Milano, Bergamo–Brescia, Bergamo–Lecco e il collegamento con l'Aeroporto di Orio al
+  Serio — sono tutte interessate. L'elenco aggiornato dei treni garantiti è disponibile su
+  <strong>trenord.it</strong> nella sezione Avvisi.
+</p>
+
+<h2>Autobus ATB: da verificare le fasce garantite</h2>
+<p>
+  Lo sciopero riguarda anche il personale delle aziende che applicano il Contratto Collettivo Nazionale
+  degli Autoferrotranvieri, categoria a cui appartiene <strong>ATB – Azienda Trasporti Bergamo</strong>.
+  Per la giornata di venerdì sono quindi possibili cancellazioni o variazioni delle corse sulle linee
+  urbane e suburbane della città. ATB non aveva ancora pubblicato, al momento della redazione di questo
+  articolo, il dettaglio delle fasce orarie garantite: si raccomanda di consultare il sito
+  <strong>atb.bergamo.it</strong> (sezione Avvisi) nelle prossime ore.
+</p>
+
+<h2>Autostrade, scuole e sanità</h2>
+<p>
+  Anche i lavoratori del comparto autostradale si fermeranno: la finestra di sciopero va dalle
+  <strong>22:00 di giovedì 28</strong> alle <strong>22:00 di venerdì 29</strong>, con possibili
+  rallentamenti ai caselli della rete che attraversa la provincia di Bergamo.
+</p>
+<p>
+  Le <strong>scuole</strong> potrebbero registrare assenze tra il personale docente e non docente; gli
+  istituti sono tenuti a comunicare preventivamente la partecipazione all'astensione. Nella
+  <strong>sanità</strong> pubblica lo sciopero è proclamato, ma restano garantite le prestazioni essenziali,
+  le urgenze, i ricoveri già programmati e i reparti di terapia intensiva: eventuali esami ambulatoriali
+  non urgenti potrebbero invece essere rinviati.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 310" role="img" aria-label="Timeline delle finestre di sciopero nella giornata del 29 maggio 2026 per settore: treni Trenord, autobus ATB, autostrade, scuola, sanità">
+
+    <!-- Sfondo -->
+    <rect width="640" height="310" fill="#f8f9fa" rx="6"/>
+
+    <!-- Titolo -->
+    <text x="320" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#333">
+      Sciopero 29 maggio 2026 — finestre orarie per settore
+    </text>
+
+    <!-- Etichette ore asse X (x_start=122, x_end=618, 1h=20.67px) -->
+    <text x="122" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">0:00</text>
+    <text x="246" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">6:00</text>
+    <text x="308" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">9:00</text>
+    <text x="370" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">12:00</text>
+    <text x="432" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">15:00</text>
+    <text x="494" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">18:00</text>
+    <text x="556" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">21:00</text>
+    <text x="618" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">24:00</text>
+
+    <!-- Griglia verticale -->
+    <line x1="122" y1="48" x2="122" y2="270" stroke="#ccc" stroke-width="1"/>
+    <line x1="246" y1="48" x2="246" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="308" y1="48" x2="308" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="370" y1="48" x2="370" y2="270" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="432" y1="48" x2="432" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="494" y1="48" x2="494" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="556" y1="48" x2="556" y2="270" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="618" y1="48" x2="618" y2="270" stroke="#ccc" stroke-width="1"/>
+
+    <!-- ROW 1: Treni Trenord (y_bar=54, height=24) -->
+    <text x="118" y="70" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Treni (Trenord)</text>
+    <!-- 0:00–6:00 SCIOPERO -->
+    <rect x="122" y="54" width="124" height="24" fill="#e74c3c" rx="3"/>
+    <!-- 6:00–9:00 GARANTITO -->
+    <rect x="246" y="54" width="62" height="24" fill="#27ae60" rx="3"/>
+    <text x="277" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">garant.</text>
+    <!-- 9:00–18:00 SCIOPERO -->
+    <rect x="308" y="54" width="186" height="24" fill="#e74c3c" rx="3"/>
+    <!-- 18:00–21:00 GARANTITO -->
+    <rect x="494" y="54" width="62" height="24" fill="#27ae60" rx="3"/>
+    <text x="525" y="70" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">garant.</text>
+    <!-- 21:00–24:00 NORMALE -->
+    <rect x="556" y="54" width="62" height="24" fill="#bdc3c7" rx="3"/>
+
+    <!-- ROW 2: Autobus ATB (y_bar=94, height=24) -->
+    <text x="118" y="110" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Autobus (ATB)</text>
+    <!-- Tutto il giorno: incerto, grigio -->
+    <rect x="122" y="94" width="496" height="24" fill="#7f8c8d" rx="3"/>
+    <text x="370" y="110" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">sciopero — verificare fasce su atb.bergamo.it</text>
+
+    <!-- ROW 3: Autostrade (y_bar=134, height=24) -->
+    <text x="118" y="150" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Autostrade</text>
+    <!-- 0:00–22:00 SCIOPERO (22h = 22*20.67=454.67px) -->
+    <rect x="122" y="134" width="455" height="24" fill="#e74c3c" rx="3"/>
+    <!-- 22:00–24:00 NORMALE (2h = 41px) -->
+    <rect x="577" y="134" width="41" height="24" fill="#bdc3c7" rx="3"/>
+
+    <!-- ROW 4: Scuola (y_bar=174, height=24) -->
+    <text x="118" y="190" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Scuola</text>
+    <rect x="122" y="174" width="496" height="24" fill="#e74c3c" rx="3"/>
+
+    <!-- ROW 5: Sanità (y_bar=214, height=24) -->
+    <text x="118" y="230" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Sanità</text>
+    <rect x="122" y="214" width="496" height="24" fill="#e67e22" rx="3"/>
+    <text x="370" y="230" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">sciopero — urgenze e servizi essenziali garantiti</text>
+
+    <!-- Legenda -->
+    <rect x="122" y="254" width="12" height="12" fill="#e74c3c" rx="2"/>
+    <text x="138" y="264" font-family="sans-serif" font-size="10" fill="#555">Sciopero</text>
+    <rect x="210" y="254" width="12" height="12" fill="#27ae60" rx="2"/>
+    <text x="226" y="264" font-family="sans-serif" font-size="10" fill="#555">Servizi garantiti (Trenord)</text>
+    <rect x="380" y="254" width="12" height="12" fill="#e67e22" rx="2"/>
+    <text x="396" y="264" font-family="sans-serif" font-size="10" fill="#555">Sciopero / urgenze garantite</text>
+    <rect x="540" y="254" width="12" height="12" fill="#bdc3c7" rx="2"/>
+    <text x="556" y="264" font-family="sans-serif" font-size="10" fill="#555">Normale</text>
+
+    <!-- Nota orari -->
+    <text x="320" y="284" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#999">
+      * Le fasce garantite Trenord (6–9 e 18–21) si applicano ai giorni feriali (dati: avviso Trenord n. 106/2026)
+    </text>
+  </svg>
+  <figcaption>
+    Finestre di sciopero nella giornata del 29 maggio 2026. Per i treni Trenord la circolazione è garantita
+    nelle fasce 6:00–9:00 e 18:00–21:00 (fonte: Avviso Trenord n. 106/2026). Per ATB Bergamo si consiglia
+    di verificare il sito ufficiale. Orari autostrade indicativi (22:00–22:00 del 28–29 maggio).
+    Per la sanità restano garantite le prestazioni urgenti ed essenziali.
+  </figcaption>
+</figure>
+
+<h2>Come organizzarsi</h2>
+<p>
+  I pendolari che usano i treni regionali sono invitati a verificare in anticipo l'elenco delle corse
+  garantite su <strong>trenord.it</strong> e l'app Trenord. Chi utilizza i bus ATB in città può consultare
+  <strong>atb.bergamo.it</strong>. Per chi viaggia in auto, è consigliabile evitare i caselli autostradali
+  nelle ore centrali della giornata, quando l'effetto dello sciopero potrebbe essere più concentrato.
+</p>
+<p>
+  Il Garante degli scioperi ha verificato la regolarità formale della proclamazione. Lo sciopero resta
+  soggetto a revoca o modifica da parte dei sindacati proclamanti fino all'inizio dell'astensione.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/cronaca/sciopero-28-29-maggio-2026-x2f0xlvf" rel="noopener" target="_blank">Il Giorno — Sciopero 28-29 maggio 2026: treni, metro, autobus e tram a rischio in Lombardia</a></li><li><a href="https://tg24.sky.it/cronaca/2026/05/26/sciopero-29-maggio-2026" rel="noopener" target="_blank">Sky TG24 — Sciopero generale 29 maggio, dai treni a scuola e sanità</a></li><li><a href="https://www.trenord.it/fileadmin/contenuti/TRENORD/3-News/Trenord_Informa/Avvisi/2026/AvvisoTrenord_2026_106__Sciopero_28_MAGGIO.pdf" rel="noopener" target="_blank">Avviso Trenord n. 106/2026 — Sciopero 28 maggio 2026</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="allarme ozono a bergamo: le centraline sforano i 200 µg/m³ con il caldo record con temperature oltre i 33°c e l&#x27;anticiclone sull&#x27;europa centro-occidentale, le stazioni arpa di bergamo e calusco d&#x27;adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. quasi tutta la lombardia è in allerta gialla; arpa raccomanda di limitare le attività all&#x27;aperto nelle ore più calde. ambiente bergamo ozono arpa lombardia qualità dell&#x27;aria" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-05-27-allerta-ozono-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h2><p class="card-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="giro d&#x27;italia 2026, la tappa 17 attraversa la bergamasca: bassa e sebino in festa con la corsa rosa la diciassettesima tappa cassano d&#x27;adda–andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di bergamo, toccando verdello, urgnano, ghisalba, grumello del monte e sarnico. jonas vingegaard guida la classifica generale con oltre quattro minuti di vantaggio. sport bergamo ciclismo giro d&#x27;italia sebino" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa</h2><p class="card-summary">La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.</p><p class="card-meta">27 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
