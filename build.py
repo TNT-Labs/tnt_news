@@ -481,14 +481,23 @@ def render_traffic_segments(traffic: dict) -> str:
 
 
 def render_incidents(traffic: dict) -> str:
-    items = (traffic or {}).get("incidents") or []
-    if not items:
-        return '<p class="incidents-none">Nessuna segnalazione rilevante al momento del bollettino.</p>'
-    lis = "".join(
-        f'<li><strong>{escape(str(it.get("where", "")))}:</strong> {escape(str(it.get("desc", "")))}</li>'
-        for it in items
-    )
-    return f'<ul class="incidents">{lis}</ul>'
+    t = traffic or {}
+    items = t.get("incidents") or []
+    notice = (t.get("notice") or "").strip()
+    parts: list[str] = []
+    if notice:
+        parts.append(f'<p class="incidents-notice">⚠ {escape(notice)}</p>')
+    if items:
+        lis = "".join(
+            f'<li><strong>{escape(str(it.get("where", "")))}:</strong> {escape(str(it.get("desc", "")))}</li>'
+            for it in items
+        )
+        parts.append(f'<ul class="incidents">{lis}</ul>')
+    elif not notice:
+        parts.append(
+            '<p class="incidents-none">Nessuna segnalazione rilevata sulle fonti consultate.</p>'
+        )
+    return "".join(parts)
 
 
 def render_verdict(moto: dict) -> str:

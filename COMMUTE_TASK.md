@@ -42,20 +42,76 @@ Per ogni punto estrai i valori dell'ora di transito stimata (07:30 / 08:15 /
 (0=sereno, 1-3=poco nuvoloso/nuvoloso, 45/48=nebbia, 51-67=pioggia, 71-77=neve,
 80-82=rovesci, 95-99=temporale).
 
-## 3. Traffico (siti pubblici, gratis)
+## 3. Traffico e incidenti
 
-Controlla con WebFetch i seguenti siti per **cantieri, incidenti e code**
-sulla tratta del giorno:
+L'obiettivo è intercettare cantieri, incidenti, code e chiusure **sulla tratta
+del giorno**, non in tutta la Lombardia. Consulta le fonti in ordine di
+priorità e tieni traccia di quali sono risultate raggiungibili (serve al
+punto 3.5).
 
-- **Autostrade per l'Italia (A4 tratta Bergamo–Milano):**
-  https://www.autostrade.it/it/traffico-in-tempo-reale
-- **Milano Serravalle – Tangenziali Milano (A51 Tangenziale Est):**
-  https://www.serravalle.it/traffico
-- In subordine, ricerca web per "A4 Bergamo Milano traffico oggi" e "A51
-  Tangenziale Est traffico oggi".
+### 3.1 Fonti strutturate (priorità A)
 
-Se i siti sono irraggiungibili, indicalo onestamente nel bollettino e usa solo
-la stima baseline.
+- **CCISS — Viaggiare Informati** (Centro Coordinamento Informazioni
+  Sicurezza Stradale, Polizia di Stato):
+  - https://www.cciss.it/
+  - Cerca la sezione "Eventi viabilità" / Lombardia; se trovi un feed RSS,
+    leggilo con WebFetch.
+- **Luceverde Lombardia** (servizio ACI, dati aggiornati sui maggiori assi):
+  - https://www.luceverde.it/lombardia
+  - https://www.luceverde.it/milano (per A51 / Tangenziale Est)
+
+### 3.2 Operatori autostradali (priorità B)
+
+- **Autostrade per l'Italia — Viabilità in tempo reale (A4 Bergamo–Milano):**
+  - https://www.autostrade.it/it/traffico-in-tempo-reale
+  - Pagina spesso JS-heavy: se non leggibile, prova la versione mobile o
+    l'elenco eventi a livello nazionale e filtra per "A4".
+- **Milano Serravalle — Tangenziali Milano (A51):**
+  - https://www.serravalle.it/traffico
+
+### 3.3 Ricerca web (priorità C, da fare sempre)
+
+Esegui con `WebSearch` queste query (sostituisci `AAAA-MM-GG` con la data
+di oggi):
+
+- `A4 Bergamo Milano traffico AAAA-MM-GG`
+- `A51 tangenziale est Milano traffico AAAA-MM-GG`
+- `A4 incidente cantiere Capriate Trezzo Agrate oggi`
+- `A51 chiusura Carugate Cologno San Donato oggi`
+
+Controlla i risultati di testate locali (Bergamonews, L'Eco di Bergamo,
+MilanoToday) e dei comuni interessati per eventuali avvisi di chiusura
+notturna o eventi straordinari.
+
+### 3.4 Filtri di pertinenza
+
+Tieni solo gli eventi che ricadono nella **tratta del giorno**:
+
+- **A4 direzione Milano (ovest)**, circa **km 145–190**.
+  Uscite di interesse, dall'inizio: Bergamo, Dalmine, Capriate San Gervasio,
+  Trezzo sull'Adda, Cavenago-Cambiago, Agrate Brianza.
+- **A51 Tangenziale Est**, **dal casello/svincolo di Carugate
+  fino all'uscita San Donato Milanese** (passando per Cologno, Vimodrone,
+  Lambrate, Rogoredo).
+
+Scarta eventi su altre direttrici o in zone fuori da questi limiti.
+
+### 3.5 Checklist di trasparenza
+
+Per ogni fonte consultata in 3.1 e 3.2 annota mentalmente se sei riuscito
+a leggere contenuto utile. **Devi** valorizzare il campo
+`traffic.notice` nel JSON nei casi seguenti:
+
+- Se **nessuna** delle fonti 3.1 + 3.2 è risultata leggibile:
+  `"notice": "Fonti incidenti strutturate non raggiungibili (CCISS, Luceverde, Autostrade, Serravalle): dato non verificato in modo strutturato; segnalazioni eventuali derivano solo da ricerca web."`
+- Se solo alcune sono leggibili: indica quali, es.
+  `"notice": "Solo Luceverde leggibile; CCISS e Autostrade non disponibili."`
+- Se tutte raggiungibili e niente di rilevante: **non** popolare `notice`;
+  lascia `incidents: []` e basta (il sito mostrerà "Nessuna segnalazione
+  rilevata sulle fonti consultate").
+
+**Non mentire mai per omissione**: se le fonti tacciono, dillo. Se non hai
+controllato, non scrivere `incidents: []` senza `notice`.
 
 ## 4. Stima del tempo di percorrenza
 
@@ -128,7 +184,8 @@ struttura esatta:
     ],
     "incidents": [
       {"where": "A4 km 175 dir. Milano", "desc": "Cantiere notturno con restringimento a una corsia."}
-    ]
+    ],
+    "notice": "Solo Luceverde leggibile; CCISS e Autostrade non disponibili."
   },
   "moto": {
     "verdict": "go",
@@ -141,17 +198,26 @@ struttura esatta:
   },
   "sources": [
     {"name": "Open-Meteo", "url": "https://open-meteo.com/"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"},
     {"name": "Autostrade per l'Italia — Traffico", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
     {"name": "Tangenziali Milano (Milano Serravalle) — Traffico", "url": "https://www.serravalle.it/traffico"}
   ]
 }
 ```
 
+Includi nella lista `sources` **solo le fonti che hai effettivamente
+consultato** (gettate un occhio, indipendentemente dal fatto che abbiano
+prodotto risultati). Se CCISS è offline e non l'hai potuta leggere, non
+metterla in `sources`.
+
 Regole:
 - I valori `verdict` ammessi sono **solo** `go`, `caution`, `no`.
 - `label` deve combaciare: `Moto OK`, `Moto con cautela`, `Niente moto`.
 - Se una fonte non era raggiungibile, **non** inventare incidenti: lascia
-  `incidents: []` e segnalalo nel `summary_text`.
+  `incidents: []` e popola `traffic.notice` come da 3.5.
+- Il campo `traffic.notice` è **opzionale**: omettilo (o usa stringa vuota)
+  solo se hai potuto consultare tutte le fonti strutturate.
 
 ## 7. Genera il sito e pubblica
 
