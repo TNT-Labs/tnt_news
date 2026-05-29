@@ -125,6 +125,22 @@ a { color: var(--accent); }
   transition: border-color .15s ease, color .15s ease;
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.header-link {
+  position: absolute;
+  top: .9rem;
+  left: 1rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: .4rem .85rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  transition: filter .15s ease;
+}
+.header-link:hover { filter: brightness(1.08); color: #fff; }
 
 /* Layout */
 .container {
