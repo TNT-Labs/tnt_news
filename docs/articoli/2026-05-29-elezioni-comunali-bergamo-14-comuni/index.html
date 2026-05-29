@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni — TNT News</title>
+  <meta name="description" content="Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni — TNT News">
+  <meta property="og:description" content="Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni — TNT News">
+  <meta name="twitter:description" content="Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/politica/">Politica</a><span class="tag">Bergamo</span><span class="tag">Elezioni</span><span class="tag">Comuni</span><span class="tag">Amministrative 2026</span></div>
+    <h1>Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni</h1>
+    <p class="article-summary">Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-29">29 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  Urne chiuse e schede contate: il 24 e 25 maggio 2026, quattordici comuni della provincia di Bergamo
+  hanno rinnovato sindaco e consiglio comunale. Oltre <strong>36.000 aventi diritto</strong> erano
+  chiamati alle urne — tutti in comuni sotto i diecimila abitanti — e le operazioni di voto si sono
+  svolte domenica dalle 7:00 alle 23:00 e lunedì dalle 7:00 alle 15:00.
+</p>
+
+<h2>L'affluenza cala di quasi dieci punti</h2>
+<p>
+  Il dato che ha subito attirato l'attenzione è quello dell'affluenza: a chiusura dei seggi,
+  il tasso di partecipazione si è fermato al <strong>45,59%</strong>, in calo di
+  <strong>9,44 punti percentuali</strong> rispetto alle precedenti elezioni comunali, quando aveva
+  raggiunto il 54,03%. Il trend rispecchia una tendenza generalizzata all'astensionismo registrata
+  in molti comuni lombardi nelle recenti tornate elettorali.
+</p>
+
+<h2>I risultati nei comuni con più candidati</h2>
+<p>
+  In sei dei quattordici comuni si è svolta una vera competizione tra più liste. I margini di
+  vittoria sono stati generalmente ampi. A <strong>Parzanica</strong> Corrado Danesi (lista
+  "Forza Popolare per Parzanica") ha ottenuto il <strong>69,83%</strong> dei voti; ad analoga
+  distanza il vincitore a <strong>Colere</strong>, Alex Belingheri ("Colore Montagna Viva"),
+  con il <strong>68,78%</strong>. A <strong>Clusone</strong> il sindaco uscente
+  Massimo Morstabilini è stato riconfermato con il <strong>61,36%</strong>, mentre a
+  <strong>Cene</strong> Roberto Radici ("Noi per Cene") si è attestato al
+  <strong>61,04%</strong>.
+</p>
+<p>
+  Le sfide più equilibrate si sono viste a <strong>Sorisole</strong>, dove Stefano Vivi
+  — sostenuto da una lista civica con i simboli di Fratelli d'Italia, Lega, Forza Italia e
+  "Un Paese migliore" — ha vinto con il <strong>47,24%</strong>, e a
+  <strong>Borgo di Terzo</strong>, dove Stefano Vavassori ("Cittadini per Borgo di Terzo")
+  si è imposto con il <strong>50,8%</strong>. Tra i comuni dove le fonti riportano il
+  solo nome del sindaco eletto figurano <strong>Almè</strong> (Massimo Bandera),
+  <strong>Cividate al Piano</strong> (Nicola Moioli), <strong>Gazzaniga</strong> (Angelo Merici)
+  e <strong>Oneta</strong> (Federico Valle).
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 420" role="img"
+       aria-label="Grafico a barre orizzontali: percentuale di voti ottenuta dai sindaci eletti nei comuni bergamaschi con più candidati (elezioni comunali 2026) e confronto affluenza">
+
+    <!-- Sfondo -->
+    <rect width="640" height="420" fill="#f8f9fa" rx="6"/>
+
+    <!-- === SEZIONE 1: percentuali vincitori === -->
+    <text x="320" y="22" text-anchor="middle" font-family="sans-serif" font-size="13"
+          font-weight="bold" fill="#333">
+      Voti al sindaco eletto — comuni con più candidati (2026)
+    </text>
+
+    <!-- Etichette asse X (0%–100%) -->
+    <text x="175" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">0%</text>
+    <text x="263" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">20%</text>
+    <text x="351" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">40%</text>
+    <text x="439" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">60%</text>
+    <text x="527" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">80%</text>
+    <text x="615" y="38" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">100%</text>
+
+    <!-- Linee guida verticali leggere (ogni 20%) -->
+    <line x1="175" y1="40" x2="175" y2="258" stroke="#ccc" stroke-width="1"/>
+    <line x1="263" y1="40" x2="263" y2="258" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="351" y1="40" x2="351" y2="258" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="439" y1="40" x2="439" y2="258" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="527" y1="40" x2="527" y2="258" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="615" y1="40" x2="615" y2="258" stroke="#ccc" stroke-width="1"/>
+
+    <!-- Barra 1: Parzanica 69.83% → 440 * 0.6983 = 307.3px -->
+    <text x="170" y="59" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Parzanica</text>
+    <rect x="175" y="46" width="307" height="22" fill="#2980b9" rx="3"/>
+    <text x="487" y="61" font-family="sans-serif" font-size="10" fill="#2980b9" font-weight="bold">69,83%</text>
+
+    <!-- Barra 2: Colere 68.78% → 302.6px -->
+    <text x="170" y="99" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Colere</text>
+    <rect x="175" y="86" width="303" height="22" fill="#2980b9" rx="3"/>
+    <text x="483" y="101" font-family="sans-serif" font-size="10" fill="#2980b9" font-weight="bold">68,78%</text>
+
+    <!-- Barra 3: Clusone 61.36% → 270px -->
+    <text x="170" y="139" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Clusone</text>
+    <rect x="175" y="126" width="270" height="22" fill="#27ae60" rx="3"/>
+    <text x="450" y="141" font-family="sans-serif" font-size="10" fill="#27ae60" font-weight="bold">61,36% ★</text>
+
+    <!-- Barra 4: Cene 61.04% → 268.6px -->
+    <text x="170" y="179" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Cene</text>
+    <rect x="175" y="166" width="269" height="22" fill="#2980b9" rx="3"/>
+    <text x="449" y="181" font-family="sans-serif" font-size="10" fill="#2980b9" font-weight="bold">61,04%</text>
+
+    <!-- Barra 5: Borgo di Terzo 50.80% → 223.5px -->
+    <text x="170" y="219" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Borgo di Terzo</text>
+    <rect x="175" y="206" width="224" height="22" fill="#2980b9" rx="3"/>
+    <text x="404" y="221" font-family="sans-serif" font-size="10" fill="#2980b9" font-weight="bold">50,80%</text>
+
+    <!-- Barra 6: Sorisole 47.24% → 207.9px -->
+    <text x="170" y="259" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Sorisole</text>
+    <rect x="175" y="246" width="208" height="22" fill="#e67e22" rx="3"/>
+    <text x="388" y="261" font-family="sans-serif" font-size="10" fill="#e67e22" font-weight="bold">47,24%</text>
+
+    <!-- Nota riconferma -->
+    <text x="175" y="280" font-family="sans-serif" font-size="10" fill="#666">
+      ★ = sindaco uscente riconfermato
+    </text>
+
+    <!-- === SEPARATORE === -->
+    <line x1="20" y1="296" x2="620" y2="296" stroke="#ddd" stroke-width="1"/>
+
+    <!-- === SEZIONE 2: confronto affluenza === -->
+    <text x="320" y="316" text-anchor="middle" font-family="sans-serif" font-size="13"
+          font-weight="bold" fill="#333">
+      Affluenza al voto — confronto con elezioni precedenti
+    </text>
+
+    <!-- Linee guida affluenza (0%–100%) -->
+    <line x1="175" y1="325" x2="175" y2="410" stroke="#ccc" stroke-width="1"/>
+    <line x1="351" y1="325" x2="351" y2="410" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="615" y1="325" x2="615" y2="410" stroke="#ccc" stroke-width="1"/>
+    <text x="175" y="324" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">0%</text>
+    <text x="351" y="324" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">40%</text>
+    <text x="615" y="324" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">100%</text>
+
+    <!-- Barra precedenti elezioni: 54.03% → 440*0.5403 = 237.7px -->
+    <text x="170" y="351" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">Prec. elezioni</text>
+    <rect x="175" y="331" width="238" height="22" fill="#7f8c8d" rx="3"/>
+    <text x="418" y="346" font-family="sans-serif" font-size="10" fill="#7f8c8d" font-weight="bold">54,03%</text>
+
+    <!-- Barra 2026: 45.59% → 440*0.4559 = 200.6px -->
+    <text x="170" y="391" text-anchor="end" font-family="sans-serif" font-size="11" fill="#444">2026</text>
+    <rect x="175" y="371" width="201" height="22" fill="#c0392b" rx="3"/>
+    <text x="381" y="386" font-family="sans-serif" font-size="10" fill="#c0392b" font-weight="bold">45,59% (−9,44 pp)</text>
+
+    <!-- Nota fonte -->
+    <text x="320" y="415" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#aaa">
+      Fonte: Il Giorno, Bergamonews, L'Eco di Bergamo — dati definitivi 25 maggio 2026
+    </text>
+  </svg>
+  <figcaption>
+    In alto: percentuale di voti ottenuta dal sindaco eletto nei sei comuni bergamaschi con più
+    candidati. In basso: confronto tra l'affluenza delle elezioni precedenti (54,03%) e quella
+    del 2026 (45,59%), con un calo di 9,44 punti percentuali (fonte: Il Giorno / Bergamonews /
+    L'Eco di Bergamo; valori definitivi al termine dello spoglio del 25 maggio 2026).
+  </figcaption>
+</figure>
+
+<h2>Tre comuni con candidatura unica: il quorum raggiunto</h2>
+<p>
+  In tre piccoli comuni di montagna — <strong>Fuipiano Valle Imagna</strong>,
+  <strong>Mezzoldo</strong> e <strong>Valleve</strong> — si presentava un'unica lista.
+  In questi casi la legge elettorale prevede che il sindaco venga eletto solo se si raggiunge il
+  <strong>quorum del 40%</strong> degli aventi diritto. Già nella serata di domenica 24 maggio,
+  in tutti e tre i comuni il quorum era stato superato, assicurando così la regolare elezione
+  delle giunte.
+</p>
+
+<h2>Il quadro complessivo</h2>
+<p>
+  Con il rinnovo dei consigli in questi quattordici comuni, la provincia di Bergamo chiude una
+  tornata amministrativa che lascia come principale tema di riflessione il calo della partecipazione
+  al voto. Su 14 comuni al voto, almeno sei hanno vissuto sfide competitive con distacchi superiori
+  ai venti punti percentuali, segno di una forte radicazione delle liste civiche locali. In nessuno
+  dei comuni era previsto ballottaggio, dato che — trattandosi di realtà con popolazione inferiore
+  ai 15.000 abitanti — il sindaco viene eletto al primo turno con qualsiasi margine.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/politica/elezioni-comunali-2026-njt4akqe" rel="noopener" target="_blank">Il Giorno — Elezioni comunali 2026 in provincia di Bergamo, i risultati e i sindaci eletti</a></li><li><a href="https://www.bergamonews.it/2026/05/24/amministrative-al-voto-oltre-36mila-bergamaschi-tutte-le-liste-e-i-candidati/895735" rel="noopener" target="_blank">Bergamonews — Amministrative: al voto oltre 36mila bergamaschi</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/hinterland/elezioni-comunali-in-provincia-di-bergamo-seggi-chiusi-alle-15-affluenza-al-57-o_3873967_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo — Elezioni comunali in provincia di Bergamo: crolla l&#x27;affluenza -9,44%</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. politica bergamo elezioni" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
