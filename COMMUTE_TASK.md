@@ -322,7 +322,9 @@ git commit -m "Bollettino pendolare <data>"
 git push origin HEAD:claude/main
 ```
 
+Verifica che l'ambiente claude/main sia stato correttamente aggiornato.
 GitHub Pages aggiornerà la pagina `/bollettino/` entro pochi minuti.
+
 
 ## Regole di qualità
 
