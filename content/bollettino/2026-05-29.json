@@ -3,7 +3,7 @@
   "departure": "07:30",
   "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
   "weather": {
-    "summary_text": "Giornata soleggiata su tutta la tratta: cieli sereni o prevalentemente sereni, nessuna precipitazione, vento leggero da SSE/E. Dati Google Weather API riferiti all'ora più vicina disponibile (11:00 ora locale) poiché il bollettino è stato generato dopo la finestra di transito (07:30–09:00).",
+    "summary_text": "Giornata soleggiata su tutta la tratta: cieli sereni o prevalentemente sereni, nessuna precipitazione, vento leggero da SSE/E. Dati Google Weather API con prima ora disponibile alle 11:00 CEST (bollettino generato dopo la finestra di transito 07:30–09:00; le condizioni mattutine erano verosimilmente analoghe).",
     "by_point": [
       {"name": "Bergamo (07:30)",    "cond": "Prevalentemente soleggiato", "temp_c": 25.1, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "SSE"},
       {"name": "Carugate (08:15)",   "cond": "Prevalentemente soleggiato", "temp_c": 26.1, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "ESE"},
@@ -11,19 +11,19 @@
     ]
   },
   "traffic": {
-    "estimated_minutes": 85,
+    "estimated_minutes": 61,
     "segments": [
-      {"name": "A4 Bergamo → Agrate",                "minutes": 40},
-      {"name": "Surface Agrate → Carugate",          "minutes": 15},
-      {"name": "A51 Carugate → San Donato Milanese", "minutes": 30}
+      {"name": "A4 Bergamo → Agrate",                "minutes": 28},
+      {"name": "Surface Agrate → Carugate",          "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 20}
     ],
     "incidents": [
       {
-        "where": "A51 tra Cologno Monzese (S.S. Giovanni Sud) e Lambrate, dir. A1",
-        "desc": "Code per traffico intenso segnalate da ricerca web (motorionline.com, automap.it)."
+        "where": "A51 Tangenziale Est, area Gobba/Cologno Monzese, dir. A1-Sud",
+        "desc": "Code a tratti per traffico intenso segnalate da CCISS alle 07:07."
       }
     ],
-    "notice": "Directions API non disponibile (chiave non abilitata per questo servizio): stima da baseline. CCISS parzialmente accessibile (homepage, senza dettaglio A4/A51); Luceverde, Autostrade per l'Italia e Serravalle non raggiungibili. Lista incidenti strutturata non verificata; segnalazione A51 da sola ricerca web."
+    "notice": "Directions API usata con departure_time=now alle 11:00 CEST: il traffico delle 07:30 (ora di riferimento) può essere più intenso di quanto stimato. Solo CCISS leggibile tra le fonti strutturate; Luceverde (Lombardia e Milano), Autostrade per l'Italia e Serravalle non raggiungibili (HTTP 404)."
   },
   "moto": {
     "verdict": "go",
@@ -36,11 +36,12 @@
     ]
   },
   "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
     {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
     {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
     {"name": "Luceverde Lombardia (non raggiungibile)", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano (non raggiungibile)", "url": "https://www.luceverde.it/milano"},
     {"name": "Autostrade per l'Italia (non raggiungibile)", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
-    {"name": "Milano Serravalle — Traffico (non raggiungibile)", "url": "https://www.serravalle.it/traffico"},
-    {"name": "Ricerca web — automap.it / motorionline.com", "url": "https://www.automap.it/traffico/a51"}
+    {"name": "Milano Serravalle — Traffico (non raggiungibile)", "url": "https://www.serravalle.it/traffico"}
   ]
 }
