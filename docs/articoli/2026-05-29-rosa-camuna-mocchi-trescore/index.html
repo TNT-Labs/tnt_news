@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Rosa Camuna 2026: Bergamo protagonista, premiata la professoressa Mocchi di Trescore Balneario — TNT News</title>
+  <meta name="description" content="Nella Festa della Lombardia del 29 maggio, la Regione ha consegnato la Rosa Camuna a Chiara Mocchi, insegnante di Trescore Balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca Ragazzi On The Road. Bergamo tra i territori più rappresentati tra i premiati 2026.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-29-rosa-camuna-mocchi-trescore/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Rosa Camuna 2026: Bergamo protagonista, premiata la professoressa Mocchi di Trescore Balneario — TNT News">
+  <meta property="og:description" content="Nella Festa della Lombardia del 29 maggio, la Regione ha consegnato la Rosa Camuna a Chiara Mocchi, insegnante di Trescore Balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca Ragazzi On The Road. Bergamo tra i territori più rappresentati tra i premiati 2026.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-29-rosa-camuna-mocchi-trescore/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rosa Camuna 2026: Bergamo protagonista, premiata la professoressa Mocchi di Trescore Balneario — TNT News">
+  <meta name="twitter:description" content="Nella Festa della Lombardia del 29 maggio, la Regione ha consegnato la Rosa Camuna a Chiara Mocchi, insegnante di Trescore Balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca Ragazzi On The Road. Bergamo tra i territori più rappresentati tra i premiati 2026.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Bergamo</span><span class="tag">Rosa Camuna</span><span class="tag">Trescore Balneario</span><span class="tag">Regione Lombardia</span></div>
+    <h1>Rosa Camuna 2026: Bergamo protagonista, premiata la professoressa Mocchi di Trescore Balneario</h1>
+    <p class="article-summary">Nella Festa della Lombardia del 29 maggio, la Regione ha consegnato la Rosa Camuna a Chiara Mocchi, insegnante di Trescore Balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca Ragazzi On The Road. Bergamo tra i territori più rappresentati tra i premiati 2026.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-29">29 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Bergamo si è guadagnata la scena nella cerimonia regionale più importante dell'anno: il 29 maggio 2026, durante la <strong>Festa della Lombardia</strong> a Palazzo Lombardia a Milano, la Regione ha consegnato la <strong>Rosa Camuna</strong> — il massimo riconoscimento che la Regione Lombardia assegna ogni anno a persone e realtà che si distinguono per impegno civile, professionale o culturale — a due rappresentanti bergamaschi su tutti: la professoressa <strong>Chiara Mocchi</strong> di Trescore Balneario e l'associazione educativa <strong>Ragazzi On The Road</strong>.</p>
+
+<h2>Chi è Chiara Mocchi e perché il riconoscimento</h2>
+
+<p>Il 25 marzo 2026, poco prima dell'inizio delle lezioni alla scuola media "Leonardo Da Vinci" di Trescore Balneario, Chiara Mocchi — insegnante di francese — fu aggredita e accoltellata da un alunno tredicenne. L'aggressione fu violenta e premeditata: il ragazzo indossava una maglietta con la scritta "vendetta" e riprese l'azione con il cellulare. La docente fu salvata grazie al coraggioso intervento di un compagno di classe dello stesso aggressore, anch'egli tredicenne.</p>
+
+<p>Ciò che ha colpito l'opinione pubblica non fu solo la gravità del fatto, ma la risposta della professoressa. Nei giorni seguenti, Mocchi dichiarò pubblicamente di non provare né rabbia né rancore, esprimendo la volontà di tornare in classe e di trasformare quell'episodio in un'opportunità di riflessione e crescita. La Regione Lombardia ha scelto di onorare questo atteggiamento con la Rosa Camuna, motivando il riconoscimento con «l'esempio straordinario di umanità, responsabilità educativa e forza morale» dimostrato dalla docente.</p>
+
+<p>Alla cerimonia, Mocchi ha partecipato in videochiamata: «Mi sento sollevata, salvata. Non è facile, ma accetto questo premio con grande gratitudine», ha dichiarato.</p>
+
+<h2>Ragazzi On The Road: legalità in classe</h2>
+
+<p><strong>Ragazzi On The Road APS</strong> è un progetto educativo nato a Bergamo per iniziativa di Alessandro Invernici, che da anni porta nelle scuole attività di sensibilizzazione su legalità, sicurezza stradale e responsabilità civica. La Regione ha incluso l'associazione tra i premiati per l'unicità del suo approccio formativo in Italia, che combina testimonianze dirette, incontri con le forze dell'ordine e laboratori interattivi rivolti ai giovani.</p>
+
+<h2>Gli altri bergamaschi premiati</h2>
+
+<p>Nella stessa cerimonia, la Regione ha assegnato un <strong>Premio speciale del Presidente</strong> a <strong>Silvio Garattini</strong>, farmacologo di fama mondiale e fondatore dell'Istituto di Ricerche Farmacologiche Mario Negri: «La ricerca è un investimento, non una spesa», ha ribadito nel suo intervento. Tra le menzioni del Consiglio regionale figurano anche la <strong>Associazione Giovani Idee di Bergamo</strong>, che promuove la cultura civica tra i giovani, e <strong>Gianmario Lesmo</strong>, promotore del progetto "Atalanta for Special".</p>
+
+<p>Il riconoscimento postumo è stato assegnato a <strong>Pier Luigi Pizzaballa</strong>, atleta bergamasco celebre in tutto il mondo, mentre <strong>Kika Mamoli</strong> e <strong>Arnaldo Minetti</strong> sono stati ricordati come pionieri del primo hospice pubblico d'Italia.</p>
+
+<h2>La cerimonia in piazza Città di Lombardia</h2>
+
+<p>La Festa della Lombardia ha animato piazza Città di Lombardia dalle 9 alle 16 con stand agricoli, dimostrazioni di primo soccorso e iniziative sui dialetti regionali. La premiazione è avvenuta nella Sala Biagi di Palazzo Lombardia, alla presenza del presidente regionale <strong>Attilio Fontana</strong> e del presidente del Consiglio regionale <strong>Federico Romani</strong>. Fontana ha sottolineato che la Rosa Camuna rappresenta «un momento di grande valore istituzionale e simbolico» per la Lombardia.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Timeline degli eventi principali: aggressione a Trescore Balneario il 25 marzo 2026 e cerimonia Rosa Camuna il 29 maggio 2026">
+    <!-- Background -->
+    <rect width="640" height="260" fill="#f8f9fa" rx="8"/>
+
+    <!-- Title -->
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222">Timeline: da Trescore Balneario a Palazzo Lombardia</text>
+
+    <!-- Main axis line -->
+    <line x1="80" y1="120" x2="560" y2="120" stroke="#ccc" stroke-width="2"/>
+
+    <!-- Event 1: March 25 -->
+    <circle cx="160" cy="120" r="10" fill="#e74c3c"/>
+    <line x1="160" y1="110" x2="160" y2="75" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <rect x="80" y="42" width="160" height="30" fill="#fdecea" rx="4"/>
+    <text x="160" y="57" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#c0392b">25 marzo 2026</text>
+    <text x="160" y="70" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">Aggressione a Trescore B.</text>
+    <text x="160" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#777">Scuola media</text>
+    <text x="160" y="153" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#777">Leonardo Da Vinci</text>
+
+    <!-- Middle marker -->
+    <circle cx="360" cy="120" r="6" fill="#aaa"/>
+    <text x="360" y="143" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#aaa">Aprile–Maggio</text>
+    <text x="360" y="156" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#aaa">Lettera pubblica</text>
+    <text x="360" y="169" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#aaa">della professoressa</text>
+
+    <!-- Event 2: May 29 -->
+    <circle cx="520" cy="120" r="10" fill="#27ae60"/>
+    <line x1="520" y1="110" x2="520" y2="75" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <rect x="430" y="42" width="170" height="30" fill="#eafaf1" rx="4"/>
+    <text x="515" y="57" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e8449">29 maggio 2026</text>
+    <text x="515" y="70" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">Rosa Camuna — Milano</text>
+    <text x="520" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#777">Palazzo Lombardia</text>
+    <text x="520" y="153" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#777">Piazza Città di Lombardia</text>
+
+    <!-- Arrow heads -->
+    <polygon points="560,117 553,112 553,128" fill="#ccc"/>
+
+    <!-- Legend note -->
+    <text x="320" y="220" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Fonte: L'Eco di Bergamo, ANSA Lombardia</text>
+  </svg>
+  <figcaption>Dalla scuola media di Trescore Balneario al palco di Palazzo Lombardia: i due momenti chiave della storia di Chiara Mocchi nel 2026. Fonte: L'Eco di Bergamo, ANSA Lombardia.</figcaption>
+</figure>
+
+<p>La scelta di premiare Chiara Mocchi ha acceso un dibattito più ampio sul clima nelle scuole italiane e sull'importanza di rispondere alla violenza con strumenti educativi piuttosto che punitivi. La storia di Trescore Balneario, seguita su scala nazionale, ha dimostrato come una comunità scolastica possa trasformare un episodio traumatico in un percorso collettivo di responsabilità.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/rosa-camuna-della-regione-a-chiara-mocchi-e-ragazzi-on-the-road-le-foto-o_3877022_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo — Rosa Camuna della Regione a Chiara Mocchi e Ragazzi on the Road</a></li><li><a href="https://www.ilgiorno.it/milano/cronaca/rosa-camuna-2026-premiati-v6gi73qj" rel="noopener" target="_blank">Il Giorno — Premio Rosa Camuna 2026: Garattini, Meneghin e Beccalossi tra i vincitori</a></li><li><a href="https://www.ansa.it/lombardia/notizie/2026/05/25/il-premio-rosa-camuna-alla-docente-accoltellata-dal-suo-studente-tredicenne_816e5f6e-6a64-4362-bfd3-a3d2ec38ba3c.html" rel="noopener" target="_blank">ANSA Lombardia — Il premio Rosa Camuna alla docente accoltellata dal suo studente tredicenne</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="elezioni comunali 2026 in provincia di bergamo: eletti i nuovi sindaci in 14 comuni il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. l&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. rinnovati tutti i consigli comunali. politica bergamo elezioni comuni amministrative 2026" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni</h2><p class="card-summary">Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.</p><p class="card-meta">29 maggio 2026</p></div></a></article><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
