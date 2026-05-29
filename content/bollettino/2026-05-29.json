@@ -1,0 +1,39 @@
+{
+  "date": "2026-05-29",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Mattinata stabile su tutta la tratta: cielo poco nuvoloso, zero precipitazioni e probabilità pioggia 0%, vento debole da SO. Piogge attese solo in serata. Dati ottenuti via ricerca web (Open-Meteo e siti meteo diretti non raggiungibili). Siti traffico autostrade.it e serravalle.it irraggiungibili: stima percorrenza basata su baseline feriale.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Poco nuvoloso", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "SO"},
+      {"name": "Carugate (08:15)",   "cond": "Poco nuvoloso", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "SO"},
+      {"name": "San Donato (08:45)", "cond": "Poco nuvoloso", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 8,  "wind_dir": "SO"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 85,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 40},
+      {"name": "Surface Agrate → Carugate",          "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 30}
+    ],
+    "incidents": []
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intera finestra 07:30–09:00, probabilità 0%",
+      "Temperature abbondantemente sopra i 7 °C (19–22 °C lungo il tragitto)",
+      "Vento debole da SO 8–10 km/h, raffiche non segnalate come significative",
+      "Nessuna nebbia, neve o temporale previsti al mattino"
+    ]
+  },
+  "sources": [
+    {"name": "Open-Meteo (non raggiungibile — usata ricerca web)", "url": "https://open-meteo.com/"},
+    {"name": "iLMeteo — Meteo Bergamo", "url": "https://www.ilmeteo.it/meteo/bergamo"},
+    {"name": "3B Meteo — Meteo Bergamo", "url": "https://www.3bmeteo.com/meteo/bergamo"},
+    {"name": "Autostrade per l'Italia — Traffico (non raggiungibile)", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Tangenziali Milano (Milano Serravalle) — Traffico (non raggiungibile)", "url": "https://www.serravalle.it/traffico"}
+  ]
+}
