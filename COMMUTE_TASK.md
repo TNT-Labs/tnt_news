@@ -5,6 +5,18 @@ bollettino con la previsione di traffico e di meteo per il tragitto in auto
 **Bergamo → San Donato Milanese**. Esegui da solo, senza supervisione, tutti i
 passi seguenti.
 
+## Variabili d'ambiente attese
+
+Configurate nelle impostazioni della routine su `claude.ai/code/routines`,
+**non nel repository**:
+
+- `GOOGLE_MAPS_API_KEY` — una sola chiave del progetto Google Cloud, con
+  abilitate **Directions API** e **Weather API**. Usata per stimare il
+  tempo di percorrenza (Directions) e per il meteo (Weather).
+
+Se la variabile **non è impostata**, ricadi sui percorsi di fallback
+indicati nelle sezioni 2 e 3 (Open-Meteo + ricerca web).
+
 ## 0. Controllo del giorno
 
 - Determina il giorno della settimana di oggi (fuso `Europe/Rome`).
@@ -29,27 +41,107 @@ Punti meteo di riferimento (lat/lon, fuso `Europe/Rome`):
 - **Carugate (intorno alle 08:15):** 45.5500, 9.3000
 - **San Donato Milanese (arrivo, intorno alle 08:45):** 45.4117, 9.2697
 
-## 2. Meteo (Open-Meteo, gratis, nessuna chiave)
+## 2. Meteo
 
-Per ciascuno dei tre punti scarica la previsione oraria con WebFetch:
+### 2.a Primario — Google Weather API (richiede `GOOGLE_MAPS_API_KEY`)
+
+Per ciascuno dei tre punti chiama l'endpoint orario via `Bash`:
+
+```bash
+curl -sG "https://weather.googleapis.com/v1/forecast/hours:lookup" \
+  --data-urlencode "key=$GOOGLE_MAPS_API_KEY" \
+  --data-urlencode "location.latitude=45.6983" \
+  --data-urlencode "location.longitude=9.6773" \
+  --data-urlencode "hours=4" \
+  --data-urlencode "unitsSystem=METRIC"
+```
+
+(Cambia `latitude` / `longitude` per ognuno dei tre punti.)
+
+Dalla risposta, prendi l'oggetto in `forecastHours[]` la cui
+`interval.startTime` cade nell'ora di transito (07:00–08:00 per Bergamo,
+08:00–09:00 per Carugate, 08:00–09:00 per San Donato). Mappa così:
+
+| JSON Google Weather                                    | Campo bollettino                |
+|--------------------------------------------------------|---------------------------------|
+| `temperature.degrees`                                  | `temp_c`                        |
+| `precipitation.qpf.quantity`                           | `precip_mm`                     |
+| `precipitation.probability.percent`                    | (per verdetto moto)             |
+| `wind.speed.value` (km/h)                              | `wind_kmh`                      |
+| `wind.gust.value` (km/h)                               | (per verdetto moto)             |
+| `wind.direction.cardinal` (es. "N", "NE")              | `wind_dir`                      |
+| `visibility.distance.meters`                           | (per verdetto moto)             |
+| `weatherCondition.description.text` (testo localizzato)| `cond`                          |
+
+Per ottenere la descrizione in italiano aggiungi
+`--data-urlencode "languageCode=it"` alla curl.
+
+### 2.b Fallback — Open-Meteo (senza chiave)
+
+Se `$GOOGLE_MAPS_API_KEY` non è impostata oppure la chiamata fallisce
+(es. quota esaurita, errore di rete), ripiega su Open-Meteo:
 
 ```
 https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&hourly=temperature_2m,precipitation,precipitation_probability,weather_code,wind_speed_10m,wind_gusts_10m,wind_direction_10m,visibility&timezone=Europe%2FRome&forecast_days=1
 ```
 
-Per ogni punto estrai i valori dell'ora di transito stimata (07:30 / 08:15 /
-08:45). Da `weather_code` ricava una descrizione sintetica
-(0=sereno, 1-3=poco nuvoloso/nuvoloso, 45/48=nebbia, 51-67=pioggia, 71-77=neve,
-80-82=rovesci, 95-99=temporale).
+`weather_code` → descrizione: 0=sereno, 1-3=poco nuvoloso/nuvoloso, 45/48=nebbia,
+51-67=pioggia, 71-77=neve, 80-82=rovesci, 95-99=temporale.
 
-## 3. Traffico e incidenti
+Se anche Open-Meteo non è raggiungibile, usa la ricerca web (iLMeteo,
+3BMeteo) e segnalalo nel `weather.summary_text`.
 
-L'obiettivo è intercettare cantieri, incidenti, code e chiusure **sulla tratta
-del giorno**, non in tutta la Lombardia. Consulta le fonti in ordine di
-priorità e tieni traccia di quali sono risultate raggiungibili (serve al
-punto 3.5).
+## 3. Traffico
 
-### 3.1 Fonti strutturate (priorità A)
+L'obiettivo ha due parti distinte:
+
+- **Tempo di percorrenza** stimato con il traffico del momento → Google
+  Directions API (sezione 3.0).
+- **Lista di incidenti / cantieri** sulla tratta → fonti pubbliche (sezioni
+  3.1-3.5). Google non espone una lista pubblica di eventi: l'effetto degli
+  incidenti è già incorporato nell'ETA, ma per scriverli a parole serve un
+  feed dedicato.
+
+### 3.0 Tempo di percorrenza — Google Directions API (richiede `GOOGLE_MAPS_API_KEY`)
+
+Una sola chiamata copre l'intero tragitto con i due waypoint imposti
+(Agrate per uscire da A4, Carugate per entrare in A51):
+
+```bash
+curl -sG "https://maps.googleapis.com/maps/api/directions/json" \
+  --data-urlencode "origin=Bergamo, BG, Italia" \
+  --data-urlencode "destination=San Donato Milanese, MI, Italia" \
+  --data-urlencode "waypoints=via:45.5849,9.3617|via:45.5523,9.3015" \
+  --data-urlencode "departure_time=now" \
+  --data-urlencode "traffic_model=best_guess" \
+  --data-urlencode "language=it" \
+  --data-urlencode "region=it" \
+  --data-urlencode "key=$GOOGLE_MAPS_API_KEY"
+```
+
+Coordinate dei waypoint (pass-through, prefisso `via:`):
+
+- **Casello A4 Agrate Brianza** (uscita): `45.5849, 9.3617`
+- **Svincolo A51 Carugate** (ingresso): `45.5523, 9.3015`
+
+Dalla risposta (`status: "OK"`), considera `routes[0].legs[]`. Con due
+waypoint hai **tre legs**: A4, surface, A51. Per ogni leg leggi
+`duration_in_traffic.value` (in secondi). Convertili in minuti
+(`round(value/60)`) e popolale così:
+
+| Leg | name                                       |
+|-----|--------------------------------------------|
+| 0   | A4 Bergamo → Agrate                        |
+| 1   | Surface Agrate → Carugate                  |
+| 2   | A51 Carugate → San Donato Milanese         |
+
+`estimated_minutes` = somma dei tre, **arrotondato all'intero**.
+
+Se la API risponde con errore o `$GOOGLE_MAPS_API_KEY` non è impostata,
+ripiega sulla baseline indicata in sezione 4 e dichiaralo in
+`traffic.notice`.
+
+### 3.1 Fonti strutturate per la lista incidenti (priorità A)
 
 - **CCISS — Viaggiare Informati** (Centro Coordinamento Informazioni
   Sicurezza Stradale, Polizia di Stato):
@@ -113,9 +205,11 @@ a leggere contenuto utile. **Devi** valorizzare il campo
 **Non mentire mai per omissione**: se le fonti tacciono, dillo. Se non hai
 controllato, non scrivere `incidents: []` senza `notice`.
 
-## 4. Stima del tempo di percorrenza
+## 4. Stima del tempo di percorrenza — fallback
 
-Baseline indicative al feriale ore 07:30 (da adeguare in base a quanto trovato):
+**Da usare solo se la chiamata Google Directions (3.0) non è andata a buon
+fine.** In quel caso parti dalle baseline e adegua in base agli incidenti
+intercettati al punto 3:
 
 | Segmento                                        | Baseline (min) |
 |-------------------------------------------------|----------------|
@@ -124,9 +218,9 @@ Baseline indicative al feriale ore 07:30 (da adeguare in base a quanto trovato):
 | A51 Carugate → uscita San Donato Milanese       | 25–40          |
 | **Totale**                                       | **~75–95**     |
 
-Adegua le baseline in base ai cantieri/incidenti reperiti. Se un tratto è
-chiuso o gravemente rallentato, somma i tempi extra plausibili e segnala
-chiaramente. Non inventare numeri: meglio una forchetta onesta.
+Se ricadi qui, **valorizza `traffic.notice`** spiegando il motivo
+(es. "Directions API non disponibile: stima da baseline."). Non inventare
+numeri: meglio una forchetta onesta.
 
 ## 5. Verdetto moto
 
@@ -197,19 +291,19 @@ struttura esatta:
     ]
   },
   "sources": [
-    {"name": "Open-Meteo", "url": "https://open-meteo.com/"},
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
     {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
-    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"},
-    {"name": "Autostrade per l'Italia — Traffico", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
-    {"name": "Tangenziali Milano (Milano Serravalle) — Traffico", "url": "https://www.serravalle.it/traffico"}
+    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"}
   ]
 }
 ```
 
 Includi nella lista `sources` **solo le fonti che hai effettivamente
-consultato** (gettate un occhio, indipendentemente dal fatto che abbiano
-prodotto risultati). Se CCISS è offline e non l'hai potuta leggere, non
-metterla in `sources`.
+consultato** (con risultato utile o no, basta averle interrogate). Se hai
+usato il fallback Open-Meteo / ricerca web, sostituisci di conseguenza.
+Non includere mai la chiave API in `sources`, nei log, nei commit o nel
+JSON: deve restare solo nella variabile d'ambiente.
 
 Regole:
 - I valori `verdict` ammessi sono **solo** `go`, `caution`, `no`.
