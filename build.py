@@ -102,8 +102,8 @@ def load_articles() -> list[dict]:
         if meta.get("category") not in CATEGORY_SET:
             meta["category"] = DEFAULT_CATEGORY
         articles.append(meta)
-    # piu recenti in cima
-    articles.sort(key=lambda a: a["date"], reverse=True)
+    # piu recenti in cima; "time" (HH:MM) permette di ordinare due articoli dello stesso giorno
+    articles.sort(key=lambda a: a["date"] + "T" + a.get("time", "00:00"), reverse=True)
     return articles
 
 
@@ -316,7 +316,8 @@ def build_feed(articles: list[dict]) -> str:
     for a in articles:
         link = f"{SITE_URL}/articoli/{a['slug']}/"
         try:
-            d = datetime.strptime(a["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            time_str = a.get("time", "00:00")
+            d = datetime.strptime(f"{a['date']}T{time_str}", "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
         except ValueError:
             d = datetime.now(timezone.utc)
         items.append(

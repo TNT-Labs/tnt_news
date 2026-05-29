@@ -28,6 +28,7 @@ Dentro, crea due file.
 {
   "title": "Titolo chiaro e informativo (no clickbait)",
   "date": "AAAA-MM-GG",
+  "time": "HH:MM",
   "author": "Redazione TNT News (Claude)",
   "summary": "Una o due frasi che riassumono la notizia.",
   "category": "Cronaca",
