@@ -413,6 +413,20 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 .incidents { margin: .4rem 0 0; padding-left: 1.2rem; font-size: .95rem; }
 .incidents li { margin: .3rem 0; }
 .incidents-none { color: var(--muted); font-style: italic; margin: .4rem 0; }
+.incidents-notice {
+  background: #fff4d6;
+  color: #6b4a00;
+  border: 1px solid #e5c46b;
+  border-radius: 6px;
+  padding: .55rem .8rem;
+  margin: .4rem 0;
+  font-size: .92rem;
+}
+:root[data-theme="dark"] .incidents-notice {
+  background: #3d3417;
+  color: #f0d98c;
+  border-color: #6b572a;
+}
 .weather-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

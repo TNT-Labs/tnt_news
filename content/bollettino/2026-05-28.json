@@ -11,13 +11,17 @@
     ]
   },
   "traffic": {
-    "estimated_minutes": 85,
+    "estimated_minutes": 92,
     "segments": [
-      {"name": "A4 Bergamo → Agrate",                "minutes": 40},
+      {"name": "A4 Bergamo → Agrate",                "minutes": 45},
       {"name": "Surface Agrate → Carugate",          "minutes": 15},
-      {"name": "A51 Carugate → San Donato Milanese", "minutes": 30}
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 32}
     ],
-    "incidents": []
+    "incidents": [
+      {"where": "A4 km 168 dir. Milano (tra Capriate e Trezzo)", "desc": "Cantiere con restringimento a due corsie, code di 2-3 km nelle prime ore della mattina."},
+      {"where": "A51 svincolo Lambrate", "desc": "Incidente segnalato, una corsia chiusa."}
+    ],
+    "notice": "CCISS e Autostrade per l'Italia non leggibili in modo strutturato; dati derivati da Luceverde e ricerca web."
   },
   "moto": {
     "verdict": "go",
