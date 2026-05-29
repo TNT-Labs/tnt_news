@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite — TNT News</title>
+  <meta name="description" content="All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite — TNT News">
+  <meta property="og:description" content="All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite — TNT News">
+  <meta name="twitter:description" content="All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">trapianto</span><span class="tag">Papa Giovanni XXIII</span><span class="tag">cardiochirurgia</span></div>
+    <h1>Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h1>
+    <p class="article-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-28">28 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Un'operazione rarissima in Italia si è conclusa con successo all'ospedale Papa Giovanni XXIII di Bergamo: due trapianti di cuore eseguiti contemporaneamente, su due pazienti diversi, da due équipe cardiochirurgiche separate che lavoravano in parallelo nelle sale operatorie del nosocomio bergamasco.</p>
+
+<h2>I due pazienti e la malattia comune</h2>
+
+<p>I destinatari dei nuovi cuori sono due uomini di 40 e 59 anni, entrambi affetti da cardiomiopatia, una patologia del muscolo cardiaco che ne compromette progressivamente la funzionalità fino a rendere necessario il trapianto come unica terapia risolutiva. I due si erano conosciuti a febbraio durante le visite di controllo al Papa Giovanni e avevano iniziato a tenersi in contatto, condividendo la stessa attesa carica di incertezze. Il fatto che i due cuori compatibili siano stati disponibili nella stessa notte ha trasformato un'improbabile coincidenza in un evento medico eccezionale.</p>
+
+<h2>La notte dei voli e il coordinamento</h2>
+
+<p>I cuori da donatore si trovavano in due ospedali differenti, uno al Centro e uno al Sud Italia. Il coordinamento tra il <strong>NITp – Nord Italian Transplant Program</strong> e <strong>AREU Lombardia</strong> ha reso possibile organizzare due voli dedicati nel cuore della notte. Due cardiochirurghi sono decollati alle 4:45, un terzo collega è partito quarantacinque minuti più tardi con un secondo volo. Entrambi i team di prelievo hanno operato in tempi stretti per garantire la vitalità degli organi durante il trasporto.</p>
+
+<h2>Le operazioni in sala</h2>
+
+<p>Al rientro a Bergamo, le due sale operatorie del Papa Giovanni si sono attivate in sequenza ravvicinata. Il secondo trapianto è iniziato per primo, intorno alle 11:30; il primo ha preso avvio circa un'ora dopo, alle 12:30. Entrambi gli interventi si sono conclusi nel pomeriggio, il primo intorno alle 17:00, il secondo poco dopo. Complessivamente hanno partecipato all'intera operazione circa <strong>trenta professionisti</strong>: sette cardiochirurghi, tre anestesisti, quattro perfusionisti e tredici operatori tra infermieri strumentisti, infermieri di anestesia e operatori socio-sanitari.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Timeline del doppio trapianto cardiaco al Papa Giovanni XXIII di Bergamo, 28 maggio 2026" xmlns="http://www.w3.org/2000/svg">
+    <!-- sfondo -->
+    <rect width="640" height="300" fill="#f8f9fa" rx="8"/>
+
+    <!-- titolo -->
+    <text x="320" y="30" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a2e">Timeline – Doppio trapianto simultaneo, Papa Giovanni XXIII</text>
+
+    <!-- asse orizzontale -->
+    <line x1="60" y1="130" x2="600" y2="130" stroke="#adb5bd" stroke-width="2"/>
+
+    <!-- tacche orario: 04:45 / 05:30 / 11:30 / 12:30 / 17:00 -->
+    <!-- mappa: 04:45→60, 17:30→600 → range 775min, 1min=0.697px -->
+    <!-- 04:45=0min→x=60 | 05:30=45min→x=91 | 11:30=405min→x=342 | 12:30=465min→x=384 | 17:00=735min→x=572 | 17:30=765min→x=593 -->
+
+    <!-- Evento 1: 04:45 volo team A -->
+    <line x1="60" y1="120" x2="60" y2="140" stroke="#4361ee" stroke-width="2"/>
+    <text x="60" y="115" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4361ee">04:45</text>
+    <text x="60" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">Volo team A</text>
+    <text x="60" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">(2 chirurghi)</text>
+
+    <!-- Evento 2: 05:30 volo team B -->
+    <line x1="91" y1="120" x2="91" y2="140" stroke="#4361ee" stroke-width="2"/>
+    <text x="91" y="115" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4361ee">05:30</text>
+    <text x="91" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">Volo team B</text>
+    <text x="91" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#333">(1 chirurgo)</text>
+
+    <!-- Evento 3: ~11:30 inizio trapianto 2 -->
+    <line x1="342" y1="120" x2="342" y2="140" stroke="#e63946" stroke-width="2"/>
+    <text x="342" y="115" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e63946">~11:30</text>
+    <text x="342" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c1121f">Inizio</text>
+    <text x="342" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c1121f">trapianto 2</text>
+
+    <!-- Evento 4: 12:30 inizio trapianto 1 -->
+    <line x1="384" y1="120" x2="384" y2="140" stroke="#e63946" stroke-width="2"/>
+    <text x="384" y="115" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e63946">12:30</text>
+    <text x="384" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c1121f">Inizio</text>
+    <text x="384" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c1121f">trapianto 1</text>
+
+    <!-- Evento 5: ~17:00 fine trapianti -->
+    <line x1="572" y1="120" x2="572" y2="140" stroke="#2d6a4f" stroke-width="2"/>
+    <text x="572" y="115" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2d6a4f">~17:00</text>
+    <text x="572" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2d6a4f">Fine</text>
+    <text x="572" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2d6a4f">interventi</text>
+
+    <!-- barre durata trapianti -->
+    <!-- trapianto 2: 11:30–17:15 ≈ x342–x593, h=18 -->
+    <rect x="342" y="72" width="251" height="18" fill="#e63946" opacity="0.25" rx="3"/>
+    <text x="467" y="84" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c1121f">Trapianto 2 (paz. 59 anni)</text>
+
+    <!-- trapianto 1: 12:30–17:00 ≈ x384–x572, h=18 -->
+    <rect x="384" y="50" width="188" height="18" fill="#4361ee" opacity="0.25" rx="3"/>
+    <text x="478" y="62" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4361ee">Trapianto 1 (paz. 40 anni)</text>
+
+    <!-- legenda professionisti -->
+    <rect x="60" y="195" width="520" height="80" fill="#e9ecef" rx="6"/>
+    <text x="320" y="214" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">Équipe coinvolta – circa 30 professionisti</text>
+
+    <!-- barre équipe -->
+    <rect x="80" y="222" width="84" height="14" fill="#4361ee" opacity="0.7" rx="2"/>
+    <text x="172" y="233" font-family="sans-serif" font-size="10" fill="#333">7 cardiochirurghi</text>
+
+    <rect x="280" y="222" width="36" height="14" fill="#e63946" opacity="0.7" rx="2"/>
+    <text x="322" y="233" font-family="sans-serif" font-size="10" fill="#333">3 anestesisti</text>
+
+    <rect x="430" y="222" width="48" height="14" fill="#2d6a4f" opacity="0.7" rx="2"/>
+    <text x="484" y="233" font-family="sans-serif" font-size="10" fill="#333">4 perfusionisti</text>
+
+    <rect x="80" y="245" width="156" height="14" fill="#f4a261" opacity="0.7" rx="2"/>
+    <text x="242" y="256" font-family="sans-serif" font-size="10" fill="#333">13 infermieri e operatori</text>
+
+    <text x="320" y="270" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">Valori indicativi da fonti stampa (BergamoNews, Il Giorno)</text>
+  </svg>
+  <figcaption>Timeline del doppio trapianto simultaneo al Papa Giovanni XXIII di Bergamo (28 maggio 2026). Le barre mostrano la sovrapposizione delle due operazioni nel pomeriggio. Valori indicativi basati sulle fonti citate.</figcaption>
+</figure>
+
+<h2>Un evento rarissimo in Italia</h2>
+
+<p>Il doppio trapianto cardiaco in contemporanea è possibile solo in centri ad altissima specializzazione, capaci di allestire due équipe complete e di gestire la complessa logistica degli organi da trapianto. Il Papa Giovanni XXIII è uno dei pochi ospedali italiani in grado di sostenere un'operazione di questa portata. Secondo quanto riferito dalle fonti, si tratta di uno degli episodi più rari documentati nel panorama trapiantologico nazionale.</p>
+
+<h2>Le condizioni post-operatorie</h2>
+
+<p>Al termine degli interventi, entrambi i pazienti si trovavano ricoverati nel reparto di terapia intensiva cardiochirurgica. Le loro condizioni, stando a quanto comunicato dall'ospedale tramite i media locali, erano in linea con quelle attese nella fase post-operatoria immediata di un trapianto cardiaco. I percorsi di recupero sono solitamente lunghi e richiedono una riabilitazione intensiva, ma il successo della fase chirurgica rappresenta il primo e più critico passaggio.</p>
+
+<p>La notizia ha suscitato vasta eco sulla stampa locale e nazionale, diventando un esempio concreto dell'eccellenza clinica e organizzativa del sistema ospedaliero bergamasco, che aveva già dimostrato capacità straordinarie durante la pandemia del 2020.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/05/28/due-trapianti-di-cuore-in-simultanea-al-papa-giovanni-siamo-rinati-insieme/897468" rel="noopener" target="_blank">BergamoNews – Due trapianti di cuore in simultanea al Papa Giovanni</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/doppio-trapianto-cuore-contemporanea-trr9ly98" rel="noopener" target="_blank">Il Giorno – Bergamo, una seconda vita da &#x27;gemelli&#x27;: duplice trapianto di cuore in simultanea</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="allarme ozono a bergamo: le centraline sforano i 200 µg/m³ con il caldo record con temperature oltre i 33°c e l&#x27;anticiclone sull&#x27;europa centro-occidentale, le stazioni arpa di bergamo e calusco d&#x27;adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. quasi tutta la lombardia è in allerta gialla; arpa raccomanda di limitare le attività all&#x27;aperto nelle ore più calde. ambiente bergamo ozono arpa lombardia qualità dell&#x27;aria" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-05-27-allerta-ozono-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h2><p class="card-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="giro d&#x27;italia 2026, la tappa 17 attraversa la bergamasca: bassa e sebino in festa con la corsa rosa la diciassettesima tappa cassano d&#x27;adda–andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di bergamo, toccando verdello, urgnano, ghisalba, grumello del monte e sarnico. jonas vingegaard guida la classifica generale con oltre quattro minuti di vantaggio. sport bergamo ciclismo giro d&#x27;italia sebino" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa</h2><p class="card-summary">La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.</p><p class="card-meta">27 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

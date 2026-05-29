@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative — TNT News</title>
+  <meta name="description" content="Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-manifattura-bergamasca-q1-2026/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative — TNT News">
+  <meta property="og:description" content="Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-27-manifattura-bergamasca-q1-2026/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative — TNT News">
+  <meta name="twitter:description" content="Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Industria</span><span class="tag">Manifattura</span><span class="tag">Confindustria</span></div>
+    <h1>Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative</h1>
+    <p class="article-summary">Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-27">27 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il primo trimestre 2026 si chiude con un bilancio positivo per l'industria manifatturiera bergamasca: la produzione segna una crescita robusta rispetto allo stesso periodo del 2025, confermando Bergamo tra le province lombarde più dinamiche. A fare da sfondo, tuttavia, una crescente preoccupazione delle imprese per le incertezze geopolitiche, in primo luogo la crisi in Medio Oriente, e per i rincari delle materie prime.</p>
+
+<h2>I numeri del trimestre</h2>
+
+<p>Secondo i dati diffusi il 25 maggio da <strong>Confindustria Lombardia</strong> e <strong>Unioncamere Lombardia</strong>, nel primo trimestre 2026 la produzione manifatturiera regionale è cresciuta dello <strong>0,5%</strong> rispetto al trimestre precedente e del <strong>2,4%</strong> su base annua. Il fatturato ha messo a segno un incremento dello <strong>0,6%</strong> congiunturale e del <strong>2,8%</strong> rispetto al primo trimestre 2025.</p>
+
+<p>Gli ordini sul mercato interno sono aumentati dell'<strong>1,3%</strong> nel trimestre e del <strong>3,2%</strong> sull'anno; quelli esteri, pur in crescita, mostrano un ritmo più contenuto (<strong>+0,3%</strong> congiunturale), riflettendo la debolezza della domanda internazionale. Sul fronte occupazionale, il saldo tra ingressi e uscite torna positivo: <strong>+0,4%</strong> nell'industria, <strong>+0,8%</strong> nell'artigianato.</p>
+
+<p>Per <strong>Bergamo</strong> specificamente, i report delle associazioni di categoria descrivono un avvio d'anno definito «eccellente», con la produzione manifatturiera locale in crescita superiore alla media regionale sia nell'industria sia nell'artigianato, quest'ultimo particolarmente vivace.</p>
+
+<figure>
+  <svg viewBox="0 0 640 360" role="img" aria-label="Variazioni percentuali annue dei principali indicatori della manifattura lombarda nel Q1 2026: produzione, fatturato, ordini interni, ordini esteri e prezzi materie prime" xmlns="http://www.w3.org/2000/svg">
+    <style>
+      .bar-pos  { fill: #2a7d4f; }
+      .bar-warn { fill: #b3001b; }
+      .lbl { font: 13px "Helvetica Neue", Arial, sans-serif; fill: #1a1a1a; }
+      .val { font: 12px "Helvetica Neue", Arial, sans-serif; fill: #1a1a1a; }
+      .title-txt { font: bold 14px "Helvetica Neue", Arial, sans-serif; fill: #1a1a1a; }
+      .axis { stroke: #c9c2b6; stroke-width: 1.5; }
+      .gridline { stroke: #e8e3dc; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+
+    <!-- Titolo -->
+    <text class="title-txt" x="320" y="24" text-anchor="middle">Manifattura lombarda — variazione % su base annua, Q1 2026</text>
+
+    <!-- Area grafico: asse X a y=280, top a y=55 -->
+    <!-- Griglia orizzontale -->
+    <line class="gridline" x1="60" y1="55"  x2="610" y2="55" />
+    <line class="gridline" x1="60" y1="100" x2="610" y2="100" />
+    <line class="gridline" x1="60" y1="145" x2="610" y2="145" />
+    <line class="gridline" x1="60" y1="190" x2="610" y2="190" />
+    <line class="gridline" x1="60" y1="235" x2="610" y2="235" />
+
+    <!-- Etichette asse Y -->
+    <text class="val" x="50" y="59"  text-anchor="end">10%</text>
+    <text class="val" x="50" y="104" text-anchor="end">8%</text>
+    <text class="val" x="50" y="149" text-anchor="end">6%</text>
+    <text class="val" x="50" y="194" text-anchor="end">4%</text>
+    <text class="val" x="50" y="239" text-anchor="end">2%</text>
+    <text class="val" x="50" y="284" text-anchor="end">0%</text>
+
+    <!-- Asse X e Y -->
+    <line class="axis" x1="60" y1="280" x2="610" y2="280" />
+    <line class="axis" x1="60" y1="55"  x2="60"  y2="280" />
+
+    <!-- Barre: scala 0–10% → 0–225px (ogni 1% = 22.5px) -->
+    <!-- base y=280 -->
+
+    <!-- Produzione +2,4% → 54px -->
+    <rect class="bar-pos" x="90"  y="226" width="60" height="54" />
+    <text class="val" x="120" y="218" text-anchor="middle">+2,4%</text>
+    <text class="lbl" x="120" y="303" text-anchor="middle">Produzione</text>
+
+    <!-- Fatturato +2,8% → 63px -->
+    <rect class="bar-pos" x="190" y="217" width="60" height="63" />
+    <text class="val" x="220" y="209" text-anchor="middle">+2,8%</text>
+    <text class="lbl" x="220" y="303" text-anchor="middle">Fatturato</text>
+
+    <!-- Ordini interni +3,2% → 72px -->
+    <rect class="bar-pos" x="290" y="208" width="60" height="72" />
+    <text class="val" x="320" y="200" text-anchor="middle">+3,2%</text>
+    <text class="lbl" x="320" y="303" text-anchor="middle">Ordini interni</text>
+
+    <!-- Ordini esteri (annuo non specificato, uso congiunturale +0,3% come indicativo) → 7px -->
+    <!-- In realtà non ho il dato annuale degli ordini esteri, quindi indico solo il dato congiunturale -->
+    <!-- Mostro il dato congiunturale: +0,3% → ~7px -->
+    <rect class="bar-pos" x="390" y="273" width="60" height="7" />
+    <text class="val" x="420" y="265" text-anchor="middle">+0,3%*</text>
+    <text class="lbl" x="420" y="303" text-anchor="middle">Ordini esteri</text>
+
+    <!-- Prezzi mat. prime +8,4% → 189px (su 225px per 10%) -->
+    <rect class="bar-warn" x="490" y="91" width="60" height="189" />
+    <text class="val" x="520" y="83" text-anchor="middle" fill="#b3001b">+8,4%</text>
+    <text class="lbl" x="520" y="303" text-anchor="middle">Mat. prime</text>
+
+    <!-- Legenda -->
+    <rect class="bar-pos"  x="60"  y="330" width="14" height="14" />
+    <text class="lbl" x="80"  y="342">Crescita (su base annua)</text>
+    <rect class="bar-warn" x="280" y="330" width="14" height="14" />
+    <text class="lbl" x="300" y="342">Rincaro materie prime (su base annua)</text>
+    <text class="val" x="60" y="358">* Dato congiunturale (variazione rispetto al trimestre precedente)</text>
+  </svg>
+  <figcaption>Principali indicatori della manifattura lombarda nel primo trimestre 2026, variazione percentuale su base annua (eccetto ordini esteri: dato congiunturale). Fonte: Confindustria Lombardia / Unioncamere Lombardia, maggio 2026.</figcaption>
+</figure>
+
+<h2>Il nodo delle materie prime e dell'energia</h2>
+
+<p>L'elemento che desta più preoccupazione è l'impennata dei costi di produzione. I prezzi delle materie prime sono aumentati del <strong>3,7%</strong> nel solo primo trimestre rispetto al trimestre precedente, e dell'<strong>8,4%</strong> su base annua. I rincari energetici si sommano a questo quadro, comprimendo i margini delle aziende e riducendo la competitività dei prodotti lombardi sui mercati esteri.</p>
+
+<p>Nel comparto bergamasco, particolarmente esposto sui mercati internazionali, le imprese della meccanica strumentale e dell'automotive segnalano una domanda ancora debole, mentre reggono meglio i settori legno-arredo, mezzi di trasporto, siderurgia e pelli-calzature.</p>
+
+<h2>Le incognite geopolitiche</h2>
+
+<p>Le associazioni di categoria bergamasche e lombarde concordano nel segnalare la <strong>crisi in Medio Oriente</strong> come principale fattore di rischio per i prossimi trimestri. Il conflitto incide sia sui flussi commerciali internazionali sia sulle catene di fornitura di materie prime e semilavorati. A questo si aggiunge l'incertezza legata alle politiche tariffarie internazionali, che rendono la pianificazione degli investimenti più difficile.</p>
+
+<p>Secondo i sondaggi delle associazioni imprenditoriali, una quota significativa degli imprenditori bergamaschi manifesta <strong>aspettative meno ottimistiche</strong> per i prossimi sei mesi rispetto all'inizio d'anno. Pur riconoscendo la solidità dell'attuale ciclo produttivo, prevale la cautela: gli ordini in portafoglio tengono, ma le nuove acquisizioni rallentano.</p>
+
+<h2>Un'economia ancora trainante</h2>
+
+<p>Il quadro complessivo, pur con le sue ombre, conferma il ruolo di motore industriale che Bergamo — insieme a Brescia — ricopre nel sistema produttivo lombardo e nazionale. La struttura di piccole e medie imprese altamente specializzate si dimostra resiliente, capace di reagire alle tensioni globali pur senza la capacità di assorbire rincari prolungati. Nei prossimi mesi saranno il costo dell'energia e l'evoluzione della domanda estera i fattori decisivi per confermare o ridimensionare il buon avvio di 2026.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.zazoom.it/2026-05-26/eccellente-inizio-danno-per-la-manifattura-bergamasca-ma-sul-futuro-pesa-la-crisi-in-medio-oriente/19251399/" rel="noopener" target="_blank">Zazoom — Eccellente inizio d&#x27;anno per la manifattura bergamasca ma sul futuro pesa la crisi in Medio Oriente</a></li><li><a href="https://www.ansa.it/lombardia/notizie/2026/05/25/nel-primo-trimestre-in-lombardia-la-produzione-industriale-e-in-aumento-dello-05_ee1a8521-3956-4a9b-99a2-ab004feeb317.html" rel="noopener" target="_blank">ANSA Lombardia — Nel primo trimestre in Lombardia la produzione industriale è in aumento dello 0,5%</a></li><li><a href="https://www.sbircialanotizia.it/articoli/2026/05/25/industria-lombardia-q1-h8z2p/" rel="noopener" target="_blank">Sbircialanotizia — Industria lombarda in crescita nel Q1 2026: produzione +0,5%, fatturato +0,6%</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="allarme ozono a bergamo: le centraline sforano i 200 µg/m³ con il caldo record con temperature oltre i 33°c e l&#x27;anticiclone sull&#x27;europa centro-occidentale, le stazioni arpa di bergamo e calusco d&#x27;adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. quasi tutta la lombardia è in allerta gialla; arpa raccomanda di limitare le attività all&#x27;aperto nelle ore più calde. ambiente bergamo ozono arpa lombardia qualità dell&#x27;aria" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-05-27-allerta-ozono-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h2><p class="card-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p><p class="card-meta">27 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
