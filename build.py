@@ -313,13 +313,16 @@ def build_simple_page(slug: str, title: str, body: str, categories: list[str], b
 
 def build_feed(articles: list[dict]) -> str:
     items = []
+    latest = None
     for a in articles:
         link = f"{SITE_URL}/articoli/{a['slug']}/"
         try:
             time_str = a.get("time", "00:00")
             d = datetime.strptime(f"{a['date']}T{time_str}", "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
         except ValueError:
-            d = datetime.now(timezone.utc)
+            d = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        if latest is None or d > latest:
+            latest = d
         items.append(
             "<item>"
             f"<title>{escape(a['title'])}</title>"
@@ -329,7 +332,9 @@ def build_feed(articles: list[dict]) -> str:
             f"<description>{escape(a['summary'])}</description>"
             "</item>"
         )
-    now = format_datetime(datetime.now(timezone.utc))
+    # lastBuildDate deterministico: data dell'articolo piu recente.
+    # Evita conflitti di merge quando la routine bollettino rigenera docs/.
+    last_build = format_datetime(latest or datetime(1970, 1, 1, tzinfo=timezone.utc))
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
@@ -337,7 +342,7 @@ def build_feed(articles: list[dict]) -> str:
         f"<link>{SITE_URL}/</link>"
         f"<description>{escape(SITE_DESC)}</description>"
         "<language>it-it</language>"
-        f"<lastBuildDate>{now}</lastBuildDate>"
+        f"<lastBuildDate>{last_build}</lastBuildDate>"
         f'<atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>'
         + "".join(items)
         + "</channel></rss>\n"
