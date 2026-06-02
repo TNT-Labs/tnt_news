@@ -325,6 +325,24 @@ git push origin HEAD:claude/main
 Verifica che l'ambiente claude/main sia stato correttamente aggiornato.
 GitHub Pages aggiornerà la pagina `/bollettino/` entro pochi minuti.
 
+### Se il push o il merge va in conflitto
+
+I file dentro `docs/` sono **interamente generati** da `build.py`. Non risolvere
+mai a mano: fai prevalere il main remoto e poi rigenera.
+
+```bash
+git fetch origin claude/main
+git checkout --theirs docs/
+git add docs/
+python3 build.py
+git add -A
+git commit -m "Risolvi conflitto docs/ rigenerando con build.py"
+git push origin HEAD:claude/main
+```
+
+Se il conflitto è solo su `docs/feed.xml` (timestamp), bastano `theirs` + un
+rebuild: il feed ora usa la data dell'articolo più recente come
+`lastBuildDate`, quindi non cambia se non vengono pubblicati nuovi articoli.
 
 ## Regole di qualità
 
