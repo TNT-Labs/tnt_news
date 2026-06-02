@@ -1,0 +1,44 @@
+{
+  "date": "2026-06-01",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Mattinata parzialmente soleggiata su tutta la tratta, temperature miti (19–22°C). Nessuna precipitazione prevista nella finestra 07:30–09:00, vento debole da est.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Parzialmente soleggiato",    "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "E"},
+      {"name": "Carugate (08:15)",   "cond": "Parzialmente soleggiato",    "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "ESE"},
+      {"name": "San Donato (08:45)", "cond": "Prevalentemente soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "SSE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 68,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 31},
+      {"name": "Surface Agrate → Carugate",          "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 22}
+    ],
+    "incidents": [
+      {"where": "A51 tra uscita Carugate (SP208 Brugherio Nord) e uscita Linate (V.le Forlanini-SP14 Rivoltana)", "desc": "Rallentamenti per traffico intenso in direzione A1/San Donato; già incorporati nell'ETA Google Directions."}
+    ],
+    "notice": "CCISS parzialmente accessibile (nessun evento Lombardia visibile nel corpo della pagina); Luceverde (lombardia/milano) e Serravalle non raggiungibili (404); Autostrade per l'Italia non leggibile (pagina JS-heavy). Incidente su A51 segnalato da ricerca web. Segmenti stimati per distribuzione proporzionale dal totale Google Directions (4051 s con traffico)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista (0 mm, prob. max 5%) su tutto il tragitto",
+      "Temperature miti: minimo 19°C a Bergamo, nessun rischio asfalto freddo",
+      "Vento debole (3 km/h, raffiche max 11 km/h): ampiamente sotto i limiti",
+      "Visibilità ottima (16 km in tutti e tre i punti), nessuna nebbia o fenomeno avverso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Autostrade per l'Italia — Chiusure programmate", "url": "https://www.autostrade.it/en/previsioni?strada=&regione=3"},
+    {"name": "Serravalle — Tangenziali Milano", "url": "https://www.serravalle.it/traffico"},
+    {"name": "MilanoToday — Traffico A4/A51", "url": "https://www.milanotoday.it/"}
+  ]
+}
