@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta — TNT News</title>
+  <meta name="description" content="Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-04-atalanta-record-mondiali-2026/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta — TNT News">
+  <meta property="og:description" content="Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-04-atalanta-record-mondiali-2026/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta — TNT News">
+  <meta name="twitter:description" content="Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">Atalanta</span><span class="tag">Mondiali 2026</span><span class="tag">FIFA</span></div>
+    <h1>Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta</h1>
+    <p class="article-summary">Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-04">4 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Sette giocatori con la maglia dell'Atalanta alla fase finale di un Mondiale. Non era mai successo nella storia del club bergamasco, fondato nel 1907. Con la convocazione ufficiale di Kamaldeen Sulemana da parte del Ghana — l'ultima ad arrivare — il numero ha raggiunto quota sette, polverizzando il precedente primato di quattro nerazzurri al Mondiale 2022 in Qatar.</p>
+
+<h2>Chi sono i sette nerazzurri</h2>
+
+<p>I convocati rappresentano sette nazioni diverse su quattro continenti, a testimonianza della portata internazionale che la rosa atalantina ha acquisito negli ultimi anni:</p>
+
+<ul>
+  <li><strong>Mario Pasalic</strong> – Croazia</li>
+  <li><strong>Marten de Roon</strong> – Paesi Bassi</li>
+  <li><strong>Charles De Ketelaere</strong> – Belgio</li>
+  <li><strong>Isak Hien</strong> – Svezia</li>
+  <li><strong>Sead Kolasinac</strong> – Bosnia-Erzegovina</li>
+  <li><strong>Odilon Kossounou</strong> – Costa d'Avorio</li>
+  <li><strong>Kamaldeen Sulemana</strong> – Ghana</li>
+</ul>
+
+<p>Tra loro figurano un centrocampista-tuttofare come Pasalic, il capitano de Roon — colonna della mediana nerazzurra da quasi un decennio — e il trequartista belga De Ketelaere, esploso definitivamente nella stagione in corso. Sulemana, esterno offensivo ghanese, è l'ultimo arrivato in ordine di tempo ma si è già ritagliato un ruolo nel progetto tecnico di Gasperini.</p>
+
+<h2>L'Atalanta seconda in Serie A, dietro solo al Milan</h2>
+
+<p>Nella graduatoria italiana, i nerazzurri si collocano al secondo posto a pari merito con l'Inter, entrambi con sette convocati. A guidare la classifica è il Milan con dieci rappresentanti — unico club della Serie A ad andare in doppia cifra. Seguono Juventus e Roma con sei ciascuna, quindi Napoli con cinque. In tutto sono sessantasei i giocatori provenienti dalla massima serie italiana presenti nelle rose delle quarantotto nazionali partecipanti alla Coppa del Mondo.</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre: numero di convocati ai Mondiali 2026 per i principali club di Serie A" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="340" fill="#f5f8ff" rx="12"/>
+    <text x="320" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2e4a">Convocati ai Mondiali 2026 — Serie A (top 6)</text>
+
+    <!-- Asse Y etichette -->
+    <!-- Milan -->
+    <text x="130" y="72" text-anchor="end" font-size="13" fill="#1a2e4a">Milan</text>
+    <rect x="140" y="55" width="320" height="28" rx="5" fill="#c0392b"/>
+    <text x="468" y="74" font-size="13" font-weight="bold" fill="#c0392b">10</text>
+
+    <!-- Inter -->
+    <text x="130" y="122" text-anchor="end" font-size="13" fill="#1a2e4a">Inter</text>
+    <rect x="140" y="105" width="224" height="28" rx="5" fill="#6b7c99"/>
+    <text x="372" y="124" font-size="13" font-weight="bold" fill="#6b7c99">7</text>
+
+    <!-- Atalanta — evidenziata -->
+    <text x="130" y="172" text-anchor="end" font-size="13" font-weight="bold" fill="#1b5e9e">Atalanta</text>
+    <rect x="140" y="155" width="224" height="28" rx="5" fill="#1b5e9e"/>
+    <text x="372" y="174" font-size="13" font-weight="bold" fill="#1b5e9e">7 ★</text>
+
+    <!-- Juventus -->
+    <text x="130" y="222" text-anchor="end" font-size="13" fill="#1a2e4a">Juventus</text>
+    <rect x="140" y="205" width="192" height="28" rx="5" fill="#888"/>
+    <text x="340" y="224" font-size="13" font-weight="bold" fill="#888">6</text>
+
+    <!-- Roma -->
+    <text x="130" y="272" text-anchor="end" font-size="13" fill="#1a2e4a">Roma</text>
+    <rect x="140" y="255" width="192" height="28" rx="5" fill="#b35000"/>
+    <text x="340" y="274" font-size="13" font-weight="bold" fill="#b35000">6</text>
+
+    <!-- Napoli -->
+    <text x="130" y="322" text-anchor="end" font-size="13" fill="#1a2e4a">Napoli</text>
+    <rect x="140" y="305" width="160" height="28" rx="5" fill="#009a6e"/>
+    <text x="308" y="324" font-size="13" font-weight="bold" fill="#009a6e">5</text>
+  </svg>
+  <figcaption>Numero di giocatori convocati ai Mondiali 2026 per i sei club di Serie A con più rappresentanti. L'Atalanta (in blu) è seconda a pari merito con l'Inter. Fonte: Calcio e Finanza, 3 giugno 2026.</figcaption>
+</figure>
+
+<h2>Un record che riflette la crescita del club</h2>
+
+<p>Il salto da quattro a sette convocati in un solo ciclo mondiale non è casuale. Riflette la traiettoria che l'Atalanta ha percorso nell'ultimo decennio: da club di medio livello di Serie A a realtà stabile nelle competizioni europee, capace di attrarre e valorizzare talenti internazionali. Il mercato del club bergamasco si è fatto negli anni sempre più sofisticato, puntando su profili tecnici di primo piano provenienti da campionati minori o da situazioni di sviluppo non ancora compiuto.</p>
+
+<p>De Ketelaere ne è l'esempio più celebre: arrivato in prestito dal Milan nell'estate 2023 in una fase di stallo della sua carriera, è diventato uno dei trequartisti più continui d'Europa. Hien, acquistato per cifre contenute dalla Svezia, si è affermato come difensore centrale di riferimento anche nella nazionale scandinava. Sulemana ha trovato ad Atalanta lo spazio che altri club non gli avevano garantito.</p>
+
+<h2>Bergamo al Mondiale in sette lingue</h2>
+
+<p>Per la città e la provincia di Bergamo la notizia ha un sapore particolare. Il Gewiss Stadium ospiterà tifo distribuito su sette sponde diverse nelle prossime settimane: croata, olandese, belga, svedese, bosniaca, ivoriana e ghanese. Un atlante calcistico inaspettato per una città di provincia che ha saputo diventare uno degli indirizzi più ambiti del calcio europeo.</p>
+
+<p>I Mondiali 2026 si disputano tra Stati Uniti, Canada e Messico a partire dal 11 giugno. Il primo sorteggio per la Conference League 2026/2027 — alla quale l'Atalanta parteciperà — è previsto il 16 giugno, il giorno dopo la fine della stagione italiana.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.calcioatalanta.it/2026/06/03/atalanta-record-storico-ai-mondiali-2026-sette-nerazzurri-convocati/" rel="noopener" target="_blank">CalcioAtalanta</a></li><li><a href="https://www.calcioefinanza.it/2026/06/03/convocati-serie-a-mondiali-2026-squadra-per-squadra/" rel="noopener" target="_blank">Calcio e Finanza</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="cristiano giuntoli è il nuovo direttore sportivo dell&#x27;atalanta il 30 maggio 2026 l&#x27;atalanta ha ufficializzato l&#x27;ingaggio di cristiano giuntoli come nuovo direttore sportivo, con contratto fino al 2029. il dirigente fiorentino, ex ds di napoli e juventus, subentra a tony d&#x27;amico che lascia bergamo per la roma. sport atalanta bergamo calciomercato giuntoli" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-31-giuntoli-ds-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</h2><p class="card-summary">Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.</p><p class="card-meta">31 maggio 2026</p></div></a></article><article class="card" data-search="de roon torna in nazionale: il capitano dell&#x27;atalanta ai mondiali 2026 a 35 anni a sorpresa, il ct olandese ronald koeman ha convocato marten de roon per il mondiale 2026 in usa, canada e messico. il centrocampista 35enne, capitano dell&#x27;atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza. sport atalanta de roon mondiali 2026 olanda" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-30-de-roon-mondiale-2026-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">De Roon torna in nazionale: il capitano dell&#x27;Atalanta ai Mondiali 2026 a 35 anni</h2><p class="card-summary">A sorpresa, il CT olandese Ronald Koeman ha convocato Marten de Roon per il Mondiale 2026 in USA, Canada e Messico. Il centrocampista 35enne, capitano dell&#x27;Atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza.</p><p class="card-meta">30 maggio 2026</p></div></a></article><article class="card" data-search="giro d&#x27;italia 2026, la tappa 17 attraversa la bergamasca: bassa e sebino in festa con la corsa rosa la diciassettesima tappa cassano d&#x27;adda–andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di bergamo, toccando verdello, urgnano, ghisalba, grumello del monte e sarnico. jonas vingegaard guida la classifica generale con oltre quattro minuti di vantaggio. sport bergamo ciclismo giro d&#x27;italia sebino" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-27-giro-ditalia-tappa-17-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro d&#x27;Italia 2026, la tappa 17 attraversa la Bergamasca: Bassa e Sebino in festa con la Corsa Rosa</h2><p class="card-summary">La diciassettesima tappa Cassano d&#x27;Adda–Andalo (202 km) percorre mercoledì 27 maggio circa quaranta chilometri in provincia di Bergamo, toccando Verdello, Urgnano, Ghisalba, Grumello del Monte e Sarnico. Jonas Vingegaard guida la classifica generale con oltre quattro minuti di vantaggio.</p><p class="card-meta">27 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
