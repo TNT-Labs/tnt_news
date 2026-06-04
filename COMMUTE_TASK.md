@@ -322,10 +322,35 @@ git commit -m "Bollettino pendolare <data>"
 git push origin HEAD:claude/main
 ```
 
-Verifica che l'ambiente claude/main sia stato correttamente aggiornato.
-GitHub Pages aggiornerà la pagina `/bollettino/` entro pochi minuti.
+**Importante:** non è possibile pushare direttamente su `claude/main`. La
+piattaforma intercetta il push, crea un branch `claude/*` e apre una **Pull
+Request** verso `claude/main`. Quella PR resta aperta finché qualcuno non la
+mergia: **devi mergiarla tu stessa, in automatico, alla fine della routine**.
 
-### Se il push o il merge va in conflitto
+### 7.1 Merge automatico della PR (passo obbligatorio)
+
+Dopo il push, la PR viene creata entro pochi secondi. Mergiala da sola con gli
+strumenti GitHub (MCP), senza lasciarla in attesa di un intervento manuale:
+
+1. Trova la PR appena aperta: elenca le PR **aperte** con base `claude/main`
+   nel repo `TNT-Labs/tnt_news` (strumento *list_pull_requests*, `state: open`,
+   `base: claude/main`). Identifica la tua: il titolo è
+   `Bollettino pendolare <data>` e il branch `head` contiene il commit che hai
+   appena pushato (confronta lo SHA con `git rev-parse HEAD`).
+2. Verifica che sia mergeabile (nessun conflitto). Se per qualche motivo
+   risultasse in conflitto, applica prima la procedura della sezione 7.2 e
+   ripeti il push, poi torna qui.
+3. Mergiala (strumento *merge_pull_request*) usando `merge_method: merge`.
+4. Conferma che la PR risulti `merged` e che `claude/main` punti al nuovo
+   commit.
+
+Se la PR non compare subito, attendi qualche secondo e rielenca: la creazione
+è asincrona rispetto al push. Non terminare la routine finché la PR non
+risulta mergeata.
+
+GitHub Pages aggiornerà la pagina `/bollettino/` entro pochi minuti dal merge.
+
+### 7.2 Se il push o il merge va in conflitto
 
 I file dentro `docs/` sono **interamente generati** da `build.py`. Non risolvere
 mai a mano: fai prevalere il main remoto e poi rigenera.
