@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo — TNT News</title>
+  <meta name="description" content="Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-07-orari-estivi-atb-teb-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo — TNT News">
+  <meta property="og:description" content="Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-07-orari-estivi-atb-teb-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo — TNT News">
+  <meta name="twitter:description" content="Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">ATB</span><span class="tag">TEB</span><span class="tag">trasporto pubblico</span></div>
+    <h1>Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo</h1>
+    <p class="article-summary">Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-07">7 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  A partire da martedì 9 giugno 2026 i trasporti pubblici bergamaschi si adeguano alla stagione
+  estiva: gli autobus di ATB (Azienda Trasporti Bergamo) e i tram di TEB (Tramvie Elettriche
+  Bergamasche) adotteranno i nuovi orari che resteranno in vigore fino alle soglie dell'autunno.
+  Il cambio coincide con la chiusura degli istituti scolastici, momento in cui la domanda di
+  mobilità si ridistribuisce rispetto ai flussi tipici dei mesi invernali.
+</p>
+
+<h2>Tram T1 Bergamo–Albino: le frequenze estate 2026</h2>
+<p>
+  La linea tranviaria T1, che collega il centro di Bergamo ad Albino percorrendo la Val Seriana,
+  mantiene dal lunedì al venerdì un passaggio ogni <strong>15 minuti</strong>. Il sabato i tram
+  circoleranno invece ogni <strong>20 minuti</strong>. Da lunedì 3 agosto a venerdì 28 agosto
+  entrerà in vigore l'orario agostano, con un intervallo di 20 minuti anche nei giorni feriali,
+  in linea con la flessione della domanda tipica del periodo di ferie. Al termine di questo
+  sottoperiodo, il servizio tornerà gradualmente alle cadenze ordinarie in vista della riapertura
+  scolastica.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 250" role="img" aria-label="Intervallo di passaggio tram T1 Bergamo-Albino durante l'estate 2026: 15 minuti nei giorni feriali estivi, 20 minuti di sabato e durante l'orario agostano di agosto">
+    <!-- Sfondo -->
+    <rect width="640" height="250" fill="#f8f9fa" rx="8"/>
+    <!-- Titolo -->
+    <text x="320" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#212529">Tram T1 Bergamo–Albino · intervallo di passaggio</text>
+    <text x="320" y="44" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6c757d">Minuti tra un passaggio e l'altro (valore più basso = servizio più frequente)</text>
+    <!-- Asse verticale -->
+    <line x1="185" y1="58" x2="185" y2="218" stroke="#ced4da" stroke-width="1"/>
+    <!-- Linee griglia (5, 10, 15, 20 min · scala: 1 min = 19 px) -->
+    <line x1="280" y1="58" x2="280" y2="218" stroke="#dee2e6" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="375" y1="58" x2="375" y2="218" stroke="#dee2e6" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="470" y1="58" x2="470" y2="218" stroke="#dee2e6" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="565" y1="58" x2="565" y2="218" stroke="#dee2e6" stroke-width="1" stroke-dasharray="3,3"/>
+    <!-- Etichette scala X -->
+    <text x="185" y="233" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#adb5bd">0</text>
+    <text x="280" y="233" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#adb5bd">5'</text>
+    <text x="375" y="233" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#adb5bd">10'</text>
+    <text x="470" y="233" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#adb5bd">15'</text>
+    <text x="565" y="233" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#adb5bd">20'</text>
+    <!-- Riga 1 · Lun–Ven estivo (9 giu–2 ago) · 15 min = 15×19 = 285 px -->
+    <text x="178" y="84" text-anchor="end" font-family="sans-serif" font-size="11" fill="#343a40">Lun–Ven</text>
+    <text x="178" y="97" text-anchor="end" font-family="sans-serif" font-size="10" fill="#6c757d">9 giu – 2 ago</text>
+    <rect x="185" y="72" width="285" height="34" fill="#1c7ed6" rx="4"/>
+    <text x="480" y="94" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1c7ed6">15 min</text>
+    <!-- Riga 2 · Sabato estivo (9 giu–2 ago) · 20 min = 20×19 = 380 px -->
+    <text x="178" y="144" text-anchor="end" font-family="sans-serif" font-size="11" fill="#343a40">Sabato</text>
+    <text x="178" y="157" text-anchor="end" font-family="sans-serif" font-size="10" fill="#6c757d">9 giu – 2 ago</text>
+    <rect x="185" y="132" width="380" height="34" fill="#74c0fc" rx="4"/>
+    <text x="575" y="154" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1971c2">20 min</text>
+    <!-- Riga 3 · Lun–Ven agosto (3–28 ago) · 20 min -->
+    <text x="178" y="204" text-anchor="end" font-family="sans-serif" font-size="11" fill="#343a40">Lun–Ven</text>
+    <text x="178" y="217" text-anchor="end" font-family="sans-serif" font-size="10" fill="#6c757d">3 – 28 ago</text>
+    <rect x="185" y="192" width="380" height="34" fill="#fd7e14" rx="4"/>
+    <text x="575" y="214" font-family="sans-serif" font-size="13" font-weight="bold" fill="#d9480f">20 min</text>
+  </svg>
+  <figcaption>
+    Intervallo di passaggio della linea T1 Bergamo–Albino nelle principali fasce orarie dell'estate 2026.
+    L'orario agostano (arancione) è in vigore dal 3 al 28 agosto, solo nei giorni feriali.
+    Fonte: ATB / TEB, giugno 2026.
+  </figcaption>
+</figure>
+
+<h2>Linee bus 5 e 6: deviazioni per i lavori in via Paglia</h2>
+<p>
+  In parallelo all'attivazione degli orari estivi, sempre dal 9 giugno ATB introduce una deviazione
+  di percorso per le <strong>linee 5 e 6</strong>, a causa dell'avvio di un cantiere in via Paglia.
+  I mezzi non potranno transitare nel tratto interessato dai lavori e seguiranno un itinerario
+  alternativo: da via Bonomelli percorreranno viale Papa Giovanni XXIII per poi immettersi in
+  via Camozzi. Le fermate di <strong>via Paglia</strong> e di <strong>via Tiraboschi</strong>
+  resteranno temporaneamente soppresse fino al termine del cantiere.
+</p>
+<p>
+  La linea 5 collega la zona di Campagnola con Ranica, Torre Boldone, Busa di Nese, Villa di
+  Serio e Gavarno; la linea 6 serve il quartiere di Monterosso. I passeggeri abituali di questi
+  percorsi sono invitati a verificare i tracciati aggiornati prima di prendere l'autobus, poiché
+  alcune fermate risulteranno irraggiungibili lungo il percorso ordinario.
+</p>
+
+<h2>Linee potenziate per l'estate</h2>
+<p>
+  Secondo quanto riferito da Prima Bergamo, il nuovo orario estivo prevede il potenziamento di
+  diverse linee in vista della stagione estiva, con l'obiettivo di rispondere alla diversa
+  distribuzione della mobilità estiva — meno pendolarismo scolastico, più spostamenti leisure e
+  turistici. I dettagli delle singole linee potenziate sono pubblicati sui siti ufficiali di ATB.
+</p>
+
+<h2>Come consultare gli orari aggiornati</h2>
+<p>
+  I nuovi orari sono affissi alle fermate e disponibili sui siti ufficiali
+  <strong>atb.bergamo.it</strong> e <strong>teb.bergamo.it</strong>. Le modifiche sono integrate
+  anche sulle applicazioni <strong>ATB Mobile</strong>, <strong>Moovit</strong> e
+  <strong>Google Maps</strong>, che aggiornano automaticamente i percorsi suggeriti. In caso di
+  dubbi sulla raggiungibilità di una fermata o sulla frequenza di una linea specifica, è consigliato
+  verificare direttamente sul sito ATB o contattare il servizio clienti prima di mettersi in viaggio.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/06/06/con-la-chiusura-delle-scuole-entrano-in-vigore-gli-orari-estivi-di-atb-e-teb/899666" rel="noopener" target="_blank">BergamoNews</a></li><li><a href="https://primabergamo.it/attualita/atb-e-teb-nuovi-orari-estivi-dal-9-giugno-potenziate-diverse-linee-in-vista-dellestate/" rel="noopener" target="_blank">Prima Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nuovo ponte sull&#x27;adda: rfi lancia il concorso internazionale da 262 milioni rete ferroviaria italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico ponte san michele tra calusco d&#x27;adda (bg) e paderno d&#x27;adda (lc). budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034. trasporti bergamo calusco d&#x27;adda ponte san michele rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-05-ponte-san-michele-concorso-internazionale/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Nuovo Ponte sull&#x27;Adda: RFI lancia il concorso internazionale da 262 milioni</h2><p class="card-summary">Rete Ferroviaria Italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico Ponte San Michele tra Calusco d&#x27;Adda (BG) e Paderno d&#x27;Adda (LC). Budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034.</p><p class="card-meta">5 giugno 2026</p></div></a></article><article class="card" data-search="ponte san michele intasato: 37mila veicoli al giorno, le province chiedono aiuto dopo la chiusura del ponte di brivio il 4 maggio 2026, il traffico sul ponte san michele tra calusco d&#x27;adda e paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. le province di bergamo e lecco hanno scritto alle prefetture per chiedere un tavolo urgente. trasporti bergamo calusco d&#x27;adda ponte san michele traffico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-30-ponte-san-michele-traffico-allarme/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto</h2><p class="card-summary">Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.</p><p class="card-meta">30 maggio 2026</p></div></a></article><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
