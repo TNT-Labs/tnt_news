@@ -1,0 +1,41 @@
+{
+  "date": "2026-06-08",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Mattinata soleggiata sull'intero tragitto, temperature tra 18 e 22 °C, vento debole e visibilità ottima.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato", "temp_c": 18.5, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 21.9, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato", "temp_c": 22.0, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 61,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 28},
+      {"name": "Surface Agrate → Carugate",          "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 20}
+    ],
+    "incidents": [],
+    "notice": "CCISS parzialmente leggibile (segnala code a tratti per traffico intenso su A4, senza eventi specifici localizzati); Luceverde, Autostrade per l'Italia e Serravalle non disponibili."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (0 mm, probabilità 0%)",
+      "Temperatura gradevole tra 18 e 22 °C",
+      "Vento debole (max 5 km/h con raffiche fino a 10 km/h)",
+      "Visibilità ottima (16 km) e asfalto asciutto"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano", "url": "https://www.luceverde.it/milano"},
+    {"name": "Serravalle Tangenziali", "url": "https://www.serravalle.it/traffico"}
+  ]
+}
