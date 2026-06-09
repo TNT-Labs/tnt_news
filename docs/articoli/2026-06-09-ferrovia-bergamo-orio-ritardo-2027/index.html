@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027 — TNT News</title>
+  <meta name="description" content="RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-09-ferrovia-bergamo-orio-ritardo-2027/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027 — TNT News">
+  <meta property="og:description" content="RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-09-ferrovia-bergamo-orio-ritardo-2027/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027 — TNT News">
+  <meta name="twitter:description" content="RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Ferrovia</span><span class="tag">Orio al Serio</span><span class="tag">RFI</span></div>
+    <h1>Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027</h1>
+    <p class="article-summary">RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-09">9 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>I due cantieri ferroviari più attesi della provincia di Bergamo non rispetteranno le scadenze previste. Rete Ferroviaria Italiana (RFI) ha confermato che sia il collegamento tra la stazione di Bergamo e l'aeroporto di Orio al Serio, sia il raddoppio della linea Ponte San Pietro–Bergamo–Montello saranno completati non prima di <strong>dicembre 2027</strong>, con uno slittamento di oltre un anno rispetto all'obiettivo originario fissato a fine 2026.</p>
+
+<h2>Due progetti, un anno di ritardo</h2>
+
+<p>Il collegamento ferroviario con Orio al Serio è da anni considerato una priorità infrastrutturale per il territorio: unirebbe direttamente uno degli scali più frequentati d'Italia — quarto per traffico passeggeri a livello nazionale — con la rete ferroviaria regionale. Il raddoppio del binario verso Ponte San Pietro, invece, serve ad aumentare la capacità della linea già esistente, riducendo i tempi di percorrenza e aumentando la frequenza dei treni per i pendolari della bassa bergamasca e della valle.</p>
+
+<p>Stando a quanto emerso, il ritardo supera i dodici mesi su entrambi i fronti. La nuova data indicata da RFI come traguardo è <strong>dicembre 2027</strong>, a condizione che non emergano ulteriori imprevisti.</p>
+
+<h2>RFI: task force per recuperare il tempo perso</h2>
+
+<p>L'amministratore delegato e direttore generale di RFI, <strong>Aldo Isi</strong>, ha riconosciuto i ritardi accumulati, inserendoli nel contesto della pressione complessiva sui cantieri: «abbiamo 1.300 cantieri attivi ogni giorno», ha dichiarato, sottolineando comunque che il rallentamento rispetto alle previsioni è evidente. Per far fronte alla situazione, RFI ha attivato una <strong>task force dedicata</strong> con l'obiettivo di rispettare il nuovo calendario senza ulteriori slittamenti.</p>
+
+<p>L'assessora regionale alle Infrastrutture, <strong>Claudia Maria Terzi</strong>, ha individuato nella «poca celerità nell'esecuzione da parte dell'impresa» la causa principale dei ritardi. Le sue parole sull'impatto della situazione non hanno lasciato spazio a interpretazioni: i cantieri prolungati «cambiano la vita» ai pendolari che dipendono da quei collegamenti ogni giorno.</p>
+
+<h2>Impatto su pendolari e viaggiatori</h2>
+
+<p>L'attesa si prolunga soprattutto per due categorie di utenti. I <strong>pendolari</strong> della direttrice Ponte San Pietro–Bergamo continuano a fare i conti con una linea a binario unico che limita la frequenza delle corse e rende fragile la rete in caso di guasti o ritardi a catena. I <strong>viaggiatori diretti a Orio al Serio</strong>, nel frattempo, restano privi di un collegamento diretto su rotaia con il centro città: per raggiungere lo scalo è ancora necessario ricorrere al bus ATB o alla propria auto, con le conseguenti ricadute sul traffico nell'area settentrionale di Bergamo.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Timeline comparativa: scadenze originali e nuove per i cantieri ferroviari di Bergamo" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="260" fill="#f5f8ff" rx="12"/>
+
+    <!-- Titolo -->
+    <text x="320" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a2e4a">Cantieri ferroviari Bergamo — scadenze a confronto</text>
+
+    <!-- Legenda -->
+    <rect x="30" y="50" width="16" height="16" rx="3" fill="#2ecc71"/>
+    <text x="52" y="63" font-size="12" fill="#1a2e4a">Scadenza originale (dic 2026)</text>
+    <rect x="260" y="50" width="16" height="16" rx="3" fill="#e74c3c"/>
+    <text x="282" y="63" font-size="12" fill="#1a2e4a">Nuova scadenza (dic 2027)</text>
+
+    <!-- Asse temporale -->
+    <line x1="60" y1="210" x2="590" y2="210" stroke="#aaa" stroke-width="1.5"/>
+    <!-- Tacche asse -->
+    <!-- Gen 2026 -->
+    <line x1="60" y1="205" x2="60" y2="215" stroke="#aaa" stroke-width="1.5"/>
+    <text x="60" y="228" text-anchor="middle" font-size="10" fill="#666">Gen 2026</text>
+    <!-- Giu 2026 -->
+    <line x1="193" y1="205" x2="193" y2="215" stroke="#aaa" stroke-width="1.5"/>
+    <text x="193" y="228" text-anchor="middle" font-size="10" fill="#666">Giu 2026</text>
+    <!-- Dic 2026 -->
+    <line x1="325" y1="205" x2="325" y2="215" stroke="#aaa" stroke-width="1.5"/>
+    <text x="325" y="228" text-anchor="middle" font-size="10" fill="#666">Dic 2026</text>
+    <!-- Giu 2027 -->
+    <line x1="457" y1="205" x2="457" y2="215" stroke="#aaa" stroke-width="1.5"/>
+    <text x="457" y="228" text-anchor="middle" font-size="10" fill="#666">Giu 2027</text>
+    <!-- Dic 2027 -->
+    <line x1="590" y1="205" x2="590" y2="215" stroke="#aaa" stroke-width="1.5"/>
+    <text x="590" y="228" text-anchor="middle" font-size="10" fill="#666">Dic 2027</text>
+
+    <!-- Progetto 1: Bergamo – Orio al Serio -->
+    <text x="56" y="105" text-anchor="end" font-size="12" font-weight="bold" fill="#1a2e4a">Bergamo –</text>
+    <text x="56" y="120" text-anchor="end" font-size="12" font-weight="bold" fill="#1a2e4a">Orio Serio</text>
+    <!-- Barra originale: Gen 2026 → Dic 2026 -->
+    <rect x="60" y="108" width="265" height="18" rx="4" fill="#2ecc71" opacity="0.85"/>
+    <text x="195" y="121" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Scadenza originale</text>
+    <!-- Freccia proroga -->
+    <line x1="325" y1="117" x2="590" y2="117" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <polygon points="590,112 600,117 590,122" fill="#e74c3c"/>
+    <text x="458" y="109" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="bold">+12 mesi</text>
+    <!-- Pallino scadenza originale -->
+    <circle cx="325" cy="117" r="6" fill="#2ecc71" stroke="#fff" stroke-width="1.5"/>
+    <!-- Pallino nuova scadenza -->
+    <circle cx="590" cy="117" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+
+    <!-- Progetto 2: Raddoppio Ponte San Pietro -->
+    <text x="56" y="160" text-anchor="end" font-size="12" font-weight="bold" fill="#1a2e4a">Raddoppio</text>
+    <text x="56" y="175" text-anchor="end" font-size="12" font-weight="bold" fill="#1a2e4a">P. S. Pietro</text>
+    <!-- Barra originale: Gen 2026 → Dic 2026 -->
+    <rect x="60" y="163" width="265" height="18" rx="4" fill="#2ecc71" opacity="0.85"/>
+    <text x="195" y="176" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Scadenza originale</text>
+    <!-- Freccia proroga -->
+    <line x1="325" y1="172" x2="590" y2="172" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <polygon points="590,167 600,172 590,177" fill="#e74c3c"/>
+    <text x="458" y="164" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="bold">+12 mesi</text>
+    <!-- Pallino scadenza originale -->
+    <circle cx="325" cy="172" r="6" fill="#2ecc71" stroke="#fff" stroke-width="1.5"/>
+    <!-- Pallino nuova scadenza -->
+    <circle cx="590" cy="172" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+  </svg>
+  <figcaption>Confronto tra le scadenze originali (dicembre 2026) e le nuove scadenze (dicembre 2027) per i due principali cantieri ferroviari bergamaschi. Il ritardo stimato è di circa dodici mesi per entrambi i progetti. Fonte: Il Giorno Bergamo, Bergamonews — valori indicativi basati sulle dichiarazioni di RFI.</figcaption>
+</figure>
+
+<h2>Un nodo ferroviario in attesa da anni</h2>
+
+<p>Il potenziamento del nodo ferroviario di Bergamo è inserito da anni nei piani del Ministero delle Infrastrutture e dei Trasporti, e i fondi per i cantieri sono stati stanziati. Il problema non è quindi finanziario, bensì esecutivo: i ritardi nell'avanzamento dei lavori hanno già portato RFI a intensificare il monitoraggio diretto dei cantieri, con sopralluoghi più frequenti e la struttura della task force appena istituita.</p>
+
+<p>Fino a dicembre 2027, i viaggiatori diretti a Orio dovranno continuare a fare affidamento sui servizi bus esistenti, mentre i pendolari della linea Bergamo–Ponte San Pietro resteranno su un binario unico con le relative limitazioni di capienza e puntualità. L'auspicio delle istituzioni locali è che il nuovo calendario venga rispettato senza ulteriori proroghe.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/ritardi-cantieri-orio-rfi-task-force-ecd3n9n1" rel="noopener" target="_blank">Il Giorno Bergamo</a></li><li><a href="https://www.bergamonews.it/2026/06/08/treno-per-orio-in-ritardo-di-un-anno-rfi-fissa-il-traguardo-fine-lavori-a-dicembre-2027/899962" rel="noopener" target="_blank">Bergamonews</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nuovo ponte sull&#x27;adda: rfi lancia il concorso internazionale da 262 milioni rete ferroviaria italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico ponte san michele tra calusco d&#x27;adda (bg) e paderno d&#x27;adda (lc). budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034. trasporti bergamo calusco d&#x27;adda ponte san michele rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-05-ponte-san-michele-concorso-internazionale/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Nuovo Ponte sull&#x27;Adda: RFI lancia il concorso internazionale da 262 milioni</h2><p class="card-summary">Rete Ferroviaria Italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico Ponte San Michele tra Calusco d&#x27;Adda (BG) e Paderno d&#x27;Adda (LC). Budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034.</p><p class="card-meta">5 giugno 2026</p></div></a></article><article class="card" data-search="da martedì 9 giugno gli orari estivi di atb e teb: cosa cambia per bus e tram a bergamo con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. la linea tranviaria t1 bergamo–albino corre ogni 15 minuti nei giorni feriali; i lavori in via paglia devianti le linee bus 5 e 6. trasporti bergamo atb teb trasporto pubblico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-07-orari-estivi-atb-teb-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo</h2><p class="card-summary">Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.</p><p class="card-meta">7 giugno 2026</p></div></a></article><article class="card" data-search="ponte san michele intasato: 37mila veicoli al giorno, le province chiedono aiuto dopo la chiusura del ponte di brivio il 4 maggio 2026, il traffico sul ponte san michele tra calusco d&#x27;adda e paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. le province di bergamo e lecco hanno scritto alle prefetture per chiedere un tavolo urgente. trasporti bergamo calusco d&#x27;adda ponte san michele traffico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-30-ponte-san-michele-traffico-allarme/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto</h2><p class="card-summary">Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.</p><p class="card-meta">30 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
