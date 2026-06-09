@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-09",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Parzialmente soleggiato su tutta la tratta. Tracce di precipitazione a Bergamo alla partenza (0,09 mm QPF, prob. 15%); asciutto a Carugate e San Donato. Temperature gradevoli tra 19 e 22 °C, vento debole da Nord a Bergamo e da Ovest nel tratto milanese.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Parzialmente soleggiato", "temp_c": 19.1, "precip_mm": 0.09, "wind_kmh": 5,  "wind_dir": "N"},
+      {"name": "Carugate (08:15)",   "cond": "Parzialmente soleggiato", "temp_c": 21.9, "precip_mm": 0.0,  "wind_kmh": 2,  "wind_dir": "O"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato", "temp_c": 22.1, "precip_mm": 0.0,  "wind_kmh": 5,  "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 101,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 45},
+      {"name": "Surface Agrate → Carugate",          "minutes": 17},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A51, tra svincolo SP208 Carugate e barriera Agrate Brianza", "desc": "Mezzo in avaria segnalato da ricerca web; direzione di percorrenza non confermata dalla fonte."},
+      {"where": "A51, tra Cologno Monzese e Linate (V.le Forlanini–SP14 Rivoltana)", "desc": "Rallentamenti per traffico intenso in direzione A1 Milano-Napoli, segnalati da ricerca web."}
+    ],
+    "notice": "Solo CCISS consultabile (nessuna segnalazione attiva su A4/A51 alle 07:04); Luceverde, Autostrade per l'Italia e Serravalle non raggiungibili (HTTP 404). Segnalazioni incidenti derivano da ricerca web. I minuti per segmento sono stimati proporzionalmente dalla durata totale Google Directions (6056 s = 101 min): i waypoint con prefisso via: non generano legs separati nell'API."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Precipitazioni > 0 mm a Bergamo alla partenza (0,09 mm QPF nella fascia 07:00–08:00)",
+      "Asfalto presumibilmente umido in partenza da Bergamo",
+      "Pioggia debole in sviluppo su Bergamo nelle ore successive (previsione 09:00–10:00)",
+      "La condizione a Bergamo è sufficiente per il verdetto negativo, indipendentemente dalle condizioni asciutte a Carugate e San Donato"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde (non raggiungibile)", "url": "https://www.luceverde.it/"},
+    {"name": "Autostrade per l'Italia (non raggiungibile)", "url": "https://www.autostrade.it/"},
+    {"name": "Serravalle (non raggiungibile)", "url": "https://www.serravalle.it/"},
+    {"name": "Ricerca web (CarX.it, Automap.it, Motorionline)", "url": "https://traffico.carx.it/a51/"}
+  ]
+}
