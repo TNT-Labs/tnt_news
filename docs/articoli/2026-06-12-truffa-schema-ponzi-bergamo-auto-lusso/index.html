@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso — TNT News</title>
+  <meta name="description" content="Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-12-truffa-schema-ponzi-bergamo-auto-lusso/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso — TNT News">
+  <meta property="og:description" content="Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-12-truffa-schema-ponzi-bergamo-auto-lusso/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso — TNT News">
+  <meta name="twitter:description" content="Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">truffa</span><span class="tag">schema Ponzi</span><span class="tag">Guardia di Finanza</span></div>
+    <h1>Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso</h1>
+    <p class="article-summary">Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-12">12 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Nella mattinata dell'11 giugno 2026, oltre cento tra poliziotti e finanzieri — supportati da elicotteri e unità cinofile — hanno eseguito misure cautelari nei confronti di nove indagati in sette province italiane. L'operazione, coordinata dalla Procura di Bergamo e condotta congiuntamente dalla Squadra Mobile della Polizia di Stato e dal Nucleo di Polizia Economico-Finanziaria della Guardia di Finanza, ha smantellato quello che gli inquirenti descrivono come un articolato sistema di frode finanziaria costruito attorno a un presunto business di noleggio di automobili di lusso.</p>
+
+<h2>Come funzionava il meccanismo</h2>
+
+<p>Agli investitori veniva prospettata la possibilità di ottenere rendimenti mensili compresi tra il 2 e il 3 percento attraverso il presunto sub-noleggio di auto di lusso fornite da una società con sede nel Bresciano. In realtà, secondo la ricostruzione degli inquirenti, il sistema ricalcava lo schema Ponzi classico: le somme versate dai nuovi aderenti servivano a remunerare i primi investitori, senza che esistesse un reale giro d'affari in grado di generare gli utili promessi.</p>
+
+<p>I contratti proposti alle vittime facevano riferimento a "fondi comuni di investimento", ma nessuna delle società coinvolte risultava iscritta agli albi degli organi di vigilanza finanziaria né autorizzata all'esercizio di attività di intermediazione. Il denaro raccolto confluiva su conti intestati a società create ad hoc, attraverso fatture inesistenti, per poi essere trasferito tra varie entità e conti personali, con movimentazioni documentate anche verso l'Irlanda e la Slovenia.</p>
+
+<h2>Dalle promesse alle minacce</h2>
+
+<p>Quando il sistema ha mostrato i primi cedimenti e alcune vittime hanno iniziato a richiedere la restituzione del capitale, secondo l'accusa l'organizzazione ha modificato il proprio approccio ricorrendo a intimidazioni e violenza fisica. Due uomini originari della Calabria sarebbero stati incaricati di esercitare pressioni psicologiche e fisiche.</p>
+
+<p>Gli atti processuali citati dagli organi di stampa documentano episodi gravi: una spedizione punitiva culminata con il pestaggio di un uomo e la sottrazione di una Lamborghini, nonché minacce esplicite di morte. Tra le frasi intercettate e riportate dalla stampa, secondo l'accusa: <em>"Se entro l'una non sei qua, vengo, ti prendo e ti stacco la testa"</em> e, rivolte alla moglie di un debitore: <em>"Se vostro marito non paga, lo incappuccio, lo metto nel cofano della macchina e lo porto in Calabria alla cava."</em> Si tratta di accuse non ancora vagliate da un giudice; gli indagati sono da ritenersi innocenti fino a eventuale condanna definitiva.</p>
+
+<h2>I reati contestati e i sequestri</h2>
+
+<p>A vario titolo, agli indagati vengono contestati: associazione per delinquere, truffa, esercizio abusivo dell'attività di investimento, riciclaggio, autoriciclaggio, estorsione aggravata e violazioni tributarie. Il provvedimento ha disposto il sequestro preventivo di beni per un valore complessivo superiore a 1,6 milioni di euro.</p>
+
+<p>Le misure cautelari hanno interessato persone residenti o domiciliate nelle province di Bergamo, Brescia, Firenze, Mantova, Lecco, Monza Brianza e Vibo Valentia, a conferma della diffusione territoriale della rete.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Diagramma del meccanismo dello schema Ponzi: flusso di denaro tra investitori e organizzazione" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="300" fill="#f7f9fc" rx="12"/>
+    <text x="320" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a2e4a">Come funzionava lo schema (secondo l'accusa)</text>
+
+    <!-- Nuovi investitori -->
+    <rect x="20" y="50" width="150" height="52" rx="8" fill="#4a90d9" opacity="0.85"/>
+    <text x="95" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Nuovi investitori</text>
+    <text x="95" y="91" text-anchor="middle" font-size="11" fill="#dde8f8">versano il capitale</text>
+
+    <!-- Freccia verso organizzazione -->
+    <line x1="170" y1="76" x2="238" y2="76" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr)"/>
+    <text x="204" y="68" text-anchor="middle" font-size="10" fill="#e67e22">denaro</text>
+
+    <!-- Organizzazione -->
+    <rect x="238" y="44" width="164" height="64" rx="8" fill="#c0392b" opacity="0.9"/>
+    <text x="320" y="69" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Organizzazione</text>
+    <text x="320" y="86" text-anchor="middle" font-size="11" fill="#f5c6c6">società fittizie · conti esteri</text>
+    <text x="320" y="100" text-anchor="middle" font-size="11" fill="#f5c6c6">Irlanda · Slovenia</text>
+
+    <!-- Freccia verso vecchi investitori (pagamento) -->
+    <line x1="320" y1="108" x2="320" y2="170" stroke="#27ae60" stroke-width="2.5" marker-end="url(#arr2)"/>
+    <text x="345" y="145" font-size="10" fill="#27ae60">rimborsi parziali</text>
+
+    <!-- Vecchi investitori -->
+    <rect x="238" y="170" width="164" height="48" rx="8" fill="#27ae60" opacity="0.8"/>
+    <text x="320" y="192" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Investitori precedenti</text>
+    <text x="320" y="208" text-anchor="middle" font-size="11" fill="#d5f5e3">pagati con nuova liquidità</text>
+
+    <!-- Freccia estorsione -->
+    <line x1="402" y1="76" x2="470" y2="76" stroke="#8e44ad" stroke-width="2.5" marker-end="url(#arr3)"/>
+    <text x="436" y="68" text-anchor="middle" font-size="10" fill="#8e44ad">vittime</text>
+    <text x="436" y="82" text-anchor="middle" font-size="10" fill="#8e44ad">inadempienti</text>
+
+    <!-- Intimidazioni -->
+    <rect x="470" y="50" width="150" height="52" rx="8" fill="#8e44ad" opacity="0.8"/>
+    <text x="545" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Intimidazioni</text>
+    <text x="545" y="91" text-anchor="middle" font-size="11" fill="#e8d5f5">minacce · violenze</text>
+
+    <!-- Sequestri box -->
+    <rect x="80" y="215" width="480" height="60" rx="8" fill="#1a2e4a" opacity="0.08" stroke="#1a2e4a" stroke-width="1.2" stroke-dasharray="5,3"/>
+    <text x="320" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a2e4a">Esito dell'operazione (11 giugno 2026)</text>
+    <text x="320" y="260" text-anchor="middle" font-size="12" fill="#1a2e4a">9 misure cautelari · sequestro preventivo &gt; 1,6 milioni di euro</text>
+    <text x="320" y="275" text-anchor="middle" font-size="11" fill="#555">7 province coinvolte · 100+ agenti impiegati</text>
+
+    <!-- Marcatori frecce -->
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#e67e22"/>
+      </marker>
+      <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#27ae60"/>
+      </marker>
+      <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#8e44ad"/>
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Schema semplificato del meccanismo fraudolento secondo la ricostruzione degli inquirenti. I flussi mostrano come il denaro dei nuovi aderenti venisse usato per remunerare i precedenti investitori, con ricorso alle intimidazioni in caso di inadempienza. Valori indicativi. Fonti: L'Eco di Bergamo, Il Giorno, 11–12 giugno 2026.</figcaption>
+</figure>
+
+<h2>Il contesto dell'indagine</h2>
+
+<p>L'inchiesta della Procura di Bergamo si inserisce in un filone di attenzione crescente verso le frodi finanziarie che sfruttano l'attrattiva del lusso e la promessa di rendimenti elevati. Il formato del sub-noleggio di veicoli di pregio — con tanto di cene in location esclusive per conquistare la fiducia delle potenziali vittime — rappresenta una variante contemporanea di schemi già noti alle forze dell'ordine, aggiornata all'immagine aspirazionale che i social media contribuiscono a diffondere.</p>
+
+<p>Le indagini hanno richiesto un lavoro di ricostruzione dei flussi finanziari complesso, che ha portato all'individuazione di movimentazioni tra più paesi europei. L'operazione del 11 giugno rappresenta la fase esecutiva di un'attività investigativa avviata in precedenza, i cui esiti processuali saranno determinati nelle sedi competenti.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/falsi-investimenti-nelle-auto-di-lusso-blitz-tra-bergamo-e-altre-sei-province-o_3886168_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/truffa-riciclaggio-estorsioni-oxlphbqq" rel="noopener" target="_blank">Il Giorno – Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="ultraleggero precipita a valbrembo: morto l&#x27;istruttore daniel taino, ferito l&#x27;allievo domenica 1° giugno un cessna 152 della scuola cantor air si è schiantato su via don bosco durante una fase di atterraggio. l&#x27;istruttore 27enne daniel taino di pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al papa giovanni xxiii. l&#x27;ansv ha aperto un&#x27;inchiesta. cronaca bergamo valbrembo incidente aereo cantor air" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-02-ultraleggero-valbrembo-daniel-taino/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Ultraleggero precipita a Valbrembo: morto l&#x27;istruttore Daniel Taino, ferito l&#x27;allievo</h2><p class="card-summary">Domenica 1° giugno un Cessna 152 della scuola Cantor Air si è schiantato su via Don Bosco durante una fase di atterraggio. L&#x27;istruttore 27enne Daniel Taino di Pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al Papa Giovanni XXIII. L&#x27;ANSV ha aperto un&#x27;inchiesta.</p><p class="card-meta">2 giugno 2026</p></div></a></article><article class="card" data-search="caporalato al consolato usa di milano: manager fermato a orio al serio mentre tentava la fuga ulas demir, dirigente turco della filiale italiana di caddell construction, è stato bloccato a bergamo il 31 maggio mentre si imbarcava per istanbul. l&#x27;inchiesta riguarda quasi mille lavoratori indiani sfruttati nel cantiere da 200 milioni di dollari del nuovo consolato americano a milano. cronaca bergamo orio al serio caporalato sfruttamento lavoratori" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-01-caporalato-consolato-usa-orio/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Caporalato al consolato USA di Milano: manager fermato a Orio al Serio mentre tentava la fuga</h2><p class="card-summary">Ulas Demir, dirigente turco della filiale italiana di Caddell Construction, è stato bloccato a Bergamo il 31 maggio mentre si imbarcava per Istanbul. L&#x27;inchiesta riguarda quasi mille lavoratori indiani sfruttati nel cantiere da 200 milioni di dollari del nuovo consolato americano a Milano.</p><p class="card-meta">1 giugno 2026</p></div></a></article><article class="card" data-search="sciopero treni 11 giugno: 23 ore di disagi in lombardia, i sindacati di base confermano i sindacati di base (cub trasporti, sgb, cat, assemblea pdb e pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. i confederali si sono fermati dopo un tavolo al mit. trenord garantisce i treni nelle fasce 6-9 e 18-21. trasporti bergamo treni sciopero trenord" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-11-sciopero-treni-sindacati-base-lombardia/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero treni 11 giugno: 23 ore di disagi in Lombardia, i sindacati di base confermano</h2><p class="card-summary">I sindacati di base (CUB Trasporti, SGB, CAT, Assemblea Pdb e Pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. I confederali si sono fermati dopo un tavolo al MIT. Trenord garantisce i treni nelle fasce 6-9 e 18-21.</p><p class="card-meta">11 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
