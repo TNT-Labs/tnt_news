@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-12",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo prevalentemente nuvoloso su tutto il tragitto con temperature miti (15–20 °C), vento debole da NNE/E e nessuna precipitazione prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Prevalentemente nuvoloso", "temp_c": 15.4, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Prevalentemente nuvoloso", "temp_c": 19.3, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Prevalentemente nuvoloso", "temp_c": 19.6, "precip_mm": 0.0, "wind_kmh": 8,  "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 76,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 35},
+      {"name": "Surface Agrate → Carugate",          "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 28}
+    ],
+    "incidents": [],
+    "notice": "Google Directions API disponibile (status OK, ETA totale 76 min); i segmenti sono stimati proporzionalmente dalla baseline (waypoint via: non genera 3 leg separati). Luceverde (Lombardia e Milano) e Serravalle non raggiungibili (HTTP 404). CCISS leggibile ma riporta solo traffico intenso generico sull'A4 Milano-Brescia senza incidenti specifici sulla tratta Bergamo–Agrate. Nessun incidente o cantiere rilevante rilevato dalla ricerca web per la giornata del 12 giugno 2026; code tipiche da rush hour segnalate sull'A51 tra Cologno M. Nord e Forlanini (già incorporate nell'ETA Google)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista nei tre punti del tragitto (0 mm, probabilità massima 10%)",
+      "Temperature ampiamente sopra soglia: 15 °C a Bergamo, ~19 °C a Carugate e San Donato",
+      "Vento debole (max 8 km/h) e raffiche contenute (max 14 km/h) in tutta la finestra 07:30–09:00",
+      "Visibilità ottima (16 km) e nessuna nebbia, neve o temporale previsti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",         "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati","url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia",        "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano",           "url": "https://www.luceverde.it/milano"},
+    {"name": "Serravalle — Tangenziali Milano", "url": "https://www.serravalle.it/traffico"},
+    {"name": "Ricerca web (WebSearch)",    "url": "https://www.cciss.it/"}
+  ]
+}
