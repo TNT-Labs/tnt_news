@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-16",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Mattinata di giugno con cielo parzialmente soleggiato su tutto il tragitto, temperature gradevoli tra 18 e 22 °C, nessuna precipitazione prevista e vento debole da ENE.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Parzialmente soleggiato", "temp_c": 18.2, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Parzialmente soleggiato", "temp_c": 22.2, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato", "temp_c": 22.4, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 95,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 44},
+      {"name": "Surface Agrate → Carugate",          "minutes": 16},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 35}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano (Bergamo–Agrate)", "desc": "Code a tratti per traffico intenso segnalate da CCISS alle 06:52."},
+      {"where": "A51 svincolo Agrate B./SP13 Melzo-Monza-Dogana", "desc": "Code per traffico intenso in direzione Allacciamento A1 (sud, verso San Donato)."}
+    ],
+    "notice": "Solo CCISS parzialmente consultabile; Luceverde (lombardia e milano), Autostrade per l'Italia e Serravalle non raggiungibili (HTTP 404). Incidenti A51 rilevati tramite ricerca web. I tre segmenti sono stimati proporzionalmente dal totale API (via: waypoint restituisce un'unica leg di 95 min)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (probabilità max 5%)",
+      "Temperature tra 18 e 22 °C, abbondantemente sopra la soglia di sicurezza",
+      "Vento debole (max 6 km/h) e raffiche modeste (max 14 km/h)",
+      "Visibilità ottimale di 16 km in tutti e tre i punti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",         "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati","url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia",        "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano",           "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia",    "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Serravalle — Traffico",      "url": "https://www.serravalle.it/traffico"}
+  ]
+}
