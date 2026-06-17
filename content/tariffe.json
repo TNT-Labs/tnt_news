@@ -1,93 +1,177 @@
 {
   "ultimo_aggiornamento": "2026-06-17",
-  "disclaimer": "Tariffe occasionali (pay-per-use) per ricarica AC/DC, in €/kWh. Valori indicativi: i listini cambiano spesso e variano tra clienti business e privati. Verifica sempre sul sito ufficiale dell'operatore prima di ricaricare.",
+  "disclaimer": "Prezzi indicativi della app proprietaria del gestore (pay-per-use senza abbonamento), in €/kWh. I listini cambiano spesso e variano per zona, fascia oraria e profilo cliente. Verifica sempre sul sito o sull'app ufficiale prima di ricaricare.",
   "fonte": "Listini pubblici dei singoli CPO. Mantenuti manualmente in content/tariffe.json.",
   "gestori": [
     {
       "nome": "Enel X Way",
-      "alias": ["Enel X", "Enel X Mobility", "EnelXWay", "Enel X Way S.r.l."],
+      "alias": ["Enel X", "EnelX", "Enel X Mobility", "EnelXWay", "Enel X Way Srl", "Eneldrive", "Enel Drive", "Enel Energia", "JuicePass"],
+      "prefixes": ["enel"],
       "sito": "https://www.enelxway.com/it/it",
       "tariffe": [
-        { "tipo": "AC fino a 22 kW",   "prezzo": "0,58 €/kWh" },
-        { "tipo": "DC 50 kW",          "prezzo": "0,78 €/kWh" },
-        { "tipo": "HPC ≥ 100 kW", "prezzo": "0,90 €/kWh" }
+        { "tipo": "AC ≤ 22 kW",     "prezzo": "0,64 €/kWh" },
+        { "tipo": "DC 50–150 kW",   "prezzo": "0,86 €/kWh" },
+        { "tipo": "HPC > 150 kW",   "prezzo": "0,89 €/kWh" }
       ],
-      "note": "Tariffa Pay Per Use Plus per occasionali. Gli abbonati Enel X Way hanno tariffe inferiori."
-    },
-    {
-      "nome": "Be Charge (Plenitude)",
-      "alias": ["Be Charge", "BeCharge", "Plenitude", "Be Charge S.r.l.", "Plenitude Be Charge"],
-      "sito": "https://www.bcorporate.com/it/",
-      "tariffe": [
-        { "tipo": "AC fino a 22 kW",   "prezzo": "0,49 €/kWh" },
-        { "tipo": "DC 50 kW",          "prezzo": "0,69 €/kWh" },
-        { "tipo": "HPC ≥ 100 kW", "prezzo": "0,79 €/kWh" }
-      ],
-      "note": "Listino occasionali via app Be Charge / JuicePass."
+      "note": "Tariffa Pay Per Use. Gli abbonati Enel X Way hanno prezzi inferiori."
     },
     {
       "nome": "A2A E-Moving",
-      "alias": ["A2A", "A2A Smart City", "A2A E-Mobility", "E-Moving"],
+      "alias": ["A2A", "A2A Smart City", "A2A E-Mobility", "E-Moving", "A2A Energia"],
       "sito": "https://www.a2a.eu/it/e-moving",
       "tariffe": [
-        { "tipo": "AC fino a 22 kW",   "prezzo": "0,45 €/kWh" },
-        { "tipo": "DC ≥ 50 kW",   "prezzo": "0,69 €/kWh" }
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,72 €/kWh" }
+      ]
+    },
+    {
+      "nome": "Plenitude On The Road",
+      "alias": ["Be Charge", "BeCharge", "Plenitude", "Plenitude On The Road", "Be Charge Srl", "Eni Plenitude", "On The Road"],
+      "sito": "https://eniplenitude.com/mobilita-elettrica",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,65 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,77 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,95 €/kWh" }
       ],
-      "note": "Tariffe indicative su Milano e provincia. Varia per zona."
+      "note": "Ex Be Charge, oggi marchio Plenitude (gruppo Eni)."
+    },
+    {
+      "nome": "Duferco Energia",
+      "alias": ["Duferco", "Duferco Energia Srl", "Duferco Energia Mobility"],
+      "sito": "https://www.dufercoenergia.it/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,52–0,74 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,77 €/kWh" }
+      ]
+    },
+    {
+      "nome": "Neogy",
+      "alias": ["Neogy", "Alperia", "Alperia Smart Mobility", "Neogy Alperia", "Dolomiti Energia"],
+      "sito": "https://www.neogy.it/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,45–0,65 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,55–0,89 €/kWh" }
+      ],
+      "note": "Operatore di Alperia / Dolomiti Energia."
+    },
+    {
+      "nome": "Atlante",
+      "alias": ["Atlante", "NHOA", "NHOA Energy", "Atlante Srl", "Atlante NHOA"],
+      "sito": "https://www.atlante.energy/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,55 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,75 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,75 €/kWh" }
+      ]
+    },
+    {
+      "nome": "Electrip",
+      "alias": ["Electrip", "Electrip Italia"],
+      "sito": "https://www.electrip.it/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,79–0,89 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,65 €/kWh" }
+      ]
+    },
+    {
+      "nome": "IPlanet",
+      "alias": ["IPlanet", "iPlanet", "I-Planet", "I Planet"],
+      "sito": "https://www.iplanet.it/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,49 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,74 €/kWh" }
+      ]
     },
     {
       "nome": "Free To X",
-      "alias": ["Free To X", "FreeToX", "Free To X S.p.A.", "FreeToX Autostrade"],
+      "alias": ["Free To X", "FreeToX", "Free To X SpA", "FreeToX Autostrade"],
       "sito": "https://www.freetox.it/",
       "tariffe": [
-        { "tipo": "HPC ≥ 150 kW", "prezzo": "0,79 €/kWh" }
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,56 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,65 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,79 €/kWh" }
       ],
-      "note": "Operatore del gruppo Autostrade per l'Italia. Solo colonnine HPC nelle aree di servizio."
+      "note": "Gruppo Autostrade per l'Italia. Soprattutto aree di servizio."
+    },
+    {
+      "nome": "Edison",
+      "alias": ["Edison", "Edison Energia", "Edison Smart Charging"],
+      "sito": "https://www.edison.it/it/mobilita-elettrica",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,65 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,78 €/kWh" }
+      ]
+    },
+    {
+      "nome": "Repower",
+      "alias": ["Repower", "Repower Italia", "Repower Vendita Italia", "Plug'n Go", "PlugnGo"],
+      "sito": "https://www.repower.com/it/",
+      "tariffe": [
+        { "tipo": "AC ≤ 22 kW", "prezzo": "0,59 €/kWh" }
+      ]
+    },
+    {
+      "nome": "ACEA",
+      "alias": ["ACEA", "Acea", "Acea e-mobility", "Acea Innovation"],
+      "sito": "https://www.acea.it/",
+      "tariffe": [
+        { "tipo": "DC 50–150 kW", "prezzo": "0,84–0,88 €/kWh" }
+      ]
+    },
+    {
+      "nome": "EWIVA",
+      "alias": ["EWIVA", "Ewiva"],
+      "sito": "https://www.ewiva.com/",
+      "tariffe": [
+        { "tipo": "DC 50–150 kW", "prezzo": "0,85–0,90 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,86 €/kWh" }
+      ],
+      "note": "Joint venture Enel X Way – Volkswagen Group."
+    },
+    {
+      "nome": "Electra",
+      "alias": ["Electra", "Electra Italia"],
+      "sito": "https://www.electra.com/it",
+      "tariffe": [
+        { "tipo": "DC 50–150 kW", "prezzo": "0,85 €/kWh" },
+        { "tipo": "HPC > 150 kW", "prezzo": "0,69 €/kWh" }
+      ]
+    },
+    {
+      "nome": "Tesla Supercharger",
+      "alias": ["Tesla", "Tesla Motors", "Tesla Inc", "Supercharger"],
+      "prefixes": ["tesla"],
+      "sito": "https://www.tesla.com/it_IT/supercharger",
+      "tariffe": [
+        { "tipo": "HPC > 150 kW", "prezzo": "0,30–0,60 €/kWh" }
+      ],
+      "note": "Prezzo dinamico per stazione e fascia oraria. I veicoli non-Tesla pagano una tariffa più alta tramite app Tesla."
     },
     {
       "nome": "Ionity",
       "alias": ["IONITY", "Ionity GmbH"],
       "sito": "https://ionity.eu/it/access-and-pay",
       "tariffe": [
-        { "tipo": "HPC ≥ 350 kW", "prezzo": "0,79 €/kWh" }
+        { "tipo": "HPC > 150 kW", "prezzo": "0,79 €/kWh" }
       ],
-      "note": "Tariffa Direct senza abbonamento. Con Ionity Power (5,99 €/mese) scende a 0,49 €/kWh."
+      "note": "Tariffa Direct senza abbonamento. Con Ionity Passport il prezzo scende."
     },
     {
-      "nome": "Tesla Supercharger",
-      "alias": ["Tesla", "Tesla Motors", "Tesla Inc.", "Tesla Supercharger"],
-      "sito": "https://www.tesla.com/it_IT/supercharger",
+      "nome": "Porsche Charging",
+      "alias": ["Porsche", "Porsche Charging Service", "Porsche Destination Charging"],
+      "sito": "https://www.porsche.com/italy/aboutporsche/e-performance/charging-service/",
       "tariffe": [
-        { "tipo": "Supercharger (Tesla)",     "prezzo": "0,42 €/kWh circa" },
-        { "tipo": "Supercharger (non Tesla)", "prezzo": "0,55 €/kWh circa" }
-      ],
-      "note": "Prezzo dinamico per fascia oraria e stazione. Per i non-Tesla si paga via app Tesla."
-    },
-    {
-      "nome": "Atlante (NHOA)",
-      "alias": ["Atlante", "NHOA Energy", "Atlante S.r.l.", "Atlante NHOA"],
-      "sito": "https://www.atlante.energy/",
-      "tariffe": [
-        { "tipo": "DC ≥ 75 kW", "prezzo": "0,69 €/kWh" }
-      ],
-      "note": "Solo colonnine fast e ultrafast."
-    },
-    {
-      "nome": "Duferco Energia",
-      "alias": ["Duferco", "Duferco Energia S.p.A.", "Duferco Energia Mobility"],
-      "sito": "https://www.dufercoenergia.it/",
-      "tariffe": [
-        { "tipo": "AC fino a 22 kW", "prezzo": "0,55 €/kWh" },
-        { "tipo": "DC 50 kW",        "prezzo": "0,75 €/kWh" }
+        { "tipo": "HPC > 150 kW", "prezzo": "0,89 €/kWh" }
       ]
     },
     {
-      "nome": "Repower",
-      "alias": ["Repower", "Repower Italia", "Repower Vendita Italia"],
-      "sito": "https://www.repower.com/it/",
+      "nome": "Smatrics EnBW",
+      "alias": ["Smatrics", "EnBW", "Smatrics EnBW"],
+      "sito": "https://smatrics.com/",
       "tariffe": [
-        { "tipo": "AC fino a 22 kW", "prezzo": "0,57 €/kWh" },
-        { "tipo": "DC ≥ 50 kW", "prezzo": "0,79 €/kWh" }
+        { "tipo": "HPC > 150 kW", "prezzo": "0,56 €/kWh" }
       ]
     },
     {
@@ -95,8 +179,8 @@
       "alias": ["EVway", "Route220", "EVway by Route220"],
       "sito": "https://www.evway.net/",
       "tariffe": [
-        { "tipo": "AC fino a 22 kW", "prezzo": "0,50 €/kWh" },
-        { "tipo": "DC 50 kW",        "prezzo": "0,72 €/kWh" }
+        { "tipo": "AC ≤ 22 kW",   "prezzo": "0,50 €/kWh" },
+        { "tipo": "DC 50–150 kW", "prezzo": "0,72 €/kWh" }
       ]
     }
   ]

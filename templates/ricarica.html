@@ -2,19 +2,30 @@
 <section class="ricarica-intro">
   <h1>Colonnine di ricarica in Lombardia</h1>
   <p>Mappa interattiva delle colonnine elettriche pubbliche. Tocca un pin per
-  vedere l'operatore proprietario e il suo listino occasionale.</p>
-  <p class="ricarica-source">
-    Posizioni: <a href="https://openchargemap.org/" target="_blank" rel="noopener">OpenChargeMap</a>.
-    Listini: archivio curato a partire dai siti ufficiali dei singoli operatori.
-  </p>
+  vedere l'operatore proprietario e il suo listino.</p>
 </section>
+<div class="ricarica-toolbar">
+  <div class="ricarica-filters" id="ricarica-filters" role="group" aria-label="Filtra per potenza">
+    <button type="button" class="rfilter is-active" data-filter="all">Tutte</button>
+    <button type="button" class="rfilter" data-filter="slow">Lente <span class="rfilter-kw">≤22 kW</span></button>
+    <button type="button" class="rfilter" data-filter="fast">Veloci <span class="rfilter-kw">50–150 kW</span></button>
+    <button type="button" class="rfilter" data-filter="hpc">Ultrarapide <span class="rfilter-kw">&gt;150 kW</span></button>
+  </div>
+  <p id="station-status" class="station-status" aria-live="polite">Inizializzo la mappa…</p>
+</div>
 <div class="ricarica-layout">
   <div id="map" class="ricarica-map" role="application" aria-label="Mappa delle colonnine in Lombardia"></div>
-  <aside class="ricarica-panel" aria-live="polite">
-    <p id="station-status" class="station-status">Inizializzo la mappa…</p>
-    <div id="station-details" class="station-details"></div>
+  <aside class="ricarica-panel" id="ricarica-panel" aria-live="polite">
+    <button type="button" id="station-close" class="station-close" aria-label="Chiudi dettaglio">&times;</button>
+    <div id="station-details" class="station-details">
+      <p class="station-placeholder">Tocca una colonnina sulla mappa per vedere operatore, potenza e listino prezzi.</p>
+    </div>
   </aside>
 </div>
+<p class="ricarica-source">
+  Posizioni: <a href="https://openchargemap.org/" target="_blank" rel="noopener">OpenChargeMap</a>.
+  Listini: archivio curato a partire dai siti ufficiali dei singoli operatori.
+</p>
 <script id="tariffe-data" type="application/json">{{TARIFFE_JSON}}</script>
 <script>
   (function () {
