@@ -577,7 +577,27 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 .tariff-link { margin: .4rem 0 0; font-size: .9rem; }
 
 [data-theme="dark"] .ricarica-map { background: #1e2229; }
+[data-theme="dark"] .ricarica-panel {
+  background: #1e2229;
+  border-color: #3a3f4b;
+  color: #d4d8e0;
+}
+[data-theme="dark"] .station-title { color: #eceef2; }
+[data-theme="dark"] .station-address,
+[data-theme="dark"] .station-label,
+[data-theme="dark"] .station-hint,
+[data-theme="dark"] .station-status { color: #8b93a1; }
 [data-theme="dark"] .station-no-tariff { background: #3d3417; color: #f0d98c; }
+[data-theme="dark"] .station-disclaimer {
+  color: #8b93a1;
+  border-top-color: #3a3f4b;
+}
+[data-theme="dark"] .tariff-title { color: #eceef2; }
+[data-theme="dark"] .tariff-table { color: #d4d8e0; }
+[data-theme="dark"] .tariff-table td { border-bottom-color: #3a3f4b; }
+[data-theme="dark"] .tariff-table td:last-child { color: #a8d5a2; }
+[data-theme="dark"] .tariff-note { color: #8b93a1; }
+[data-theme="dark"] .tariff-link a { color: #7eb8f7; }
 
 @media (max-width: 800px) {
   .ricarica-layout { grid-template-columns: 1fr; }
