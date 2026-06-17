@@ -352,7 +352,7 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 .site-footer p { max-width: var(--max); margin: 0 auto; }
 .cat-nav { max-width: var(--max); margin: 0 auto 1rem; font-family: "Helvetica Neue", Arial, sans-serif; }
 .cat-nav-label { font-weight: 700; }
-.cat-nav a { color: var(--muted); text-decoration: none; margin: 0 .15rem; padding: .1rem .3rem; white-space: nowrap; }
+.cat-nav a { color: var(--muted); text-decoration: none; margin: 0 .15rem; padding: .1rem .3rem; white-space: nowrap; display: inline-block; }
 .cat-nav a:hover { color: var(--accent); }
 .site-links {
   max-width: var(--max);
@@ -360,7 +360,7 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
 }
-.site-links a { color: var(--ink); text-decoration: none; margin: 0 .5rem; }
+.site-links a { color: var(--ink); text-decoration: none; margin: 0 .5rem; display: inline-block; white-space: nowrap; }
 .site-links a:hover { color: var(--accent); }
 .legal-disclaimer { color: var(--muted); font-size: .95rem; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.6rem; }
 
@@ -529,6 +529,32 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
   .card.featured .card-title { font-size: 1.5rem; }
   .article-body { font-size: 1.05rem; }
   .tag-filters { justify-content: flex-start; }
+
+  /* Footer mobile: padding ridotto, link a flex con wrap pulito */
+  .site-footer {
+    padding: 1.2rem .9rem 1.4rem;
+    font-size: .82rem;
+    overflow-wrap: anywhere;
+  }
+  .site-footer p { padding: 0 .2rem; }
+  .cat-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem .35rem;
+    line-height: 1.3;
+  }
+  .cat-nav-label { width: 100%; text-align: center; margin-bottom: .2rem; }
+  .cat-nav a { margin: 0; }
+  .site-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .4rem .9rem;
+    line-height: 1.4;
+  }
+  .site-links a { margin: 0; }
 }
 
 /* Pagina colonnine di ricarica */
