@@ -19,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CONTENT_DIR = ROOT / "content" / "articles"
 BOLLETTINO_DIR = ROOT / "content" / "bollettino"
+TARIFFE_PATH = ROOT / "content" / "tariffe.json"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 OUTPUT_DIR = ROOT / "docs"
@@ -631,6 +632,36 @@ def build_bollettino_page(
     )
 
 
+def load_tariffe() -> dict:
+    if not TARIFFE_PATH.exists():
+        return {"ultimo_aggiornamento": "", "gestori": []}
+    try:
+        return json.loads(TARIFFE_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {"ultimo_aggiornamento": "", "gestori": []}
+
+
+def build_ricarica_page(tariffe: dict, categories: list[str], base: str) -> str:
+    prefix = "../"
+    ricarica_tpl = load_template("ricarica.html")
+    # JSON serializzato senza caratteri pericolosi per essere infilato in <script>.
+    tariffe_json = json.dumps(tariffe, ensure_ascii=False).replace("</", "<\\/")
+    content = render(ricarica_tpl, ROOT=prefix, TARIFFE_JSON=tariffe_json)
+    return page(
+        base,
+        title=f"Colonnine di ricarica in Lombardia — {SITE_NAME}",
+        description=escape(
+            "Mappa interattiva delle colonnine elettriche in Lombardia con il "
+            "listino occasionale del CPO proprietario."
+        ),
+        root=prefix,
+        canonical=f"{SITE_URL}/ricarica/",
+        og_type="website",
+        categories=render_categories_nav(categories, prefix),
+        content=content,
+    )
+
+
 def build_empty_bollettino_page(categories: list[str], base: str) -> str:
     prefix = "../"
     content = (
@@ -733,12 +764,21 @@ def main() -> None:
             build_empty_bollettino_page(cats, base), encoding="utf-8"
         )
 
+    # pagina colonnine ricarica
+    tariffe = load_tariffe()
+    rdir = OUTPUT_DIR / "ricarica"
+    rdir.mkdir(parents=True, exist_ok=True)
+    (rdir / "index.html").write_text(
+        build_ricarica_page(tariffe, cats, base), encoding="utf-8"
+    )
+
     # feed RSS
     (OUTPUT_DIR / "feed.xml").write_text(build_feed(articles), encoding="utf-8")
 
     print(
         f"Generati {len(articles)} articoli, {len(cats)} categorie, "
-        f"{len(bollettini)} bollettini, 2 pagine informative e il feed RSS in {OUTPUT_DIR}"
+        f"{len(bollettini)} bollettini, 2 pagine informative, pagina colonnine "
+        f"({len(tariffe.get('gestori', []))} gestori) e il feed RSS in {OUTPUT_DIR}"
     )
 
 

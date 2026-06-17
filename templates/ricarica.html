@@ -1,0 +1,26 @@
+<a class="back-link" href="{{ROOT}}index.html">&larr; Home</a>
+<section class="ricarica-intro">
+  <h1>Colonnine di ricarica in Lombardia</h1>
+  <p>Mappa interattiva delle colonnine elettriche pubbliche. Tocca un pin per
+  vedere l'operatore proprietario e il suo listino occasionale.</p>
+  <p class="ricarica-source">
+    Posizioni: <a href="https://openchargemap.org/" target="_blank" rel="noopener">OpenChargeMap</a>.
+    Listini: archivio curato a partire dai siti ufficiali dei singoli operatori.
+  </p>
+</section>
+<div class="ricarica-layout">
+  <div id="map" class="ricarica-map" role="application" aria-label="Mappa delle colonnine in Lombardia"></div>
+  <aside class="ricarica-panel" aria-live="polite">
+    <p id="station-status" class="station-status">Inizializzo la mappa…</p>
+    <div id="station-details" class="station-details"></div>
+  </aside>
+</div>
+<script id="tariffe-data" type="application/json">{{TARIFFE_JSON}}</script>
+<script>
+  (function () {
+    try {
+      window.TARIFFE = JSON.parse(document.getElementById("tariffe-data").textContent);
+    } catch (e) { window.TARIFFE = { gestori: [] }; }
+  })();
+</script>
+<script src="{{ROOT}}ricarica.js" defer></script>

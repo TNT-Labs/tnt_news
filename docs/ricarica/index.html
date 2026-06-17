@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Colonnine di ricarica in Lombardia — TNT News</title>
+  <meta name="description" content="Mappa interattiva delle colonnine elettriche in Lombardia con il listino occasionale del CPO proprietario.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/ricarica/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Colonnine di ricarica in Lombardia — TNT News">
+  <meta property="og:description" content="Mappa interattiva delle colonnine elettriche in Lombardia con il listino occasionale del CPO proprietario.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/ricarica/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Colonnine di ricarica in Lombardia — TNT News">
+  <meta name="twitter:description" content="Mappa interattiva delle colonnine elettriche in Lombardia con il listino occasionale del CPO proprietario.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../feed.xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Home</a>
+<section class="ricarica-intro">
+  <h1>Colonnine di ricarica in Lombardia</h1>
+  <p>Mappa interattiva delle colonnine elettriche pubbliche. Tocca un pin per
+  vedere l'operatore proprietario e il suo listino occasionale.</p>
+  <p class="ricarica-source">
+    Posizioni: <a href="https://openchargemap.org/" target="_blank" rel="noopener">OpenChargeMap</a>.
+    Listini: archivio curato a partire dai siti ufficiali dei singoli operatori.
+  </p>
+</section>
+<div class="ricarica-layout">
+  <div id="map" class="ricarica-map" role="application" aria-label="Mappa delle colonnine in Lombardia"></div>
+  <aside class="ricarica-panel" aria-live="polite">
+    <p id="station-status" class="station-status">Inizializzo la mappa…</p>
+    <div id="station-details" class="station-details"></div>
+  </aside>
+</div>
+<script id="tariffe-data" type="application/json">{"ultimo_aggiornamento": "2026-06-17", "disclaimer": "Tariffe occasionali (pay-per-use) per ricarica AC/DC, in €/kWh. Valori indicativi: i listini cambiano spesso e variano tra clienti business e privati. Verifica sempre sul sito ufficiale dell'operatore prima di ricaricare.", "fonte": "Listini pubblici dei singoli CPO. Mantenuti manualmente in content/tariffe.json.", "gestori": [{"nome": "Enel X Way", "alias": ["Enel X", "Enel X Mobility", "EnelXWay", "Enel X Way S.r.l."], "sito": "https://www.enelxway.com/it/it", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,58 €/kWh"}, {"tipo": "DC 50 kW", "prezzo": "0,78 €/kWh"}, {"tipo": "HPC ≥ 100 kW", "prezzo": "0,90 €/kWh"}], "note": "Tariffa Pay Per Use Plus per occasionali. Gli abbonati Enel X Way hanno tariffe inferiori."}, {"nome": "Be Charge (Plenitude)", "alias": ["Be Charge", "BeCharge", "Plenitude", "Be Charge S.r.l.", "Plenitude Be Charge"], "sito": "https://www.bcorporate.com/it/", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,49 €/kWh"}, {"tipo": "DC 50 kW", "prezzo": "0,69 €/kWh"}, {"tipo": "HPC ≥ 100 kW", "prezzo": "0,79 €/kWh"}], "note": "Listino occasionali via app Be Charge / JuicePass."}, {"nome": "A2A E-Moving", "alias": ["A2A", "A2A Smart City", "A2A E-Mobility", "E-Moving"], "sito": "https://www.a2a.eu/it/e-moving", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,45 €/kWh"}, {"tipo": "DC ≥ 50 kW", "prezzo": "0,69 €/kWh"}], "note": "Tariffe indicative su Milano e provincia. Varia per zona."}, {"nome": "Free To X", "alias": ["Free To X", "FreeToX", "Free To X S.p.A.", "FreeToX Autostrade"], "sito": "https://www.freetox.it/", "tariffe": [{"tipo": "HPC ≥ 150 kW", "prezzo": "0,79 €/kWh"}], "note": "Operatore del gruppo Autostrade per l'Italia. Solo colonnine HPC nelle aree di servizio."}, {"nome": "Ionity", "alias": ["IONITY", "Ionity GmbH"], "sito": "https://ionity.eu/it/access-and-pay", "tariffe": [{"tipo": "HPC ≥ 350 kW", "prezzo": "0,79 €/kWh"}], "note": "Tariffa Direct senza abbonamento. Con Ionity Power (5,99 €/mese) scende a 0,49 €/kWh."}, {"nome": "Tesla Supercharger", "alias": ["Tesla", "Tesla Motors", "Tesla Inc.", "Tesla Supercharger"], "sito": "https://www.tesla.com/it_IT/supercharger", "tariffe": [{"tipo": "Supercharger (Tesla)", "prezzo": "0,42 €/kWh circa"}, {"tipo": "Supercharger (non Tesla)", "prezzo": "0,55 €/kWh circa"}], "note": "Prezzo dinamico per fascia oraria e stazione. Per i non-Tesla si paga via app Tesla."}, {"nome": "Atlante (NHOA)", "alias": ["Atlante", "NHOA Energy", "Atlante S.r.l.", "Atlante NHOA"], "sito": "https://www.atlante.energy/", "tariffe": [{"tipo": "DC ≥ 75 kW", "prezzo": "0,69 €/kWh"}], "note": "Solo colonnine fast e ultrafast."}, {"nome": "Duferco Energia", "alias": ["Duferco", "Duferco Energia S.p.A.", "Duferco Energia Mobility"], "sito": "https://www.dufercoenergia.it/", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,55 €/kWh"}, {"tipo": "DC 50 kW", "prezzo": "0,75 €/kWh"}]}, {"nome": "Repower", "alias": ["Repower", "Repower Italia", "Repower Vendita Italia"], "sito": "https://www.repower.com/it/", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,57 €/kWh"}, {"tipo": "DC ≥ 50 kW", "prezzo": "0,79 €/kWh"}]}, {"nome": "EVway (Route220)", "alias": ["EVway", "Route220", "EVway by Route220"], "sito": "https://www.evway.net/", "tariffe": [{"tipo": "AC fino a 22 kW", "prezzo": "0,50 €/kWh"}, {"tipo": "DC 50 kW", "prezzo": "0,72 €/kWh"}]}]}</script>
+<script>
+  (function () {
+    try {
+      window.TARIFFE = JSON.parse(document.getElementById("tariffe-data").textContent);
+    } catch (e) { window.TARIFFE = { gestori: [] }; }
+  })();
+</script>
+<script src="../ricarica.js" defer></script>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../categorie/politica/">Politica</a><a href="../categorie/economia/">Economia</a><a href="../categorie/trasporti/">Trasporti</a><a href="../categorie/sanita/">Sanità</a><a href="../categorie/ambiente/">Ambiente</a><a href="../categorie/cultura/">Cultura</a><a href="../categorie/sport/">Sport</a><a href="../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../index.html">Home</a>
+      <a href="../bollettino/">Bollettino pendolare</a>
+      <a href="../ricarica/">Colonnine ricarica</a>
+      <a href="../chi-siamo/">Chi siamo</a>
+      <a href="../note-legali/">Note legali e privacy</a>
+      <a href="../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../app.js" defer></script>
+</body>
+</html>
