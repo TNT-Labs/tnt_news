@@ -247,13 +247,25 @@
 
   // --- Bottom sheet (mobile) -------------------------------------------------
 
+  function closeSheet() {
+    document.documentElement.classList.remove("station-open");
+  }
+
   function setupSheet() {
     var closeBtn = document.getElementById("station-close");
     if (closeBtn) {
-      closeBtn.addEventListener("click", function () {
-        document.documentElement.classList.remove("station-open");
+      closeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeSheet();
       });
     }
+    // Tasto Esc chiude il bottom sheet
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && document.documentElement.classList.contains("station-open")) {
+        closeSheet();
+      }
+    });
   }
 
   function openSheet() {

@@ -747,16 +747,30 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
     transform: translateY(110%);
     transition: transform .26s ease;
     z-index: 1000;
-    padding: 1.6rem 1rem 1rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding: 1.4rem .2rem 0;
+    overflow: hidden;          /* il pannello non scrolla: scrolla solo .station-details */
+    display: flex;
+    flex-direction: column;
   }
   .station-close {
-    position: sticky;
-    top: 0;
-    float: right;
-    margin: -.6rem -.2rem .2rem 0;
+    position: static;
+    float: none;
+    margin: 0 .35rem 0 auto;    /* push a destra */
+    width: 2.75rem;             /* 44px tap target */
+    height: 2.75rem;
+    font-size: 1.6rem;
+    flex: 0 0 auto;
+    z-index: 2;
+    touch-action: manipulation;
   }
+  .station-details {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .3rem 1rem 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .station-title { padding-right: 0; }
   .ricarica-panel::before {
     content: "";
     position: absolute;
