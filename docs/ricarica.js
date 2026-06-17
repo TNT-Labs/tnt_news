@@ -7,6 +7,13 @@
   var GPS_ZOOM = 13, GPS_PAD = 0.28;
   var LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
   var LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+  var CLUSTER_CSS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css";
+  var CLUSTER_CSS_DEF = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css";
+  var CLUSTER_JS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
+
+  var allStations = [];      // tutte le stazioni caricate (grezze da OCM)
+  var stationLayer = null;   // layer dei pin filtrabili
+  var activeFilter = "all";  // all | slow | fast | hpc
 
   function ready(fn) {
     if (document.readyState !== "loading") fn();
@@ -17,26 +24,51 @@
     return document.documentElement.classList.contains("gate-locked");
   }
 
-  function loadLeaflet(cb) {
-    if (typeof L !== "undefined") { cb(); return; }
+  function addStyle(href) {
     var css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = LEAFLET_CSS;
+    css.href = href;
     document.head.appendChild(css);
+  }
+
+  function addScript(src, onload, onerror) {
     var js = document.createElement("script");
-    js.src = LEAFLET_JS;
-    js.onload = cb;
-    js.onerror = function () {
-      var status = document.getElementById("station-status");
-      if (status) status.textContent = "Impossibile caricare la libreria mappa.";
-    };
+    js.src = src;
+    js.onload = onload;
+    js.onerror = onerror;
     document.head.appendChild(js);
+  }
+
+  function loadLeaflet(cb) {
+    if (typeof L !== "undefined") { cb(); return; }
+    addStyle(LEAFLET_CSS);
+    addScript(LEAFLET_JS, cb, function () {
+      setStatus("Impossibile caricare la libreria mappa.");
+    });
+  }
+
+  // Carica il plugin di clustering. Se fallisce, si prosegue senza (fallback).
+  function loadCluster(cb) {
+    if (typeof L !== "undefined" && L.markerClusterGroup) { cb(); return; }
+    addStyle(CLUSTER_CSS);
+    addStyle(CLUSTER_CSS_DEF);
+    addScript(CLUSTER_JS, cb, function () {
+      console.warn("markercluster non caricato: pin senza raggruppamento.");
+      cb();
+    });
   }
 
   ready(function () {
     if (!document.getElementById("map")) return;
-    loadLeaflet(initMap);
+    setupFilters();
+    setupSheet();
+    loadLeaflet(function () { loadCluster(initMap); });
   });
+
+  function setStatus(text) {
+    var el = document.getElementById("station-status");
+    if (el) el.textContent = text;
+  }
 
   function initMap() {
     var map = L.map("map", { scrollWheelZoom: true }).setView([LAT0, LON0], ZOOM0);
@@ -44,6 +76,15 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
     }).addTo(map);
+    stationLayer = L.markerClusterGroup
+      ? L.markerClusterGroup({
+          chunkedLoading: true,
+          showCoverageOnHover: false,
+          maxClusterRadius: 55,
+          spiderfyOnMaxZoom: true
+        })
+      : L.layerGroup();
+    map.addLayer(stationLayer);
 
     if (gateLocked()) {
       var obs = new MutationObserver(function () {
@@ -55,17 +96,15 @@
       obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     }
 
-    // Geolocalizzazione prima, poi carica le colonnine attorno alla posizione.
     locateAndLoad(map);
   }
 
   function locateAndLoad(map) {
-    var status = document.getElementById("station-status");
     if (!navigator.geolocation) {
       loadStations(map, null);
       return;
     }
-    if (status) status.textContent = "Rilevo la tua posizione…";
+    setStatus("Rilevo la tua posizione…");
     navigator.geolocation.getCurrentPosition(
       function (pos) {
         var lat = pos.coords.latitude;
@@ -82,11 +121,9 @@
             color: "#1a73e8", fillColor: "#1a73e8", fillOpacity: 0.08
           }).addTo(map);
         }
-        // Carica le colonnine in un riquadro attorno alla posizione GPS.
         loadStations(map, { lat: lat, lon: lon });
       },
       function () {
-        // Permesso negato o timeout: fallback su Bergamo/Lombardia.
         loadStations(map, null);
       },
       { timeout: 8000, maximumAge: 60000 }
@@ -98,19 +135,18 @@
   }
 
   function loadStations(map, userPos) {
-    var status = document.getElementById("station-status");
     var key = window.OCM_KEY || "";
     if (!key) {
-      if (status) status.textContent = "Chiave OpenChargeMap non configurata: la mappa funziona ma i pin non possono essere caricati.";
-      console.error("OpenChargeMap: variabile d'ambiente OPENCHARGEMAP_API_KEY non impostata al build.");
+      setStatus("Chiave OpenChargeMap non configurata: la mappa funziona ma i pin non possono essere caricati.");
+      console.error("OpenChargeMap: OPENCHARGEMAP_API_KEY non impostata al build.");
       return;
     }
 
     var bbox = userPos
       ? bboxFromPoint(userPos.lat, userPos.lon, GPS_PAD)
-      : "(44.7,8.5),(46.6,11.5)"; // Lombardia intera come fallback
-    var label = userPos ? "nei dintorni" : "in Lombardia";
-    if (status) status.textContent = "Carico le colonnine " + label + "…";
+      : "(44.7,8.5),(46.6,11.5)";
+    window.__ricaricaLabel = userPos ? "nei dintorni" : "in Lombardia";
+    setStatus("Carico le colonnine " + window.__ricaricaLabel + "…");
 
     var url = "https://api.openchargemap.io/v3/poi/?output=json&countrycode=IT"
       + "&boundingbox=" + encodeURIComponent(bbox)
@@ -120,36 +156,115 @@
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (items) {
-        addMarkers(map, items);
-        if (status) {
-          status.textContent = items.length + " colonnine " + label + ". Tocca un pin per il listino dell'operatore.";
-        }
+        allStations = items || [];
+        renderMarkers();
       })
       .catch(function (err) {
-        if (status) {
-          status.textContent = err === 403
-            ? "OpenChargeMap ha rifiutato la chiave (403). Verifica OPENCHARGEMAP_API_KEY."
-            : "Impossibile caricare i dati da OpenChargeMap.";
-        }
+        setStatus(err === 403
+          ? "OpenChargeMap ha rifiutato la chiave (403). Verifica OPENCHARGEMAP_API_KEY."
+          : "Impossibile caricare i dati da OpenChargeMap.");
         console.error("OpenChargeMap:", err);
       });
   }
 
-  function addMarkers(map, items) {
-    var layer = L.layerGroup().addTo(map);
-    items.forEach(function (s) {
+  // --- Potenza e categorie ---------------------------------------------------
+
+  function maxPowerKw(s) {
+    var conn = s.Connections || [];
+    var max = 0;
+    conn.forEach(function (c) { if (c.PowerKW && c.PowerKW > max) max = c.PowerKW; });
+    return max; // 0 = sconosciuta
+  }
+
+  function powerCategory(kw) {
+    if (!kw) return "unknown";
+    if (kw <= 22) return "slow";
+    if (kw < 150) return "fast";
+    return "hpc";
+  }
+
+  function matchesFilter(s) {
+    if (activeFilter === "all") return true;
+    return powerCategory(maxPowerKw(s)) === activeFilter;
+  }
+
+  function colorForCategory(cat) {
+    if (cat === "slow") return { fill: "#2d8a4e", stroke: "#1f6b3a" }; // verde
+    if (cat === "fast") return { fill: "#d59500", stroke: "#a06f00" }; // ambra
+    if (cat === "hpc")  return { fill: "#b3001b", stroke: "#7d0013" }; // rosso
+    return { fill: "#8b93a1", stroke: "#5f6b7a" };                      // grigio
+  }
+
+  // --- Rendering pin ---------------------------------------------------------
+
+  function renderMarkers() {
+    if (!stationLayer) return;
+    stationLayer.clearLayers();
+    var markers = [];
+    allStations.forEach(function (s) {
+      if (!matchesFilter(s)) return;
       var info = s.AddressInfo || {};
       var lat = info.Latitude, lon = info.Longitude;
       if (typeof lat !== "number" || typeof lon !== "number") return;
+      var cat = powerCategory(maxPowerKw(s));
+      var col = colorForCategory(cat);
       var m = L.circleMarker([lat, lon], {
-        radius: 6,
-        weight: 1,
-        color: "#7d0013",
-        fillColor: "#b3001b",
-        fillOpacity: 0.85
-      }).addTo(layer);
+        radius: 6, weight: 1,
+        color: col.stroke, fillColor: col.fill, fillOpacity: 0.85
+      });
       m.on("click", function () { showDetails(s); });
+      markers.push(m);
     });
+    // Inserimento in blocco: addLayers (markercluster) o uno alla volta
+    if (stationLayer.addLayers) stationLayer.addLayers(markers);
+    else markers.forEach(function (m) { stationLayer.addLayer(m); });
+    var shown = markers.length;
+    var label = window.__ricaricaLabel || "";
+    setStatus(shown + " colonnine " + label
+      + (activeFilter === "all" ? "" : " (" + filterName(activeFilter) + ")")
+      + ". Tocca un pin per il listino.");
+  }
+
+  function filterName(f) {
+    return f === "slow" ? "lente" : f === "fast" ? "veloci" : f === "hpc" ? "ultrarapide" : "tutte";
+  }
+
+  // --- Filtri ----------------------------------------------------------------
+
+  function setupFilters() {
+    var bar = document.getElementById("ricarica-filters");
+    if (!bar) return;
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest ? e.target.closest(".rfilter") : null;
+      if (!btn) return;
+      activeFilter = btn.getAttribute("data-filter") || "all";
+      var all = bar.querySelectorAll(".rfilter");
+      for (var i = 0; i < all.length; i++) all[i].classList.remove("is-active");
+      btn.classList.add("is-active");
+      renderMarkers();
+    });
+  }
+
+  // --- Bottom sheet (mobile) -------------------------------------------------
+
+  function setupSheet() {
+    var closeBtn = document.getElementById("station-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        document.documentElement.classList.remove("station-open");
+      });
+    }
+  }
+
+  function openSheet() {
+    document.documentElement.classList.add("station-open");
+  }
+
+  // --- Dettaglio colonnina ---------------------------------------------------
+
+  function isUnknownOperator(op) {
+    if (!op) return true;
+    return /unknown|sconosciut|\(.*\)/i.test(op);
   }
 
   function showDetails(s) {
@@ -158,59 +273,85 @@
     var info = s.AddressInfo || {};
     var op = (s.OperatorInfo && s.OperatorInfo.Title) || null;
     var opDeduced = false;
-    // Se l'operatore strutturato manca, prova a dedurlo cercando un nome/alias
-    // di gestore noto dentro il titolo della stazione (es. "A2A BG Quasimodo").
-    if (!op && info.Title) {
+    if (isUnknownOperator(op)) {
       var guessed = guessOperatorFromText(info.Title);
       if (guessed) { op = guessed; opDeduced = true; }
+      else op = null;
     }
     var conn = s.Connections || [];
+    var kw = maxPowerKw(s);
+    var cat = powerCategory(kw);
 
     var parts = [];
     parts.push('<h3 class="station-title">' + esc(info.Title || "Colonnina di ricarica") + "</h3>");
     var addr = [info.AddressLine1, info.Town, info.Postcode].filter(Boolean).join(" · ");
     if (addr) parts.push('<p class="station-address">' + esc(addr) + "</p>");
 
+    // Riga badge: potenza + tipo + connettori
+    var badges = [];
+    badges.push('<span class="badge badge-' + cat + '">' + (kw ? kw + " kW" : "potenza n.d.") + "</span>");
+    badges.push('<span class="badge badge-neutral">' + catLabel(cat) + "</span>");
+    if (conn.length) badges.push('<span class="badge badge-neutral">' + conn.length + " connettori</span>");
+    parts.push('<div class="station-badges">' + badges.join("") + "</div>");
+
     var opLabel = op ? esc(op) + (opDeduced ? ' <span class="station-hint">(dedotto dal nome)</span>' : "") : "Sconosciuto";
     parts.push('<p class="station-row"><span class="station-label">Operatore:</span> ' + opLabel + "</p>");
-
-    if (conn.length) {
-      var maxKw = 0;
-      conn.forEach(function (c) { if (c.PowerKW && c.PowerKW > maxKw) maxKw = c.PowerKW; });
-      parts.push('<p class="station-row"><span class="station-label">Potenza max:</span> '
-        + (maxKw || "n.d.") + " kW · " + conn.length + " connettori</p>");
-    }
 
     var t = lookupTariff(op);
     if (t) {
       parts.push(renderTariff(t));
     } else if (op) {
       parts.push('<p class="station-no-tariff">Listino non disponibile in archivio per <em>'
-        + esc(op) + "</em>. Verifica sul sito ufficiale dell'operatore.</p>");
+        + esc(op) + "</em>. Verifica sul sito o sull'app ufficiale.</p>");
+    } else {
+      parts.push('<p class="station-no-tariff">Operatore non identificato per questa colonnina.</p>');
     }
 
     var T = window.TARIFFE || {};
     parts.push('<p class="station-disclaimer">'
-      + 'Tariffe indicative aggiornate al ' + esc(T.ultimo_aggiornamento || "—") + '. '
-      + 'Solo il listino diretto del proprietario della colonnina. '
-      + 'Se ricarichi via app di un altro operatore (roaming) il prezzo sarà diverso.'
+      + 'Prezzi indicativi aggiornati al ' + esc(T.ultimo_aggiornamento || "—") + '. '
+      + 'Solo la tariffa diretta dell\'app del proprietario. '
+      + 'In roaming con un altro operatore il prezzo sarà diverso.'
       + '</p>');
 
     panel.innerHTML = parts.join("");
+    openSheet();
   }
+
+  function catLabel(cat) {
+    return cat === "slow" ? "Lenta (AC)"
+      : cat === "fast" ? "Veloce (DC)"
+      : cat === "hpc" ? "Ultrarapida (HPC)"
+      : "Tipo n.d.";
+  }
+
+  // --- Match operatore -------------------------------------------------------
 
   function guessOperatorFromText(text) {
     if (!text) return null;
     var T = window.TARIFFE;
     if (!T || !T.gestori) return null;
-    var hay = " " + norm(text) + " ";
+    var normd = norm(text);
+    var hay = " " + normd + " ";
+    var words = normd.split(" ");
     for (var i = 0; i < T.gestori.length; i++) {
       var g = T.gestori[i];
+      // 1) match per parola intera su nome/alias
       var candidates = [g.nome].concat(g.alias || []);
       for (var j = 0; j < candidates.length; j++) {
         var c = norm(candidates[j]);
         if (c.length < 2) continue;
         if (hay.indexOf(" " + c + " ") !== -1) return g.nome;
+      }
+      // 2) match per prefisso (es. "enel" -> Eneldrive, EnelX, Enel Energia)
+      if (g.prefixes) {
+        for (var p = 0; p < g.prefixes.length; p++) {
+          var pre = norm(g.prefixes[p]);
+          if (pre.length < 3) continue;
+          for (var w = 0; w < words.length; w++) {
+            if (words[w].indexOf(pre) === 0) return g.nome;
+          }
+        }
       }
     }
     return null;
@@ -231,11 +372,10 @@
         }
       }
     }
-    // Match parziale sul primo token (es. "Enel X Way S.r.l." -> "enel")
     for (var k = 0; k < T.gestori.length; k++) {
       var g2 = T.gestori[k];
       var key = norm(g2.nome).split(" ")[0];
-      if (first && key && (first === key)) return g2;
+      if (first && key && first === key) return g2;
     }
     return null;
   }
@@ -244,11 +384,11 @@
     var rows = t.tariffe.map(function (r) {
       return "<tr><td>" + esc(r.tipo) + "</td><td>" + esc(r.prezzo) + "</td></tr>";
     }).join("");
-    var out = '<h4 class="tariff-title">Listino occasionali · ' + esc(t.nome) + "</h4>";
+    var out = '<h4 class="tariff-title">Listino · ' + esc(t.nome) + "</h4>";
     out += '<table class="tariff-table"><tbody>' + rows + "</tbody></table>";
     if (t.note) out += '<p class="tariff-note">' + esc(t.note) + "</p>";
     if (t.sito) out += '<p class="tariff-link"><a href="' + esc(t.sito)
-      + '" target="_blank" rel="noopener">Listino ufficiale &rarr;</a></p>';
+      + '" target="_blank" rel="noopener">Sito ufficiale &rarr;</a></p>';
     return out;
   }
 
