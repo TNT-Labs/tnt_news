@@ -504,6 +504,81 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
   .tag-filters { justify-content: flex-start; }
 }
 
+/* Pagina colonnine di ricarica */
+.ricarica-intro h1 { margin: 0 0 .4rem; }
+.ricarica-intro p { margin: .3rem 0; color: var(--muted); }
+.ricarica-source { font-size: .9rem; }
+.ricarica-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+.ricarica-map {
+  height: 70vh;
+  min-height: 420px;
+  border: 1px solid var(--border, #d8dde5);
+  border-radius: 8px;
+  background: #f3f5f8;
+  z-index: 0;
+}
+.ricarica-panel {
+  border: 1px solid var(--border, #d8dde5);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--card-bg, #fff);
+  max-height: 70vh;
+  overflow: auto;
+}
+.station-status {
+  margin: 0 0 .8rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.station-details:empty + .station-status,
+.station-details:empty { /* placeholder */ }
+.station-title { margin: .2rem 0 .3rem; font-size: 1.1rem; }
+.station-address { margin: 0 0 .6rem; color: var(--muted); font-size: .9rem; }
+.station-row { margin: .25rem 0; font-size: .95rem; }
+.station-label { color: var(--muted); }
+.station-no-tariff {
+  margin-top: .8rem;
+  padding: .6rem .7rem;
+  background: #fff4d6;
+  color: #6b4a00;
+  border-radius: 6px;
+  font-size: .9rem;
+}
+.station-disclaimer {
+  margin-top: .8rem;
+  font-size: .8rem;
+  color: var(--muted);
+  border-top: 1px dashed var(--border, #d8dde5);
+  padding-top: .6rem;
+}
+.tariff-title { margin: 1rem 0 .4rem; font-size: 1rem; }
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+.tariff-table td {
+  padding: .35rem .4rem;
+  border-bottom: 1px solid var(--border, #e2e6ec);
+}
+.tariff-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.tariff-note { margin: .5rem 0 0; font-size: .85rem; color: var(--muted); }
+.tariff-link { margin: .4rem 0 0; font-size: .9rem; }
+
+[data-theme="dark"] .ricarica-map { background: #1e2229; }
+[data-theme="dark"] .station-no-tariff { background: #3d3417; color: #f0d98c; }
+
+@media (max-width: 800px) {
+  .ricarica-layout { grid-template-columns: 1fr; }
+  .ricarica-map { height: 55vh; min-height: 320px; }
+  .ricarica-panel { max-height: none; }
+}
+
 /* Riduce gli effetti per chi preferisce meno animazioni */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
