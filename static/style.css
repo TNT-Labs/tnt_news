@@ -125,6 +125,8 @@ a { color: var(--accent); }
   transition: border-color .15s ease, color .15s ease;
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+/* Il wrapper è invisibile su desktop (i figli sono già absolute/absolute) */
+.site-header-top { display: contents; }
 .header-links {
   position: absolute;
   top: .9rem;
@@ -499,7 +501,27 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
 
 /* Mobile */
 @media (max-width: 600px) {
-  .site-header { padding: .9rem 1rem .7rem; }
+  /* Header a due righe: pill+toggle in cima, brand+tagline sotto */
+  .site-header {
+    padding: .5rem 1rem .7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .site-header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .45rem;
+  }
+  .header-links {
+    position: static;
+    flex-wrap: nowrap;
+  }
+  .theme-toggle {
+    position: static;
+  }
   .brand { font-size: 1.9rem; }
   .tagline { font-size: .85rem; }
   .container { padding: 1.4rem 1rem 2.4rem; }
