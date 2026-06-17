@@ -62,11 +62,20 @@
 
   function loadStations(map) {
     var status = document.getElementById("station-status");
+    var key = window.OCM_KEY || "";
+    if (!key) {
+      if (status) {
+        status.textContent = "Chiave OpenChargeMap non configurata: la mappa funziona ma i pin non possono essere caricati.";
+      }
+      console.error("OpenChargeMap: variabile d'ambiente OPENCHARGEMAP_API_KEY non impostata al build.");
+      return;
+    }
     if (status) status.textContent = "Carico le colonnine in Lombardia…";
 
     var url = "https://api.openchargemap.io/v3/poi/?output=json&countrycode=IT"
       + "&boundingbox=" + encodeURIComponent(BBOX)
-      + "&maxresults=2000&compact=true&verbose=false";
+      + "&maxresults=2000&compact=true&verbose=false"
+      + "&key=" + encodeURIComponent(key);
 
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
@@ -77,7 +86,11 @@
         }
       })
       .catch(function (err) {
-        if (status) status.textContent = "Impossibile caricare i dati da OpenChargeMap.";
+        if (status) {
+          status.textContent = err === 403
+            ? "OpenChargeMap ha rifiutato la chiave (403). Verifica OPENCHARGEMAP_API_KEY."
+            : "Impossibile caricare i dati da OpenChargeMap.";
+        }
         console.error("OpenChargeMap:", err);
       });
   }

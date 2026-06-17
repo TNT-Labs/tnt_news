@@ -8,6 +8,7 @@ Nessuna dipendenza esterna: solo libreria standard di Python 3.
 """
 
 import json
+import os
 import re
 import shutil
 import unicodedata
@@ -646,7 +647,11 @@ def build_ricarica_page(tariffe: dict, categories: list[str], base: str) -> str:
     ricarica_tpl = load_template("ricarica.html")
     # JSON serializzato senza caratteri pericolosi per essere infilato in <script>.
     tariffe_json = json.dumps(tariffe, ensure_ascii=False).replace("</", "<\\/")
-    content = render(ricarica_tpl, ROOT=prefix, TARIFFE_JSON=tariffe_json)
+    # Chiave pubblica OpenChargeMap, letta da variabile d'ambiente al build.
+    # E' pensata per essere visibile lato client (identifica l'app, non e' un segreto).
+    ocm_key = os.environ.get("OPENCHARGEMAP_API_KEY", "").strip()
+    content = render(ricarica_tpl, ROOT=prefix, TARIFFE_JSON=tariffe_json,
+                     OCM_KEY=json.dumps(ocm_key))
     return page(
         base,
         title=f"Colonnine di ricarica in Lombardia — {SITE_NAME}",
