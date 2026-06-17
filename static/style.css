@@ -125,10 +125,15 @@ a { color: var(--accent); }
   transition: border-color .15s ease, color .15s ease;
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-.header-link {
+.header-links {
   position: absolute;
   top: .9rem;
   left: 1rem;
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+}
+.header-link {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: .78rem;
   font-weight: 700;
