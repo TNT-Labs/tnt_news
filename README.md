@@ -73,6 +73,24 @@ L'abbonamento **Claude.ai Pro** abilita l'uso interattivo (chat e Claude Code),
 zero” descritta sopra funziona perché Claude Code stesso si autentica con
 l'abbonamento ed esegue il compito; non perché esista una API del piano Pro.
 
+## Variabili d'ambiente
+
+Da impostare nelle impostazioni dell'ambiente cloud Claude Code (su
+`claude.ai/code/environments`), **mai nel repository**:
+
+- `GOOGLE_MAPS_API_KEY` — Directions API + Weather API per il bollettino
+  pendolare (`COMMUTE_TASK.md`). Una sola chiave del progetto Google Cloud
+  con entrambe abilitate.
+- `OPENCHARGEMAP_API_KEY` — chiave pubblica OpenChargeMap per la mappa
+  colonnine in `/ricarica/`. Si ottiene gratis su
+  https://openchargemap.org/site/profile/applications . È pensata per essere
+  visibile lato client (identifica l'app, non è un segreto): `build.py` la
+  inietta inline in `docs/ricarica/index.html`.
+
+Se una variabile non è impostata, la feature corrispondente degrada
+gentilmente (fallback Open-Meteo per il bollettino, messaggio di errore
+sulla pagina ricarica).
+
 ## Qualità ed etica editoriale
 
 - Una sola notizia al giorno, da **fonti verificate e citate**.

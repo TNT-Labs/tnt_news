@@ -21,6 +21,7 @@
     try {
       window.TARIFFE = JSON.parse(document.getElementById("tariffe-data").textContent);
     } catch (e) { window.TARIFFE = { gestori: [] }; }
+    window.OCM_KEY = {{OCM_KEY}};
   })();
 </script>
 <script src="{{ROOT}}ricarica.js" defer></script>
