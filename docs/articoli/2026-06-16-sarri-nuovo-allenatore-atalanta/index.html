@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia — TNT News</title>
+  <meta name="description" content="Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia — TNT News">
+  <meta property="og:description" content="Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia — TNT News">
+  <meta name="twitter:description" content="Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Atalanta</span><span class="tag">Bergamo</span><span class="tag">calcio</span><span class="tag">Serie A</span></div>
+    <h1>Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h1>
+    <p class="article-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-16">16 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>L'Atalanta ha ufficializzato nella giornata del 15 giugno 2026 l'ingaggio di Maurizio Sarri come nuovo allenatore della prima squadra. Il tecnico toscano, classe 1959, ha raggiunto il centro sportivo di Zingonia per apporre la firma su un contratto triennale che lo legherà alla società bergamasca fino al giugno 2029. Sarri subentra a Raffaele Palladino, esonerato nelle settimane precedenti.</p>
+
+<h2>Il ritorno della coppia Giuntoli-Sarri</h2>
+
+<p>L'operazione porta la firma del nuovo direttore sportivo dell'Atalanta, Cristiano Giuntoli, che ha individuato in Sarri l'allenatore ideale per il progetto tecnico della Dea. I due avevano già lavorato insieme al Napoli tra il 2015 e il 2018, anni in cui il club partenopeo conquistò due secondi posti consecutivi in Serie A e costruì un gioco offensivo riconoscibile a livello europeo. La famiglia Percassi e la società hanno accolto Sarri con una nota ufficiale pubblicata sul sito del club.</p>
+
+<p>Sarri può vantare un curriculum di oltre 800 partite come allenatore professionista. Nel corso della carriera ha vinto una UEFA Europa League (con il Chelsea nel 2019) e uno Scudetto (con la Juventus nel 2019-20, suo primo titolo in Serie A). Più di recente aveva guidato la Lazio, con cui aveva raggiunto la finale di Coppa Italia, prima di separarsi dal club biancoceleste.</p>
+
+<h2>Uno stile di gioco riconoscibile</h2>
+
+<p>Il "sarrismo" — termine coniato dalla stampa sportiva per descrivere il suo modello di gioco — si caratterizza per un pressing alto organizzato, un possesso palla verticale e la ricerca costante di trame di gioco corte attraverso la trequarti avversaria. A Bergamo, Sarri troverà una rosa abituata a difendere con intensità e ad attaccare in transizione rapida, impostazione ereditata dalla lunga era di Gian Piero Gasperini. Sarà interessante osservare come il tecnico integrerà le proprie idee con le caratteristiche dei giocatori nerazzurri.</p>
+
+<p>L'accordo economico prevede un ingaggio nell'ordine dei 3 milioni di euro netti a stagione, secondo quanto riferito da più fonti sportive. Non sono state divulgate cifre ufficiali da parte del club.</p>
+
+<h2>Carriera recente di Sarri: le tappe dal 2015 a oggi</h2>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Grafico a barre della durata delle esperienze di Maurizio Sarri nelle ultime panchine: Napoli, Chelsea, Juventus, Lazio, Atalanta" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+
+    <!-- sfondo -->
+    <rect width="640" height="300" fill="#f8f8f6" rx="12"/>
+
+    <!-- titolo -->
+    <text x="320" y="28" text-anchor="middle" fill="#222" font-size="13" font-weight="bold">Panchine di Sarri dal 2015: stagioni complete</text>
+
+    <!-- assi -->
+    <line x1="160" y1="240" x2="620" y2="240" stroke="#ccc" stroke-width="1"/>
+    <line x1="160" y1="50" x2="160" y2="240" stroke="#ccc" stroke-width="1"/>
+
+    <!-- etichette asse X (stagioni) -->
+    <text x="200" y="258" text-anchor="middle" fill="#888" font-size="10">1</text>
+    <text x="287" y="258" text-anchor="middle" fill="#888" font-size="10">2</text>
+    <text x="374" y="258" text-anchor="middle" fill="#888" font-size="10">3</text>
+    <text x="461" y="258" text-anchor="middle" fill="#888" font-size="10">4</text>
+    <text x="548" y="258" text-anchor="middle" fill="#888" font-size="10">5</text>
+    <text x="395" y="272" text-anchor="middle" fill="#999" font-size="9">stagioni complete</text>
+
+    <!-- griglia verticale leggera -->
+    <line x1="200" y1="50" x2="200" y2="240" stroke="#e8e8e8" stroke-width="1"/>
+    <line x1="287" y1="50" x2="287" y2="240" stroke="#e8e8e8" stroke-width="1"/>
+    <line x1="374" y1="50" x2="374" y2="240" stroke="#e8e8e8" stroke-width="1"/>
+    <line x1="461" y1="50" x2="461" y2="240" stroke="#e8e8e8" stroke-width="1"/>
+    <line x1="548" y1="50" x2="548" y2="240" stroke="#e8e8e8" stroke-width="1"/>
+
+    <!-- barra Napoli (3 stagioni: 2015-2018) -->
+    <rect x="163" y="60" width="261" height="28" fill="#0a3570" rx="4"/>
+    <text x="168" y="79" fill="white" font-size="11" font-weight="bold">Napoli 2015–2018</text>
+
+    <!-- barra Chelsea (1 stagione: 2018-2019) -->
+    <rect x="163" y="100" width="87" height="28" fill="#034694" rx="4"/>
+    <text x="168" y="119" fill="white" font-size="11" font-weight="bold">Chelsea 2018–19</text>
+
+    <!-- barra Juventus (1 stagione: 2019-2020) -->
+    <rect x="163" y="140" width="87" height="28" fill="#1c1c1c" rx="4"/>
+    <text x="168" y="159" fill="white" font-size="11" font-weight="bold">Juventus 2019–20</text>
+
+    <!-- barra Lazio (3 stagioni: 2021-2024 circa) -->
+    <rect x="163" y="180" width="261" height="28" fill="#87c1f7" rx="4"/>
+    <text x="168" y="199" fill="#1a1a60" font-size="11" font-weight="bold">Lazio 2021–2024</text>
+
+    <!-- indicatore Atalanta (da 2026, triennale) -->
+    <rect x="163" y="218" width="9" height="18" fill="#1c6b3a" rx="2"/>
+    <text x="176" y="231" fill="#1c6b3a" font-size="10" font-weight="bold">Atalanta 2026–2029 ▶</text>
+
+  </svg>
+  <figcaption>Durata indicativa (in stagioni complete) delle ultime panchine di Maurizio Sarri. Valori indicativi elaborati su dati pubblici. Il contratto con l'Atalanta è triennale (2026–2029).</figcaption>
+</figure>
+
+<h2>Le sfide che attendono il nuovo tecnico</h2>
+
+<p>La stagione 2026-27 rappresenta un momento di discontinuità per l'Atalanta: la società ha cambiato sia il direttore sportivo sia l'allenatore in rapida successione. Sarri dovrà lavorare da subito sul mercato estivo insieme a Giuntoli per costruire la rosa più adatta alle sue idee. Tra le priorità vi sarà verosimilmente il rafforzamento della mediana, reparto cardine nel gioco del tecnico toscano.</p>
+
+<p>L'Atalanta ha vissuto negli ultimi anni un ciclo sportivo di grande livello sotto la guida di Gasperini, culminato con la vittoria dell'Europa League nel 2024 e diverse qualificazioni in Champions League. La sfida di Sarri sarà quella di garantire continuità nei risultati mantenendo la Dea ai vertici della Serie A e nelle competizioni europee.</p>
+
+<p>Il ritiro estivo prenderà il via nelle prossime settimane e sarà l'occasione per il tecnico di conoscere direttamente il gruppo e iniziare a lavorare sulle proprie idee tattiche.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ansa.it/lombardia/notizie/2026/06/15/e-ufficiale-sarri-ha-firmato-allatalanta-con-contratto-triennale_f92a1108-d2ff-44b3-b330-7f5a79e17819.html" rel="noopener" target="_blank">ANSA Lombardia – È ufficiale, Sarri ha firmato: all&#x27;Atalanta con contratto triennale</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/sport/sarri-a-bergamo-per-la-firma-ufficiale-e-il-nuovo-allenatore-dellatalanta-o_3888899_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Sarri a Bergamo per la firma ufficiale, è il nuovo allenatore dell&#x27;Atalanta</a></li><li><a href="https://www.corrieredellosport.it/news/calcio/serie-a/atalanta/2026/06/15-149213865/sarri_il_nuovo_allenatore_dell_atalanta_il_comunicato_ufficiale" rel="noopener" target="_blank">Corriere dello Sport – Sarri è il nuovo allenatore dell&#x27;Atalanta: il comunicato ufficiale</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sette nerazzurri ai mondiali 2026: record storico per l&#x27;atalanta per la prima volta nella storia del club, sette giocatori dell&#x27;atalanta sono stati convocati per la fase finale di un campionato del mondo. il precedente record fermo a quattro risale a qatar 2022. sport bergamo atalanta mondiali 2026 fifa" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-04-atalanta-record-mondiali-2026/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta</h2><p class="card-summary">Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.</p><p class="card-meta">4 giugno 2026</p></div></a></article><article class="card" data-search="cristiano giuntoli è il nuovo direttore sportivo dell&#x27;atalanta il 30 maggio 2026 l&#x27;atalanta ha ufficializzato l&#x27;ingaggio di cristiano giuntoli come nuovo direttore sportivo, con contratto fino al 2029. il dirigente fiorentino, ex ds di napoli e juventus, subentra a tony d&#x27;amico che lascia bergamo per la roma. sport atalanta bergamo calciomercato giuntoli" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-31-giuntoli-ds-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</h2><p class="card-summary">Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.</p><p class="card-meta">31 maggio 2026</p></div></a></article><article class="card" data-search="giro next gen 2026: sei ciclisti bergamaschi al via da reggio calabria prende il via oggi il giro d&#x27;italia next gen, la corsa riservata agli under 23: sei atleti della provincia di bergamo in gara nelle otto tappe tra calabria e abruzzo. sport bergamo ciclismo giro next gen under 23" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-14-giro-next-gen-bergamaschi/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro Next Gen 2026: sei ciclisti bergamaschi al via da Reggio Calabria</h2><p class="card-summary">Prende il via oggi il Giro d&#x27;Italia Next Gen, la corsa riservata agli under 23: sei atleti della provincia di Bergamo in gara nelle otto tappe tra Calabria e Abruzzo.</p><p class="card-meta">14 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

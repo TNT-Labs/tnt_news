@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Dieci anni da The Floating Piers: droni luminosi illuminano Montisola — TNT News</title>
+  <meta name="description" content="Uno spettacolo di droni ha celebrato sul Lago d&#x27;Iseo il decennale dell&#x27;installazione di Christo che nel 2016 portò circa 1,2 milioni di visitatori sul Sebino bergamasco-bresciano.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-08-drone-show-montisola-floating-piers/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Dieci anni da The Floating Piers: droni luminosi illuminano Montisola — TNT News">
+  <meta property="og:description" content="Uno spettacolo di droni ha celebrato sul Lago d&#x27;Iseo il decennale dell&#x27;installazione di Christo che nel 2016 portò circa 1,2 milioni di visitatori sul Sebino bergamasco-bresciano.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-08-drone-show-montisola-floating-piers/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dieci anni da The Floating Piers: droni luminosi illuminano Montisola — TNT News">
+  <meta name="twitter:description" content="Uno spettacolo di droni ha celebrato sul Lago d&#x27;Iseo il decennale dell&#x27;installazione di Christo che nel 2016 portò circa 1,2 milioni di visitatori sul Sebino bergamasco-bresciano.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Montisola</span><span class="tag">Lago d&#x27;Iseo</span><span class="tag">The Floating Piers</span><span class="tag">Christo</span></div>
+    <h1>Dieci anni da The Floating Piers: droni luminosi illuminano Montisola</h1>
+    <p class="article-summary">Uno spettacolo di droni ha celebrato sul Lago d&#x27;Iseo il decennale dell&#x27;installazione di Christo che nel 2016 portò circa 1,2 milioni di visitatori sul Sebino bergamasco-bresciano.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-08">8 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il cielo sopra Montisola si è acceso nella notte dell'8 giugno 2026. A dieci anni dall'estate in cui Christo trasformò il Lago d'Iseo in una delle mete culturali più visitate d'Europa, uno spettacolo di droni luminosi ha riportato sull'acqua del Sebino l'eco di quell'esperienza straordinaria.</p>
+
+<h2>Lo spettacolo</h2>
+
+<p>Alle ore 22, dal campo sportivo di Menzino, una flotta di droni è decollata disegnando nel cielo notturno coreografie tridimensionali di luce: immagini, scritte ed emblemi si sono riflessi sulla superficie del lago, visibili dalle rive bergamasche e bresciane. Tra le figure create dai droni figuravano un grande agone — il pesce tipico del Sebino, simbolo gastronomico dell'isola — e un omaggio diretto alle passerelle gialle di Christo. Lo show è durato circa venti minuti.</p>
+
+<p>L'evento è stato organizzato da Lasernavigation, azienda bergamasca guidata da Roberto Navoni, in collaborazione con LuminousBees srl. Il Comune di Monte Isola, il cui sindaco è Lorenzo Turla, ha concesso il patrocinio dell'iniziativa.</p>
+
+<h2>Dieci anni fa: The Floating Piers</h2>
+
+<p>Il 18 giugno 2016, Christo e Jeanne-Claude inaugurarono <em>The Floating Piers</em>: una passerella galleggiante di tre chilometri, ricoperta di tessuto giallo-zafferano, che collegava Sulzano sulla riva bergamasca a Montisola, passando per l'isoletta di San Paolo. L'opera rimase aperta sedici giorni, fino al 3 luglio 2016, poi fu interamente smantellata secondo la tradizione progettuale dell'artista.</p>
+
+<p>In quelle due settimane, le stime parlano di circa 1,2 milioni di visitatori — secondo alcune fonti fino a 1,5 milioni — provenienti da tutto il mondo, molti dei quali non avevano mai messo piede sul Lago d'Iseo prima di allora. Secondo uno studio dell'Università di Bergamo pubblicato nel 2017, l'impatto economico complessivo sul territorio raggiunse circa 283 milioni di euro, includendo spese dirette, pernottamenti, ristorazione e indotto nei comuni rivieraschi.</p>
+
+<figure>
+  <svg viewBox="0 0 680 195" role="img" aria-label="Timeline: The Floating Piers 2016 e drone show del decennale 2026 a Montisola sul Lago d'Iseo" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="680" height="195" fill="#eef4ff" rx="12"/>
+    <text x="340" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a2e4a">The Floating Piers — dal 2016 al drone show del decennale</text>
+
+    <!-- Solid line: inizio -->
+    <line x1="80" y1="105" x2="325" y2="105" stroke="#5a82c0" stroke-width="2.5"/>
+    <!-- Linea tratteggiata: salto temporale di 10 anni -->
+    <line x1="325" y1="105" x2="515" y2="105" stroke="#a0b8d8" stroke-width="2" stroke-dasharray="6,4"/>
+    <!-- Solid line: fine -->
+    <line x1="515" y1="105" x2="605" y2="105" stroke="#5a82c0" stroke-width="2.5"/>
+    <!-- Freccia -->
+    <polygon points="605,105 595,100 595,110" fill="#5a82c0"/>
+
+    <!-- Etichetta "10 anni" sul tratto tratteggiato -->
+    <text x="420" y="94" text-anchor="middle" font-size="11" fill="#7a9abf" font-style="italic">· · · 10 anni · · ·</text>
+
+    <!-- Evento 1: 18 giugno 2016 (x=140) -->
+    <circle cx="140" cy="105" r="9" fill="#5a82c0" stroke="white" stroke-width="2"/>
+    <text x="140" y="87" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2e4a">18 giu 2016</text>
+    <text x="140" y="73" text-anchor="middle" font-size="10" fill="#5a82c0">Apertura</text>
+    <text x="140" y="126" text-anchor="middle" font-size="10" fill="#555">inizio installazione</text>
+
+    <!-- Evento 2: 3 luglio 2016 (x=310) -->
+    <circle cx="310" cy="105" r="9" fill="#5a82c0" stroke="white" stroke-width="2"/>
+    <text x="310" y="87" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2e4a">3 lug 2016</text>
+    <text x="310" y="73" text-anchor="middle" font-size="10" fill="#5a82c0">Chiusura</text>
+    <text x="310" y="126" text-anchor="middle" font-size="10" fill="#555">16 giorni di apertura</text>
+    <text x="310" y="142" text-anchor="middle" font-size="10" fill="#5a82c0">~1,2 mln visitatori</text>
+
+    <!-- Evento 3: 8 giugno 2026 (x=540) -->
+    <circle cx="540" cy="105" r="13" fill="#e8920a" stroke="white" stroke-width="2.5"/>
+    <text x="540" y="83" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a2e4a">8 giu 2026</text>
+    <text x="540" y="69" text-anchor="middle" font-size="10" fill="#e8920a" font-weight="bold">Drone show</text>
+    <text x="540" y="129" text-anchor="middle" font-size="11" fill="#e8920a" font-weight="bold">10° anniversario</text>
+    <text x="540" y="146" text-anchor="middle" font-size="10" fill="#555">Montisola, ore 22</text>
+  </svg>
+  <figcaption>Timeline: dall'apertura di <em>The Floating Piers</em> (18 giugno 2016) alla chiusura dopo 16 giorni (3 luglio 2016), fino al drone show per il decennale (8 giugno 2026). Visitatori stimati: circa 1,2 milioni. Fonti: L'Eco di Bergamo; QuiBrescia.</figcaption>
+</figure>
+
+<h2>Un territorio che custodisce la memoria</h2>
+
+<p>A dieci anni di distanza, l'eredità culturale di <em>The Floating Piers</em> rimane visibile nella notorietà internazionale che il Sebino ha acquisito. Il drone show non è solo una celebrazione nostalgica: è la dimostrazione di come il territorio stia costruendo una propria tradizione di eventi legati alla creatività visiva, affidandosi alle competenze di imprese tecnologiche locali.</p>
+
+<p>Montisola — la più grande isola dei laghi alpini d'Europa, con circa 1.700 abitanti e nessuna automobile — continua a rappresentare una delle destinazioni più singolari della Lombardia, capace di attrarre visitatori per la storia, per l'artigianato delle reti e delle barche, e ora anche per gli spettacoli di luce che la rendono protagonista della notte.</p>
+
+<h2>La mostra a Iseo</h2>
+
+<p>In concomitanza con il decennale, il centro di Iseo ospita fino al 5 luglio la mostra <em>The Floating Piers Vision</em>, con sessanta opere inedite del pittore lombardo Domenico Parigi, che reinterpretano in chiave pittorica e simbolica l'installazione di Christo e Jeanne-Claude. La mostra è aperta al pubblico.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/val-calepio-e-sebino/droni-luminosi-in-volo-show-di-luci-sul-lago-a-montisola-a-10-anni-da-the-floa-o_3883296_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo</a></li><li><a href="https://www.quibrescia.it/evento/lo-spettacolo-di-droni-luminosi-brilla-nel-cielo-notturno-di-monte-isola/" rel="noopener" target="_blank">QuiBrescia</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="dieci piani di ponteggio nella basilica di santa maria maggiore: al via il maxi-restauro del presbiterio la fondazione mia ha avviato l&#x27;11 maggio il cantiere nel cuore di bergamo alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. il ponteggio di 18 metri è già visibile all&#x27;interno. cultura bergamo patrimonio fondazione mia restauro" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-06-17-basilica-santa-maria-maggiore-restauro/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Dieci piani di ponteggio nella Basilica di Santa Maria Maggiore: al via il maxi-restauro del presbiterio</h2><p class="card-summary">La Fondazione MIA ha avviato l&#x27;11 maggio il cantiere nel cuore di Bergamo Alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. Il ponteggio di 18 metri è già visibile all&#x27;interno.</p><p class="card-meta">17 giugno 2026</p></div></a></article><article class="card" data-search="rosa camuna 2026: bergamo protagonista, premiata la professoressa mocchi di trescore balneario nella festa della lombardia del 29 maggio, la regione ha consegnato la rosa camuna a chiara mocchi, insegnante di trescore balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca ragazzi on the road. bergamo tra i territori più rappresentati tra i premiati 2026. cultura bergamo rosa camuna trescore balneario regione lombardia" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-05-29-rosa-camuna-mocchi-trescore/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Rosa Camuna 2026: Bergamo protagonista, premiata la professoressa Mocchi di Trescore Balneario</h2><p class="card-summary">Nella Festa della Lombardia del 29 maggio, la Regione ha consegnato la Rosa Camuna a Chiara Mocchi, insegnante di Trescore Balneario accoltellata da uno studente a marzo, e all&#x27;associazione bergamasca Ragazzi On The Road. Bergamo tra i territori più rappresentati tra i premiati 2026.</p><p class="card-meta">29 maggio 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

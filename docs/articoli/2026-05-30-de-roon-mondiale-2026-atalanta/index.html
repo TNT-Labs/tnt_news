@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>De Roon torna in nazionale: il capitano dell&#x27;Atalanta ai Mondiali 2026 a 35 anni — TNT News</title>
+  <meta name="description" content="A sorpresa, il CT olandese Ronald Koeman ha convocato Marten de Roon per il Mondiale 2026 in USA, Canada e Messico. Il centrocampista 35enne, capitano dell&#x27;Atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-30-de-roon-mondiale-2026-atalanta/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="De Roon torna in nazionale: il capitano dell&#x27;Atalanta ai Mondiali 2026 a 35 anni — TNT News">
+  <meta property="og:description" content="A sorpresa, il CT olandese Ronald Koeman ha convocato Marten de Roon per il Mondiale 2026 in USA, Canada e Messico. Il centrocampista 35enne, capitano dell&#x27;Atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-30-de-roon-mondiale-2026-atalanta/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="De Roon torna in nazionale: il capitano dell&#x27;Atalanta ai Mondiali 2026 a 35 anni — TNT News">
+  <meta name="twitter:description" content="A sorpresa, il CT olandese Ronald Koeman ha convocato Marten de Roon per il Mondiale 2026 in USA, Canada e Messico. Il centrocampista 35enne, capitano dell&#x27;Atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Atalanta</span><span class="tag">De Roon</span><span class="tag">Mondiali 2026</span><span class="tag">Olanda</span></div>
+    <h1>De Roon torna in nazionale: il capitano dell&#x27;Atalanta ai Mondiali 2026 a 35 anni</h1>
+    <p class="article-summary">A sorpresa, il CT olandese Ronald Koeman ha convocato Marten de Roon per il Mondiale 2026 in USA, Canada e Messico. Il centrocampista 35enne, capitano dell&#x27;Atalanta e recordman di presenze nella storia del club bergamasco, torna in nazionale dopo oltre due anni di assenza.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-30">30 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Una telefonata inattesa, un nome che pochi si aspettavano ancora: il 27 maggio 2026 il commissario tecnico della nazionale olandese Ronald Koeman ha inserito <strong>Marten de Roon</strong> nella lista dei convocati per il Mondiale 2026. Il centrocampista 35enne, capitano dell'Atalanta e recordman di presenze nella storia del club bergamasco, torna a vestire la maglia arancione dopo oltre due anni di assenza dalla scena internazionale.</p>
+
+<h2>Il posto lasciato libero dall'infortunio di Schouten</h2>
+
+<p>La convocazione è stata resa necessaria dall'infortunio di <strong>Jerdy Schouten</strong>, centrocampista del PSV Eindhoven e perno del reparto mediano olandese: un grave strappo al legamento crociato anteriore del ginocchio lo ha escluso dall'intera estate calcistica. Koeman, alla ricerca di un giocatore con caratteristiche difensive e grande esperienza internazionale, ha guardato a Bergamo.</p>
+
+<p>L'ultima presenza di De Roon in maglia <em>Oranje</em> risaliva al <strong>marzo 2024</strong>. Dopo l'Europeo in Germania, Koeman aveva comunicato pubblicamente di non voler più contare sull'allora 33enne, privilegiando un ricambio generazionale. Da quel momento De Roon era rimasto fuori dai piani della nazionale, saltando qualificazioni mondiali e Nations League.</p>
+
+<h2>Il recordman dell'Atalanta richiamato dall'Olanda</h2>
+
+<p>La chiamata arriva in un momento di grande rilevanza personale per il centrocampista nato a Sittard. Il 22 marzo 2026, durante una partita di campionato, De Roon ha raggiunto le <strong>436 presenze ufficiali con l'Atalanta</strong>, superando il precedente recordman Gianpaolo Bellini e diventando il giocatore con il maggior numero di gettoni nella storia del club bergamasco. Un traguardo festeggiato con grande calore dalla tifoseria del Gewiss Stadium.</p>
+
+<p>Arrivato dall'Heerenveen nell'estate del 2017, De Roon si è imposto come uno dei centrocampisti più affidabili del calcio italiano ed europeo, collezionando <strong>318 presenze in Serie A</strong> e superando i <strong>610 gettoni totali</strong> in carriera tra club e nazionale. Le sue 42 presenze in maglia olandese — con un gol — testimoniano un rapporto con la nazionale vissuto a fasi alterne, ma sempre caratterizzato da grande professionalità.</p>
+
+<figure>
+  <svg viewBox="0 0 640 310" role="img" aria-label="Grafico a barre orizzontali con le statistiche di carriera di Marten de Roon: 436 presenze con l'Atalanta (record storico del club), 610 totali in carriera, 318 in Serie A, 42 in nazionale olandese" xmlns="http://www.w3.org/2000/svg">
+    <rect width="640" height="310" fill="#f5f5f5" rx="8"/>
+
+    <text x="320" y="32" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111">Statistiche di carriera — Marten de Roon</text>
+    <text x="320" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Dati aggiornati a maggio 2026</text>
+
+    <!-- Riga 1: Presenze Atalanta (436) — scala 436/610*340 = 243px -->
+    <text x="210" y="88" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">Presenze con l'Atalanta</text>
+    <text x="210" y="101" text-anchor="end" font-family="sans-serif" font-size="10" fill="#1c4fc4" font-style="italic">record storico del club</text>
+    <rect x="220" y="75" width="243" height="28" fill="#1c4fc4" rx="4"/>
+    <text x="469" y="94" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1c4fc4">436</text>
+
+    <!-- Riga 2: Presenze totali (610) — barra massima 340px -->
+    <text x="210" y="148" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">Presenze totali in carriera</text>
+    <rect x="220" y="135" width="340" height="28" fill="#333333" rx="4"/>
+    <text x="566" y="154" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#333333">610</text>
+
+    <!-- Riga 3: Presenze Serie A (318) — scala 318/610*340 = 177px -->
+    <text x="210" y="208" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">Presenze in Serie A</text>
+    <rect x="220" y="195" width="177" height="28" fill="#1a7a42" rx="4"/>
+    <text x="403" y="214" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a7a42">318</text>
+
+    <!-- Riga 4: Presenze nazionale (42) — scala 42/610*340 = 23px -->
+    <text x="210" y="265" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">Presenze in nazionale</text>
+    <text x="210" y="278" text-anchor="end" font-family="sans-serif" font-size="10" fill="#d95c00" font-style="italic">Paesi Bassi (Olanda)</text>
+    <rect x="220" y="253" width="23" height="28" fill="#d95c00" rx="4"/>
+    <text x="249" y="272" text-anchor="start" font-family="sans-serif" font-size="13" font-weight="bold" fill="#d95c00">42</text>
+
+    <text x="320" y="298" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Fonte: Transfermarkt, KNVB, Lega Serie A — valori ufficiali</text>
+  </svg>
+  <figcaption>Le presenze ufficiali di Marten de Roon nelle principali competizioni. Il dato relativo all'Atalanta (436) è il record storico stabilito il 22 marzo 2026. Fonte: Transfermarkt e registri ufficiali.</figcaption>
+</figure>
+
+<h2>L'Olanda al Mondiale 2026: il calendario del Gruppo F</h2>
+
+<p>Il Mondiale 2026 si disputerà tra <strong>Stati Uniti, Canada e Messico</strong> dall'11 giugno al 19 luglio, con la finale al MetLife Stadium di East Rutherford, nel New Jersey. Per la prima volta il torneo accoglie <strong>48 squadre</strong>, divise in dodici gironi da quattro.</p>
+
+<p>I Paesi Bassi sono stati inseriti nel <strong>Gruppo F</strong> insieme a Giappone, Svezia e Tunisia. Il calendario degli Oranje nella fase a gironi:</p>
+
+<ul>
+  <li><strong>14 giugno</strong> — Olanda–Giappone a Dallas</li>
+  <li><strong>20 giugno</strong> — Olanda–Svezia a Houston</li>
+  <li><strong>26 giugno</strong> — Tunisia–Olanda a Kansas City</li>
+</ul>
+
+<p>Con De Roon è stato convocato anche <strong>Teun Koopmeiners</strong>, ex centrocampista dell'Atalanta oggi alla Juventus: i tifosi bergamaschi avranno così due ex nerazzurri da seguire nella rosa olandese. Sarà il secondo Mondiale in carriera per De Roon — il primo fu nel 2022 in Qatar, con l'eliminazione ai quarti contro l'Argentina — un'occasione inaspettata, conquistata all'ultimo momento, per aggiungere un capitolo nuovo a una carriera che a Bergamo è già leggenda.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/sport/de-roon-a-sorpresa-torna-in-nazionale-andra-al-mondiale-con-lolanda-o_3876021_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo — De Roon a sorpresa torna in nazionale: andrà al Mondiale con l&#x27;Olanda</a></li><li><a href="https://www.calcioatalanta.it/2026/05/27/olanda-ecco-i-convocati-per-il-mondiale-2026-ce-anche-de-roon/" rel="noopener" target="_blank">Calcio Atalanta — Olanda, ecco i convocati per il Mondiale 2026: c&#x27;è anche De Roon</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sette nerazzurri ai mondiali 2026: record storico per l&#x27;atalanta per la prima volta nella storia del club, sette giocatori dell&#x27;atalanta sono stati convocati per la fase finale di un campionato del mondo. il precedente record fermo a quattro risale a qatar 2022. sport bergamo atalanta mondiali 2026 fifa" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-04-atalanta-record-mondiali-2026/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta</h2><p class="card-summary">Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.</p><p class="card-meta">4 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article><article class="card" data-search="cristiano giuntoli è il nuovo direttore sportivo dell&#x27;atalanta il 30 maggio 2026 l&#x27;atalanta ha ufficializzato l&#x27;ingaggio di cristiano giuntoli come nuovo direttore sportivo, con contratto fino al 2029. il dirigente fiorentino, ex ds di napoli e juventus, subentra a tony d&#x27;amico che lascia bergamo per la roma. sport atalanta bergamo calciomercato giuntoli" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-31-giuntoli-ds-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</h2><p class="card-summary">Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.</p><p class="card-meta">31 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

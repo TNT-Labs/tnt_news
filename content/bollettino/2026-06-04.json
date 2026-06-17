@@ -1,0 +1,44 @@
+{
+  "date": "2026-06-04",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso sull'intero tragitto, temperature miti (16–19 °C), zero precipitazioni e venti deboli: condizioni di guida tranquille.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Nuvoloso", "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "NE"},
+      {"name": "Carugate (08:15)",   "cond": "Nuvoloso", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Nuvoloso", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 116,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 53},
+      {"name": "Surface Agrate → Carugate",          "minutes": 20},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 43}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, Svincolo Dalmine",  "desc": "Code per incidente segnalato dal CCISS a partire dalle ore 05:24."},
+      {"where": "A4 dir. Milano, Svincolo Capriate",  "desc": "Code per traffico intenso segnalate dal CCISS a partire dalle ore 07:02."}
+    ],
+    "notice": "Directions API con waypoint via: restituisce un unico leg (Bergamo→San Donato, 116 min con traffico); i minuti per segmento sono stimati proporzionalmente dalla baseline (40:15:32,5). CCISS leggibile: due segnalazioni sulla A4 dir. Milano (Dalmine e Capriate), effetti già incorporati nell'ETA Google. Luceverde Lombardia, Luceverde Milano e Autostrade.it non raggiungibili (errore 404). Serravalle non verificato direttamente."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista (0 mm, probabilità 10%) in tutti e tre i punti",
+      "Temperature abbondantemente sopra i 7 °C (16–19 °C lungo il tragitto)",
+      "Vento debole (max 10 km/h) con raffiche modeste (max 16 km/h)",
+      "Visibilità eccellente (16 km) e nessun codice meteo pericoloso (nebbia, neve, temporale)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",         "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati","url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia (non raggiungibile)", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano (non raggiungibile)",    "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia (non raggiungibile)", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}

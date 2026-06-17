@@ -1,0 +1,43 @@
+{
+  "date": "2026-06-05",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole a Bergamo in partenza (0,35 mm, prob. 35%); parzialmente soleggiato su Carugate e San Donato (prob. pioggia 15%, solo tracce). Temperature miti: 15–18 °C. Venti calmi ovunque (3–5 km/h).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Pioggia debole",        "temp_c": 15, "precip_mm": 0.35, "wind_kmh": 3,  "wind_dir": "ENE"},
+      {"name": "Carugate (08:15)",   "cond": "Parzialmente soleggiato","temp_c": 17, "precip_mm": 0.03, "wind_kmh": 5,  "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato","temp_c": 18, "precip_mm": 0.01, "wind_kmh": 5,  "wind_dir": "NW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 77,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 36},
+      {"name": "Surface Agrate → Carugate",          "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 27}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, nei pressi di Svincolo Agrate", "desc": "Perdita di carico per perdita accidentale (segnalato alle 07:08)."},
+      {"where": "A4 dir. Milano, tratta Barriera di Milano Est – Svincolo Agrate", "desc": "Code a tratti per traffico intenso in corso dalle 06:19."}
+    ],
+    "notice": "Directions API con waypoint via: restituisce un unico leg (Bergamo→San Donato, 77 min con traffico); i minuti per segmento sono stimati proporzionalmente dalla baseline (40:15:30). CCISS leggibile: due segnalazioni A4 dir. Milano (perdita di carico e code a tratti nei pressi di Svincolo Agrate), effetti già incorporati nell'ETA Google. Luceverde Lombardia, Luceverde Milano e Autostrade per l'Italia non raggiungibili (errore 404)."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole prevista a Bergamo alla partenza (0,35 mm, probabilità 35%)",
+      "Asfalto bagnato alla partenza: pioggia in atto alle 07:00 su Bergamo",
+      "Probabilità di pioggia al 35% alla partenza, superiore alla soglia del 30%"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API",                    "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",                            "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati",                   "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia (non raggiungibile)",       "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano (non raggiungibile)",          "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia (non raggiungibile)",   "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}

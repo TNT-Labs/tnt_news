@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bollettino pendolare 10 giugno 2026 — TNT News</title>
+  <meta name="description" content="Niente moto — 87 min stimati">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/bollettino/2026-06-10/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bollettino pendolare 10 giugno 2026 — TNT News">
+  <meta property="og:description" content="Niente moto — 87 min stimati">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/bollettino/2026-06-10/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bollettino pendolare 10 giugno 2026 — TNT News">
+  <meta name="twitter:description" content="Niente moto — 87 min stimati">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../bollettino/">&larr; Bollettino di oggi</a><article class="bollettino"><header class="bollettino-header"><p class="bollettino-meta">Bollettino pendolare · 10 giugno 2026</p><h1>Bergamo &rarr; San Donato Milanese</h1><p class="bollettino-route">Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese</p></header><section class="verdict verdict-no"><p class="verdict-label">Niente moto</p><ul class="verdict-reasons"><li>Precipitazioni attese durante la finestra 07:30–09:00: 0.74 mm a Carugate, 0.45 mm a San Donato</li><li>Pioggia debole in sviluppo a Bergamo nella fascia 08:00–09:00 (0.5 mm, prob. 30%)</li><li>Asfalto presumibilmente bagnato su tutto il percorso milanese dall&#x27;arrivo</li><li>Probabilità di pioggia fino al 40% sull&#x27;A51 (Carugate)</li></ul></section><section class="bollettino-section"><h2>Tempo stimato in auto</h2><p class="travel-time"><strong>87 min</strong> <span class="travel-meta">· partenza prevista 07:30</span></p><table class="traffic-table"><tbody><tr><td>A4 Bergamo → Agrate</td><td class="num">40 min</td></tr><tr><td>Surface Agrate → Carugate</td><td class="num">15 min</td></tr><tr><td>A51 Carugate → San Donato Milanese</td><td class="num">32 min</td></tr></tbody></table><h3>Segnalazioni su A4 / A51</h3><p class="incidents-notice">⚠ Solo CCISS leggibile tra le fonti strutturate; Luceverde (lombardia e milano), Autostrade per l&#x27;Italia e Serravalle non disponibili (HTTP 404). Segnalazione cantiere A51 derivante solo da ricerca web. I minuti per segmento sono stimati proporzionalmente dalla durata totale Google Directions (5246 s = 87 min): i waypoint con prefisso via: non generano legs separati nell&#x27;API.</p><ul class="incidents"><li><strong>A4 dir. Milano:</strong> Code a tratti per traffico intenso dalle 06:57 (CCISS); effetto già incluso nell&#x27;ETA Directions.</li><li><strong>A51, tra SP208 Carugate e SP113 Cernusco Sul Naviglio:</strong> Cantiere segnalato da ricerca web; direzione e stato attuale non confermati da fonte strutturata.</li></ul></section><section class="bollettino-section"><h2>Meteo lungo il percorso</h2><div class="weather-grid"><div class="weather-card"><p class="weather-where">Bergamo (07:30)</p><p class="weather-cond">Prevalentemente nuvoloso</p><p class="weather-data"><span>18.0°C</span> · <span>0.0 mm</span> · <span>5 km/h N</span></p></div><div class="weather-card"><p class="weather-where">Carugate (08:15)</p><p class="weather-cond">Pioggia debole</p><p class="weather-data"><span>20.4°C</span> · <span>0.74 mm</span> · <span>6 km/h NE</span></p></div><div class="weather-card"><p class="weather-where">San Donato (08:45)</p><p class="weather-cond">Pioggia debole</p><p class="weather-data"><span>21.1°C</span> · <span>0.45 mm</span> · <span>8 km/h NE</span></p></div></div><p class="weather-summary">Cielo coperto su tutto il tragitto; precipitazioni deboli attese già dalle 08:00 su Carugate e San Donato (fino a 0.7 mm), con pioggia che raggiungerà anche Bergamo entro le 09:00. Temperature miti tra 18 e 21 °C, vento debole da Nord a Bergamo e da Nord-Est nel tratto milanese.</p></section><section class="sources"><h2>Fonti</h2><ul><li><a href="https://developers.google.com/maps/documentation/directions" rel="noopener" target="_blank">Google Maps Directions API</a></li><li><a href="https://developers.google.com/maps/documentation/weather" rel="noopener" target="_blank">Google Weather API</a></li><li><a href="https://www.cciss.it/" rel="noopener" target="_blank">CCISS — Viaggiare Informati</a></li><li><a href="https://www.luceverde.it/lombardia" rel="noopener" target="_blank">Luceverde Lombardia (non raggiungibile)</a></li><li><a href="https://www.luceverde.it/milano" rel="noopener" target="_blank">Luceverde Milano (non raggiungibile)</a></li><li><a href="https://www.autostrade.it/it/traffico-in-tempo-reale" rel="noopener" target="_blank">Autostrade per l&#x27;Italia (non raggiungibile)</a></li><li><a href="https://www.serravalle.it/traffico" rel="noopener" target="_blank">Serravalle Traffico (non raggiungibile)</a></li><li><a href="https://traffico.carx.it/a51/" rel="noopener" target="_blank">Ricerca web (Zazoom, MilanoToday, Automap)</a></li></ul></section></article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta — TNT News</title>
+  <meta name="description" content="Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-31-giuntoli-ds-atalanta/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta — TNT News">
+  <meta property="og:description" content="Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-31-giuntoli-ds-atalanta/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta — TNT News">
+  <meta name="twitter:description" content="Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Atalanta</span><span class="tag">Bergamo</span><span class="tag">Calciomercato</span><span class="tag">Giuntoli</span></div>
+    <h1>Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</h1>
+    <p class="article-summary">Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-31">31 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Cristiano Giuntoli è il nuovo direttore sportivo dell'Atalanta. Il club bergamasco ha reso ufficiale l'ingaggio il <strong>30 maggio 2026</strong> con un comunicato pubblicato sul proprio sito web: il dirigente fiorentino si è legato alla Dea con un contratto valido fino al <strong>2029</strong>. Subentra a Tony D'Amico, che lascia Bergamo dopo tre stagioni per accasarsi alla Roma.</p>
+
+<h2>Chi è Cristiano Giuntoli</h2>
+
+<p>Classe 1972, fiorentino, Giuntoli ha costruito la propria reputazione in quasi vent'anni di lavoro nelle stanze dei trasferimenti del calcio italiano. Dopo un primo incarico allo <strong>Spezia</strong>, il salto di qualità è arrivato al <strong>Carpi</strong>, dove ha firmato una delle imprese più straordinarie del calcio italiano recente: quattro promozioni in cinque anni, dalla Serie D fino alla storica prima partecipazione in Serie A nella stagione 2015-16.</p>
+
+<p>Il passo successivo fu il <strong>Napoli</strong>, dove Giuntoli rimase dal 2015 al 2023 costruendo due delle pagine più luminose della storia partenopea: la <strong>Coppa Italia 2019-20</strong> e lo <strong>Scudetto 2022-23</strong>, il terzo nella storia del club, conquistato in modo dominante. Quell'impresa lo consacrò come uno dei migliori direttori sportivi in circolazione in Europa. Nell'estate 2023 scelse di raccogliere la sfida della <strong>Juventus</strong>, dove in due stagioni vinse la <strong>Coppa Italia</strong> prima di liberarsi dai bianconeri.</p>
+
+<h2>D'Amico lascia Bergamo per Roma</h2>
+
+<p>La separazione da Tony D'Amico era nell'aria da alcune settimane. Il dirigente aveva costruito, in tre stagioni, il nucleo tecnico che ha permesso all'Atalanta di vincere l'<strong>Europa League 2023-24</strong> — il trofeo europeo più importante nella storia del club — e, nella stagione appena conclusa, la <strong>Conference League 2025-26</strong>. Un bilancio eccezionale che ha inevitabilmente attirato l'attenzione di club più grandi: la Roma ha mosso i passi decisivi, e la famiglia Percassi ha acconsentito al trasferimento senza opporre resistenza.</p>
+
+<p>Il presidente esecutivo Luca Percassi aveva anticipato la direzione già nei giorni precedenti all'annuncio, indicando Giuntoli come profilo di massima affidabilità: <em>«Rappresenta uno dei migliori direttori sportivi del calcio italiano»</em>, aveva dichiarato. Una valutazione condivisa dall'interessato, che ha scelto Bergamo come nuova tappa di una carriera già ricca di traguardi.</p>
+
+<h2>La sfida che attende la Dea</h2>
+
+<p>Giuntoli eredita un progetto solido e una proprietà ambiziosa, ma anche una responsabilità inedita: l'Atalanta si presenta alla stagione 2026-27 nella posizione di doppio campione europeo in carica. Mantenere e possibilmente alzare il livello competitivo richiederà scelte di mercato accurate: rinnovi dei giocatori più importanti, gestione delle eventuali offerte irrinunciabili e rinforzi mirati per il doppio impegno europeo che la Dea tornerà ad affrontare.</p>
+
+<p>Con il contratto fissato al 2029, la famiglia Percassi ha indicato chiaramente la volontà di costruire un progetto a lungo termine, affidando a Giuntoli non solo la gestione dell'immediato ma anche la pianificazione degli anni a venire.</p>
+
+<figure>
+  <svg viewBox="0 0 640 290" role="img" aria-label="Timeline della carriera di Cristiano Giuntoli come direttore sportivo: Spezia circa 2008-2010, Carpi 2010-2015 con quattro promozioni dalla Serie D alla Serie A, Napoli 2015-2023 con Coppa Italia 2020 e Scudetto 2023, Juventus 2023-2025 con Coppa Italia, Atalanta dal 2026 fino al 2029" xmlns="http://www.w3.org/2000/svg">
+
+    <rect width="640" height="290" fill="#f8f8f8" rx="8"/>
+
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#111">Cristiano Giuntoli — Carriera da Direttore Sportivo</text>
+    <text x="320" y="46" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">valori indicativi · fonti: comunicati ufficiali e stampa specializzata</text>
+
+    <!-- Timeline bar area: x 40..600, y 80..120 -->
+    <!-- Total years: 2008-2029 = 21 years, px_per_year = 560/21 ≈ 26.67 -->
+
+    <!-- Spezia: 2008-2010 (2 yr) x=40, w=53 -->
+    <rect x="40" y="80" width="53" height="40" fill="#7f99b2" rx="4"/>
+    <text x="66" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">Spezia</text>
+
+    <!-- Carpi: 2010-2015 (5 yr) x=93, w=133 -->
+    <rect x="93" y="80" width="134" height="40" fill="#8b1a1a" rx="4"/>
+    <text x="160" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">Carpi</text>
+
+    <!-- Napoli: 2015-2023 (8 yr) x=227, w=213 -->
+    <rect x="227" y="80" width="214" height="40" fill="#0066cc" rx="4"/>
+    <text x="334" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">Napoli</text>
+
+    <!-- Juventus: 2023-2025 (2 yr) x=441, w=53 -->
+    <rect x="441" y="80" width="53" height="40" fill="#222222" rx="4"/>
+    <text x="467" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white">Juventus</text>
+
+    <!-- Atalanta: 2026-2029 (3 yr) x=521, w=79 -->
+    <rect x="521" y="80" width="79" height="40" fill="#1c4fc4" rx="4"/>
+    <text x="560" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">Atalanta</text>
+
+    <!-- Year labels on axis -->
+    <line x1="40" y1="122" x2="600" y2="122" stroke="#ccc" stroke-width="1"/>
+
+    <!-- Year ticks: 2008, 2010, 2015, 2023, 2025, 2026, 2029 -->
+    <line x1="40" y1="120" x2="40" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="40" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2008</text>
+
+    <line x1="93" y1="120" x2="93" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="93" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2010</text>
+
+    <line x1="227" y1="120" x2="227" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="227" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2015</text>
+
+    <line x1="441" y1="120" x2="441" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="441" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2023</text>
+
+    <line x1="494" y1="120" x2="494" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="494" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2025</text>
+
+    <line x1="521" y1="120" x2="521" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="521" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2026</text>
+
+    <line x1="600" y1="120" x2="600" y2="128" stroke="#999" stroke-width="1"/>
+    <text x="600" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">2029</text>
+
+    <!-- Achievement labels below -->
+    <!-- Spezia -->
+    <text x="66" y="163" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">1ª esperienza</text>
+
+    <!-- Carpi -->
+    <text x="160" y="163" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b1a1a" font-weight="bold">4 promozioni</text>
+    <text x="160" y="176" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">Serie D → Serie A</text>
+
+    <!-- Napoli -->
+    <text x="334" y="163" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0066cc" font-weight="bold">Coppa Italia 2020 · Scudetto 2023</text>
+
+    <!-- Juventus -->
+    <text x="467" y="163" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222" font-weight="bold">Coppa Italia</text>
+
+    <!-- Atalanta -->
+    <text x="560" y="163" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1c4fc4" font-weight="bold">Nuova era</text>
+    <text x="560" y="176" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#555">contratto 2029</text>
+
+    <!-- Trophy icons (simple stars/circles) -->
+    <!-- Napoli trophies -->
+    <text x="280" y="72" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#f5c518">★</text>
+    <text x="296" y="72" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#f5c518">★</text>
+    <!-- Juventus trophy -->
+    <text x="467" y="72" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#f5c518">★</text>
+
+    <text x="320" y="218" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">★ = trofeo conquistato come Direttore Sportivo</text>
+
+    <!-- Legend -->
+    <rect x="40" y="235" width="560" height="44" fill="#efefef" rx="4"/>
+    <text x="320" y="253" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333">Palmares da DS</text>
+    <text x="320" y="270" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Coppa Italia 2019-20 (Napoli) · Scudetto 2022-23 (Napoli) · Coppa Italia (Juventus) · Atalanta dal 2026</text>
+  </svg>
+  <figcaption>Timeline della carriera di Cristiano Giuntoli come direttore sportivo dal 2008 al 2029. Le stelle indicano i principali trofei vinti nelle vesti di ds. Fonte: comunicati ufficiali e stampa specializzata — anni Spezia indicativi.</figcaption>
+</figure>
+
+<p>Per i tifosi della Dea il segnale è chiaro: il club non ha intenzione di ridimensionare le proprie ambizioni. L'arrivo di un dirigente del calibro di Giuntoli conferma che Bergamo vuole continuare a competere ai massimi livelli, europei e italiani, anche nella nuova stagione.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.atalanta.it/news/cristiano-giuntoli-e-il-nuovo-direttore-sportivo-dell-atalanta" rel="noopener" target="_blank">Atalanta B.C. — Comunicato ufficiale: Cristiano Giuntoli è il nuovo Direttore Sportivo</a></li><li><a href="https://www.bergamonews.it/2026/05/30/cristiano-giuntoli-e-il-nuovo-direttore-sportivo-dellatalanta/898096" rel="noopener" target="_blank">BergamoNews — Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article><article class="card" data-search="sette nerazzurri ai mondiali 2026: record storico per l&#x27;atalanta per la prima volta nella storia del club, sette giocatori dell&#x27;atalanta sono stati convocati per la fase finale di un campionato del mondo. il precedente record fermo a quattro risale a qatar 2022. sport bergamo atalanta mondiali 2026 fifa" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-04-atalanta-record-mondiali-2026/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta</h2><p class="card-summary">Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.</p><p class="card-meta">4 giugno 2026</p></div></a></article><article class="card" data-search="giro next gen 2026: sei ciclisti bergamaschi al via da reggio calabria prende il via oggi il giro d&#x27;italia next gen, la corsa riservata agli under 23: sei atleti della provincia di bergamo in gara nelle otto tappe tra calabria e abruzzo. sport bergamo ciclismo giro next gen under 23" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-14-giro-next-gen-bergamaschi/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro Next Gen 2026: sei ciclisti bergamaschi al via da Reggio Calabria</h2><p class="card-summary">Prende il via oggi il Giro d&#x27;Italia Next Gen, la corsa riservata agli under 23: sei atleti della provincia di Bergamo in gara nelle otto tappe tra Calabria e Abruzzo.</p><p class="card-meta">14 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

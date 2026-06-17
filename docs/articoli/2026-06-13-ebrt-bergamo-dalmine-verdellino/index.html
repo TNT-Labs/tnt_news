@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio — TNT News</title>
+  <meta name="description" content="I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-13-ebrt-bergamo-dalmine-verdellino/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio — TNT News">
+  <meta property="og:description" content="I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-13-ebrt-bergamo-dalmine-verdellino/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio — TNT News">
+  <meta name="twitter:description" content="I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">E-BRT</span><span class="tag">Trasporto pubblico</span><span class="tag">PNRR</span></div>
+    <h1>E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio</h1>
+    <p class="article-summary">I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-13">13 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il conto alla rovescia è quasi finito: l'<strong>e-BRT Bergamo–Dalmine–Verdellino</strong>, la prima linea di trasporto rapido su bus elettrici della Lombardia, si avvicina al traguardo. Stando agli aggiornamenti di marzo 2026, i lavori infrastrutturali hanno raggiunto l'<strong>82% di completamento</strong>, in piena conformità con il cronoprogramma. La scadenza per la fine del cantiere è fissata al <strong>30 giugno 2026</strong>, con l'avvio del servizio commerciale previsto per il <strong>1° luglio 2026</strong>.</p>
+
+<h2>Un percorso di 30 km attraverso sei comuni</h2>
+
+<p>Il tracciato collega il polo intermodale della <strong>stazione ferroviaria di Bergamo</strong> con la stazione di <strong>Verdellino</strong>, attraversando i comuni di Lallio, Dalmine, Osio Sopra e Osio Sotto, per una lunghezza complessiva di <strong>29,7 km</strong>. Lungo il percorso sono previste <strong>36 fermate</strong> in totale — 18 per ciascuna direzione di marcia — e il <strong>72%</strong> del tragitto si svolgerà su corsia riservata, fisicamente separata dal traffico veicolare ordinario. Il sistema interagisce con <strong>49 incroci semaforici</strong>, dove i bus beneficieranno della priorità semaforica per garantire la puntualità delle corse.</p>
+
+<p>I tempi di percorrenza previsti sono di <strong>22 minuti</strong> da Bergamo a Dalmine e di <strong>41 minuti</strong> fino a Verdellino. Nelle ore di punta il servizio avrà una frequenza di <strong>un bus ogni 10 minuti</strong>, con un'offerta paragonabile a quella di una metropolitana leggera di superficie.</p>
+
+<h2>La flotta: 15 bus elettrici da 120 posti</h2>
+
+<p>I veicoli dell'e-BRT sono <strong>15 autobus articolati completamente elettrici</strong>, lunghi 18 metri, con una capienza massima di circa <strong>120 passeggeri</strong> ciascuno. Alle fermate i viaggiatori troveranno pensiline hi-tech con informazioni in tempo reale sui passaggi. La ricarica avviene con un sistema <strong>"opportunity"</strong> ai due capolinea — Bergamo e Verdellino — durante le soste di testa, mentre la ricarica completa notturna dell'intera flotta avviene nei depositi di Bergamo e Osio Sopra.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico dell'avanzamento dei lavori e-BRT Bergamo dal febbraio 2025 a giugno 2026" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="320" fill="#f0f4fb" rx="12"/>
+
+    <!-- Titolo -->
+    <text x="320" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a2e4a">Avanzamento lavori e-BRT — da cantiere all'avvio del servizio</text>
+
+    <!-- Griglia orizzontale e label asse Y -->
+    <!-- 100% -->
+    <line x1="110" y1="45" x2="595" y2="45" stroke="#c8d4e8" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="103" y="49" text-anchor="end" font-size="10" fill="#666">100%</text>
+    <!-- 75% -->
+    <line x1="110" y1="95" x2="595" y2="95" stroke="#e0e8f4" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="103" y="99" text-anchor="end" font-size="10" fill="#666">75%</text>
+    <!-- 50% -->
+    <line x1="110" y1="145" x2="595" y2="145" stroke="#e0e8f4" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="103" y="149" text-anchor="end" font-size="10" fill="#666">50%</text>
+    <!-- 25% -->
+    <line x1="110" y1="195" x2="595" y2="195" stroke="#e0e8f4" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="103" y="199" text-anchor="end" font-size="10" fill="#666">25%</text>
+    <!-- 0% -->
+    <line x1="110" y1="245" x2="595" y2="245" stroke="#c8d4e8" stroke-width="1"/>
+    <text x="103" y="249" text-anchor="end" font-size="10" fill="#666">0%</text>
+
+    <!-- Asse Y -->
+    <line x1="110" y1="45" x2="110" y2="245" stroke="#9aaccc" stroke-width="1.5"/>
+    <!-- Asse X -->
+    <line x1="110" y1="245" x2="595" y2="245" stroke="#9aaccc" stroke-width="1.5"/>
+
+    <!-- Tacche asse X -->
+    <line x1="110" y1="245" x2="110" y2="251" stroke="#9aaccc" stroke-width="1.5"/>
+    <text x="110" y="264" text-anchor="middle" font-size="10" fill="#555">Feb 2025</text>
+
+    <line x1="315" y1="245" x2="315" y2="251" stroke="#9aaccc" stroke-width="1.5"/>
+    <text x="315" y="264" text-anchor="middle" font-size="10" fill="#555">Set 2025</text>
+
+    <line x1="505" y1="245" x2="505" y2="251" stroke="#9aaccc" stroke-width="1.5"/>
+    <text x="505" y="264" text-anchor="middle" font-size="10" fill="#555">Mar 2026</text>
+
+    <line x1="595" y1="245" x2="595" y2="251" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="595" y="264" text-anchor="middle" font-size="10" fill="#2563eb" font-weight="bold">Giu 2026</text>
+
+    <!-- Coordinata y per dati:  y = 245 - (valore% * 2)  -->
+    <!-- 30%: y=185  |  55%: y=135  |  82%: y=81  |  100%: y=45 -->
+
+    <!-- Area riempita sotto la curva effettiva -->
+    <polygon points="110,185 315,135 505,81 505,245 110,245" fill="#bfdbfe" opacity="0.55"/>
+
+    <!-- Linea avanzamento effettivo -->
+    <polyline fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" points="110,185 315,135 505,81"/>
+
+    <!-- Linea tratteggiata verso target -->
+    <line x1="505" y1="81" x2="595" y2="45" stroke="#2563eb" stroke-width="2" stroke-dasharray="8,5"/>
+
+    <!-- Punto Feb 2025: 30% -->
+    <circle cx="110" cy="185" r="6" fill="#2563eb" stroke="#f0f4fb" stroke-width="2"/>
+    <text x="118" y="177" font-size="11" font-weight="bold" fill="#1a2e4a">30%</text>
+
+    <!-- Punto Set 2025: 55% -->
+    <circle cx="315" cy="135" r="6" fill="#2563eb" stroke="#f0f4fb" stroke-width="2"/>
+    <text x="323" y="127" font-size="11" font-weight="bold" fill="#1a2e4a">55%</text>
+
+    <!-- Punto Mar 2026: 82% -->
+    <circle cx="505" cy="81" r="6" fill="#2563eb" stroke="#f0f4fb" stroke-width="2"/>
+    <text x="513" y="73" font-size="11" font-weight="bold" fill="#1a2e4a">82%</text>
+
+    <!-- Punto Giu 2026: 100% target -->
+    <circle cx="595" cy="45" r="6" fill="#f0f4fb" stroke="#2563eb" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="583" y="37" text-anchor="end" font-size="11" font-weight="bold" fill="#2563eb">100%*</text>
+
+    <!-- Etichetta avvio servizio -->
+    <rect x="538" y="270" width="92" height="20" rx="4" fill="#dcfce7"/>
+    <text x="584" y="284" text-anchor="middle" font-size="10" fill="#15803d" font-weight="bold">Avvio: 1° luglio</text>
+
+    <!-- Legenda -->
+    <rect x="130" y="293" width="10" height="10" rx="2" fill="#bfdbfe" opacity="0.8"/>
+    <line x1="130" y1="298" x2="155" y2="298" stroke="#2563eb" stroke-width="2.5"/>
+    <circle cx="143" cy="298" r="4" fill="#2563eb" stroke="#f0f4fb" stroke-width="1.5"/>
+    <text x="160" y="302" font-size="10" fill="#444">Avanzamento effettivo</text>
+
+    <line x1="320" y1="298" x2="345" y2="298" stroke="#2563eb" stroke-width="2" stroke-dasharray="8,5"/>
+    <text x="350" y="302" font-size="10" fill="#444">Obiettivo previsto (*)</text>
+  </svg>
+  <figcaption>Percentuale di avanzamento dei lavori dell'e-BRT Bergamo–Dalmine–Verdellino nei punti di rilevazione comunicati ufficialmente: 30% (febbraio 2025), 55% (settembre 2025), 82% (marzo 2026). Il 100% al 30 giugno 2026 è l'obiettivo dichiarato; il dato effettivo a quella data non è ancora disponibile. Fonti: Bergamonews, autobusweb.com — valori indicativi.</figcaption>
+</figure>
+
+<h2>84 milioni di euro dal PNRR europeo</h2>
+
+<p>L'intera opera è finanziata con risorse del <strong>Piano Nazionale di Ripresa e Resilienza (PNRR)</strong>, per un investimento complessivo di poco superiore a <strong>84 milioni di euro</strong> erogati dall'Unione europea nell'ambito del programma <strong>Next Generation EU</strong>. Una volta a pieno regime, la linea è progettata per trasportare circa <strong>4 milioni di passeggeri l'anno</strong>, servendo un bacino di utenza stimato in <strong>200.000 residenti</strong> nei sei comuni attraversati dal percorso.</p>
+
+<p>Secondo le proiezioni, l'e-BRT potrebbe trasferire all'autobus il <strong>6% degli spostamenti oggi effettuati in auto</strong> nella fascia territoriale interessata, con benefici attesi sulla congestione stradale e sulla qualità dell'aria. Il progetto si inserisce nel più ampio riassetto della mobilità della provincia: a pochi chilometri di distanza, il cantiere per il collegamento ferroviario con l'aeroporto di Orio al Serio è invece atteso non prima del dicembre 2027.</p>
+
+<p>Con il cantiere in dirittura d'arrivo e le consegne dei nuovi bus già avvenute, il calendario indicato da ATB — l'azienda di trasporto pubblico di Bergamo che gestirà il servizio — rimane confermato. Se non interverranno imprevisti, a partire dal prossimo mese i residenti di Bergamo, Dalmine, Verdellino e dei comuni limitrofi potranno salire sui nuovi bus elettrici per la prima volta.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/03/25/i-bus-elettrici-e-brt-collegano-bergamo-con-dalmine-e-verdellino-quasi-terminati-i-lavori/878551/" rel="noopener" target="_blank">Bergamonews — I bus elettrici e-BRT collegano Bergamo con Dalmine e Verdellino, quasi terminati i lavori (25 mar 2026)</a></li><li><a href="https://www.autobusweb.com/e-brt-bergamo-82-per-cento-completamento/" rel="noopener" target="_blank">Autobusweb — Presentati autobus e pensiline: lavori completati all&#x27;82%</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="navette gratuite e ztl ampliata: dal 21 giugno cambia la mobilità estiva a città alta dal 21 giugno al 13 settembre tre linee di bus navetta elettrici e gratuiti collegheranno i parcheggi periferici di bergamo a largo colle aperto. nelle domeniche e nei festivi la ztl resterà attiva senza interruzioni dalle 10 alle 24. trasporti bergamo città alta ztl trasporto pubblico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-15-citta-alta-navette-estate-ztl/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Navette gratuite e ZTL ampliata: dal 21 giugno cambia la mobilità estiva a Città Alta</h2><p class="card-summary">Dal 21 giugno al 13 settembre tre linee di bus navetta elettrici e gratuiti collegheranno i parcheggi periferici di Bergamo a Largo Colle Aperto. Nelle domeniche e nei festivi la ZTL resterà attiva senza interruzioni dalle 10 alle 24.</p><p class="card-meta">15 giugno 2026</p></div></a></article><article class="card" data-search="sciopero treni 11 giugno: 23 ore di disagi in lombardia, i sindacati di base confermano i sindacati di base (cub trasporti, sgb, cat, assemblea pdb e pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. i confederali si sono fermati dopo un tavolo al mit. trenord garantisce i treni nelle fasce 6-9 e 18-21. trasporti bergamo treni sciopero trenord" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-11-sciopero-treni-sindacati-base-lombardia/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero treni 11 giugno: 23 ore di disagi in Lombardia, i sindacati di base confermano</h2><p class="card-summary">I sindacati di base (CUB Trasporti, SGB, CAT, Assemblea Pdb e Pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. I confederali si sono fermati dopo un tavolo al MIT. Trenord garantisce i treni nelle fasce 6-9 e 18-21.</p><p class="card-meta">11 giugno 2026</p></div></a></article><article class="card" data-search="treno per orio e raddoppio verso ponte san pietro: cantieri ferroviari slittati a dicembre 2027 rfi ha comunicato che i lavori per il collegamento ferroviario tra bergamo e l&#x27;aeroporto di orio al serio e il raddoppio della linea verso ponte san pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. costituita una task force per recuperare il tempo perso. trasporti bergamo ferrovia orio al serio rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-09-ferrovia-bergamo-orio-ritardo-2027/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027</h2><p class="card-summary">RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.</p><p class="card-meta">9 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

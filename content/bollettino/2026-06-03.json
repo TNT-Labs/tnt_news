@@ -1,0 +1,43 @@
+{
+  "date": "2026-06-03",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Giornata soleggiata su tutta la tratta. Temperature fresche alla partenza da Bergamo (14°C), in rialzo fino a 18°C a San Donato Milanese. Nessuna precipitazione prevista. Vento debole (3–10 km/h) da nordovest a Bergamo, da ovest sulle stazioni intermedie. Visibilità buona: 11–16 km.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Prevalentemente soleggiato", "temp_c": 14, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "NNO"},
+      {"name": "Carugate (08:15)",   "cond": "Prevalentemente soleggiato", "temp_c": 17, "precip_mm": 0.0, "wind_kmh": 8,  "wind_dir": "O"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato",    "temp_c": 18, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 61,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 28},
+      {"name": "Surface Agrate → Carugate",          "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 20}
+    ],
+    "incidents": [],
+    "notice": "CCISS raggiungibile: segnalato traffico intenso generico A4 Milano-Brescia (nessun incidente specifico sulla tratta rilevato). Luceverde Lombardia/Milano e Serravalle non raggiungibili (404). Autostrade per l'Italia senza dati specifici sulla tratta. Segnalazioni verificate anche con ricerca web: nessun incidente confermato oggi sulla tratta Bergamo–San Donato."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista su tutta la tratta (0 mm, probabilità max 5% a San Donato)",
+      "Temperature sopra i 14°C su tutto il percorso",
+      "Vento debole (max 10 km/h) con raffiche contenute (max 18 km/h)",
+      "Cielo prevalentemente sereno, visibilità eccellente (11–16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano", "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia", "url": "https://www.autostrade.it/en/previsioni?regione=3"},
+    {"name": "Serravalle — Tangenziali Milano", "url": "https://www.serravalle.it/traffico"},
+    {"name": "MilanoToday — Traffico A4/A51", "url": "https://www.milanotoday.it/"}
+  ]
+}

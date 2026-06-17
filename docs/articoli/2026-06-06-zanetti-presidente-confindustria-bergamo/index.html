@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Matteo Zanetti nuovo presidente di Confindustria Bergamo per il quadriennio 2026-2030 — TNT News</title>
+  <meta name="description" content="Il 4 giugno l&#x27;assemblea privata di Confindustria Bergamo ha eletto Matteo Zanetti, vicepresidente e CEO di Zanetti SpA, alla guida dell&#x27;associazione per il mandato 2026-2030. Succede a Giovanna Ricuperati con un programma centrato su filiere, innovazione e valorizzazione delle persone.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-06-zanetti-presidente-confindustria-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Matteo Zanetti nuovo presidente di Confindustria Bergamo per il quadriennio 2026-2030 — TNT News">
+  <meta property="og:description" content="Il 4 giugno l&#x27;assemblea privata di Confindustria Bergamo ha eletto Matteo Zanetti, vicepresidente e CEO di Zanetti SpA, alla guida dell&#x27;associazione per il mandato 2026-2030. Succede a Giovanna Ricuperati con un programma centrato su filiere, innovazione e valorizzazione delle persone.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-06-zanetti-presidente-confindustria-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Matteo Zanetti nuovo presidente di Confindustria Bergamo per il quadriennio 2026-2030 — TNT News">
+  <meta name="twitter:description" content="Il 4 giugno l&#x27;assemblea privata di Confindustria Bergamo ha eletto Matteo Zanetti, vicepresidente e CEO di Zanetti SpA, alla guida dell&#x27;associazione per il mandato 2026-2030. Succede a Giovanna Ricuperati con un programma centrato su filiere, innovazione e valorizzazione delle persone.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Confindustria</span><span class="tag">industria</span><span class="tag">economia</span></div>
+    <h1>Matteo Zanetti nuovo presidente di Confindustria Bergamo per il quadriennio 2026-2030</h1>
+    <p class="article-summary">Il 4 giugno l&#x27;assemblea privata di Confindustria Bergamo ha eletto Matteo Zanetti, vicepresidente e CEO di Zanetti SpA, alla guida dell&#x27;associazione per il mandato 2026-2030. Succede a Giovanna Ricuperati con un programma centrato su filiere, innovazione e valorizzazione delle persone.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-06">6 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  L'assemblea privata di Confindustria Bergamo si è riunita il 4 giugno 2026 per eleggere il
+  nuovo presidente dell'associazione che rappresenta le imprese industriali della provincia.
+  Matteo Zanetti — candidato unico, designato già il 13 aprile con il 97% delle preferenze
+  espresse dal Consiglio Generale — è stato formalmente eletto alla guida dell'ente per il
+  quadriennio 2026-2030. L'assemblea ha contestualmente approvato le linee guida del mandato,
+  il programma delle attività e la nomina dei vicepresidenti con le rispettive deleghe.
+</p>
+
+<h2>Chi è Matteo Zanetti</h2>
+<p>
+  Nato a Bergamo il 29 giugno 1964, Zanetti si è laureato in Economia e Commercio all'Università
+  degli Studi di Bergamo. Dal gennaio 1990 lavora in Zanetti SpA, azienda del settore
+  agroalimentare specializzata nella produzione e nell'esportazione di formaggi italiani — tra
+  cui Grana Padano e Parmigiano Reggiano — di cui è oggi Vicepresidente e Amministratore
+  Delegato.
+</p>
+<p>
+  Il suo percorso nel sistema Confindustria è lungo e articolato: è stato Vicepresidente di
+  Confindustria Bergamo dal 2011 al 2017, poi è diventato Presidente del Gruppo Industrie
+  Alimentari dell'associazione. Sul piano nazionale è membro del Consiglio Generale di
+  Confindustria dal 2015 e, dal luglio 2024, siede nella Presidenza nazionale come Advisor
+  Speciale con delega al PNRR.
+</p>
+
+<h2>Il programma: filiere, innovazione, persone</h2>
+<p>
+  Nel suo primo discorso da presidente, Zanetti ha delineato la visione per il mandato
+  partendo dal ruolo sociale delle imprese: «Le nostre imprese sono protagoniste della vita
+  delle loro comunità — creando posti di lavoro, promuovendo l'integrazione, sostenendo
+  percorsi di crescita professionale che contribuiscono alla stabilità sociale del territorio.
+  Grazie a chi ci ha preceduto e anche al nostro lavoro, l'industria bergamasca ha raggiunto
+  risultati di primato assoluto nel panorama europeo».
+</p>
+<p>
+  Il programma si articola su tre assi principali: il potenziamento delle filiere produttive,
+  lo scambio di conoscenze tra settori diversi e la valorizzazione delle persone. Zanetti ha
+  inoltre dichiarato l'intenzione di difendere attivamente il sistema manifatturiero bergamasco
+  davanti alle sfide internazionali, puntando a facilitare ulteriori sviluppi e il raggiungimento
+  di nuovi obiettivi.
+</p>
+
+<h2>Le sfide: energia, dazi e instabilità globale</h2>
+<p>
+  Il neo-presidente si trova a guidare Confindustria Bergamo in una fase segnata da pressioni
+  crescenti sul sistema produttivo. Tra i temi più urgenti segnalati nella presentazione del
+  mandato: i costi energetici ancora elevati, l'instabilità dei prezzi delle materie prime, le
+  dinamiche tariffarie internazionali e le conseguenze dei conflitti in corso su filiere e
+  mercati di sbocco. Bergamo, con la sua forte vocazione all'export e un manifatturiero
+  considerato tra i più diversificati e competitivi d'Europa, è particolarmente esposta a
+  queste pressioni.
+</p>
+
+<h2>Il passaggio di testimone</h2>
+<p>
+  L'assemblea del 4 giugno ha segnato anche il congedo di Giovanna Ricuperati, che ha guidato
+  Confindustria Bergamo per quattro anni in un periodo di turbolenze continue: dalla coda
+  della pandemia alle tensioni geopolitiche, dalla crisi energetica all'inflazione. «Lascio
+  una Confindustria solida e coraggiosa», ha dichiarato Ricuperati nel suo discorso di
+  commiato, riconoscendo l'impegno delle imprese associate nell'attraversare sfide senza
+  precedenti.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 280" role="img"
+       aria-label="Percorso istituzionale di Matteo Zanetti in Confindustria dal 2011 al 2026"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Sfondo -->
+    <rect width="640" height="280" fill="#f8f9fa" rx="8"/>
+
+    <!-- Titolo interno -->
+    <text x="320" y="28" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#212529">
+      Percorso istituzionale di Matteo Zanetti in Confindustria
+    </text>
+
+    <!-- Linea timeline (2011–2026, y=140, x: 60–580) -->
+    <line x1="60" y1="140" x2="575" y2="140" stroke="#adb5bd" stroke-width="2"/>
+    <polygon points="575,135 590,140 575,145" fill="#adb5bd"/>
+
+    <!--
+      Scala: 520 px / 15 anni ≈ 34,67 px/anno
+      2011 → x=60 | 2015 → x=199 | 2024 → x=511 | 2026 → x=580
+    -->
+
+    <!-- Milestone 1 — 2011 — VP Confindustria Bergamo (etichetta SOPRA) -->
+    <circle cx="60" cy="140" r="9" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+    <line x1="60" y1="131" x2="60" y2="80" stroke="#4dabf7" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="60" y="72" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#1971c2">2011</text>
+    <text x="60" y="58" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Vicepresidente</text>
+    <text x="60" y="45" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Confindustria BG</text>
+
+    <!-- Milestone 2 — 2015 — Membro CG Confindustria nazionale (etichetta SOTTO) -->
+    <circle cx="199" cy="140" r="9" fill="#74c0fc" stroke="#1971c2" stroke-width="2"/>
+    <line x1="199" y1="149" x2="199" y2="210" stroke="#74c0fc" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="199" y="222" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#1971c2">2015</text>
+    <text x="199" y="236" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Membro Consiglio</text>
+    <text x="199" y="249" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Generale Confindustria</text>
+
+    <!-- Milestone 3 — 2024 — Advisor Speciale PNRR (etichetta SOPRA) -->
+    <circle cx="511" cy="140" r="9" fill="#339af0" stroke="#1864ab" stroke-width="2"/>
+    <line x1="511" y1="131" x2="511" y2="80" stroke="#339af0" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="511" y="72" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#1864ab">2024</text>
+    <text x="511" y="58" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Advisor Speciale</text>
+    <text x="511" y="45" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" fill="#495057">Presidenza — PNRR</text>
+
+    <!-- Milestone 4 — 2026 — Presidente Confindustria BG (etichetta SOTTO, evidenziata) -->
+    <circle cx="580" cy="140" r="12" fill="#2f9e44" stroke="#1e7e34" stroke-width="2"/>
+    <!-- stella -->
+    <text x="580" y="145" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="13" fill="#fff">★</text>
+    <line x1="580" y1="152" x2="580" y2="210" stroke="#2f9e44" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="580" y="222" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#1e7e34">2026</text>
+    <text x="580" y="236" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#1e7e34">Presidente</text>
+    <text x="580" y="249" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#1e7e34">Confindustria BG</text>
+
+    <!-- Etichette anni sull'asse (leggenda) -->
+    <text x="60" y="163" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="9" fill="#adb5bd">2011</text>
+    <text x="199" y="163" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="9" fill="#adb5bd">2015</text>
+    <text x="511" y="163" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="9" fill="#adb5bd">2024</text>
+    <text x="580" y="163" text-anchor="middle"
+          font-family="system-ui,sans-serif" font-size="9" fill="#adb5bd">2026</text>
+
+  </svg>
+  <figcaption>
+    Tappe istituzionali di Matteo Zanetti in Confindustria dal 2011 al 2026. La spaziatura
+    sull'asse è proporzionale agli anni effettivi. Fonti: ANSA Lombardia, BergamoNews (giugno 2026).
+  </figcaption>
+</figure>
+
+<p>
+  Con l'elezione di Zanetti, Confindustria Bergamo apre un nuovo capitolo alla guida di
+  un'associazione che rappresenta una delle aree industriali più dense d'Italia. La sfida
+  principale del nuovo mandato sarà tenere unito e competitivo un sistema produttivo
+  diversificato — dalla metalmeccanica all'agroalimentare, dalla chimica al tessile — in
+  un contesto internazionale che impone velocità di adattamento mai richiesta prima.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ansa.it/lombardia/notizie/2026/06/04/matteo-zanetti-eletto-presidente-di-confindustria-bergamo_ed77383b-fb3e-4c1e-a85e-c59055991c05.html" rel="noopener" target="_blank">ANSA Lombardia — Matteo Zanetti eletto presidente di Confindustria Bergamo</a></li><li><a href="https://www.bergamonews.it/2026/06/04/matteo-zanetti-eletto-presidente-di-confindustria-bergamo/899250" rel="noopener" target="_blank">BergamoNews — Matteo Zanetti eletto presidente di Confindustria Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in medio oriente. economia bergamo industria manifattura confindustria" data-cat="Economia"><a class="card-link" href="../../articoli/2026-05-27-manifattura-bergamasca-q1-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative</h2><p class="card-summary">Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="dieci piani di ponteggio nella basilica di santa maria maggiore: al via il maxi-restauro del presbiterio la fondazione mia ha avviato l&#x27;11 maggio il cantiere nel cuore di bergamo alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. il ponteggio di 18 metri è già visibile all&#x27;interno. cultura bergamo patrimonio fondazione mia restauro" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-06-17-basilica-santa-maria-maggiore-restauro/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Dieci piani di ponteggio nella Basilica di Santa Maria Maggiore: al via il maxi-restauro del presbiterio</h2><p class="card-summary">La Fondazione MIA ha avviato l&#x27;11 maggio il cantiere nel cuore di Bergamo Alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. Il ponteggio di 18 metri è già visibile all&#x27;interno.</p><p class="card-meta">17 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

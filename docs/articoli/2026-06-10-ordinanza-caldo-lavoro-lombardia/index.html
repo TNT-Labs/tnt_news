@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo — TNT News</title>
+  <meta name="description" content="Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-10-ordinanza-caldo-lavoro-lombardia/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo — TNT News">
+  <meta property="og:description" content="Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-10-ordinanza-caldo-lavoro-lombardia/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo — TNT News">
+  <meta name="twitter:description" content="Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Lombardia</span><span class="tag">Lavoro</span><span class="tag">Caldo</span><span class="tag">Sicurezza sul lavoro</span></div>
+    <h1>Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo</h1>
+    <p class="article-summary">Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-10">10 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da oggi, martedì 10 giugno 2026, entra in vigore in Lombardia l'ordinanza regionale che vieta lo svolgimento di attività lavorative all'aperto durante le ore più calde della giornata. Il provvedimento, firmato dal presidente della Regione Attilio Fontana, rimarrà attivo fino al 23 settembre 2026 e interessa migliaia di lavoratori impiegati nei cantieri edili, in agricoltura e nelle cave della regione, inclusa la provincia di Bergamo.</p>
+
+<h2>Come funziona il divieto</h2>
+
+<p>Il divieto non scatta automaticamente ogni giorno, ma solo nei momenti di maggiore criticità climatica. La misura si attiva quando il sistema <strong>Worklimate</strong> — piattaforma sviluppata dall'INAIL e dal Consiglio Nazionale delle Ricerche — segnala un livello di rischio classificato come <em>Alto</em> per i lavoratori esposti al sole durante attività fisiche intense.</p>
+
+<p>Nei giorni di allerta, tra le <strong>12:30 e le 16:00</strong>, è sospeso ogni lavoro nei seguenti settori:</p>
+<ul>
+  <li>Cantieri edili all'aperto</li>
+  <li>Attività agricole e florovivaistiche</li>
+  <li>Cave</li>
+</ul>
+
+<p>Worklimate elabora previsioni meteorologiche geolocalizzate e calcola l'indice di stress termico sulla base di temperatura, umidità, radiazione solare e tipo di attività fisica svolta. Le mappe di rischio sono accessibili pubblicamente sul portale del progetto e vengono aggiornate con cadenza quotidiana.</p>
+
+<h2>Perché questa misura</h2>
+
+<p>Le ondate di calore sempre più frequenti e intense rappresentano un rischio concreto per chi lavora all'aria aperta. Lo stress termico, se prolungato, può provocare esaurimento da calore, crampi muscolari e, nei casi più gravi, colpi di calore con conseguenze potenzialmente fatali. I settori edile e agricolo sono tra quelli con la più alta incidenza di infortuni e malori legati alle alte temperature.</p>
+
+<p>La Regione Lombardia aveva già adottato misure analoghe nelle stagioni estive precedenti, ma l'ordinanza 2026 introduce il riferimento diretto allo strumento Worklimate come criterio oggettivo di attivazione, garantendo maggiore precisione rispetto alle semplici soglie di temperatura.</p>
+
+<h2>Sanzioni previste</h2>
+
+<p>I datori di lavoro che non rispetteranno il divieto nelle ore e nei giorni di rischio rischiano il deferimento all'autorità giudiziaria ai sensi dell'articolo 650 del codice penale, relativo all'inosservanza dei provvedimenti dell'autorità, salvo che il fatto non costituisca reato più grave.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Fascia oraria di divieto lavorativo e livelli di rischio calore durante una giornata tipo estiva in Lombardia" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sfondo -->
+    <rect width="640" height="320" fill="#f8f9fa" rx="8"/>
+
+    <!-- Titolo -->
+    <text x="320" y="30" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222">Indice di rischio calore durante la giornata (profilo estivo tipo)</text>
+    <text x="320" y="48" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Lavoratore esposto al sole, attività fisica intensa — valori indicativi</text>
+
+    <!-- Assi -->
+    <line x1="60" y1="260" x2="600" y2="260" stroke="#ccc" stroke-width="1.5"/>
+    <line x1="60" y1="60" x2="60" y2="260" stroke="#ccc" stroke-width="1.5"/>
+
+    <!-- Etichette asse Y -->
+    <text x="50" y="64" text-anchor="end" font-family="sans-serif" font-size="10" fill="#888">Alto</text>
+    <text x="50" y="130" text-anchor="end" font-family="sans-serif" font-size="10" fill="#888">Medio</text>
+    <text x="50" y="196" text-anchor="end" font-family="sans-serif" font-size="10" fill="#888">Basso</text>
+    <text x="50" y="260" text-anchor="end" font-family="sans-serif" font-size="10" fill="#888">Nullo</text>
+
+    <!-- Griglia orizzontale -->
+    <line x1="60" y1="64" x2="600" y2="64" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="60" y1="130" x2="600" y2="130" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="60" y1="196" x2="600" y2="196" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <!-- Etichette asse X (ore) -->
+    <text x="60"  y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">6</text>
+    <text x="130" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">8</text>
+    <text x="200" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">10</text>
+    <text x="270" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">12</text>
+    <text x="305" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e04040">12:30</text>
+    <text x="340" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">14</text>
+    <text x="410" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#e04040">16:00</text>
+    <text x="480" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">18</text>
+    <text x="550" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">20</text>
+    <text x="320" y="293" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Ora del giorno</text>
+
+    <!-- Fascia di divieto (12:30 – 16:00) -->
+    <rect x="305" y="60" width="105" height="200" fill="#e0452022" rx="2"/>
+    <text x="357" y="55" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#e04520">DIVIETO</text>
+
+    <!-- Linee verticali fascia -->
+    <line x1="305" y1="60" x2="305" y2="260" stroke="#e04520" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <line x1="410" y1="60" x2="410" y2="260" stroke="#e04520" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <!-- Curva rischio calore (polilinea) -->
+    <polyline
+      points="60,245 130,220 200,180 270,110 305,75 340,68 410,75 480,130 550,200"
+      fill="none"
+      stroke="#e07820"
+      stroke-width="3"
+      stroke-linejoin="round"
+      stroke-linecap="round"/>
+
+    <!-- Punti dati -->
+    <circle cx="60"  cy="245" r="4" fill="#e07820"/>
+    <circle cx="130" cy="220" r="4" fill="#e07820"/>
+    <circle cx="200" cy="180" r="4" fill="#e07820"/>
+    <circle cx="270" cy="110" r="4" fill="#e07820"/>
+    <circle cx="305" cy="75"  r="4" fill="#e04520"/>
+    <circle cx="340" cy="68"  r="4" fill="#e04520"/>
+    <circle cx="410" cy="75"  r="4" fill="#e04520"/>
+    <circle cx="480" cy="130" r="4" fill="#e07820"/>
+    <circle cx="550" cy="200" r="4" fill="#e07820"/>
+
+    <!-- Legenda -->
+    <line x1="80" y1="310" x2="100" y2="310" stroke="#e07820" stroke-width="3"/>
+    <circle cx="90" cy="310" r="4" fill="#e07820"/>
+    <text x="106" y="314" font-family="sans-serif" font-size="10" fill="#555">Indice di rischio calore (curva indicativa)</text>
+    <rect x="340" y="304" width="12" height="12" fill="#e0452022" stroke="#e04520" stroke-width="1"/>
+    <text x="358" y="314" font-family="sans-serif" font-size="10" fill="#555">Fascia di divieto lavorativo (12:30–16:00)</text>
+  </svg>
+  <figcaption>Andamento indicativo del rischio calore durante una giornata estiva tipo per un lavoratore esposto al sole con attività fisica intensa. La fascia rossa (12:30–16:00) corrisponde al periodo di divieto lavorativo previsto dall'ordinanza regionale. Valori indicativi basati sul modello Worklimate (INAIL–CNR).</figcaption>
+</figure>
+
+<h2>Cosa devono fare i datori di lavoro</h2>
+
+<p>Nei giorni in cui Worklimate segnala rischio Alto, i datori di lavoro sono tenuti a sospendere le lavorazioni nelle fasce orarie indicate e a garantire adeguate pause ai dipendenti. La piattaforma pubblica ogni mattina le previsioni per i cinque giorni successivi, consentendo alle imprese di organizzarsi per tempo.</p>
+
+<p>Il provvedimento si inserisce in un quadro normativo più ampio sulla sicurezza sul lavoro e sulla prevenzione delle malattie da calore, già affrontate a livello nazionale dalle linee guida INAIL. La Regione Lombardia è tra le prime in Italia ad adottare un'ordinanza estiva basata su un sistema previsionale automatizzato.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/milano/cronaca/caldo-regione-lombardia-ordinanza-lavoratori-c3bj9tdq" rel="noopener" target="_blank">Il Giorno</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/cronaca/vietato-lavorare-al-sole-nelle-ore-piu-calde-lordinanza-in-lombardia-e-come-fu-o_3884689_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="benvenuti su tnt news: il blog quotidiano della bergamasca scritto dall&#x27;intelligenza artificiale nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. attualità editoriale bergamo lombardia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Benvenuti su TNT News: il blog quotidiano della Bergamasca scritto dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article><article class="card" data-search="dieci piani di ponteggio nella basilica di santa maria maggiore: al via il maxi-restauro del presbiterio la fondazione mia ha avviato l&#x27;11 maggio il cantiere nel cuore di bergamo alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. il ponteggio di 18 metri è già visibile all&#x27;interno. cultura bergamo patrimonio fondazione mia restauro" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-06-17-basilica-santa-maria-maggiore-restauro/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Dieci piani di ponteggio nella Basilica di Santa Maria Maggiore: al via il maxi-restauro del presbiterio</h2><p class="card-summary">La Fondazione MIA ha avviato l&#x27;11 maggio il cantiere nel cuore di Bergamo Alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. Il ponteggio di 18 metri è già visibile all&#x27;interno.</p><p class="card-meta">17 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

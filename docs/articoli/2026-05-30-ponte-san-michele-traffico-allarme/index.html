@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto — TNT News</title>
+  <meta name="description" content="Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-05-30-ponte-san-michele-traffico-allarme/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto — TNT News">
+  <meta property="og:description" content="Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-05-30-ponte-san-michele-traffico-allarme/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto — TNT News">
+  <meta name="twitter:description" content="Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-link" href="../../bollettino/">Bollettino</a>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Calusco d&#x27;Adda</span><span class="tag">Ponte San Michele</span><span class="tag">Traffico</span></div>
+    <h1>Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto</h1>
+    <p class="article-summary">Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.</p>
+    <p class="article-meta">
+      <time datetime="2026-05-30">30 maggio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  Il ponte San Michele, l'elegante struttura in acciaio che dal 1889 unisce Calusco d'Adda
+  (provincia di Bergamo) a Paderno d'Adda (provincia di Lecco), è diventato il crocevia obbligato
+  di decine di migliaia di automobilisti ogni giorno. Da quando il ponte di Brivio ha chiuso al
+  traffico il 4 maggio 2026 per lavori straordinari di manutenzione, i veicoli in transito sul San
+  Michele sono schizzati da circa 26.000 a oltre 37.000 al giorno: un aumento del 30% che ha
+  trasformato i tempi di percorrenza in un calvario, soprattutto nelle ore di punta.
+</p>
+
+<h2>La chiusura di Brivio e il reindirizzamento del traffico</h2>
+<p>
+  Anas ha chiuso il ponte di Brivio per un intervento di manutenzione straordinaria che durerà
+  almeno fino all'estate del 2027, circa quindici mesi. L'ente aveva indicato come percorso
+  alternativo il ponte Cesare Cantù di Calolziocorte, ma una quota rilevante dei pendolari ha
+  preferito deviare sulla viabilità provinciale, confluendo sul San Michele. I rilevamenti con
+  telecamere hanno contato più di 8.000 passaggi soltanto nella fascia mattutina 7–9, un dato che
+  fotografa con chiarezza l'entità del fenomeno.
+</p>
+<p>
+  La struttura storica del San Michele è a doppio uso: veicoli in corsia unica al piano superiore
+  e ferrovia al piano inferiore sulla linea Carnate–Bergamo. I passaggi dei convogli ferroviari
+  bloccano la corsia stradale per oltre il 60% del tempo nei momenti di maggior traffico, generando
+  code che nelle ore di punta mattutine sul versante bergamasco possono superare i cinquanta
+  minuti di attesa.
+</p>
+
+<h2>L'allarme delle Province di Bergamo e Lecco</h2>
+<p>
+  Le situazioni di congestione hanno spinto le Province di Bergamo e di Lecco a scrivere alle
+  rispettive Prefetture chiedendo la convocazione di un tavolo urgente. La lettera sottolinea come
+  le strade provinciali che conducono al ponte non siano dimensionate per sopportare un volume di
+  traffico di questo tipo, con conseguenze sia sulla sicurezza sia sulla vivibilità dei comuni
+  attraversati.
+</p>
+<p>
+  I sindaci del territorio hanno avanzato richieste concrete: eliminazione dei passaggi a livello
+  che insistono sulle strade provinciali SP 342, SP 55, SP 56 e SP 54, sostituzione con
+  sottopasso combinato carrabile e ciclopedonale, e miglioramento delle intersezioni critiche.
+  Il sindaco di Paderno d'Adda Mattia Salvioni ha dichiarato che «tutti i passaggi a livello sul
+  nostro territorio devono essere eliminati», pena la paralisi cronica del sistema viario locale.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Confronto veicoli giornalieri sul ponte San Michele prima e dopo la chiusura del ponte di Brivio">
+    <!-- Sfondo -->
+    <rect width="640" height="300" fill="#f8f9fa" rx="8"/>
+    <!-- Titolo grafico -->
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#212529">Veicoli/giorno sul Ponte San Michele</text>
+    <!-- Asse Y: linee guida -->
+    <line x1="80" y1="50" x2="80" y2="240" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="80" y1="240" x2="580" y2="240" stroke="#dee2e6" stroke-width="1"/>
+    <!-- Linee orizzontali di riferimento -->
+    <line x1="80" y1="240" x2="580" y2="240" stroke="#adb5bd" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="178" x2="580" y2="178" stroke="#adb5bd" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="116" x2="580" y2="116" stroke="#adb5bd" stroke-width="1" stroke-dasharray="4,4"/>
+    <!-- Etichette asse Y -->
+    <text x="72" y="244" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6c757d">0</text>
+    <text x="72" y="182" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6c757d">20.000</text>
+    <text x="72" y="120" text-anchor="end" font-family="sans-serif" font-size="11" fill="#6c757d">40.000</text>
+    <!-- Barra "Prima" (26.000 veicoli) -->
+    <!-- Scala: 40000 → 124px altezza, 26000 → 26/40*124 = ~80.6px -->
+    <rect x="160" y="159" width="100" height="81" fill="#4dabf7" rx="4"/>
+    <text x="210" y="152" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1971c2">26.000</text>
+    <text x="210" y="260" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#495057">Prima</text>
+    <text x="210" y="274" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6c757d">(fino al 4 mag. 2026)</text>
+    <!-- Barra "Dopo" (37.000 veicoli) -->
+    <!-- 37000/40000*124 = ~114.7px -->
+    <rect x="380" y="125" width="100" height="115" fill="#f03e3e" rx="4"/>
+    <text x="430" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c92a2a">37.000</text>
+    <text x="430" y="260" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#495057">Dopo</text>
+    <text x="430" y="274" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#6c757d">(dalla chiusura di Brivio)</text>
+    <!-- Freccia +30% -->
+    <line x1="270" y1="159" x2="370" y2="130" stroke="#e67700" stroke-width="2" marker-end="url(#arrow)"/>
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#e67700"/>
+      </marker>
+    </defs>
+    <text x="320" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#e67700">+30%</text>
+  </svg>
+  <figcaption>
+    Transiti giornalieri sul Ponte San Michele (Calusco d'Adda – Paderno d'Adda) prima e dopo la chiusura
+    del ponte di Brivio il 4 maggio 2026. Valori da rilievi con telecamere — fonte: L'Eco di Bergamo,
+    30 maggio 2026.
+  </figcaption>
+</figure>
+
+<h2>Un'infrastruttura al limite</h2>
+<p>
+  Il ponte San Michele è un manufatto storico di pregio, costruito a fine Ottocento e ancora oggi
+  riconoscibile per la sua struttura reticolare in ferro. La sua conformazione — corsia stradale
+  a senso unico alternato regolato da semaforo — non era però pensata per assorbire flussi di
+  questo livello. L'aumento repentino di traffico mette sotto pressione anche le strade comunali
+  e provinciali dei centri abitati di Calusco d'Adda, Carvico e Cornate d'Adda, dove le code si
+  allungano fino ai centri storici nei giorni feriali.
+</p>
+<p>
+  Sullo sfondo resta il progetto del nuovo ponte sull'Adda tra Paderno e Calusco, che affiancherebbe
+  il San Michele con due corsie stradali e due binari ferroviari. I cantieri, tuttavia, sono ancora
+  in fase di approvazione e non porteranno sollievo nel breve termine. Per ora l'unica risposta
+  disponibile è quella organizzativa: i sindaci chiedono almeno la rimozione dei passaggi a livello
+  e il potenziamento della segnaletica di deviazione verso il ponte di Calolziocorte, per distribuire
+  meglio il carico.
+</p>
+<p>
+  La riunione con le Prefetture, se convocata nei prossimi giorni, sarà il primo passo concreto
+  per affrontare una situazione che i residenti e i pendolari vivono ormai come una crisi
+  infrastrutturale a tutti gli effetti.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/isola-e-valle-san-martino/calusco-il-ponte-salito-a-37mila-veicoli-al-giorno-lallarme-delle-province-o_3877689_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo</a></li><li><a href="https://primabergamo.it/attualita/ponte-di-brivio-chiuso-fino-al-2027-caos-sulle-strade-ponte-san-michele-in-tilt/" rel="noopener" target="_blank">Prima Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nuovo ponte sull&#x27;adda: rfi lancia il concorso internazionale da 262 milioni rete ferroviaria italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico ponte san michele tra calusco d&#x27;adda (bg) e paderno d&#x27;adda (lc). budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034. trasporti bergamo calusco d&#x27;adda ponte san michele rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-05-ponte-san-michele-concorso-internazionale/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Nuovo Ponte sull&#x27;Adda: RFI lancia il concorso internazionale da 262 milioni</h2><p class="card-summary">Rete Ferroviaria Italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico Ponte San Michele tra Calusco d&#x27;Adda (BG) e Paderno d&#x27;Adda (LC). Budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034.</p><p class="card-meta">5 giugno 2026</p></div></a></article><article class="card" data-search="navette gratuite e ztl ampliata: dal 21 giugno cambia la mobilità estiva a città alta dal 21 giugno al 13 settembre tre linee di bus navetta elettrici e gratuiti collegheranno i parcheggi periferici di bergamo a largo colle aperto. nelle domeniche e nei festivi la ztl resterà attiva senza interruzioni dalle 10 alle 24. trasporti bergamo città alta ztl trasporto pubblico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-15-citta-alta-navette-estate-ztl/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Navette gratuite e ZTL ampliata: dal 21 giugno cambia la mobilità estiva a Città Alta</h2><p class="card-summary">Dal 21 giugno al 13 settembre tre linee di bus navetta elettrici e gratuiti collegheranno i parcheggi periferici di Bergamo a Largo Colle Aperto. Nelle domeniche e nei festivi la ZTL resterà attiva senza interruzioni dalle 10 alle 24.</p><p class="card-meta">15 giugno 2026</p></div></a></article><article class="card" data-search="e-brt bergamo–dalmine–verdellino: lavori all&#x27;82%, servizio al via il 1° luglio i cantieri della prima linea di trasporto rapido su bus elettrici della lombardia hanno raggiunto l&#x27;82% di completamento. con 84 milioni di euro di fondi pnrr, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-brt collegherà bergamo a verdellino dal 1° luglio 2026. trasporti bergamo e-brt trasporto pubblico pnrr" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-13-ebrt-bergamo-dalmine-verdellino/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio</h2><p class="card-summary">I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.</p><p class="card-meta">13 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
