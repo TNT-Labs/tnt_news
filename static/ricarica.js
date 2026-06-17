@@ -1,9 +1,10 @@
 (function () {
   "use strict";
 
-  // Centro mappa: Bergamo. BBox: Lombardia (sud-ovest, nord-est).
+  // Centro mappa di fallback: Bergamo.
   var LAT0 = 45.6983, LON0 = 9.6773, ZOOM0 = 9;
-  var BBOX = "(44.7,8.5),(46.6,11.5)";
+  // Raggio approssimativo attorno alla posizione GPS (gradi ~30 km).
+  var GPS_ZOOM = 13, GPS_PAD = 0.28;
   var LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
   var LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
 
@@ -54,60 +55,65 @@
       obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     }
 
-    locateUser(map);
-    loadStations(map);
+    // Geolocalizzazione prima, poi carica le colonnine attorno alla posizione.
+    locateAndLoad(map);
   }
 
-  function locateUser(map) {
-    if (!navigator.geolocation) return;
+  function locateAndLoad(map) {
     var status = document.getElementById("station-status");
+    if (!navigator.geolocation) {
+      loadStations(map, null);
+      return;
+    }
     if (status) status.textContent = "Rilevo la tua posizione…";
     navigator.geolocation.getCurrentPosition(
       function (pos) {
         var lat = pos.coords.latitude;
         var lon = pos.coords.longitude;
-        map.setView([lat, lon], 13);
-        // Cerchio blu per la posizione utente, stile simile a Google Maps
+        map.setView([lat, lon], GPS_ZOOM);
         L.circleMarker([lat, lon], {
-          radius: 9,
-          weight: 2,
-          color: "#fff",
-          fillColor: "#1a73e8",
-          fillOpacity: 1
+          radius: 9, weight: 2,
+          color: "#fff", fillColor: "#1a73e8", fillOpacity: 1
         }).addTo(map).bindTooltip("Sei qui", { permanent: false });
-        // Cerchio di accuratezza
         var acc = pos.coords.accuracy;
         if (acc && acc < 5000) {
           L.circle([lat, lon], {
-            radius: acc,
-            weight: 1,
-            color: "#1a73e8",
-            fillColor: "#1a73e8",
-            fillOpacity: 0.08
+            radius: acc, weight: 1,
+            color: "#1a73e8", fillColor: "#1a73e8", fillOpacity: 0.08
           }).addTo(map);
         }
+        // Carica le colonnine in un riquadro attorno alla posizione GPS.
+        loadStations(map, { lat: lat, lon: lon });
       },
       function () {
-        // Permesso negato o errore: rimane sul centro default, nessun messaggio
+        // Permesso negato o timeout: fallback su Bergamo/Lombardia.
+        loadStations(map, null);
       },
       { timeout: 8000, maximumAge: 60000 }
     );
   }
 
-  function loadStations(map) {
+  function bboxFromPoint(lat, lon, pad) {
+    return "(" + (lat - pad) + "," + (lon - pad) + "),(" + (lat + pad) + "," + (lon + pad) + ")";
+  }
+
+  function loadStations(map, userPos) {
     var status = document.getElementById("station-status");
     var key = window.OCM_KEY || "";
     if (!key) {
-      if (status) {
-        status.textContent = "Chiave OpenChargeMap non configurata: la mappa funziona ma i pin non possono essere caricati.";
-      }
+      if (status) status.textContent = "Chiave OpenChargeMap non configurata: la mappa funziona ma i pin non possono essere caricati.";
       console.error("OpenChargeMap: variabile d'ambiente OPENCHARGEMAP_API_KEY non impostata al build.");
       return;
     }
-    if (status) status.textContent = "Carico le colonnine in Lombardia…";
+
+    var bbox = userPos
+      ? bboxFromPoint(userPos.lat, userPos.lon, GPS_PAD)
+      : "(44.7,8.5),(46.6,11.5)"; // Lombardia intera come fallback
+    var label = userPos ? "nei dintorni" : "in Lombardia";
+    if (status) status.textContent = "Carico le colonnine " + label + "…";
 
     var url = "https://api.openchargemap.io/v3/poi/?output=json&countrycode=IT"
-      + "&boundingbox=" + encodeURIComponent(BBOX)
+      + "&boundingbox=" + encodeURIComponent(bbox)
       + "&maxresults=2000&compact=true&verbose=false"
       + "&key=" + encodeURIComponent(key);
 
@@ -116,7 +122,7 @@
       .then(function (items) {
         addMarkers(map, items);
         if (status) {
-          status.textContent = items.length + " colonnine in Lombardia. Tocca un pin per il listino dell'operatore.";
+          status.textContent = items.length + " colonnine " + label + ". Tocca un pin per il listino dell'operatore.";
         }
       })
       .catch(function (err) {
