@@ -27,6 +27,17 @@
       "note": "Listino occasionali via app Be Charge / Plenitude On The Road."
     },
     {
+      "nome": "A2A E-Moving",
+      "alias": ["A2A", "A2A E-Moving", "A2A Smart City", "A2A E-Mobility", "E-Moving", "A2A Energia", "A2A Smart Mobility", "A2A BG", "A2A MI"],
+      "prefixes": ["a2a"],
+      "sito": "https://www.a2a.eu/it/e-moving",
+      "tariffe": [
+        { "tipo": "AC (<=22 kW)", "prezzo": "0,60 €/kWh" },
+        { "tipo": "DC (50-150 kW)", "prezzo": "0,72 €/kWh" }
+      ],
+      "note": "Tariffa Pay Per Use via app A2A E-Moving."
+    },
+    {
       "nome": "Duferco Energia",
       "alias": ["Duferco", "Duferco Energia Srl", "Duferco Energia Mobility"],
       "sito": "https://www.dufercoenergia.it/",
