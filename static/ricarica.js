@@ -44,9 +44,6 @@
       maxZoom: 19
     }).addTo(map);
 
-    // Il gate password nasconde il body finche non si sblocca: in quel caso
-    // il container ha dimensioni zero e Leaflet non disegna. Quando il gate
-    // viene rimosso, ricalcoliamo le dimensioni.
     if (gateLocked()) {
       var obs = new MutationObserver(function () {
         if (!gateLocked()) {
@@ -57,7 +54,44 @@
       obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     }
 
+    locateUser(map);
     loadStations(map);
+  }
+
+  function locateUser(map) {
+    if (!navigator.geolocation) return;
+    var status = document.getElementById("station-status");
+    if (status) status.textContent = "Rilevo la tua posizione…";
+    navigator.geolocation.getCurrentPosition(
+      function (pos) {
+        var lat = pos.coords.latitude;
+        var lon = pos.coords.longitude;
+        map.setView([lat, lon], 13);
+        // Cerchio blu per la posizione utente, stile simile a Google Maps
+        L.circleMarker([lat, lon], {
+          radius: 9,
+          weight: 2,
+          color: "#fff",
+          fillColor: "#1a73e8",
+          fillOpacity: 1
+        }).addTo(map).bindTooltip("Sei qui", { permanent: false });
+        // Cerchio di accuratezza
+        var acc = pos.coords.accuracy;
+        if (acc && acc < 5000) {
+          L.circle([lat, lon], {
+            radius: acc,
+            weight: 1,
+            color: "#1a73e8",
+            fillColor: "#1a73e8",
+            fillOpacity: 0.08
+          }).addTo(map);
+        }
+      },
+      function () {
+        // Permesso negato o errore: rimane sul centro default, nessun messaggio
+      },
+      { timeout: 8000, maximumAge: 60000 }
+    );
   }
 
   function loadStations(map) {
