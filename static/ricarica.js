@@ -117,6 +117,13 @@
     if (!panel) return;
     var info = s.AddressInfo || {};
     var op = (s.OperatorInfo && s.OperatorInfo.Title) || null;
+    var opDeduced = false;
+    // Se l'operatore strutturato manca, prova a dedurlo cercando un nome/alias
+    // di gestore noto dentro il titolo della stazione (es. "A2A BG Quasimodo").
+    if (!op && info.Title) {
+      var guessed = guessOperatorFromText(info.Title);
+      if (guessed) { op = guessed; opDeduced = true; }
+    }
     var conn = s.Connections || [];
 
     var parts = [];
@@ -124,7 +131,8 @@
     var addr = [info.AddressLine1, info.Town, info.Postcode].filter(Boolean).join(" · ");
     if (addr) parts.push('<p class="station-address">' + esc(addr) + "</p>");
 
-    parts.push('<p class="station-row"><span class="station-label">Operatore:</span> ' + esc(op || "Sconosciuto") + "</p>");
+    var opLabel = op ? esc(op) + (opDeduced ? ' <span class="station-hint">(dedotto dal nome)</span>' : "") : "Sconosciuto";
+    parts.push('<p class="station-row"><span class="station-label">Operatore:</span> ' + opLabel + "</p>");
 
     if (conn.length) {
       var maxKw = 0;
@@ -149,6 +157,23 @@
       + '</p>');
 
     panel.innerHTML = parts.join("");
+  }
+
+  function guessOperatorFromText(text) {
+    if (!text) return null;
+    var T = window.TARIFFE;
+    if (!T || !T.gestori) return null;
+    var hay = " " + norm(text) + " ";
+    for (var i = 0; i < T.gestori.length; i++) {
+      var g = T.gestori[i];
+      var candidates = [g.nome].concat(g.alias || []);
+      for (var j = 0; j < candidates.length; j++) {
+        var c = norm(candidates[j]);
+        if (c.length < 2) continue;
+        if (hay.indexOf(" " + c + " ") !== -1) return g.nome;
+      }
+    }
+    return null;
   }
 
   function lookupTariff(opName) {
