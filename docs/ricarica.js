@@ -7,6 +7,9 @@
   var GPS_ZOOM = 13, GPS_PAD = 0.28;
   var LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
   var LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+  var CLUSTER_CSS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css";
+  var CLUSTER_CSS_DEF = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css";
+  var CLUSTER_JS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
 
   var allStations = [];      // tutte le stazioni caricate (grezze da OCM)
   var stationLayer = null;   // layer dei pin filtrabili
@@ -21,26 +24,45 @@
     return document.documentElement.classList.contains("gate-locked");
   }
 
-  function loadLeaflet(cb) {
-    if (typeof L !== "undefined") { cb(); return; }
+  function addStyle(href) {
     var css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = LEAFLET_CSS;
+    css.href = href;
     document.head.appendChild(css);
+  }
+
+  function addScript(src, onload, onerror) {
     var js = document.createElement("script");
-    js.src = LEAFLET_JS;
-    js.onload = cb;
-    js.onerror = function () {
-      setStatus("Impossibile caricare la libreria mappa.");
-    };
+    js.src = src;
+    js.onload = onload;
+    js.onerror = onerror;
     document.head.appendChild(js);
+  }
+
+  function loadLeaflet(cb) {
+    if (typeof L !== "undefined") { cb(); return; }
+    addStyle(LEAFLET_CSS);
+    addScript(LEAFLET_JS, cb, function () {
+      setStatus("Impossibile caricare la libreria mappa.");
+    });
+  }
+
+  // Carica il plugin di clustering. Se fallisce, si prosegue senza (fallback).
+  function loadCluster(cb) {
+    if (typeof L !== "undefined" && L.markerClusterGroup) { cb(); return; }
+    addStyle(CLUSTER_CSS);
+    addStyle(CLUSTER_CSS_DEF);
+    addScript(CLUSTER_JS, cb, function () {
+      console.warn("markercluster non caricato: pin senza raggruppamento.");
+      cb();
+    });
   }
 
   ready(function () {
     if (!document.getElementById("map")) return;
     setupFilters();
     setupSheet();
-    loadLeaflet(initMap);
+    loadLeaflet(function () { loadCluster(initMap); });
   });
 
   function setStatus(text) {
@@ -54,7 +76,15 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
     }).addTo(map);
-    stationLayer = L.layerGroup().addTo(map);
+    stationLayer = L.markerClusterGroup
+      ? L.markerClusterGroup({
+          chunkedLoading: true,
+          showCoverageOnHover: false,
+          maxClusterRadius: 55,
+          spiderfyOnMaxZoom: true
+        })
+      : L.layerGroup();
+    map.addLayer(stationLayer);
 
     if (gateLocked()) {
       var obs = new MutationObserver(function () {
@@ -170,7 +200,7 @@
   function renderMarkers() {
     if (!stationLayer) return;
     stationLayer.clearLayers();
-    var shown = 0;
+    var markers = [];
     allStations.forEach(function (s) {
       if (!matchesFilter(s)) return;
       var info = s.AddressInfo || {};
@@ -181,10 +211,14 @@
       var m = L.circleMarker([lat, lon], {
         radius: 6, weight: 1,
         color: col.stroke, fillColor: col.fill, fillOpacity: 0.85
-      }).addTo(stationLayer);
+      });
       m.on("click", function () { showDetails(s); });
-      shown++;
+      markers.push(m);
     });
+    // Inserimento in blocco: addLayers (markercluster) o uno alla volta
+    if (stationLayer.addLayers) stationLayer.addLayers(markers);
+    else markers.forEach(function (m) { stationLayer.addLayer(m); });
+    var shown = markers.length;
     var label = window.__ricaricaLabel || "";
     setStatus(shown + " colonnine " + label
       + (activeFilter === "all" ? "" : " (" + filterName(activeFilter) + ")")
