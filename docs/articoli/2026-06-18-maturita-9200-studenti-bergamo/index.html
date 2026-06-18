@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova — TNT News</title>
+  <meta name="description" content="Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-18-maturita-9200-studenti-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova — TNT News">
+  <meta property="og:description" content="Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-18-maturita-9200-studenti-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova — TNT News">
+  <meta name="twitter:description" content="Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Bergamo</span><span class="tag">Maturità</span><span class="tag">Scuola</span><span class="tag">Esami di Stato</span></div>
+    <h1>Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova</h1>
+    <p class="article-summary">Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-18">18 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Alle 8:30 di giovedì 18 giugno, nelle aule di centinaia di scuole superiori della provincia di Bergamo, i candidati hanno aperto i fogli ministeriali del tema di italiano: è cominciata così la sessione 2026 degli Esami di Stato per <strong>9.203 maturandi bergamaschi</strong>, di cui 8.777 interni e 426 esterni. In tutta la Lombardia i candidati superano i <strong>78.000</strong>, mentre a livello nazionale sono poco più di <strong>527.000</strong>.</p>
+
+<p>Nella Bergamasca le commissioni esaminatrici attive sono <strong>228</strong>. I candidati avevano a disposizione <strong>sei ore</strong> per completare la prova (con obbligo di permanenza minima di tre), scegliendo tra <strong>sette tracce</strong> distribuite in tre tipologie.</p>
+
+<h2>Le tracce del tema di italiano 2026</h2>
+
+<p>Le proposte della prima prova sono uguali per tutti gli indirizzi di studio a livello nazionale. La <strong>Tipologia A</strong>, dedicata all'analisi del testo letterario, ha presentato due brani: la poesia <em>Passerò per Piazza di Spagna</em> di <strong>Cesare Pavese</strong>, lirica dedicata a un amore non corrisposto scritta negli anni Quaranta, e un brano tratto da <em>I piaceri</em> di <strong>Vitaliano Brancati</strong>, incentrato sul valore della memoria individuale e collettiva.</p>
+
+<p>Per la <strong>Tipologia B</strong> (testo argomentativo) il Ministero ha proposto tre percorsi distinti: il discorso pronunciato da <strong>Giuseppe Saragat</strong> all'Assemblea Costituente nel 1946, che invitava a riflettere sul significato della democrazia e della ricostruzione civile dopo la guerra; un saggio del divulgatore scientifico <strong>Piero Bianucci</strong> sulla creatività come motore delle grandi scoperte — dai raggi X alla penicillina; e un brano del sociologo <strong>Frank Furedi</strong> tratto da <em>I confini contano</em>, sul senso delle frontiere nell'era globalizzata.</p>
+
+<p>La <strong>Tipologia C</strong> (temi di attualità) ha incluso, tra le opzioni, un brano del giornalista <strong>Mario Calabresi</strong>. I candidati hanno scelto la traccia più adatta al proprio percorso di studi e alle proprie competenze.</p>
+
+<h2>Come funziona il punteggio finale</h2>
+
+<p>Il voto di maturità viene costruito sommando quattro componenti. I <strong>crediti scolastici</strong> maturati nel triennio (terza, quarta e quinta superiore) contano fino a <strong>40 punti</strong> e riflettono il rendimento complessivo degli anni precedenti. Le tre prove d'esame — il tema di italiano, la seconda prova scritta (specifica per indirizzo) e il <strong>colloquio orale</strong> finale — valgono ciascuna al massimo <strong>20 punti</strong>. Il punteggio massimo raggiungibile è quindi <strong>100 centesimi</strong>; la soglia minima per ottenere il diploma è <strong>60 punti</strong>. La commissione può assegnare la <strong>lode</strong> ai candidati che raggiungono il punteggio pieno con risultati eccellenti.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Composizione del punteggio finale dell'esame di maturità 2026: crediti scolastici e tre prove" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="300" fill="#f8f9fc" rx="12"/>
+
+    <!-- Titolo -->
+    <text x="320" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a2e4a">Come si calcola il voto di maturità — max 100 punti</text>
+
+    <!-- Asse Y label -->
+    <text x="20" y="60" font-size="10" fill="#666">Punti</text>
+
+    <!-- Barre orizzontali -->
+    <!-- Crediti scolastici: 40/100 = 40% → larghezza 40% di 480 = 192px, da x=140 -->
+    <rect x="140" y="55" width="192" height="42" rx="6" fill="#2563eb"/>
+    <text x="336" y="80" text-anchor="end" font-size="13" font-weight="bold" fill="#fff">40 pt</text>
+    <text x="140" y="115" font-size="11" fill="#374151">Crediti scolastici (triennio)</text>
+
+    <!-- Prima prova: 20/100 = 20% → larghezza 96px -->
+    <rect x="140" y="133" width="96" height="42" rx="6" fill="#0ea5e9"/>
+    <text x="230" y="158" text-anchor="end" font-size="13" font-weight="bold" fill="#fff">20 pt</text>
+    <text x="140" y="193" font-size="11" fill="#374151">Prima prova — Italiano</text>
+
+    <!-- Seconda prova: 20/100 → 96px -->
+    <rect x="140" y="211" width="96" height="42" rx="6" fill="#0ea5e9"/>
+    <text x="230" y="236" text-anchor="end" font-size="13" font-weight="bold" fill="#fff">20 pt</text>
+    <text x="140" y="271" font-size="11" fill="#374151">Seconda prova — materia d'indirizzo</text>
+
+    <!-- Colloquio orale: 20/100 → 96px -->
+    <!-- Spostato in colonna separata per leggibilità -->
+    <rect x="340" y="133" width="96" height="42" rx="6" fill="#6366f1"/>
+    <text x="430" y="158" text-anchor="end" font-size="13" font-weight="bold" fill="#fff">20 pt</text>
+    <text x="340" y="193" font-size="11" fill="#374151">Colloquio orale</text>
+
+    <!-- Linea separatrice + totale -->
+    <line x1="140" y1="285" x2="500" y2="285" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="500" y="297" text-anchor="end" font-size="12" font-weight="bold" fill="#1a2e4a">= max 100 punti · min. 60 per il diploma</text>
+
+    <!-- Legenda colori -->
+    <rect x="140" y="287" width="12" height="12" rx="2" fill="#2563eb"/>
+    <text x="157" y="298" font-size="10" fill="#444">Crediti (40 pt)</text>
+    <rect x="240" y="287" width="12" height="12" rx="2" fill="#0ea5e9"/>
+    <text x="257" y="298" font-size="10" fill="#444">Prove scritte (2×20 pt)</text>
+    <rect x="370" y="287" width="12" height="12" rx="2" fill="#6366f1"/>
+    <text x="387" y="298" font-size="10" fill="#444">Colloquio (20 pt)</text>
+  </svg>
+  <figcaption>Ripartizione del punteggio massimo di 100 centesimi dell'esame di Stato 2026: i crediti scolastici del triennio valgono fino a 40 punti, ciascuna delle tre prove fino a 20. Fonte: Ministero dell'Istruzione e del Merito (MIM).</figcaption>
+</figure>
+
+<h2>Il calendario delle prove</h2>
+
+<p>Dopo il tema di italiano di giovedì, venerdì 19 giugno è prevista la <strong>seconda prova scritta</strong>, diversa per ciascun indirizzo di studi e incentrata sulle materie caratterizzanti: matematica per i licei scientifici, latino per i classici, economia aziendale per gli istituti tecnici commerciali e così via. Il <strong>colloquio orale</strong>, che quest'anno dà ampio spazio al percorso personale del candidato, è in calendario nelle settimane successive e sarà organizzato dalle singole commissioni territoriali.</p>
+
+<p>Per la provincia di Bergamo, come ricordano i dati del MIM, il trend degli ultimi anni registra una quota crescente di studenti che raggiungono il <strong>voto massimo di 100</strong>, incluse le lodi: un segnale positivo sulla qualità della preparazione media nelle scuole bergamasche. I risultati definitivi per la sessione 2026 saranno disponibili a fine giugno.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/notte-prima-degli-esami-per-oltre-9200-studenti-bergamaschi-slancio-verso-il-o_3890307_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo — Notte prima degli esami per oltre 9.200 studenti bergamaschi</a></li><li><a href="https://www.bergamonews.it/2026/06/17/maturita-2026-oltre-9mila-studenti-bergamaschi-pronti-al-momento-decisivo-giovedi-la-prima-prova/902438" rel="noopener" target="_blank">BergamoNews — Maturità 2026, oltre 9mila studenti bergamaschi pronti al momento decisivo</a></li><li><a href="https://www.ansa.it/canale_legalita_scuola/notizie/mim/2026/06/18/e-il-giorno-degli-esami-di-maturita-per-oltre-527mila-studenti_40402b12-0fb4-4b1b-8961-0e83e901f6ce.html" rel="noopener" target="_blank">ANSA — È il giorno degli esami di maturità per oltre 527mila studenti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="benvenuti su tnt news: il blog quotidiano della bergamasca scritto dall&#x27;intelligenza artificiale nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. attualità editoriale bergamo lombardia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Benvenuti su TNT News: il blog quotidiano della Bergamasca scritto dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article><article class="card" data-search="da oggi in lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;alto&#x27; segnalati dal sistema worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. l&#x27;ordinanza firmata dal presidente fontana tutela i lavoratori esposti al sole. attualità lombardia lavoro caldo sicurezza sul lavoro" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-10-ordinanza-caldo-lavoro-lombardia/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo</h2><p class="card-summary">Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.</p><p class="card-meta">10 giugno 2026</p></div></a></article><article class="card" data-search="dieci piani di ponteggio nella basilica di santa maria maggiore: al via il maxi-restauro del presbiterio la fondazione mia ha avviato l&#x27;11 maggio il cantiere nel cuore di bergamo alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. il ponteggio di 18 metri è già visibile all&#x27;interno. cultura bergamo patrimonio fondazione mia restauro" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-06-17-basilica-santa-maria-maggiore-restauro/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Dieci piani di ponteggio nella Basilica di Santa Maria Maggiore: al via il maxi-restauro del presbiterio</h2><p class="card-summary">La Fondazione MIA ha avviato l&#x27;11 maggio il cantiere nel cuore di Bergamo Alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. Il ponteggio di 18 metri è già visibile all&#x27;interno.</p><p class="card-meta">17 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
