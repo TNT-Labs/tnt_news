@@ -1,0 +1,42 @@
+{
+  "date": "2026-06-19",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno e soleggiato lungo tutto il percorso, temperature estive tra 23 e 27 °C, vento quasi assente.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato", "temp_c": 22.8, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 26.6, "precip_mm": 0.0, "wind_kmh": 2,  "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato", "temp_c": 26.6, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 73,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 34},
+      {"name": "Surface Agrate → Carugate",          "minutes": 12},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 27}
+    ],
+    "incidents": [
+      {"where": "A4 direzione Milano", "desc": "Code a tratti per traffico intenso segnalate da CCISS alle 06:38–06:50."},
+      {"where": "A51 Tangenziale Est – svincolo Agrate B.", "desc": "Coda per traffico intenso rilevata alle 07:19 (ricerca web)."}
+    ],
+    "notice": "Solo CCISS parzialmente leggibile; Luceverde (lombardia e Milano), Autostrade.it e Serravalle non raggiungibili. Durata totale da Directions API (73 min) ripartita sui tre segmenti in proporzione alla baseline (waypoints via: non generano leg separati)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista su tutto il percorso (0 mm, 0% probabilità pioggia)",
+      "Temperature estive sopra i 22 °C, nessun rischio gelo o umidità residua sull'asfalto",
+      "Vento quasi assente su tutto il tragitto (max 6 km/h, raffiche max 11 km/h)",
+      "Visibilità ottima: 16 km in tutti e tre i punti di riferimento"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Automap.it – traffico A51", "url": "https://www.automap.it/traffico/a51"}
+  ]
+}
