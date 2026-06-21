@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana — TNT News</title>
+  <meta name="description" content="Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-21-soccorso-alpino-maltempo-pizzo-coca-presolana/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana — TNT News">
+  <meta property="og:description" content="Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-21-soccorso-alpino-maltempo-pizzo-coca-presolana/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana — TNT News">
+  <meta name="twitter:description" content="Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">montagna</span><span class="tag">Soccorso Alpino</span><span class="tag">Presolana</span></div>
+    <h1>Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana</h1>
+    <p class="article-summary">Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-21">21 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Tre chiamate in meno di due ore, tre squadre mobilitate, un elicottero dell'AREU in volo sopra le Orobie: il pomeriggio di sabato 20 giugno 2026 ha messo alla prova la VI Delegazione Orobica del Corpo Nazionale Soccorso Alpino e Speleologico (CNSAS). Mentre le valli bergamasche soffrivano sotto il caldo con temperature che sfioravano i 35 gradi, in quota un improvviso temporale pomeridiano ha colto di sorpresa alpinisti ed escursionisti tra il Pizzo Coca e il massiccio della Presolana.</p>
+
+<h2>Pizzo Coca: due alpinisti bloccati a un passo dalla vetta</h2>
+
+<p>Il primo allarme è scattato verso le 15:30, a Valbondione, sull'arco orientale del Pizzo Coca — una delle cime più alte delle Alpi Orobie, a oltre tremila metri. Due alpinisti, impegnati nell'ascesa alla cresta est, si trovavano ormai prossimi alla vetta quando il meteo è improvvisamente peggiorato. Il rapido deterioramento delle condizioni li ha messi in difficoltà, bloccandoli in parete.</p>
+
+<p>La Centrale Operativa ha disposto l'invio dell'elicottero di soccorso sanitario dell'AREU di Milano, a bordo del quale sono stati imbarcati due tecnici della VI Orobica che erano di turno alla sede operativa di Clusone. In tutto, sei soccorritori sono stati impiegati nell'operazione, più il tecnico di elisoccorso del CNSAS sempre presente sull'elicottero. Un momento di miglioramento delle condizioni meteorologiche ha permesso all'equipaggio di raggiungere i due alpinisti: sono stati recuperati e trasportati alla sede della Stazione di Valbondione. L'intervento si è concluso poco prima delle 17:00, senza feriti gravi.</p>
+
+<h2>Castione della Presolana: infortunata sul sentiero per Baita Cassinelli</h2>
+
+<p>Quasi in contemporanea con le operazioni sul Pizzo Coca, un secondo intervento è stato avviato a Castione della Presolana. Nel pomeriggio, durante il temporale che ha investito il passo, una persona ha perso l'equilibrio lungo il sentiero che sale verso la Baita Cassinelli — un rifugio posto a circa 1.400 metri di quota — ed è caduta, riportando un infortunio. Sei tecnici del soccorso alpino si sono portati sul posto, hanno valutato le condizioni della persona infortunata, l'hanno messa in sicurezza e l'hanno trasportata a valle con la barella.</p>
+
+<h2>Cresta Saglio: tre escursionisti bloccati in uscita di cresta</h2>
+
+<p>Il terzo intervento della giornata ha riguardato ancora il versante della Presolana. Tre persone si sono trovate in difficoltà durante il rientro dalla Cresta Saglio, uno degli itinerari di cresta più frequentati del massiccio. Il temporale, con il conseguente peggioramento delle condizioni del terreno, ha reso l'uscita di cresta pericolosa e i tre escursionisti non sono riusciti a proseguire autonomamente. I tecnici della VI Delegazione Orobica sono intervenuti per accompagnarli in sicurezza verso il fondovalle.</p>
+
+<h2>Il contrasto tra caldo in valle e maltempo in quota</h2>
+
+<p>La giornata del 20 giugno ha evidenziato un fenomeno tipico dell'estate alpina, spesso sottovalutato: mentre le pianure e le valli bergamasche erano interessate da un'intensa ondata di calore con temperature elevate, le zone d'alta quota subivano un repentino cambio di tempo nel primo pomeriggio. I temporali in quota si sviluppano con velocità molto maggiore rispetto a quelli in pianura e possono sorprendere chi è impegnato in escursioni o ascensioni senza aver seguito l'evoluzione delle previsioni locali.</p>
+
+<p>La VI Delegazione Orobica del CNSAS è l'articolazione del Soccorso Alpino competente per la provincia di Bergamo e coordina la risposta alle emergenze in montagna in collaborazione con l'AREU Lombardia per gli interventi che richiedono l'elisoccorso. Nel 2026, con l'aumento della frequentazione estiva delle montagne bergamasche, il numero di interventi in quota è in crescita rispetto agli anni precedenti.</p>
+
+<figure>
+  <svg viewBox="0 0 640 360" role="img" aria-label="Schematica dei tre interventi del Soccorso Alpino il 20 giugno 2026 nelle montagne bergamasche: altitudini e localizzazione" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+
+    <!-- sfondo -->
+    <rect width="640" height="360" fill="#f4f6f9" rx="12"/>
+
+    <!-- titolo -->
+    <text x="320" y="26" text-anchor="middle" fill="#1a2a3a" font-size="13" font-weight="bold">Tre interventi in quota — 20 giugno 2026, pomeriggio</text>
+    <text x="320" y="42" text-anchor="middle" fill="#4a5a6a" font-size="10">VI Delegazione Orobica CNSAS · Bergamo</text>
+
+    <!-- asse verticale altitudine -->
+    <line x1="80" y1="60" x2="80" y2="290" stroke="#aaa" stroke-width="1"/>
+    <!-- etichette asse Y -->
+    <text x="75" y="64" text-anchor="end" fill="#666" font-size="9">3100 m</text>
+    <line x1="78" y1="64" x2="82" y2="64" stroke="#aaa" stroke-width="1"/>
+    <text x="75" y="127" text-anchor="end" fill="#666" font-size="9">2500 m</text>
+    <line x1="78" y1="127" x2="82" y2="127" stroke="#aaa" stroke-width="1"/>
+    <text x="75" y="190" text-anchor="end" fill="#666" font-size="9">1900 m</text>
+    <line x1="78" y1="190" x2="82" y2="190" stroke="#aaa" stroke-width="1"/>
+    <text x="75" y="253" text-anchor="end" fill="#666" font-size="9">1300 m</text>
+    <line x1="78" y1="253" x2="82" y2="253" stroke="#aaa" stroke-width="1"/>
+    <text x="75" y="290" text-anchor="end" fill="#666" font-size="9">1000 m</text>
+
+    <!-- griglia orizzontale leggera -->
+    <line x1="80" y1="64" x2="620" y2="64" stroke="#dde" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="80" y1="127" x2="620" y2="127" stroke="#dde" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="80" y1="190" x2="620" y2="190" stroke="#dde" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="80" y1="253" x2="620" y2="253" stroke="#dde" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+    <!-- etichetta asse Y -->
+    <text x="18" y="180" text-anchor="middle" fill="#4a5a6a" font-size="10" transform="rotate(-90 18 180)">Quota (m s.l.m.)</text>
+
+    <!-- INTERVENTO 1: Pizzo Coca — cresta est ~3050m -->
+    <!-- y = 60 + (3100-3050)/(3100-1000) * 230 = 60 + 50/2100*230 ≈ 60+5.5 = 65.5 -->
+    <circle cx="200" cy="66" r="22" fill="#c0392b" opacity="0.9"/>
+    <text x="200" y="62" text-anchor="middle" fill="white" font-size="10" font-weight="bold">1</text>
+    <text x="200" y="74" text-anchor="middle" fill="white" font-size="8">~3050 m</text>
+
+    <!-- linea verticale tratteggiata intervento 1 -->
+    <line x1="200" y1="88" x2="200" y2="290" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+
+    <!-- box descrizione intervento 1 -->
+    <rect x="90" y="300" width="175" height="52" fill="#fdecea" rx="7" stroke="#c0392b" stroke-width="1"/>
+    <text x="177" y="315" text-anchor="middle" fill="#c0392b" font-size="9" font-weight="bold">① Pizzo Coca — Valbondione</text>
+    <text x="177" y="328" text-anchor="middle" fill="#5a2a2a" font-size="9">2 alpinisti bloccati in cresta</text>
+    <text x="177" y="341" text-anchor="middle" fill="#5a2a2a" font-size="9">Elisoccorso AREU · 15:30–17:00</text>
+    <text x="177" y="353" text-anchor="middle" fill="#5a2a2a" font-size="8">6 tecnici + tecnico elisoccorso</text>
+
+    <!-- INTERVENTO 2: Cresta Saglio Presolana ~2521m -->
+    <!-- y = 60 + (3100-2521)/2100*230 ≈ 60 + 63.5 ≈ 123.5 -->
+    <circle cx="360" cy="124" r="22" fill="#e67e22" opacity="0.9"/>
+    <text x="360" y="120" text-anchor="middle" fill="white" font-size="10" font-weight="bold">2</text>
+    <text x="360" y="132" text-anchor="middle" fill="white" font-size="8">~2521 m</text>
+
+    <line x1="360" y1="146" x2="360" y2="290" stroke="#e67e22" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+
+    <rect x="270" y="300" width="180" height="52" fill="#fef3e5" rx="7" stroke="#e67e22" stroke-width="1"/>
+    <text x="360" y="315" text-anchor="middle" fill="#b8600a" font-size="9" font-weight="bold">② Cresta Saglio — Presolana</text>
+    <text x="360" y="328" text-anchor="middle" fill="#6a4a1a" font-size="9">3 escursionisti bloccati in cresta</text>
+    <text x="360" y="341" text-anchor="middle" fill="#6a4a1a" font-size="9">Intervento a terra · pomeriggio</text>
+    <text x="360" y="353" text-anchor="middle" fill="#6a4a1a" font-size="8">tecnici VI Delegazione Orobica</text>
+
+    <!-- INTERVENTO 3: Baita Cassinelli ~1400m -->
+    <!-- y = 60 + (3100-1400)/2100*230 ≈ 60 + 186.2 ≈ 246 -->
+    <circle cx="520" cy="246" r="22" fill="#2980b9" opacity="0.9"/>
+    <text x="520" y="242" text-anchor="middle" fill="white" font-size="10" font-weight="bold">3</text>
+    <text x="520" y="254" text-anchor="middle" fill="white" font-size="8">~1400 m</text>
+
+    <line x1="520" y1="268" x2="520" y2="290" stroke="#2980b9" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+
+    <rect x="440" y="300" width="185" height="52" fill="#eaf3fb" rx="7" stroke="#2980b9" stroke-width="1"/>
+    <text x="532" y="315" text-anchor="middle" fill="#1a5a80" font-size="9" font-weight="bold">③ Baita Cassinelli — Castione</text>
+    <text x="532" y="328" text-anchor="middle" fill="#1a3a5a" font-size="9">1 infortunata sul sentiero</text>
+    <text x="532" y="341" text-anchor="middle" fill="#1a3a5a" font-size="9">Evacuazione con barella</text>
+    <text x="532" y="353" text-anchor="middle" fill="#1a3a5a" font-size="8">6 tecnici · pomeriggio</text>
+
+    <!-- nota fonte -->
+    <text x="320" y="295" text-anchor="middle" fill="#888" font-size="8">Quote indicative. Fonti: L'Eco di Bergamo, MyValley.it</text>
+
+  </svg>
+  <figcaption>Localizzazione schematica per quota dei tre interventi della VI Delegazione Orobica del CNSAS il 20 giugno 2026. Le altitudini degli interventi sono indicative. Fonti: L'Eco di Bergamo, MyValley.it.</figcaption>
+</figure>
+
+<h2>Consigli per la sicurezza in montagna</h2>
+
+<p>Le emergenze del 20 giugno ricordano alcune regole fondamentali per frequentare in sicurezza le montagne bergamasche in estate:</p>
+
+<ul>
+  <li>Consultare sempre le previsioni meteo locali prima di partire, preferibilmente quelle di ARPA Lombardia dedicate alle zone di montagna.</li>
+  <li>In caso di temporali in quota, evitare cime, creste e canali e cercare riparo in zone basse e lontane da alberi isolati.</li>
+  <li>Portare con sé un dispositivo di comunicazione e il numero del soccorso alpino (112).</li>
+  <li>Non sopravvalutare le proprie capacità: il peggioramento repentino delle condizioni può rendere pericolosi anche itinerari noti.</li>
+</ul>
+
+<p>Tutti gli interventi del 20 giugno si sono conclusi positivamente: le sei persone soccorse sono state recuperate senza che si registrassero conseguenze gravi.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/valle-brembana/maltempo-in-quota-tre-interventi-del-soccorso-alpino-alpinisti-recuperati-sul-o_3892996_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Maltempo in quota, tre interventi del Soccorso alpino: alpinisti recuperati sul Pizzo Coca e in Presolana</a></li><li><a href="https://myvalley.it/2026/06/maltempo-in-quota-triplo-intervento-per-il-soccorso-alpino-tra-pizzo-coca-e-presolana/" rel="noopener" target="_blank">MyValley.it – Maltempo in quota: triplo intervento per il Soccorso Alpino tra Pizzo Coca e Presolana</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nove arresti a bergamo: schema ponzi mascherato da noleggio auto di lusso polizia di stato e guardia di finanza di bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. sequestrati beni per oltre 1,6 milioni di euro. cronaca bergamo truffa schema ponzi guardia di finanza" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-12-truffa-schema-ponzi-bergamo-auto-lusso/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso</h2><p class="card-summary">Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.</p><p class="card-meta">12 giugno 2026</p></div></a></article><article class="card" data-search="ultraleggero precipita a valbrembo: morto l&#x27;istruttore daniel taino, ferito l&#x27;allievo domenica 1° giugno un cessna 152 della scuola cantor air si è schiantato su via don bosco durante una fase di atterraggio. l&#x27;istruttore 27enne daniel taino di pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al papa giovanni xxiii. l&#x27;ansv ha aperto un&#x27;inchiesta. cronaca bergamo valbrembo incidente aereo cantor air" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-02-ultraleggero-valbrembo-daniel-taino/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Ultraleggero precipita a Valbrembo: morto l&#x27;istruttore Daniel Taino, ferito l&#x27;allievo</h2><p class="card-summary">Domenica 1° giugno un Cessna 152 della scuola Cantor Air si è schiantato su via Don Bosco durante una fase di atterraggio. L&#x27;istruttore 27enne Daniel Taino di Pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al Papa Giovanni XXIII. L&#x27;ANSV ha aperto un&#x27;inchiesta.</p><p class="card-meta">2 giugno 2026</p></div></a></article><article class="card" data-search="caporalato al consolato usa di milano: manager fermato a orio al serio mentre tentava la fuga ulas demir, dirigente turco della filiale italiana di caddell construction, è stato bloccato a bergamo il 31 maggio mentre si imbarcava per istanbul. l&#x27;inchiesta riguarda quasi mille lavoratori indiani sfruttati nel cantiere da 200 milioni di dollari del nuovo consolato americano a milano. cronaca bergamo orio al serio caporalato sfruttamento lavoratori" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-01-caporalato-consolato-usa-orio/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Caporalato al consolato USA di Milano: manager fermato a Orio al Serio mentre tentava la fuga</h2><p class="card-summary">Ulas Demir, dirigente turco della filiale italiana di Caddell Construction, è stato bloccato a Bergamo il 31 maggio mentre si imbarcava per Istanbul. L&#x27;inchiesta riguarda quasi mille lavoratori indiani sfruttati nel cantiere da 200 milioni di dollari del nuovo consolato americano a Milano.</p><p class="card-meta">1 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
