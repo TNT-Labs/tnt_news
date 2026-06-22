@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-22",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno e soleggiato su tutto il tragitto, temperatura estiva tra 24 e 28 °C, vento debole da NNE/NE, nessuna precipitazione.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato",  "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato",  "temp_c": 28, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato",  "temp_c": 28, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 91,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 43},
+      {"name": "Surface Agrate → Carugate",          "minutes": 16},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 32}
+    ],
+    "incidents": [
+      {"where": "A51 Gobba → Monluè dir. A1/San Donato", "desc": "Code per traffico intenso tra lo svincolo Gobba/Vimodrone e Monluè in direzione A1 (sud)."}
+    ],
+    "notice": "Tempo totale da Google Directions API (91 min, waypoint via: non creano legs separate); ripartizione per segmento stimata su proporzioni da baseline. Luceverde, Autostrade.it e Serravalle.it non raggiungibili. Solo CCISS disponibile tra le fonti strutturate; segnalazioni A51 integrate da ricerca web."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione sull'intera tratta (0 mm, 0% probabilità)",
+      "Cielo sereno e soleggiato, nessun rischio nebbia o temporale",
+      "Temperatura estiva (24–28 °C), ben oltre la soglia minima di 7 °C",
+      "Vento debole (3–6 km/h) e raffiche contenute (max 11 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia (non raggiungibile)", "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano (non raggiungibile)", "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia (non raggiungibile)", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Serravalle (non raggiungibile)", "url": "https://www.serravalle.it/traffico"},
+    {"name": "Ricerca web (3BMeteo, MilanoToday, Automap)", "url": "https://www.3bmeteo.com/traffico/a4"}
+  ]
+}
