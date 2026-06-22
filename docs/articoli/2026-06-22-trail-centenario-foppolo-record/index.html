@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti — TNT News</title>
+  <meta name="description" content="La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-22-trail-centenario-foppolo-record/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti — TNT News">
+  <meta property="og:description" content="La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-22-trail-centenario-foppolo-record/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti — TNT News">
+  <meta name="twitter:description" content="La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">trail running</span><span class="tag">Foppolo</span><span class="tag">Val Brembana</span></div>
+    <h1>Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti</h1>
+    <p class="article-summary">La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-22">22 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Domenica 21 giugno l'Alta Val Brembana ha ospitato la quinta edizione del <strong>Trail del Centenario Lovato Electric</strong>: 1.100 atleti sono partiti dal Piazzale degli Alberghi di <strong>Foppolo</strong> sulle tre distanze competitive — 13, 25 e 50 chilometri — e sulla FamilyRun non competitiva, fissando un nuovo record assoluto di presenze per la manifestazione. L'evento, nato nel 2022 per celebrare il centenario di Lovato Electric di Gorle e organizzato da Fly-Up Sport, si è confermato uno degli appuntamenti di punta del trail running lombardo.</p>
+
+<h2>I vincitori</h2>
+
+<p>Nella gara lunga da <strong>50 km</strong>, <strong>Cristian Minoggio</strong> ha tagliato il traguardo per primo con il tempo di 4h50'26", precedendo Luca Arrigoni (5h17'26") ed Emil Lussana (5h50'51"). In campo femminile ha trionfato la seriana <strong>Giulia Lamberti</strong> in 6h09'10", davanti alla lecchese Aurora Bosia (6h20'05") e alla brembana Daniela Rota.</p>
+
+<p>Sui <strong>25 km</strong>, dominio di <strong>William Boffelli</strong>, che ha chiuso in 2h24'24" con ampio margine su Sergio Bonaldi (2h34'52") e Paolo Poli (2h37'32"). La vittoria femminile è andata a Melissa Paganelli (3h05'56"), seguita da Beatrice Ferrari (3h17'12") e Irene Lubrini (3h29'48").</p>
+
+<p>Nella prova da <strong>13 km</strong>, primo tra gli uomini Luca Carrara, seguito da Pietro Foppolo (1h08'21") e Simone Guerini (1h09'23"). Tra le donne, Giulia Vivien Spadoni (1h23'28") ha preceduto Ester Maffeis (1h27'27") e Arianna Mariani (1h28'13").</p>
+
+<h2>Un percorso tra le cime delle Orobie</h2>
+
+<p>I tracciati si snodano tra Foppolo, Carona e Branzi, passando per i rifugi e i crinali delle Orobie bergamasche. L'organizzazione è curata da Fly-Up Sport di Mario Poletti sotto l'egida della Federazione Italiana Sport del Cielo (FISky), con il patrocinio della Regione Lombardia e il sostegno dei comuni di Foppolo, Carona e Branzi. La collaborazione con Lovato Electric — azienda di Gorle leader nella componentistica elettrica — garantisce continuità all'evento, che porta il nome della società nel titolo ufficiale.</p>
+
+<h2>Crescita costante in cinque edizioni</h2>
+
+<p>Il dato più significativo è la traiettoria di crescita: nella terza edizione (2024) avevano partecipato oltre 600 atleti; nel 2025 i partecipanti erano saliti a 939, con un incremento del 55% e presenze provenienti da 7 regioni italiane e da sei paesi esteri (Stati Uniti, Regno Unito, Spagna, Ungheria, Francia, Romania). Nel 2026 si è superata per la prima volta la soglia dei mille, con 1.100 iscritti al via.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre della crescita dei partecipanti al Trail del Centenario di Foppolo nelle edizioni 2024, 2025 e 2026" xmlns="http://www.w3.org/2000/svg">
+    <title>Partecipanti al Trail del Centenario (2024–2026)</title>
+
+    <!-- Sfondo -->
+    <rect width="640" height="320" fill="#f8f9fa" rx="8"/>
+
+    <!-- Titolo -->
+    <text x="320" y="30" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222">Partecipanti al Trail del Centenario – Foppolo (2024–2026)</text>
+
+    <!-- Griglia orizzontale -->
+    <line x1="110" y1="240" x2="580" y2="240" stroke="#ccc" stroke-width="1"/>
+    <line x1="110" y1="187" x2="580" y2="187" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="110" y1="134" x2="580" y2="134" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="110" y1="80"  x2="580" y2="80"  stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <!-- Etichette asse Y -->
+    <text x="98" y="244" text-anchor="end" font-family="sans-serif" font-size="10" fill="#666">0</text>
+    <text x="98" y="191" text-anchor="end" font-family="sans-serif" font-size="10" fill="#666">300</text>
+    <text x="98" y="138" text-anchor="end" font-family="sans-serif" font-size="10" fill="#666">600</text>
+    <text x="98" y="84"  text-anchor="end" font-family="sans-serif" font-size="10" fill="#666">900</text>
+
+    <!-- Scala: 1 partecipante = 0,16 px (max 1100 → 176 px); asse Y parte da 240, sale verso l'alto -->
+    <!-- 2024: ~620 atleti → altezza = 620 * 0.1742 = 108 px → y = 240-108 = 132 -->
+    <rect x="155" y="132" width="90" height="108" fill="#4a90d9" rx="4"/>
+    <text x="200" y="126" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#333">~620</text>
+    <text x="200" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#444">2024</text>
+    <text x="200" y="279" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">(3ª edizione)</text>
+
+    <!-- 2025: 939 atleti → altezza = 939 * 0.1742 = 163.6 px → y = 240-164 = 76 -->
+    <rect x="275" y="76" width="90" height="164" fill="#2e7bbf" rx="4"/>
+    <text x="320" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#333">939</text>
+    <text x="320" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#444">2025</text>
+    <text x="320" y="279" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">(4ª edizione)</text>
+
+    <!-- 2026: 1100 atleti → altezza = 1100 * 0.1742 = 191.6 px → y = 240-192 = 48 -->
+    <rect x="395" y="48" width="90" height="192" fill="#1a5f9c" rx="4"/>
+    <text x="440" y="42" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a5f9c">1.100 ★</text>
+    <text x="440" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#444">2026</text>
+    <text x="440" y="279" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">(5ª edizione)</text>
+
+    <!-- Frecce di crescita -->
+    <text x="248" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e07b00">+52%</text>
+    <line x1="248" y1="104" x2="265" y2="93" stroke="#e07b00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+    <text x="368" y="60" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e07b00">+17%</text>
+
+    <!-- Asse X -->
+    <line x1="110" y1="240" x2="560" y2="240" stroke="#888" stroke-width="1.5"/>
+    <!-- Asse Y -->
+    <line x1="110" y1="30" x2="110" y2="240" stroke="#888" stroke-width="1.5"/>
+
+    <!-- Nota -->
+    <text x="320" y="305" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#999">★ record assoluto · il dato 2024 è una stima (valori indicativi)</text>
+  </svg>
+  <figcaption>Crescita dei partecipanti al Trail del Centenario Lovato Electric di Foppolo nelle ultime tre edizioni. Fonti: L'Eco di Bergamo, Val Brembana Web (il dato 2024 è indicativo; quelli 2025 e 2026 sono ufficiali).</figcaption>
+</figure>
+
+<h2>Un evento che guarda oltre i confini regionali</h2>
+
+<p>Il Trail del Centenario si è affermato come vetrina internazionale per il territorio dell'Alta Val Brembana, richiamando runner da tutta Italia e dall'estero. La scelta di far partire e arrivare le gare a Foppolo — stazione montana che in estate punta sulle attività outdoor per compensare la stagione sciistica — contribuisce a prolungare l'attrattività turistica della valle anche nei mesi estivi. L'edizione 2026 chiude un ciclo di cinque anni e apre la riflessione su come consolidare ulteriormente la manifestazione, che in meno di un lustro ha quasi raddoppiato i propri partecipanti.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/sport/trail-del-centenario-a-foppolo-quinta-edizione-da-record-con-1100-atleti-al-vi-o_3893345_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Quinta edizione da record con 1.100 atleti al via</a></li><li><a href="https://www.valbrembanaweb.com/redazionale/in-evidenza/foppolo-in-1-100-per-il-trail-del-centenario-dominio-di-minoggio-e-boffelli/" rel="noopener" target="_blank">Val Brembana Web – In 1.100 per il Trail del Centenario: dominio di Minoggio e Boffelli</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="albinoleffe under 15 in finale scudetto a rimini: oggi la sfida all&#x27;alcione milano l&#x27;under 15 dell&#x27;u.c. albinoleffe gioca oggi alle 18 la finale del campionato nazionale di serie c allo stadio romeo neri di rimini contro l&#x27;alcione milano. è una stagione storica per il settore giovanile del club bergamasco: anche l&#x27;under 17 era arrivata in finale, battuta dal perugia il 16 giugno. sport bergamo albinoleffe calcio giovanile serie c" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-20-albinoleffe-under15-finale-scudetto/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">AlbinoLeffe Under 15 in finale scudetto a Rimini: oggi la sfida all&#x27;Alcione Milano</h2><p class="card-summary">L&#x27;Under 15 dell&#x27;U.C. AlbinoLeffe gioca oggi alle 18 la finale del campionato nazionale di Serie C allo stadio Romeo Neri di Rimini contro l&#x27;Alcione Milano. È una stagione storica per il settore giovanile del club bergamasco: anche l&#x27;Under 17 era arrivata in finale, battuta dal Perugia il 16 giugno.</p><p class="card-meta">20 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article><article class="card" data-search="giro next gen 2026: sei ciclisti bergamaschi al via da reggio calabria prende il via oggi il giro d&#x27;italia next gen, la corsa riservata agli under 23: sei atleti della provincia di bergamo in gara nelle otto tappe tra calabria e abruzzo. sport bergamo ciclismo giro next gen under 23" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-14-giro-next-gen-bergamaschi/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Giro Next Gen 2026: sei ciclisti bergamaschi al via da Reggio Calabria</h2><p class="card-summary">Prende il via oggi il Giro d&#x27;Italia Next Gen, la corsa riservata agli under 23: sei atleti della provincia di Bergamo in gara nelle otto tappe tra Calabria e Abruzzo.</p><p class="card-meta">14 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
