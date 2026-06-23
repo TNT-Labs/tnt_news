@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto — TNT News</title>
+  <meta name="description" content="La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-23-ordinanza-caldo-cantieri-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto — TNT News">
+  <meta property="og:description" content="La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-23-ordinanza-caldo-cantieri-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto — TNT News">
+  <meta name="twitter:description" content="La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Bergamo</span><span class="tag">caldo</span><span class="tag">cantieri</span><span class="tag">sicurezza sul lavoro</span></div>
+    <h1>Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto</h1>
+    <p class="article-summary">La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-23">23 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Con l'arrivo dell'estate e delle prime ondate di calore, la Regione Lombardia ha formalizzato una misura che alcune imprese avevano già adottato in via preventiva: l'<strong>Ordinanza n. 484 del 9 giugno 2026</strong>, firmata dal presidente <strong>Attilio Fontana</strong>, vieta lo svolgimento di lavori in condizioni di prolungata esposizione al sole tra le <strong>12:30 e le 16:00</strong> nelle giornate in cui il sistema di monitoraggio <strong>Worklimate</strong> segnala un livello di rischio "alto" (rosso). Il provvedimento è in vigore dal 10 giugno al 23 settembre 2026.</p>
+
+<h2>Chi è coinvolto e come funziona</h2>
+
+<p>L'ordinanza interessa quattro settori principali: <strong>edilizia all'aperto</strong>, <strong>agricoltura e floricoltura</strong>, e <strong>cave</strong>. Il divieto non scatta automaticamente ogni giorno, ma si attiva soltanto nelle giornate in cui la piattaforma Worklimate — sviluppata da INAIL e CNR — registra alle ore 12:00 un livello di rischio termico "alto" per la categoria dei lavoratori esposti al sole impegnati in attività fisicamente intense.</p>
+
+<p>Le aziende sono tenute a consultare quotidianamente il portale Worklimate e a organizzare di conseguenza i turni di lavoro. Sono escluse dall'obbligo di stop le pubbliche amministrazioni, i concessionari di pubblici servizi e i loro appaltatori quando operano per interventi di pubblica utilità, protezione civile o sicurezza pubblica.</p>
+
+<h2>Bergamo: le imprese chiedono deroghe ai regolamenti comunali</h2>
+
+<p>Nel bergamasco la misura impone alle imprese edili di riorganizzare profondamente la giornata lavorativa. Per evitare di perdere ore produttive nelle fasce centrali, molte ditte hanno manifestato l'intenzione di anticipare l'inizio dei lavori all'alba — una soluzione che, però, si scontra con i regolamenti comunali vigenti. A Bergamo città, ad esempio, le normative vietano ai cantieri di operare prima delle ore 7:00 e impongono il silenzio per i macchinari rumorosi fino alle 8:00.</p>
+
+<p>Le associazioni di categoria hanno quindi presentato richiesta di deroga ai comuni, chiedendo di poter iniziare prima del mattino per concentrare le attività nelle ore più fresche. Il Comune di Bergamo, secondo quanto emerso, intende valutare le istanze caso per caso, tenendo conto della densità abitativa della zona, della tipologia di lavorazione e delle condizioni meteorologiche. La Regione, da parte sua, si limita a <em>raccomandare</em> ai comuni di valutare l'opportunità di concedere proroghe orarie, senza imporre alcun obbligo.</p>
+
+<h2>Sanzioni e tutela economica dei lavoratori</h2>
+
+<p>Chi non rispetta il divieto nelle giornate a rischio alto rischia sanzioni penali ai sensi dell'<strong>articolo 650 del Codice Penale</strong>, salvo che il fatto non costituisca reato più grave. Sul fronte della tutela economica, le imprese possono ricorrere alla <strong>Cassa Integrazione Guadagni Ordinaria (CIGO)</strong> per le ore non lavorate durante gli stop forzati, limitando così l'impatto economico sui lavoratori.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Schema della giornata lavorativa con evidenza della fascia di stop ai cantieri dalle 12:30 alle 16:00 secondo l'Ordinanza 484 della Regione Lombardia" xmlns="http://www.w3.org/2000/svg">
+    <title>Fascia oraria di stop ai cantieri – Ordinanza n. 484/2026, Regione Lombardia</title>
+
+    <!-- Sfondo -->
+    <rect width="640" height="260" fill="#f8f9fa" rx="8"/>
+
+    <!-- Titolo -->
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">Giornata lavorativa nei cantieri – Ordinanza n. 484/2026</text>
+    <text x="320" y="46" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Stop obbligatorio (su rischio ALTO Worklimate) dalle 12:30 alle 16:00</text>
+
+    <!-- Timeline base: da 06:00 a 20:00 = 14 ore, larghezza 520px, x inizio 60 -->
+    <!-- Scala: 1 ora = 520/14 ≈ 37.14px -->
+
+    <!-- Bande colorate sulla timeline (y=90, altezza 60) -->
+    <!-- 06:00-12:30 = 6.5h → 6.5 * 37.14 = 241.4px → da x=60 a x=301 -->
+    <rect x="60" y="90" width="241" height="60" fill="#4caf50" rx="4" opacity="0.85"/>
+    <!-- 12:30-16:00 = 3.5h → 3.5 * 37.14 = 130px → da x=301 a x=431 -->
+    <rect x="301" y="90" width="130" height="60" fill="#e53935" rx="4" opacity="0.85"/>
+    <!-- 16:00-20:00 = 4h → 4 * 37.14 = 148.6px → da x=431 a x=580 -->
+    <rect x="431" y="90" width="149" height="60" fill="#4caf50" rx="4" opacity="0.85"/>
+
+    <!-- Etichette nelle bande -->
+    <text x="180" y="126" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">Lavoro consentito</text>
+    <text x="366" y="118" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">STOP</text>
+    <text x="366" y="134" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fff">(rischio alto)</text>
+    <text x="505" y="126" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">Lavoro consentito</text>
+
+    <!-- Asse orizzontale -->
+    <line x1="60" y1="165" x2="580" y2="165" stroke="#999" stroke-width="1.5"/>
+
+    <!-- Tacche e etichette ore -->
+    <!-- 06:00 x=60 -->
+    <line x1="60" y1="162" x2="60" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="60" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">6:00</text>
+    <!-- 08:00 x=60+74=134 -->
+    <line x1="134" y1="162" x2="134" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="134" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">8:00</text>
+    <!-- 10:00 x=60+148=208 -->
+    <line x1="208" y1="162" x2="208" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="208" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">10:00</text>
+    <!-- 12:00 x=60+223=283 -->
+    <line x1="283" y1="162" x2="283" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="283" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">12:00</text>
+    <!-- 12:30 x=301 - marcatore stop inizio -->
+    <line x1="301" y1="82" x2="301" y2="168" stroke="#e53935" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="301" y="200" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#e53935">12:30</text>
+    <!-- 14:00 x=60+297=357 -->
+    <line x1="357" y1="162" x2="357" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="357" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">14:00</text>
+    <!-- 16:00 x=431 - marcatore stop fine -->
+    <line x1="431" y1="82" x2="431" y2="168" stroke="#e53935" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="431" y="200" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#e53935">16:00</text>
+    <!-- 18:00 x=60+446=506 -->
+    <line x1="506" y1="162" x2="506" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="506" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">18:00</text>
+    <!-- 20:00 x=580 -->
+    <line x1="580" y1="162" x2="580" y2="170" stroke="#666" stroke-width="1.5"/>
+    <text x="580" y="183" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#444">20:00</text>
+
+    <!-- Legenda -->
+    <rect x="60" y="215" width="16" height="14" fill="#4caf50" rx="2"/>
+    <text x="82" y="226" font-family="sans-serif" font-size="11" fill="#333">Lavoro consentito</text>
+    <rect x="230" y="215" width="16" height="14" fill="#e53935" rx="2"/>
+    <text x="252" y="226" font-family="sans-serif" font-size="11" fill="#333">Stop (giorni rischio ALTO)</text>
+
+    <!-- Fonte -->
+    <text x="580" y="248" text-anchor="end" font-family="sans-serif" font-size="9" fill="#999">Fonte: Ordinanza n. 484/2026, Regione Lombardia</text>
+  </svg>
+  <figcaption>Schema della giornata lavorativa per i cantieri edili all'aperto secondo l'Ordinanza n. 484/2026 della Regione Lombardia. Lo stop dalle 12:30 alle 16:00 è obbligatorio soltanto nei giorni in cui Worklimate segnala livello di rischio caldo "alto".</figcaption>
+</figure>
+
+<h2>Una misura attesa ma non ancora sufficiente</h2>
+
+<p>Nell'estate precedente l'Italia aveva registrato diversi casi di colpi di calore mortali tra i lavoratori agricoli e in edilizia. L'ordinanza lombarda rappresenta un passo avanti rispetto alle sole raccomandazioni informali del passato, ma presenta ancora margini di incertezza: il sistema di attivazione legato a Worklimate richiede alle imprese un monitoraggio quotidiano autonomo, e la raccomandazione ai comuni sulle deroghe orarie rimane facoltativa. Le organizzazioni sindacali, tra cui CGIL Lombardia, hanno chiesto misure più vincolanti e un sistema di controlli più capillare.</p>
+
+<p>Per i lavoratori dei cantieri bergamaschi, il cambiamento più immediato è pratico: turni sempre più anticipati all'alba per sfruttare le ore fresche del mattino, prima che il sole raggiunga la massima intensità. Una riorganizzazione che le imprese dichiarano di essere pronte ad attuare, in attesa del via libera definitivo da parte dei comuni.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/06/17/in-cantiere-allalba-per-sfuggire-al-caldo-le-imprese-chiedono-deroghe-siamo-pronti-ora-serve-il-via-libera-dei-comuni/902107" rel="noopener" target="_blank">BergamoNews – In cantiere all&#x27;alba per sfuggire al caldo, le imprese chiedono deroghe</a></li><li><a href="https://www.ilgiorno.it/milano/cronaca/caldo-regione-lombardia-ordinanza-lavoratori-c3bj9tdq" rel="noopener" target="_blank">Il Giorno – Caldo, Regione Lombardia vara il piano a tutela dei lavoratori esposti al sole</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova giovedì 18 giugno sono iniziati gli esami di stato per 9.203 maturandi della provincia di bergamo, su 528mila in tutta italia. tra le tracce del tema di italiano: cesare pavese, vitaliano brancati e il discorso di saragat all&#x27;assemblea costituente. attualità bergamo maturità scuola esami di stato" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-18-maturita-9200-studenti-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova</h2><p class="card-summary">Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.</p><p class="card-meta">18 giugno 2026</p></div></a></article><article class="card" data-search="benvenuti su tnt news: il blog quotidiano della bergamasca scritto dall&#x27;intelligenza artificiale nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la lombardia e la provincia di bergamo, corredata da grafici e dati. attualità editoriale bergamo lombardia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-05-26-benvenuti-su-tnt-news/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Benvenuti su TNT News: il blog quotidiano della Bergamasca scritto dall&#x27;intelligenza artificiale</h2><p class="card-summary">Nasce un blog sperimentale che ogni giorno seleziona e racconta una notizia rilevante per la Lombardia e la provincia di Bergamo, corredata da grafici e dati.</p><p class="card-meta">25 maggio 2026</p></div></a></article><article class="card" data-search="da oggi in lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;alto&#x27; segnalati dal sistema worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. l&#x27;ordinanza firmata dal presidente fontana tutela i lavoratori esposti al sole. attualità lombardia lavoro caldo sicurezza sul lavoro" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-10-ordinanza-caldo-lavoro-lombardia/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Da oggi in Lombardia vietato lavorare all&#x27;aperto nelle ore più calde: scatta l&#x27;ordinanza anti-caldo</h2><p class="card-summary">Dal 10 giugno al 23 settembre 2026, nei giorni di rischio &#x27;Alto&#x27; segnalati dal sistema Worklimate, è vietato svolgere attività lavorative all&#x27;aperto tra le 12:30 e le 16:00 in edilizia, agricoltura e cave. L&#x27;ordinanza firmata dal presidente Fontana tutela i lavoratori esposti al sole.</p><p class="card-meta">10 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
