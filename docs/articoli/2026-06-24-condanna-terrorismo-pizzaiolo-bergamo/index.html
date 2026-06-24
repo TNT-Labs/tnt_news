@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro — TNT News</title>
+  <meta name="description" content="Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-24-condanna-terrorismo-pizzaiolo-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro — TNT News">
+  <meta property="og:description" content="Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-24-condanna-terrorismo-pizzaiolo-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro — TNT News">
+  <meta name="twitter:description" content="Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">terrorismo</span><span class="tag">condanna</span><span class="tag">Basilica Sant&#x27;Alessandro</span></div>
+    <h1>Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro</h1>
+    <p class="article-summary">Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-24">24 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il Tribunale di Brescia ha condannato a <strong>quattro anni di reclusione</strong> Saied El Naijar, 22 anni, di origine egiziana, per il reato di associazione con finalità di terrorismo internazionale. La sentenza è stata pronunciata il 23 giugno 2026 al termine del rito abbreviato. Il pubblico ministero Claudia Passalacqua aveva chiesto una pena di dieci anni.</p>
+
+<h2>Le accuse e le indagini</h2>
+
+<p>Secondo quanto ricostruito dagli investigatori, El Naijar lavorava come pizzaiolo in una pizzeria del centro di Bergamo, a poca distanza dalla <strong>Basilica di Sant'Alessandro</strong>, uno degli edifici religiosi più importanti della città. Proprio quel luogo di culto figurava, secondo l'accusa, tra i potenziali obiettivi individuati dal giovane.</p>
+
+<p>Le indagini, condotte dalla Digos di Brescia e di Bergamo e coordinate dalla Procura bresciana, hanno documentato un'intensa attività dell'imputato sui social network e sulle piattaforme di messaggistica: El Naijar avrebbe diffuso materiale di propaganda jihadista, pubblicando contenuti in sostegno allo Stato Islamico e alla Jihad Islamica Palestinese. Tra il materiale raccolto dagli inquirenti risultano immagini di armi, richiami al martirio e messaggi di incitamento alla violenza.</p>
+
+<p>Secondo l'accusa, il percorso di radicalizzazione del giovane era progressivo e aveva raggiunto un livello tale da far ritenere agli investigatori che fosse &ldquo;intenzionato ad agire&rdquo;. I contatti con altri individui avvenivano attraverso sistemi di messaggistica cifrata.</p>
+
+<h2>Il processo</h2>
+
+<p>El Naijar ha scelto il rito abbreviato, procedimento che garantisce uno sconto automatico di un terzo della pena in caso di condanna. La pubblica accusa aveva avanzato una richiesta di dieci anni di reclusione; il giudice ha irrogato quattro anni. Si tratta di una sentenza di primo grado: la difesa potrà presentare ricorso nei termini previsti dalla legge.</p>
+
+<figure>
+  <svg role="img" aria-label="Grafico a barre: confronto tra pena richiesta (10 anni) e pena inflitta (4 anni) nel processo El Naijar per terrorismo" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="640" height="320" fill="#f8f9fa"/>
+    <text x="320" y="32" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">Processo El Naijar – pena richiesta vs. pena inflitta (anni)</text>
+    <!-- Y-axis -->
+    <line x1="90" y1="260" x2="90" y2="55" stroke="#bbb" stroke-width="1"/>
+    <!-- X-axis -->
+    <line x1="90" y1="260" x2="560" y2="260" stroke="#bbb" stroke-width="1"/>
+    <!-- Grid lines e label asse Y (da 0 a 10, 21 px per anno) -->
+    <line x1="90" y1="260" x2="560" y2="260" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="82" y="264" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">0</text>
+    <line x1="90" y1="218" x2="560" y2="218" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="82" y="222" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">2</text>
+    <line x1="90" y1="176" x2="560" y2="176" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="82" y="180" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">4</text>
+    <line x1="90" y1="134" x2="560" y2="134" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="82" y="138" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">6</text>
+    <line x1="90" y1="92" x2="560" y2="92" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="82" y="96" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">8</text>
+    <line x1="90" y1="50" x2="560" y2="50" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="82" y="54" text-anchor="end" font-family="sans-serif" font-size="11" fill="#888">10</text>
+    <!-- Barra 1: Pena richiesta 10 anni (210 px) -->
+    <rect x="160" y="50" width="130" height="210" fill="#c0392b" opacity="0.82" rx="4"/>
+    <text x="225" y="43" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">10 anni</text>
+    <text x="225" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Richiesta PM</text>
+    <!-- Barra 2: Pena inflitta 4 anni (84 px) -->
+    <rect x="360" y="176" width="130" height="84" fill="#2471a3" opacity="0.82" rx="4"/>
+    <text x="425" y="168" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2471a3">4 anni</text>
+    <text x="425" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Sentenza (rito abbreviato)</text>
+  </svg>
+  <figcaption>Confronto tra la pena chiesta dalla Procura di Brescia (10 anni) e quella irrogata dal giudice (4 anni) nel processo con rito abbreviato. Fonte: Il Giorno, Giornale di Brescia.</figcaption>
+</figure>
+
+<h2>Il contesto</h2>
+
+<p>Il caso aveva già attirato l'attenzione dei media nazionali nelle settimane precedenti la sentenza, quando erano emersi i dettagli sulle chat cifrate e sui possibili contatti del giovane con soggetti radicalizzati. La presenza dell'imputato in una posizione lavorativa vicina a un luogo di culto di grande rilevanza simbolica e turistica aveva reso il caso particolarmente significativo per la comunità bergamasca.</p>
+
+<p>Le indagini hanno coinvolto le sezioni antiterrorismo della Digos di due capoluoghi lombardi — Brescia e Bergamo — a testimonianza della collaborazione tra le forze di polizia nel contrasto alla radicalizzazione jihadista sul territorio della regione.</p>
+
+<p>Per il momento non sono stati resi noti ulteriori procedimenti collegati. Eventuali aggiornamenti dipenderanno dall'esito di un possibile appello da parte della difesa.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/terrorismo-pizzaiolo-egiziano-alzano-upanyjgr" rel="noopener" target="_blank">Il Giorno</a></li><li><a href="https://www.giornaledibrescia.it/cronaca/inneggiava-jihad-web-terrorismo-quattro-anni-pizzaiolo-bergamo-fmbghrnl" rel="noopener" target="_blank">Giornale di Brescia</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tre interventi in un pomeriggio: il soccorso alpino salva alpinisti tra pizzo coca e presolana il pomeriggio del 20 giugno 2026 la vi delegazione orobica del cnsas ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul pizzo coca, un infortunato sul sentiero per la baita cassinelli e tre escursionisti bloccati sulla cresta saglio della presolana. tutti i soccorsi si sono conclusi positivamente. cronaca bergamo montagna soccorso alpino presolana" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-21-soccorso-alpino-maltempo-pizzo-coca-presolana/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana</h2><p class="card-summary">Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.</p><p class="card-meta">21 giugno 2026</p></div></a></article><article class="card" data-search="nove arresti a bergamo: schema ponzi mascherato da noleggio auto di lusso polizia di stato e guardia di finanza di bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. sequestrati beni per oltre 1,6 milioni di euro. cronaca bergamo truffa schema ponzi guardia di finanza" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-12-truffa-schema-ponzi-bergamo-auto-lusso/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso</h2><p class="card-summary">Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.</p><p class="card-meta">12 giugno 2026</p></div></a></article><article class="card" data-search="ultraleggero precipita a valbrembo: morto l&#x27;istruttore daniel taino, ferito l&#x27;allievo domenica 1° giugno un cessna 152 della scuola cantor air si è schiantato su via don bosco durante una fase di atterraggio. l&#x27;istruttore 27enne daniel taino di pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al papa giovanni xxiii. l&#x27;ansv ha aperto un&#x27;inchiesta. cronaca bergamo valbrembo incidente aereo cantor air" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-02-ultraleggero-valbrembo-daniel-taino/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Ultraleggero precipita a Valbrembo: morto l&#x27;istruttore Daniel Taino, ferito l&#x27;allievo</h2><p class="card-summary">Domenica 1° giugno un Cessna 152 della scuola Cantor Air si è schiantato su via Don Bosco durante una fase di atterraggio. L&#x27;istruttore 27enne Daniel Taino di Pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al Papa Giovanni XXIII. L&#x27;ANSV ha aperto un&#x27;inchiesta.</p><p class="card-meta">2 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
