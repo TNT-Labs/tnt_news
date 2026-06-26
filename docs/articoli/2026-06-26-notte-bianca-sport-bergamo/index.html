@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Torna la Notte Bianca dello Sport: il centro di Bergamo diventa una palestra a cielo aperto — TNT News</title>
+  <meta name="description" content="Sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza Matteotti, il Sentierone e le vie del centro. Ingresso gratuito, istruttori a disposizione del pubblico.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-26-notte-bianca-sport-bergamo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Torna la Notte Bianca dello Sport: il centro di Bergamo diventa una palestra a cielo aperto — TNT News">
+  <meta property="og:description" content="Sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza Matteotti, il Sentierone e le vie del centro. Ingresso gratuito, istruttori a disposizione del pubblico.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-26-notte-bianca-sport-bergamo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Torna la Notte Bianca dello Sport: il centro di Bergamo diventa una palestra a cielo aperto — TNT News">
+  <meta name="twitter:description" content="Sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza Matteotti, il Sentierone e le vie del centro. Ingresso gratuito, istruttori a disposizione del pubblico.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">Notte Bianca</span><span class="tag">Sentierone</span><span class="tag">sport gratuito</span></div>
+    <h1>Torna la Notte Bianca dello Sport: il centro di Bergamo diventa una palestra a cielo aperto</h1>
+    <p class="article-summary">Sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza Matteotti, il Sentierone e le vie del centro. Ingresso gratuito, istruttori a disposizione del pubblico.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-26">26 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+  Sabato 27 giugno il cuore di Bergamo si trasforma in una grande palestra a cielo aperto. Dalle 18 a mezzanotte, piazza Matteotti, il Sentierone e le vie adiacenti ospitano la <strong>Notte Bianca dello Sport</strong>, manifestazione gratuita organizzata dall'Assessorato allo Sport del Comune in collaborazione con la Pro Loco Bergamo. Circa cinquanta società sportive porteranno in centro le proprie discipline, con istruttori pronti ad accogliere chiunque voglia provare qualcosa di nuovo.
+</p>
+
+<h2>Come è organizzato l'evento</h2>
+<p>
+  Il programma è strutturato in aree tematiche — i cosiddetti <em>villaggi sportivi</em> — distribuite lungo il percorso pedonale cittadino. Ognuna ospita un raggruppamento di discipline affini, così da rendere più semplice orientarsi tra l'offerta. La regia tecnica è affidata a Roberto Gualdi e Laura Di Santo della Pro Loco Bergamo.
+</p>
+<ul>
+  <li><strong>Sentierone / Palazzo Uffici</strong>: running, fitness (Zumba, Pilates, Strong Nation), massoterapia del benessere, ciclismo e discipline su ruote.</li>
+  <li><strong>Donizetti e Balzer Area</strong>: rugby, pickleball, arrampicata sportiva (con Acrovertical), arti marziali e attività promozionali del CSI.</li>
+  <li><strong>Dante Area</strong>: beach volley, calcio, pattinaggio a rotelle.</li>
+  <li><strong>Palazzo Frizzoni</strong>: palco centrale con presentazioni, musica e la postazione di Radio Number One, media partner ufficiale.</li>
+</ul>
+<p>
+  Le attività sono aperte a tutti, senza distinzione di età o livello di preparazione: l'invito è di presentarsi in centro con abbigliamento comodo e voglia di muoversi.
+</p>
+
+<h2>Il ritorno dopo una lunga pausa</h2>
+<p>
+  La Notte Bianca dello Sport non è una novità assoluta: l'evento nacque nel 2008 e, fino al 2019, portò complessivamente oltre 50.000 persone nelle piazze del capoluogo orobico. Poi si fermò. L'edizione 2026 segna il ritorno ufficiale della manifestazione, in un momento particolarmente significativo per la città: Bergamo è candidata a diventare <strong>Città Europea dello Sport 2027</strong>, e iniziative come questa contribuiscono a costruire il dossier di candidatura, oltre a riportare lo sport nei luoghi della quotidianità.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Grafico a barre: discipline per area alla Notte Bianca dello Sport di Bergamo 2026 (valori indicativi)" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <!-- Sfondo -->
+    <rect width="640" height="300" fill="#f8f9fa" rx="8"/>
+    <!-- Titolo -->
+    <text x="320" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a1a2e">Discipline per area – Notte Bianca dello Sport 2026</text>
+
+    <!-- Assi -->
+    <line x1="140" y1="240" x2="610" y2="240" stroke="#aaa" stroke-width="1.5"/>
+    <line x1="140" y1="60" x2="140" y2="240" stroke="#aaa" stroke-width="1.5"/>
+
+    <!-- Linee guida orizzontali -->
+    <line x1="140" y1="195" x2="610" y2="195" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="140" y1="150" x2="610" y2="150" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="140" y1="105" x2="610" y2="105" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="140" y1="60"  x2="610" y2="60"  stroke="#ddd" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <!-- Etichette asse Y (max 8) -->
+    <text x="130" y="244" text-anchor="end" font-size="11" fill="#555">0</text>
+    <text x="130" y="199" text-anchor="end" font-size="11" fill="#555">2</text>
+    <text x="130" y="154" text-anchor="end" font-size="11" fill="#555">4</text>
+    <text x="130" y="109" text-anchor="end" font-size="11" fill="#555">6</text>
+    <text x="130" y="64"  text-anchor="end" font-size="11" fill="#555">8</text>
+
+    <!-- Barra 1: Sentierone / Fitness (6 discipline) -->
+    <rect x="155" y="105" width="70" height="135" fill="#4c8bf5" rx="4"/>
+    <text x="190" y="100" text-anchor="middle" font-size="12" fill="#4c8bf5" font-weight="bold">6</text>
+    <text x="190" y="258" text-anchor="middle" font-size="10" fill="#444">Sentierone</text>
+    <text x="190" y="270" text-anchor="middle" font-size="10" fill="#444">/ Fitness</text>
+
+    <!-- Barra 2: Arti marziali (5) -->
+    <rect x="255" y="127" width="70" height="113" fill="#e05c5c" rx="4"/>
+    <text x="290" y="122" text-anchor="middle" font-size="12" fill="#e05c5c" font-weight="bold">5</text>
+    <text x="290" y="258" text-anchor="middle" font-size="10" fill="#444">Arti marziali</text>
+    <text x="290" y="270" text-anchor="middle" font-size="10" fill="#444">/ Combattimento</text>
+
+    <!-- Barra 3: Donizetti / Balzer (5) -->
+    <rect x="355" y="127" width="70" height="113" fill="#f5a623" rx="4"/>
+    <text x="390" y="122" text-anchor="middle" font-size="12" fill="#f5a623" font-weight="bold">5</text>
+    <text x="390" y="258" text-anchor="middle" font-size="10" fill="#444">Donizetti</text>
+    <text x="390" y="270" text-anchor="middle" font-size="10" fill="#444">/ Arrampicata</text>
+
+    <!-- Barra 4: Dante Area (4) -->
+    <rect x="455" y="150" width="70" height="90" fill="#3cb371" rx="4"/>
+    <text x="490" y="145" text-anchor="middle" font-size="12" fill="#3cb371" font-weight="bold">4</text>
+    <text x="490" y="258" text-anchor="middle" font-size="10" fill="#444">Dante Area</text>
+    <text x="490" y="270" text-anchor="middle" font-size="10" fill="#444">/ Sport squadra</text>
+
+    <!-- Nota valori indicativi -->
+    <text x="320" y="292" text-anchor="middle" font-size="10" fill="#888" font-style="italic">Valori indicativi basati sulle informazioni disponibili – Fonte: BergamoNews</text>
+  </svg>
+  <figcaption>Numero approssimativo di discipline per area tematica della Notte Bianca dello Sport di Bergamo (27 giugno 2026). Valori indicativi: la distribuzione esatta dipende dal programma definitivo. Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>Un modello di sport accessibile</h2>
+<p>
+  L'aspetto forse più rilevante della manifestazione è la sua vocazione inclusiva: non si tratta di uno spettacolo da guardare, ma di un'esperienza da vivere in prima persona. Chi non ha mai provato il pickleball, la scherma o l'arrampicata trova qui un'occasione concreta, guidata da tecnici federali, senza costi e senza impegni. L'obiettivo dichiarato è avvicinare fasce di popolazione che raramente frequentano una palestra o un campo sportivo.
+</p>
+<p>
+  Organizzatori e Comune invitano i bergamaschi a presentarsi direttamente in centro con abbigliamento sportivo: il programma completo con la mappa dei villaggi è disponibile sul sito del Comune di Bergamo e sulle pagine della Pro Loco.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/evento/notte-bianca-dello-sport-a-bergamo/" rel="noopener" target="_blank">BergamoNews – Notte bianca dello sport a Bergamo (evento)</a></li><li><a href="https://www.bergamonews.it/2026/06/23/il-27-giugno-torna-la-notte-bianca-dello-sport-50-societa-sportive-animano-il-centro-cittadino/903974/" rel="noopener" target="_blank">BergamoNews – Il 27 giugno torna la Notte Bianca dello Sport: 50 società animano il centro</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="trail del centenario a foppolo: quinta edizione da record con 1.100 atleti la quinta edizione del trail del centenario lovato electric, disputata domenica 21 giugno a foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;alta val brembana. cristian minoggio ha vinto i 50 km, william boffelli i 25 km. sport bergamo trail running foppolo val brembana" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-22-trail-centenario-foppolo-record/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti</h2><p class="card-summary">La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.</p><p class="card-meta">22 giugno 2026</p></div></a></article><article class="card" data-search="albinoleffe under 15 in finale scudetto a rimini: oggi la sfida all&#x27;alcione milano l&#x27;under 15 dell&#x27;u.c. albinoleffe gioca oggi alle 18 la finale del campionato nazionale di serie c allo stadio romeo neri di rimini contro l&#x27;alcione milano. è una stagione storica per il settore giovanile del club bergamasco: anche l&#x27;under 17 era arrivata in finale, battuta dal perugia il 16 giugno. sport bergamo albinoleffe calcio giovanile serie c" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-20-albinoleffe-under15-finale-scudetto/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">AlbinoLeffe Under 15 in finale scudetto a Rimini: oggi la sfida all&#x27;Alcione Milano</h2><p class="card-summary">L&#x27;Under 15 dell&#x27;U.C. AlbinoLeffe gioca oggi alle 18 la finale del campionato nazionale di Serie C allo stadio Romeo Neri di Rimini contro l&#x27;Alcione Milano. È una stagione storica per il settore giovanile del club bergamasco: anche l&#x27;Under 17 era arrivata in finale, battuta dal Perugia il 16 giugno.</p><p class="card-meta">20 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
