@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi — TNT News</title>
+  <meta name="description" content="Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-27-guardia-di-finanza-bergamo-bilancio-operativo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi — TNT News">
+  <meta property="og:description" content="Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-27-guardia-di-finanza-bergamo-bilancio-operativo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi — TNT News">
+  <meta name="twitter:description" content="Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Guardia di Finanza</span><span class="tag">evasione fiscale</span><span class="tag">sicurezza economica</span></div>
+    <h1>Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi</h1>
+    <p class="article-summary">Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-27">27 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il Comando Provinciale della Guardia di Finanza di Bergamo ha reso pubblico, in occasione del 252° anniversario della fondazione del Corpo, il bilancio operativo relativo al periodo compreso tra il 1° gennaio 2025 e il 31 maggio 2026: diciassette mesi di attività che restituiscono un quadro dettagliato della lotta all'illegalità economica e finanziaria nella provincia.</p>
+
+<h2>Evasione fiscale: 658 milioni di euro accertati</h2>
+
+<p>Il settore più rilevante per entità degli importi è quello della fiscalità. In 17 mesi le fiamme gialle bergamasche hanno accertato violazioni per un valore complessivo di <strong>658 milioni di euro</strong>, di cui 303 milioni legati a profili di fiscalità internazionale e 52 milioni riconducibili a maggiore imposta IVA. Sono stati denunciati 286 soggetti per reati tributari — 11 dei quali finiti in arresto — e individuati 79 evasori totali. Contestualmente sono stati scoperti 715 lavoratori in nero o in posizione irregolare.</p>
+
+<p>Sul fronte dei sequestri, i beni già sottoposti a misura cautelare ammontano a 4 milioni di euro, mentre ulteriori 152 milioni sono stati proposti per sequestro. L'attività di contrasto ha riguardato anche 40 proposte di cessazione della partita IVA e il blocco di crediti fiscali ritenuti indebiti per oltre 651.000 euro.</p>
+
+<h2>Spesa pubblica e fondi: 31 milioni di frodi accertate</h2>
+
+<p>Le fiamme gialle hanno effettuato 696 interventi a tutela della spesa pubblica, portando alla luce frodi per oltre 31 milioni di euro e proponendo sequestri per ulteriori 40 milioni. Sono stati contestualmente segnalati danni erariali per 21 milioni di euro alla Corte dei conti. Fra i controlli spiccano 171 verifiche sui beneficiari del Reddito di cittadinanza e dell'Assegno di inclusione e 37 accertamenti sul diritto allo studio universitario.</p>
+
+<h2>Criminalità organizzata e riciclaggio</h2>
+
+<p>Sul fronte del riciclaggio sono state denunciate 48 persone e arrestate 14, con sequestri di beni per 4,7 milioni di euro e accertamenti per oltre 41 milioni. Le indagini per reati fallimentari e societari hanno riguardato 54 denunce, 4 arresti e sequestri superiori a 52 milioni di euro. Segnalate anche 15 persone per usura o estorsione, con 3 arresti. Il cybercrime ha impegnato 72 interventi, 11 denunce e sequestri per 2,3 milioni di euro.</p>
+
+<h2>Contrabbando di tabacchi e droga</h2>
+
+<p>Nel settore del contrabbando sono stati sequestrati oltre <strong>21.200 chili di sigarette contraffatte</strong> e <strong>38.420 chili di tabacco sfuso</strong>, per un totale di quasi 60.000 chili di tabacchi irregolari. Settantadue le denunce, con 2 arresti per gestione di una fabbrica clandestina. Sul fronte degli stupefacenti i sequestri hanno superato i <strong>360 chili</strong>, con 64 denunce, 17 arresti e 115 segnalazioni al Prefetto.</p>
+
+<h2>Il quadro complessivo</h2>
+
+<p>In totale il Comando provinciale ha portato a termine <strong>8.400 interventi</strong> e avviato <strong>oltre 560 indagini</strong> nel periodo considerato. Il generale Aldo Altomare, comandante provinciale, ha sottolineato come l'attività si sia concentrata su settori ad alto impatto per l'economia legale del territorio, dalla tutela delle imprese che rispettano le regole alla protezione dei contribuenti dal lavoro sommerso.</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre: principali aree di intervento della Guardia di Finanza di Bergamo, gennaio 2025–maggio 2026" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <!-- Background -->
+    <rect width="640" height="340" fill="#f8f9fa" rx="8"/>
+    <!-- Title -->
+    <text x="320" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">GdF Bergamo – principali risultati (gen. 2025 – mag. 2026)</text>
+
+    <!-- Y-axis label -->
+    <text x="14" y="200" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-90,14,200)">Milioni di euro</text>
+
+    <!-- Axes -->
+    <line x1="80" y1="60" x2="80" y2="260" stroke="#aaa" stroke-width="1"/>
+    <line x1="80" y1="260" x2="620" y2="260" stroke="#aaa" stroke-width="1"/>
+
+    <!-- Y gridlines and labels: 0, 100, 200, 300, 400, 500, 600, 658 -->
+    <!-- Scale: 658M → 200px height, so 1px = 658/200 M. 100M = 30.4px -->
+    <!-- 0 at y=260, 658 at y=60 → range 200px for 658M -->
+    <!-- y = 260 - (value/658)*200 -->
+
+    <!-- Grid lines -->
+    <line x1="80" y1="230" x2="620" y2="230" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="233" text-anchor="end" font-size="9" fill="#777">100</text>
+
+    <line x1="80" y1="200" x2="620" y2="200" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="203" text-anchor="end" font-size="9" fill="#777">200</text>
+
+    <line x1="80" y1="169" x2="620" y2="169" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="172" text-anchor="end" font-size="9" fill="#777">300</text>
+
+    <line x1="80" y1="139" x2="620" y2="139" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="142" text-anchor="end" font-size="9" fill="#777">400</text>
+
+    <line x1="80" y1="109" x2="620" y2="109" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="112" text-anchor="end" font-size="9" fill="#777">500</text>
+
+    <line x1="80" y1="79" x2="620" y2="79" stroke="#ddd" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="72" y="82" text-anchor="end" font-size="9" fill="#777">600</text>
+
+    <text x="72" y="63" text-anchor="end" font-size="9" fill="#777">658</text>
+
+    <!-- Bars (width=70, gap=16) -->
+    <!-- Bar 1: Violazioni fiscali 658M → h=200 → y=60 -->
+    <rect x="98" y="60" width="70" height="200" fill="#1a6fc4" rx="3"/>
+    <text x="133" y="55" text-anchor="middle" font-size="9" fill="#1a6fc4" font-weight="bold">658 M€</text>
+    <text x="133" y="275" text-anchor="middle" font-size="9" fill="#444">Evasione</text>
+    <text x="133" y="286" text-anchor="middle" font-size="9" fill="#444">fiscale</text>
+
+    <!-- Bar 2: Fiscalità internazionale 303M → h = (303/658)*200 = 92.1 → y=260-92=168 -->
+    <rect x="184" y="168" width="70" height="92" fill="#2196f3" rx="3"/>
+    <text x="219" y="163" text-anchor="middle" font-size="9" fill="#2196f3" font-weight="bold">303 M€</text>
+    <text x="219" y="275" text-anchor="middle" font-size="9" fill="#444">Fiscalità</text>
+    <text x="219" y="286" text-anchor="middle" font-size="9" fill="#444">intern.</text>
+
+    <!-- Bar 3: Frodi spesa pubblica 31M → h=(31/658)*200=9.4 → y=260-9=251 -->
+    <rect x="270" y="251" width="70" height="9" fill="#e65100" rx="3"/>
+    <text x="305" y="246" text-anchor="middle" font-size="9" fill="#e65100" font-weight="bold">31 M€</text>
+    <text x="305" y="275" text-anchor="middle" font-size="9" fill="#444">Frodi</text>
+    <text x="305" y="286" text-anchor="middle" font-size="9" fill="#444">spesa pubbl.</text>
+
+    <!-- Bar 4: Riciclaggio 41M → h=(41/658)*200=12.5 → y=260-12=248 -->
+    <rect x="356" y="248" width="70" height="12" fill="#7b1fa2" rx="3"/>
+    <text x="391" y="243" text-anchor="middle" font-size="9" fill="#7b1fa2" font-weight="bold">41 M€</text>
+    <text x="391" y="275" text-anchor="middle" font-size="9" fill="#444">Riciclaggio</text>
+
+    <!-- Bar 5: Reati fallimentari 52M → h=(52/658)*200=15.8 → y=260-16=244 -->
+    <rect x="442" y="244" width="70" height="16" fill="#c62828" rx="3"/>
+    <text x="477" y="239" text-anchor="middle" font-size="9" fill="#c62828" font-weight="bold">52 M€</text>
+    <text x="477" y="275" text-anchor="middle" font-size="9" fill="#444">Reati</text>
+    <text x="477" y="286" text-anchor="middle" font-size="9" fill="#444">falliment.</text>
+
+    <!-- Bar 6: Sequestri riciclaggio 4.7M → h=(4.7/658)*200=1.4 → y=260-1=259 → min 4px -->
+    <rect x="528" y="256" width="70" height="4" fill="#9c27b0" rx="3"/>
+    <text x="563" y="251" text-anchor="middle" font-size="9" fill="#9c27b0" font-weight="bold">4,7 M€</text>
+    <text x="563" y="275" text-anchor="middle" font-size="9" fill="#444">Sequestri</text>
+    <text x="563" y="286" text-anchor="middle" font-size="9" fill="#444">ricicl.</text>
+
+    <!-- Legend note -->
+    <text x="320" y="315" text-anchor="middle" font-size="9" fill="#888">Fonte: Comando Provinciale GdF Bergamo – bilancio operativo gen. 2025–mag. 2026 (valori in milioni di euro)</text>
+  </svg>
+  <figcaption>Principali aree di intervento della Guardia di Finanza di Bergamo nel periodo gennaio 2025 – maggio 2026, espressi in milioni di euro. Fonte: Comando Provinciale GdF Bergamo.</figcaption>
+</figure>
+
+<p>I dati evidenziano come la provincia di Bergamo sia un territorio attivo e complesso dal punto di vista dei controlli economici: l'entità delle violazioni accertate — 658 milioni di euro in 17 mesi — si colloca in linea con la rilevanza della provincia nel tessuto produttivo lombardo, che ospita migliaia di piccole e medie imprese nei settori manifatturiero, logistico e dei servizi. L'attività della Guardia di Finanza mira non solo a reprimere gli illeciti, ma anche a tutelare gli operatori onesti da pratiche concorrenziali sleali legate al sommerso.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/06/26/guardia-di-finanza-di-bergamo-da-gennaio-2025-violazioni-fiscali-per-oltre-650-milioni-di-euro/904882" rel="noopener" target="_blank">BergamoNews – Guardia di Finanza di Bergamo, da gennaio 2025 violazioni fiscali per oltre 650 milioni di euro</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/guardia-di-finanza-di-bergamo-il-bilancio-operativo-8400-interventi-e-oltre-5-o_3896746_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Guardia di Finanza di Bergamo, il bilancio operativo: 8.400 interventi e oltre 560 indagini in 17 mesi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nove arresti a bergamo: schema ponzi mascherato da noleggio auto di lusso polizia di stato e guardia di finanza di bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. sequestrati beni per oltre 1,6 milioni di euro. cronaca bergamo truffa schema ponzi guardia di finanza" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-12-truffa-schema-ponzi-bergamo-auto-lusso/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Nove arresti a Bergamo: schema Ponzi mascherato da noleggio auto di lusso</h2><p class="card-summary">Polizia di Stato e Guardia di Finanza di Bergamo hanno eseguito misure cautelari nei confronti di nove indagati accusati di aver orchestrato una truffa agli investimenti attraverso un falso business di sub-noleggio di auto di lusso, con rendimenti promessi del 2–3% mensile. Sequestrati beni per oltre 1,6 milioni di euro.</p><p class="card-meta">12 giugno 2026</p></div></a></article><article class="card" data-search="terrorismo, quattro anni al pizzaiolo di bergamo che aveva nel mirino la basilica di sant&#x27;alessandro il tribunale di brescia ha condannato a quattro anni di reclusione saied el naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. l&#x27;uomo lavorava come pizzaiolo in centro a bergamo e aveva diffuso online materiale jihadista prendendo di mira la basilica di sant&#x27;alessandro. cronaca bergamo terrorismo condanna basilica sant&#x27;alessandro" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-24-condanna-terrorismo-pizzaiolo-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro</h2><p class="card-summary">Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.</p><p class="card-meta">24 giugno 2026</p></div></a></article><article class="card" data-search="tre interventi in un pomeriggio: il soccorso alpino salva alpinisti tra pizzo coca e presolana il pomeriggio del 20 giugno 2026 la vi delegazione orobica del cnsas ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul pizzo coca, un infortunato sul sentiero per la baita cassinelli e tre escursionisti bloccati sulla cresta saglio della presolana. tutti i soccorsi si sono conclusi positivamente. cronaca bergamo montagna soccorso alpino presolana" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-21-soccorso-alpino-maltempo-pizzo-coca-presolana/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Tre interventi in un pomeriggio: il Soccorso Alpino salva alpinisti tra Pizzo Coca e Presolana</h2><p class="card-summary">Il pomeriggio del 20 giugno 2026 la VI Delegazione Orobica del CNSAS ha condotto tre operazioni di soccorso nelle montagne bergamasche: due alpinisti bloccati sul Pizzo Coca, un infortunato sul sentiero per la Baita Cassinelli e tre escursionisti bloccati sulla Cresta Saglio della Presolana. Tutti i soccorsi si sono conclusi positivamente.</p><p class="card-meta">21 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
