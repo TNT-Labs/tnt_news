@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi — TNT News</title>
+  <meta name="description" content="Con la qualificazione di Pašalić (Croazia) e Sulemana (Ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al Mondiale 2026 hanno superato la fase a gironi. Un risultato senza precedenti per il club bergamasco.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-28-atalantini-mondiali-otto-sedicesimi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi — TNT News">
+  <meta property="og:description" content="Con la qualificazione di Pašalić (Croazia) e Sulemana (Ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al Mondiale 2026 hanno superato la fase a gironi. Un risultato senza precedenti per il club bergamasco.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-28-atalantini-mondiali-otto-sedicesimi/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi — TNT News">
+  <meta name="twitter:description" content="Con la qualificazione di Pašalić (Croazia) e Sulemana (Ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al Mondiale 2026 hanno superato la fase a gironi. Un risultato senza precedenti per il club bergamasco.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">Atalanta</span><span class="tag">Mondiali 2026</span><span class="tag">sedicesimi di finale</span></div>
+    <h1>Mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi</h1>
+    <p class="article-summary">Con la qualificazione di Pašalić (Croazia) e Sulemana (Ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al Mondiale 2026 hanno superato la fase a gironi. Un risultato senza precedenti per il club bergamasco.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-28">28 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Otto giocatori convocati, otto qualificati agli ottavi di finale. Al termine della fase a gironi del Mondiale 2026, l'Atalanta può vantare un primato assoluto nella sua storia: nessun calciatore con la maglia nerazzurra è stato eliminato nella prima fase della competizione. Il club bergamasco guarda da Bergamo ad un tabellone che porta la sua firma in otto lingue diverse.</p>
+
+<h2>I cinque già sicuri prima dell'ultima giornata</h2>
+
+<p>Odilon Kossounou con la Costa d'Avorio, Isak Hien con la Svezia, Marten de Roon con i Paesi Bassi, Sead Kolašinac con la Bosnia-Erzegovina ed Éderson con il Brasile avevano già staccato il pass per i sedicesimi prima dell'ultima tornata del girone. Cinque nazionali su cinque sponde geografiche diverse, dal Sudamerica al Nord Europa, passando per i Balcani e l'Africa occidentale. De Roon, capitano storico della mediana nerazzurra, porta la bandiera olandese; Éderson, il brasiliano più bergamasco della storia recente del club, ha confermato il suo valore anche nella Seleção.</p>
+
+<h2>Il 27 giugno: la serata che ha chiuso il cerchio</h2>
+
+<p>Sabato 27 giugno le ultime tre pratiche si sono risolte in poche ore. Charles De Ketelaere ha trascinato il Belgio a una vittoria netta sulla Nuova Zelanda — i Diavoli Rossi hanno chiuso il girone al primo posto — confermando che la sua esplosione avvenuta in nerazzurro non è stata un episodio isolato ma la nuova misura del suo livello. Mario Pašalić ha visto la Croazia battere il Ghana 2-1 grazie alle reti di Šucić e Vlašić, portando la nazionale scacchiera agli ottavi come seconda classificata del gruppo.</p>
+
+<p>Più sofferta la situazione del Ghana, sconfitto in quella stessa partita, ma ugualmente qualificato: la nazionale africana ha staccato il biglietto da una delle migliori posizioni tra le terze classificate, meccanismo previsto dal nuovo formato a 48 squadre che ammette agli ottavi le migliori otto terze dei dodici gironi. Kamaldeen Sulemana, attaccante esterno dei nerazzurri, proseguirà dunque la sua corsa mondiale.</p>
+
+<h2>Un record costruito in dieci anni</h2>
+
+<p>Appena un mese fa TNT News raccontava come l'Atalanta avesse già stabilito il suo record di convocati in un singolo Mondiale, superando il precedente di quattro fissato a Qatar 2022. Poi è arrivata la convocazione dell'ottavo giocatore — Éderson, ufficializzata in un secondo momento dalla Federazione brasiliana — portando il totale a quota otto. Che tutti e otto superino la fase a gironi era un risultato non scontato, considerando la varietà delle nazionali e la difficoltà dei gironi: il Brasile era nel gruppo con la Francia, i Paesi Bassi erano con l'Argentina.</p>
+
+<figure>
+  <svg viewBox="0 0 640 380" role="img" aria-label="Tabella degli otto giocatori dell'Atalanta al Mondiale 2026 con la rispettiva nazionale e l'esito della fase a gironi" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="380" fill="#f0f4fa" rx="12"/>
+    <text x="320" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2e4a">Otto Atalantini al Mondiale 2026 — tutti ai sedicesimi</text>
+
+    <!-- Intestazione colonne -->
+    <rect x="20" y="44" width="600" height="28" rx="4" fill="#1b5e9e"/>
+    <text x="30" y="63" font-size="12" font-weight="bold" fill="#fff">Giocatore</text>
+    <text x="230" y="63" font-size="12" font-weight="bold" fill="#fff">Nazionale</text>
+    <text x="430" y="63" font-size="12" font-weight="bold" fill="#fff">Qualificazione</text>
+
+    <!-- Riga 1 -->
+    <rect x="20" y="72" width="600" height="34" rx="3" fill="#dce8f8"/>
+    <text x="30" y="94" font-size="13" fill="#1a2e4a">Éderson</text>
+    <text x="230" y="94" font-size="13" fill="#1a2e4a">Brasile</text>
+    <text x="430" y="94" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato</text>
+
+    <!-- Riga 2 -->
+    <rect x="20" y="106" width="600" height="34" rx="3" fill="#fff"/>
+    <text x="30" y="128" font-size="13" fill="#1a2e4a">Marten de Roon</text>
+    <text x="230" y="128" font-size="13" fill="#1a2e4a">Paesi Bassi</text>
+    <text x="430" y="128" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato</text>
+
+    <!-- Riga 3 -->
+    <rect x="20" y="140" width="600" height="34" rx="3" fill="#dce8f8"/>
+    <text x="30" y="162" font-size="13" fill="#1a2e4a">Odilon Kossounou</text>
+    <text x="230" y="162" font-size="13" fill="#1a2e4a">Costa d'Avorio</text>
+    <text x="430" y="162" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato</text>
+
+    <!-- Riga 4 -->
+    <rect x="20" y="174" width="600" height="34" rx="3" fill="#fff"/>
+    <text x="30" y="196" font-size="13" fill="#1a2e4a">Isak Hien</text>
+    <text x="230" y="196" font-size="13" fill="#1a2e4a">Svezia</text>
+    <text x="430" y="196" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato</text>
+
+    <!-- Riga 5 -->
+    <rect x="20" y="208" width="600" height="34" rx="3" fill="#dce8f8"/>
+    <text x="30" y="230" font-size="13" fill="#1a2e4a">Sead Kolašinac</text>
+    <text x="230" y="230" font-size="13" fill="#1a2e4a">Bosnia-Erzegovina</text>
+    <text x="430" y="230" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato</text>
+
+    <!-- Riga 6 -->
+    <rect x="20" y="242" width="600" height="34" rx="3" fill="#fff"/>
+    <text x="30" y="264" font-size="13" fill="#1a2e4a">Charles De Ketelaere</text>
+    <text x="230" y="264" font-size="13" fill="#1a2e4a">Belgio</text>
+    <text x="430" y="264" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato (1°)</text>
+
+    <!-- Riga 7 -->
+    <rect x="20" y="276" width="600" height="34" rx="3" fill="#dce8f8"/>
+    <text x="30" y="298" font-size="13" fill="#1a2e4a">Mario Pašalić</text>
+    <text x="230" y="298" font-size="13" fill="#1a2e4a">Croazia</text>
+    <text x="430" y="298" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato (2°)</text>
+
+    <!-- Riga 8 -->
+    <rect x="20" y="310" width="600" height="34" rx="3" fill="#fff"/>
+    <text x="30" y="332" font-size="13" fill="#1a2e4a">Kamaldeen Sulemana</text>
+    <text x="230" y="332" font-size="13" fill="#1a2e4a">Ghana</text>
+    <text x="430" y="332" font-size="12" fill="#1b7a1b" font-weight="bold">✔ Qualificato (migl. 3°)</text>
+
+    <!-- Nota -->
+    <text x="320" y="368" text-anchor="middle" font-size="11" fill="#555">Fonte: BergamoNews, Atalanta.it, Quotidiano.net — dati aggiornati al 28 giugno 2026</text>
+  </svg>
+  <figcaption>I otto giocatori dell'Atalanta al Mondiale 2026 e l'esito della fase a gironi: tutti qualificati ai sedicesimi di finale. De Ketelaere (Belgio) primo nel girone; Pašalić (Croazia) secondo; Sulemana (Ghana) tra le migliori terze. Fonte: BergamoNews, Atalanta.it.</figcaption>
+</figure>
+
+<h2>Bergamo aspetta gli ottavi</h2>
+
+<p>I sedicesimi di finale iniziano il 28 giugno. Nei prossimi giorni si scopriranno gli accoppiamenti che vedranno in campo tutti e otto i nerazzurri: il Brasile di Éderson, i Paesi Bassi di de Roon, la Costa d'Avorio di Kossounou, la Svezia di Hien, la Bosnia-Erzegovina di Kolašinac, il Belgio di De Ketelaere, la Croazia di Pašalić e il Ghana di Sulemana. C'è chi potrebbe incrociare un compagno di squadra prima dei quarti: il formato del tabellone non lo esclude.</p>
+
+<p>Per la città di Bergamo è un momento inedito. Il Gewiss Stadium, che nella stagione appena conclusa ha ospitato partite di Champions League, ora presta virtualmente i suoi colori ad otto sponde della Coppa del Mondo. Una città di provincia che il calcio ha portato, partita dopo partita, al centro della mappa sportiva europea.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/" rel="noopener" target="_blank">BergamoNews – Otto su otto! Tutti gli atalantini al Mondiale si qualificano ai sedicesimi</a></li><li><a href="https://www.atalanta.it/news/fifa-world-cup-2026-de-ketelaere-e-il-belgio-qualificati-ai-sedicesimi-di-finale" rel="noopener" target="_blank">Atalanta.it – FIFA World Cup 2026: De Ketelaere e il Belgio qualificati ai sedicesimi</a></li><li><a href="https://www.quotidiano.net/mondiali/mondiali-2026-croazia-ghana-2-1-82bbbc00" rel="noopener" target="_blank">Quotidiano.net – Mondiali 2026, Croazia-Ghana 2-1: decidono Sucic e Vlasic</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sette nerazzurri ai mondiali 2026: record storico per l&#x27;atalanta per la prima volta nella storia del club, sette giocatori dell&#x27;atalanta sono stati convocati per la fase finale di un campionato del mondo. il precedente record fermo a quattro risale a qatar 2022. sport bergamo atalanta mondiali 2026 fifa" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-04-atalanta-record-mondiali-2026/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Sette nerazzurri ai Mondiali 2026: record storico per l&#x27;Atalanta</h2><p class="card-summary">Per la prima volta nella storia del club, sette giocatori dell&#x27;Atalanta sono stati convocati per la fase finale di un Campionato del Mondo. Il precedente record fermo a quattro risale a Qatar 2022.</p><p class="card-meta">4 giugno 2026</p></div></a></article><article class="card" data-search="maurizio sarri è il nuovo allenatore dell&#x27;atalanta: triennale firmato a zingonia il tecnico toscano ha firmato il 15 giugno un contratto triennale con la dea, scelto dal nuovo direttore sportivo cristiano giuntoli. sarri subentra a raffaele palladino e guiderà la squadra bergamasca fino al 2029. sport atalanta bergamo calcio serie a" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-16-sarri-nuovo-allenatore-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Maurizio Sarri è il nuovo allenatore dell&#x27;Atalanta: triennale firmato a Zingonia</h2><p class="card-summary">Il tecnico toscano ha firmato il 15 giugno un contratto triennale con la Dea, scelto dal nuovo direttore sportivo Cristiano Giuntoli. Sarri subentra a Raffaele Palladino e guiderà la squadra bergamasca fino al 2029.</p><p class="card-meta">16 giugno 2026</p></div></a></article><article class="card" data-search="cristiano giuntoli è il nuovo direttore sportivo dell&#x27;atalanta il 30 maggio 2026 l&#x27;atalanta ha ufficializzato l&#x27;ingaggio di cristiano giuntoli come nuovo direttore sportivo, con contratto fino al 2029. il dirigente fiorentino, ex ds di napoli e juventus, subentra a tony d&#x27;amico che lascia bergamo per la roma. sport atalanta bergamo calciomercato giuntoli" data-cat="Sport"><a class="card-link" href="../../articoli/2026-05-31-giuntoli-ds-atalanta/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Cristiano Giuntoli è il nuovo direttore sportivo dell&#x27;Atalanta</h2><p class="card-summary">Il 30 maggio 2026 l&#x27;Atalanta ha ufficializzato l&#x27;ingaggio di Cristiano Giuntoli come nuovo direttore sportivo, con contratto fino al 2029. Il dirigente fiorentino, ex ds di Napoli e Juventus, subentra a Tony D&#x27;Amico che lascia Bergamo per la Roma.</p><p class="card-meta">31 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
