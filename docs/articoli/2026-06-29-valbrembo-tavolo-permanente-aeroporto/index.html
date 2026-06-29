@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto — TNT News</title>
+  <meta name="description" content="Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-06-29-valbrembo-tavolo-permanente-aeroporto/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto — TNT News">
+  <meta property="og:description" content="Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-06-29-valbrembo-tavolo-permanente-aeroporto/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto — TNT News">
+  <meta name="twitter:description" content="Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Valbrembo</span><span class="tag">aeroporto</span><span class="tag">sicurezza volo</span></div>
+    <h1>Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto</h1>
+    <p class="article-summary">Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.</p>
+    <p class="article-meta">
+      <time datetime="2026-06-29">29 giugno 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Cinque comuni della bergamasca e la gestione dell'aeroporto di Valbrembo si sono seduti per la prima volta attorno a un tavolo permanente di confronto. L'incontro inaugurale si è tenuto il 25 giugno nella sede del Comune di Valbrembo ed è la risposta istituzionale diretta alla tragedia del 2 giugno, quando un Cessna 152 precipitò in via Don Bosco causando la morte dell'istruttore di volo Daniel Taino, 26 anni, e il grave ferimento del giovane allievo a bordo.</p>
+
+<h2>L'incidente del 2 giugno</h2>
+
+<p>Il velivolo era decollato dall'aerodromo di Valbrembo nel pomeriggio del 2 giugno con a bordo Taino e il suo allievo, un 19enne milanese, per una sessione addestrativa della scuola di volo Cantor Air. Secondo le prime ricostruzioni degli inquirenti, durante la fase finale del volo il pilota avrebbe tentato una manovra di riattaccata — la cosiddetta "touch-and-go" — toccando brevemente la pista per poi riportare il velivolo in quota. In uscita dalla virata verso sud l'aereo avrebbe perso troppa quota, colpendo con l'ala destra i cavi di media tensione di un palo. L'impatto ha strappato l'ala; il Cessna ha poi toccato un secondo cavo con l'ala sinistra e si è abbattuto al suolo a poche centinaia di metri dalla pista, rimbalzando su due auto parcheggiate prima di fermarsi davanti all'ingresso di un'abitazione. Taino è deceduto sul colpo; il giovane allievo è stato estratto dalle lamiere dai vigili del fuoco ed è risultato fuori pericolo nelle ore successive.</p>
+
+<p>Sulla dinamica dell'incidente sono aperte due inchieste parallele: quella della Procura di Bergamo, che ha incaricato un proprio consulente tecnico, e quella dell'Agenzia nazionale per la sicurezza del volo (ANSV). Le indagini sono tuttora in corso e nessun responsabile risulta formalmente indagato.</p>
+
+<h2>La risposta dei sindaci e il confronto con l'ENAC</h2>
+
+<p>A metà giugno i sindaci dei comuni limitrofi all'aerodromo avevano inviato una richiesta formale all'ENAC chiedendo la sospensione delle attività della scuola di volo fino al termine degli accertamenti. L'ente regolatore ha risposto confermando la piena operatività dell'aeroporto, ritenendo non sussistenti i presupposti per uno stop cautelare. La risposta istituzionale non ha però spento la pressione locale: una petizione online raccolta dai residenti preoccupati per rischi e impatto ambientale ha ulteriormente sollecitato un confronto strutturato.</p>
+
+<h2>Il tavolo permanente: partecipanti e decisioni</h2>
+
+<p>L'incontro del 25 giugno ha riunito sindaci e assessori di cinque comuni — Valbrembo, Brembate di Sopra, Ponte San Pietro, Paladina e Almenno San Bartolomeo — insieme ai rappresentanti della società di gestione dell'aeroporto e della scuola di volo Cantor Air. L'esito principale è stata l'istituzione di un tavolo permanente con riunioni periodiche, destinato a monitorare nel tempo i temi più sentiti dalla comunità.</p>
+
+<p>Sul fronte operativo, la gestione aeroportuale ha presentato un piano di rinnovo della flotta: tre nuovi aeromobili più silenziosi entreranno in servizio a partire dal 2027, cui se ne aggiungeranno altri sei in una fase successiva. È stata inoltre concordata una riduzione dell'attività di volo in alcune fasce orarie estive, con l'obiettivo di limitare il disturbo nelle ore più calde della giornata. Le parti si sono impegnate a rafforzare i canali di comunicazione con i residenti, anche attraverso incontri pubblici.</p>
+
+<p>I temi all'ordine del giorno del tavolo riguardano rumore dei velivoli, rotte di decollo e atterraggio, sicurezza operativa e impatto ambientale complessivo dell'infrastruttura sul territorio circostante.</p>
+
+<figure>
+  <svg viewBox="0 0 640 230" role="img" aria-label="Timeline degli eventi relativi all'aeroporto di Valbrembo da giugno 2026 a 2027" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+    <rect width="640" height="230" fill="#f5f7fa" rx="12"/>
+    <text x="320" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a2e4a">Cronologia degli eventi – Aeroporto di Valbrembo</text>
+
+    <!-- Linea centrale -->
+    <line x1="60" y1="105" x2="590" y2="105" stroke="#b0bec5" stroke-width="3"/>
+
+    <!-- Evento 1: 2 giugno -->
+    <circle cx="80" cy="105" r="12" fill="#c0392b"/>
+    <text x="80" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#c0392b">2 giu</text>
+    <text x="80" y="130" text-anchor="middle" font-size="10" fill="#333">Incidente</text>
+    <text x="80" y="143" text-anchor="middle" font-size="10" fill="#333">Cessna 152</text>
+    <text x="80" y="156" text-anchor="middle" font-size="10" fill="#c0392b">1 vittima</text>
+
+    <!-- Evento 2: 19 giugno -->
+    <circle cx="220" cy="105" r="12" fill="#e67e22"/>
+    <text x="220" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">19 giu</text>
+    <text x="220" y="130" text-anchor="middle" font-size="10" fill="#333">Sindaci</text>
+    <text x="220" y="143" text-anchor="middle" font-size="10" fill="#333">chiedono stop</text>
+    <text x="220" y="156" text-anchor="middle" font-size="10" fill="#e67e22">alla scuola di volo</text>
+
+    <!-- Evento 3: 25 giugno -->
+    <circle cx="360" cy="105" r="12" fill="#27ae60"/>
+    <text x="360" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#27ae60">25 giu</text>
+    <text x="360" y="130" text-anchor="middle" font-size="10" fill="#333">Primo incontro</text>
+    <text x="360" y="143" text-anchor="middle" font-size="10" fill="#333">tavolo permanente</text>
+    <text x="360" y="156" text-anchor="middle" font-size="10" fill="#27ae60">5 comuni + aeroporto</text>
+
+    <!-- Evento 4: 29 giugno (oggi) -->
+    <circle cx="490" cy="105" r="12" fill="#2980b9"/>
+    <text x="490" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">29 giu</text>
+    <text x="490" y="130" text-anchor="middle" font-size="10" fill="#333">Annuncio</text>
+    <text x="490" y="143" text-anchor="middle" font-size="10" fill="#333">accordo ufficiale</text>
+    <text x="490" y="156" text-anchor="middle" font-size="10" fill="#2980b9">(oggi)</text>
+
+    <!-- Evento 5: 2027 -->
+    <circle cx="590" cy="105" r="12" fill="#16a085"/>
+    <text x="590" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#16a085">2027</text>
+    <text x="590" y="130" text-anchor="middle" font-size="10" fill="#333">Rinnovo flotta</text>
+    <text x="590" y="143" text-anchor="middle" font-size="10" fill="#333">3 nuovi velivoli</text>
+    <text x="590" y="156" text-anchor="middle" font-size="10" fill="#16a085">più silenziosi</text>
+
+    <text x="320" y="210" text-anchor="middle" font-size="10" fill="#888">Fonte: BergamoNews, Il Giorno – valori indicativi per le date future</text>
+  </svg>
+  <figcaption>Timeline degli eventi dall'incidente del 2 giugno 2026 alla costituzione del tavolo permanente e ai piani futuri dell'aeroporto di Valbrembo. Fonte: BergamoNews, Il Giorno.</figcaption>
+</figure>
+
+<h2>Prospettive</h2>
+
+<p>L'istituzione del tavolo è considerata dai sindaci un primo passo concreto verso un dialogo strutturato, dopo settimane di tensione tra le comunità locali e l'infrastruttura aeroportuale. Restano però aperte le due inchieste giudiziarie, il cui esito potrà influenzare le prossime decisioni operative. Il tavolo permanente è chiamato ora a tradurre gli impegni presi in misure verificabili, nell'attesa che i nuovi aeromobili — e le nuove procedure di volo — diventino realtà a partire dal 2027.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/06/29/valbrembo-dopo-la-tragedia-nasce-un-tavolo-permanente-tra-comuni-e-aeroporto-confronto-su-sicurezza-rotte-e-rumore/905268" rel="noopener" target="_blank">BergamoNews – Valbrembo, dopo la tragedia nasce un tavolo permanente tra Comuni e aeroporto</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/incidente-aereo-cessna-valbrembo-bergamo-inchiesta-pilota-daniel-taino-y6gyeghi" rel="noopener" target="_blank">Il Giorno – Il Cessna 152 precipitato a Valbrembo: l&#x27;allievo 19enne è fuori pericolo, due inchieste dovranno fare chiarezza</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="ultraleggero precipita a valbrembo: morto l&#x27;istruttore daniel taino, ferito l&#x27;allievo domenica 1° giugno un cessna 152 della scuola cantor air si è schiantato su via don bosco durante una fase di atterraggio. l&#x27;istruttore 27enne daniel taino di pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al papa giovanni xxiii. l&#x27;ansv ha aperto un&#x27;inchiesta. cronaca bergamo valbrembo incidente aereo cantor air" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-02-ultraleggero-valbrembo-daniel-taino/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Ultraleggero precipita a Valbrembo: morto l&#x27;istruttore Daniel Taino, ferito l&#x27;allievo</h2><p class="card-summary">Domenica 1° giugno un Cessna 152 della scuola Cantor Air si è schiantato su via Don Bosco durante una fase di atterraggio. L&#x27;istruttore 27enne Daniel Taino di Pianengo ha perso la vita; l&#x27;allievo 19enne è ricoverato in gravi condizioni al Papa Giovanni XXIII. L&#x27;ANSV ha aperto un&#x27;inchiesta.</p><p class="card-meta">2 giugno 2026</p></div></a></article><article class="card" data-search="guardia di finanza di bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi il comando provinciale di bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco. cronaca bergamo guardia di finanza evasione fiscale sicurezza economica" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-27-guardia-di-finanza-bergamo-bilancio-operativo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi</h2><p class="card-summary">Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.</p><p class="card-meta">27 giugno 2026</p></div></a></article><article class="card" data-search="terrorismo, quattro anni al pizzaiolo di bergamo che aveva nel mirino la basilica di sant&#x27;alessandro il tribunale di brescia ha condannato a quattro anni di reclusione saied el naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. l&#x27;uomo lavorava come pizzaiolo in centro a bergamo e aveva diffuso online materiale jihadista prendendo di mira la basilica di sant&#x27;alessandro. cronaca bergamo terrorismo condanna basilica sant&#x27;alessandro" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-24-condanna-terrorismo-pizzaiolo-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro</h2><p class="card-summary">Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.</p><p class="card-meta">24 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
