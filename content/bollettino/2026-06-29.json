@@ -1,0 +1,45 @@
+{
+  "date": "2026-06-29",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Parzialmente soleggiato alla partenza da Bergamo, poi prevalentemente nuvoloso verso Carugate e San Donato; nessuna precipitazione, temperature tra 23 e 26°C, vento calmo.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Parzialmente soleggiato",  "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "N"},
+      {"name": "Carugate (08:15)",   "cond": "Prevalentemente nuvoloso", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 3,  "wind_dir": "O"},
+      {"name": "San Donato (08:45)", "cond": "Prevalentemente nuvoloso", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "OSO"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 96,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 45},
+      {"name": "Surface Agrate → Carugate",           "minutes": 17},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 34}
+    ],
+    "incidents": [
+      {"where": "A51 tra Gobba e Monlue dir. A1", "desc": "Traffico intenso con rallentamenti in direzione A1 Milano-Napoli (fonte: ricerca web; non confermato da fonti strutturate)."}
+    ],
+    "notice": "Solo CCISS leggibile (nessun evento specifico rilevato sulla tratta); Luceverde, Autostrade per l'Italia e Serravalle non raggiungibili. Suddivisione per segmento stimata proporzionalmente su baseline: Directions API ha restituito un unico leg (96 min totali) con waypoint via. Rallentamenti A51 Gobba–Monlue derivanti da sola ricerca web."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (0 mm, probabilità max 10%)",
+      "Temperature superiori a 23°C in tutti i punti, ben oltre la soglia di 7°C",
+      "Vento debole (max 5 km/h) e raffiche contenute (max 13 km/h)",
+      "Visibilità eccellente (16 km) in tutti e tre i punti del percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",          "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia",         "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Luceverde Milano",            "url": "https://www.luceverde.it/milano"},
+    {"name": "Autostrade per l'Italia",     "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Serravalle Tangenziali Milano","url": "https://www.serravalle.it/traffico"},
+    {"name": "Ricerca web (A4 / A51 — 29 giugno 2026)", "url": "https://www.autostrade.it/"}
+  ]
+}
