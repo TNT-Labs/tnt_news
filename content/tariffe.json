@@ -18,7 +18,8 @@
     {
       "nome": "Plenitude On The Road",
       "alias": ["Be Charge", "BeCharge", "Plenitude", "Be Charge S.r.l.", "Plenitude Be Charge", "Plenitude On The Road"],
-      "sito": "https://www.bcorporate.com/it/",
+      "sito": "https://eniplenitude.com/mobilita-elettrica",
+      "listino_url": "https://eniplenitude.com/mobilita-elettrica/tariffe-ricarica-auto-elettrica",
       "tariffe": [
         { "tipo": "AC (<=22 kW)", "prezzo": "0,65 €/kWh" },
         { "tipo": "DC (50-150 kW)", "prezzo": "0,77 €/kWh" },
@@ -48,7 +49,7 @@
     },
     {
       "nome": "Neogy",
-      "alias": ["Neogy", "Alperia", "Alperia Smart Mobility", "Neogy Alperia", "Dolomiti Energia"],
+      "alias": ["Neogy", "Alperia", "Alperia Smart Mobility", "Neogy Alperia", "Neogy-Alperia", "Neogy S.r.l.", "Dolomiti Energia"],
       "sito": "https://www.neogy.it/",
       "tariffe": [
         { "tipo": "AC (<=22 kW)", "prezzo": "0,60 €/kWh" },
@@ -68,8 +69,8 @@
     },
     {
       "nome": "Electrip",
-      "alias": ["Electrip", "Electrip Italia"],
-      "sito": "https://www.electrip.it/",
+      "alias": ["Electrip", "Electrip Italia", "Electrip Italy", "Electrip Global"],
+      "sito": "https://electripglobal.com/it",
       "tariffe": [
         { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
         { "tipo": "DC 50–150 kW", "prezzo": "0,79–0,89 €/kWh" },
@@ -78,7 +79,7 @@
     },
     {
       "nome": "IPlanet",
-      "alias": ["IPlanet", "iPlanet", "I-Planet", "I Planet"],
+      "alias": ["IPlanet", "iPlanet", "I-Planet", "I Planet", "iPlanet Mobility"],
       "sito": "https://www.iplanet.it/",
       "tariffe": [
         { "tipo": "AC ≤ 22 kW",   "prezzo": "0,49 €/kWh" },
@@ -98,7 +99,7 @@
     },
     {
       "nome": "Edison",
-      "alias": ["Edison", "Edison Energia", "Edison Smart Charging"],
+      "alias": ["Edison", "Edison Energia", "Edison Smart Charging", "Edison Next"],
       "sito": "https://www.edison.it/it/mobilita-elettrica",
       "tariffe": [
         { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
@@ -116,20 +117,20 @@
     },
     {
       "nome": "ACEA",
-      "alias": ["ACEA", "Acea", "Acea e-mobility", "Acea Innovation"],
-      "sito": "https://www.acea.it/",
+      "alias": ["ACEA", "Acea", "Acea e-mobility", "Acea Innovation", "Acea Energia"],
+      "sito": "https://www.acea.it/e-mobility",
       "tariffe": [
         { "tipo": "DC 50–150 kW", "prezzo": "0,84–0,88 €/kWh" }
       ]
     },
     {
       "nome": "EWIVA",
-      "alias": ["EWIVA", "Ewiva"],
+      "alias": ["EWIVA", "Ewiva", "Ewiva S.r.l."],
       "sito": "https://www.ewiva.com/",
       "tariffe": [
         { "tipo": "HPC (>150 kW)", "prezzo": "0,79 €/kWh" }
       ],
-      "note": "Tariffa Direct senza abbonamento. Con Ionity Power scende la tariffa al kWh."
+      "note": "Tariffa Direct senza abbonamento. Joint venture tra Enel X Way e Gruppo Volkswagen."
     },
     {
       "nome": "Tesla Supercharger",
@@ -162,7 +163,7 @@
     },
     {
       "nome": "Smatrics EnBW",
-      "alias": ["Smatrics", "EnBW", "Smatrics EnBW"],
+      "alias": ["Smatrics", "EnBW", "Smatrics EnBW", "SMATRICS Mobility"],
       "sito": "https://smatrics.com/",
       "tariffe": [
         { "tipo": "AC (<=22 kW)", "prezzo": "0,59 €/kWh" }
@@ -179,84 +180,12 @@
       "note": "Tariffe non presenti nel nuovo listino, mantenute come storico o indicative."
     },
     {
-      "nome": "Neogy-Alperia",
-      "alias": ["Neogy", "Alperia", "Neogy S.r.l."],
-      "sito": "https://www.neogy.it/",
-      "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,45-0,65 €/kWh" },
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,55-0,89 €/kWh" }
-      ]
-    },
-    {
-      "nome": "Electrip",
-      "alias": ["Electrip Italy", "Electrip Global"],
-      "sito": "https://electrip.net/it",
-      "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,60 €/kWh" },
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,79-0,89 €/kWh" },
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,65 €/kWh" }
-      ]
-    },
-    {
-      "nome": "IPlanet",
-      "alias": ["iPlanet", "iPlanet Mobility"],
-      "sito": "https://www.iplanet.it/",
-      "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,49 €/kWh" },
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,74 €/kWh" }
-      ]
-    },
-    {
-      "nome": "Edison",
-      "alias": ["Edison Next", "Edison Energia"],
-      "sito": "https://www.edisonnext.it/",
-      "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,60 €/kWh" },
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,65 €/kWh" },
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,78 €/kWh" }
-      ]
-    },
-    {
-      "nome": "ACEA",
-      "alias": ["Acea e-mobility", "Acea Energia"],
-      "sito": "https://www.acea.it/e-mobility",
-      "tariffe": [
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,84-0,88 €/kWh" }
-      ]
-    },
-    {
-      "nome": "EWIVA",
-      "alias": ["Ewiva", "Ewiva S.r.l."],
-      "sito": "https://ewiva.com/",
-      "tariffe": [
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,85-0,90 €/kWh" },
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,86 €/kWh" }
-      ],
-      "note": "Joint venture tra Enel X Way e Gruppo Volkswagen."
-    },
-    {
       "nome": "Electra",
       "alias": ["Electra Commerciale", "Electra EV"],
       "sito": "https://www.go-electra.com/it/",
       "tariffe": [
         { "tipo": "DC (50-150 kW)", "prezzo": "0,85 €/kWh" },
         { "tipo": "HPC (>150 kW)", "prezzo": "0,69 €/kWh" }
-      ]
-    },
-    {
-      "nome": "Porsche",
-      "alias": ["Porsche Charging Service", "Porsche Destination Charging"],
-      "sito": "https://www.porsche.com/italy/",
-      "tariffe": [
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,89 €/kWh" }
-      ]
-    },
-    {
-      "nome": "Smatrics EnBW",
-      "alias": ["Smatrics", "EnBW", "SMATRICS Mobility"],
-      "sito": "https://smatrics.com/",
-      "tariffe": [
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,56 €/kWh" }
       ]
     }
   ]
