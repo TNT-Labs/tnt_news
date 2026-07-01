@@ -11,9 +11,13 @@
   var CLUSTER_CSS_DEF = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css";
   var CLUSTER_JS = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
 
+  var OCM_MAX_RESULTS = 2000;      // oltre questa soglia OCM tronca l'elenco
+  var OCM_CACHE_TTL = 15 * 60000;  // cache della risposta OCM: 15 minuti
+
   var allStations = [];      // tutte le stazioni caricate (grezze da OCM)
   var stationLayer = null;   // layer dei pin filtrabili
-  var activeFilter = "all";  // all | slow | fast | hpc
+  var activeFilter = "all";  // all | slow | fast | hpc | unknown
+  var truncated = false;     // true se OCM ha restituito l'elenco troncato
 
   function ready(fn) {
     if (document.readyState !== "loading") fn();
@@ -134,6 +138,24 @@
     return "(" + (lat - pad) + "," + (lon - pad) + "),(" + (lat + pad) + "," + (lon + pad) + ")";
   }
 
+  // Cache di sessione della risposta OCM, per bbox. Evita di ripetere la
+  // chiamata API a ogni visita nella stessa sessione di navigazione.
+  function cacheGet(bbox) {
+    try {
+      var raw = sessionStorage.getItem("ocm:" + bbox);
+      if (!raw) return null;
+      var entry = JSON.parse(raw);
+      if (!entry || Date.now() - entry.t > OCM_CACHE_TTL) return null;
+      return entry.items;
+    } catch (e) { return null; }
+  }
+
+  function cachePut(bbox, items) {
+    try {
+      sessionStorage.setItem("ocm:" + bbox, JSON.stringify({ t: Date.now(), items: items }));
+    } catch (e) { /* storage pieno o non disponibile: si prosegue senza cache */ }
+  }
+
   function loadStations(map, userPos) {
     var key = window.OCM_KEY || "";
     if (!key) {
@@ -146,17 +168,28 @@
       ? bboxFromPoint(userPos.lat, userPos.lon, GPS_PAD)
       : "(44.7,8.5),(46.6,11.5)";
     window.__ricaricaLabel = userPos ? "nei dintorni" : "in Lombardia";
+
+    var cached = cacheGet(bbox);
+    if (cached) {
+      allStations = cached;
+      truncated = cached.length >= OCM_MAX_RESULTS;
+      renderMarkers();
+      return;
+    }
+
     setStatus("Carico le colonnine " + window.__ricaricaLabel + "…");
 
     var url = "https://api.openchargemap.io/v3/poi/?output=json&countrycode=IT"
       + "&boundingbox=" + encodeURIComponent(bbox)
-      + "&maxresults=2000&compact=true&verbose=false"
+      + "&maxresults=" + OCM_MAX_RESULTS + "&compact=true&verbose=false"
       + "&key=" + encodeURIComponent(key);
 
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (items) {
         allStations = items || [];
+        truncated = allStations.length >= OCM_MAX_RESULTS;
+        cachePut(bbox, allStations);
         renderMarkers();
       })
       .catch(function (err) {
@@ -222,11 +255,13 @@
     var label = window.__ricaricaLabel || "";
     setStatus(shown + " colonnine " + label
       + (activeFilter === "all" ? "" : " (" + filterName(activeFilter) + ")")
-      + ". Tocca un pin per il listino.");
+      + ". Tocca un pin per il listino."
+      + (truncated ? " Elenco parziale: avvicina la mappa o attiva il GPS per la copertura completa." : ""));
   }
 
   function filterName(f) {
-    return f === "slow" ? "lente" : f === "fast" ? "veloci" : f === "hpc" ? "ultrarapide" : "tutte";
+    return f === "slow" ? "lente" : f === "fast" ? "veloci"
+      : f === "hpc" ? "ultrarapide" : f === "unknown" ? "potenza n.d." : "tutte";
   }
 
   // --- Filtri ----------------------------------------------------------------
@@ -276,7 +311,9 @@
 
   function isUnknownOperator(op) {
     if (!op) return true;
-    return /unknown|sconosciut|\(.*\)/i.test(op);
+    // Nomi interamente tra parentesi (es. "(Unknown Operator)") o segnaposto.
+    // Un suffisso tra parentesi (es. "Enel X (Italia)") è invece un nome valido.
+    return /unknown|sconosciut|^\(.*\)$/i.test(op);
   }
 
   function showDetails(s) {
@@ -308,6 +345,13 @@
 
     var opLabel = op ? esc(op) + (opDeduced ? ' <span class="station-hint">(dedotto dal nome)</span>' : "") : "Sconosciuto";
     parts.push('<p class="station-row"><span class="station-label">Operatore:</span> ' + opLabel + "</p>");
+
+    // Costo dichiarato per questa stazione su OpenChargeMap (testo libero).
+    var usageCost = (s.UsageCost || "").trim();
+    if (usageCost) {
+      parts.push('<p class="station-row"><span class="station-label">Costo segnalato:</span> '
+        + esc(usageCost) + ' <span class="station-hint">(fonte OpenChargeMap)</span></p>');
+    }
 
     var t = lookupTariff(op);
     if (t) {
@@ -398,6 +442,9 @@
     }).join("");
     var out = '<h4 class="tariff-title">Listino · ' + esc(t.nome) + "</h4>";
     out += '<table class="tariff-table"><tbody>' + rows + "</tbody></table>";
+    if (t.verificato_il) {
+      out += '<p class="tariff-note">Verificato il ' + esc(t.verificato_il) + '.</p>';
+    }
     if (t.note) out += '<p class="tariff-note">' + esc(t.note) + "</p>";
     if (t.sito) out += '<p class="tariff-link"><a href="' + esc(t.sito)
       + '" target="_blank" rel="noopener">Sito ufficiale &rarr;</a></p>';

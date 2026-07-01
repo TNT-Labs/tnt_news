@@ -29,6 +29,7 @@ Il file canonico è `content/tariffe.json`. Schema (estratto):
       "nome": "Enel X Way",
       "alias": ["…"],
       "sito": "https://…",
+      "listino_url": "https://…/tariffe",
       "tariffe": [
         { "tipo": "AC fino a 22 kW",   "prezzo": "0,58 €/kWh" },
         { "tipo": "DC 50 kW",          "prezzo": "0,78 €/kWh" },
@@ -46,11 +47,18 @@ aggiorna **solo** se il check ha avuto successo (sia che il prezzo sia
 cambiato sia che sia rimasto identico). Se il check fallisce non si tocca
 nulla del gestore.
 
+Il campo `listino_url` è **opzionale**: quando presente, punta direttamente
+alla pagina del listino pay-per-use ed è la prima URL da provare (prima di
+`sito`). Se durante un check scopri la pagina listino definitiva di un
+gestore che ne è privo, puoi valorizzarlo (è l'unica aggiunta strutturale
+consentita alla routine).
+
 ## 2. Verifica per ciascun gestore
 
 Per ogni elemento di `gestori[]`:
 
-1. **Fetch del listino ufficiale** con `WebFetch` sull'URL del campo `sito`.
+1. **Fetch del listino ufficiale** con `WebFetch`: prima su `listino_url`
+   se presente, altrimenti sull'URL del campo `sito`.
    Estrai dalla pagina i prezzi pay-per-use (occasionali, **senza
    abbonamento**) per le potenze già presenti in `tariffe[]`. Cerca le
    etichette tipiche: "Pay Per Use", "Occasionali", "Senza abbonamento",
@@ -116,6 +124,16 @@ PREZZI_CAMBIATI = qualcuno dei gestori ha avuto almeno un "prezzo" modificato
   `tariffe.json: nessun cambiamento rilevato`. **Stop.**
 - **Se `PREZZI_CAMBIATI` è vero:** prosegui con i passi 5 e 6.
 
+In entrambi i casi, prima di terminare stampa un **log di esito per
+gestore**, una riga ciascuno, nel formato:
+
+```text
+<nome gestore>: ok-invariato | ok-aggiornato | fallito (<motivo breve>)
+```
+
+Serve a diagnosticare i check che falliscono silenziosamente (URL morti,
+pagine cambiate, blocchi di rete) senza dover ispezionare il file.
+
 > Aggiornamenti del solo campo `verificato_il` **non** vanno committati.
 > Sono utili a tracciare i check ma non meritano un commit quotidiano.
 
@@ -153,7 +171,11 @@ GitHub Pages aggiornerà la pagina `/ricarica/` entro pochi minuti.
 
 - **Mai inventare un prezzo**: se non sei certa, lascia il valore precedente.
 - **Mai aggiungere nuovi gestori** dalla routine: l'archivio è curato
-  manualmente. La routine aggiorna solo quelli già presenti.
+  manualmente. La routine aggiorna solo quelli già presenti. In particolare
+  **mai appendere una seconda voce** per un gestore già in elenco (anche con
+  nome leggermente diverso, es. "Neogy" vs "Neogy-Alperia"): il front-end usa
+  il primo match e le voci successive diventano dati morti. Aggiorna sempre
+  la voce esistente sul posto.
 - **Mai modificare gli `alias`**: sono usati per matchare i nomi che arrivano
   da OpenChargeMap.
 - **No-op silenzioso** è il caso più frequente e atteso. I listini cambiano
