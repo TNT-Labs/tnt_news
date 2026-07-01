@@ -15,9 +15,14 @@
   var OCM_CACHE_TTL = 15 * 60000;  // cache della risposta OCM: 15 minuti
 
   var allStations = [];      // tutte le stazioni caricate (grezze da OCM)
+  var stationIds = {};       // ID gia' presenti in allStations (dedup)
   var stationLayer = null;   // layer dei pin filtrabili
   var activeFilter = "all";  // all | slow | fast | hpc | unknown
-  var truncated = false;     // true se OCM ha restituito l'elenco troncato
+  var truncated = false;     // true se l'ultimo fetch OCM era troncato
+  var fetchedAreas = [];     // aree gia' scaricate: { bounds, complete }
+  var fetchInFlight = false; // un solo fetch OCM alla volta
+  var queuedMove = false;    // moveend arrivato durante un fetch
+  var theMap = null;
 
   function ready(fn) {
     if (document.readyState !== "loading") fn();
@@ -81,6 +86,7 @@
     var mapOpts = { scrollWheelZoom: true };
     if (L.canvas) mapOpts.renderer = L.canvas({ tolerance: 12 });
     var map = L.map("map", mapOpts).setView([LAT0, LON0], ZOOM0);
+    theMap = map;
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
@@ -139,8 +145,38 @@
     );
   }
 
-  function bboxFromPoint(lat, lon, pad) {
-    return "(" + (lat - pad) + "," + (lon - pad) + "),(" + (lat + pad) + "," + (lon + pad) + ")";
+  function bboxFromBounds(b) {
+    return "(" + b.getSouth() + "," + b.getWest() + "),(" + b.getNorth() + "," + b.getEast() + ")";
+  }
+
+  function areaOf(b) {
+    return (b.getNorth() - b.getSouth()) * (b.getEast() - b.getWest());
+  }
+
+  // La vista e' gia' coperta? Un'area scaricata ma troncata (2000+ risultati)
+  // copre solo viste di dimensione simile: zoomando dentro si rifetcha per
+  // recuperare le colonnine tagliate fuori dal tetto.
+  function isCovered(view) {
+    for (var i = 0; i < fetchedAreas.length; i++) {
+      var f = fetchedAreas[i];
+      if (!f.bounds.contains(view)) continue;
+      if (f.complete) return true;
+      if (areaOf(view) > areaOf(f.bounds) * 0.15) return true;
+    }
+    return false;
+  }
+
+  function mergeStations(items) {
+    var added = 0;
+    (items || []).forEach(function (s) {
+      var info = s.AddressInfo || {};
+      var id = s.ID != null ? "id" + s.ID : info.Latitude + "," + info.Longitude;
+      if (stationIds[id]) return;
+      stationIds[id] = true;
+      allStations.push(s);
+      added++;
+    });
+    return added;
   }
 
   // Cache di sessione della risposta OCM, per bbox. Evita di ripetere la
@@ -169,20 +205,40 @@
       return;
     }
 
-    var bbox = userPos
-      ? bboxFromPoint(userPos.lat, userPos.lon, GPS_PAD)
-      : "(44.7,8.5),(46.6,11.5)";
+    var bounds = userPos
+      ? L.latLngBounds([userPos.lat - GPS_PAD, userPos.lon - GPS_PAD],
+                       [userPos.lat + GPS_PAD, userPos.lon + GPS_PAD])
+      : L.latLngBounds([44.7, 8.5], [46.6, 11.5]);
     window.__ricaricaLabel = userPos ? "nei dintorni" : "in Lombardia";
+
+    fetchArea(bounds);
+    // Pan/zoom: scarica le zone inquadrate non ancora coperte.
+    map.on("moveend", onMoveEnd);
+  }
+
+  function onMoveEnd() {
+    if (!theMap) return;
+    if (fetchInFlight) { queuedMove = true; return; }
+    var view = theMap.getBounds();
+    if (isCovered(view)) return;
+    window.__ricaricaLabel = "caricate";
+    // Margine attorno alla vista: meno richieste durante gli spostamenti brevi.
+    fetchArea(view.pad(0.35));
+  }
+
+  function fetchArea(bounds) {
+    var key = window.OCM_KEY || "";
+    if (!key) return;
+    var bbox = bboxFromBounds(bounds);
 
     var cached = cacheGet(bbox);
     if (cached) {
-      allStations = cached;
-      truncated = cached.length >= OCM_MAX_RESULTS;
-      renderMarkers();
+      finishArea(bounds, cached);
       return;
     }
 
-    setStatus("Carico le colonnine " + window.__ricaricaLabel + "…");
+    fetchInFlight = true;
+    setStatus("Carico le colonnine " + (window.__ricaricaLabel || "") + "…");
 
     var url = "https://api.openchargemap.io/v3/poi/?output=json&countrycode=IT"
       + "&boundingbox=" + encodeURIComponent(bbox)
@@ -192,17 +248,30 @@
     fetch(url)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function (items) {
-        allStations = items || [];
-        truncated = allStations.length >= OCM_MAX_RESULTS;
-        cachePut(bbox, allStations);
-        renderMarkers();
+        items = items || [];
+        cachePut(bbox, items);
+        finishArea(bounds, items);
       })
       .catch(function (err) {
+        fetchInFlight = false;
+        queuedMove = false;
         setStatus(err === 403
           ? "OpenChargeMap ha rifiutato la chiave (403). Verifica OPENCHARGEMAP_API_KEY."
           : "Impossibile caricare i dati da OpenChargeMap.");
         console.error("OpenChargeMap:", err);
       });
+  }
+
+  function finishArea(bounds, items) {
+    fetchInFlight = false;
+    truncated = items.length >= OCM_MAX_RESULTS;
+    fetchedAreas.push({ bounds: bounds, complete: !truncated });
+    mergeStations(items);
+    renderMarkers();
+    if (queuedMove) {
+      queuedMove = false;
+      onMoveEnd();
+    }
   }
 
   // --- Potenza e categorie ---------------------------------------------------
