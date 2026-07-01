@@ -13,6 +13,7 @@ import re
 import shutil
 import unicodedata
 from datetime import date, datetime, timezone
+from statistics import median
 from email.utils import format_datetime
 from html import escape
 from pathlib import Path
@@ -46,6 +47,16 @@ VERDICT_LABELS = {
     "caution": "Moto con cautela",
     "no": "Niente moto",
 }
+
+DIRECTION_LABELS = {"andata": "Andata", "ritorno": "Ritorno"}
+DIRECTION_TITLES = {
+    "andata": "Bergamo &rarr; San Donato Milanese",
+    "ritorno": "San Donato Milanese &rarr; Bergamo",
+}
+
+WEEKDAYS_IT = [
+    "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica",
+]
 
 MONTHS_IT = [
     "", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
@@ -453,13 +464,18 @@ def load_bollettini() -> list[dict]:
     items: list[dict] = []
     if not BOLLETTINO_DIR.exists():
         return items
-    for f in sorted(BOLLETTINO_DIR.glob("*.json"), reverse=True):
+    for f in sorted(BOLLETTINO_DIR.glob("*.json")):
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        data.setdefault("date", f.stem)
+        data["slug"] = f.stem
+        if data.get("direction") not in DIRECTION_LABELS:
+            data["direction"] = "ritorno" if f.stem.endswith("-ritorno") else "andata"
+        data.setdefault("date", f.stem.removesuffix("-ritorno"))
         items.append(data)
+    # piu recenti in cima; a parita di data il ritorno (pubblicato dopo) precede
+    items.sort(key=lambda b: (b["date"], b["direction"] == "ritorno"), reverse=True)
     return items
 
 
@@ -507,6 +523,7 @@ def render_incidents(traffic: dict) -> str:
     t = traffic or {}
     items = t.get("incidents") or []
     notice = (t.get("notice") or "").strip()
+    debug = (t.get("debug") or "").strip()
     parts: list[str] = []
     if notice:
         parts.append(f'<p class="incidents-notice">⚠ {escape(notice)}</p>')
@@ -519,6 +536,12 @@ def render_incidents(traffic: dict) -> str:
     elif not notice:
         parts.append(
             '<p class="incidents-none">Nessuna segnalazione rilevata sulle fonti consultate.</p>'
+        )
+    if debug:
+        parts.append(
+            '<details class="incidents-debug">'
+            "<summary>Dettagli tecnici sulla raccolta dati</summary>"
+            f"<p>{escape(debug)}</p></details>"
         )
     return "".join(parts)
 
@@ -539,10 +562,10 @@ def render_verdict(moto: dict) -> str:
     )
 
 
-def render_bollettino_history(items: list[dict], prefix: str, exclude_date: str | None = None) -> str:
+def render_bollettino_history(items: list[dict], prefix: str, exclude_slug: str | None = None) -> str:
     rows = []
     for b in items:
-        if b.get("date") == exclude_date:
+        if b.get("slug") == exclude_slug:
             continue
         if len(rows) >= 7:
             break
@@ -556,8 +579,9 @@ def render_bollettino_history(items: list[dict], prefix: str, exclude_date: str 
             if minutes is not None else ""
         )
         rows.append(
-            f'<li><a href="{prefix}bollettino/{escape(b["date"])}/">'
+            f'<li><a href="{prefix}bollettino/{escape(b["slug"])}/">'
             f'<span class="hist-date">{format_date_it(b["date"])}</span>'
+            f'<span class="hist-dir">{DIRECTION_LABELS[b["direction"]]}</span>'
             f'<span class="hist-verdict verdict-{v}">{escape(str(label))}</span>'
             f'{time_html}'
             '</a></li>'
@@ -572,6 +596,102 @@ def render_bollettino_history(items: list[dict], prefix: str, exclude_date: str 
     )
 
 
+def render_bollettino_trend(data: dict, items: list[dict]) -> str:
+    """Sparkline dei tempi delle ultime corse (stessa direzione) e confronto
+    del tempo di oggi con la mediana storica dello stesso giorno feriale."""
+    direction = data.get("direction", "andata")
+    current = (data.get("traffic") or {}).get("estimated_minutes")
+    if current is None:
+        return ""
+    history = [
+        b for b in items
+        if b.get("direction") == direction
+        and b.get("slug") != data.get("slug")
+        and b.get("date", "") < data.get("date", "9999")
+        and (b.get("traffic") or {}).get("estimated_minutes") is not None
+    ]
+    history.sort(key=lambda b: b["date"])
+    points = [(b["date"], int(b["traffic"]["estimated_minutes"])) for b in history[-14:]]
+    points.append((data["date"], int(current)))
+    if len(points) < 3:
+        return ""
+
+    try:
+        weekday = datetime.strptime(data["date"], "%Y-%m-%d").weekday()
+    except ValueError:
+        weekday = None
+    same_day = [
+        int(b["traffic"]["estimated_minutes"]) for b in history
+        if weekday is not None
+        and datetime.strptime(b["date"], "%Y-%m-%d").weekday() == weekday
+    ]
+    if len(same_day) >= 3:
+        ref = median(same_day)
+        ref_desc = (
+            f"degli ultimi {WEEKDAYS_IT[weekday]} "
+            f"({round(ref)} min su {len(same_day)} corse)"
+        )
+    else:
+        vals_prev = [m for _, m in points[:-1]]
+        ref = median(vals_prev)
+        ref_desc = f"delle ultime {len(vals_prev)} corse ({round(ref)} min)"
+    delta = current - ref
+    if abs(delta) <= 2:
+        compare = f"in linea con la mediana {ref_desc}"
+    else:
+        sign = "+" if delta > 0 else "−"
+        compare = f"{sign}{round(abs(delta))} min rispetto alla mediana {ref_desc}"
+    compare_html = (
+        f'<p class="trend-compare">Oggi <strong>{current} min</strong>: '
+        f"{escape(compare)}.</p>"
+    )
+
+    w, h = 640, 150
+    pad_l, pad_r, pad_t, pad_b = 46, 16, 14, 28
+    vals = [m for _, m in points]
+    lo, hi = min(vals), max(vals)
+    span = max(hi - lo, 1)
+
+    def x(i: int) -> float:
+        return pad_l + i * (w - pad_l - pad_r) / (len(points) - 1)
+
+    def y(v: float) -> float:
+        return pad_t + (hi - v) * (h - pad_t - pad_b) / span
+
+    poly = " ".join(f"{x(i):.1f},{y(m):.1f}" for i, (_, m) in enumerate(points))
+    dots = "".join(
+        f'<circle cx="{x(i):.1f}" cy="{y(m):.1f}" r="3" class="trend-dot"/>'
+        for i, (_, m) in enumerate(points[:-1])
+    )
+    aria = (
+        f"Tempi di percorrenza delle ultime {len(points)} corse "
+        f"({DIRECTION_LABELS[direction].lower()}), da {lo} a {hi} minuti; "
+        f"oggi {current} minuti."
+    )
+    svg = (
+        f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{escape(aria)}" class="trend-svg">'
+        f'<line x1="{pad_l}" y1="{y(hi):.1f}" x2="{w - pad_r}" y2="{y(hi):.1f}" class="trend-grid"/>'
+        f'<line x1="{pad_l}" y1="{y(lo):.1f}" x2="{w - pad_r}" y2="{y(lo):.1f}" class="trend-grid"/>'
+        f'<text x="{pad_l - 8}" y="{y(hi) + 4:.1f}" text-anchor="end" class="trend-axis">{hi}</text>'
+        f'<text x="{pad_l - 8}" y="{y(lo) + 4:.1f}" text-anchor="end" class="trend-axis">{lo}</text>'
+        f'<polyline points="{poly}" class="trend-line"/>'
+        f"{dots}"
+        f'<circle cx="{x(len(points) - 1):.1f}" cy="{y(current):.1f}" r="5" class="trend-dot-today"/>'
+        f'<text x="{pad_l}" y="{h - 8}" class="trend-axis">{escape(format_date_it(points[0][0]))}</text>'
+        f'<text x="{w - pad_r}" y="{h - 8}" text-anchor="end" class="trend-axis">oggi</text>'
+        "</svg>"
+    )
+    return (
+        '<section class="bollettino-section bollettino-trend">'
+        "<h2>Andamento</h2>"
+        + compare_html
+        + f'<figure class="trend-figure">{svg}'
+        f"<figcaption>Tempo totale stimato nelle ultime {len(points)} corse "
+        f"di {DIRECTION_LABELS[direction].lower()}.</figcaption></figure>"
+        "</section>"
+    )
+
+
 def build_bollettino_page(
     data: dict,
     history: list[dict],
@@ -582,6 +702,9 @@ def build_bollettino_page(
 ) -> str:
     prefix = "../../" if is_archive else "../"
     date_iso = data["date"]
+    slug = data.get("slug", date_iso)
+    direction = data.get("direction", "andata")
+    dir_label = DIRECTION_LABELS[direction]
     weather = data.get("weather") or {}
     traffic = data.get("traffic") or {}
     travel = traffic.get("estimated_minutes")
@@ -593,20 +716,43 @@ def build_bollettino_page(
         if travel is not None else "<em>non disponibile</em>"
     )
 
+    # link alla corsa opposta dello stesso giorno, se pubblicata
+    counterpart = next(
+        (b for b in history if b.get("date") == date_iso and b.get("slug") != slug),
+        None,
+    )
+    alt_html = ""
+    if counterpart:
+        alt_dir = counterpart.get("direction", "andata")
+        alt_txt = "del ritorno" if alt_dir == "ritorno" else "dell'andata"
+        alt_html = (
+            f'<p class="bollettino-alt"><a href="{prefix}bollettino/'
+            f'{escape(counterpart["slug"])}/">Vedi il bollettino {alt_txt} '
+            "dello stesso giorno &rarr;</a></p>"
+        )
+
     if is_archive:
         top_link = f'<a class="back-link" href="{prefix}bollettino/">&larr; Bollettino di oggi</a>'
         history_html = ""
+        trend_html = ""
+        feed_html = ""
     else:
         top_link = f'<a class="back-link" href="{prefix}index.html">&larr; Home</a>'
-        history_html = render_bollettino_history(history, prefix, exclude_date=date_iso)
+        history_html = render_bollettino_history(history, prefix, exclude_slug=slug)
+        trend_html = render_bollettino_trend(data, history)
+        feed_html = (
+            f'<p class="bollettino-feed"><a href="{prefix}bollettino/feed.xml">'
+            "Feed RSS del bollettino</a></p>"
+        )
 
     parts = [
         top_link,
         '<article class="bollettino">',
         '<header class="bollettino-header">',
-        f'<p class="bollettino-meta">Bollettino pendolare · {format_date_it(date_iso)}</p>',
-        '<h1>Bergamo &rarr; San Donato Milanese</h1>',
+        f'<p class="bollettino-meta">Bollettino pendolare · {dir_label} · {format_date_it(date_iso)}</p>',
+        f'<h1>{DIRECTION_TITLES[direction]}</h1>',
         f'<p class="bollettino-route">{route_txt}</p>',
+        alt_html,
         '</header>',
         render_verdict(data.get("moto")),
         '<section class="bollettino-section">',
@@ -616,29 +762,31 @@ def build_bollettino_page(
         '<h3>Segnalazioni su A4 / A51</h3>',
         render_incidents(traffic),
         '</section>',
+        trend_html,
         '<section class="bollettino-section">',
         '<h2>Meteo lungo il percorso</h2>',
         render_weather_cards(weather),
         f'<p class="weather-summary">{weather_summary}</p>' if weather_summary else "",
         '</section>',
         render_sources(data.get("sources", [])),
+        feed_html,
         '</article>',
         history_html,
     ]
     content = "".join(p for p in parts if p)
 
     canonical = (
-        f"{SITE_URL}/bollettino/{date_iso}/" if is_archive
+        f"{SITE_URL}/bollettino/{slug}/" if is_archive
         else f"{SITE_URL}/bollettino/"
     )
     verdict_label = (data.get("moto") or {}).get("label") or "Bollettino pendolare"
     desc = (
-        f"{verdict_label} — {travel} min stimati"
-        if travel is not None else verdict_label
+        f"{dir_label}: {verdict_label} — {travel} min stimati"
+        if travel is not None else f"{dir_label}: {verdict_label}"
     )
     return page(
         base,
-        title=f"Bollettino pendolare {format_date_it(date_iso)} — {SITE_NAME}",
+        title=f"Bollettino pendolare {dir_label.lower()} {format_date_it(date_iso)} — {SITE_NAME}",
         description=escape(desc),
         root=prefix,
         canonical=canonical,
@@ -776,6 +924,56 @@ def build_ricarica_page(tariffe: dict, categories: list[str], base: str) -> str:
     )
 
 
+def build_bollettino_feed(items: list[dict]) -> str:
+    """Feed RSS dedicato al bollettino pendolare (ultime 30 corse)."""
+    rss_items = []
+    latest = None
+    for b in items[:30]:
+        link = f"{SITE_URL}/bollettino/{b['slug']}/"
+        try:
+            d = datetime.strptime(
+                f"{b['date']}T{b.get('departure', '07:30')}", "%Y-%m-%dT%H:%M"
+            ).replace(tzinfo=timezone.utc)
+        except ValueError:
+            d = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        if latest is None or d > latest:
+            latest = d
+        moto = b.get("moto") or {}
+        v = moto.get("verdict", "no")
+        label = moto.get("label") or VERDICT_LABELS.get(v, VERDICT_LABELS["no"])
+        minutes = (b.get("traffic") or {}).get("estimated_minutes")
+        min_txt = f", {minutes} min stimati" if minutes is not None else ""
+        title = (
+            f"Bollettino {DIRECTION_LABELS[b['direction']].lower()} "
+            f"{format_date_it(b['date'])}: {label}{min_txt}"
+        )
+        desc = (b.get("weather") or {}).get("summary_text", "") or label
+        rss_items.append(
+            "<item>"
+            f"<title>{escape(title)}</title>"
+            f"<link>{escape(link)}</link>"
+            f'<guid isPermaLink="true">{escape(link)}</guid>'
+            f"<pubDate>{format_datetime(d)}</pubDate>"
+            f"<description>{escape(desc)}</description>"
+            "</item>"
+        )
+    # lastBuildDate deterministico (corsa piu recente) per evitare conflitti in docs/
+    last_build = format_datetime(latest or datetime(1970, 1, 1, tzinfo=timezone.utc))
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+        f"<title>{escape(SITE_NAME)} — Bollettino pendolare</title>"
+        f"<link>{SITE_URL}/bollettino/</link>"
+        "<description>Previsioni di traffico e meteo per il pendolare "
+        "Bergamo–San Donato Milanese, andata e ritorno</description>"
+        "<language>it-it</language>"
+        f"<lastBuildDate>{last_build}</lastBuildDate>"
+        f'<atom:link href="{SITE_URL}/bollettino/feed.xml" rel="self" type="application/rss+xml"/>'
+        + "".join(rss_items)
+        + "</channel></rss>\n"
+    )
+
+
 def build_empty_bollettino_page(categories: list[str], base: str) -> str:
     prefix = "../"
     content = (
@@ -786,7 +984,8 @@ def build_empty_bollettino_page(categories: list[str], base: str) -> str:
         '<h1>Bergamo &rarr; San Donato Milanese</h1>'
         '</header>'
         '<p class="empty">Nessun bollettino ancora pubblicato. Il prossimo verr&agrave; '
-        'generato il prossimo giorno feriale alle 7:00.</p>'
+        'generato il prossimo giorno feriale (andata al mattino, ritorno nel '
+        'pomeriggio).</p>'
         '</article>'
     )
     return page(
@@ -863,7 +1062,7 @@ def main() -> None:
     bdir.mkdir(parents=True, exist_ok=True)
     if bollettini:
         for b in bollettini:
-            d = bdir / b["date"]
+            d = bdir / b["slug"]
             d.mkdir(parents=True, exist_ok=True)
             (d / "index.html").write_text(
                 build_bollettino_page(b, bollettini, cats, base, is_archive=True),
@@ -872,6 +1071,9 @@ def main() -> None:
         (bdir / "index.html").write_text(
             build_bollettino_page(bollettini[0], bollettini, cats, base, is_archive=False),
             encoding="utf-8",
+        )
+        (bdir / "feed.xml").write_text(
+            build_bollettino_feed(bollettini), encoding="utf-8"
         )
     else:
         (bdir / "index.html").write_text(

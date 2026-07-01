@@ -23,7 +23,8 @@ static/                    Asset statici copiati nel sito (style.css)
 build.py                   Generatore del sito statico (solo Python standard)
 docs/                      Sito generato — è ciò che GitHub Pages pubblica
 DAILY_TASK.md              Istruzioni eseguite ogni giorno dalla redazione AI
-COMMUTE_TASK.md            Bollettino pendolare nei giorni feriali alle 7:00
+COMMUTE_TASK.md            Bollettino pendolare feriale: andata ~7:00,
+                           ritorno ~17:00 lun-gio e ~13:00 ven
 TARIFFE_TASK.md            Aggiornamento giornaliero dei listini delle colonnine
 ```
 
