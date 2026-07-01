@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-01",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, nessuna precipitazione prevista, temperature tra 23 e 26°C e vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNO"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 85,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 39},
+      {"name": "Surface Agrate → Carugate",           "minutes": 18},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A51 tra svincolo SP3 Brugherio/Cologno Monzese Nord e svincolo Linate (Forlanini-SP14 Rivoltana), dir. A1/San Donato", "desc": "Code a tratti per traffico intenso, rilevate poco prima delle 7:00 (fonte CCISS, confermato da ricerca web)."}
+    ],
+    "notice": "CCISS e Serravalle leggibili con dati utili sulla tratta A51; Luceverde (Lombardia/Milano) e Autostrade per l'Italia non hanno restituito contenuti verificabili (pagine JS-heavy o sezioni non raggiungibili). La Directions API ha restituito un solo leg (i waypoint 'via:' non separano il percorso in tratte): i minuti per segmento sono stati ricavati ripartendo proporzionalmente le durate dei singoli step del percorso (in base ai punti di passaggio Agrate/Carugate) e riscalando sul totale con traffico (85 min)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (0 mm, probabilità 0%)",
+      "Cielo sereno ovunque, nessun rischio di nebbia, neve o temporali",
+      "Vento debole (max 6 km/h) e raffiche contenute (max 11 km/h)",
+      "Temperature ampiamente sopra i 7°C (23-26°C) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API",          "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati", "url": "https://www.cciss.it/"},
+    {"name": "Luceverde Lombardia",         "url": "https://www.luceverde.it/lombardia"},
+    {"name": "Autostrade per l'Italia",     "url": "https://www.autostrade.it/it/infoviabilita/traffico-in-real-time"},
+    {"name": "Serravalle Tangenziali Milano","url": "https://www.serravalle.it/"},
+    {"name": "Ricerca web (A4 / A51 — 1 luglio 2026)", "url": "https://www.autostrade.it/"}
+  ]
+}
