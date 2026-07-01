@@ -347,11 +347,14 @@
     parts.push('<p class="station-row"><span class="station-label">Operatore:</span> ' + opLabel + "</p>");
 
     // Costo dichiarato per questa stazione su OpenChargeMap (testo libero).
+    // Sempre esposto, anche quando in archivio c'e' il listino del gestore:
+    // sono due fonti indipendenti e il lettore le vede entrambe.
     var usageCost = (s.UsageCost || "").trim();
-    if (usageCost) {
-      parts.push('<p class="station-row"><span class="station-label">Costo segnalato:</span> '
-        + esc(usageCost) + ' <span class="station-hint">(fonte OpenChargeMap)</span></p>');
-    }
+    parts.push('<p class="station-row"><span class="station-label">Costo segnalato su OpenChargeMap:</span> '
+      + (usageCost
+          ? esc(usageCost)
+          : '<span class="station-hint">non indicato dalla stazione</span>')
+      + "</p>");
 
     var t = lookupTariff(op);
     if (t) {
