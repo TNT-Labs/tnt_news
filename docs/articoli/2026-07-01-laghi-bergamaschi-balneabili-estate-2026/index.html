@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati — TNT News</title>
+  <meta name="description" content="ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-01-laghi-bergamaschi-balneabili-estate-2026/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati — TNT News">
+  <meta property="og:description" content="ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-01-laghi-bergamaschi-balneabili-estate-2026/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati — TNT News">
+  <meta name="twitter:description" content="ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.svg">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">laghi</span><span class="tag">balneabilità</span><span class="tag">ATS Bergamo</span></div>
+    <h1>Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati</h1>
+    <p class="article-summary">ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-01">1 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Con l'apertura ufficiale della stagione estiva, arriva la conferma più attesa per chi frequenta le rive dei laghi bergamaschi: <strong>le acque sono sicure e balneabili</strong>. ATS Bergamo ha reso noti i risultati dei campionamenti per la stagione 2026, e il bilancio è largamente positivo. Su 36 punti di monitoraggio distribuiti tra lago d'Iseo, lago di Endine, lago Gaiano e lago Giudici, ben 35 ottengono la classificazione <strong>"eccellente"</strong> — il massimo previsto dalla normativa europea. L'unica eccezione è la località di Gerù, sul lago di Endine, classificata come <strong>"buona"</strong>, ma comunque pienamente idonea alla balneazione.</p>
+
+<h2>Come viene certificata la qualità dell'acqua</h2>
+
+<p>La classificazione è affidata alla <strong>Struttura Complessa di Igiene e Sanità Pubblica – Salute Ambiente (IPSA)</strong> di ATS Bergamo, che conduce campionamenti con cadenza mensile da aprile a settembre. Il giudizio finale non dipende da un'unica analisi, ma da un'elaborazione statistica su <strong>quattro anni di dati microbiologici</strong>: per il 2026, la classificazione tiene conto delle misurazioni raccolte nelle stagioni 2022, 2023, 2024 e 2025, con una conferma preliminare effettuata nell'aprile di quest'anno.</p>
+
+<p>I parametri analizzati sono principalmente due: la concentrazione di <em>Escherichia coli</em> e quella di enterococchi intestinali, entrambi indicatori microbiologici di possibile contaminazione fecale. Il Ministero della Salute elabora i dati forniti dalle ATS regionali e assegna la classificazione definitiva secondo i criteri della Direttiva europea sulla qualità delle acque di balneazione.</p>
+
+<h2>Lago per lago: i risultati nel dettaglio</h2>
+
+<p>Il <strong>lago d'Iseo</strong>, il più grande dei laghi bergamaschi, è monitorato in <strong>20 punti</strong> lungo la sponda provinciale: tutti classificati "eccellente". Il <strong>lago di Endine</strong>, con <strong>14 stazioni</strong> di rilevamento, ottiene la valutazione massima in 13 punti; fa eccezione solo Gerù, nel comune di Endine Gaiano, dove la qualità rimane "buona" e la balneazione è consentita. I più piccoli <strong>lago Gaiano</strong> (1 punto, Endine Gaiano) e <strong>lago Giudici</strong> (1 punto, Rogno) risultano entrambi eccellenti.</p>
+
+<p>Oltre al monitoraggio microbiologico ufficiale, ATS Bergamo sorveglia in parallelo la concentrazione di <strong>cianobatteri</strong>, i batteri che in presenza di alte temperature e abbondanza di nutrienti possono formare fioriture algali potenzialmente tossiche. Tutti gli indicatori attuali mostrano condizioni favorevoli, senza segnali di eutrofizzazione anomala.</p>
+
+<figure>
+  <svg viewBox="0 0 640 310" role="img" aria-label="Grafico a barre orizzontali che mostra i punti di monitoraggio per qualità dell'acqua nei laghi bergamaschi estate 2026" xmlns="http://www.w3.org/2000/svg">
+    <title>Qualità acque balneabili – Laghi bergamaschi, stagione 2026</title>
+
+    <!-- Sfondo -->
+    <rect width="640" height="310" fill="#f4f8fb" rx="8"/>
+
+    <!-- Titolo -->
+    <text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a2a3a">Laghi bergamaschi – Punti di monitoraggio per qualità, stagione 2026</text>
+
+    <!-- Legenda -->
+    <rect x="60" y="44" width="14" height="12" fill="#2e7d32" rx="2"/>
+    <text x="80" y="55" font-family="sans-serif" font-size="11" fill="#333">Eccellente</text>
+    <rect x="180" y="44" width="14" height="12" fill="#f9a825" rx="2"/>
+    <text x="200" y="55" font-family="sans-serif" font-size="11" fill="#333">Buona</text>
+
+    <!-- Asse Y etichette laghi -->
+    <!-- Lago d'Iseo -->
+    <text x="170" y="103" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">Lago d'Iseo</text>
+    <!-- Lago di Endine -->
+    <text x="170" y="153" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">Lago di Endine</text>
+    <!-- Lago Gaiano -->
+    <text x="170" y="203" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">Lago Gaiano</text>
+    <!-- Lago Giudici -->
+    <text x="170" y="253" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">Lago Giudici</text>
+
+    <!-- Scala: max 20 punti → larghezza 380px → 1 punto = 19px, x inizio = 180 -->
+
+    <!-- Iseo: 20 Eccellente, 0 Buona -->
+    <rect x="180" y="87" width="380" height="26" fill="#2e7d32" rx="4"/>
+    <text x="565" y="105" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">20</text>
+
+    <!-- Endine: 13 Eccellente + 1 Buona -->
+    <rect x="180" y="137" width="247" height="26" fill="#2e7d32" rx="4"/>
+    <rect x="427" y="137" width="19" height="26" fill="#f9a825" rx="0"/>
+    <!-- arrotondo solo l'estremità destra -->
+    <rect x="427" y="137" width="19" height="26" fill="#f9a825"/>
+    <rect x="438" y="137" width="8" height="26" fill="#f9a825" rx="4"/>
+    <text x="303" y="155" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">13</text>
+    <text x="437" y="155" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#5d4000">1</text>
+
+    <!-- Gaiano: 1 Eccellente -->
+    <rect x="180" y="187" width="19" height="26" fill="#2e7d32" rx="4"/>
+    <text x="189" y="205" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">1</text>
+
+    <!-- Giudici: 1 Eccellente -->
+    <rect x="180" y="237" width="19" height="26" fill="#2e7d32" rx="4"/>
+    <text x="189" y="255" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff">1</text>
+
+    <!-- Linea asse -->
+    <line x1="180" y1="76" x2="180" y2="275" stroke="#aaa" stroke-width="1"/>
+
+    <!-- Etichette asse X -->
+    <text x="180" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">0</text>
+    <text x="275" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">5</text>
+    <text x="370" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">10</text>
+    <text x="465" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">15</text>
+    <text x="560" y="289" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">20</text>
+    <text x="390" y="303" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Numero di punti di monitoraggio</text>
+  </svg>
+  <figcaption>Distribuzione dei 36 punti di monitoraggio per qualità dell'acqua sui laghi bergamaschi, stagione balneare 2026. Fonte: ATS Bergamo – Struttura Complessa IPSA.</figcaption>
+</figure>
+
+<h2>Un'estate all'insegna della sicurezza idrica</h2>
+
+<p>Il dato complessivo — <strong>35 punti su 36</strong> con classificazione eccellente — colloca i laghi bergamaschi tra i più sicuri della Lombardia. La stagione balneare è aperta da aprile e si protrarrà fino a settembre, con nuovi campionamenti mensili. In caso di variazioni significative dei parametri microbiologici o di fioriture algali, ATS Bergamo provvede a emettere ordinanze di divieto temporaneo per le zone interessate.</p>
+
+<p>Per chi pianifica una giornata in riva al lago, il consiglio degli esperti rimane quello di consultare periodicamente il portale <strong>balneazione.apat.gov.it</strong> e le pagine istituzionali di ATS Bergamo, dove vengono pubblicati i risultati aggiornati di ogni campionamento. Nelle giornate di caldo intenso, è consigliabile prestare attenzione ai bollettini sui cianobatteri, la cui proliferazione — anche in acque microbiologicamente pulite — può causare irritazioni cutanee e problemi respiratori.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/acqua--promossi-laghi-bergamaschi-pajkrz2q" rel="noopener" target="_blank">Il Giorno – Acqua, qualità promossa a pieni voti: laghi bergamaschi tutti balneabili</a></li><li><a href="https://www.bergamonews.it/2026/06/25/lacqua-dei-laghi-bergamaschi-e-di-qualita-eccellente-balneabilita-permessa-in-tutti-i-punti/904481" rel="noopener" target="_blank">BergamoNews – L&#x27;acqua dei laghi bergamaschi è di &#x27;qualità eccellente&#x27;: balneabilità permessa in tutti i punti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="cascate del serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;italia il 13 giugno 2026 le cascate del serio di valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio. ambiente bergamo valle seriana cascate del serio valbondione" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-06-03-cascate-serio-apertura-stagione/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Cascate del Serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;Italia</h2><p class="card-summary">Il 13 giugno 2026 le Cascate del Serio di Valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio.</p><p class="card-meta">3 giugno 2026</p></div></a></article><article class="card" data-search="allarme ozono a bergamo: le centraline sforano i 200 µg/m³ con il caldo record con temperature oltre i 33°c e l&#x27;anticiclone sull&#x27;europa centro-occidentale, le stazioni arpa di bergamo e calusco d&#x27;adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. quasi tutta la lombardia è in allerta gialla; arpa raccomanda di limitare le attività all&#x27;aperto nelle ore più calde. ambiente bergamo ozono arpa lombardia qualità dell&#x27;aria" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-05-27-allerta-ozono-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h2><p class="card-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="saldi estivi al via il 4 luglio: a bergamo atteso un giro d&#x27;affari di 59 milioni sabato 4 luglio partono i saldi estivi in lombardia. a bergamo confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare. economia bergamo saldi estivi commercio confcommercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-06-30-saldi-estivi-bergamo-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi al via il 4 luglio: a Bergamo atteso un giro d&#x27;affari di 59 milioni</h2><p class="card-summary">Sabato 4 luglio partono i saldi estivi in Lombardia. A Bergamo Confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare.</p><p class="card-meta">30 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
