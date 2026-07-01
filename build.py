@@ -29,7 +29,7 @@ OUTPUT_DIR = ROOT / "docs"
 SITE_NAME = "TNT News"
 SITE_DESC = "Notizie e fatti dalla Lombardia e dalla provincia di Bergamo"
 SITE_URL = "https://tnt-labs.github.io/tnt_news"
-OG_IMAGE = f"{SITE_URL}/og-default.svg"
+OG_IMAGE = f"{SITE_URL}/og-default.png"
 # Recapito per rettifiche, privacy e segnalazioni. Da personalizzare.
 CONTACT = "[inserisci qui l'email di contatto del titolare]"
 
@@ -93,6 +93,21 @@ def count_phrase(n: int) -> str:
     return "1 notizia" if n == 1 else f"{n} notizie"
 
 
+def normalize_time(value) -> str:
+    """Riporta l'orario a HH:MM zero-padded ("9:5" -> "09:05").
+
+    L'ordinamento degli articoli confronta stringhe: un orario non
+    zero-padded finirebbe fuori posto ("9:30" > "10:00"). Orari non
+    validi degradano a mezzanotte.
+    """
+    m = re.fullmatch(r"(\d{1,2}):(\d{1,2})", str(value).strip())
+    if m:
+        h, mi = int(m.group(1)), int(m.group(2))
+        if h < 24 and mi < 60:
+            return f"{h:02d}:{mi:02d}"
+    return "00:00"
+
+
 def load_articles() -> list[dict]:
     """Carica e valida tutti gli articoli presenti."""
     articles = []
@@ -112,11 +127,12 @@ def load_articles() -> list[dict]:
         meta.setdefault("tags", [])
         meta.setdefault("sources", [])
         meta.setdefault("author", "Redazione TNT News (Claude)")
+        meta["time"] = normalize_time(meta.get("time", "00:00"))
         if meta.get("category") not in CATEGORY_SET:
             meta["category"] = DEFAULT_CATEGORY
         articles.append(meta)
     # piu recenti in cima; "time" (HH:MM) permette di ordinare due articoli dello stesso giorno
-    articles.sort(key=lambda a: a["date"] + "T" + a.get("time", "00:00"), reverse=True)
+    articles.sort(key=lambda a: a["date"] + "T" + a["time"], reverse=True)
     return articles
 
 
@@ -330,8 +346,7 @@ def build_feed(articles: list[dict]) -> str:
     for a in articles:
         link = f"{SITE_URL}/articoli/{a['slug']}/"
         try:
-            time_str = a.get("time", "00:00")
-            d = datetime.strptime(f"{a['date']}T{time_str}", "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+            d = datetime.strptime(f"{a['date']}T{a['time']}", "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
         except ValueError:
             d = datetime(1970, 1, 1, tzinfo=timezone.utc)
         if latest is None or d > latest:
