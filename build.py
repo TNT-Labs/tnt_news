@@ -642,6 +642,99 @@ def load_tariffe() -> dict:
         return {"ultimo_aggiornamento": "", "gestori": []}
 
 
+def _tariff_class(tipo: str) -> str | None:
+    """Classifica una riga di listino nelle colonne AC / DC / HPC."""
+    t = tipo.strip().upper()
+    if t.startswith("AC"):
+        return "ac"
+    if t.startswith("DC"):
+        return "dc"
+    if t.startswith("HPC"):
+        return "hpc"
+    return None
+
+
+def _price_lower_bound(prezzo: str) -> float | None:
+    """Estrae il limite inferiore del prezzo ("0,52–0,74 €/kWh" -> 0.52)."""
+    m = re.search(r"(\d+),(\d+)", prezzo)
+    if not m:
+        return None
+    return float(f"{m.group(1)}.{m.group(2)}")
+
+
+def render_tariffe_table(tariffe: dict) -> str:
+    """Tabella comparativa dei listini pay-per-use, una riga per gestore."""
+    gestori = tariffe.get("gestori", [])
+    if not gestori:
+        return ""
+
+    columns = [("ac", "AC ≤22 kW"), ("dc", "DC 22–150 kW"), ("hpc", "HPC >150 kW")]
+    rows = []
+    for g in sorted(gestori, key=lambda g: g.get("nome", "").lower()):
+        prezzi: dict[str, str] = {}
+        for r in g.get("tariffe", []):
+            cls = _tariff_class(r.get("tipo", ""))
+            if cls and cls not in prezzi:
+                prezzi[cls] = r.get("prezzo", "")
+        if prezzi:
+            rows.append((g, prezzi))
+    if not rows:
+        return ""
+
+    # Prezzo minimo per colonna (sul limite inferiore) per evidenziare il piu economico.
+    best: dict[str, float] = {}
+    for _, prezzi in rows:
+        for cls, prezzo in prezzi.items():
+            v = _price_lower_bound(prezzo)
+            if v is not None and (cls not in best or v < best[cls]):
+                best[cls] = v
+
+    head = "".join(f'<th scope="col">{escape(label)}</th>' for _, label in columns)
+    body = []
+    for g, prezzi in rows:
+        nome = escape(g.get("nome", ""))
+        sito = g.get("sito", "")
+        note = g.get("note", "")
+        name_html = (
+            f'<a href="{escape(sito)}" target="_blank" rel="noopener">{nome}</a>'
+            if sito else nome
+        )
+        if note:
+            name_html += ' <span class="tariff-compare-note" title="' + escape(note) + '">*</span>'
+        cells = []
+        for cls, _ in columns:
+            prezzo = prezzi.get(cls)
+            if not prezzo:
+                cells.append('<td class="num empty">—</td>')
+                continue
+            v = _price_lower_bound(prezzo)
+            is_best = v is not None and cls in best and v == best[cls]
+            cells.append(
+                f'<td class="num{" is-best" if is_best else ""}">{escape(prezzo)}</td>'
+            )
+        body.append(f'<tr><th scope="row">{name_html}</th>{"".join(cells)}</tr>')
+
+    aggiornamento = tariffe.get("ultimo_aggiornamento", "")
+    footer = (
+        '<p class="tariff-compare-foot">Prezzi pay-per-use dall\'app del gestore, '
+        "senza abbonamento; in grassetto verde il più basso per fascia. "
+        "L'asterisco segnala condizioni particolari (passa il mouse per leggerle). "
+        + (f"Aggiornato al {escape(format_date_it(aggiornamento))}." if aggiornamento else "")
+        + "</p>"
+    )
+    return (
+        '<section class="tariff-compare-section" id="listini">'
+        "<h2>Listini a confronto</h2>"
+        '<div class="tariff-compare-wrap">'
+        '<table class="tariff-compare">'
+        f'<thead><tr><th scope="col">Gestore</th>{head}</tr></thead>'
+        f'<tbody>{"".join(body)}</tbody>'
+        "</table></div>"
+        + footer
+        + "</section>"
+    )
+
+
 def build_ricarica_page(tariffe: dict, categories: list[str], base: str) -> str:
     prefix = "../"
     ricarica_tpl = load_template("ricarica.html")
@@ -651,6 +744,7 @@ def build_ricarica_page(tariffe: dict, categories: list[str], base: str) -> str:
     # E' pensata per essere visibile lato client (identifica l'app, non e' un segreto).
     ocm_key = os.environ.get("OPENCHARGEMAP_API_KEY", "").strip()
     content = render(ricarica_tpl, ROOT=prefix, TARIFFE_JSON=tariffe_json,
+                     TARIFFE_TABLE=render_tariffe_table(tariffe),
                      OCM_KEY=json.dumps(ocm_key))
     return page(
         base,
