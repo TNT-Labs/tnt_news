@@ -75,7 +75,12 @@
   }
 
   function initMap() {
-    var map = L.map("map", { scrollWheelZoom: true }).setView([LAT0, LON0], ZOOM0);
+    // Canvas al posto dell'SVG: piu' fluido con migliaia di pin e con
+    // "tolerance" il tap aggancia il pin anche a 12px di distanza,
+    // senza dover centrare il pallino al pixel.
+    var mapOpts = { scrollWheelZoom: true };
+    if (L.canvas) mapOpts.renderer = L.canvas({ tolerance: 12 });
+    var map = L.map("map", mapOpts).setView([LAT0, LON0], ZOOM0);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
@@ -242,7 +247,7 @@
       var cat = powerCategory(maxPowerKw(s));
       var col = colorForCategory(cat);
       var m = L.circleMarker([lat, lon], {
-        radius: 6, weight: 1,
+        radius: 8, weight: 1.5,
         color: col.stroke, fillColor: col.fill, fillOpacity: 0.85
       });
       m.on("click", function () { showDetails(s); });
