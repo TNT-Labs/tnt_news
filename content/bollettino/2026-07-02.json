@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-02",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o soleggiato su tutto il tragitto, nessuna precipitazione prevista, temperature in aumento da 19°C a Bergamo fino a 22°C a Carugate e San Donato, vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Prevalentemente soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 80,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 37}
+    ],
+    "incidents": [
+      {"where": "A51 dir. San Donato/A1, tra Svincolo Agrate B. e tratto Cologno Monzese–Lambrate", "desc": "Code a tratti per traffico intenso mattutino (fonte CCISS, coerente con il tempo di percorrenza più alto del normale su questo segmento)."}
+    ],
+    "debug": "Directions API OK su tutti e 3 i segmenti (traffico moderato solo sul segmento A51 Carugate-San Donato: 37 min con traffico contro 20 min base). CCISS RSS letto (100 item, 3 pertinenti su A51 zona Agrate/Cologno/Lambrate; nessun evento pertinente su A4 Bergamo-Agrate). Serravalle raggiungibile ma senza elenco eventi specifico per oggi. Luceverde e Autostrade per l'Italia senza contenuti utili (pagine JS-heavy / 404), come da comportamento noto."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (0 mm, probabilità 0%)",
+      "Cielo sereno o soleggiato ovunque, nessun rischio di nebbia, neve o temporali",
+      "Vento debole (max 5 km/h) e raffiche contenute (max 13 km/h)",
+      "Temperature ampiamente sopra i 7°C (19-22°C), visibilità ottima (16 km) e asfalto asciutto (0 mm nelle 3 ore precedenti a Bergamo)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Ricerca web (A4 / A51 — 2 luglio 2026)", "url": "https://www.google.com/search?q=A51+tangenziale+est+Milano+traffico"}
+  ]
+}
