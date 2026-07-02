@@ -414,7 +414,7 @@
     var badges = [];
     badges.push('<span class="badge badge-' + cat + '">' + (kw ? kw + " kW" : "potenza n.d.") + "</span>");
     badges.push('<span class="badge badge-neutral">' + catLabel(cat) + "</span>");
-    if (conn.length) badges.push('<span class="badge badge-neutral">' + conn.length + " connettori</span>");
+    if (conn.length) badges.push('<span class="badge badge-neutral">' + conn.length + (conn.length === 1 ? " connettore" : " connettori") + "</span>");
     parts.push('<div class="station-badges">' + badges.join("") + "</div>");
 
     var opLabel = op ? esc(op) + (opDeduced ? ' <span class="station-hint">(dedotto dal nome)</span>' : "") : "Sconosciuto";

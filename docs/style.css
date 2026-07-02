@@ -498,6 +498,47 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: .9rem;
 }
+.hist-dir {
+  color: var(--muted);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  min-width: 3.6rem;
+}
+.bollettino-alt { margin: .5rem 0 0; font-size: .95rem; }
+.incidents-debug {
+  margin: .8rem 0 0;
+  font-size: .88rem;
+  color: var(--muted);
+}
+.incidents-debug summary { cursor: pointer; }
+.incidents-debug p { margin: .4rem 0 0; }
+.trend-compare { margin: .4rem 0 1rem; font-size: 1.02rem; }
+.trend-compare strong { color: var(--accent); }
+.trend-figure { margin: 0; }
+.trend-figure figcaption {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: .4rem;
+}
+.trend-svg { width: 100%; height: auto; display: block; }
+.trend-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.trend-dot { fill: var(--muted); }
+.trend-dot-today { fill: var(--accent); }
+.trend-grid { stroke: var(--border); stroke-width: 1; stroke-dasharray: 4 4; }
+.trend-axis {
+  fill: var(--muted);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+}
+.bollettino-feed { margin-top: 1.2rem; font-size: .9rem; }
 
 /* Mobile */
 @media (max-width: 600px) {

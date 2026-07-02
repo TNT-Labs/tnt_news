@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "2026-06-17",
+  "ultimo_aggiornamento": "2026-07-02",
   "disclaimer": "Prezzi indicativi della app proprietaria del gestore (pay-per-use senza abbonamento), in €/kWh. I listini cambiano spesso e variano per zona, fascia oraria e profilo cliente. Verifica sempre sul sito o sull'app ufficiale prima di ricaricare.",
   "fonte": "Listini pubblici dei singoli CPO. Mantenuti manualmente in content/tariffe.json.",
   "gestori": [
@@ -9,11 +9,12 @@
       "prefixes": ["enel"],
       "sito": "https://www.enelxway.com/it/it",
       "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,64 €/kWh" },
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,86 €/kWh" },
-        { "tipo": "HPC (>150 kW)", "prezzo": "0,89 €/kWh" }
+        { "tipo": "AC (<=22 kW)", "prezzo": "0,69 €/kWh" },
+        { "tipo": "DC (50-150 kW)", "prezzo": "0,89 €/kWh" },
+        { "tipo": "HPC (>150 kW)", "prezzo": "0,99 €/kWh" }
       ],
-      "note": "Tariffa Pay Per Use. Gli abbonati Enel X Way hanno prezzi inferiori."
+      "note": "Tariffa Pay Per Use. Gli abbonati Enel X Way hanno prezzi inferiori.",
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "Plenitude On The Road",
@@ -44,18 +45,20 @@
       "sito": "https://www.dufercoenergia.it/",
       "tariffe": [
         { "tipo": "AC ≤ 22 kW",   "prezzo": "0,52–0,74 €/kWh" },
-        { "tipo": "DC 50–150 kW", "prezzo": "0,77 €/kWh" }
-      ]
+        { "tipo": "DC 50–150 kW", "prezzo": "0,79–0,89 €/kWh" }
+      ],
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "Neogy",
       "alias": ["Neogy", "Alperia", "Alperia Smart Mobility", "Neogy Alperia", "Neogy-Alperia", "Neogy S.r.l.", "Dolomiti Energia"],
       "sito": "https://www.neogy.it/",
       "tariffe": [
-        { "tipo": "AC (<=22 kW)", "prezzo": "0,60 €/kWh" },
-        { "tipo": "DC (50-150 kW)", "prezzo": "0,72 €/kWh" }
+        { "tipo": "AC (<=22 kW)", "prezzo": "0,67 €/kWh" },
+        { "tipo": "DC (50-150 kW)", "prezzo": "0,79 €/kWh" }
       ],
-      "note": "Operatore di Alperia / Dolomiti Energia."
+      "note": "Operatore di Alperia / Dolomiti Energia.",
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "Atlante",
@@ -75,7 +78,8 @@
         { "tipo": "AC ≤ 22 kW",   "prezzo": "0,60 €/kWh" },
         { "tipo": "DC 50–150 kW", "prezzo": "0,79–0,89 €/kWh" },
         { "tipo": "HPC > 150 kW", "prezzo": "0,65 €/kWh" }
-      ]
+      ],
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "IPlanet",
@@ -140,7 +144,8 @@
       "tariffe": [
         { "tipo": "HPC (>150 kW)", "prezzo": "0,30-0,60 €/kWh" }
       ],
-      "note": "Prezzo dinamico per stazione e fascia oraria. I veicoli non-Tesla pagano una tariffa più alta tramite app Tesla."
+      "note": "Prezzo dinamico per stazione e fascia oraria. I veicoli non-Tesla pagano una tariffa più alta tramite app Tesla.",
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "Ionity",
