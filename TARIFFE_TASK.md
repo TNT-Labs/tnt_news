@@ -15,6 +15,26 @@ Esegui da sola, senza supervisione, tutti i passi seguenti.
 - Se per qualunque motivo i prezzi non risultano cambiati, **non committare e
   non aprire alcuna PR**: la routine deve terminare silenziosamente.
 
+## 0.1 Pre-flight di rete (prima di tutto)
+
+Prima di iterare sui gestori, fai **un solo** `WebFetch` di prova su
+`https://www.enelxway.com/it/it`. Se fallisce con 403/407 o un errore di
+proxy, verifica con `curl -sS "$HTTPS_PROXY/__agentproxy/status"` se si
+tratta di una **policy di egress dell'ambiente** (es. "policy denial" sul
+CONNECT):
+
+- **Se è la policy di rete:** interrompi subito, senza provare gli altri
+  gestori (fallirebbero tutti allo stesso modo). Logga
+  `tariffe.json: bloccata dalla policy di rete dell'ambiente`.
+  Poi controlla la data più recente tra i `verificato_il` in
+  `content/tariffe.json`: se è più vecchia di **7 giorni**, apri (o aggiorna
+  se già esiste) una issue GitHub su `TNT-Labs/tnt_news` dal titolo
+  `Routine tariffe bloccata dalla policy di rete` che elenca i domini da
+  aggiungere all'allowlist (vedi "Requisiti di rete" in fondo). Così il
+  blocco non resta invisibile per settimane.
+- **Se è un errore transitorio** (timeout, 5xx): riprova una volta, poi
+  procedi normalmente con i gestori.
+
 ## 1. File di stato
 
 Il file canonico è `content/tariffe.json`. Schema (estratto):
@@ -182,4 +202,29 @@ GitHub Pages aggiornerà la pagina `/ricarica/` entro pochi minuti.
   raramente (mesi).
 - Se più di metà dei gestori risulta non verificabile in una stessa giornata,
   c'è probabilmente un problema di rete o di policy: **non committare nulla**
-  e lascia che la routine ritenti il giorno dopo.
+  e lascia che la routine ritenti il giorno dopo. (Il pre-flight della
+  sezione 0.1 dovrebbe intercettare questo caso prima di arrivare qui.)
+- Un gestore che ha **dismesso il servizio** pay-per-use (verificato su più
+  fonti) non va eliminato dalla routine: mantieni la voce con `tariffe: []`
+  e una `note` che spiega la dismissione, così le sue colonnine sulla mappa
+  mostrano la situazione reale invece di un prezzo obsoleto. La rimozione
+  definitiva è una decisione manuale.
+
+## Requisiti di rete dell'ambiente
+
+La routine funziona solo se la policy di egress dell'ambiente consente
+l'accesso HTTPS ai siti dei gestori. Domini da includere nell'allowlist
+(oltre a `api.openchargemap.io` usato dal front-end):
+
+```text
+www.enelxway.com      eniplenitude.com       www.a2a.eu
+www.dufercoenergia.it www.neogy.it           www.atlante.energy
+electripglobal.com    www.iplanet.it         www.freetox.it
+www.edison.it         www.repower.com        www.acea.it
+www.ewiva.com         www.tesla.com          ionity.eu
+www.porsche.com       smatrics.com           www.evway.net
+www.go-electra.com
+```
+
+Se un dominio cambia (campo `sito`/`listino_url` di `tariffe.json`),
+aggiorna anche questo elenco nello stesso commit.
