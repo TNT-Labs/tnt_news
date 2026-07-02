@@ -514,11 +514,13 @@
   }
 
   function renderTariff(t) {
-    var rows = t.tariffe.map(function (r) {
+    var tariffe = t.tariffe || [];
+    var rows = tariffe.map(function (r) {
       return "<tr><td>" + esc(r.tipo) + "</td><td>" + esc(r.prezzo) + "</td></tr>";
     }).join("");
     var out = '<h4 class="tariff-title">Listino · ' + esc(t.nome) + "</h4>";
-    out += '<table class="tariff-table"><tbody>' + rows + "</tbody></table>";
+    // Gestore senza listino diretto (es. servizio dismesso): solo nota e link.
+    if (rows) out += '<table class="tariff-table"><tbody>' + rows + "</tbody></table>";
     if (t.verificato_il) {
       out += '<p class="tariff-note">Verificato il ' + esc(t.verificato_il) + '.</p>';
     }

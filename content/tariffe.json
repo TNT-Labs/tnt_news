@@ -118,10 +118,10 @@
     {
       "nome": "ACEA",
       "alias": ["ACEA", "Acea", "Acea e-mobility", "Acea Innovation", "Acea Energia"],
-      "sito": "https://www.acea.it/e-mobility",
-      "tariffe": [
-        { "tipo": "DC 50–150 kW", "prezzo": "0,84–0,88 €/kWh" }
-      ]
+      "sito": "https://www.acea.it/",
+      "tariffe": [],
+      "note": "Servizio di ricarica ACEA e-mobility dismesso il 19 dicembre 2025: le colonnine restano attive ma solo in roaming tramite le app di altri operatori, con il listino dell'operatore usato.",
+      "verificato_il": "2026-07-02"
     },
     {
       "nome": "EWIVA",
