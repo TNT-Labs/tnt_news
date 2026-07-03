@@ -1,0 +1,47 @@
+{
+  "date": "2026-07-03",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o soleggiato su tutto il tragitto, nessuna precipitazione prevista, temperature da 21°C a Bergamo a 24°C verso San Donato, vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)", "cond": "Soleggiato", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 72,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 28},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Bergamo e Svincolo Dalmine, dir. Milano", "desc": "Perdita di carico accidentale dalle 06:58 (fonte CCISS)."},
+      {"where": "A51 zona Svincolo Agrate B., dir. A1 Milano-Napoli", "desc": "Coda per traffico intenso (fonte CCISS)."},
+      {"where": "A51 tra Cernusco sul Naviglio e Lambrate, dir. A1 Milano-Napoli", "desc": "Code a tratti per traffico intenso, coerente col tempo di percorrenza più alto del normale sul segmento A51 (fonte CCISS)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti (nessun ritardo notevole su A4 e viabilità ordinaria; sul segmento A51 Carugate-San Donato 30 min con traffico contro 20 min base, coerente con le code CCISS su Agrate B./Cernusco-Lambrate). CCISS RSS letto (100 item, 3 pertinenti su A4 Bergamo-Dalmine e A51 Agrate/Cernusco-Lambrate). Serravalle raggiungibile ma senza elenco eventi specifico per oggi. Luceverde senza contenuti utili (pagina JS-heavy); Autostrade per l'Italia 404 come da comportamento noto. Ricerca web coerente coi dati CCISS; le chiusure notturne A51 (Ponte Lambro, Paullo, C.A.M.M.) segnalate online erano terminate alle 05:00, non pertinenti alla finestra di transito odierna."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna precipitazione prevista sull'intero tragitto (0 mm, probabilità 0%)",
+      "Cielo sereno o soleggiato ovunque, nessun rischio di nebbia, neve o temporali",
+      "Vento debole (max 6 km/h) e raffiche contenute (max 14 km/h)",
+      "Temperature ampiamente sopra i 7°C (21-24°C), visibilità ottima (16 km) e asfalto asciutto (0 mm nelle 3 ore precedenti a Bergamo)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"},
+    {"name": "Ricerca web (A4 / A51 — 3 luglio 2026)", "url": "https://www.google.com/search?q=A51+tangenziale+est+Milano+traffico"}
+  ]
+}
