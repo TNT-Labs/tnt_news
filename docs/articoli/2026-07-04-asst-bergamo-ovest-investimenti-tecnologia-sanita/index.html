@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Sanità, oltre 11 milioni per ammodernare l&#x27;ASST Bergamo Ovest dentro il piano regionale da 95 milioni — TNT News</title>
+  <meta name="description" content="Regione Lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. All&#x27;ASST Bergamo Ovest, tra fondi PNRR e regionali, toccano più di 11 milioni per nuove TAC, risonanze e il potenziamento dell&#x27;ospedale di Treviglio-Caravaggio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-04-asst-bergamo-ovest-investimenti-tecnologia-sanita/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Sanità, oltre 11 milioni per ammodernare l&#x27;ASST Bergamo Ovest dentro il piano regionale da 95 milioni — TNT News">
+  <meta property="og:description" content="Regione Lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. All&#x27;ASST Bergamo Ovest, tra fondi PNRR e regionali, toccano più di 11 milioni per nuove TAC, risonanze e il potenziamento dell&#x27;ospedale di Treviglio-Caravaggio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-04-asst-bergamo-ovest-investimenti-tecnologia-sanita/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sanità, oltre 11 milioni per ammodernare l&#x27;ASST Bergamo Ovest dentro il piano regionale da 95 milioni — TNT News">
+  <meta name="twitter:description" content="Regione Lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. All&#x27;ASST Bergamo Ovest, tra fondi PNRR e regionali, toccano più di 11 milioni per nuove TAC, risonanze e il potenziamento dell&#x27;ospedale di Treviglio-Caravaggio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">ASST Bergamo Ovest</span><span class="tag">Treviglio</span><span class="tag">PNRR</span><span class="tag">sanità</span></div>
+    <h1>Sanità, oltre 11 milioni per ammodernare l&#x27;ASST Bergamo Ovest dentro il piano regionale da 95 milioni</h1>
+    <p class="article-summary">Regione Lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. All&#x27;ASST Bergamo Ovest, tra fondi PNRR e regionali, toccano più di 11 milioni per nuove TAC, risonanze e il potenziamento dell&#x27;ospedale di Treviglio-Caravaggio.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-04">4 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La Giunta di <strong>Regione Lombardia</strong>, su proposta dell'assessore al Welfare <strong>Guido Bertolaso</strong>, ha approvato uno stanziamento complessivo di oltre <strong>95,4 milioni di euro</strong> destinato alla sicurezza e all'ammodernamento tecnologico degli ospedali lombardi. Nell'ambito di questo piano, la <strong>ASST Bergamo Ovest</strong> ha presentato un proprio programma di investimenti per oltre <strong>11 milioni di euro</strong>, tra fondi PNRR e risorse regionali, destinato in gran parte all'ospedale di <strong>Treviglio-Caravaggio</strong> e al rafforzamento dei servizi territoriali della provincia di Bergamo.</p>
+
+<h2>Come sono ripartiti i fondi regionali</h2>
+
+<p>Lo stanziamento regionale, pari nel dettaglio a circa 95,49 milioni di euro, è suddiviso in sei linee di intervento: dagli adeguamenti strutturali urgenti alla sostituzione dei contratti di noleggio delle apparecchiature con acquisti diretti, passando per la digitalizzazione, la cybersicurezza e lo sviluppo della telemedicina e della "digital pathology". La quota più consistente, oltre 45 milioni di euro, è riservata a interventi strutturali indifferibili, di cui 16 milioni destinati ad avviare la progettazione del nuovo ospedale di Desenzano del Garda.</p>
+
+<figure>
+  <svg role="img" aria-label="Grafico a barre orizzontali con la ripartizione dei 95,49 milioni di euro stanziati da Regione Lombardia: interventi strutturali urgenti 45,42 milioni, ammodernamento hardware e informatico 29,92 milioni, apparecchiature elettromedicali obsolete 10,16 milioni, digital pathology 4,31 milioni, sistemi informativi aziendali 3 milioni, sostituzione noleggi 2,65 milioni." viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="640" height="320" fill="#f8f9fa" rx="8"/>
+    <text x="320" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">Fondi regionali per ospedali sicuri e tecnologici (95,49 mln €)</text>
+
+    <text x="230" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">0</text>
+    <text x="306" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">10</text>
+    <text x="382" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">20</text>
+    <text x="458" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">30</text>
+    <text x="534" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">40</text>
+    <text x="610" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">50 mln €</text>
+
+    <line x1="230" y1="48" x2="230" y2="286" stroke="#ddd" stroke-width="1"/>
+    <line x1="306" y1="48" x2="306" y2="286" stroke="#ddd" stroke-width="1"/>
+    <line x1="382" y1="48" x2="382" y2="286" stroke="#ddd" stroke-width="1"/>
+    <line x1="458" y1="48" x2="458" y2="286" stroke="#ddd" stroke-width="1"/>
+    <line x1="534" y1="48" x2="534" y2="286" stroke="#ddd" stroke-width="1"/>
+    <line x1="610" y1="48" x2="610" y2="286" stroke="#ddd" stroke-width="1"/>
+
+    <text x="220" y="68" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Interventi strutturali urgenti</text>
+    <rect x="230" y="54" width="345" height="22" fill="#2c6fad" rx="3"/>
+    <text x="581" y="70" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2c6fad">45,42</text>
+
+    <text x="220" y="100" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Hardware e parco informatico</text>
+    <rect x="230" y="86" width="227" height="22" fill="#3d84c4" rx="3"/>
+    <text x="463" y="102" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3d84c4">29,92</text>
+
+    <text x="220" y="132" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Apparecchi elettromedicali</text>
+    <rect x="230" y="118" width="77" height="22" fill="#6ba3d6" rx="3"/>
+    <text x="313" y="134" font-family="sans-serif" font-size="12" font-weight="bold" fill="#6ba3d6">10,16</text>
+
+    <text x="220" y="164" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Digital pathology</text>
+    <rect x="230" y="150" width="33" height="22" fill="#27ae60" rx="3"/>
+    <text x="269" y="166" font-family="sans-serif" font-size="12" font-weight="bold" fill="#27ae60">4,31</text>
+
+    <text x="220" y="196" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Sistemi informativi aziendali</text>
+    <rect x="230" y="182" width="23" height="22" fill="#e67e22" rx="3"/>
+    <text x="259" y="198" font-family="sans-serif" font-size="12" font-weight="bold" fill="#e67e22">3,00</text>
+
+    <text x="220" y="228" text-anchor="end" font-family="sans-serif" font-size="11" fill="#333">Sostituzione noleggi</text>
+    <rect x="230" y="214" width="20" height="22" fill="#c0392b" rx="3"/>
+    <text x="256" y="230" font-family="sans-serif" font-size="12" font-weight="bold" fill="#c0392b">2,65</text>
+
+    <text x="320" y="272" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Fonte: Regione Lombardia, delibera di Giunta su proposta dell'assessore Bertolaso (Lombardia Notizie, luglio 2026)</text>
+  </svg>
+  <figcaption>Ripartizione dei 95,49 milioni di euro stanziati da Regione Lombardia per sicurezza e tecnologia negli ospedali lombardi. Valori in milioni di euro. Fonte: Lombardia Notizie.</figcaption>
+</figure>
+
+<h2>Gli interventi specifici a Bergamo Ovest</h2>
+
+<p>Il piano dell'ASST Bergamo Ovest, relativo al biennio 2024-2026, prevede all'ospedale di Treviglio-Caravaggio la sostituzione di apparecchiature ormai obsolete con sistemi di ultima generazione: nuove <strong>TAC</strong>, una <strong>risonanza magnetica da 1,5 Tesla</strong> e impianti di radiologia digitale. Sono inoltre previsti un <strong>acceleratore lineare</strong> per la Radioterapia, una Gamma Camera/CT per la Medicina Nucleare, un <strong>angiografo digitale</strong> per l'Emodinamica e un mammografo con tomosintesi, mentre nuovi ecografi sono stati distribuiti anche al presidio di Romano di Lombardia.</p>
+
+<h3>Pronto soccorso, sale operatorie e territorio</h3>
+
+<p>Circa <strong>590 mila euro</strong> sono destinati al potenziamento di terapia intensiva, sub-intensiva e pronto soccorso, mentre le sale operatorie saranno dotate di lampade scialitiche, elettrobisturi e sistemi di anestesia più moderni. Sul fronte territoriale è previsto il potenziamento delle Case e degli Ospedali di Comunità e l'attivazione di oltre <strong>330 postazioni di telemedicina</strong> in ambulatori di medici di famiglia, pediatri e presidi dell'azienda.</p>
+
+<p>A questi fondi si aggiungono altri <strong>3.023.010 euro</strong> più recenti, ripartiti tra informatica aziendale (1,1 milioni), gruppi frigoriferi (1,2 milioni), adeguamento della camera mortuaria (200 mila euro) e messa a norma antincendio (500 mila euro).</p>
+
+<blockquote>Il commissario straordinario dell'ASST Bergamo Ovest, <strong>Rosetta Gagliardo</strong>, ha parlato di un «radicale ammodernamento delle dotazioni tecnologiche», definendolo funzionale a «garantire qualità e sicurezza» nei percorsi di cura ospedalieri e territoriali.</blockquote>
+
+<p>Gli interventi, curati dall'Ingegneria Clinica dell'azienda, si inseriscono nella più ampia strategia regionale annunciata dall'assessore Bertolaso, che punta a ridurre nel tempo i costi dei noleggi delle apparecchiature a favore dell'acquisto diretto e ad accelerare la digitalizzazione del sistema sanitario lombardo.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/04/sanita-piu-di-95-milioni-per-sicurezza-e-tecnologia-allasst-bergamo-ovest-investimenti-per-oltre-11-milioni/906708/" rel="noopener" target="_blank">BergamoNews – Sanità, più di 95 milioni per sicurezza e tecnologia. All&#x27;Asst Bergamo Ovest investimenti per oltre 11 milioni (4 luglio 2026)</a></li><li><a href="https://www.lombardianotizie.online/sanita-ospedali-digitalizzazione/" rel="noopener" target="_blank">Lombardia Notizie – La Lombardia stanzia 95 milioni per ospedali moderni e tecnologici</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="autostrada bergamo-treviglio: il sondaggio ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati un sondaggio ipsos commissionato da autostrade bergamasche e presentato il 2 luglio in camera di commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada bergamo-treviglio. otto degli undici comuni attraversati dal tracciato respingono però la lettura dei dati. trasporti bergamo treviglio autostrada ipsos sindaci" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-03-sondaggio-autostrada-bergamo-treviglio-sindaci/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Autostrada Bergamo-Treviglio: il sondaggio Ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati</h2><p class="card-summary">Un sondaggio Ipsos commissionato da Autostrade Bergamasche e presentato il 2 luglio in Camera di Commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada Bergamo-Treviglio. Otto degli undici Comuni attraversati dal tracciato respingono però la lettura dei dati.</p><p class="card-meta">3 luglio 2026</p></div></a></article><article class="card" data-search="treviglio approva il masterplan mezzaluna: il 56% dell&#x27;area andrà ai data center il consiglio comunale di treviglio ha approvato il masterplan per l&#x27;area mezzaluna, un comparto di 67,7 ettari tra la ferrovia milano-venezia e la brebemi: più della metà della superficie edificabile sarà destinata a data center. sei voti contrari dal partito democratico. economia bergamo treviglio data center urbanistica" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-02-masterplan-mezzaluna-treviglio-data-center/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Treviglio approva il Masterplan Mezzaluna: il 56% dell&#x27;area andrà ai data center</h2><p class="card-summary">Il consiglio comunale di Treviglio ha approvato il Masterplan per l&#x27;area Mezzaluna, un comparto di 67,7 ettari tra la ferrovia Milano-Venezia e la Brebemi: più della metà della superficie edificabile sarà destinata a data center. Sei voti contrari dal Partito Democratico.</p><p class="card-meta">2 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
