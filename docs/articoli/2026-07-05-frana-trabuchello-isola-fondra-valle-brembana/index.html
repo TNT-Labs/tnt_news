@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Nubifragio in alta Val Brembana: una frana blocca la provinciale a Trabuchello — TNT News</title>
+  <meta name="description" content="Un violento nubifragio ha provocato una frana sulla provinciale per Branzi, a Trabuchello di Isola di Fondra, isolando temporaneamente l&#x27;alta Val Brembana. Nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra Valle Brembana e Valle Seriana.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-05-frana-trabuchello-isola-fondra-valle-brembana/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Nubifragio in alta Val Brembana: una frana blocca la provinciale a Trabuchello — TNT News">
+  <meta property="og:description" content="Un violento nubifragio ha provocato una frana sulla provinciale per Branzi, a Trabuchello di Isola di Fondra, isolando temporaneamente l&#x27;alta Val Brembana. Nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra Valle Brembana e Valle Seriana.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-05-frana-trabuchello-isola-fondra-valle-brembana/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nubifragio in alta Val Brembana: una frana blocca la provinciale a Trabuchello — TNT News">
+  <meta name="twitter:description" content="Un violento nubifragio ha provocato una frana sulla provinciale per Branzi, a Trabuchello di Isola di Fondra, isolando temporaneamente l&#x27;alta Val Brembana. Nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra Valle Brembana e Valle Seriana.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Valle Brembana</span><span class="tag">maltempo</span><span class="tag">frana</span><span class="tag">Isola di Fondra</span></div>
+    <h1>Nubifragio in alta Val Brembana: una frana blocca la provinciale a Trabuchello</h1>
+    <p class="article-summary">Un violento nubifragio ha provocato una frana sulla provinciale per Branzi, a Trabuchello di Isola di Fondra, isolando temporaneamente l&#x27;alta Val Brembana. Nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra Valle Brembana e Valle Seriana.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-05">5 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Un violento nubifragio si è abbattuto lo scorso mercoledì, 1° luglio, sull'alta Val Brembana, provocando verso le 14:00 una frana di fango e detriti sulla ex strada provinciale 2, in territorio di Isola di Fondra. Il fronte franoso si è staccato nella località di Trabuchello, tra il municipio e un campeggio, invadendo la carreggiata e interrompendo il collegamento verso Branzi e gli altri comuni dell'alta valle. Non si sono registrati feriti.</p>
+
+<h2>La frana e il primo intervento</h2>
+
+<p>Secondo la ricostruzione di BergamoNews, il forte acquazzone pomeridiano ha smosso il versante sopra la strada, facendo scivolare fango e detriti sul manto stradale poche decine di metri dopo il municipio di Isola di Fondra. La provinciale è stata chiusa al traffico in via precauzionale e sul posto sono intervenuti immediatamente mezzi meccanici per rimuovere il materiale franato. Il comando dei vigili del fuoco di Bergamo ha precisato che nessuna persona risultava coinvolta nel cedimento del versante.</p>
+
+<h2>Una giornata di maltempo diffuso</h2>
+
+<p>L'episodio di Trabuchello non è stato isolato. Il comando provinciale dei vigili del fuoco di Bergamo ha impiegato cinque squadre, tra sede centrale e distaccamenti, e ha gestito complessivamente una ventina di richieste di soccorso nell'arco del pomeriggio tra Valle Brembana e Valle Seriana, per cadute di alberi, ulteriori smottamenti, allagamenti e danni a tetti provocati dal maltempo. Il fenomeno, secondo quanto riportato da Il Giorno, ha investito quello stesso giorno anche il resto della Lombardia: nel Pavese e in Lomellina si sono registrati alberi caduti e allagamenti, compreso quello dello spogliatoio maschile dell'ospedale civile di Voghera, a causa di raffiche di vento e temporali diffusi.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Cronologia degli eventi del 1° luglio 2026 in alta Val Brembana: dal nubifragio alla gestione degli interventi dei vigili del fuoco" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
+
+    <rect width="640" height="300" fill="#f4f6f9" rx="12"/>
+
+    <text x="320" y="26" text-anchor="middle" fill="#1a2a3a" font-size="13" font-weight="bold">Nubifragio in Val Brembana — 1° luglio 2026</text>
+    <text x="320" y="42" text-anchor="middle" fill="#4a5a6a" font-size="10">Cronologia del pomeriggio, Isola di Fondra e dintorni</text>
+
+    <line x1="60" y1="150" x2="580" y2="150" stroke="#aaa" stroke-width="2"/>
+
+    <circle cx="110" cy="150" r="10" fill="#2980b9"/>
+    <text x="110" y="120" text-anchor="middle" fill="#1a5a80" font-size="10" font-weight="bold">~14:00</text>
+    <text x="110" y="134" text-anchor="middle" fill="#1a3a5a" font-size="9">Nubifragio e frana</text>
+    <rect x="35" y="170" width="150" height="58" fill="#eaf3fb" rx="7" stroke="#2980b9" stroke-width="1"/>
+    <text x="110" y="186" text-anchor="middle" fill="#1a5a80" font-size="9" font-weight="bold">Trabuchello</text>
+    <text x="110" y="199" text-anchor="middle" fill="#1a3a5a" font-size="8">Fango e detriti sulla</text>
+    <text x="110" y="211" text-anchor="middle" fill="#1a3a5a" font-size="8">SP2 per Branzi</text>
+    <text x="110" y="223" text-anchor="middle" fill="#1a3a5a" font-size="8">Isola di Fondra</text>
+
+    <circle cx="320" cy="150" r="10" fill="#c0392b"/>
+    <text x="320" y="120" text-anchor="middle" fill="#8a2a1a" font-size="10" font-weight="bold">Subito dopo</text>
+    <text x="320" y="134" text-anchor="middle" fill="#5a2a2a" font-size="9">Strada chiusa</text>
+    <rect x="245" y="170" width="150" height="58" fill="#fdecea" rx="7" stroke="#c0392b" stroke-width="1"/>
+    <text x="320" y="186" text-anchor="middle" fill="#8a2a1a" font-size="9" font-weight="bold">Nessun ferito</text>
+    <text x="320" y="199" text-anchor="middle" fill="#5a2a2a" font-size="8">Chiusura precauzionale</text>
+    <text x="320" y="211" text-anchor="middle" fill="#5a2a2a" font-size="8">Mezzi meccanici al lavoro</text>
+    <text x="320" y="223" text-anchor="middle" fill="#5a2a2a" font-size="8">per rimuovere i detriti</text>
+
+    <circle cx="530" cy="150" r="10" fill="#e67e22"/>
+    <text x="530" y="120" text-anchor="middle" fill="#a05a0a" font-size="10" font-weight="bold">Pomeriggio</text>
+    <text x="530" y="134" text-anchor="middle" fill="#6a4a1a" font-size="9">Bilancio provinciale</text>
+    <rect x="455" y="170" width="150" height="58" fill="#fef3e5" rx="7" stroke="#e67e22" stroke-width="1"/>
+    <text x="530" y="186" text-anchor="middle" fill="#a05a0a" font-size="9" font-weight="bold">~20 interventi</text>
+    <text x="530" y="199" text-anchor="middle" fill="#6a4a1a" font-size="8">5 squadre VVF Bergamo</text>
+    <text x="530" y="211" text-anchor="middle" fill="#6a4a1a" font-size="8">Val Brembana e Val Seriana</text>
+    <text x="530" y="223" text-anchor="middle" fill="#6a4a1a" font-size="8">alberi, frane, allagamenti</text>
+
+    <text x="320" y="260" text-anchor="middle" fill="#888" font-size="8">Orari indicativi. Fonte: BergamoNews, 1° luglio 2026</text>
+
+  </svg>
+  <figcaption>Cronologia schematica del pomeriggio di maltempo del 1° luglio 2026 in alta Val Brembana, dalla frana di Trabuchello al bilancio complessivo degli interventi dei vigili del fuoco. Orari indicativi. Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>Un territorio esposto ai fenomeni estivi intensi</h2>
+
+<p>L'alta Val Brembana, con i suoi versanti ripidi e le strade provinciali che corrono a mezza costa lungo il fondovalle, è particolarmente vulnerabile ai nubifragi estivi: bastano piogge concentrate in poche ore per smuovere il terreno e interrompere gli unici collegamenti viabilistici verso comuni come Branzi, Carona, Valleve e Foppolo. Episodi come quello di Trabuchello ricordano l'importanza della manutenzione dei versanti e della tempestività degli interventi di protezione civile per limitare i disagi alla popolazione residente e ai turisti presenti in questo periodo dell'anno.</p>
+
+<p>Al momento della diffusione della notizia, nel primo pomeriggio del 1° luglio, i vigili del fuoco non segnalavano ulteriori richieste di intervento in coda, a conferma di una situazione tornata sotto controllo dopo le ore più critiche del nubifragio.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/01/maltempo-in-provincia-a-trabuchello-una-frana-blocca-la-provinciale/906093" rel="noopener" target="_blank">BergamoNews – Maltempo in provincia, a Trabuchello una frana blocca la provinciale</a></li><li><a href="https://www.ilgiorno.it/cronaca/maltempo-lombardia-bu15c2fm" rel="noopener" target="_blank">Il Giorno – Maltempo in Lombardia, frana in Alta Val Brembana e alberi caduti nel Pavese</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra comuni e aeroporto dopo la morte dell&#x27;istruttore daniel taino nel crollo del cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa. cronaca bergamo valbrembo aeroporto sicurezza volo" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-29-valbrembo-tavolo-permanente-aeroporto/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto</h2><p class="card-summary">Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.</p><p class="card-meta">29 giugno 2026</p></div></a></article><article class="card" data-search="guardia di finanza di bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi il comando provinciale di bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco. cronaca bergamo guardia di finanza evasione fiscale sicurezza economica" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-27-guardia-di-finanza-bergamo-bilancio-operativo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi</h2><p class="card-summary">Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.</p><p class="card-meta">27 giugno 2026</p></div></a></article><article class="card" data-search="terrorismo, quattro anni al pizzaiolo di bergamo che aveva nel mirino la basilica di sant&#x27;alessandro il tribunale di brescia ha condannato a quattro anni di reclusione saied el naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. l&#x27;uomo lavorava come pizzaiolo in centro a bergamo e aveva diffuso online materiale jihadista prendendo di mira la basilica di sant&#x27;alessandro. cronaca bergamo terrorismo condanna basilica sant&#x27;alessandro" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-24-condanna-terrorismo-pizzaiolo-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Terrorismo, quattro anni al pizzaiolo di Bergamo che aveva nel mirino la Basilica di Sant&#x27;Alessandro</h2><p class="card-summary">Il Tribunale di Brescia ha condannato a quattro anni di reclusione Saied El Naijar, 22 anni, di origine egiziana, per associazione con finalità di terrorismo. L&#x27;uomo lavorava come pizzaiolo in centro a Bergamo e aveva diffuso online materiale jihadista prendendo di mira la Basilica di Sant&#x27;Alessandro.</p><p class="card-meta">24 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
