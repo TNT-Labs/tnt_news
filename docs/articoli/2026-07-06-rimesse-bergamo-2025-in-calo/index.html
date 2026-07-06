@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Rimesse dei lavoratori stranieri da Bergamo: nel 2025 scendono a 151,4 milioni di euro — TNT News</title>
+  <meta name="description" content="Secondo l&#x27;analisi della Fondazione Leone Moressa su dati Banca d&#x27;Italia, nel 2025 la provincia di Bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. India, Marocco e Senegal restano le destinazioni principali.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-06-rimesse-bergamo-2025-in-calo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Rimesse dei lavoratori stranieri da Bergamo: nel 2025 scendono a 151,4 milioni di euro — TNT News">
+  <meta property="og:description" content="Secondo l&#x27;analisi della Fondazione Leone Moressa su dati Banca d&#x27;Italia, nel 2025 la provincia di Bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. India, Marocco e Senegal restano le destinazioni principali.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-06-rimesse-bergamo-2025-in-calo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rimesse dei lavoratori stranieri da Bergamo: nel 2025 scendono a 151,4 milioni di euro — TNT News">
+  <meta name="twitter:description" content="Secondo l&#x27;analisi della Fondazione Leone Moressa su dati Banca d&#x27;Italia, nel 2025 la provincia di Bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. India, Marocco e Senegal restano le destinazioni principali.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">rimesse</span><span class="tag">immigrazione</span><span class="tag">Fondazione Leone Moressa</span><span class="tag">lavoro</span></div>
+    <h1>Rimesse dei lavoratori stranieri da Bergamo: nel 2025 scendono a 151,4 milioni di euro</h1>
+    <p class="article-summary">Secondo l&#x27;analisi della Fondazione Leone Moressa su dati Banca d&#x27;Italia, nel 2025 la provincia di Bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. India, Marocco e Senegal restano le destinazioni principali.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-06">6 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Nel 2025 i lavoratori stranieri residenti in provincia di Bergamo hanno inviato ai
+propri Paesi d'origine <strong>151,4 milioni di euro</strong>, in calo del 2,4% rispetto
+ai 152,9 milioni del 2024. È il terzo anno consecutivo di flessione dopo il massimo
+storico del 2022 (167,9 milioni). Lo rileva la <strong>Fondazione Leone Moressa</strong>
+nella sua elaborazione dei dati della Banca d'Italia, diffusa in questi giorni e
+ripresa dalla stampa locale.</p>
+
+<h2>Un calo che segue un ventennio di crescita</h2>
+<p>Il dato va letto in prospettiva storica: nel 2005 le rimesse dalla Bergamasca
+valevano 56,1 milioni di euro, quasi un terzo di quelle attuali. La crescita è
+proseguita quasi ininterrotta fino al 2022, complice l'aumento della popolazione
+straniera residente e l'ingresso di nuove comunità. Da tre anni, però, la tendenza
+si è invertita: la provincia orobica frena più della media lombarda, mentre a
+livello nazionale le rimesse dall'Italia sono invece salite a 8,6 miliardi di euro,
+in crescita del 3,9% sul 2024. La Fondazione Leone Moressa segnala che il costo
+della vita più alto e la scelta di alcuni lavoratori stranieri di investire
+direttamente in Italia, ad esempio nell'acquisto della casa, possono aver
+contribuito al rallentamento locale.</p>
+
+<h2>Bergamo terza in Lombardia, undicesima in Italia</h2>
+<p>Con i suoi 151,4 milioni di euro, Bergamo si colloca all'11° posto tra le
+province italiane per volume di rimesse e al 3° posto in Lombardia, alle spalle
+di Milano (944 milioni) e Brescia. Il territorio bergamasco pesa per l'8,1% sul
+totale regionale. A livello nazionale, il Bangladesh resta il primo Paese
+beneficiario delle rimesse italiane, con 1,7 miliardi di euro pari a circa un
+quinto del totale.</p>
+
+<h2>India, Marocco e Senegal in testa dalla Bergamasca</h2>
+<p>Guardando alle destinazioni dei trasferimenti in uscita dalla provincia,
+l'India si conferma il primo Paese con 23,2 milioni di euro, seguita da Marocco
+(20 milioni) e Senegal (14,8 milioni). Il Pakistan, quarto con 13,5 milioni, è
+il Paese che ha registrato la contrazione più marcata rispetto al 2024 (-5
+milioni), mentre risultano in crescita le rimesse verso Egitto (+22%) e Perù
+(+19%), pur trattandosi di importi più contenuti.</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre: rimesse dalla provincia di Bergamo per Paese di destinazione nel 2025, in milioni di euro. India 23,2; Marocco 20; Senegal 14,8; Pakistan 13,5; Bolivia 8.">
+    <text x="320" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Rimesse da Bergamo per Paese (2025, milioni di €)</text>
+    <line x1="120" y1="280" x2="600" y2="280" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    <g font-size="13" fill="currentColor">
+      <rect x="140" y="280" width="46" height="0" fill="none"/>
+      <rect x="140" y="80" width="46" height="200" fill="#3b6ea5"/>
+      <text x="163" y="70" text-anchor="middle">23,2</text>
+      <text x="163" y="298" text-anchor="middle">India</text>
+
+      <rect x="230" y="107" width="46" height="173" fill="#4d8bc9"/>
+      <text x="253" y="97" text-anchor="middle">20</text>
+      <text x="253" y="298" text-anchor="middle">Marocco</text>
+
+      <rect x="320" y="152" width="46" height="128" fill="#6fa8d8"/>
+      <text x="343" y="142" text-anchor="middle">14,8</text>
+      <text x="343" y="298" text-anchor="middle">Senegal</text>
+
+      <rect x="410" y="164" width="46" height="116" fill="#8fc0e6"/>
+      <text x="433" y="154" text-anchor="middle">13,5</text>
+      <text x="433" y="298" text-anchor="middle">Pakistan</text>
+
+      <rect x="500" y="211" width="46" height="69" fill="#b3d6ee"/>
+      <text x="523" y="201" text-anchor="middle">8</text>
+      <text x="523" y="298" text-anchor="middle">Bolivia</text>
+    </g>
+  </svg>
+  <figcaption>Principali Paesi di destinazione delle rimesse dalla provincia di
+  Bergamo nel 2025, in milioni di euro. Fonte: Fondazione Leone Moressa su dati
+  Banca d'Italia, ripresi da BergamoNews (6 luglio 2026).</figcaption>
+</figure>
+
+<h2>Un fenomeno strutturale del territorio</h2>
+<p>Al di là dei numeri congiunturali, le rimesse restano un indicatore della
+presenza stabile di comunità straniere nell'economia bergamasca, radicate
+soprattutto nei settori dell'edilizia, della manifattura e dei servizi alla
+persona. Il calo degli ultimi tre anni, spiegano gli analisti della Fondazione
+Leone Moressa, non implica necessariamente un impoverimento dei lavoratori
+coinvolti: può riflettere percorsi di stabilizzazione economica e sociale che
+portano a trattenere e investire più risorse sul territorio di residenza,
+anziché inviarle all'estero.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/06/da-bergamo-ai-paesi-dorigine-nel-2025-inviati-in-patria-151-milioni-di-euro-sul-podio-india-marocco-e-senegal/906928/" rel="noopener" target="_blank">BergamoNews – Da Bergamo ai Paesi d&#x27;origine, nel 2025 inviati in patria 151 milioni di euro: sul podio India, Marocco e Senegal (6 luglio 2026)</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/da-bergamo-ai-paesi-dorigine-nel-2025-trasferiti-1514-milioni-o_3873897_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Da Bergamo ai Paesi d&#x27;origine: nel 2025 trasferiti 151,4 milioni (6 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="treviglio approva il masterplan mezzaluna: il 56% dell&#x27;area andrà ai data center il consiglio comunale di treviglio ha approvato il masterplan per l&#x27;area mezzaluna, un comparto di 67,7 ettari tra la ferrovia milano-venezia e la brebemi: più della metà della superficie edificabile sarà destinata a data center. sei voti contrari dal partito democratico. economia bergamo treviglio data center urbanistica" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-02-masterplan-mezzaluna-treviglio-data-center/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Treviglio approva il Masterplan Mezzaluna: il 56% dell&#x27;area andrà ai data center</h2><p class="card-summary">Il consiglio comunale di Treviglio ha approvato il Masterplan per l&#x27;area Mezzaluna, un comparto di 67,7 ettari tra la ferrovia Milano-Venezia e la Brebemi: più della metà della superficie edificabile sarà destinata a data center. Sei voti contrari dal Partito Democratico.</p><p class="card-meta">2 luglio 2026</p></div></a></article><article class="card" data-search="saldi estivi al via il 4 luglio: a bergamo atteso un giro d&#x27;affari di 59 milioni sabato 4 luglio partono i saldi estivi in lombardia. a bergamo confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare. economia bergamo saldi estivi commercio confcommercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-06-30-saldi-estivi-bergamo-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi al via il 4 luglio: a Bergamo atteso un giro d&#x27;affari di 59 milioni</h2><p class="card-summary">Sabato 4 luglio partono i saldi estivi in Lombardia. A Bergamo Confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare.</p><p class="card-meta">30 giugno 2026</p></div></a></article><article class="card" data-search="a2a: nel 2025 investiti 41 milioni nel bergamasco, generato valore per 160 milioni il bilancio di sostenibilità territoriale 2025 del gruppo energetico certifica 41 milioni di euro investiti nella provincia di bergamo. rifiuti, teleriscaldamento e efficienza energetica degli edifici pubblici i settori principali, con un valore complessivo generato per il territorio di 160,5 milioni. economia bergamo a2a energia sostenibilità" data-cat="Economia"><a class="card-link" href="../../articoli/2026-06-19-a2a-bilancio-sostenibilita-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">A2A: nel 2025 investiti 41 milioni nel bergamasco, generato valore per 160 milioni</h2><p class="card-summary">Il bilancio di sostenibilità territoriale 2025 del gruppo energetico certifica 41 milioni di euro investiti nella provincia di Bergamo. Rifiuti, teleriscaldamento e efficienza energetica degli edifici pubblici i settori principali, con un valore complessivo generato per il territorio di 160,5 milioni.</p><p class="card-meta">19 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
