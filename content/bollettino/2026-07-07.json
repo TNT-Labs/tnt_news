@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-07",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, nessuna pioggia prevista, temperature da 21°C a Bergamo a 25°C verso San Donato, vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",   "cond": "Soleggiato", "temp_c": 25, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)","cond": "Soleggiato", "temp_c": 25, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 85,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A51 tra Svincolo SP3 Brugherio/Cologno M. Nord e Svincolo Lambrate, dir. San Donato", "desc": "Code a tratti per traffico intenso (fonte CCISS), coerente col tempo più alto del normale sul segmento A51."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti (32+14+39 min; il segmento A51 Carugate-San Donato segna 39 min con traffico contro ~20 min senza, coerente con le code CCISS su Cologno-Lambrate). CCISS RSS letto (oltre 100 item, 2 pertinenti ma sovrapposti: A51 tra Tangenziale Nord/Cologno M. Nord e Svincolo Lambrate, dir. San Donato; nessun evento pertinente sul tratto A4 Bergamo-Agrate oggi). Milano Serravalle raggiunta ma senza elenco eventi leggibile (pagina JS-rendered). Luceverde senza contenuti utili (pagina JS-heavy); Autostrade per l'Italia 404 come da comportamento noto. Ricerca web conferma solo chiusure notturne concluse alle 05:00 (A4 Trezzo, A51 Carugate-Agrate B.), non più attive all'orario di transito odierno (07:30-08:45); nessun incidente A4 Capriate-Trezzo-Agrate segnalato oggi."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Cielo sereno, nessuna pioggia prevista sull'intero tragitto",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza",
+      "Temperature comprese tra 21°C e 25°C, ben sopra la soglia",
+      "Vento debole (3-6 km/h) e raffiche contenute (max 13 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
