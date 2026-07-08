@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-08",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da nuvoloso a parzialmente soleggiato, nessuna pioggia prevista, temperature in aumento da 22°C a Bergamo a 25°C verso San Donato, vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Prevalentemente nuvoloso", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Parzialmente soleggiato",  "temp_c": 25, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "O"},
+      {"name": "San Donato (08:45)",  "cond": "Parzialmente soleggiato",  "temp_c": 25, "precip_mm": 0.0, "wind_kmh": 8, "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 80,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 37}
+    ],
+    "incidents": [
+      {"where": "A51 Svincolo Lambrate, direzione A1/San Donato", "desc": "Coda a tratti per traffico intenso (fonte CCISS, segnalata alle 04:51); possibile miglioramento entro l'orario di transito (~08:25), effetto già incorporato nella stima Directions."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti (29+14+37 min). CCISS RSS letto (4 item pertinenti ad A4/A51 nelle ultime ore): 2 su A4 tra Tangenziale Est Milano e Cormano/Barriera Milano Est, fuori dalla tratta Bergamo-Agrate e in direzione Torino/Brescia, scartati; su A51 1 evento a Svincolo Agrate B. (a nord di Carugate, fuori tratta), scartato, e 1 evento a Svincolo Lambrate direzione A1 (dentro Carugate-San Donato, direzione andata), mantenuto. Milano Serravalle raggiunta ma senza elenco eventi specifico. Luceverde e Autostrade per l'Italia (traffico-in-tempo-reale, 404) senza contenuto utile. Ricerca web poco attendibile: una fonte riportava un incidente Capriate-Trezzo con orario 14:53 odierno, nel futuro rispetto alle 07:08 di esecuzione — scartato come probabile confusione tra articoli di date diverse; nessuna chiusura diurna confermata rilevante per oggi su A4 Bergamo-Agrate o A51 Carugate-San Donato."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature elevate (22-25°C), ben sopra la soglia dei 7°C",
+      "Vento debole, raffiche massime 16 km/h"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
