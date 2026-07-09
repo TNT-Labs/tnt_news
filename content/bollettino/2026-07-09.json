@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-09",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature già elevate fin dal mattino (23°C a Bergamo, 26°C verso Carugate e San Donato), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 8, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 81,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 30},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 37}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Svincolo Trezzo, direzione Milano", "desc": "Code a tratti per traffico intenso dalle 06:20 (fonte CCISS); coerente con il lieve rallentamento rilevato sul segmento Bergamo-Agrate (30 min anziché ~28 senza traffico)."},
+      {"where": "A51 tra Svincolo Cologno Monzese e Svincolo Lambrate, direzione Allacciamento A1 (sud)", "desc": "Code a tratti per traffico intenso (fonte CCISS); coerente con il tempo elevato del segmento Carugate-San Donato (37 min, quasi il doppio dei 20 min senza traffico)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 30+14+37 min. CCISS RSS letto (100 item, 2 pertinenti alla tratta e direzione odierne: A4 Dalmine-Trezzo dir. Milano dalle 06:20; A51 Cologno M.-Lambrate dir. A1/sud). Scartati altri item A4/A51 fuori tratta o direzione (Cormano-Barriera Milano Est dir. Brescia; Monza-Cormano dir. Torino; Svincolo Agrate B. su A51, a nord di Carugate). Milano Serravalle raggiunta ma priva di elenco eventi (solo pagina istituzionale). Luceverde senza contenuto utile; Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun incidente odierno ulteriore confermato rispetto a CCISS; le uniche chiusure trovate erano notturne e fuori dalla finestra di transito o fuori tratta."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature elevate (23-26°C), ben sopra la soglia dei 7°C",
+      "Vento debole, raffiche massime 16 km/h, cielo sereno e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
