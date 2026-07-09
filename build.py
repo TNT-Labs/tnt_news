@@ -24,6 +24,7 @@ BOLLETTINO_DIR = ROOT / "content" / "bollettino"
 TARIFFE_PATH = ROOT / "content" / "tariffe.json"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
+GAMES_DIR = ROOT / "games"
 OUTPUT_DIR = ROOT / "docs"
 
 SITE_NAME = "TNT News"
@@ -1000,6 +1001,91 @@ def build_empty_bollettino_page(categories: list[str], base: str) -> str:
     )
 
 
+# ---------------------------------------------------------------------------
+# Giochi: catalogo generato in automatico dalla cartella games/
+# ---------------------------------------------------------------------------
+
+def _extract_html_title(html: str) -> str | None:
+    """Estrae il testo del tag <title> da un file HTML, se presente."""
+    m = re.search(r"<title[^>]*>(.*?)</title>", html, re.IGNORECASE | re.DOTALL)
+    if not m:
+        return None
+    title = re.sub(r"\s+", " ", m.group(1)).strip()
+    return title or None
+
+
+def load_games() -> list[dict]:
+    """Legge la cartella games/ e costruisce il catalogo dei giochi.
+
+    Ogni file .html diventa una voce del catalogo. Il titolo mostrato è quello
+    del tag <title> del gioco (fallback: nome del file). Lo slug è derivato dal
+    nome del file, così l'URL resta stabile anche se cambia il titolo interno.
+    Aggiungere un nuovo gioco = mettere un .html qui: il catalogo si aggiorna
+    da solo al build successivo.
+    """
+    if not GAMES_DIR.exists():
+        return []
+    games: list[dict] = []
+    seen: set[str] = set()
+    for path in sorted(GAMES_DIR.glob("*.html"), key=lambda p: p.name.lower()):
+        html = path.read_text(encoding="utf-8", errors="replace")
+        title = _extract_html_title(html) or path.stem
+        slug = slugify(path.stem) or slugify(title) or "gioco"
+        # Garantisce l'unicità dello slug in caso di collisioni.
+        base_slug = slug
+        i = 2
+        while slug in seen:
+            slug = f"{base_slug}-{i}"
+            i += 1
+        seen.add(slug)
+        games.append({"title": title, "slug": slug, "html": html})
+    return games
+
+
+def render_game_card(game: dict, prefix: str) -> str:
+    href = f"{prefix}giochi/{escape(game['slug'])}/"
+    title = escape(game["title"])
+    return (
+        '<article class="game-card">'
+        f'<h2 class="game-title">{title}</h2>'
+        f'<a class="game-play" href="{href}">▶ Gioca</a>'
+        '</article>'
+    )
+
+
+def build_giochi_page(games: list[dict], categories: list[str], base: str) -> str:
+    """Pagina catalogo: elenca i giochi disponibili con un pulsante per avviarli."""
+    prefix = "../"
+    if games:
+        cards = "".join(render_game_card(g, prefix) for g in games)
+        grid = f'<div class="game-grid">{cards}</div>'
+    else:
+        grid = (
+            '<p class="empty">Nessun gioco disponibile. Aggiungi un file .html '
+            'nella cartella <code>games/</code> e ricompila il sito.</p>'
+        )
+    content = (
+        f'<a class="back-link" href="{prefix}index.html">&larr; Home</a>'
+        '<section class="giochi-intro">'
+        '<h1>Giochi</h1>'
+        '<p>Scegli un gioco dal catalogo e premi <strong>Gioca</strong> per '
+        'avviarlo. Il catalogo si aggiorna da solo quando viene aggiunto un '
+        'nuovo gioco.</p>'
+        '</section>'
+        f'{grid}'
+    )
+    return page(
+        base,
+        title=f"Giochi — {SITE_NAME}",
+        description=escape("Catalogo dei giochi giocabili direttamente nel browser."),
+        root=prefix,
+        canonical=f"{SITE_URL}/giochi/",
+        og_type="website",
+        categories=render_categories_nav(categories, prefix),
+        content=content,
+    )
+
+
 def main() -> None:
     base = load_template("base.html")
     articles = load_articles()
@@ -1088,13 +1174,27 @@ def main() -> None:
         build_ricarica_page(tariffe, cats, base), encoding="utf-8"
     )
 
+    # giochi (catalogo generato in automatico dalla cartella games/)
+    games = load_games()
+    gdir = OUTPUT_DIR / "giochi"
+    gdir.mkdir(parents=True, exist_ok=True)
+    (gdir / "index.html").write_text(
+        build_giochi_page(games, cats, base), encoding="utf-8"
+    )
+    for g in games:
+        d = gdir / g["slug"]
+        d.mkdir(parents=True, exist_ok=True)
+        # Il gioco è un file HTML autonomo: viene servito così com'è.
+        (d / "index.html").write_text(g["html"], encoding="utf-8")
+
     # feed RSS
     (OUTPUT_DIR / "feed.xml").write_text(build_feed(articles), encoding="utf-8")
 
     print(
         f"Generati {len(articles)} articoli, {len(cats)} categorie, "
-        f"{len(bollettini)} bollettini, 2 pagine informative, pagina colonnine "
-        f"({len(tariffe.get('gestori', []))} gestori) e il feed RSS in {OUTPUT_DIR}"
+        f"{len(bollettini)} bollettini, {len(games)} giochi, 2 pagine "
+        f"informative, pagina colonnine ({len(tariffe.get('gestori', []))} "
+        f"gestori) e il feed RSS in {OUTPUT_DIR}"
     )
 
 

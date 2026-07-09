@@ -877,3 +877,45 @@ a.tag-cat:hover { color: #fff; filter: brightness(1.06); }
   * { transition: none !important; }
   .card:hover { transform: none; }
 }
+
+/* ===== Giochi: catalogo ===== */
+.giochi-intro { margin: 1.5rem 0 1.8rem; }
+.giochi-intro h1 { margin: 0 0 .4rem; }
+.giochi-intro p { margin: .3rem 0; color: var(--muted); max-width: 60ch; }
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.game-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.1rem;
+  padding: 1.4rem 1.4rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.game-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
+.game-title { margin: 0; font-size: 1.25rem; line-height: 1.25; }
+.game-play {
+  align-self: flex-start;
+  display: inline-block;
+  padding: .55rem 1.2rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: filter .15s ease;
+}
+.game-play:hover { filter: brightness(1.08); }
+
+@media (max-width: 640px) {
+  .game-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
