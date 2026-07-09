@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione — TNT News</title>
+  <meta name="description" content="La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-09-t2-bergamo-fondi-regione-gestione/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione — TNT News">
+  <meta property="og:description" content="La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-09-t2-bergamo-fondi-regione-gestione/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione — TNT News">
+  <meta name="twitter:description" content="La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">tram T2</span><span class="tag">TEB</span><span class="tag">Regione Lombardia</span><span class="tag">Villa d&#x27;Almè</span></div>
+    <h1>Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione</h1>
+    <p class="article-summary">La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-09">9 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+La Commissione Bilancio di Regione Lombardia ha approvato l'8 luglio un
+emendamento che stanzia <strong>6,5 milioni di euro</strong> al Comune di
+Bergamo per l'avvio e la gestione della nuova linea tramviaria
+<strong>T2 Bergamo–Villa d'Almè</strong>, con risorse aggiuntive anche per il
+potenziamento della linea T1 (Bergamo–Albino). L'emendamento fa parte del
+disegno di legge 193, relativo all'assestamento di bilancio 2026-2028.
+</p>
+
+<h2>Come sono ripartiti i fondi</h2>
+<p>
+I 6,5 milioni complessivi sono distribuiti su tre anni: 1,5 milioni nel 2026,
+2,5 milioni nel 2027 e altri 2,5 milioni nel 2028. Il via libera espresso in
+Commissione non è ancora definitivo: il testo dovrà passare al voto
+dell'Assemblea regionale, atteso tra il <strong>22 e il 24 luglio</strong>,
+nell'ambito della sessione di assestamento del bilancio.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: ripartizione dei 6,5 milioni di euro stanziati da Regione Lombardia per la T2, 1,5 milioni nel 2026, 2,5 milioni nel 2027 e 2,5 milioni nel 2028">
+    <line x1="80" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <line x1="80" y1="40" x2="80" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+
+    <rect x="130" y="200" width="110" height="60" fill="#3b6ea5"/>
+    <text x="185" y="190" text-anchor="middle" font-size="16" fill="currentColor">1,5 mln</text>
+    <text x="185" y="285" text-anchor="middle" font-size="14" fill="currentColor">2026</text>
+
+    <rect x="290" y="120" width="110" height="140" fill="#8a5ea5"/>
+    <text x="345" y="110" text-anchor="middle" font-size="16" fill="currentColor">2,5 mln</text>
+    <text x="345" y="285" text-anchor="middle" font-size="14" fill="currentColor">2027</text>
+
+    <rect x="450" y="120" width="110" height="140" fill="#8a5ea5"/>
+    <text x="505" y="110" text-anchor="middle" font-size="16" fill="currentColor">2,5 mln</text>
+    <text x="505" y="285" text-anchor="middle" font-size="14" fill="currentColor">2028</text>
+
+    <text x="80" y="30" font-size="13" fill="currentColor" opacity="0.75">Fondi regionali per T2/T1, in euro (totale 6,5 mln)</text>
+  </svg>
+  <figcaption>
+    Ripartizione annuale dei 6,5 milioni di euro stanziati da Regione
+    Lombardia per l'avvio della T2 e il potenziamento della T1. Fonte:
+    BergamoNews, L'Eco di Bergamo.
+  </figcaption>
+</figure>
+
+<h2>A cosa serviranno le risorse</h2>
+<p>
+I fondi sono destinati a sostenere l'avvio del servizio commerciale della T2,
+la nuova linea che collegherà Bergamo a Villa d'Almè lungo il tracciato
+dell'ex ferrovia della Valle Brembana, i cui cantieri principali si sono
+chiusi entro la scadenza PNRR del 30 giugno scorso. Le stesse risorse
+finanzieranno interventi di adeguamento sulla T1, la linea Bergamo–Albino già
+in esercizio, in vista di una gestione integrata delle due tratte.
+</p>
+
+<h2>Le reazioni</h2>
+<p>
+Il presidente di TEB (Tramvie Elettriche Bergamasche), Filippo Simonetti, ha
+parlato di «un segnale di condivisione d'intenti, frutto di un lungo lavoro
+portato avanti insieme». La sindaca di Bergamo, Elena Carnevali, ha definito
+lo stanziamento «un passaggio fondamentale per garantire la sostenibilità del
+servizio», ringraziando l'assessore regionale ai Trasporti e Mobilità
+sostenibile, Franco Lucente.
+</p>
+<p>
+Il provvedimento ha raccolto consenso trasversale in Consiglio regionale: i
+consiglieri di Fratelli d'Italia Alberto Mazzoleni e Michele Schiavi hanno
+rivendicato «azioni concrete», richiamando impegni assunti a dicembre, mentre
+i consiglieri del Partito Democratico Davide Casati e Jacopo Scandella hanno
+parlato di un «risultato importante», sottolineando l'impegno bipartisan sul
+dossier.
+</p>
+
+<h2>I prossimi passaggi</h2>
+<p>
+Con i cantieri principali conclusi e i finanziamenti per la gestione in
+arrivo, il nodo che resta da sciogliere riguarda l'avvio effettivo del
+servizio commerciale, subordinato all'esito dei collaudi tecnici in corso.
+L'obiettivo dichiarato da TEB resta l'apertura al pubblico nella stagione
+autunnale, dopo il completamento delle opere di finitura sull'intero
+tracciato.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/08/buone-notizie-per-la-t2-approvati-in-commissione-i-fondi-per-la-gestione-da-regione-65-milioni-di-euro/907576" rel="noopener" target="_blank">BergamoNews – Buone notizie per la T2, approvati in Commissione i fondi per la gestione (8 luglio 2026)</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/teb-da-regione-lombardia-65-milioni-per-la-partenza-della-linea-t2-o_3904772_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Teb, da Regione Lombardia 6,5 milioni per la partenza della linea T2 (8 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tram t2 bergamo–villa d&#x27;almè: cantieri in chiusura, rispettata la scadenza pnrr del 30 giugno i lavori principali della linea tramviaria t2 che collegherà bergamo a villa d&#x27;almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal pnrr. seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno. trasporti bergamo tram t2 pnrr villa d&#x27;almè valle brembana" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-25-tram-t2-bergamo-villa-alme-pnrr/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2 Bergamo–Villa d&#x27;Almè: cantieri in chiusura, rispettata la scadenza PNRR del 30 giugno</h2><p class="card-summary">I lavori principali della linea tramviaria T2 che collegherà Bergamo a Villa d&#x27;Almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal PNRR. Seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno.</p><p class="card-meta">25 giugno 2026</p></div></a></article><article class="card" data-search="da martedì 9 giugno gli orari estivi di atb e teb: cosa cambia per bus e tram a bergamo con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. la linea tranviaria t1 bergamo–albino corre ogni 15 minuti nei giorni feriali; i lavori in via paglia devianti le linee bus 5 e 6. trasporti bergamo atb teb trasporto pubblico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-07-orari-estivi-atb-teb-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo</h2><p class="card-summary">Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.</p><p class="card-meta">7 giugno 2026</p></div></a></article><article class="card" data-search="autostrada bergamo-treviglio: il sondaggio ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati un sondaggio ipsos commissionato da autostrade bergamasche e presentato il 2 luglio in camera di commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada bergamo-treviglio. otto degli undici comuni attraversati dal tracciato respingono però la lettura dei dati. trasporti bergamo treviglio autostrada ipsos sindaci" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-03-sondaggio-autostrada-bergamo-treviglio-sindaci/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Autostrada Bergamo-Treviglio: il sondaggio Ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati</h2><p class="card-summary">Un sondaggio Ipsos commissionato da Autostrade Bergamasche e presentato il 2 luglio in Camera di Commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada Bergamo-Treviglio. Otto degli undici Comuni attraversati dal tracciato respingono però la lettura dei dati.</p><p class="card-meta">3 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
