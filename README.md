@@ -19,6 +19,8 @@ GitHub Pages.
 ```
 content/articles/<slug>/   Articoli: meta.json + body.html (+ eventuali asset)
 templates/                 Template HTML del sito (base, index, articolo)
+games/                     Giochi HTML autonomi: il catalogo /giochi/ si genera
+                           da solo aggiungendo qui un file .html
 static/                    Asset statici copiati nel sito (style.css)
 build.py                   Generatore del sito statico (solo Python standard)
 docs/                      Sito generato — è ciò che GitHub Pages pubblica
