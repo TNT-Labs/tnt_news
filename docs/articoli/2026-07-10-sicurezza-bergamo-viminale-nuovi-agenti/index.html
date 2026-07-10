@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti — TNT News</title>
+  <meta name="description" content="La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-10-sicurezza-bergamo-viminale-nuovi-agenti/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti — TNT News">
+  <meta property="og:description" content="La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-10-sicurezza-bergamo-viminale-nuovi-agenti/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti — TNT News">
+  <meta name="twitter:description" content="La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/politica/">Politica</a><span class="tag">Bergamo</span><span class="tag">sicurezza</span><span class="tag">Viminale</span><span class="tag">Elena Carnevali</span><span class="tag">Piantedosi</span></div>
+    <h1>Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti</h1>
+    <p class="article-summary">La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-10">10 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+La sindaca di Bergamo <strong>Elena Carnevali</strong> ha incontrato mercoledì
+9 luglio il ministro dell'Interno <strong>Matteo Piantedosi</strong> al
+Viminale, a Roma, per discutere del rafforzamento della sicurezza in città.
+All'incontro erano presenti anche l'assessore alla Sicurezza
+<strong>Giacomo Angeloni</strong> e il prefetto di Bergamo
+<strong>Luca Rotondi</strong>.
+</p>
+
+<h2>Una richiesta arrivata da mesi</h2>
+<p>
+Il faccia a faccia era stato annunciato dalla stessa Carnevali all'inizio di
+luglio ed era la conseguenza di una lettera inviata dalla sindaca al ministro
+già lo scorso 7 maggio, dopo una serie di furti e "spaccate" notturne nei
+negozi del centro storico. Nel colloquio, l'amministrazione comunale ha
+sottolineato come Bergamo sia diventata un «nodo strategico di connessione»,
+con flussi di persone legati alla crescita dell'aeroporto e al turismo
+paragonabili a quelli di altre città europee, tali da richiedere «risorse
+umane adeguate» per polizia e videosorveglianza.
+</p>
+
+<h2>Gli impegni del ministro</h2>
+<p>
+Piantedosi ha aperto a un ulteriore incremento del personale della Polizia di
+Stato nelle prossime assegnazioni nazionali, previste tra luglio e agosto, e
+ha confermato la propria intenzione di visitare Bergamo nelle prossime
+settimane. Il ministro si è inoltre detto disponibile a sostenere nuovi
+investimenti in tecnologie di videosorveglianza e ha assicurato risorse per
+la gestione dei minori stranieri non accompagnati presenti sul territorio,
+tema definito «critico» dall'amministrazione comunale.
+</p>
+
+<h2>Ventiquattro agenti già assegnati</h2>
+<p>
+L'incontro al Viminale arriva a un giorno dall'annuncio, l'8 luglio, di un
+primo rinforzo concreto per le forze dell'ordine bergamasche: la Questura di
+Bergamo riceverà <strong>20 nuovi agenti</strong>, mentre altri
+<strong>4</strong> saranno assegnati al commissariato di
+<strong>Treviglio</strong>, per un totale di 24 operatori che, secondo quanto
+riportato, diventeranno «immediatamente operativi».
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: distribuzione dei 24 nuovi agenti di polizia assegnati alla provincia di Bergamo, 20 alla Questura di Bergamo e 4 al commissariato di Treviglio">
+    <line x1="80" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <line x1="80" y1="40" x2="80" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+
+    <rect x="150" y="60" width="140" height="200" fill="#3b6ea5"/>
+    <text x="220" y="50" text-anchor="middle" font-size="16" fill="currentColor">20</text>
+    <text x="220" y="285" text-anchor="middle" font-size="14" fill="currentColor">Questura di Bergamo</text>
+
+    <rect x="380" y="220" width="140" height="40" fill="#8a5ea5"/>
+    <text x="450" y="210" text-anchor="middle" font-size="16" fill="currentColor">4</text>
+    <text x="450" y="285" text-anchor="middle" font-size="14" fill="currentColor">Commissariato Treviglio</text>
+
+    <text x="80" y="30" font-size="13" fill="currentColor" opacity="0.75">Nuovi agenti assegnati, per sede (totale 24)</text>
+  </svg>
+  <figcaption>
+    Ripartizione dei 24 nuovi agenti di polizia assegnati alla provincia di
+    Bergamo. Fonte: BergamoNews, 8 luglio 2026.
+  </figcaption>
+</figure>
+
+<h2>Le reazioni</h2>
+<p>
+La sindaca Carnevali ha definito l'arrivo dei 24 agenti «un passo importante
+nella giusta direzione» e «una risposta concreta» alle esigenze segnalate dal
+territorio, mentre i parlamentari della Lega bergamaschi hanno espresso
+«sincero ringraziamento» al ministro dell'Interno per aver risposto alle
+sollecitazioni locali. Carnevali e Angeloni hanno inoltre espresso
+soddisfazione per la disponibilità mostrata da Piantedosi durante l'incontro
+al Viminale.
+</p>
+
+<h2>I prossimi passaggi</h2>
+<p>
+Restano da chiarire i tempi e il numero esatto degli ulteriori rinforzi di
+organico promessi per il periodo luglio-agosto, così come la data della
+visita del ministro a Bergamo, non ancora fissata. Il Comune ha intanto
+annunciato che continuerà a monitorare l'attuazione degli impegni assunti,
+in particolare su videosorveglianza e gestione dei minori stranieri non
+accompagnati.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/09/sicurezza-bergamo-al-viminale-da-piantedosi-apertura-al-rafforzamento-degli-organici-di-polizia/907988" rel="noopener" target="_blank">BergamoNews – Sicurezza, Bergamo al Viminale da Piantedosi: &quot;Rafforzeremo gli organici di polizia&quot; (9 luglio 2026)</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/cronaca/sicurezza-a-bergamo-carnevali-incontra-piantedosi-piu-agenti-e-videosorveglia-o_3905519_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Sicurezza a Bergamo, Carnevali incontra Piantedosi. «Più agenti e videosorveglianza» (9 luglio 2026)</a></li><li><a href="https://www.bergamonews.it/2026/07/08/questura-bergamo-arrivano-20-nuovi-agenti-di-polizia-mantenuto-limpegno-per-il-territorio/907422" rel="noopener" target="_blank">BergamoNews – Questura di Bergamo, arrivano 20 nuovi agenti di polizia (8 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="elezioni comunali 2026 in provincia di bergamo: eletti i nuovi sindaci in 14 comuni il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. l&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. rinnovati tutti i consigli comunali. politica bergamo elezioni comuni amministrative 2026" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni</h2><p class="card-summary">Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.</p><p class="card-meta">29 maggio 2026</p></div></a></article><article class="card" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. politica bergamo elezioni" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article><article class="card" data-search="tram t2, regione lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione la commissione bilancio di regione lombardia ha approvato un emendamento che destina 6,5 milioni di euro al comune di bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria t2 e il potenziamento della t1. il via libera definitivo è atteso in consiglio regionale tra il 22 e il 24 luglio. trasporti bergamo tram t2 teb regione lombardia villa d&#x27;almè" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-09-t2-bergamo-fondi-regione-gestione/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione</h2><p class="card-summary">La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.</p><p class="card-meta">9 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
