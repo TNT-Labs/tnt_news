@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>TETRIS — Neon Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,9 +91,11 @@
     position: relative;
     z-index: 1;
     height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     padding: 14px 24px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
     gap: 10px;
     max-width: 1100px;
     margin: 0 auto;
@@ -197,6 +199,7 @@
     position: relative;
     width: 300px;
     height: 660px;
+    touch-action: none;
   }
 
   #game {
@@ -551,6 +554,82 @@
     .value { font-size: 16px; }
     .controls { font-size: 9px; gap: 10px; }
   }
+
+  /* ---------- MOBILE ---------- */
+  .mobile-stats { display: none; }
+  .touch-controls { display: none; }
+
+  @media (max-width: 640px), (pointer: coarse) and (max-width: 900px) {
+    .app {
+      padding: 6px 8px;
+      padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+      gap: 6px;
+      grid-template-rows: auto auto 1fr auto;
+    }
+    header { flex-direction: row; align-items: baseline; gap: 10px; justify-content: center; }
+    .title { font-size: 20px; letter-spacing: 6px; padding-left: 6px; }
+    .subtitle { display: none; }
+
+    .mobile-stats {
+      display: flex;
+      justify-content: space-around;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 8px;
+    }
+    .mobile-stats .stat { align-items: center; }
+    .mobile-stats .label { margin-bottom: 0; font-size: 8px; }
+    .mobile-stats .value { font-size: 15px; }
+
+    .game-wrap {
+      grid-template-columns: auto auto auto;
+      gap: 6px;
+      align-items: start;
+    }
+    /* nascondo pannelli ridondanti su mobile */
+    .sidebar .stats, .sidebar .info { display: none; }
+    .panel { padding: 6px; }
+    .label { font-size: 8px; letter-spacing: 2px; margin-bottom: 4px; }
+
+    footer .controls { display: none; }
+
+    .touch-controls {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .touch-btn {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding: 12px 0;
+      border-radius: 10px;
+      background: rgba(20, 20, 45, 0.7);
+      border: 1px solid rgba(0,245,255,0.25);
+      color: var(--accent2);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .touch-btn:active {
+      background: rgba(0,245,255,0.18);
+      box-shadow: 0 0 14px rgba(0,245,255,0.35);
+    }
+    .touch-hint {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+    }
+  }
 </style>
 </head>
 <body>
@@ -562,6 +641,13 @@
     <div class="subtitle">NEON EDITION</div>
   </header>
 
+  <div class="mobile-stats">
+    <div class="stat"><div class="label">SCORE</div><div class="value" data-stat="score">0</div></div>
+    <div class="stat"><div class="label">LEVEL</div><div class="value" data-stat="level">1</div></div>
+    <div class="stat"><div class="label">LINES</div><div class="value" data-stat="lines">0</div></div>
+    <div class="stat"><div class="label">TIME</div><div class="value" data-stat="time">0:00</div></div>
+  </div>
+
   <main class="game-wrap">
     <aside class="sidebar">
       <div class="panel">
@@ -571,19 +657,19 @@
       <div class="panel stats">
         <div class="stat">
           <div class="label">SCORE</div>
-          <div class="value" id="score">0</div>
+          <div class="value" data-stat="score" id="score">0</div>
         </div>
         <div class="stat">
           <div class="label">LEVEL</div>
-          <div class="value" id="level">1</div>
+          <div class="value" data-stat="level" id="level">1</div>
         </div>
         <div class="stat">
           <div class="label">LINES</div>
-          <div class="value" id="lines">0</div>
+          <div class="value" data-stat="lines" id="lines">0</div>
         </div>
         <div class="stat" id="timeStat">
           <div class="label">TIME</div>
-          <div class="value" id="time">0:00</div>
+          <div class="value" data-stat="time" id="time">0:00</div>
         </div>
       </div>
     </aside>
@@ -616,6 +702,13 @@
   </main>
 
   <footer>
+    <div class="touch-controls">
+      <button class="touch-btn" id="tbCCW" aria-label="Ruota antiorario">⟲</button>
+      <button class="touch-btn" id="tbCW" aria-label="Ruota orario">⟳</button>
+      <button class="touch-btn" id="tbHold" aria-label="Hold">HOLD</button>
+      <button class="touch-btn" id="tbPause" aria-label="Pausa">▮▮</button>
+      <div class="touch-hint">TRASCINA ←→ MUOVI · TAP RUOTA · GIÙ SOFT DROP · SWIPE GIÙ HARD DROP</div>
+    </div>
     <div class="controls">
       <span><kbd>←</kbd><kbd>→</kbd> Move</span>
       <span><kbd>↓</kbd> Soft Drop</span>
@@ -641,6 +734,8 @@ const COLS = 10;
 const ROWS = 22;          // 2 righe di spawn in alto + 20 di gioco
 const SPAWN_AREA = 2;     // prime 2 righe: area di spawn
 const BLOCK = 30;
+const LOGICAL_W = COLS * BLOCK;   // 300
+const LOGICAL_H = ROWS * BLOCK;   // 660
 
 // Colori neon per ogni tetromino
 const COLORS = {
@@ -802,6 +897,60 @@ const comboText = document.getElementById('comboText');
 const comboInd = document.getElementById('comboInd');
 const b2bInd = document.getElementById('b2bInd');
 const overlay = document.getElementById('overlay');
+const boardWrap = document.querySelector('.board-wrap');
+const statEls = {
+  score: document.querySelectorAll('[data-stat="score"]'),
+  level: document.querySelectorAll('[data-stat="level"]'),
+  lines: document.querySelectorAll('[data-stat="lines"]'),
+  time: document.querySelectorAll('[data-stat="time"]')
+};
+function setStat(name, val) {
+  statEls[name].forEach(el => { el.textContent = val; });
+}
+
+// ============================================================
+// RESIZE RESPONSIVE (mobile + retina)
+// ============================================================
+function isMobileLayout() {
+  return window.matchMedia('(max-width: 640px), (pointer: coarse) and (max-width: 900px)').matches;
+}
+
+function setupCanvas(canvas, ctx, logicalW, logicalH, cssScale) {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.style.width = (logicalW * cssScale) + 'px';
+  canvas.style.height = (logicalH * cssScale) + 'px';
+  canvas.width = Math.round(logicalW * cssScale * dpr);
+  canvas.height = Math.round(logicalH * cssScale * dpr);
+  ctx.setTransform(cssScale * dpr, 0, 0, cssScale * dpr, 0, 0);
+}
+
+function resizeAll() {
+  let scale = 1;
+  if (isMobileLayout()) {
+    const headerH = document.querySelector('header').offsetHeight;
+    const statsH = document.querySelector('.mobile-stats').offsetHeight;
+    const footerH = document.querySelector('footer').offsetHeight;
+    const availH = window.innerHeight - headerH - statsH - footerH - 40;
+    const sideW = 76; // due colonne laterali compatte
+    const availW = window.innerWidth - sideW * 2 - 40;
+    scale = Math.min(availH / LOGICAL_H, availW / LOGICAL_W);
+    scale = Math.max(0.3, Math.min(1, scale));
+  } else {
+    // desktop: adatta all'altezza disponibile se schermo basso
+    const availH = window.innerHeight - 160;
+    scale = Math.max(0.5, Math.min(1, availH / LOGICAL_H));
+  }
+  boardWrap.style.width = (LOGICAL_W * scale) + 'px';
+  boardWrap.style.height = (LOGICAL_H * scale) + 'px';
+  setupCanvas(gameCanvas, gctx, LOGICAL_W, LOGICAL_H, scale);
+
+  const previewScale = isMobileLayout() ? Math.max(0.42, scale * 0.55) : 1;
+  setupCanvas(holdCanvas, hctx, 140, 100, previewScale);
+  setupCanvas(nextCanvas, nctx, 140, 320, previewScale);
+}
+
+window.addEventListener('resize', resizeAll);
+window.addEventListener('orientationchange', () => setTimeout(resizeAll, 100));
 
 // ============================================================
 // UTILITY
@@ -888,7 +1037,6 @@ function spawnPiece(forcedType) {
   state.current = piece;
   state.canHold = true;
   state.lastMoveWasRotation = false;
-  state.pieces++;
 
   if (checkCollision(piece, 0, 0, 0)) {
     state.ended = true;
@@ -1040,6 +1188,7 @@ function lockPiece() {
   const piece = state.current;
   const tspin = checkTSpin();
   const blocks = getPieceBlocks(piece);
+  state.pieces++;
 
   // Posiziona blocchi sul board
   let allAbove = true;
@@ -1135,18 +1284,7 @@ function lockPiece() {
       (b2bActive ? ' B2B' : '') +
       (state.combo > 0 ? ` x${state.combo}` : '');
     showComboText(displayText);
-
-    setTimeout(() => {
-      const sorted = cleared.slice().sort((a, b) => a - b);
-      for (const r of sorted.reverse()) {
-        state.board.splice(r, 1);
-        state.board.unshift(new Array(COLS).fill(null));
-      }
-      state.flashRows = [];
-      state.clearAnim = null;
-      if (state.ended) showGameOver();
-      else spawnPiece();
-    }, 280);
+    // la rimozione delle righe avviene in finishClearAnim(), guidata dal loop
   } else {
     if (clearName) showComboText(clearName);
     if (state.ended) showGameOver();
@@ -1154,6 +1292,18 @@ function lockPiece() {
   }
 
   updateHUD();
+}
+
+function finishClearAnim() {
+  const sorted = state.clearAnim.rows.slice().sort((a, b) => a - b);
+  for (const r of sorted.reverse()) {
+    state.board.splice(r, 1);
+    state.board.unshift(new Array(COLS).fill(null));
+  }
+  state.flashRows = [];
+  state.clearAnim = null;
+  if (state.ended) showGameOver();
+  else spawnPiece();
 }
 
 function addScore(n) {
@@ -1275,7 +1425,7 @@ function drawBlock(ctx, x, y, type, opts = {}) {
 function drawBoardBg() {
   // Sfondo campo
   gctx.fillStyle = 'rgba(5, 5, 20, 0.7)';
-  gctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+  gctx.fillRect(0, 0, LOGICAL_W, LOGICAL_H);
 
   // Griglia
   gctx.strokeStyle = 'rgba(255,255,255,0.04)';
@@ -1283,13 +1433,13 @@ function drawBoardBg() {
   for (let c = 1; c < COLS; c++) {
     gctx.beginPath();
     gctx.moveTo(c * BLOCK, 0);
-    gctx.lineTo(c * BLOCK, gameCanvas.height);
+    gctx.lineTo(c * BLOCK, LOGICAL_H);
     gctx.stroke();
   }
   for (let r = 1; r < ROWS; r++) {
     gctx.beginPath();
     gctx.moveTo(0, r * BLOCK);
-    gctx.lineTo(gameCanvas.width, r * BLOCK);
+    gctx.lineTo(LOGICAL_W, r * BLOCK);
     gctx.stroke();
   }
 
@@ -1299,7 +1449,7 @@ function drawBoardBg() {
   gctx.setLineDash([4, 4]);
   gctx.beginPath();
   gctx.moveTo(0, SPAWN_AREA * BLOCK);
-  gctx.lineTo(gameCanvas.width, SPAWN_AREA * BLOCK);
+  gctx.lineTo(LOGICAL_W, SPAWN_AREA * BLOCK);
   gctx.stroke();
   gctx.setLineDash([]);
 
@@ -1308,13 +1458,13 @@ function drawBoardBg() {
   gctx.lineWidth = 2;
   gctx.shadowColor = 'rgba(0,245,255,0.5)';
   gctx.shadowBlur = 12;
-  gctx.strokeRect(1, 1, gameCanvas.width - 2, gameCanvas.height - 2);
+  gctx.strokeRect(1, 1, LOGICAL_W - 2, LOGICAL_H - 2);
   gctx.shadowBlur = 0;
 }
 
 function render() {
   gctx.save();
-  gctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+  gctx.clearRect(0, 0, LOGICAL_W, LOGICAL_H);
 
   // Screen shake
   let sx = 0, sy = 0;
@@ -1379,12 +1529,12 @@ function render() {
   gctx.restore();
 
   // Preview
-  drawPreview(hctx, holdCanvas, state.hold, !state.canHold);
+  drawPreview(hctx, holdCanvas, state.hold, !state.canHold, 140, 100);
   drawNext();
 }
 
-function drawPreview(ctx, canvas, type, dim) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function drawPreview(ctx, canvas, type, dim, lw, lh) {
+  ctx.clearRect(0, 0, lw, lh);
   if (!type) return;
 
   const shape = PIECES[type][0];
@@ -1400,8 +1550,8 @@ function drawPreview(ctx, canvas, type, dim) {
   }
   const w = (maxC - minC + 1) * size;
   const h = (maxR - minR + 1) * size;
-  const ox = (canvas.width - w) / 2;
-  const oy = (canvas.height - h) / 2;
+  const ox = (lw - w) / 2;
+  const oy = (lh - h) / 2;
 
   for (let r = minR; r <= maxR; r++) {
     for (let c = minC; c <= maxC; c++) {
@@ -1414,7 +1564,7 @@ function drawPreview(ctx, canvas, type, dim) {
 }
 
 function drawNext() {
-  nctx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+  nctx.clearRect(0, 0, 140, 320);
   const size = 22;
   const cellH = 62;
 
@@ -1433,7 +1583,7 @@ function drawNext() {
     }
     const w = (maxC - minC + 1) * size;
     const h = (maxR - minR + 1) * size;
-    const ox = (nextCanvas.width - w) / 2;
+    const ox = (140 - w) / 2;
     const oy = i * cellH + (cellH - h) / 2 + 4;
 
     const opacity = i === 0 ? 1 : Math.max(0.3, 0.65 - i * 0.1);
@@ -1449,9 +1599,9 @@ function drawNext() {
 }
 
 function updateHUD() {
-  scoreEl.textContent = state.score.toLocaleString();
-  levelEl.textContent = state.level;
-  linesEl.textContent = state.lines;
+  setStat('score', state.score.toLocaleString());
+  setStat('level', state.level);
+  setStat('lines', state.lines);
 
   if (state.combo > 0) {
     comboEl.textContent = `x${state.combo}`;
@@ -1482,7 +1632,7 @@ function updateTimeDisplay() {
   const totalSec = Math.floor(ms / 1000);
   const m = Math.floor(totalSec / 60);
   const s = totalSec % 60;
-  timeEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+  setStat('time', `${m}:${s.toString().padStart(2, '0')}`);
 }
 
 // ============================================================
@@ -1541,7 +1691,14 @@ function loop(time) {
       }
     }
 
-    if (state.clearAnim) state.clearAnim.timer -= dt;
+  }
+
+  // Animazioni: proseguono anche a partita conclusa, ma non in pausa
+  if (state.mode && !state.paused) {
+    if (state.clearAnim) {
+      state.clearAnim.timer -= dt;
+      if (state.clearAnim.timer <= 0) finishClearAnim();
+    }
     updateParticles(dt);
   }
 
@@ -1632,12 +1789,126 @@ function stopDAS(key) {
   }
 }
 
+function stopAllInput() {
+  stopDAS('left');
+  stopDAS('right');
+  if (dasState.softDrop) {
+    clearInterval(dasState.softDrop);
+    dasState.softDrop = null;
+  }
+}
+
+// Perdita focus (cambio tab/app): fermo gli auto-repeat e metto in pausa
+window.addEventListener('blur', () => {
+  stopAllInput();
+  if (state.mode && !state.ended && !state.paused) togglePause();
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopAllInput();
+    if (state.mode && !state.ended && !state.paused) togglePause();
+  }
+});
+
+// ============================================================
+// INPUT TOUCH (mobile)
+// ============================================================
+function canPlay() {
+  return state.mode && !state.ended && !state.paused && state.current && !state.clearAnim;
+}
+
+const touch = {
+  active: false, id: null,
+  startX: 0, startY: 0, startT: 0,
+  lastX: 0, lastY: 0,
+  moved: false,        // ha superato la soglia di movimento (niente rotate al rilascio)
+  accX: 0, accY: 0     // accumulatori per movimenti a scatti di 1 cella
+};
+
+function boardCellSize() {
+  return boardWrap.clientWidth / COLS; // px CSS per cella
+}
+
+function onPointerDown(e) {
+  if (e.pointerType === 'mouse') return; // desktop: solo tastiera
+  if (!canPlay()) return;
+  touch.active = true;
+  touch.id = e.pointerId;
+  touch.startX = touch.lastX = e.clientX;
+  touch.startY = touch.lastY = e.clientY;
+  touch.startT = performance.now();
+  touch.moved = false;
+  touch.accX = 0;
+  touch.accY = 0;
+  e.preventDefault();
+}
+
+function onPointerMove(e) {
+  if (!touch.active || e.pointerId !== touch.id) return;
+  if (!canPlay()) { touch.active = false; return; }
+
+  const cell = boardCellSize();
+  touch.accX += e.clientX - touch.lastX;
+  touch.accY += e.clientY - touch.lastY;
+  touch.lastX = e.clientX;
+  touch.lastY = e.clientY;
+
+  // Movimento orizzontale: 1 cella per ogni "cella" di drag
+  while (touch.accX >= cell)  { move(1);  touch.accX -= cell; touch.moved = true; }
+  while (touch.accX <= -cell) { move(-1); touch.accX += cell; touch.moved = true; }
+
+  // Drag verso il basso lento: soft drop cella per cella
+  while (touch.accY >= cell) { softDrop(); touch.accY -= cell; touch.moved = true; }
+  if (touch.accY < 0) touch.accY = 0; // niente movimento verso l'alto
+
+  e.preventDefault();
+}
+
+function onPointerUp(e) {
+  if (!touch.active || e.pointerId !== touch.id) return;
+  touch.active = false;
+
+  if (!canPlay()) return;
+
+  const dt = performance.now() - touch.startT;
+  const dx = e.clientX - touch.startX;
+  const dy = e.clientY - touch.startY;
+
+  // Swipe rapido verso il basso: hard drop
+  if (dt < 300 && dy > 60 && dy > Math.abs(dx) * 1.5) {
+    hardDrop();
+    return;
+  }
+  // Tap (nessun movimento significativo): rotazione oraria
+  if (!touch.moved && dt < 350 && Math.abs(dx) < 12 && Math.abs(dy) < 12) {
+    tryRotate(1);
+  }
+}
+
+boardWrap.addEventListener('pointerdown', onPointerDown, { passive: false });
+boardWrap.addEventListener('pointermove', onPointerMove, { passive: false });
+boardWrap.addEventListener('pointerup', onPointerUp);
+boardWrap.addEventListener('pointercancel', () => { touch.active = false; });
+
+// Pulsanti touch
+function bindTouchBtn(id, fn) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener('click', (e) => { e.preventDefault(); fn(); });
+}
+bindTouchBtn('tbCCW', () => { if (canPlay()) tryRotate(-1); });
+bindTouchBtn('tbCW',  () => { if (canPlay()) tryRotate(1); });
+bindTouchBtn('tbHold', () => { if (canPlay()) hold(); });
+bindTouchBtn('tbPause', () => { if (state.mode && !state.ended) togglePause(); });
+
 // ============================================================
 // UI / MENU
 // ============================================================
 let selectedStartLevel = 1;
 
 function showMenu() {
+  gameOverShown = false;
+  stopAllInput();
   state.mode = null;
   state.paused = false;
   state.ended = false;
@@ -1712,6 +1983,8 @@ function showMenu() {
 }
 
 function startGame(mode, startLevel) {
+  state.startLevel = startLevel;
+  gameOverShown = false;
   state.board = createBoard();
   state.bag = [];
   state.queue = [];
@@ -1774,7 +2047,11 @@ function togglePause() {
   }
 }
 
+let gameOverShown = false;
 function showGameOver() {
+  if (gameOverShown) return;
+  gameOverShown = true;
+  stopAllInput();
   setTimeout(() => {
     overlay.classList.add('show');
     let title, subtitle;
@@ -1805,7 +2082,7 @@ function showGameOver() {
       </div>
     `;
     document.getElementById('playAgainBtn').addEventListener('click', () => {
-      startGame(state.mode, state.level);
+      startGame(state.mode, state.startLevel || 1);
     });
     document.getElementById('menuBtn').addEventListener('click', showMenu);
   }, 500);
@@ -1817,6 +2094,10 @@ function showGameOver() {
 window.addEventListener('keydown', handleKeyDown);
 window.addEventListener('keyup', handleKeyUp);
 
+resizeAll();
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(resizeAll); // ricalcolo dopo il caricamento font (altezze header/footer)
+}
 showMenu();
 requestAnimationFrame(loop);
 

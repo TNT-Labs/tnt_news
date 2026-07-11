@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Nuova ondata di caldo in arrivo: a Bergamo scattano i «Cold Spot» per alleggerire i pronto soccorso — TNT News</title>
+  <meta name="description" content="Regione Lombardia ha attivato i «Cold Spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°C in pianura bergamasca. Il Papa Giovanni XXIII ha già avviato protocolli di massima allerta.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-11-caldo-cold-spot-bergamo-pronto-soccorso/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Nuova ondata di caldo in arrivo: a Bergamo scattano i «Cold Spot» per alleggerire i pronto soccorso — TNT News">
+  <meta property="og:description" content="Regione Lombardia ha attivato i «Cold Spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°C in pianura bergamasca. Il Papa Giovanni XXIII ha già avviato protocolli di massima allerta.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-11-caldo-cold-spot-bergamo-pronto-soccorso/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nuova ondata di caldo in arrivo: a Bergamo scattano i «Cold Spot» per alleggerire i pronto soccorso — TNT News">
+  <meta name="twitter:description" content="Regione Lombardia ha attivato i «Cold Spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°C in pianura bergamasca. Il Papa Giovanni XXIII ha già avviato protocolli di massima allerta.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">caldo</span><span class="tag">sanità</span><span class="tag">Cold Spot</span><span class="tag">Papa Giovanni XXIII</span></div>
+    <h1>Nuova ondata di caldo in arrivo: a Bergamo scattano i «Cold Spot» per alleggerire i pronto soccorso</h1>
+    <p class="article-summary">Regione Lombardia ha attivato i «Cold Spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°C in pianura bergamasca. Il Papa Giovanni XXIII ha già avviato protocolli di massima allerta.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-11">11 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+La Direzione Generale Welfare di <strong>Regione Lombardia</strong> ha
+trasmesso il 10 luglio alle Ats, Asst, Irccs e ad Areu le direttive operative
+per l'attivazione dei <strong>«Cold Spot»</strong>, punti di assistenza
+climatizzati collegati ai pronto soccorso, pensati per intercettare i casi
+lievi legati al caldo e ridurre gli accessi impropri alle emergenze
+ospedaliere. La misura arriva alla vigilia di una nuova ondata di calore
+attesa sulla Bergamasca a partire da mercoledì 15 luglio, con temperature
+fino a 37°C in pianura.
+</p>
+
+<h2>Cosa sono i Cold Spot</h2>
+<p>
+Ogni Asst dovrà attivare almeno un Cold Spot, da collocare preferibilmente
+presso le Case di Comunità o altre strutture territoriali. Si tratta di
+ambienti climatizzati e sicuri, con personale sanitario dedicato in grado di
+effettuare una prima valutazione clinica e, se necessario, di indirizzare il
+paziente verso l'ospedale. Il servizio sarà attivo sette giorni su sette
+nelle ore diurne ed è accessibile tramite il numero <strong>116.117</strong>,
+con accesso diretto o su indicazione del medico curante. Le direttive
+prevedono inoltre il rafforzamento dei posti letto ospedalieri, il
+monitoraggio quotidiano degli accessi al pronto soccorso e l'attivazione di
+ricoveri di sollievo nelle Rsa per le persone più fragili.
+</p>
+
+<blockquote>
+«Le ondate di calore non sono più eventi eccezionali, ma una condizione con
+cui il sistema sanitario deve confrontarsi ogni estate», ha dichiarato
+l'assessore regionale al Welfare <strong>Guido Bertolaso</strong>,
+annunciando il piano.
+</blockquote>
+
+<h2>La situazione al Papa Giovanni XXIII</h2>
+<p>
+A Bergamo l'ospedale <strong>Papa Giovanni XXIII</strong> ha già attivato
+protocolli di massima allerta, con chiamate di monitoraggio proattivo verso i
+pazienti privi di medico di base e un rafforzamento dei servizi di
+continuità assistenziale nel fine settimana, anche grazie agli infermieri di
+comunità. Un primo aggiornamento operativo sull'attuazione dei Cold Spot nel
+territorio bergamasco è atteso per lunedì 13 luglio.
+</p>
+
+<h2>Il caldo in arrivo: le previsioni</h2>
+<p>
+Dopo una tregua nel fine settimana, con possibili temporali sulle Orobie e
+nelle valli, da domenica è attesa una nuova fase di caldo intenso, legata al
+rinnovato rinforzo dell'anticiclone africano. Secondo le previsioni
+meteorologiche, da mercoledì 15 luglio la pianura bergamasca potrà toccare
+punte di <strong>37°C</strong>, con circa <strong>35°C</strong> in città e
+oltre <strong>33°C</strong> nelle valli; le notti si preannunciano
+«tropicali», con minime che non scenderanno sotto i 24-25°C. Il meteorologo
+Edoardo Ferrara (3BMeteo) ha osservato che «le ondate di calore sempre più
+frequenti sembrano ormai rappresentare una nuova normalità», legate a una
+temperatura di base atmosferica più elevata. Secondo i dati riportati, il
+2026 si posiziona come la seconda estate più intensa in Italia dopo quella
+del 2003, con già quattro ondate di calore registrate in Europa da maggio.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: temperature massime previste per il 15 luglio 2026 nella provincia di Bergamo, 37 gradi in pianura, 35 gradi in città, 33 gradi nelle valli">
+    <line x1="80" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <line x1="80" y1="40" x2="80" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+
+    <rect x="130" y="60" width="120" height="200" fill="#c0522d"/>
+    <text x="190" y="50" text-anchor="middle" font-size="16" fill="currentColor">37°C</text>
+    <text x="190" y="285" text-anchor="middle" font-size="14" fill="currentColor">Pianura</text>
+
+    <rect x="290" y="82" width="120" height="178" fill="#d9752f"/>
+    <text x="350" y="72" text-anchor="middle" font-size="16" fill="currentColor">35°C</text>
+    <text x="350" y="285" text-anchor="middle" font-size="14" fill="currentColor">Città di Bergamo</text>
+
+    <rect x="450" y="103" width="120" height="157" fill="#e6a23c"/>
+    <text x="510" y="93" text-anchor="middle" font-size="16" fill="currentColor">33°C</text>
+    <text x="510" y="285" text-anchor="middle" font-size="14" fill="currentColor">Valli</text>
+
+    <text x="80" y="30" font-size="13" fill="currentColor" opacity="0.75">Temperature massime previste, 15 luglio 2026 (valori indicativi)</text>
+  </svg>
+  <figcaption>
+    Previsioni delle temperature massime per il 15 luglio 2026 nelle diverse
+    zone della provincia di Bergamo. Valori indicativi. Fonte: BergamoNews
+    (elaborazione 3BMeteo), 10 luglio 2026.
+  </figcaption>
+</figure>
+
+<h2>Chi è più a rischio</h2>
+<p>
+Le direttive regionali individuano come destinatari prioritari dei Cold Spot
+le persone con sintomi legati alle alte temperature, in particolare gli
+anziani e i soggetti più fragili che necessitano di un monitoraggio
+costante nei mesi estivi. Nei prossimi giorni resta da vedere quanti punti
+Cold Spot saranno effettivamente attivi sul territorio bergamasco e con
+quale capacità, dato che l'aggiornamento operativo delle singole Asst è
+atteso solo per il 13 luglio, a ridosso del nuovo picco di caldo previsto.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/emergenza-caldo-arrivano-i-cold-spot-o_3906918_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Emergenza caldo, arrivano i «cold spot» (11 luglio 2026)</a></li><li><a href="https://www.bergamonews.it/2026/07/10/tregua-di-un-giorno-poi-in-bergamasca-torna-il-caldo-record-ondate-piu-frequenti-la-nuova-normalita/908190" rel="noopener" target="_blank">BergamoNews – Tregua di un giorno, poi in Bergamasca torna il caldo record: &quot;Ondate più frequenti la nuova normalità&quot; (10 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sanità, oltre 11 milioni per ammodernare l&#x27;asst bergamo ovest dentro il piano regionale da 95 milioni regione lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. all&#x27;asst bergamo ovest, tra fondi pnrr e regionali, toccano più di 11 milioni per nuove tac, risonanze e il potenziamento dell&#x27;ospedale di treviglio-caravaggio. sanità bergamo asst bergamo ovest treviglio pnrr sanità" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-07-04-asst-bergamo-ovest-investimenti-tecnologia-sanita/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Sanità, oltre 11 milioni per ammodernare l&#x27;ASST Bergamo Ovest dentro il piano regionale da 95 milioni</h2><p class="card-summary">Regione Lombardia ha stanziato oltre 95 milioni di euro per sicurezza e tecnologia negli ospedali. All&#x27;ASST Bergamo Ovest, tra fondi PNRR e regionali, toccano più di 11 milioni per nuove TAC, risonanze e il potenziamento dell&#x27;ospedale di Treviglio-Caravaggio.</p><p class="card-meta">4 luglio 2026</p></div></a></article><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="caldo estremo in lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto la regione lombardia ha emesso l&#x27;ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema worklimate segnala rischio caldo &#x27;alto&#x27;. a bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba. attualità bergamo caldo cantieri sicurezza sul lavoro" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-23-ordinanza-caldo-cantieri-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto</h2><p class="card-summary">La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.</p><p class="card-meta">23 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
