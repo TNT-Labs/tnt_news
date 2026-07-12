@@ -303,6 +303,9 @@
     gap: 16px;
     padding: 24px;
     max-width: 90%;
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow-y: auto;
   }
 
   .overlay-content h2 {
@@ -499,6 +502,106 @@
     font-size: 20px;
     font-weight: 700;
     color: #fff;
+  }
+
+  .new-record {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--accent3);
+    text-shadow: 0 0 14px rgba(255,190,11,0.8);
+    animation: recordPulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes recordPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,190,11,0.6); }
+    50% { text-shadow: 0 0 22px rgba(255,190,11,1); }
+  }
+
+  .best-line {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 700;
+  }
+
+  .scores-panel {
+    width: 380px;
+    max-width: 88vw;
+    background: rgba(20, 20, 45, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .scores-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .scores-list {
+    max-height: 168px;
+    overflow-y: auto;
+  }
+
+  .score-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    font-size: 10px;
+    padding: 5px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .score-row:last-child { border-bottom: none; }
+
+  .score-row .s-mode {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--accent2);
+  }
+
+  .score-row .s-meta {
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+
+  .score-row .s-score {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
+    text-align: right;
+    min-width: 60px;
+  }
+
+  .score-row.record .s-score {
+    color: var(--accent3);
+    text-shadow: 0 0 10px rgba(255,190,11,0.7);
+  }
+
+  .scores-empty {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.35);
+    padding: 10px 0;
+  }
+
+  .scores-panel .ghost-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 9px;
   }
 
   footer {
@@ -1902,6 +2005,72 @@ bindTouchBtn('tbHold', () => { if (canPlay()) hold(); });
 bindTouchBtn('tbPause', () => { if (state.mode && !state.ended) togglePause(); });
 
 // ============================================================
+// SALVATAGGIO PUNTEGGI (localStorage)
+// ============================================================
+const SCORES_KEY = 'tetris-neon-scores';
+const MODE_NAMES = { marathon: 'MARATHON', sprint: 'SPRINT', ultra: 'ULTRA', zen: 'ZEN' };
+
+function loadScores() {
+  try {
+    const s = JSON.parse(localStorage.getItem(SCORES_KEY));
+    return Array.isArray(s) ? s : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveScoreEntry(entry) {
+  const scores = loadScores();
+  scores.unshift(entry);
+  if (scores.length > 50) scores.length = 50;
+  try {
+    localStorage.setItem(SCORES_KEY, JSON.stringify(scores));
+  } catch (e) { /* storage pieno o disabilitato: si continua senza salvare */ }
+}
+
+function clearScores() {
+  try { localStorage.removeItem(SCORES_KEY); } catch (e) {}
+}
+
+function bestScoreForMode(mode) {
+  return loadScores()
+    .filter(s => s.mode === mode)
+    .reduce((max, s) => Math.max(max, s.score), 0);
+}
+
+function formatScoreDate(ts) {
+  const d = new Date(ts);
+  const date = d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' });
+  const time = d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+  return `${date} ${time}`;
+}
+
+function renderScoresPanelHTML() {
+  const scores = loadScores();
+  const bestAll = scores.reduce((max, s) => Math.max(max, s.score), 0);
+  let rows;
+  if (scores.length === 0) {
+    rows = '<div class="scores-empty">NESSUNA PARTITA SALVATA</div>';
+  } else {
+    rows = scores.slice(0, 10).map(s => {
+      const isRecord = s.score === bestAll && s.score > 0;
+      return `<div class="score-row${isRecord ? ' record' : ''}">
+        <span class="s-mode">${MODE_NAMES[s.mode] || s.mode}</span>
+        <span class="s-meta">${s.lines} righe · ${formatScoreDate(s.date)}</span>
+        <span class="s-score">${s.score.toLocaleString()}</span>
+      </div>`;
+    }).join('');
+  }
+  return `
+    <div class="scores-panel">
+      <div class="scores-title">ULTIME PARTITE</div>
+      <div class="scores-list">${rows}</div>
+      ${scores.length > 0 ? '<button class="ghost-btn" id="clearScoresBtn">CANCELLA PUNTEGGI</button>' : ''}
+    </div>
+  `;
+}
+
+// ============================================================
 // UI / MENU
 // ============================================================
 let selectedStartLevel = 1;
@@ -1965,12 +2134,21 @@ function showMenu() {
           <button class="lvl-btn" data-lvl="1">+</button>
         </div>
       </div>
+      ${renderScoresPanelHTML()}
     </div>
   `;
 
   overlay.querySelectorAll('.mode-card').forEach(card => {
     card.addEventListener('click', () => startGame(card.dataset.mode, selectedStartLevel));
   });
+
+  const clearBtn = document.getElementById('clearScoresBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      clearScores();
+      showMenu();
+    });
+  }
 
   const lvlVal = document.getElementById('startLevelValue');
   overlay.querySelectorAll('.lvl-btn').forEach(btn => {
@@ -2052,6 +2230,20 @@ function showGameOver() {
   if (gameOverShown) return;
   gameOverShown = true;
   stopAllInput();
+
+  // Salva il punteggio della partita appena conclusa
+  const prevBest = bestScoreForMode(state.mode);
+  const isRecord = state.score > prevBest && state.score > 0;
+  saveScoreEntry({
+    mode: state.mode,
+    score: state.score,
+    lines: state.lines,
+    level: state.level,
+    pieces: state.pieces,
+    time: Math.round(state.elapsed),
+    date: Date.now()
+  });
+
   setTimeout(() => {
     overlay.classList.add('show');
     let title, subtitle;
@@ -2071,12 +2263,14 @@ function showGameOver() {
     overlay.innerHTML = `
       <div class="overlay-content">
         <h2>${title}</h2>
+        ${isRecord ? '<div class="new-record">★ NUOVO RECORD ★</div>' : ''}
         <div class="result-score">${subtitle}</div>
         <div class="result-stats">
           <div><span>RIGHE</span><strong>${state.lines}</strong></div>
           <div><span>LIVELLO</span><strong>${state.level}</strong></div>
           <div><span>PEZZI</span><strong>${state.pieces}</strong></div>
         </div>
+        <div class="best-line">RECORD ${MODE_NAMES[state.mode] || ''}: ${Math.max(prevBest, state.score).toLocaleString()}</div>
         <button class="primary-btn" id="playAgainBtn">GIOCA ANCORA</button>
         <button class="ghost-btn" id="menuBtn">MENU PRINCIPALE</button>
       </div>
