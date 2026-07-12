@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori — TNT News</title>
+  <meta name="description" content="Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-12-treviglio-rapina-incasso-revel-festival/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori — TNT News">
+  <meta property="og:description" content="Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-12-treviglio-rapina-incasso-revel-festival/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori — TNT News">
+  <meta name="twitter:description" content="Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Treviglio</span><span class="tag">Revel Summer Festival</span><span class="tag">rapina</span><span class="tag">carabinieri</span></div>
+    <h1>Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori</h1>
+    <p class="article-summary">Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-12">12 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Tre uomini hanno tentato di rapinare l'incasso della serata conclusiva del
+Revel Summer Festival di Treviglio nella notte tra sabato 11 e domenica 12
+luglio, bloccando l'auto degli organizzatori all'uscita della manifestazione
+e sfondandone il finestrino a colpi di martello. Il colpo non è riuscito
+grazie all'intervento di un collaboratore della kermesse, rimasto lievemente
+ferito, e i carabinieri sono intervenuti sul posto. Gli organizzatori hanno
+lanciato un appello sui social per aiutare a identificare i responsabili,
+ancora ricercati.</p>
+
+<h2>La dinamica dell'assalto</h2>
+<p>Secondo quanto raccontato dagli organizzatori del festival, tre persone a
+volto scoperto hanno circondato l'auto su cui viaggiava l'incasso della
+serata mentre lasciava l'area della manifestazione, in via Filagosto a
+Treviglio. Per aprirsi un varco hanno colpito ripetutamente un finestrino
+con un martello, mandandolo in frantumi. Un collaboratore della
+manifestazione, intervenuto per impedire il furto, ha riportato alcune
+ferite da taglio giudicate non gravi. Il tentativo è stato interrotto prima
+che gli aggressori riuscissero a impossessarsi del denaro, e i tre si sono
+poi allontanati; le forze dell'ordine, allertate subito dopo i fatti, hanno
+avviato le ricerche.</p>
+
+<h2>Il sospetto pedinamento della sera precedente</h2>
+<p>Gli organizzatori hanno riferito di aver notato, la sera precedente
+all'assalto, un'auto di colore grigio con a bordo tre giovani nei pressi
+del festival, senza però attribuirle particolare rilevanza al momento.
+Alla luce di quanto accaduto poche ore dopo, ritengono possibile che si
+sia trattato di un sopralluogo preparatorio da parte degli stessi
+aggressori, anche se questa ipotesi non è ancora stata confermata dagli
+inquirenti.</p>
+
+<figure>
+<svg viewBox="0 0 640 350" role="img" aria-label="Cronologia dei fatti a Treviglio: sabato sera avvistata un'auto sospetta nei pressi del festival; nella notte tentata rapina all'incasso con finestrino sfondato a martellate; un collaboratore interviene e riporta ferite lievi, furto sventato; domenica mattina i carabinieri avviano le indagini e gli organizzatori lanciano un appello sui social. Fonte: BergamoNews, 12 luglio 2026.">
+  <line x1="50" y1="30" x2="50" y2="300" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+  <g font-family="sans-serif">
+    <circle cx="50" cy="40" r="8" fill="currentColor"/>
+    <text x="76" y="34" font-size="16" font-weight="bold">Sabato sera, 11 luglio</text>
+    <text x="76" y="58" font-size="14">Avvistata un'auto grigia con tre giovani nei pressi del festival.</text>
+
+    <circle cx="50" cy="130" r="8" fill="currentColor"/>
+    <text x="76" y="124" font-size="16" font-weight="bold">Nella notte</text>
+    <text x="76" y="148" font-size="14">Tre uomini bloccano l'auto con l'incasso e sfondano</text>
+    <text x="76" y="166" font-size="14">un finestrino a colpi di martello.</text>
+
+    <circle cx="50" cy="220" r="8" fill="currentColor"/>
+    <text x="76" y="214" font-size="16" font-weight="bold">Subito dopo</text>
+    <text x="76" y="238" font-size="14">Un collaboratore interviene: ferite lievi da taglio,</text>
+    <text x="76" y="256" font-size="14">furto sventato.</text>
+
+    <circle cx="50" cy="300" r="8" fill="currentColor"/>
+    <text x="76" y="294" font-size="16" font-weight="bold">Domenica mattina, 12 luglio</text>
+    <text x="76" y="318" font-size="14">Carabinieri sul posto, indagini avviate; appello social</text>
+    <text x="76" y="336" font-size="14">degli organizzatori per identificare gli aggressori.</text>
+  </g>
+</svg>
+<figcaption>Cronologia degli eventi ricostruita in base al racconto degli
+organizzatori del Revel Summer Festival. Orari indicativi. Fonte:
+BergamoNews, 12 luglio 2026.</figcaption>
+</figure>
+
+<h2>Le indagini in corso</h2>
+<p>I carabinieri hanno avviato accertamenti per risalire all'identità dei
+tre aggressori, al momento non identificati né fermati. Gli organizzatori
+del Revel Summer Festival, che si sarebbe dovuto concludere domenica con
+una cena a tema afro, hanno ringraziato pubblicamente le forze dell'ordine
+per la tempestività dell'intervento e hanno chiesto ai cittadini di
+segnalare eventuali informazioni utili a identificare i responsabili.
+Non è stato reso noto l'importo dell'incasso che i tre avrebbero tentato
+di sottrarre.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/12/treviglio-assalto-allauto-con-lincasso-della-serata-del-revel-summer-festival-aiutateci-a-trovare-i-malviventi/908639/" rel="noopener" target="_blank">BergamoNews – Treviglio, assalto all&#x27;auto con l&#x27;incasso della serata del Revel Summer Festival: &quot;Aiutateci a trovare i malviventi&quot; (12 luglio 2026)</a></li><li><a href="https://www.zazoom.it/2026-07-12/treviglio-tentata-rapina-al-revel-festival-circondati-da-tre-malviventi-che-volevano-lincasso-hanno-sfondato-il-finestrino-dellauto-a-martellate/19452183/" rel="noopener" target="_blank">Zazoom Local Eco – Treviglio, tentata rapina al Revel Festival: circondati da tre malviventi che volevano l&#x27;incasso hanno sfondato il finestrino dell&#x27;auto a martellate (12 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nubifragio in alta val brembana: una frana blocca la provinciale a trabuchello un violento nubifragio ha provocato una frana sulla provinciale per branzi, a trabuchello di isola di fondra, isolando temporaneamente l&#x27;alta val brembana. nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra valle brembana e valle seriana. cronaca bergamo valle brembana maltempo frana isola di fondra" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-05-frana-trabuchello-isola-fondra-valle-brembana/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Nubifragio in alta Val Brembana: una frana blocca la provinciale a Trabuchello</h2><p class="card-summary">Un violento nubifragio ha provocato una frana sulla provinciale per Branzi, a Trabuchello di Isola di Fondra, isolando temporaneamente l&#x27;alta Val Brembana. Nessun ferito: i vigili del fuoco hanno gestito circa venti interventi in giornata tra Valle Brembana e Valle Seriana.</p><p class="card-meta">5 luglio 2026</p></div></a></article><article class="card" data-search="valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra comuni e aeroporto dopo la morte dell&#x27;istruttore daniel taino nel crollo del cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa. cronaca bergamo valbrembo aeroporto sicurezza volo" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-29-valbrembo-tavolo-permanente-aeroporto/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Valbrembo, dopo la tragedia aerea nasce il tavolo permanente tra Comuni e aeroporto</h2><p class="card-summary">Dopo la morte dell&#x27;istruttore Daniel Taino nel crollo del Cessna del 2 giugno, cinque comuni della bergamasca e la gestione dell&#x27;aeroporto di Valbrembo hanno avviato un tavolo di confronto permanente su rumore, rotte e sicurezza operativa.</p><p class="card-meta">29 giugno 2026</p></div></a></article><article class="card" data-search="guardia di finanza di bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi il comando provinciale di bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco. cronaca bergamo guardia di finanza evasione fiscale sicurezza economica" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-06-27-guardia-di-finanza-bergamo-bilancio-operativo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Guardia di Finanza di Bergamo: 658 milioni di euro in violazioni fiscali scoperte in 17 mesi</h2><p class="card-summary">Il Comando Provinciale di Bergamo ha presentato il bilancio operativo dal gennaio 2025 a maggio 2026: oltre 8.400 interventi, più di 560 indagini e violazioni fiscali per 658 milioni di euro. Sequestrati anche 360 chili di sostanze stupefacenti e quasi 60.000 chili di tabacco.</p><p class="card-meta">27 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
