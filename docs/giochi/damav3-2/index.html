@@ -233,6 +233,32 @@ html, body {
 }
 
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* === TEMA CHIARO === */
+body.light-theme {
+  --bg-deep: #eef1f6;
+  --bg-mid: #ffffff;
+  --text: #1c2536;
+  --text-dim: #64708a;
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --border: rgba(20, 30, 60, 0.12);
+}
+body.light-theme .header h1 { background: linear-gradient(90deg, #1c2536 0%, var(--player-color) 50%, #1c2536 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.light-theme .board-frame { background: rgba(255, 255, 255, 0.85); box-shadow: 0 20px 60px rgba(30, 40, 80, 0.18), 0 0 0 1px var(--border); }
+body.light-theme .board { box-shadow: 0 0 30px rgba(30, 40, 80, 0.1) inset; }
+body.light-theme .cell.light { background: rgba(255, 255, 255, 0.9); }
+body.light-theme .cell.dark { background: rgba(35, 48, 80, 0.38); }
+@media (hover: hover) and (pointer: fine) { body.light-theme .cell.dark:hover { background: rgba(35, 48, 80, 0.52); } }
+body.light-theme .player-card, body.light-theme .turn-indicator, body.light-theme .stat-item, body.light-theme .ach-item { background: rgba(20, 30, 60, 0.06); }
+body.light-theme .ach-item.unlocked { background: rgba(20, 30, 60, 0.1); }
+body.light-theme .btn { background: rgba(20, 30, 60, 0.04); }
+body.light-theme .btn:hover { background: rgba(20, 30, 60, 0.09); color: var(--text); border-color: rgba(20, 30, 60, 0.25); }
+body.light-theme .status-bar { background: rgba(255, 255, 255, 0.85); }
+body.light-theme .move-entry { background: rgba(20, 30, 60, 0.05); }
+body.light-theme .move-history::-webkit-scrollbar-track { background: rgba(20, 30, 60, 0.08); }
+body.light-theme .modal { background: rgba(30, 40, 70, 0.4); }
+body.light-theme .shard.white { background: #334155; box-shadow: 0 0 8px var(--player-color); }
+body.light-theme .piece.white { box-shadow: 0 5px 10px rgba(30, 40, 80, 0.35), inset 0 -4px 8px rgba(0,0,0,0.15), inset 0 4px 8px rgba(255,255,255,0.5); }
 .shard { position: fixed; pointer-events: none; z-index: 50; transform: translate(-50%, -50%); animation: shard-fly 0.8s cubic-bezier(0.2, 0.8, 0.4, 1) forwards; border-radius: 2px; }
 .shard.white { background: #fff; box-shadow: 0 0 8px var(--player-color); }
 .shard.black { background: var(--neon-magenta); box-shadow: 0 0 8px var(--neon-magenta); }
@@ -283,6 +309,7 @@ html, body {
           <button class="btn" id="undo-btn"><i class="fas fa-undo"></i> Annulla</button>
           <button class="btn" id="hint-btn"><i class="fas fa-lightbulb"></i> Aiuto</button>
           <button class="btn" id="sound-btn"><i class="fas fa-volume-up"></i></button>
+          <button class="btn" id="theme-btn" title="Tema chiaro/scuro"><i class="fas fa-moon"></i></button>
         </div>
         <div class="mode-buttons">
           <button class="btn active" data-mode="1p">1 Giocatore</button>
@@ -389,6 +416,7 @@ let stats = safeParse('dama-stats', { wins: 0, losses: 0, draws: 0 });
 let achievements = safeParse('dama-ach', { firstWin: false, multiCap: false, promote: false, hardWin: false });
 let soundEnabled = localStorage.getItem('dama-sound') !== 'false';
 let themeColor = localStorage.getItem('dama-color') || 'cyan';
+let uiTheme = localStorage.getItem('dama-theme') || 'dark';
 let deferredPrompt = null;
 
 // === LOGICA DI GIOCO (Definita globalmente per poter essere passata al Worker) ===
@@ -733,6 +761,12 @@ function applyTheme(color) {
   const metaTheme = document.querySelector('meta[name="theme-color"]');
   if (metaTheme) metaTheme.setAttribute('content', COLOR_THEMES[color].c);
 }
+function applyUITheme(theme) {
+  uiTheme = theme; localStorage.setItem('dama-theme', theme);
+  document.body.classList.toggle('light-theme', theme === 'light');
+  const icon = document.querySelector('#theme-btn i');
+  if (icon) icon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+}
 
 // === BACKGROUND ===
 function initBackground() {
@@ -742,7 +776,8 @@ function initBackground() {
   for (let i = 0; i < 50; i++) p.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.5+0.5, vx: (Math.random()-0.5)*0.1, vy: (Math.random()-0.5)*0.1, a: Math.random()*0.5+0.1 });
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const i of p) { i.x += i.vx; i.y += i.vy; if (i.x < 0) i.x = canvas.width; if (i.x > canvas.width) i.x = 0; if (i.y < 0) i.y = canvas.height; if (i.y > canvas.height) i.y = 0; ctx.beginPath(); ctx.arc(i.x, i.y, Math.max(0.1, i.r), 0, Math.PI * 2); ctx.fillStyle = `rgba(255, 255, 255, ${i.a})`; ctx.fill(); }
+    const particleColor = document.body.classList.contains('light-theme') ? '40, 55, 90' : '255, 255, 255';
+    for (const i of p) { i.x += i.vx; i.y += i.vy; if (i.x < 0) i.x = canvas.width; if (i.x > canvas.width) i.x = 0; if (i.y < 0) i.y = canvas.height; if (i.y > canvas.height) i.y = 0; ctx.beginPath(); ctx.arc(i.x, i.y, Math.max(0.1, i.r), 0, Math.PI * 2); ctx.fillStyle = `rgba(${particleColor}, ${i.a})`; ctx.fill(); }
     requestAnimationFrame(animate);
   }
   animate();
@@ -774,9 +809,11 @@ document.getElementById('modal-new-game').addEventListener('click', () => { init
 document.getElementById('undo-btn').addEventListener('click', undoMove);
 document.getElementById('hint-btn').addEventListener('click', requestHint);
 document.getElementById('sound-btn').addEventListener('click', () => { soundEnabled = !soundEnabled; localStorage.setItem('dama-sound', soundEnabled); document.querySelector('#sound-btn i').className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute'; });
+document.getElementById('theme-btn').addEventListener('click', () => applyUITheme(uiTheme === 'light' ? 'dark' : 'light'));
 
 // === AVVIO ===
 applyTheme(themeColor);
+applyUITheme(uiTheme);
 document.querySelector('#sound-btn i').className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
 updateStatsUI(); updateAchievementsUI();
 initBackground();

@@ -269,9 +269,11 @@
     height: var(--tile-size);
     top: 0;
     left: 0;
+    /* Nel transform le percentuali si riferiscono alla tessera stessa,
+       quindi il passo di una cella è 100% (lato tessera) + gap */
     transform: translate(
-      calc(var(--col) * (var(--tile-size) + var(--gap))),
-      calc(var(--row) * (var(--tile-size) + var(--gap)))
+      calc(var(--col) * (100% + var(--gap))),
+      calc(var(--row) * (100% + var(--gap)))
     );
     transition: transform 0.13s ease-out;
     will-change: transform;
@@ -596,6 +598,18 @@
     .score-card .value { font-size: 1.1rem; }
     .btn { padding: 9px 10px; font-size: 0.7rem; min-width: 80px; }
   }
+
+  /* Smartphone in orizzontale: compatta l'interfaccia e adatta la board all'altezza */
+  @media (max-height: 500px) {
+    .container { padding: 8px 12px 16px; gap: 10px; min-height: 0; }
+    .title { font-size: 1.6rem; }
+    .subtitle { display: none; }
+    .score-card { padding: 4px 10px; min-width: 64px; }
+    .score-card .value { font-size: 1rem; }
+    .btn { padding: 6px 8px; font-size: 0.65rem; min-width: 70px; }
+    .instructions { display: none; }
+    .board { width: min(92vw, 480px, max(220px, calc(100dvh - 150px))); }
+  }
 </style>
 </head>
 <body>
@@ -879,6 +893,7 @@ function move(direction) {
 
       const {farthest, next} = findFarthestPosition({r, c}, vector);
 
+      let mergedNow = false;
       if (next && grid[next.r][next.c] === tile.value) {
         const otherTile = findTile(next.r, next.c);
         if (otherTile && !otherTile.merged) {
@@ -899,9 +914,12 @@ function move(direction) {
             won = true;
           }
           moved = true;
+          mergedNow = true;
         }
-      } else if (farthest.r !== r || farthest.c !== c) {
-        // Spostamento semplice
+      }
+      // Se il merge non è possibile (es. il bersaglio ha già fuso in questa
+      // mossa) la tessera deve comunque scivolare fino alla casella libera
+      if (!mergedNow && (farthest.r !== r || farthest.c !== c)) {
         tile.row = farthest.r;
         tile.col = farthest.c;
         grid[r][c] = 0;
@@ -940,6 +958,7 @@ function move(direction) {
       addRandomTile();
       render();
       isMoving = false;
+      updateUndoBtn();
 
       if (!hasMoves()) {
         gameOver = true;

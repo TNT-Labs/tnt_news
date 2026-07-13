@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-13",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo parzialmente soleggiato su tutto il tragitto, temperature già miti/calde al mattino (23°C a Bergamo, 26°C verso Carugate e San Donato), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Parzialmente soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Parzialmente soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 8,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)",  "cond": "Parzialmente soleggiato", "temp_c": 26, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 82,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 35},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 33}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Svincolo Trezzo, direzione Milano", "desc": "Code a tratti per traffico intenso dalle 06:21 (fonte CCISS)."},
+      {"where": "A51 tra Svincolo Gobba (Treviglio-Vimodrone) e Svincolo C.A.M.M. (Monlue), direzione Allacciamento A1 (sud)", "desc": "Code a tratti per traffico intenso (fonte CCISS)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 35+14+33 min. CCISS RSS letto (100 item, 2 pertinenti alla tratta e direzione odierne: A4 Dalmine-Trezzo dir. Milano dalle 06:21; A51 Gobba-C.A.M.M./Monlue dir. A1/sud). Scartati altri item A4/A51 fuori tratta o direzione (Monza-Cormano dir. Torino; Sesto San Giovanni-Barriera Milano Est dir. Brescia). Milano Serravalle raggiunta ma priva di elenco eventi (solo pagina istituzionale, contenuto caricato via JS). Luceverde senza contenuto utile (pagina solo-JS). Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun incidente odierno ulteriore confermato nella finestra di transito e nel tratto d'interesse (segnalata solo una chiusura notturna A4 Dalmine-Bergamo dir. Brescia prevista per la notte tra 14 e 15 luglio, fuori data e direzione)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità massima 5%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature miti/calde (23-26°C), ben sopra la soglia dei 7°C",
+      "Vento debole, raffiche massime 19 km/h, cielo parzialmente soleggiato e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
