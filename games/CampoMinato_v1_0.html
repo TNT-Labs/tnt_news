@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>CAMPO MINATO — Neon Sweeper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #060a0e;
+    --fg: #ecf6ff;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #00f5ff;
+    --accent2: #ffbe0b;
+    --accent3: #ff2a78;
+    --gold: #ffbe0b;
+    --panel: rgba(11, 19, 26, 0.55);
+    --border: rgba(255,255,255,0.08);
+    --cs: 30px;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,245,255,0.07), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,190,11,0.05), transparent 60%),
+      linear-gradient(180deg, #060a0e 0%, #0a121a 50%, #081016 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.13), rgba(0,0,0,0.13) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 300;
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(17px, 4vw, 28px);
+    letter-spacing: 6px;
+    padding-left: 6px;
+    background: linear-gradient(180deg, #ffffff 0%, #00f5ff 45%, #ffbe0b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(0,245,255,0.5));
+    animation: titleGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 16px rgba(0,245,255,0.5)); }
+    50% { filter: drop-shadow(0 0 26px rgba(255,190,11,0.6)); }
+  }
+
+  .subtitle { font-size: 9px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 4px; }
+
+  .hud {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hud .stat { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 54px; }
+  .hud .label { font-size: 8px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .hud .value { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 700; color: #fff; text-shadow: 0 0 10px rgba(0,245,255,0.4); }
+  .hud .value#hudMines { color: var(--accent3); text-shadow: 0 0 10px rgba(255,42,120,0.5); }
+
+  .toolbar { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; align-items: center; }
+  .tool-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 7px 12px;
+    border-radius: 7px;
+    background: rgba(11,19,26,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tool-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(0,245,255,0.3); }
+  .tool-btn.active {
+    background: rgba(255,190,11,0.18);
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 12px rgba(255,190,11,0.4);
+  }
+  #newBtn .face { font-size: 12px; margin-right: 4px; }
+
+  .stage {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 0;
+  }
+
+  .board-scroll {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border-radius: 12px;
+    scrollbar-width: thin;
+  }
+
+  .board {
+    display: grid;
+    gap: 2px;
+    padding: 8px;
+    background: rgba(5, 9, 14, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,245,255,0.08), inset 0 0 40px rgba(0,0,0,0.5);
+    touch-action: pan-x pan-y;
+  }
+
+  .cell {
+    width: var(--cs);
+    height: var(--cs);
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(160deg, #17222e 0%, #101a24 60%, #0c141d 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: calc(var(--cs) * 0.48);
+    color: transparent;
+    padding: 0;
+    transition: filter 0.12s;
+    position: relative;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .cell:not(.revealed):hover { filter: brightness(1.5); }
+  }
+  .cell.pressing { filter: brightness(1.8); transform: scale(0.92); }
+
+  .cell.revealed {
+    background: rgba(6, 10, 16, 0.85);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+    cursor: default;
+    animation: pop 0.22s cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+  }
+  @keyframes pop {
+    from { transform: scale(0.5); opacity: 0.2; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .cell.n1 { color: #00f5ff; text-shadow: 0 0 8px rgba(0,245,255,0.7); }
+  .cell.n2 { color: #06ffa5; text-shadow: 0 0 8px rgba(6,255,165,0.7); }
+  .cell.n3 { color: #ff2a78; text-shadow: 0 0 8px rgba(255,42,120,0.7); }
+  .cell.n4 { color: #c77dff; text-shadow: 0 0 8px rgba(199,125,255,0.7); }
+  .cell.n5 { color: #ffbe0b; text-shadow: 0 0 8px rgba(255,190,11,0.7); }
+  .cell.n6 { color: #ff6b35; text-shadow: 0 0 8px rgba(255,107,53,0.7); }
+  .cell.n7 { color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.7); }
+  .cell.n8 { color: #ff3864; text-shadow: 0 0 8px rgba(255,56,100,0.7); }
+
+  .cell.flag { color: var(--gold); text-shadow: 0 0 10px rgba(255,190,11,0.8); font-size: calc(var(--cs) * 0.52); }
+  .cell.mine { color: #ff5c8a; text-shadow: 0 0 10px rgba(255,42,120,0.9); font-size: calc(var(--cs) * 0.55); }
+  .cell.boom {
+    background: radial-gradient(circle, #ff2a78 0%, #7a0e33 70%);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(255,42,120,0.9);
+    animation: boomFlash 0.5s ease-out;
+  }
+  @keyframes boomFlash {
+    0% { filter: brightness(3); }
+    100% { filter: brightness(1); }
+  }
+  .cell.wrongflag { color: rgba(255,255,255,0.5); }
+  .cell.wrongflag::after {
+    content: '✕';
+    position: absolute;
+    color: #ff3864;
+    font-size: calc(var(--cs) * 0.6);
+    text-shadow: 0 0 8px rgba(255,56,100,0.9);
+  }
+  .cell.winmine { color: #06ffa5; text-shadow: 0 0 10px rgba(6,255,165,0.9); }
+
+  .shard {
+    position: fixed;
+    pointer-events: none;
+    z-index: 260;
+    border-radius: 2px;
+    animation: shardFly 0.9s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+  }
+  @keyframes shardFly {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0.2); opacity: 0; }
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 9, 14, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    max-width: 96%;
+    max-height: 96%;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #00f5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .overlay-content h2.lost { background: linear-gradient(180deg, #fff, #ff2a78); -webkit-background-clip: text; background-clip: text; }
+
+  .mode-grid { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .mode-card {
+    background: rgba(13, 23, 32, 0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 13px;
+    width: 130px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.25s;
+  }
+  .mode-card:hover { border-color: rgba(0,245,255,0.5); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,245,255,0.18); }
+  .mode-icon { font-family: 'Orbitron', sans-serif; font-size: 17px; font-weight: 900; color: var(--accent); margin-bottom: 4px; text-shadow: 0 0 10px rgba(0,245,255,0.6); }
+  .mode-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 2px; margin-bottom: 4px; }
+  .mode-desc { font-size: 8.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .menu-desc { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; line-height: 1.7; max-width: 380px; }
+  .menu-desc strong { color: var(--accent); }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 11px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .primary-btn {
+    background: linear-gradient(135deg, #00f5ff, #ffbe0b);
+    color: #06121a;
+    border: none;
+    box-shadow: 0 4px 22px rgba(0,245,255,0.4);
+  }
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,245,255,0.6); }
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--accent);
+    text-shadow: 0 0 22px rgba(0,245,255,0.7);
+  }
+
+  .result-stats { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; }
+  .result-stats > div { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .result-stats span { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.4); font-weight: 700; }
+  .result-stats strong { font-family: 'Orbitron', sans-serif; font-size: 16px; color: #fff; }
+
+  .new-record {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    animation: recordPulse 1.2s ease-in-out infinite;
+  }
+  @keyframes recordPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,190,11,0.6); }
+    50% { text-shadow: 0 0 24px rgba(255,190,11,1); }
+  }
+
+  .scores-panel {
+    width: 350px;
+    max-width: 86vw;
+    background: rgba(13, 23, 32, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .scores-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .scores-list { max-height: 130px; overflow-y: auto; }
+  .score-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    align-items: baseline;
+    font-size: 9px;
+    padding: 4px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row .s-mode { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 1px; }
+  .score-row .s-mode.won { color: #06ffa5; }
+  .score-row .s-mode.lost { color: rgba(255,255,255,0.35); }
+  .score-row .s-meta { color: rgba(255,255,255,0.4); text-align: right; }
+  .score-row .s-score { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 11px; color: #fff; min-width: 44px; text-align: right; }
+  .score-row.record .s-score { color: var(--gold); text-shadow: 0 0 10px rgba(255,190,11,0.7); }
+  .scores-empty { text-align: center; font-size: 9px; color: rgba(255,255,255,0.35); padding: 8px 0; }
+  .scores-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  footer { display: flex; justify-content: center; width: 100%; }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    justify-content: center;
+  }
+  .touch-hint { display: none; font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-align: center; }
+  @media (pointer: coarse) {
+    .controls { display: none; }
+    .touch-hint { display: block; }
+  }
+
+  @media (max-height: 560px) {
+    header { display: none; }
+    .app { gap: 5px; padding: 6px 10px; }
+    footer { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">CAMPO MINATO</h1>
+    <div class="subtitle">NEON SWEEPER</div>
+  </header>
+
+  <div class="hud">
+    <div class="stat"><div class="label">MINE</div><div class="value" id="hudMines">10</div></div>
+    <div class="stat"><div class="label">TEMPO</div><div class="value" id="hudTime">0:00</div></div>
+    <div class="stat"><div class="label">RECORD</div><div class="value" id="hudBest">—</div></div>
+    <div class="stat"><div class="label">MODALITÀ</div><div class="value" id="hudMode" style="font-size:11px; padding-top:3px;">FACILE</div></div>
+  </div>
+
+  <div class="toolbar">
+    <button class="tool-btn" id="newBtn"><span class="face" id="faceIcon">🙂</span>NUOVA</button>
+    <button class="tool-btn" id="flagBtn">⚑ BANDIERA</button>
+    <button class="tool-btn" id="soundBtn">♪</button>
+    <button class="tool-btn" id="menuBtn2">MENU</button>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="board-scroll" id="boardScroll">
+      <div class="board" id="board"></div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </div>
+
+  <footer>
+    <div class="controls">
+      <span>Click sinistro scopri · destro bandiera · click su un numero completo per aprire i vicini</span>
+      <span>N Nuova · M Audio</span>
+    </div>
+    <div class="touch-hint">TOCCA PER SCOPRIRE · TIENI PREMUTO O USA ⚑ PER LE BANDIERINE</div>
+  </footer>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const SCORES_KEY = 'campominato-neon-scores';
+const MODES = {
+  easy:   { name: 'FACILE',  cols: 9,  rows: 9,  mines: 10 },
+  medium: { name: 'MEDIO',   cols: 16, rows: 16, mines: 40 },
+  expert: { name: 'ESPERTO', cols: 30, rows: 16, mines: 99 }
+};
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',           // menu | playing | over
+  mode: 'easy',
+  cols: 9, rows: 9, mines: 10,
+  grid: [],                 // {mine, revealed, flagged, n}
+  started: false, over: false, won: false,
+  elapsed: 0, flags: 0,
+  flagMode: false,
+  saved: false
+};
+
+let soundOn = localStorage.getItem('campominato-neon-sound') !== 'false';
+let cellEls = [];
+
+// ============================================================
+// SALVATAGGIO PUNTEGGI
+// ============================================================
+function loadScores() {
+  try { const s = JSON.parse(localStorage.getItem(SCORES_KEY)); return Array.isArray(s) ? s : []; }
+  catch (e) { return []; }
+}
+function saveScoreEntry(entry) {
+  const scores = loadScores();
+  scores.unshift(entry);
+  if (scores.length > 50) scores.length = 50;
+  try { localStorage.setItem(SCORES_KEY, JSON.stringify(scores)); } catch (e) {}
+}
+function bestTime(mode) {
+  const wins = loadScores().filter(s => s.won && s.mode === mode);
+  if (wins.length === 0) return null;
+  return wins.reduce((m, s) => Math.min(m, s.time), Infinity);
+}
+function formatScoreDate(ts) {
+  const d = new Date(ts);
+  return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' }) + ' ' +
+         d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+}
+function formatTime(sec) {
+  const m = Math.floor(sec / 60), s = Math.floor(sec % 60);
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ensureAudio() {
+  if (!audioCtx) { try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+}
+function tone(freq, dur, type = 'sine', vol = 0.06, slideTo = null) {
+  if (!soundOn || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+  o.type = type; o.frequency.setValueAtTime(freq, now);
+  if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, now + dur);
+  g.gain.setValueAtTime(vol, now);
+  g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+  o.connect(g); g.connect(audioCtx.destination);
+  o.start(now); o.stop(now + dur + 0.02);
+}
+function noiseBurst(dur, vol, cutoff) {
+  if (!soundOn || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  const len = Math.floor(audioCtx.sampleRate * dur);
+  const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 1.6);
+  const src = audioCtx.createBufferSource(); src.buffer = buf;
+  const f = audioCtx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = cutoff;
+  const g = audioCtx.createGain(); g.gain.value = vol;
+  src.connect(f); f.connect(g); g.connect(audioCtx.destination);
+  src.start(now);
+}
+function playReveal(n) { tone(500 + Math.min(8, n) * 60, 0.05, 'sine', 0.04); }
+function playFlag() { tone(700, 0.07, 'triangle', 0.06, 900); }
+function playUnflag() { tone(500, 0.07, 'triangle', 0.05, 350); }
+function playBoom() { noiseBurst(0.6, 0.25, 500); tone(140, 0.5, 'sawtooth', 0.1, 30); }
+function playWin() { [523, 659, 784, 1047, 1319].forEach((f, i) => setTimeout(() => tone(f, 0.18, 'triangle', 0.08), i * 100)); }
+
+// ============================================================
+// LOGICA
+// ============================================================
+function idx(r, c) { return r * state.cols + c; }
+function neighbors(i) {
+  const r = Math.floor(i / state.cols), c = i % state.cols;
+  const out = [];
+  for (let dr = -1; dr <= 1; dr++) {
+    for (let dc = -1; dc <= 1; dc++) {
+      if (dr === 0 && dc === 0) continue;
+      const nr = r + dr, nc = c + dc;
+      if (nr >= 0 && nr < state.rows && nc >= 0 && nc < state.cols) out.push(idx(nr, nc));
+    }
+  }
+  return out;
+}
+
+function newGame(mode) {
+  state.mode = mode || state.mode;
+  const cfg = MODES[state.mode];
+  let cols = cfg.cols, rows = cfg.rows;
+  // su schermi verticali ruota le griglie larghe
+  if (window.innerHeight > window.innerWidth && cols > rows) [cols, rows] = [rows, cols];
+  state.cols = cols; state.rows = rows; state.mines = cfg.mines;
+  state.grid = Array.from({ length: cols * rows }, () => ({ mine: false, revealed: false, flagged: false, n: 0 }));
+  state.started = false; state.over = false; state.won = false;
+  state.elapsed = 0; state.flags = 0; state.saved = false;
+  state.screen = 'playing';
+  document.getElementById('faceIcon').textContent = '🙂';
+  hideOverlay();
+  buildBoard();
+  resizeCells();
+  updateHUD();
+}
+
+function placeMines(safeIdx) {
+  const forbidden = new Set([safeIdx, ...neighbors(safeIdx)]);
+  const spots = [];
+  for (let i = 0; i < state.grid.length; i++) if (!forbidden.has(i)) spots.push(i);
+  // se il campo è piccolissimo rispetto alle mine, riduci l'area protetta
+  let pool = spots;
+  if (spots.length < state.mines) {
+    pool = [];
+    for (let i = 0; i < state.grid.length; i++) if (i !== safeIdx) pool.push(i);
+  }
+  for (let m = 0; m < state.mines; m++) {
+    const k = Math.floor(Math.random() * pool.length);
+    state.grid[pool[k]].mine = true;
+    pool.splice(k, 1);
+  }
+  for (let i = 0; i < state.grid.length; i++) {
+    state.grid[i].n = neighbors(i).filter(j => state.grid[j].mine).length;
+  }
+}
+
+function reveal(i) {
+  if (state.over) return;
+  const cell = state.grid[i];
+  if (cell.flagged || cell.revealed) return;
+
+  if (!state.started) {
+    placeMines(i);
+    state.started = true;
+  }
+
+  if (cell.mine) { loseGame(i); return; }
+
+  // flood fill con distanza per l'animazione a cascata
+  const queue = [[i, 0]];
+  const seen = new Set([i]);
+  let revealedCount = 0;
+  let maxN = 0;
+  while (queue.length > 0) {
+    const [j, dist] = queue.shift();
+    const c = state.grid[j];
+    if (c.revealed || c.flagged || c.mine) continue;
+    c.revealed = true;
+    revealedCount++;
+    maxN = Math.max(maxN, c.n);
+    updateCell(j, Math.min(400, dist * 20));
+    if (c.n === 0) {
+      for (const k of neighbors(j)) {
+        if (!seen.has(k)) { seen.add(k); queue.push([k, dist + 1]); }
+      }
+    }
+  }
+  if (revealedCount > 0) playReveal(maxN);
+  checkWin();
+}
+
+function chord(i) {
+  const cell = state.grid[i];
+  if (!cell.revealed || cell.n === 0 || state.over) return;
+  const nbs = neighbors(i);
+  const flagged = nbs.filter(j => state.grid[j].flagged).length;
+  if (flagged !== cell.n) return;
+  for (const j of nbs) {
+    if (!state.grid[j].flagged && !state.grid[j].revealed) {
+      reveal(j);
+      if (state.over) return;
+    }
+  }
+}
+
+function toggleFlag(i) {
+  if (state.over) return;
+  const cell = state.grid[i];
+  if (cell.revealed) return;
+  cell.flagged = !cell.flagged;
+  state.flags += cell.flagged ? 1 : -1;
+  cell.flagged ? playFlag() : playUnflag();
+  if (navigator.vibrate) navigator.vibrate(25);
+  updateCell(i, 0);
+  updateHUD();
+}
+
+function checkWin() {
+  const unrevealed = state.grid.filter(c => !c.revealed).length;
+  if (unrevealed !== state.mines) return;
+  state.over = true; state.won = true; state.screen = 'over';
+  // bandierine automatiche sulle mine rimaste
+  state.grid.forEach((c, i) => {
+    if (c.mine && !c.flagged) { c.flagged = true; state.flags++; }
+    updateCell(i, 0);
+  });
+  document.getElementById('faceIcon').textContent = '😎';
+  const time = Math.floor(state.elapsed);
+  const prev = bestTime(state.mode);
+  const isRecord = prev === null || time < prev;
+  state.saved = true;
+  saveScoreEntry({ mode: state.mode, time, won: true, date: Date.now() });
+  updateHUD();
+  playWin();
+  spawnWinShards();
+  setTimeout(() => showEndOverlay(true, isRecord, time, prev === null ? time : Math.min(prev, time)), 1300);
+}
+
+function loseGame(boomIdx) {
+  state.over = true; state.won = false; state.screen = 'over';
+  document.getElementById('faceIcon').textContent = '💀';
+  playBoom();
+  shakeBoard();
+  // mostra tutte le mine (a cascata) e le bandiere sbagliate
+  const boomEl = cellEls[boomIdx];
+  state.grid[boomIdx].revealed = true;
+  updateCell(boomIdx, 0);
+  boomEl.classList.add('boom');
+  spawnBoomShards(boomEl);
+  let delay = 60;
+  state.grid.forEach((c, i) => {
+    if (i === boomIdx) return;
+    if (c.mine && !c.flagged) {
+      setTimeout(() => { c.revealed = true; updateCell(i, 0); }, delay);
+      delay += 24;
+    } else if (!c.mine && c.flagged) {
+      setTimeout(() => { cellEls[i].classList.add('wrongflag'); }, delay);
+      delay += 24;
+    }
+  });
+  const time = Math.floor(state.elapsed);
+  state.saved = true;
+  saveScoreEntry({ mode: state.mode, time, won: false, date: Date.now() });
+  updateHUD();
+  setTimeout(() => showEndOverlay(false, false, time, bestTime(state.mode)), Math.max(1400, delay + 500));
+}
+
+// ============================================================
+// EFFETTI
+// ============================================================
+function shakeBoard() {
+  const b = document.getElementById('boardScroll');
+  b.animate([
+    { transform: 'translate(0,0)' },
+    { transform: 'translate(-7px,4px)' },
+    { transform: 'translate(6px,-5px)' },
+    { transform: 'translate(-4px,-3px)' },
+    { transform: 'translate(3px,4px)' },
+    { transform: 'translate(0,0)' }
+  ], { duration: 400, easing: 'ease-out' });
+}
+
+function spawnShardsAt(x, y, colors, count, spread) {
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'shard';
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+    p.style.width = '6px'; p.style.height = '10px';
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    p.style.background = color;
+    p.style.boxShadow = `0 0 10px ${color}`;
+    const a = Math.random() * Math.PI * 2;
+    const dist = spread * (0.4 + Math.random());
+    p.style.setProperty('--tx', Math.cos(a) * dist + 'px');
+    p.style.setProperty('--ty', (Math.sin(a) * dist - 30) + 'px');
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 950);
+  }
+}
+function spawnBoomShards(el) {
+  const r = el.getBoundingClientRect();
+  spawnShardsAt(r.left + r.width / 2, r.top + r.height / 2, ['#ff2a78', '#ff6b35', '#ffbe0b'], 26, 120);
+}
+function spawnWinShards() {
+  const r = document.getElementById('board').getBoundingClientRect();
+  let wave = 0;
+  const iv = setInterval(() => {
+    wave++;
+    spawnShardsAt(r.left + r.width * Math.random(), r.top + r.height * Math.random(), ['#00f5ff', '#06ffa5', '#ffbe0b'], 14, 110);
+    if (wave >= 6) clearInterval(iv);
+  }, 200);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+const board = document.getElementById('board');
+
+function buildBoard() {
+  board.innerHTML = '';
+  board.style.gridTemplateColumns = `repeat(${state.cols}, var(--cs))`;
+  cellEls = [];
+  for (let i = 0; i < state.grid.length; i++) {
+    const el = document.createElement('button');
+    el.className = 'cell';
+    el.dataset.i = i;
+    board.appendChild(el);
+    cellEls.push(el);
+  }
+}
+
+function updateCell(i, delay) {
+  const c = state.grid[i];
+  const el = cellEls[i];
+  let cls = 'cell';
+  let text = '';
+  if (c.revealed) {
+    if (c.mine) {
+      cls += state.won ? ' revealed winmine' : ' revealed mine';
+      text = '✸';
+    } else {
+      cls += ' revealed' + (c.n > 0 ? ' n' + c.n : '');
+      text = c.n > 0 ? c.n : '';
+    }
+  } else if (c.flagged) {
+    cls += ' flag' + (state.won && c.mine ? ' winmine' : '');
+    text = '⚑';
+  }
+  // conserva eventuali classi effetto già applicate
+  if (el.classList.contains('boom')) cls += ' boom';
+  if (el.classList.contains('wrongflag')) cls += ' wrongflag';
+  el.className = cls;
+  el.textContent = text;
+  if (c.revealed && delay > 0) el.style.animationDelay = delay + 'ms';
+  else el.style.animationDelay = '';
+}
+
+function renderAll() {
+  for (let i = 0; i < state.grid.length; i++) updateCell(i, 0);
+}
+
+// ============================================================
+// HUD & OVERLAY
+// ============================================================
+function updateHUD() {
+  document.getElementById('hudMines').textContent = Math.max(0, state.mines - state.flags);
+  document.getElementById('hudTime').textContent = formatTime(state.elapsed);
+  const best = bestTime(state.mode);
+  document.getElementById('hudBest').textContent = best === null ? '—' : formatTime(best);
+  document.getElementById('hudMode').textContent = MODES[state.mode].name;
+  document.getElementById('flagBtn').classList.toggle('active', state.flagMode);
+}
+
+const overlay = document.getElementById('overlay');
+function hideOverlay() { overlay.classList.remove('show'); overlay.innerHTML = ''; }
+
+function renderScoresPanelHTML() {
+  const scores = loadScores();
+  // il record assoluto è la vittoria più veloce (per ogni modalità la migliore)
+  const bestByMode = {};
+  for (const s of scores) {
+    if (s.won && (bestByMode[s.mode] === undefined || s.time < bestByMode[s.mode])) bestByMode[s.mode] = s.time;
+  }
+  let rows;
+  if (scores.length === 0) {
+    rows = '<div class="scores-empty">NESSUNA PARTITA SALVATA</div>';
+  } else {
+    rows = scores.slice(0, 10).map(s => {
+      const isRecord = s.won && bestByMode[s.mode] === s.time;
+      return `
+      <div class="score-row${isRecord ? ' record' : ''}">
+        <span class="s-mode ${s.won ? 'won' : 'lost'}">${MODES[s.mode].name} ${s.won ? '✓' : '✗'}</span>
+        <span class="s-meta">${formatScoreDate(s.date)}</span>
+        <span class="s-score">${formatTime(s.time)}</span>
+      </div>`;
+    }).join('');
+  }
+  return `
+    <div class="scores-panel">
+      <div class="scores-title">ULTIME PARTITE</div>
+      <div class="scores-list">${rows}</div>
+      ${scores.length > 0 ? '<button class="ghost-btn" id="clearScoresBtn">CANCELLA PUNTEGGI</button>' : ''}
+    </div>`;
+}
+
+function showMenu() {
+  state.screen = 'menu';
+  overlay.classList.add('show');
+  overlay.innerHTML = `
+    <div class="overlay-content">
+      <h2>NEON SWEEPER</h2>
+      <div class="menu-desc">
+        Scopri tutte le caselle senza mine. Il <strong>primo click è sempre sicuro</strong>.
+        I numeri dicono quante mine ci sono intorno: segnale con le
+        <strong style="color:var(--gold)">⚑ bandierine</strong> e clicca un numero
+        già completo per aprire i vicini in un colpo solo.
+      </div>
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="easy">
+          <div class="mode-icon">9×9</div>
+          <div class="mode-name">FACILE</div>
+          <div class="mode-desc">10 mine. Per iniziare.</div>
+        </button>
+        <button class="mode-card" data-mode="medium">
+          <div class="mode-icon">16×16</div>
+          <div class="mode-name">MEDIO</div>
+          <div class="mode-desc">40 mine. Ritmo serio.</div>
+        </button>
+        <button class="mode-card" data-mode="expert">
+          <div class="mode-icon">30×16</div>
+          <div class="mode-name">ESPERTO</div>
+          <div class="mode-desc">99 mine. Il classico impossibile.</div>
+        </button>
+      </div>
+      ${renderScoresPanelHTML()}
+    </div>`;
+  overlay.querySelectorAll('.mode-card').forEach(card => {
+    card.addEventListener('click', () => { ensureAudio(); newGame(card.dataset.mode); });
+  });
+  const btn = document.getElementById('clearScoresBtn');
+  if (btn) btn.addEventListener('click', () => { try { localStorage.removeItem(SCORES_KEY); } catch (e) {} showMenu(); });
+  updateHUD();
+}
+
+function showEndOverlay(won, isRecord, time, best) {
+  overlay.classList.add('show');
+  overlay.innerHTML = `
+    <div class="overlay-content">
+      <h2 class="${won ? '' : 'lost'}">${won ? 'CAMPO BONIFICATO!' : 'BOOM!'}</h2>
+      ${isRecord ? '<div class="new-record">★ NUOVO RECORD ★</div>' : ''}
+      <div class="result-score">${formatTime(time)}</div>
+      <div class="result-stats">
+        <div><span>MODALITÀ</span><strong>${MODES[state.mode].name}</strong></div>
+        <div><span>MINE</span><strong>${state.mines}</strong></div>
+        <div><span>RECORD</span><strong>${best === null ? '—' : formatTime(best)}</strong></div>
+      </div>
+      <button class="primary-btn" id="againBtn">GIOCA ANCORA</button>
+      <button class="ghost-btn" id="backMenuBtn">MENU PRINCIPALE</button>
+    </div>`;
+  document.getElementById('againBtn').addEventListener('click', () => { ensureAudio(); newGame(state.mode); });
+  document.getElementById('backMenuBtn').addEventListener('click', showMenu);
+}
+
+// ============================================================
+// INPUT
+// ============================================================
+let press = null; // {i, timer, longDone}
+
+board.addEventListener('pointerdown', (e) => {
+  ensureAudio();
+  if (state.screen !== 'playing') return;
+  const el = e.target.closest('.cell');
+  if (!el) return;
+  const i = parseInt(el.dataset.i);
+  press = { i, x: e.clientX, y: e.clientY, longDone: false, timer: null };
+  el.classList.add('pressing');
+  // pressione prolungata = bandierina (touch)
+  press.timer = setTimeout(() => {
+    if (press && press.i === i) {
+      press.longDone = true;
+      el.classList.remove('pressing');
+      toggleFlag(i);
+    }
+  }, 380);
+  if (e.pointerType !== 'touch') e.preventDefault();
+});
+
+board.addEventListener('pointermove', (e) => {
+  if (!press) return;
+  if (Math.hypot(e.clientX - press.x, e.clientY - press.y) > 12) {
+    clearTimeout(press.timer);
+    cellEls[press.i] && cellEls[press.i].classList.remove('pressing');
+    press = null; // il dito sta scorrendo la griglia
+  }
+});
+
+window.addEventListener('pointerup', (e) => {
+  if (!press) return;
+  const p = press;
+  press = null;
+  clearTimeout(p.timer);
+  const el = cellEls[p.i];
+  if (el) el.classList.remove('pressing');
+  if (p.longDone || state.screen !== 'playing') return;
+  const cell = state.grid[p.i];
+  if (state.flagMode && !cell.revealed) { toggleFlag(p.i); return; }
+  if (cell.revealed) chord(p.i);
+  else reveal(p.i);
+});
+window.addEventListener('pointercancel', () => {
+  if (press) {
+    clearTimeout(press.timer);
+    cellEls[press.i] && cellEls[press.i].classList.remove('pressing');
+    press = null;
+  }
+});
+
+board.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  if (state.screen !== 'playing') return;
+  const el = e.target.closest('.cell');
+  if (!el) return;
+  if (press) { clearTimeout(press.timer); el.classList.remove('pressing'); press = null; }
+  toggleFlag(parseInt(el.dataset.i));
+});
+
+document.getElementById('newBtn').addEventListener('click', () => { ensureAudio(); newGame(state.mode); });
+document.getElementById('flagBtn').addEventListener('click', () => {
+  state.flagMode = !state.flagMode;
+  updateHUD();
+});
+document.getElementById('menuBtn2').addEventListener('click', showMenu);
+
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('campominato-neon-sound', soundOn);
+  document.getElementById('soundBtn').textContent = soundOn ? '♪' : '✕';
+  if (soundOn) ensureAudio();
+}
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').textContent = soundOn ? '♪' : '✕';
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'n' || e.key === 'N') { ensureAudio(); newGame(state.mode); }
+  else if (e.key === 'm' || e.key === 'M') toggleSound();
+  else if (e.key === 'f' || e.key === 'F') { state.flagMode = !state.flagMode; updateHUD(); }
+});
+
+// ============================================================
+// RESIZE
+// ============================================================
+function resizeCells() {
+  const short = window.innerHeight <= 560;
+  const chrome = short ? 100 : 205;
+  const availW = Math.min(window.innerWidth - 28, 860);
+  const availH = window.innerHeight - chrome;
+  const cs = Math.floor(Math.min(
+    (availW - 20 - (state.cols - 1) * 2) / state.cols,
+    (availH - 20 - (state.rows - 1) * 2) / state.rows,
+    34
+  ));
+  document.documentElement.style.setProperty('--cs', Math.max(17, cs) + 'px');
+}
+window.addEventListener('resize', resizeCells);
+window.addEventListener('orientationchange', () => setTimeout(resizeCells, 100));
+
+// ============================================================
+// TIMER
+// ============================================================
+let lastTick = 0;
+function tick(t) {
+  const dt = Math.min(0.1, (t - lastTick) / 1000) || 0;
+  lastTick = t;
+  if (state.screen === 'playing' && state.started && !state.over && !document.hidden) {
+    const before = Math.floor(state.elapsed);
+    state.elapsed += dt;
+    if (Math.floor(state.elapsed) !== before) updateHUD();
+  }
+  requestAnimationFrame(tick);
+}
+
+// ============================================================
+// AVVIO
+// ============================================================
+newGame('easy');       // griglia apparecchiata dietro il menu
+state.screen = 'menu';
+showMenu();
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
