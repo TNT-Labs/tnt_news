@@ -174,6 +174,21 @@ html, body {
 @keyframes pulse-thinking { 0%, 100% { box-shadow: 0 0 10px var(--neon-magenta-glow); } 50% { box-shadow: 0 0 25px var(--neon-magenta); } }
 
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center; }
+
+.match-history { margin-top: 14px; display: flex; flex-direction: column; gap: 4px; max-height: 160px; overflow-y: auto; padding-right: 4px; }
+.match-history::-webkit-scrollbar { width: 4px; }
+.match-history::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+.match-history::-webkit-scrollbar-thumb { background: var(--player-color); }
+.match-entry { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 10px; font-family: 'Space Grotesk', sans-serif; padding: 6px 10px; background: rgba(0,0,0,0.25); border-radius: 4px; border-left: 2px solid var(--border); }
+.match-entry.win { border-left-color: var(--player-color); }
+.match-entry.win .m-result { color: var(--player-color); }
+.match-entry.loss { border-left-color: var(--neon-magenta); }
+.match-entry.loss .m-result { color: var(--neon-magenta); }
+.match-entry .m-result { font-weight: 600; }
+.match-entry .m-date { color: var(--text-dim); font-size: 9px; white-space: nowrap; }
+.empty-match { text-align: center; color: var(--text-dim); font-style: italic; font-size: 10px; padding: 8px 4px; }
+.clear-history-btn { margin-top: 8px; width: 100%; background: transparent; border: 1px solid var(--border); color: var(--text-dim); font-size: 9px; padding: 5px; border-radius: 4px; cursor: pointer; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; transition: all 0.2s; }
+.clear-history-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.3); }
 .stat-item { background: rgba(0,0,0,0.3); padding: 10px 5px; border-radius: 6px; border: 1px solid var(--border); }
 .stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; font-family: 'Space Grotesk', sans-serif; }
 .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
@@ -255,6 +270,8 @@ body.light-theme .btn { background: rgba(20, 30, 60, 0.04); }
 body.light-theme .btn:hover { background: rgba(20, 30, 60, 0.09); color: var(--text); border-color: rgba(20, 30, 60, 0.25); }
 body.light-theme .status-bar { background: rgba(255, 255, 255, 0.85); }
 body.light-theme .move-entry { background: rgba(20, 30, 60, 0.05); }
+body.light-theme .match-entry { background: rgba(20, 30, 60, 0.06); }
+body.light-theme .clear-history-btn:hover { color: var(--text); border-color: rgba(20, 30, 60, 0.35); }
 body.light-theme .move-history::-webkit-scrollbar-track { background: rgba(20, 30, 60, 0.08); }
 body.light-theme .modal { background: rgba(30, 40, 70, 0.4); }
 body.light-theme .shard.white { background: #334155; box-shadow: 0 0 8px var(--player-color); }
@@ -353,6 +370,8 @@ body.light-theme .piece.white { box-shadow: 0 5px 10px rgba(30, 40, 80, 0.35), i
           <div class="stat-item"><div class="stat-label">Sconfitte</div><div class="stat-value" id="stat-losses" style="color: var(--neon-magenta);">0</div></div>
           <div class="stat-item"><div class="stat-label">Pareggi</div><div class="stat-value" id="stat-draws">0</div></div>
         </div>
+        <div class="match-history" id="match-history"></div>
+        <button class="clear-history-btn" id="clear-history" style="display: none;">Cancella storico</button>
       </div>
 
       <div class="panel-section">
@@ -413,6 +432,7 @@ let moveCount = 0; let lastMove = null; let stateHistory = []; let hoveredPiece 
 let gameToken = 0; // Prevenzione race condition worker
 let capturedInThisMove = 0; // Contatore catture della mossa corrente (usato da animateStep)
 let stats = safeParse('dama-stats', { wins: 0, losses: 0, draws: 0 });
+let matchHistory = safeParse('dama-history', []);
 let achievements = safeParse('dama-ach', { firstWin: false, multiCap: false, promote: false, hardWin: false });
 let soundEnabled = localStorage.getItem('dama-sound') !== 'false';
 let themeColor = localStorage.getItem('dama-color') || 'cyan';
@@ -586,6 +606,7 @@ function endGame(winner, reason) {
     else stats.losses++;
     localStorage.setItem('dama-stats', JSON.stringify(stats)); updateStatsUI();
   }
+  saveMatchEntry(winner);
   localStorage.removeItem('dama-save');
   const title = document.getElementById('modal-title'); const msg = document.getElementById('modal-message');
   title.style.color = winner === 'white' ? 'var(--player-color)' : 'var(--neon-magenta)';
@@ -719,6 +740,42 @@ function updateUI() {
   document.getElementById('hint-btn').disabled = gameMode === '2p' || currentPlayer !== 'white' || isAnimating || gameOver;
 }
 function updateStatsUI() { document.getElementById('stat-wins').textContent = stats.wins; document.getElementById('stat-losses').textContent = stats.losses; document.getElementById('stat-draws').textContent = stats.draws; }
+
+// === STORICO PARTITE (leaderboard) ===
+const DIFF_NAMES = { easy: 'Facile', medium: 'Medio', hard: 'Esperto' };
+function formatMatchDate(ts) {
+  const d = new Date(ts);
+  return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' }) + ' ' +
+         d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+}
+function saveMatchEntry(winner) {
+  matchHistory.unshift({ mode: gameMode, difficulty: gameMode === '1p' ? difficulty : null, winner, date: Date.now() });
+  if (matchHistory.length > 30) matchHistory.length = 30;
+  try { localStorage.setItem('dama-history', JSON.stringify(matchHistory)); } catch(e) {}
+  renderMatchHistory();
+}
+function renderMatchHistory() {
+  const el = document.getElementById('match-history');
+  const clearBtn = document.getElementById('clear-history');
+  if (!el) return;
+  if (matchHistory.length === 0) {
+    el.innerHTML = '<div class="empty-match">Le partite giocate appariranno qui</div>';
+    if (clearBtn) clearBtn.style.display = 'none';
+    return;
+  }
+  el.innerHTML = matchHistory.map(m => {
+    let cls, label;
+    if (m.mode === '1p') {
+      cls = m.winner === 'white' ? 'win' : 'loss';
+      label = (m.winner === 'white' ? 'Vittoria' : 'Sconfitta') + ' · ' + (DIFF_NAMES[m.difficulty] || '');
+    } else {
+      cls = m.winner === 'white' ? 'win' : 'loss';
+      label = m.winner === 'white' ? 'Vince il Bianco' : 'Vince il Nero';
+    }
+    return `<div class="match-entry ${cls}"><span class="m-result">${label}</span><span class="m-date">${formatMatchDate(m.date)}</span></div>`;
+  }).join('');
+  if (clearBtn) clearBtn.style.display = 'block';
+}
 function updateAchievementsUI() { for(const id in achievements) if (achievements[id]) { const el = document.getElementById(`ach-${id}`); if (el) el.classList.add('unlocked'); } }
 function setStatus(text) { document.getElementById('status').textContent = text; }
 function saveGame() { if (gameOver) return; localStorage.setItem('dama-save', JSON.stringify({board, currentPlayer, gameMode, difficulty, moveCount, lastMove, historyHTML: document.getElementById('move-history').innerHTML})); }
@@ -810,10 +867,12 @@ document.getElementById('undo-btn').addEventListener('click', undoMove);
 document.getElementById('hint-btn').addEventListener('click', requestHint);
 document.getElementById('sound-btn').addEventListener('click', () => { soundEnabled = !soundEnabled; localStorage.setItem('dama-sound', soundEnabled); document.querySelector('#sound-btn i').className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute'; });
 document.getElementById('theme-btn').addEventListener('click', () => applyUITheme(uiTheme === 'light' ? 'dark' : 'light'));
+document.getElementById('clear-history').addEventListener('click', () => { matchHistory = []; try { localStorage.removeItem('dama-history'); } catch(e) {} renderMatchHistory(); });
 
 // === AVVIO ===
 applyTheme(themeColor);
 applyUITheme(uiTheme);
+renderMatchHistory();
 document.querySelector('#sound-btn i').className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
 updateStatsUI(); updateAchievementsUI();
 initBackground();

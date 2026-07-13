@@ -493,6 +493,54 @@
 
   .hidden { display: none !important; }
 
+  /* Leaderboard */
+  .lb-list {
+    width: min(78vw, 340px);
+    max-height: 46vh;
+    overflow-y: auto;
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .lb-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    font-size: 0.72rem;
+    padding: 7px 4px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row .lb-tile {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    color: var(--accent);
+  }
+  .lb-row .lb-score {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--fg);
+    min-width: 62px;
+    text-align: right;
+  }
+  .lb-row.record .lb-score { color: #facc15; text-shadow: 0 0 10px rgba(250,204,21,0.6); }
+  .lb-empty { text-align: center; color: var(--muted); font-size: 0.78rem; padding: 14px 0; }
+
+  .overlay-text .record-badge {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #facc15;
+    text-shadow: 0 0 12px rgba(250,204,21,0.7);
+    margin-bottom: 6px;
+  }
+
   /* Score float */
   .score-float {
     position: absolute;
@@ -636,6 +684,7 @@
     <div class="controls">
       <button class="btn btn-primary" id="newGame">Nuova partita</button>
       <button class="btn" id="undo" disabled>Annulla</button>
+      <button class="btn" id="scoresBtn">Punteggi</button>
       <button class="btn" id="sound">Audio: On</button>
     </div>
 
@@ -650,6 +699,16 @@
             <div class="overlay-buttons">
               <button class="overlay-btn secondary hidden" id="overlayContinue">Continua</button>
               <button class="overlay-btn" id="overlayRestart">Ricomincia</button>
+            </div>
+          </div>
+        </div>
+        <div class="overlay" id="scoresOverlay">
+          <div class="overlay-content">
+            <h2 class="overlay-title" style="font-size:1.5rem">Punteggi</h2>
+            <div class="lb-list" id="lbList"></div>
+            <div class="overlay-buttons">
+              <button class="overlay-btn secondary" id="lbClear">Cancella</button>
+              <button class="overlay-btn" id="lbClose">Chiudi</button>
             </div>
           </div>
         </div>
@@ -684,6 +743,36 @@ let canContinue = false;
 let history = [];
 let soundOn = localStorage.getItem('sound2048neon') !== 'off';
 let isMoving = false;
+let savedThisGame = false;
+
+// ============ Storico punteggi ============
+const SCORES_KEY = 'scores2048neon';
+function loadScores() {
+  try { const s = JSON.parse(localStorage.getItem(SCORES_KEY)); return Array.isArray(s) ? s : []; }
+  catch(e) { return []; }
+}
+function saveScoreEntry(entry) {
+  const scores = loadScores();
+  scores.unshift(entry);
+  if (scores.length > 50) scores.length = 50;
+  try { localStorage.setItem(SCORES_KEY, JSON.stringify(scores)); } catch(e) {}
+}
+function bestSavedScore() { return loadScores().reduce((m, s) => Math.max(m, s.score), 0); }
+function maxTile() {
+  let m = 0;
+  for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) m = Math.max(m, grid[r][c]);
+  return m;
+}
+function saveCurrentGame() {
+  if (savedThisGame || score <= 0) return;
+  savedThisGame = true;
+  saveScoreEntry({ score, tile: maxTile(), date: Date.now() });
+}
+function formatScoreDate(ts) {
+  const d = new Date(ts);
+  return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit' }) + ' ' +
+         d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+}
 
 // ============ Audio ============
 let audioCtx = null;
@@ -780,6 +869,8 @@ const tilePreview = document.getElementById('tilePreview');
 
 // ============ Logica di gioco ============
 function init() {
+  saveCurrentGame(); // salva la partita in corso (se interrotta con punti)
+  savedThisGame = false;
   grid = Array.from({length: SIZE}, () => Array(SIZE).fill(0));
   tiles = [];
   score = 0;
@@ -1053,9 +1144,14 @@ function showScoreFloat(amount) {
 }
 
 function showGameOver() {
+  const prevBest = bestSavedScore();
+  const isRecord = score > prevBest && score > 0;
+  saveCurrentGame();
   overlayTitle.textContent = 'Game Over';
   overlayTitle.classList.remove('win');
-  overlayText.innerHTML = 'Nessuna mossa disponibile.<br>Punteggio finale: <strong style="color:var(--accent)">' + score + '</strong>';
+  overlayText.innerHTML =
+    (isRecord ? '<span class="record-badge">★ NUOVO RECORD ★</span>' : '') +
+    'Nessuna mossa disponibile.<br>Punteggio finale: <strong style="color:var(--accent)">' + score + '</strong>';
   overlayContinue.classList.add('hidden');
   overlayRestart.textContent = 'Ricomincia';
   overlay.classList.add('show');
@@ -1074,6 +1170,7 @@ function showWin() {
 
 function undo() {
   if (history.length === 0 || isMoving) return;
+  if (gameOver) savedThisGame = false; // la partita riprende: verrà risalvata alla vera fine
   const state = history.pop();
   tileContainer.innerHTML = '';
   tiles = [];
@@ -1101,8 +1198,39 @@ function undo() {
   updateUndoBtn();
 }
 
+// ============ Leaderboard ============
+const scoresOverlay = document.getElementById('scoresOverlay');
+const lbList = document.getElementById('lbList');
+
+function renderLeaderboard() {
+  const scores = loadScores();
+  const bestAll = scores.reduce((m, s) => Math.max(m, s.score), 0);
+  if (scores.length === 0) {
+    lbList.innerHTML = '<div class="lb-empty">Nessuna partita salvata</div>';
+  } else {
+    lbList.innerHTML = scores.slice(0, 15).map(s => `
+      <div class="lb-row${s.score === bestAll && s.score > 0 ? ' record' : ''}">
+        <span class="lb-tile">${s.tile}</span>
+        <span>${formatScoreDate(s.date)}</span>
+        <span class="lb-score">${s.score.toLocaleString()}</span>
+      </div>`).join('');
+  }
+  document.getElementById('lbClear').style.visibility = scores.length ? 'visible' : 'hidden';
+}
+
+document.getElementById('scoresBtn').addEventListener('click', () => {
+  renderLeaderboard();
+  scoresOverlay.classList.add('show');
+});
+document.getElementById('lbClose').addEventListener('click', () => scoresOverlay.classList.remove('show'));
+document.getElementById('lbClear').addEventListener('click', () => {
+  try { localStorage.removeItem(SCORES_KEY); } catch(e) {}
+  renderLeaderboard();
+});
+
 // ============ Input ============
 document.addEventListener('keydown', (e) => {
+  if (scoresOverlay.classList.contains('show')) return;
   let dir = null;
   const k = e.key;
   if (k === 'ArrowUp' || k === 'w' || k === 'W') dir = 'up';
@@ -1133,6 +1261,7 @@ board.addEventListener('touchmove', (e) => {
 board.addEventListener('touchend', (e) => {
   if (!touchActive) return;
   touchActive = false;
+  if (scoresOverlay.classList.contains('show')) return;
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
   const absDx = Math.abs(dx);
