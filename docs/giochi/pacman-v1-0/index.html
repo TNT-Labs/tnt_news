@@ -683,6 +683,30 @@ function frightDuration() { return Math.max(2, 7 - (state.level - 1) * 0.7); }
 // ============================================================
 // PAC-MAN
 // ============================================================
+// Svolta con tolleranza (cornering): consente di girare anche quando il
+// Pac-Man non è esattamente sul centro dell'incrocio, entro TURN_TOL pixel
+// prima o dopo. Risolve le svolte "perse" per input di poco in ritardo e il
+// caso del Pac-Man fermo contro un muro che deve girare in perpendicolare.
+const TURN_TOL = 6;
+function tryCornerTurn(p) {
+  if (!p.desired) return;
+  // già nella direzione voluta, oppure inversione (gestita a parte)
+  if (p.desired.x === p.dir.x && p.desired.y === p.dir.y) return;
+  if (p.desired.x === -p.dir.x && p.desired.y === -p.dir.y) return;
+  const col = Math.floor(p.x / T), row = Math.floor(p.y / T);
+  if (!canEnterPac(col + p.desired.x, row + p.desired.y)) return;
+  const cx = (col + 0.5) * T, cy = (row + 0.5) * T;
+  if (p.dir.x !== 0) {
+    // in moto orizzontale, svolta verticale: allinea alla corsia se vicino al centro
+    if (Math.abs(p.x - cx) <= TURN_TOL) { p.x = cx; p.dir = { ...p.desired }; p.decidedTile = ''; }
+  } else if (p.dir.y !== 0) {
+    if (Math.abs(p.y - cy) <= TURN_TOL) { p.y = cy; p.dir = { ...p.desired }; p.decidedTile = ''; }
+  } else {
+    // fermo: parte subito nella direzione voluta
+    p.dir = { ...p.desired }; p.decidedTile = '';
+  }
+}
+
 function updatePac(dt) {
   const p = state.pac;
   // inversione immediata
@@ -692,6 +716,8 @@ function updatePac(dt) {
       p.decidedTile = '';
     }
   }
+  // svolta con tolleranza prima di muovere (governo più reattivo)
+  tryCornerTurn(p);
   moveGrid(p, pacSpeed() * dt, canEnterPac, (col, row) => {
     if (p.desired && canEnterPac(col + p.desired.x, row + p.desired.y)) {
       p.dir = { ...p.desired };
