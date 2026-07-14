@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bollettino pendolare andata 14 luglio 2026 — TNT News</title>
+  <meta name="description" content="Andata: Moto OK — 86 min stimati">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/bollettino/2026-07-14/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bollettino pendolare andata 14 luglio 2026 — TNT News">
+  <meta property="og:description" content="Andata: Moto OK — 86 min stimati">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/bollettino/2026-07-14/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bollettino pendolare andata 14 luglio 2026 — TNT News">
+  <meta name="twitter:description" content="Andata: Moto OK — 86 min stimati">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../bollettino/">&larr; Bollettino di oggi</a><article class="bollettino"><header class="bollettino-header"><p class="bollettino-meta">Bollettino pendolare · Andata · 14 luglio 2026</p><h1>Bergamo &rarr; San Donato Milanese</h1><p class="bollettino-route">Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese</p></header><section class="verdict verdict-go"><p class="verdict-label">Moto OK</p><ul class="verdict-reasons"><li>Nessuna pioggia prevista sull&#x27;intero tragitto (probabilità massima 10%)</li><li>Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo</li><li>Temperature miti/calde (23-28°C), ben sopra la soglia dei 7°C</li><li>Vento debole (max 5 km/h), raffiche massime 13 km/h, visibilità ottima (16 km)</li></ul></section><section class="bollettino-section"><h2>Tempo stimato in auto</h2><p class="travel-time"><strong>86 min</strong> <span class="travel-meta">· partenza prevista 07:30</span></p><table class="traffic-table"><tbody><tr><td>A4 Bergamo → Agrate</td><td class="num">32 min</td></tr><tr><td>Surface Agrate → Carugate</td><td class="num">14 min</td></tr><tr><td>A51 Carugate → San Donato Milanese</td><td class="num">40 min</td></tr></tbody></table><h3>Segnalazioni su A4 / A51</h3><ul class="incidents"><li><strong>A4 tra Svincolo Dalmine e Svincolo Cavenago, direzione Milano:</strong> Code a tratti per traffico intenso dalle 06:41 (fonte CCISS).</li><li><strong>A51 tra Svincolo Cologno Monzese (S.S. Giovanni Sud) e Svincolo C.A.M.M. (Monluè), direzione Allacciamento A1:</strong> Code a tratti per traffico intenso dalle 06:53 (fonte CCISS).</li></ul><details class="incidents-debug"><summary>Dettagli tecnici sulla raccolta dati</summary><p>Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 32+14+40 min. CCISS RSS letto, 2 item pertinenti alla tratta/direzione odierne (A4 Dalmine-Cavenago dir. Milano dalle 06:41; A51 Cologno Monzese-Monluè dir. Allacciamento A1 dalle 06:53); scartati altri item fuori tratta o direzione (A4 Barriera Milano Est-Cormano dir. Torino; A4 Venezia-Trieste). Milano Serravalle raggiunta ma senza elenco eventi (solo pagina istituzionale). Ricerca web: nessun incidente odierno ulteriore confermato nella finestra di transito; segnalata solo una chiusura notturna A4 Dalmine-Bergamo dir. Brescia prevista stanotte 22:00-05:00, fuori direzione e finestra oraria della corsa.</p></details></section><section class="bollettino-section"><h2>Meteo lungo il percorso</h2><div class="weather-grid"><div class="weather-card"><p class="weather-where">Bergamo (07:30)</p><p class="weather-cond">Prevalentemente nuvoloso</p><p class="weather-data"><span>23°C</span> · <span>0.0 mm</span> · <span>5 km/h NNE</span></p></div><div class="weather-card"><p class="weather-where">Carugate (08:15)</p><p class="weather-cond">Prevalentemente nuvoloso</p><p class="weather-data"><span>27°C</span> · <span>0.0 mm</span> · <span>3 km/h E</span></p></div><div class="weather-card"><p class="weather-where">San Donato (08:45)</p><p class="weather-cond">Prevalentemente soleggiato</p><p class="weather-data"><span>28°C</span> · <span>0.0 mm</span> · <span>3 km/h E</span></p></div></div><p class="weather-summary">Cielo nuvoloso al mattino con schiarite progressive lungo il percorso, temperature già miti/calde (23-28°C), vento debole e nessuna pioggia prevista.</p></section><section class="sources"><h2>Fonti</h2><ul><li><a href="https://developers.google.com/maps/documentation/directions" rel="noopener" target="_blank">Google Maps Directions API</a></li><li><a href="https://developers.google.com/maps/documentation/weather" rel="noopener" target="_blank">Google Weather API</a></li><li><a href="https://www.cciss.it/rss" rel="noopener" target="_blank">CCISS — Viaggiare Informati (RSS)</a></li><li><a href="https://www.serravalle.it/index.php/pillar/apri/viabilita" rel="noopener" target="_blank">Milano Serravalle — viabilità</a></li></ul></section></article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

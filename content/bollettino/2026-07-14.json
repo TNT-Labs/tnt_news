@@ -1,0 +1,43 @@
+{
+  "date": "2026-07-14",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso al mattino con schiarite progressive lungo il percorso, temperature già miti/calde (23-28°C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Prevalentemente nuvoloso",  "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente nuvoloso",  "temp_c": 27, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente soleggiato","temp_c": 28, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 86,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 40}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Svincolo Cavenago, direzione Milano", "desc": "Code a tratti per traffico intenso dalle 06:41 (fonte CCISS)."},
+      {"where": "A51 tra Svincolo Cologno Monzese (S.S. Giovanni Sud) e Svincolo C.A.M.M. (Monluè), direzione Allacciamento A1", "desc": "Code a tratti per traffico intenso dalle 06:53 (fonte CCISS)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 32+14+40 min. CCISS RSS letto, 2 item pertinenti alla tratta/direzione odierne (A4 Dalmine-Cavenago dir. Milano dalle 06:41; A51 Cologno Monzese-Monluè dir. Allacciamento A1 dalle 06:53); scartati altri item fuori tratta o direzione (A4 Barriera Milano Est-Cormano dir. Torino; A4 Venezia-Trieste). Milano Serravalle raggiunta ma senza elenco eventi (solo pagina istituzionale). Ricerca web: nessun incidente odierno ulteriore confermato nella finestra di transito; segnalata solo una chiusura notturna A4 Dalmine-Bergamo dir. Brescia prevista stanotte 22:00-05:00, fuori direzione e finestra oraria della corsa."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature miti/calde (23-28°C), ben sopra la soglia dei 7°C",
+      "Vento debole (max 5 km/h), raffiche massime 13 km/h, visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"}
+  ]
+}
