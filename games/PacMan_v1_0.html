@@ -272,14 +272,61 @@
   .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(255,225,77,0.3); }
 
   .touch-hint { display: none; font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+
+  /* D-pad direzionale per dispositivi touch */
+  .dpad {
+    --b: 56px;
+    display: none;
+    position: relative;
+    width: calc(var(--b) * 3);
+    height: calc(var(--b) * 3);
+    margin: 4px auto 0;
+    flex: 0 0 auto;
+    touch-action: none;
+  }
+  .dpad button, .dpad .hub {
+    position: absolute;
+    width: var(--b);
+    height: var(--b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dpad button {
+    border: 1px solid rgba(255,225,77,0.38);
+    background: rgba(18,18,44,0.85);
+    color: var(--accent);
+    font-size: calc(var(--b) * 0.42);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.08s, box-shadow 0.08s, transform 0.08s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+  }
+  .dpad button:active, .dpad button.active {
+    background: rgba(255,225,77,0.28);
+    box-shadow: 0 0 16px rgba(255,225,77,0.5);
+    transform: scale(0.93);
+  }
+  .dpad .up { top: 0; left: var(--b); border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+  .dpad .down { bottom: 0; left: var(--b); border-top-left-radius: 4px; border-top-right-radius: 4px; }
+  .dpad .left { left: 0; top: var(--b); border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+  .dpad .right { right: 0; top: var(--b); border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+  .dpad .hub { top: var(--b); left: var(--b); color: rgba(255,225,77,0.25); font-size: calc(var(--b) * 0.34); pointer-events: none; }
+
   @media (pointer: coarse) {
     .controls { display: none; }
-    .touch-hint { display: block; }
+    .touch-hint { display: none; }
+    .dpad { display: block; }
   }
   @media (max-height: 560px) {
     header { display: none; }
     .app { gap: 5px; padding: 6px 10px; }
     footer { display: none; }
+    .dpad { --b: 44px; margin-top: 2px; }
+  }
+  @media (max-height: 430px) {
+    .dpad { --b: 38px; }
   }
 </style>
 </head>
@@ -306,13 +353,21 @@
     <div class="overlay" id="overlay"></div>
   </div>
 
+  <div class="dpad" id="dpad">
+    <button type="button" class="up" data-dir="up" aria-label="Su">▲</button>
+    <button type="button" class="left" data-dir="left" aria-label="Sinistra">◀</button>
+    <span class="hub">◆</span>
+    <button type="button" class="right" data-dir="right" aria-label="Destra">▶</button>
+    <button type="button" class="down" data-dir="down" aria-label="Giù">▼</button>
+  </div>
+
   <footer>
     <div class="controls">
       <span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> / <kbd>WASD</kbd> Muovi</span>
       <span><kbd>P</kbd> Pausa</span>
       <span><kbd>M</kbd> Audio</span>
     </div>
-    <div class="touch-hint">SCORRI COL DITO PER CAMBIARE DIREZIONE</div>
+    <div class="touch-hint">USA I TASTI DIREZIONALI O SCORRI COL DITO</div>
   </footer>
 </div>
 
@@ -1247,26 +1302,59 @@ window.addEventListener('blur', () => {
   if (state.screen === 'playing') togglePause();
 });
 
-// swipe
+// swipe: un colpo di dito = una svolta (niente ri-ancoraggio nervoso)
 const stage = document.getElementById('stage');
 let swipeStart = null;
+let swipeFired = false;
+const SWIPE_MIN = 26;   // soglia minima per registrare una direzione
 stage.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.icon-btn') || e.target.closest('.overlay')) return;
   ensureAudio();
   swipeStart = { x: e.clientX, y: e.clientY };
+  swipeFired = false;
   e.preventDefault();
 });
 stage.addEventListener('pointermove', (e) => {
-  if (!swipeStart) return;
+  if (!swipeStart || swipeFired) return;
   const dx = e.clientX - swipeStart.x;
   const dy = e.clientY - swipeStart.y;
-  if (Math.hypot(dx, dy) < 22) return;
+  if (Math.hypot(dx, dy) < SWIPE_MIN) return;
   if (Math.abs(dx) > Math.abs(dy)) setDesired(dx > 0 ? 1 : -1, 0);
   else setDesired(0, dy > 0 ? 1 : -1);
+  // Consuma la gesture: la prossima svolta richiede un nuovo tocco/ri-partenza,
+  // così un singolo movimento non fa scattare direzioni indesiderate.
+  swipeFired = true;
   swipeStart = { x: e.clientX, y: e.clientY };
+});
+// Se il dito torna quasi al punto di partenza, permette una nuova svolta senza staccare
+stage.addEventListener('pointermove', (e) => {
+  if (!swipeStart || !swipeFired) return;
+  const dx = e.clientX - swipeStart.x;
+  const dy = e.clientY - swipeStart.y;
+  if (Math.hypot(dx, dy) > SWIPE_MIN * 1.6) { swipeFired = false; swipeStart = { x: e.clientX, y: e.clientY }; }
 });
 window.addEventListener('pointerup', () => { swipeStart = null; });
 window.addEventListener('pointercancel', () => { swipeStart = null; });
+
+// D-pad direzionale (touch): tocco singolo, risposta immediata su pointerdown
+const dpad = document.getElementById('dpad');
+const DPAD_DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+dpad.querySelectorAll('button[data-dir]').forEach((btn) => {
+  const press = (e) => {
+    e.preventDefault();
+    ensureAudio();
+    const d = DPAD_DIRS[btn.dataset.dir];
+    setDesired(d[0], d[1]);
+    btn.classList.add('active');
+  };
+  const release = () => btn.classList.remove('active');
+  btn.addEventListener('pointerdown', press);
+  btn.addEventListener('pointerup', release);
+  btn.addEventListener('pointerleave', release);
+  btn.addEventListener('pointercancel', release);
+  // Evita il menu contestuale su pressione prolungata
+  btn.addEventListener('contextmenu', (e) => e.preventDefault());
+});
 
 document.getElementById('pauseBtn').addEventListener('click', togglePause);
 function toggleSound() {
@@ -1283,10 +1371,14 @@ document.getElementById('soundBtn').textContent = soundOn ? '♪' : '✕';
 // RESIZE
 // ============================================================
 let stageScale = 1;
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
 function resizeAll() {
   const availW = Math.min(window.innerWidth - 24, 520);
   const short = window.innerHeight <= 560;
-  const chrome = short ? 100 : 185;
+  // Su touch riserva spazio per il D-pad sotto il labirinto. Il footer è
+  // nascosto su coarse pointer, quindi la riserva copre soprattutto il D-pad.
+  let chrome = short ? 100 : 185;
+  if (isTouch) chrome += short ? 96 : 110;
   const availH = window.innerHeight - chrome;
   stageScale = Math.max(0.35, Math.min(availW / W, availH / H, 1.15));
   const dpr = window.devicePixelRatio || 1;
