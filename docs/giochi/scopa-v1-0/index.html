@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>SCOPA — Neon Carte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #0e0704;
+    --fg: #fbf3ec;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #ffbe0b;
+    --accent2: #06ffa5;
+    --gold: #ffbe0b;
+    --panel: rgba(34, 18, 8, 0.55);
+    --border: rgba(255,255,255,0.08);
+    --c-denari: #ffbe0b;
+    --c-coppe: #ff2a78;
+    --c-spade: #00f5ff;
+    --c-bastoni: #06ffa5;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 50%, rgba(255,190,11,0.06), transparent 70%),
+      linear-gradient(180deg, #0e0704 0%, #1a0e06 50%, #140b05 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+    max-width: 680px;
+    margin: 0 auto;
+    --card-w: clamp(48px, 13vw, 70px);
+    --card-h: calc(var(--card-w) * 1.5);
+  }
+
+  header { text-align: center; line-height: 1; padding-top: 2px; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(16px, 4vw, 26px);
+    letter-spacing: 10px;
+    padding-left: 10px;
+    background: linear-gradient(180deg, #ffffff 0%, #ffbe0b 45%, #ff7a00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,190,11,0.5));
+  }
+
+  .subtitle { font-size: 8px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 3px; }
+
+  .cpu-row, .player-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--card-h);
+  }
+
+  .mid-zone {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .side-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 88px;
+    flex: 0 0 auto;
+    align-items: center;
+  }
+  .pt-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 5px 8px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .pt-box .who { font-size: 7.5px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .pt-box .pts { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: #fff; }
+  .pt-box.you .pts { color: var(--accent2); text-shadow: 0 0 10px rgba(6,255,165,0.5); }
+  .pt-box.cpu .pts { color: var(--accent); text-shadow: 0 0 10px rgba(255,190,11,0.5); }
+  .pt-box .sub { font-size: 7px; color: var(--muted); letter-spacing: 1px; }
+
+  .deck-count {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .table-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-content: center;
+    flex: 1;
+    min-height: calc(var(--card-h) + 10px);
+    padding: 6px;
+    border: 1px dashed rgba(255,190,11,0.18);
+    border-radius: 14px;
+  }
+  .table-zone .empty-note { font-size: 8px; letter-spacing: 2px; color: rgba(255,255,255,0.2); font-weight: 700; align-self: center; }
+
+  .status-banner {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    min-height: 14px;
+    text-align: center;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(255,190,11,0.4);
+    padding: 2px 0;
+  }
+  .status-banner.scopa {
+    color: var(--accent2);
+    font-size: 13px;
+    text-shadow: 0 0 16px rgba(6,255,165,0.8);
+    animation: scopaPulse 0.5s ease-in-out 3;
+  }
+  @keyframes scopaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  /* ---------- CARTE ---------- */
+  .card {
+    width: var(--card-w);
+    height: var(--card-h);
+    border-radius: 8px;
+    background: linear-gradient(160deg, #221208 0%, #180d05 100%);
+    border: 1.5px solid rgba(255,255,255,0.16);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s, box-shadow 0.18s, opacity 0.3s;
+    flex: 0 0 auto;
+  }
+
+  .card.denari { border-color: rgba(255,190,11,0.55); box-shadow: 0 0 10px rgba(255,190,11,0.12); }
+  .card.coppe { border-color: rgba(255,42,120,0.55); box-shadow: 0 0 10px rgba(255,42,120,0.12); }
+  .card.spade { border-color: rgba(0,245,255,0.55); box-shadow: 0 0 10px rgba(0,245,255,0.12); }
+  .card.bastoni { border-color: rgba(6,255,165,0.55); box-shadow: 0 0 10px rgba(6,255,165,0.12); }
+
+  .card .rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: calc(var(--card-w) * 0.34);
+    font-weight: 900;
+    line-height: 1;
+  }
+  .card .suit-icon { font-size: calc(var(--card-w) * 0.28); margin-top: 3px; }
+  .card .corner {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: calc(var(--card-w) * 0.15);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .card.denari .rank, .card.denari .corner { color: var(--c-denari); }
+  .card.coppe .rank, .card.coppe .corner { color: var(--c-coppe); }
+  .card.spade .rank, .card.spade .corner { color: var(--c-spade); }
+  .card.bastoni .rank, .card.bastoni .corner { color: var(--c-bastoni); }
+
+  .card.settebello-mark::after {
+    content: '★';
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    color: var(--gold);
+    font-size: calc(var(--card-w) * 0.18);
+    text-shadow: 0 0 8px rgba(255,190,11,0.8);
+  }
+
+  .card.back {
+    background:
+      repeating-linear-gradient(45deg, rgba(255,190,11,0.12), rgba(255,190,11,0.12) 4px, transparent 4px, transparent 9px),
+      linear-gradient(160deg, #241505 0%, #170d04 100%);
+    border-color: rgba(255,190,11,0.3);
+  }
+  .card.back::after {
+    content: '❖';
+    color: rgba(255,190,11,0.5);
+    font-size: calc(var(--card-w) * 0.3);
+  }
+
+  .player-row .card.playable { cursor: pointer; }
+  .player-row .card.playable:hover { transform: translateY(-8px); box-shadow: 0 10px 24px rgba(0,0,0,0.5), 0 0 18px rgba(255,190,11,0.35); }
+  .player-row .card.disabled { opacity: 0.55; }
+
+  .table-zone .card.selectable { cursor: pointer; }
+  .table-zone .card.candidate { outline: 2px dashed rgba(6,255,165,0.6); outline-offset: 2px; }
+  .table-zone .card.chosen {
+    outline: 2px solid var(--accent2);
+    outline-offset: 2px;
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(6,255,165,0.3);
+  }
+
+  .card.captured-anim { animation: capOut 0.4s ease-in forwards; }
+  @keyframes capOut {
+    to { transform: scale(0.4) translateY(30px); opacity: 0; }
+  }
+  .card.dealt { animation: dealIn 0.3s ease-out; }
+  @keyframes dealIn {
+    0% { transform: translateY(-16px) scale(0.85); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .confirm-bar {
+    display: none;
+    gap: 8px;
+    justify-content: center;
+    padding: 2px 0;
+  }
+  .confirm-bar.show { display: flex; }
+
+  /* ---------- OVERLAY ---------- */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(14, 7, 4, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    max-width: 94%;
+    max-height: 94%;
+    overflow-y: auto;
+    text-align: center;
+    background: rgba(34, 18, 8, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #ffbe0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 11px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .primary-btn {
+    background: linear-gradient(135deg, #ffbe0b, #ff7a00);
+    color: #170d04;
+    border: none;
+    box-shadow: 0 4px 22px rgba(255,190,11,0.4);
+  }
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,190,11,0.6); }
+  .primary-btn:disabled { opacity: 0.35; cursor: default; transform: none; }
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+  .result-title.win { color: var(--accent2); text-shadow: 0 0 22px rgba(6,255,165,0.7); }
+  .result-title.lose { color: #ff2a78; text-shadow: 0 0 22px rgba(255,42,120,0.7); }
+  .result-title.neutral { color: var(--accent); text-shadow: 0 0 22px rgba(255,190,11,0.6); }
+
+  .score-table {
+    width: 300px;
+    max-width: 84vw;
+    border-collapse: collapse;
+    font-size: 10px;
+  }
+  .score-table th, .score-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .score-table th {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--muted);
+  }
+  .score-table td:first-child { text-align: left; color: rgba(255,255,255,0.7); }
+  .score-table .pt { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
+  .score-table .got { color: var(--accent2); text-shadow: 0 0 8px rgba(6,255,165,0.5); }
+  .score-table tr.total td { border-top: 2px solid rgba(255,190,11,0.4); border-bottom: none; font-weight: 700; }
+
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; line-height: 1.7; }
+
+  .help-list { font-size: 9.5px; color: rgba(255,255,255,0.6); line-height: 1.9; text-align: left; max-width: 360px; }
+  .help-list strong { color: var(--accent); font-weight: 700; }
+
+  .stats-panel {
+    width: 280px;
+    max-width: 84vw;
+    background: rgba(40, 22, 10, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stats-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .stats-row { display: flex; justify-content: space-around; font-size: 9px; padding: 4px 2px; }
+  .stats-row .v { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; font-size: 13px; }
+  .stats-row .cell { display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); }
+  .stats-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  .icon-btns { position: fixed; top: 8px; right: 8px; display: flex; gap: 6px; z-index: 90; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(34,18,8,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(255,190,11,0.3); }
+
+  @media (max-height: 560px) {
+    header { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">SCOPA</h1>
+    <div class="subtitle">NEON CARTE</div>
+  </header>
+
+  <div class="cpu-row" id="cpuRow"></div>
+
+  <div class="mid-zone">
+    <div class="side-info">
+      <div class="pt-box cpu">
+        <div class="who">CPU</div>
+        <div class="pts" id="matchCpu">0</div>
+        <div class="sub" id="roundCpu">0 carte</div>
+      </div>
+      <div class="deck-count" id="deckCount"></div>
+      <div class="pt-box you">
+        <div class="who">TU</div>
+        <div class="pts" id="matchPlayer">0</div>
+        <div class="sub" id="roundPlayer">0 carte</div>
+      </div>
+    </div>
+    <div class="table-zone" id="tableZone"></div>
+  </div>
+
+  <div class="status-banner" id="statusBanner">&nbsp;</div>
+  <div class="confirm-bar" id="confirmBar">
+    <button class="primary-btn" id="confirmBtn" style="padding:7px 18px;font-size:10px">PRENDI</button>
+    <button class="ghost-btn" id="cancelBtn" style="padding:7px 18px;font-size:10px">ANNULLA</button>
+  </div>
+
+  <div class="player-row" id="playerRow"></div>
+
+  <div class="icon-btns">
+    <button class="icon-btn" id="helpBtn" aria-label="Regole">?</button>
+    <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+    <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const SUITS = ['denari', 'coppe', 'spade', 'bastoni'];
+const SUIT_ICONS = { denari: '🪙', coppe: '🏆', spade: '⚔️', bastoni: '🌿' };
+const RANK_LABEL = { 1: 'A', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: 'F', 9: 'C', 10: 'R' };
+const PRIMIERA = { 7: 21, 6: 18, 1: 16, 5: 15, 4: 14, 3: 13, 2: 12, 8: 10, 9: 10, 10: 10 };
+const MATCH_TARGET = 11;
+const STATS_KEY = 'scopa-neon-stats';
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',           // menu | playing | over
+  deck: [],
+  table: [],
+  hands: { player: [], cpu: [] },
+  captured: { player: [], cpu: [] },
+  scope: { player: 0, cpu: 0 },
+  matchScore: { player: 0, cpu: 0 },
+  turn: 'player',
+  dealer: 'cpu',            // il mazziere; l'altro gioca per primo
+  lastCapturer: null,
+  lock: false,
+  // selezione manuale della presa
+  pending: null             // { handIdx, card, options, chosen:Set }
+};
+
+let soundOn = localStorage.getItem('scopa-neon-sound') !== 'false';
+
+// ============================================================
+// STATISTICHE
+// ============================================================
+function loadStats() {
+  try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return s && typeof s === 'object' ? s : { win: 0, lose: 0 }; }
+  catch (e) { return { win: 0, lose: 0 }; }
+}
+function saveStats(s) { try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch (e) {} }
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol || 0.12, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+const sfx = {
+  play() { beep(340, 0.06, 'triangle', 0.1); },
+  capture() { beep(520, 0.08, 'triangle', 0.13); beep(660, 0.08, 'triangle', 0.12, 0.06); },
+  scopa() { beep(523, 0.1, 'triangle', 0.2); beep(659, 0.1, 'triangle', 0.2, 0.09); beep(784, 0.1, 'triangle', 0.2, 0.18); beep(1047, 0.22, 'triangle', 0.22, 0.27); },
+  deal() { beep(430, 0.04, 'sine', 0.06); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.25, 'triangle', 0.22, 0.2); },
+  lose() { beep(330, 0.16, 'sawtooth', 0.12); beep(247, 0.16, 'sawtooth', 0.12, 0.14); beep(196, 0.3, 'sawtooth', 0.14, 0.28); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// MAZZO
+// ============================================================
+function newDeck() {
+  const deck = [];
+  for (const suit of SUITS) for (let rank = 1; rank <= 10; rank++) deck.push({ suit, rank });
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+  return deck;
+}
+
+function isSettebello(c) { return c.rank === 7 && c.suit === 'denari'; }
+
+// ============================================================
+// PRESE: enumerazione delle opzioni
+// ============================================================
+// Regola: se sul tavolo c'è una carta dello stesso valore, la presa
+// diretta è obbligatoria (una tra le carte uguali). Altrimenti si può
+// prendere qualsiasi combinazione che sommi al valore giocato.
+function captureOptions(card, table) {
+  const exact = [];
+  for (let i = 0; i < table.length; i++) {
+    if (table[i].rank === card.rank) exact.push([i]);
+  }
+  if (exact.length > 0) return exact;
+
+  const options = [];
+  const n = table.length;
+  const search = (start, remaining, chosen) => {
+    if (remaining === 0) { options.push(chosen.slice()); return; }
+    for (let i = start; i < n; i++) {
+      if (table[i].rank > remaining) continue;
+      chosen.push(i);
+      search(i + 1, remaining - table[i].rank, chosen);
+      chosen.pop();
+    }
+  };
+  search(0, card.rank, []);
+  return options;
+}
+
+// ============================================================
+// SVOLGIMENTO
+// ============================================================
+function startMatch() {
+  state.matchScore = { player: 0, cpu: 0 };
+  state.dealer = Math.random() < 0.5 ? 'player' : 'cpu';
+  startRound();
+}
+
+function startRound() {
+  state.deck = newDeck();
+  state.table = [];
+  state.hands.player = [];
+  state.hands.cpu = [];
+  state.captured.player = [];
+  state.captured.cpu = [];
+  state.scope = { player: 0, cpu: 0 };
+  state.lastCapturer = null;
+  state.pending = null;
+  state.lock = false;
+
+  // 4 carte in tavola: se ci sono 3 o più re si rimescola (regola classica)
+  do {
+    state.deck = newDeck();
+    state.table = [state.deck.pop(), state.deck.pop(), state.deck.pop(), state.deck.pop()];
+  } while (state.table.filter(c => c.rank === 10).length >= 3);
+
+  dealHands();
+  state.turn = state.dealer === 'player' ? 'cpu' : 'player';
+  state.dealer = state.dealer === 'player' ? 'cpu' : 'player';
+  state.screen = 'playing';
+  hideOverlay();
+  renderAll();
+  updateStatus();
+  if (state.turn === 'cpu') cpuMove();
+}
+
+function dealHands() {
+  for (let i = 0; i < 3; i++) {
+    state.hands.player.push(state.deck.pop());
+    state.hands.cpu.push(state.deck.pop());
+  }
+  sfx.deal();
+}
+
+// --- Giocata del giocatore umano
+function playerPlay(idx) {
+  if (state.screen !== 'playing' || state.turn !== 'player' || state.lock || state.pending) return;
+  const card = state.hands.player[idx];
+  const options = captureOptions(card, state.table);
+
+  if (options.length === 0) {
+    executePlay('player', idx, null);
+  } else if (options.length === 1) {
+    executePlay('player', idx, options[0]);
+  } else {
+    // Più opzioni: selezione manuale delle carte da prendere
+    state.pending = { handIdx: idx, card, options, chosen: new Set() };
+    renderAll();
+    updateStatus();
+  }
+}
+
+function pendingToggle(tableIdx) {
+  const p = state.pending;
+  if (!p) return;
+  // La carta deve appartenere ad almeno un'opzione
+  if (!p.options.some(opt => opt.includes(tableIdx))) return;
+  if (p.chosen.has(tableIdx)) p.chosen.delete(tableIdx);
+  else p.chosen.add(tableIdx);
+  sfx.ui();
+  renderAll();
+}
+
+function pendingConfirm() {
+  const p = state.pending;
+  if (!p) return;
+  const chosen = [...p.chosen].sort((a, b) => a - b);
+  const ok = p.options.some(opt => opt.length === chosen.length && opt.every((v, i) => v === chosen[i]));
+  if (!ok) return;
+  state.pending = null;
+  executePlay('player', p.handIdx, chosen);
+}
+
+function pendingCancel() {
+  state.pending = null;
+  renderAll();
+  updateStatus();
+}
+
+// --- Esecuzione di una giocata (comune a umano e CPU)
+function executePlay(who, handIdx, captureIdxs) {
+  const card = state.hands[who].splice(handIdx, 1)[0];
+  state.lock = true;
+  sfx.play();
+
+  if (captureIdxs && captureIdxs.length > 0) {
+    const taken = captureIdxs.map(i => state.table[i]);
+    state.table = state.table.filter((_, i) => !captureIdxs.includes(i));
+    state.captured[who].push(card, ...taken);
+    state.lastCapturer = who;
+
+    const handsEmpty = state.hands.player.length === 0 && state.hands.cpu.length === 0;
+    const isLastPlay = handsEmpty && state.deck.length === 0;
+    if (state.table.length === 0 && !isLastPlay) {
+      state.scope[who] += 1;
+      sfx.scopa();
+      showStatus(who === 'player' ? '🧹 SCOPA!' : '🧹 SCOPA DELLA CPU', true);
+    } else {
+      sfx.capture();
+      showStatus(who === 'player' ? 'PRENDI ' + (taken.length + 1) + ' CARTE' : 'LA CPU PRENDE ' + (taken.length + 1) + ' CARTE');
+    }
+  } else {
+    state.table.push(card);
+  }
+
+  renderAll();
+  setTimeout(() => nextTurn(), 700);
+}
+
+function nextTurn() {
+  if (state.hands.player.length === 0 && state.hands.cpu.length === 0) {
+    if (state.deck.length > 0) {
+      dealHands();
+    } else {
+      endRound();
+      return;
+    }
+  }
+  state.turn = state.turn === 'player' ? 'cpu' : 'player';
+  state.lock = false;
+  renderAll();
+  updateStatus();
+  if (state.turn === 'cpu') cpuMove();
+}
+
+// ============================================================
+// IA
+// ============================================================
+function evalCapture(card, option, table) {
+  const taken = option.map(i => table[i]);
+  const all = [card, ...taken];
+  let v = 0;
+  v += all.length * 2;                                        // carte
+  v += all.filter(c => c.suit === 'denari').length * 4;       // denari
+  if (all.some(isSettebello)) v += 30;                        // settebello
+  v += all.filter(c => c.rank === 7).length * 6;              // primiera
+  v += all.filter(c => c.rank === 6).length * 2;
+  if (taken.length === table.length) v += 26;                 // scopa
+  return v;
+}
+
+function cpuChooseMove() {
+  const hand = state.hands.cpu;
+  const table = state.table;
+  let best = null;
+
+  for (let i = 0; i < hand.length; i++) {
+    const options = captureOptions(hand[i], table);
+    for (const opt of options) {
+      const v = evalCapture(hand[i], opt, table);
+      if (!best || v > best.v) best = { idx: i, opt, v };
+    }
+  }
+  if (best) return { idx: best.idx, opt: best.opt };
+
+  // Nessuna presa possibile: scarto difensivo
+  let bestIdx = 0, bestScore = -Infinity;
+  const tableSum = table.reduce((a, c) => a + c.rank, 0);
+  for (let i = 0; i < hand.length; i++) {
+    const c = hand[i];
+    let v = 0;
+    const newSum = tableSum + c.rank;
+    if (newSum > 10) v += 8;                    // niente scopa immediata possibile
+    else v -= 14;                               // lascia una scopa facile
+    v -= (PRIMIERA[c.rank] || 10) / 4;          // conserva 7 e 6
+    if (c.suit === 'denari') v -= 3;            // conserva i denari
+    if (isSettebello(c)) v -= 40;               // mai buttare il settebello
+    v -= c.rank * 0.1;
+    if (v > bestScore) { bestScore = v; bestIdx = i; }
+  }
+  return { idx: bestIdx, opt: null };
+}
+
+function cpuMove() {
+  state.lock = true;
+  updateStatus();
+  setTimeout(() => {
+    if (state.screen !== 'playing') return;
+    const { idx, opt } = cpuChooseMove();
+    executePlay('cpu', idx, opt);
+  }, 800);
+}
+
+// ============================================================
+// FINE SMAZZATA E PUNTEGGIO
+// ============================================================
+function primieraScore(cards) {
+  let total = 0;
+  for (const suit of SUITS) {
+    const inSuit = cards.filter(c => c.suit === suit);
+    if (inSuit.length === 0) return { total: 0, incomplete: true };
+    total += Math.max(...inSuit.map(c => PRIMIERA[c.rank]));
+  }
+  return { total, incomplete: false };
+}
+
+function endRound() {
+  // Le carte rimaste in tavola vanno all'ultimo che ha preso
+  if (state.table.length > 0 && state.lastCapturer) {
+    state.captured[state.lastCapturer].push(...state.table);
+    state.table = [];
+  }
+
+  const P = state.captured.player, C = state.captured.cpu;
+  const rows = [];
+  const pts = { player: state.scope.player, cpu: state.scope.cpu };
+
+  // Carte
+  const cardsP = P.length, cardsC = C.length;
+  rows.push({ name: 'Carte (' + cardsP + '–' + cardsC + ')', p: cardsP > cardsC, c: cardsC > cardsP });
+  // Denari
+  const denP = P.filter(c => c.suit === 'denari').length;
+  const denC = C.filter(c => c.suit === 'denari').length;
+  rows.push({ name: 'Denari (' + denP + '–' + denC + ')', p: denP > denC, c: denC > denP });
+  // Settebello
+  const setteP = P.some(isSettebello);
+  rows.push({ name: 'Settebello ⭐', p: setteP, c: !setteP && C.some(isSettebello) });
+  // Primiera
+  const priP = primieraScore(P), priC = primieraScore(C);
+  rows.push({ name: 'Primiera (' + priP.total + '–' + priC.total + ')', p: priP.total > priC.total, c: priC.total > priP.total });
+  // Scope
+  rows.push({ name: 'Scope', p: false, c: false, scopeP: state.scope.player, scopeC: state.scope.cpu });
+
+  for (const r of rows) { if (r.p) pts.player += 1; if (r.c) pts.cpu += 1; }
+
+  state.matchScore.player += pts.player;
+  state.matchScore.cpu += pts.cpu;
+
+  const matchOver = state.matchScore.player >= MATCH_TARGET || state.matchScore.cpu >= MATCH_TARGET;
+  const winner = state.matchScore.player === state.matchScore.cpu ? null
+    : (state.matchScore.player > state.matchScore.cpu ? 'player' : 'cpu');
+
+  if (matchOver && winner) {
+    const stats = loadStats();
+    if (winner === 'player') { stats.win += 1; sfx.win(); }
+    else { stats.lose += 1; sfx.lose(); }
+    saveStats(stats);
+  }
+
+  renderAll();
+  setTimeout(() => showRoundResult(rows, pts, matchOver && winner ? winner : null), 600);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function cardHtml(c, cls, dataAttr) {
+  return '<div ' + (dataAttr || '') + ' class="card ' + c.suit + ' ' + (cls || '') + (isSettebello(c) ? ' settebello-mark' : '') + '">' +
+    '<div class="corner">' + RANK_LABEL[c.rank] + '<br>' + SUIT_ICONS[c.suit] + '</div>' +
+    '<div class="rank">' + RANK_LABEL[c.rank] + '</div>' +
+    '<div class="suit-icon">' + SUIT_ICONS[c.suit] + '</div>' +
+    '</div>';
+}
+
+function renderAll() {
+  // Mano CPU
+  document.getElementById('cpuRow').innerHTML =
+    state.hands.cpu.map(() => '<div class="card back"></div>').join('');
+
+  // Tavolo
+  const tz = document.getElementById('tableZone');
+  if (state.table.length === 0) {
+    tz.innerHTML = '<span class="empty-note">TAVOLO VUOTO</span>';
+  } else {
+    const p = state.pending;
+    tz.innerHTML = state.table.map((c, i) => {
+      let cls = 'dealt';
+      let attr = 'data-t="' + i + '"';
+      if (p) {
+        const inOption = p.options.some(opt => opt.includes(i));
+        if (inOption) cls += ' selectable ' + (p.chosen.has(i) ? 'chosen' : 'candidate');
+      }
+      return cardHtml(c, cls, attr);
+    }).join('');
+    tz.querySelectorAll('.card.selectable').forEach(el => {
+      el.addEventListener('click', () => pendingToggle(parseInt(el.dataset.t, 10)));
+    });
+  }
+
+  // Mano giocatore
+  const pr = document.getElementById('playerRow');
+  const canPlay = state.screen === 'playing' && state.turn === 'player' && !state.lock && !state.pending;
+  pr.innerHTML = state.hands.player.map((c, i) =>
+    cardHtml(c, (canPlay ? 'playable' : 'disabled') + (state.pending && state.pending.handIdx === i ? ' chosen' : ''), 'data-h="' + i + '"')
+  ).join('');
+  pr.querySelectorAll('.card.playable').forEach(el => {
+    el.addEventListener('click', () => playerPlay(parseInt(el.dataset.h, 10)));
+  });
+
+  // Contatori
+  document.getElementById('matchPlayer').textContent = state.matchScore.player;
+  document.getElementById('matchCpu').textContent = state.matchScore.cpu;
+  document.getElementById('roundPlayer').textContent = state.captured.player.length + ' carte · ' + state.scope.player + ' scope';
+  document.getElementById('roundCpu').textContent = state.captured.cpu.length + ' carte · ' + state.scope.cpu + ' scope';
+  document.getElementById('deckCount').textContent = state.deck.length > 0 ? '🂠 ' + state.deck.length + ' NEL MAZZO' : 'ULTIME MANI';
+
+  // Barra di conferma della presa multipla
+  const bar = document.getElementById('confirmBar');
+  if (state.pending) {
+    bar.classList.add('show');
+    const chosen = [...state.pending.chosen].sort((a, b) => a - b);
+    const ok = state.pending.options.some(opt => opt.length === chosen.length && opt.every((v, i) => v === chosen[i]));
+    document.getElementById('confirmBtn').disabled = !ok;
+  } else {
+    bar.classList.remove('show');
+  }
+}
+
+let statusTimer = null;
+function showStatus(msg, isScopa) {
+  const el = document.getElementById('statusBanner');
+  el.textContent = msg;
+  el.className = 'status-banner' + (isScopa ? ' scopa' : '');
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(updateStatus, isScopa ? 2200 : 1500);
+}
+function updateStatus() {
+  clearTimeout(statusTimer);
+  const el = document.getElementById('statusBanner');
+  el.className = 'status-banner';
+  if (state.screen !== 'playing') { el.textContent = ' '; return; }
+  if (state.pending) { el.textContent = 'SCEGLI LE CARTE DA PRENDERE (' + state.pending.card.rank + ')'; return; }
+  el.textContent = state.turn === 'player' && !state.lock ? 'TOCCA A TE — GIOCA UNA CARTA' : 'LA CPU PENSA…';
+}
+
+// ============================================================
+// OVERLAY
+// ============================================================
+const overlay = document.getElementById('overlay');
+function showOverlay(html) {
+  overlay.innerHTML = '<div class="overlay-content">' + html + '</div>';
+  overlay.classList.add('show');
+}
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function statsPanelHtml() {
+  const s = loadStats();
+  return '<div class="stats-panel"><div class="stats-title">PARTITE AGLI 11 PUNTI</div>' +
+    '<div class="stats-row">' +
+    '<div class="cell"><span class="v">' + s.win + '</span>VINTE</div>' +
+    '<div class="cell"><span class="v">' + s.lose + '</span>PERSE</div>' +
+    '</div>' +
+    '<button class="ghost-btn" id="clearStats">CANCELLA STATISTICHE</button></div>';
+}
+
+function showMenu() {
+  state.screen = 'menu';
+  showOverlay(
+    '<h2>SCOPA</h2>' +
+    '<div class="series-line">LA REGINA DELLE CARTE ITALIANE<br>UNO CONTRO UNO CON LA CPU — SI GIOCA AGLI 11 PUNTI</div>' +
+    '<button class="primary-btn" id="startBtn">GIOCA</button>' +
+    '<button class="ghost-btn" id="rulesBtn">REGOLE</button>' +
+    statsPanelHtml()
+  );
+  overlay.querySelector('#startBtn').addEventListener('click', () => { sfx.ui(); startMatch(); });
+  overlay.querySelector('#rulesBtn').addEventListener('click', () => { sfx.ui(); showHelp(); });
+  const clear = overlay.querySelector('#clearStats');
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(STATS_KEY); } catch (e) {}
+    showMenu();
+  });
+}
+
+function showHelp() {
+  showOverlay(
+    '<h2>REGOLE</h2>' +
+    '<div class="help-list">' +
+    '· Giochi una carta: se in tavola c\'è una carta di <strong>pari valore</strong> la prendi (obbligatorio); altrimenti puoi prendere più carte che <strong>sommate</strong> danno il valore giocato.<br>' +
+    '· Se non puoi prendere, la carta resta in tavola.<br>' +
+    '· Svuoti il tavolo? È <strong>scopa</strong>: +1 punto (non vale sull\'ultima giocata).<br>' +
+    '· A fine mazzo le carte rimaste vanno all\'ultimo che ha preso.<br>' +
+    '· Punti per smazzata: <strong>carte</strong> (più di 20), <strong>denari</strong> (più di 5), <strong>settebello</strong> (7🪙), <strong>primiera</strong> (7&gt;6&gt;A&gt;5…, una carta per seme) e le scope.<br>' +
+    '· Vince chi arriva per primo a <strong>11 punti</strong>.' +
+    '</div>' +
+    '<button class="primary-btn" id="closeBtn">HO CAPITO</button>'
+  );
+  overlay.querySelector('#closeBtn').addEventListener('click', () => {
+    if (state.screen === 'menu') showMenu(); else hideOverlay();
+  });
+}
+
+function showRoundResult(rows, pts, matchWinner) {
+  let table = '<table class="score-table"><tr><th></th><th>TU</th><th>CPU</th></tr>';
+  for (const r of rows) {
+    if ('scopeP' in r) {
+      table += '<tr><td>' + r.name + '</td><td class="pt ' + (r.scopeP ? 'got' : '') + '">' + r.scopeP + '</td>' +
+        '<td class="pt ' + (r.scopeC ? 'got' : '') + '">' + r.scopeC + '</td></tr>';
+    } else {
+      table += '<tr><td>' + r.name + '</td><td class="pt ' + (r.p ? 'got' : '') + '">' + (r.p ? '1' : '0') + '</td>' +
+        '<td class="pt ' + (r.c ? 'got' : '') + '">' + (r.c ? '1' : '0') + '</td></tr>';
+    }
+  }
+  table += '<tr class="total"><td>Smazzata</td><td class="pt">' + pts.player + '</td><td class="pt">' + pts.cpu + '</td></tr>';
+  table += '<tr class="total"><td>TOTALE PARTITA</td><td class="pt">' + state.matchScore.player + '</td><td class="pt">' + state.matchScore.cpu + '</td></tr>';
+  table += '</table>';
+
+  let title, cls, btn;
+  if (matchWinner === 'player') { title = 'HAI VINTO LA PARTITA!'; cls = 'win'; btn = 'NUOVA PARTITA'; }
+  else if (matchWinner === 'cpu') { title = 'VINCE LA CPU'; cls = 'lose'; btn = 'NUOVA PARTITA'; }
+  else { title = 'FINE SMAZZATA'; cls = 'neutral'; btn = 'PROSSIMA SMAZZATA'; }
+
+  showOverlay(
+    '<div class="result-title ' + cls + '">' + title + '</div>' +
+    table +
+    '<button class="primary-btn" id="nextBtn">' + btn + '</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">MENU</button>'
+  );
+  overlay.querySelector('#nextBtn').addEventListener('click', () => {
+    sfx.ui();
+    if (matchWinner) startMatch(); else startRound();
+  });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// PULSANTI E INPUT
+// ============================================================
+document.getElementById('confirmBtn').addEventListener('click', pendingConfirm);
+document.getElementById('cancelBtn').addEventListener('click', pendingCancel);
+
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('scopa-neon-sound', soundOn);
+  document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+  if (soundOn) sfx.ui();
+}
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+document.getElementById('helpBtn').addEventListener('click', () => { sfx.ui(); showHelp(); });
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'm' || e.key === 'M') toggleSound();
+  if (e.key === 'Escape' && state.pending) pendingCancel();
+  if (e.key === 'Enter' && state.pending) pendingConfirm();
+  const n = parseInt(e.key, 10);
+  if (n >= 1 && n <= 3) playerPlay(n - 1);
+});
+
+// ============================================================
+// AVVIO
+// ============================================================
+renderAll();
+showMenu();
+</script>
+</body>
+</html>
