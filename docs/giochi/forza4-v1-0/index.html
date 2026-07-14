@@ -638,12 +638,15 @@ for (let c = 0; c < COLS; c++) {
   previews.push(pd);
 }
 
+// holeEls[row][col] con row 0 = fondo. Il DOM parte dall'alto (row ROWS-1).
+const holeEls = Array.from({ length: ROWS }, () => new Array(COLS));
 for (let r = ROWS - 1; r >= 0; r--) {
   for (let c = 0; c < COLS; c++) {
     const h = document.createElement('div');
     h.className = 'hole';
     h.dataset.col = c;
     grid.appendChild(h);
+    holeEls[r][c] = h;
   }
 }
 
@@ -667,12 +670,15 @@ function showPreview(col) {
 }
 
 function cellXY(col, row) {
-  // row 0 = fondo. Il DOM parte dall'alto.
-  const style = getComputedStyle(boardWrap);
-  const cell = parseFloat(style.getPropertyValue('--cell'));
+  // Misura la geometria reale dalla casella di destinazione: le pedine sono
+  // posizionate in assoluto dentro .grid, come i buchi (offsetParent = .grid),
+  // quindi offsetLeft/offsetTop danno le coordinate esatte. Evita di parsare
+  // la variabile CSS --cell (che vale min(...) e darebbe NaN con parseFloat).
+  const target = holeEls[row][col];
+  const cell = target.offsetWidth || 50;
   const gap = cell * 0.14;
-  const x = col * (cell + gap);
-  const y = (ROWS - 1 - row) * (cell + gap);
+  const x = target.offsetLeft;
+  const y = target.offsetTop;
   return { x, y, cell, gap };
 }
 
