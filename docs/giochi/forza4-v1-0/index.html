@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>FORZA 4 — Neon Connect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #06040d;
+    --fg: #f2eefb;
+    --muted: rgba(255,255,255,0.45);
+    --p1: #ff2a78;         /* rosa neon */
+    --p2: #ffbe0b;         /* giallo oro */
+    --frame: #00f5ff;
+    --gold: #ffbe0b;
+    --panel: rgba(14, 10, 28, 0.55);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,42,120,0.08), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,245,255,0.07), transparent 60%),
+      linear-gradient(180deg, #06040d 0%, #0b0716 50%, #090512 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(20px, 4.5vw, 32px);
+    letter-spacing: 9px;
+    padding-left: 9px;
+    background: linear-gradient(180deg, #ffffff 0%, #ff2a78 45%, #ffbe0b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,42,120,0.5));
+    animation: titleGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 16px rgba(255,42,120,0.5)); }
+    50% { filter: drop-shadow(0 0 26px rgba(255,190,11,0.6)); }
+  }
+
+  .subtitle { font-size: 9px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 4px; }
+
+  .hud {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 7px 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hud .stat { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 54px; }
+  .hud .label { font-size: 8px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .hud .value { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+  .hud .value.p1 { color: var(--p1); text-shadow: 0 0 10px rgba(255,42,120,0.5); }
+  .hud .value.p2 { color: var(--p2); text-shadow: 0 0 10px rgba(255,190,11,0.5); }
+
+  .turn-banner {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    min-height: 16px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .turn-banner.p1 { color: var(--p1); text-shadow: 0 0 12px rgba(255,42,120,0.6); }
+  .turn-banner.p2 { color: var(--p2); text-shadow: 0 0 12px rgba(255,190,11,0.6); }
+
+  .stage { position: relative; }
+
+  /* Il tabellone: 7 colonne x 6 righe + una riga fantasma sopra per l'anteprima */
+  .board-wrap {
+    position: relative;
+    background: rgba(4, 8, 16, 0.85);
+    border: 1px solid rgba(0,245,255,0.25);
+    border-radius: 14px;
+    padding: var(--pad);
+    box-shadow: 0 0 50px rgba(0,245,255,0.10), 0 0 25px rgba(255,42,120,0.06), inset 0 0 40px rgba(0,0,0,0.6);
+    --cell: min(11.4vw, 8.2vh, 58px);
+    --gap: calc(var(--cell) * 0.14);
+    --pad: calc(var(--cell) * 0.22);
+  }
+
+  .preview-row {
+    display: grid;
+    grid-template-columns: repeat(7, var(--cell));
+    gap: var(--gap);
+    height: calc(var(--cell) * 0.82);
+    margin-bottom: calc(var(--gap) * 0.6);
+  }
+  .preview-cell { position: relative; }
+  .preview-disc {
+    position: absolute;
+    inset: 8% 8% auto 8%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .preview-disc.show { opacity: 0.45; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, var(--cell));
+    grid-template-rows: repeat(6, var(--cell));
+    gap: var(--gap);
+    position: relative;
+  }
+
+  .hole {
+    border-radius: 50%;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(0,245,255,0.14);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.7);
+    cursor: pointer;
+  }
+
+  .disc {
+    position: absolute;
+    width: var(--cell);
+    height: var(--cell);
+    border-radius: 50%;
+    will-change: transform;
+    transition: transform 0.09s linear;
+  }
+  .disc::after {
+    content: '';
+    position: absolute;
+    inset: 14% 20% 50% 30%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.5), transparent 70%);
+  }
+
+  .disc.p1, .preview-disc.p1 {
+    background: radial-gradient(circle at 35% 30%, #ff7aa8, #ff2a78 55%, #a80f47);
+    box-shadow: 0 0 14px rgba(255,42,120,0.7), inset 0 -4px 10px rgba(0,0,0,0.4);
+  }
+  .disc.p2, .preview-disc.p2 {
+    background: radial-gradient(circle at 35% 30%, #ffe28a, #ffbe0b 55%, #a87a00);
+    box-shadow: 0 0 14px rgba(255,190,11,0.7), inset 0 -4px 10px rgba(0,0,0,0.4);
+  }
+
+  .disc.win-disc {
+    animation: winBlink 0.7s ease-in-out infinite;
+    z-index: 5;
+  }
+  @keyframes winBlink {
+    0%, 100% { filter: brightness(1); box-shadow: 0 0 14px rgba(255,255,255,0.5); }
+    50% { filter: brightness(1.6); box-shadow: 0 0 30px rgba(255,255,255,0.9); }
+  }
+  .board-wrap.ended .disc:not(.win-disc) { opacity: 0.35; }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 8, 16, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 40;
+  }
+
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    max-width: 96%;
+    max-height: 96%;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #ff2a78);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mode-grid { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 460px; }
+
+  .mode-card {
+    background: rgba(22, 12, 36, 0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 8px;
+    width: 100px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.25s;
+  }
+
+  .mode-card:hover {
+    border-color: rgba(255,42,120,0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255,42,120,0.18);
+  }
+
+  .mode-icon { font-size: 20px; margin-bottom: 4px; filter: drop-shadow(0 0 8px rgba(255,42,120,0.6)); }
+  .mode-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; color: var(--p1); }
+  .mode-desc { font-size: 8.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 11px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .primary-btn {
+    background: linear-gradient(135deg, #ff2a78, #ffbe0b);
+    color: #16060d;
+    border: none;
+    box-shadow: 0 4px 22px rgba(255,42,120,0.4);
+  }
+
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,42,120,0.6); }
+
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+  .result-title.p1 { color: var(--p1); text-shadow: 0 0 22px rgba(255,42,120,0.7); }
+  .result-title.p2 { color: var(--p2); text-shadow: 0 0 22px rgba(255,190,11,0.7); }
+  .result-title.draw { color: var(--muted); }
+
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; }
+
+  .stats-panel {
+    width: 320px;
+    max-width: 84vw;
+    background: rgba(22, 12, 36, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stats-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 10px;
+    font-size: 9px;
+    padding: 4px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: baseline;
+  }
+  .stats-row:last-child { border-bottom: none; }
+  .stats-row .m { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 1px; color: var(--frame); }
+  .stats-row .v { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
+  .stats-empty { text-align: center; font-size: 9px; color: rgba(255,255,255,0.35); padding: 8px 0; }
+  .stats-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  footer { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    justify-content: center;
+  }
+
+  .controls span { display: flex; align-items: center; gap: 4px; }
+
+  kbd {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 8px;
+    color: #fff;
+    min-width: 16px;
+    text-align: center;
+  }
+
+  .icon-btns { position: absolute; top: 8px; right: 8px; display: flex; gap: 6px; z-index: 45; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(14,10,28,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--p1); box-shadow: 0 0 10px rgba(255,42,120,0.3); }
+
+  @media (pointer: coarse) { .controls { display: none; } }
+
+  @media (max-height: 620px) {
+    header { display: none; }
+    .app { gap: 5px; padding: 6px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">FORZA 4</h1>
+    <div class="subtitle">NEON CONNECT</div>
+  </header>
+
+  <div class="hud">
+    <div class="stat"><div class="label" id="lab1">ROSA</div><div class="value p1" id="hud1">0</div></div>
+    <div class="stat"><div class="label">PAREGGI</div><div class="value" id="hudD">0</div></div>
+    <div class="stat"><div class="label" id="lab2">GIALLO</div><div class="value p2" id="hud2">0</div></div>
+  </div>
+
+  <div class="turn-banner" id="turnBanner">&nbsp;</div>
+
+  <div class="stage">
+    <div class="board-wrap" id="boardWrap">
+      <div class="preview-row" id="previewRow"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+    <div class="icon-btns">
+      <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </div>
+
+  <footer>
+    <div class="controls">
+      <span><kbd>1</kbd>–<kbd>7</kbd> Colonna</span>
+      <span><kbd>N</kbd> Nuova partita</span>
+      <span><kbd>M</kbd> Audio</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const COLS = 7, ROWS = 6;
+const STATS_KEY = 'forza4-neon-stats';
+const MODE_NAMES = { easy: 'CPU FACILE', medium: 'CPU MEDIO', hard: 'CPU ESPERTO', duel: '2 GIOCATORI' };
+const DEPTHS = { easy: 2, medium: 4, hard: 7 };
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',            // menu | playing | over
+  mode: 'medium',
+  board: [],                 // board[col][row] con row 0 = fondo; 0 vuoto, 1, 2
+  heights: [],               // pedine presenti per colonna
+  turn: 1,                   // 1 = rosa (umano vs CPU), 2 = giallo
+  human: 1,
+  over: false,
+  winner: 0,
+  winCells: [],
+  series: { 1: 0, 2: 0, D: 0 },
+  lock: false,
+  firstPlayer: 1             // si alterna a ogni partita
+};
+
+let soundOn = localStorage.getItem('forza4-neon-sound') !== 'false';
+
+// ============================================================
+// STATISTICHE
+// ============================================================
+function loadStats() {
+  try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return s && typeof s === 'object' ? s : {}; }
+  catch (e) { return {}; }
+}
+function bumpStat(mode, key) {
+  const stats = loadStats();
+  if (!stats[mode]) stats[mode] = { win: 0, lose: 0, draw: 0 };
+  stats[mode][key] += 1;
+  try { localStorage.setItem(STATS_KEY, JSON.stringify(stats)); } catch (e) {}
+}
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol || 0.15, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+const sfx = {
+  drop() { beep(220, 0.08, 'triangle', 0.2); beep(140, 0.1, 'sine', 0.22, 0.04); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.12, 'triangle', 0.2, 0.2); beep(1047, 0.25, 'triangle', 0.22, 0.3); },
+  lose() { beep(330, 0.16, 'sawtooth', 0.12); beep(247, 0.16, 'sawtooth', 0.12, 0.14); beep(196, 0.3, 'sawtooth', 0.14, 0.28); },
+  draw() { beep(392, 0.12, 'sine', 0.15); beep(392, 0.12, 'sine', 0.15, 0.15); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// LOGICA: mosse e vittoria
+// ============================================================
+function newBoard() {
+  state.board = Array.from({ length: COLS }, () => Array(ROWS).fill(0));
+  state.heights = Array(COLS).fill(0);
+}
+
+function validMoves(heights) {
+  const m = [];
+  // Ordine dal centro verso l'esterno: aiuta la potatura alfa-beta
+  for (const c of [3, 2, 4, 1, 5, 0, 6]) if (heights[c] < ROWS) m.push(c);
+  return m;
+}
+
+function findWin(board, col, row, player) {
+  const dirs = [[1,0],[0,1],[1,1],[1,-1]];
+  for (const [dx, dy] of dirs) {
+    const cells = [[col, row]];
+    for (const s of [1, -1]) {
+      let c = col + dx * s, r = row + dy * s;
+      while (c >= 0 && c < COLS && r >= 0 && r < ROWS && board[c][r] === player) {
+        cells.push([c, r]);
+        c += dx * s; r += dy * s;
+      }
+    }
+    if (cells.length >= 4) return cells;
+  }
+  return null;
+}
+
+// ============================================================
+// IA: minimax alfa-beta con euristica a finestre
+// ============================================================
+function scoreWindow(w, me) {
+  const opp = me === 1 ? 2 : 1;
+  let mine = 0, theirs = 0;
+  for (const v of w) { if (v === me) mine++; else if (v === opp) theirs++; }
+  if (mine > 0 && theirs > 0) return 0;
+  if (mine === 4) return 10000;
+  if (mine === 3) return 60;
+  if (mine === 2) return 8;
+  if (theirs === 4) return -10000;
+  if (theirs === 3) return -70;
+  if (theirs === 2) return -8;
+  return 0;
+}
+
+function evaluate(board, me) {
+  let score = 0;
+  // Bonus colonna centrale
+  for (let r = 0; r < ROWS; r++) if (board[3][r] === me) score += 5; else if (board[3][r]) score -= 5;
+  // Finestre orizzontali, verticali e diagonali
+  for (let c = 0; c < COLS; c++) {
+    for (let r = 0; r < ROWS; r++) {
+      if (c + 3 < COLS) score += scoreWindow([board[c][r], board[c+1][r], board[c+2][r], board[c+3][r]], me);
+      if (r + 3 < ROWS) score += scoreWindow([board[c][r], board[c][r+1], board[c][r+2], board[c][r+3]], me);
+      if (c + 3 < COLS && r + 3 < ROWS) score += scoreWindow([board[c][r], board[c+1][r+1], board[c+2][r+2], board[c+3][r+3]], me);
+      if (c + 3 < COLS && r - 3 >= 0) score += scoreWindow([board[c][r], board[c+1][r-1], board[c+2][r-2], board[c+3][r-3]], me);
+    }
+  }
+  return score;
+}
+
+function minimax(board, heights, depth, alpha, beta, turn, me, lastCol) {
+  if (lastCol >= 0) {
+    const lastRow = heights[lastCol] - 1;
+    const lastPlayer = board[lastCol][lastRow];
+    if (findWin(board, lastCol, lastRow, lastPlayer)) {
+      // Chi ha appena mosso ha vinto; preferisce vittorie rapide
+      return lastPlayer === me ? 100000 + depth : -100000 - depth;
+    }
+  }
+  const moves = validMoves(heights);
+  if (moves.length === 0) return 0;
+  if (depth === 0) return evaluate(board, me);
+
+  const maximizing = turn === me;
+  let best = maximizing ? -Infinity : Infinity;
+  for (const c of moves) {
+    const r = heights[c];
+    board[c][r] = turn; heights[c]++;
+    const v = minimax(board, heights, depth - 1, alpha, beta, turn === 1 ? 2 : 1, me, c);
+    board[c][r] = 0; heights[c]--;
+    if (maximizing) {
+      if (v > best) best = v;
+      if (best > alpha) alpha = best;
+    } else {
+      if (v < best) best = v;
+      if (best < beta) beta = best;
+    }
+    if (alpha >= beta) break;
+  }
+  return best;
+}
+
+function cpuChooseMove() {
+  const me = state.human === 1 ? 2 : 1;
+  const depth = DEPTHS[state.mode];
+  const board = state.board.map(col => col.slice());
+  const heights = state.heights.slice();
+  const moves = validMoves(heights);
+
+  // Facile: 35% delle volte gioca una mossa a caso (ma mai suicida se può vincere)
+  if (state.mode === 'easy' && Math.random() < 0.35) {
+    for (const c of moves) {
+      const r = heights[c];
+      board[c][r] = me;
+      const w = findWin(board, c, r, me);
+      board[c][r] = 0;
+      if (w) return c;
+    }
+    return moves[Math.floor(Math.random() * moves.length)];
+  }
+
+  let best = -Infinity;
+  let bestMoves = [];
+  for (const c of moves) {
+    const r = heights[c];
+    board[c][r] = me; heights[c]++;
+    const v = minimax(board, heights, depth - 1, -Infinity, Infinity, state.human, me, c);
+    board[c][r] = 0; heights[c]--;
+    if (v > best) { best = v; bestMoves = [c]; }
+    else if (v === best) bestMoves.push(c);
+  }
+  return bestMoves[Math.floor(Math.random() * bestMoves.length)];
+}
+
+// ============================================================
+// DOM E RENDERING
+// ============================================================
+const grid = document.getElementById('grid');
+const previewRow = document.getElementById('previewRow');
+const boardWrap = document.getElementById('boardWrap');
+const overlay = document.getElementById('overlay');
+const turnBanner = document.getElementById('turnBanner');
+const previews = [];
+
+for (let c = 0; c < COLS; c++) {
+  const pc = document.createElement('div');
+  pc.className = 'preview-cell';
+  const pd = document.createElement('div');
+  pd.className = 'preview-disc';
+  pc.appendChild(pd);
+  previewRow.appendChild(pc);
+  previews.push(pd);
+}
+
+for (let r = ROWS - 1; r >= 0; r--) {
+  for (let c = 0; c < COLS; c++) {
+    const h = document.createElement('div');
+    h.className = 'hole';
+    h.dataset.col = c;
+    grid.appendChild(h);
+  }
+}
+
+grid.addEventListener('click', (e) => {
+  const t = e.target.closest('.hole');
+  if (t) humanPlay(parseInt(t.dataset.col, 10));
+});
+grid.addEventListener('mousemove', (e) => {
+  const t = e.target.closest('.hole');
+  showPreview(t ? parseInt(t.dataset.col, 10) : -1);
+});
+grid.addEventListener('mouseleave', () => showPreview(-1));
+
+function showPreview(col) {
+  const canPlay = state.screen === 'playing' && !state.over && !state.lock &&
+    (state.mode === 'duel' || state.turn === state.human);
+  for (let c = 0; c < COLS; c++) {
+    const show = canPlay && c === col && state.heights[c] < ROWS;
+    previews[c].className = 'preview-disc' + (show ? ' show p' + state.turn : '');
+  }
+}
+
+function cellXY(col, row) {
+  // row 0 = fondo. Il DOM parte dall'alto.
+  const style = getComputedStyle(boardWrap);
+  const cell = parseFloat(style.getPropertyValue('--cell'));
+  const gap = cell * 0.14;
+  const x = col * (cell + gap);
+  const y = (ROWS - 1 - row) * (cell + gap);
+  return { x, y, cell, gap };
+}
+
+function dropDisc(col, row, player, cb) {
+  const { x, y, cell, gap } = cellXY(col, row);
+  const disc = document.createElement('div');
+  disc.className = 'disc p' + player;
+  disc.dataset.pos = col + '-' + row;
+  const startY = -(cell * 0.82 + gap * 0.6 + cell);
+  disc.style.left = x + 'px';
+  disc.style.top = '0px';
+  disc.style.transform = 'translateY(' + startY + 'px)';
+  grid.appendChild(disc);
+  const dist = y - startY;
+  const dur = Math.max(0.12, Math.sqrt(dist / 1400));
+  requestAnimationFrame(() => {
+    disc.style.transition = 'transform ' + dur.toFixed(2) + 's cubic-bezier(0.4, 0, 1, 1)';
+    disc.style.transform = 'translateY(' + y + 'px)';
+  });
+  setTimeout(() => { sfx.drop(); if (cb) cb(); }, dur * 1000 + 30);
+}
+
+function updateHud() {
+  document.getElementById('hud1').textContent = state.series[1];
+  document.getElementById('hud2').textContent = state.series[2];
+  document.getElementById('hudD').textContent = state.series.D;
+  const l1 = document.getElementById('lab1');
+  const l2 = document.getElementById('lab2');
+  if (state.mode === 'duel') { l1.textContent = 'ROSA'; l2.textContent = 'GIALLO'; }
+  else {
+    l1.textContent = state.human === 1 ? 'TU' : 'CPU';
+    l2.textContent = state.human === 2 ? 'TU' : 'CPU';
+  }
+}
+
+function updateTurnBanner() {
+  if (state.screen !== 'playing') { turnBanner.textContent = ' '; turnBanner.className = 'turn-banner'; return; }
+  let text;
+  if (state.mode === 'duel') text = 'TOCCA A ' + (state.turn === 1 ? 'ROSA' : 'GIALLO');
+  else text = state.turn === state.human ? 'TOCCA A TE' : 'LA CPU PENSA…';
+  turnBanner.textContent = text;
+  turnBanner.className = 'turn-banner p' + state.turn;
+}
+
+// ============================================================
+// SVOLGIMENTO
+// ============================================================
+function startGame() {
+  newBoard();
+  grid.querySelectorAll('.disc').forEach(d => d.remove());
+  boardWrap.classList.remove('ended');
+  state.turn = state.firstPlayer;
+  state.firstPlayer = state.firstPlayer === 1 ? 2 : 1;
+  state.over = false;
+  state.winner = 0;
+  state.winCells = [];
+  state.lock = false;
+  state.screen = 'playing';
+  hideOverlay();
+  updateHud();
+  updateTurnBanner();
+  if (state.mode !== 'duel' && state.turn !== state.human) cpuTurn();
+}
+
+function humanPlay(col) {
+  if (state.screen !== 'playing' || state.over || state.lock) return;
+  if (state.mode !== 'duel' && state.turn !== state.human) return;
+  if (state.heights[col] >= ROWS) return;
+  playMove(col);
+}
+
+function playMove(col) {
+  const row = state.heights[col];
+  const player = state.turn;
+  state.board[col][row] = player;
+  state.heights[col]++;
+  state.lock = true;
+  showPreview(-1);
+  dropDisc(col, row, player, () => {
+    const win = findWin(state.board, col, row, player);
+    if (win) { endGame(player, win); return; }
+    if (state.heights.every(h => h >= ROWS)) { endGame(0, []); return; }
+    state.turn = state.turn === 1 ? 2 : 1;
+    state.lock = false;
+    updateTurnBanner();
+    if (state.mode !== 'duel' && state.turn !== state.human) cpuTurn();
+  });
+}
+
+function cpuTurn() {
+  state.lock = true;
+  updateTurnBanner();
+  setTimeout(() => {
+    if (state.screen !== 'playing' || state.over) return;
+    const col = cpuChooseMove();
+    playMove(col);
+  }, 350);
+}
+
+function endGame(winner, cells) {
+  state.over = true;
+  state.winner = winner;
+  state.lock = true;
+  if (winner) {
+    state.series[winner] += 1;
+    for (const [c, r] of cells) {
+      const d = grid.querySelector('[data-pos="' + c + '-' + r + '"]');
+      if (d) d.classList.add('win-disc');
+    }
+    boardWrap.classList.add('ended');
+  } else {
+    state.series.D += 1;
+  }
+  updateHud();
+
+  if (state.mode === 'duel') {
+    if (winner) sfx.win(); else sfx.draw();
+    bumpStat('duel', winner ? 'win' : 'draw');
+  } else if (winner === 0) { sfx.draw(); bumpStat(state.mode, 'draw'); }
+  else if (winner === state.human) { sfx.win(); bumpStat(state.mode, 'win'); }
+  else { sfx.lose(); bumpStat(state.mode, 'lose'); }
+
+  setTimeout(showResult, winner ? 1400 : 800);
+}
+
+// ============================================================
+// OVERLAY
+// ============================================================
+function showOverlay(html) {
+  overlay.innerHTML = '<div class="overlay-content">' + html + '</div>';
+  overlay.classList.add('show');
+}
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function statsPanelHtml() {
+  const stats = loadStats();
+  let rows = '';
+  for (const k of ['easy', 'medium', 'hard', 'duel']) {
+    const s = stats[k];
+    if (!s) continue;
+    if (k === 'duel') {
+      rows += '<div class="stats-row"><span class="m">' + MODE_NAMES[k] + '</span>' +
+        '<span class="v">' + s.win + '</span><span class="v">partite</span><span class="v">' + s.draw + 'P</span></div>';
+    } else {
+      rows += '<div class="stats-row"><span class="m">' + MODE_NAMES[k] + '</span>' +
+        '<span class="v">' + s.win + 'V</span><span class="v">' + s.lose + 'S</span><span class="v">' + s.draw + 'P</span></div>';
+    }
+  }
+  const body = rows || '<div class="stats-empty">Nessuna partita giocata</div>';
+  return '<div class="stats-panel"><div class="stats-title">STATISTICHE</div>' + body +
+    '<button class="ghost-btn" id="clearStats">CANCELLA STATISTICHE</button></div>';
+}
+
+function showMenu() {
+  state.screen = 'menu';
+  updateTurnBanner();
+  showOverlay(
+    '<h2>FORZA 4</h2>' +
+    '<div class="mode-grid">' +
+    '<button class="mode-card" data-mode="easy"><div class="mode-icon">🌱</div><div class="mode-name">FACILE</div><div class="mode-desc">CPU distratta, ideale per iniziare</div></button>' +
+    '<button class="mode-card" data-mode="medium"><div class="mode-icon">⚙️</div><div class="mode-name">MEDIO</div><div class="mode-desc">Guarda 4 mosse avanti</div></button>' +
+    '<button class="mode-card" data-mode="hard"><div class="mode-icon">🧠</div><div class="mode-name">ESPERTO</div><div class="mode-desc">Guarda 7 mosse avanti</div></button>' +
+    '<button class="mode-card" data-mode="duel"><div class="mode-icon">⚔️</div><div class="mode-name">2 GIOCATORI</div><div class="mode-desc">Sfida sullo stesso schermo</div></button>' +
+    '</div>' +
+    statsPanelHtml()
+  );
+  overlay.querySelectorAll('.mode-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.ui();
+      state.mode = btn.dataset.mode;
+      state.series = { 1: 0, 2: 0, D: 0 };
+      state.human = 1;
+      state.firstPlayer = 1;
+      updateHud();
+      startGame();
+    });
+  });
+  const clear = overlay.querySelector('#clearStats');
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(STATS_KEY); } catch (e) {}
+    showMenu();
+  });
+}
+
+function showResult() {
+  state.screen = 'over';
+  let title, cls;
+  if (state.winner === 0) { title = 'PAREGGIO'; cls = 'draw'; }
+  else if (state.mode === 'duel') { title = 'VINCE ' + (state.winner === 1 ? 'ROSA' : 'GIALLO'); cls = 'p' + state.winner; }
+  else if (state.winner === state.human) { title = 'HAI VINTO!'; cls = 'p' + state.winner; }
+  else { title = 'HAI PERSO'; cls = 'p' + state.winner; }
+
+  const series = state.mode === 'duel'
+    ? 'SERIE — ROSA: ' + state.series[1] + ' · GIALLO: ' + state.series[2] + ' · PAREGGI: ' + state.series.D
+    : 'SERIE — TU: ' + state.series[state.human] + ' · CPU: ' + state.series[state.human === 1 ? 2 : 1] + ' · PAREGGI: ' + state.series.D;
+
+  showOverlay(
+    '<div class="result-title ' + cls + '">' + title + '</div>' +
+    '<div class="series-line">' + series + '</div>' +
+    '<button class="primary-btn" id="againBtn">RIVINCITA</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">MENU</button>'
+  );
+  overlay.querySelector('#againBtn').addEventListener('click', () => { sfx.ui(); startGame(); });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// INPUT DA TASTIERA
+// ============================================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'm' || e.key === 'M') { toggleSound(); return; }
+  if (e.key === 'n' || e.key === 'N') {
+    if (state.screen === 'playing' || state.screen === 'over') startGame();
+    return;
+  }
+  const n = parseInt(e.key, 10);
+  if (n >= 1 && n <= 7) humanPlay(n - 1);
+});
+
+// ============================================================
+// PULSANTI
+// ============================================================
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('forza4-neon-sound', soundOn);
+  document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+  if (soundOn) sfx.ui();
+}
+
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+
+// ============================================================
+// AVVIO
+// ============================================================
+newBoard();
+updateHud();
+showMenu();
+</script>
+</body>
+</html>

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>BATTAGLIA NAVALE — Neon Fleet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #020810;
+    --fg: #e8f2fb;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #00f5ff;      /* ciano radar */
+    --accent2: #ff2a2a;     /* rosso colpito */
+    --ok: #06ffa5;
+    --gold: #ffbe0b;
+    --panel: rgba(6, 18, 32, 0.55);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,245,255,0.08), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(6,255,165,0.05), transparent 60%),
+      linear-gradient(180deg, #020810 0%, #041220 50%, #030e1a 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 6px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(15px, 3.6vw, 26px);
+    letter-spacing: 6px;
+    padding-left: 6px;
+    background: linear-gradient(180deg, #ffffff 0%, #00f5ff 45%, #06ffa5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(0,245,255,0.5));
+    animation: titleGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 16px rgba(0,245,255,0.5)); }
+    50% { filter: drop-shadow(0 0 26px rgba(6,255,165,0.6)); }
+  }
+
+  .subtitle { font-size: 8px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 3px; }
+
+  .status-banner {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    min-height: 14px;
+    text-align: center;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0,245,255,0.5);
+  }
+  .status-banner.enemy { color: var(--accent2); text-shadow: 0 0 10px rgba(255,42,42,0.5); }
+
+  .stage {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .board-block { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+
+  .board-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--muted);
+  }
+  .board-label.enemy { color: rgba(255,100,100,0.7); }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(10, var(--cell));
+    grid-template-rows: repeat(10, var(--cell));
+    gap: 2px;
+    padding: 6px;
+    background: rgba(2, 10, 20, 0.85);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,245,255,0.08), inset 0 0 30px rgba(0,0,0,0.6);
+  }
+
+  .board.enemy-board { --cell: min(4.1vw, 3.6vh, 34px); }
+  .board.own-board { --cell: min(4.1vw, 3.6vh, 34px); }
+  .board.small { --cell: min(2.6vw, 2.2vh, 20px); }
+
+  .cell {
+    width: var(--cell);
+    height: var(--cell);
+    background: rgba(0,120,200,0.09);
+    border: 1px solid rgba(0,245,255,0.08);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--cell) * 0.55);
+    line-height: 1;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .enemy-board .cell.unknown { cursor: crosshair; }
+  .enemy-board .cell.unknown:hover { background: rgba(0,245,255,0.18); border-color: rgba(0,245,255,0.5); }
+
+  .cell.ship {
+    background: rgba(6,255,165,0.22);
+    border-color: rgba(6,255,165,0.45);
+    box-shadow: inset 0 0 6px rgba(6,255,165,0.3);
+  }
+  .cell.ship.preview-ok { background: rgba(6,255,165,0.45); }
+  .cell.preview-bad { background: rgba(255,42,42,0.4) !important; border-color: rgba(255,42,42,0.7) !important; }
+
+  .cell.miss { background: rgba(255,255,255,0.03); }
+  .cell.miss::after {
+    content: '';
+    width: 22%; height: 22%;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    animation: splashIn 0.3s ease-out;
+  }
+  @keyframes splashIn {
+    0% { transform: scale(3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .cell.hit {
+    background: rgba(255,42,42,0.3);
+    border-color: rgba(255,42,42,0.6);
+  }
+  .cell.hit::after {
+    content: '✕';
+    color: #ff5252;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(255,42,42,0.9);
+    animation: hitIn 0.3s ease-out;
+  }
+  @keyframes hitIn {
+    0% { transform: scale(2.4) rotate(45deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+
+  .cell.sunk {
+    background: rgba(255,42,42,0.5);
+    border-color: #ff2a2a;
+    box-shadow: 0 0 10px rgba(255,42,42,0.5);
+  }
+  .cell.sunk::after {
+    content: '✕';
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .cell.flash { animation: cellFlash 0.4s ease-out; }
+  @keyframes cellFlash {
+    0% { box-shadow: 0 0 24px rgba(255,190,11,0.9); }
+    100% { box-shadow: none; }
+  }
+
+  .fleet-status { display: flex; flex-direction: column; gap: 3px; margin-top: 2px; min-height: 60px; }
+  .fleet-row { display: flex; align-items: center; gap: 6px; font-size: 8px; letter-spacing: 1px; color: var(--muted); }
+  .fleet-row .pips { display: flex; gap: 2px; }
+  .fleet-row .pip { width: 8px; height: 8px; border-radius: 2px; background: rgba(6,255,165,0.5); }
+  .fleet-row.sunk-row .pip { background: rgba(255,42,42,0.6); }
+  .fleet-row.sunk-row { color: rgba(255,100,100,0.6); text-decoration: line-through; }
+
+  .place-controls { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .primary-btn {
+    background: linear-gradient(135deg, #00f5ff, #06ffa5);
+    color: #02121a;
+    border: none;
+    box-shadow: 0 4px 22px rgba(0,245,255,0.4);
+  }
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,245,255,0.6); }
+  .primary-btn:disabled { opacity: 0.3; cursor: default; transform: none; box-shadow: none; }
+
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 8, 16, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    max-width: 94%;
+    max-height: 94%;
+    overflow-y: auto;
+    text-align: center;
+    background: rgba(6, 18, 32, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: 4px;
+    background: linear-gradient(180deg, #fff, #00f5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mode-grid { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
+  .mode-card {
+    background: rgba(8, 24, 42, 0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 10px;
+    width: 128px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.25s;
+  }
+  .mode-card:hover {
+    border-color: rgba(0,245,255,0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,245,255,0.18);
+  }
+  .mode-icon { font-size: 20px; margin-bottom: 4px; filter: drop-shadow(0 0 8px rgba(0,245,255,0.6)); }
+  .mode-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; color: var(--accent); }
+  .mode-desc { font-size: 8.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .result-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+  .result-title.win { color: var(--ok); text-shadow: 0 0 22px rgba(6,255,165,0.7); }
+  .result-title.lose { color: var(--accent2); text-shadow: 0 0 22px rgba(255,42,42,0.7); }
+
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; line-height: 1.7; }
+
+  .stats-panel {
+    width: 300px;
+    max-width: 84vw;
+    background: rgba(8, 24, 42, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stats-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    font-size: 9px;
+    padding: 4px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: baseline;
+  }
+  .stats-row:last-child { border-bottom: none; }
+  .stats-row .m { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 1px; color: var(--accent); }
+  .stats-row .v { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
+  .stats-empty { text-align: center; font-size: 9px; color: rgba(255,255,255,0.35); padding: 8px 0; }
+  .stats-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  .icon-btns { position: fixed; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 90; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(6,18,32,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(0,245,255,0.3); }
+
+  @media (max-height: 640px), (max-width: 720px) {
+    header { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">BATTAGLIA NAVALE</h1>
+    <div class="subtitle">NEON FLEET</div>
+  </header>
+
+  <div class="status-banner" id="statusBanner">&nbsp;</div>
+
+  <div class="stage" id="stage">
+    <div class="board-block" id="enemyBlock">
+      <div class="board-label enemy">🎯 ACQUE NEMICHE</div>
+      <div class="board enemy-board" id="enemyBoard"></div>
+      <div class="fleet-status" id="enemyFleet"></div>
+    </div>
+    <div class="board-block" id="ownBlock">
+      <div class="board-label">⚓ LA TUA FLOTTA</div>
+      <div class="board own-board" id="ownBoard"></div>
+      <div class="fleet-status" id="ownFleet"></div>
+      <div class="place-controls" id="placeControls" style="display:none">
+        <button class="ghost-btn" id="rotateBtn">RUOTA (R)</button>
+        <button class="ghost-btn" id="randomBtn">CASUALE</button>
+        <button class="primary-btn" id="startBtn" disabled>IN BATTAGLIA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="icon-btns">
+    <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+    <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const N = 10;
+const SHIPS = [
+  { name: 'PORTAEREI', len: 5 },
+  { name: 'CORAZZATA', len: 4 },
+  { name: 'INCROCIATORE', len: 3 },
+  { name: 'SOTTOMARINO', len: 3 },
+  { name: 'CACCIA', len: 2 }
+];
+const STATS_KEY = 'battaglianavale-neon-stats';
+const MODE_NAMES = { easy: 'MOZZO', hard: 'AMMIRAGLIO' };
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',          // menu | placing | battle | over
+  mode: 'hard',
+  // flotte: array di navi { name, len, cells: [{r,c}], hits: Set }
+  own: { ships: [], grid: null, shots: null },     // grid[r][c] = indice nave o -1
+  enemy: { ships: [], grid: null, shots: null },   // shots[r][c] = 0 no, 1 miss, 2 hit
+  placing: { idx: 0, horizontal: true, hover: null },
+  turn: 'player',
+  lock: false,
+  playerShots: 0,
+  cpu: { wounded: [], tried: null }
+};
+
+let soundOn = localStorage.getItem('battaglianavale-neon-sound') !== 'false';
+
+// ============================================================
+// STATISTICHE
+// ============================================================
+function loadStats() {
+  try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return s && typeof s === 'object' ? s : {}; }
+  catch (e) { return {}; }
+}
+function bumpStat(mode, key) {
+  const stats = loadStats();
+  if (!stats[mode]) stats[mode] = { win: 0, lose: 0 };
+  stats[mode][key] += 1;
+  try { localStorage.setItem(STATS_KEY, JSON.stringify(stats)); } catch (e) {}
+}
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol || 0.13, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+function noiseBurst(dur, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const len = Math.floor(ctx.sampleRate * dur);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(vol, t);
+    src.connect(g); g.connect(ctx.destination);
+    src.start(t);
+  } catch (e) {}
+}
+const sfx = {
+  place() { beep(500, 0.07, 'triangle', 0.14); },
+  miss() { beep(280, 0.12, 'sine', 0.11); noiseBurst(0.08, 0.05, 0.02); },
+  hit() { noiseBurst(0.2, 0.16); beep(140, 0.25, 'sawtooth', 0.16, 0.02); },
+  sunk() { noiseBurst(0.4, 0.2); beep(110, 0.4, 'sawtooth', 0.2, 0.05); beep(80, 0.5, 'sine', 0.2, 0.15); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.12, 'triangle', 0.2, 0.2); beep(1047, 0.25, 'triangle', 0.22, 0.3); },
+  lose() { beep(330, 0.16, 'sawtooth', 0.12); beep(247, 0.16, 'sawtooth', 0.12, 0.14); beep(196, 0.3, 'sawtooth', 0.14, 0.28); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// GRIGLIE
+// ============================================================
+function emptyGrid(v) {
+  return Array.from({ length: N }, () => Array(N).fill(v));
+}
+
+function canPlace(grid, r, c, len, horizontal) {
+  for (let i = 0; i < len; i++) {
+    const rr = r + (horizontal ? 0 : i);
+    const cc = c + (horizontal ? i : 0);
+    if (rr >= N || cc >= N || grid[rr][cc] !== -1) return false;
+    // Niente navi adiacenti (regola classica italiana)
+    for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+      const ar = rr + dr, acc = cc + dc;
+      if (ar >= 0 && ar < N && acc >= 0 && acc < N && grid[ar][acc] !== -1) return false;
+    }
+  }
+  return true;
+}
+
+function placeShip(fleet, shipDef, r, c, horizontal) {
+  const idx = fleet.ships.length;
+  const cells = [];
+  for (let i = 0; i < shipDef.len; i++) {
+    const rr = r + (horizontal ? 0 : i);
+    const cc = c + (horizontal ? i : 0);
+    fleet.grid[rr][cc] = idx;
+    cells.push({ r: rr, c: cc });
+  }
+  fleet.ships.push({ name: shipDef.name, len: shipDef.len, cells, hits: 0, sunk: false });
+}
+
+function randomFleet() {
+  const fleet = { ships: [], grid: emptyGrid(-1), shots: emptyGrid(0) };
+  for (const def of SHIPS) {
+    for (let tries = 0; tries < 500; tries++) {
+      const horizontal = Math.random() < 0.5;
+      const r = Math.floor(Math.random() * N);
+      const c = Math.floor(Math.random() * N);
+      if (canPlace(fleet.grid, r, c, def.len, horizontal)) {
+        placeShip(fleet, def, r, c, horizontal);
+        break;
+      }
+    }
+  }
+  return fleet;
+}
+
+// ============================================================
+// DOM
+// ============================================================
+const enemyBoard = document.getElementById('enemyBoard');
+const ownBoard = document.getElementById('ownBoard');
+const overlay = document.getElementById('overlay');
+const statusBanner = document.getElementById('statusBanner');
+const enemyCells = [];
+const ownCells = [];
+
+function buildBoard(el, cells, onClick, onHover) {
+  el.innerHTML = '';
+  cells.length = 0;
+  for (let r = 0; r < N; r++) {
+    const row = [];
+    for (let c = 0; c < N; c++) {
+      const d = document.createElement('div');
+      d.className = 'cell';
+      d.dataset.r = r;
+      d.dataset.c = c;
+      if (onClick) d.addEventListener('click', () => onClick(r, c));
+      if (onHover) d.addEventListener('mouseenter', () => onHover(r, c));
+      el.appendChild(d);
+      row.push(d);
+    }
+    cells.push(row);
+  }
+}
+
+buildBoard(enemyBoard, enemyCells, (r, c) => playerShoot(r, c));
+buildBoard(ownBoard, ownCells, (r, c) => placeClick(r, c), (r, c) => placeHover(r, c));
+ownBoard.addEventListener('mouseleave', () => { state.placing.hover = null; renderOwn(); });
+
+// ============================================================
+// FASE DI PIAZZAMENTO
+// ============================================================
+function startPlacing() {
+  state.own = { ships: [], grid: emptyGrid(-1), shots: emptyGrid(0) };
+  state.enemy = randomFleet();
+  state.placing = { idx: 0, horizontal: true, hover: null };
+  state.screen = 'placing';
+  state.playerShots = 0;
+  state.cpu = { wounded: [], tried: emptyGrid(0) };
+  document.getElementById('placeControls').style.display = 'flex';
+  document.getElementById('enemyBlock').style.opacity = '0.35';
+  document.getElementById('startBtn').disabled = true;
+  hideOverlay();
+  renderAll();
+  updateStatus();
+}
+
+function placeClick(r, c) {
+  if (state.screen !== 'placing') return;
+  const def = SHIPS[state.placing.idx];
+  if (!def) return;
+  if (canPlace(state.own.grid, r, c, def.len, state.placing.horizontal)) {
+    placeShip(state.own, def, r, c, state.placing.horizontal);
+    state.placing.idx += 1;
+    sfx.place();
+    if (state.placing.idx >= SHIPS.length) {
+      document.getElementById('startBtn').disabled = false;
+    }
+    renderOwn();
+    updateStatus();
+  }
+}
+
+function placeHover(r, c) {
+  if (state.screen !== 'placing') return;
+  state.placing.hover = { r, c };
+  renderOwn();
+}
+
+document.getElementById('rotateBtn').addEventListener('click', () => {
+  state.placing.horizontal = !state.placing.horizontal;
+  sfx.ui();
+  renderOwn();
+});
+document.getElementById('randomBtn').addEventListener('click', () => {
+  state.own = randomFleet();
+  state.placing.idx = SHIPS.length;
+  document.getElementById('startBtn').disabled = false;
+  sfx.ui();
+  renderOwn();
+  updateStatus();
+});
+document.getElementById('startBtn').addEventListener('click', () => {
+  if (state.placing.idx < SHIPS.length) return;
+  sfx.ui();
+  startBattle();
+});
+
+// ============================================================
+// BATTAGLIA
+// ============================================================
+function startBattle() {
+  state.screen = 'battle';
+  state.turn = 'player';
+  state.lock = false;
+  document.getElementById('placeControls').style.display = 'none';
+  document.getElementById('enemyBlock').style.opacity = '1';
+  renderAll();
+  updateStatus();
+}
+
+function playerShoot(r, c) {
+  if (state.screen !== 'battle' || state.turn !== 'player' || state.lock) return;
+  if (state.enemy.shots[r][c] !== 0) return;
+  state.playerShots += 1;
+  const res = resolveShot(state.enemy, r, c);
+  renderEnemy();
+  enemyCells[r][c].classList.add('flash');
+
+  if (res.result === 'miss') {
+    sfx.miss();
+    state.turn = 'cpu';
+    updateStatus();
+    state.lock = true;
+    setTimeout(cpuTurn, 700);
+  } else {
+    if (res.result === 'sunk') { sfx.sunk(); showStatus('AFFONDATO: ' + res.ship.name + '!'); }
+    else { sfx.hit(); showStatus('COLPITO! SPARA ANCORA'); }
+    if (state.enemy.ships.every(s => s.sunk)) { endGame(true); return; }
+  }
+}
+
+function resolveShot(fleet, r, c) {
+  const idx = fleet.grid[r][c];
+  if (idx === -1) {
+    fleet.shots[r][c] = 1;
+    return { result: 'miss' };
+  }
+  fleet.shots[r][c] = 2;
+  const ship = fleet.ships[idx];
+  ship.hits += 1;
+  if (ship.hits >= ship.len) {
+    ship.sunk = true;
+    return { result: 'sunk', ship };
+  }
+  return { result: 'hit', ship };
+}
+
+// ============================================================
+// CPU: caccia con parità + inseguimento in linea
+// ============================================================
+function cpuPickCell() {
+  const shots = state.own.shots;
+  const wounded = state.cpu.wounded;
+
+  if (wounded.length > 0) {
+    let candidates = [];
+    if (wounded.length >= 2) {
+      // Segue la linea dei colpi
+      const sorted = wounded.slice().sort((a, b) => (a.r - b.r) || (a.c - b.c));
+      const horizontal = sorted[0].r === sorted[1].r;
+      if (horizontal) {
+        const r = sorted[0].r;
+        candidates.push({ r, c: sorted[0].c - 1 }, { r, c: sorted[sorted.length - 1].c + 1 });
+      } else {
+        const c = sorted[0].c;
+        candidates.push({ r: sorted[0].r - 1, c }, { r: sorted[sorted.length - 1].r + 1, c });
+      }
+    } else {
+      const { r, c } = wounded[0];
+      candidates.push({ r: r - 1, c }, { r: r + 1, c }, { r, c: c - 1 }, { r, c: c + 1 });
+    }
+    candidates = candidates.filter(p => p.r >= 0 && p.r < N && p.c >= 0 && p.c < N && shots[p.r][p.c] === 0);
+    if (candidates.length > 0) return candidates[Math.floor(Math.random() * candidates.length)];
+    // Linea esaurita (più navi vicine): riparte dai colpi isolati
+    state.cpu.wounded = [];
+  }
+
+  // Caccia: nella modalità Ammiraglio usa la parità della nave più corta rimasta
+  const cells = [];
+  const minLen = Math.min(...state.own.ships.filter(s => !s.sunk).map(s => s.len));
+  const useParity = state.mode === 'hard';
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    if (shots[r][c] !== 0) continue;
+    if (useParity && (r + c) % Math.min(minLen, 2) !== 0) continue;
+    cells.push({ r, c });
+  }
+  if (cells.length === 0) {
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+      if (shots[r][c] === 0) cells.push({ r, c });
+    }
+  }
+  return cells[Math.floor(Math.random() * cells.length)];
+}
+
+function cpuTurn() {
+  if (state.screen !== 'battle') return;
+  const { r, c } = cpuPickCell();
+  const res = resolveShot(state.own, r, c);
+  renderOwn();
+  ownCells[r][c].classList.add('flash');
+
+  if (res.result === 'miss') {
+    sfx.miss();
+    state.turn = 'player';
+    state.lock = false;
+    updateStatus();
+  } else {
+    if (res.result === 'sunk') {
+      sfx.sunk();
+      showStatus('IL NEMICO HA AFFONDATO: ' + res.ship.name);
+      // Rimuove le celle della nave affondata dai colpi da inseguire
+      const cellsSet = new Set(res.ship.cells.map(p => p.r + ',' + p.c));
+      state.cpu.wounded = state.cpu.wounded.filter(p => !cellsSet.has(p.r + ',' + p.c));
+    } else {
+      sfx.hit();
+      state.cpu.wounded.push({ r, c });
+    }
+    if (state.own.ships.every(s => s.sunk)) { endGame(false); return; }
+    setTimeout(cpuTurn, 750);
+  }
+}
+
+function endGame(won) {
+  state.screen = 'over';
+  state.lock = true;
+  bumpStat(state.mode, won ? 'win' : 'lose');
+  if (won) sfx.win(); else sfx.lose();
+  // Rivela la flotta nemica superstite
+  renderEnemy(true);
+  setTimeout(() => showResult(won), 1200);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderAll() { renderEnemy(); renderOwn(); renderFleets(); }
+
+function renderEnemy(reveal) {
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    const d = enemyCells[r][c];
+    const shot = state.enemy.shots[r][c];
+    const idx = state.enemy.grid[r][c];
+    let cls = 'cell';
+    if (shot === 0) {
+      cls += ' unknown';
+      if (reveal && idx !== -1) cls += ' ship';
+    } else if (shot === 1) cls += ' miss';
+    else {
+      cls += state.enemy.ships[idx].sunk ? ' sunk' : ' hit';
+    }
+    d.className = cls;
+  }
+  renderFleets();
+}
+
+function renderOwn() {
+  const placingDef = state.screen === 'placing' ? SHIPS[state.placing.idx] : null;
+  const hover = state.placing.hover;
+  const previewCells = new Set();
+  let previewOk = false;
+  if (placingDef && hover) {
+    previewOk = canPlace(state.own.grid, hover.r, hover.c, placingDef.len, state.placing.horizontal);
+    for (let i = 0; i < placingDef.len; i++) {
+      const rr = hover.r + (state.placing.horizontal ? 0 : i);
+      const cc = hover.c + (state.placing.horizontal ? i : 0);
+      if (rr < N && cc < N) previewCells.add(rr + ',' + cc);
+    }
+  }
+
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    const d = ownCells[r][c];
+    const idx = state.own.grid[r][c];
+    const shot = state.own.shots[r][c];
+    let cls = 'cell';
+    if (idx !== -1) {
+      if (shot === 2) cls += state.own.ships[idx].sunk ? ' sunk' : ' hit';
+      else cls += ' ship';
+    } else if (shot === 1) cls += ' miss';
+    if (previewCells.has(r + ',' + c)) cls += previewOk ? ' ship preview-ok' : ' preview-bad';
+    d.className = cls;
+  }
+  renderFleets();
+}
+
+function renderFleets() {
+  const mk = (fleet, el, hideAlive) => {
+    let html = '';
+    const defs = state.screen === 'placing' && el.id === 'ownFleet' ? [] : fleet.ships;
+    for (const s of defs) {
+      let pips = '';
+      for (let i = 0; i < s.len; i++) pips += '<span class="pip"></span>';
+      html += '<div class="fleet-row' + (s.sunk ? ' sunk-row' : '') + '"><span class="pips">' + pips + '</span> ' + s.name + '</div>';
+    }
+    if (state.screen === 'placing' && el.id === 'ownFleet') {
+      for (let i = 0; i < SHIPS.length; i++) {
+        const s = SHIPS[i];
+        const done = i < state.placing.idx;
+        const cur = i === state.placing.idx;
+        let pips = '';
+        for (let j = 0; j < s.len; j++) pips += '<span class="pip"' + (done ? '' : ' style="background:rgba(255,255,255,0.15)"') + '></span>';
+        html += '<div class="fleet-row"' + (cur ? ' style="color:#00f5ff"' : '') + '><span class="pips">' + pips + '</span> ' +
+          (cur ? '▶ ' : '') + s.name + '</div>';
+      }
+    }
+    el.innerHTML = html;
+  };
+  mk(state.enemy, document.getElementById('enemyFleet'));
+  mk(state.own, document.getElementById('ownFleet'));
+}
+
+let statusTimer = null;
+function showStatus(msg, enemy) {
+  statusBanner.textContent = msg;
+  statusBanner.className = 'status-banner' + (enemy ? ' enemy' : '');
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(updateStatus, 1800);
+}
+
+function updateStatus() {
+  clearTimeout(statusTimer);
+  if (state.screen === 'placing') {
+    const def = SHIPS[state.placing.idx];
+    statusBanner.className = 'status-banner';
+    statusBanner.textContent = def
+      ? 'PIAZZA: ' + def.name + ' (' + def.len + ' CASELLE) — R PER RUOTARE'
+      : 'FLOTTA PRONTA — PREMI IN BATTAGLIA';
+  } else if (state.screen === 'battle') {
+    if (state.turn === 'player') {
+      statusBanner.className = 'status-banner';
+      statusBanner.textContent = 'TOCCA A TE — SPARA NELLE ACQUE NEMICHE';
+    } else {
+      statusBanner.className = 'status-banner enemy';
+      statusBanner.textContent = 'IL NEMICO STA SPARANDO…';
+    }
+  } else {
+    statusBanner.textContent = ' ';
+  }
+}
+
+// ============================================================
+// OVERLAY
+// ============================================================
+function showOverlay(html) {
+  overlay.innerHTML = '<div class="overlay-content">' + html + '</div>';
+  overlay.classList.add('show');
+}
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function statsPanelHtml() {
+  const stats = loadStats();
+  let rows = '';
+  for (const k of ['easy', 'hard']) {
+    const s = stats[k];
+    if (!s) continue;
+    rows += '<div class="stats-row"><span class="m">CPU ' + MODE_NAMES[k] + '</span>' +
+      '<span class="v">' + s.win + 'V</span><span class="v">' + s.lose + 'S</span></div>';
+  }
+  const body = rows || '<div class="stats-empty">Nessuna battaglia combattuta</div>';
+  return '<div class="stats-panel"><div class="stats-title">STATISTICHE</div>' + body +
+    '<button class="ghost-btn" id="clearStats">CANCELLA STATISTICHE</button></div>';
+}
+
+function showMenu() {
+  state.screen = 'menu';
+  updateStatus();
+  showOverlay(
+    '<h2>BATTAGLIA NAVALE</h2>' +
+    '<div class="series-line">AFFONDA LE 5 NAVI NEMICHE PRIMA CHE AFFONDINO LE TUE.<br>SE COLPISCI, SPARI ANCORA.</div>' +
+    '<div class="mode-grid">' +
+    '<button class="mode-card" data-mode="easy"><div class="mode-icon">⛵</div><div class="mode-name">MOZZO</div><div class="mode-desc">Il nemico spara un po\' a caso</div></button>' +
+    '<button class="mode-card" data-mode="hard"><div class="mode-icon">🚢</div><div class="mode-name">AMMIRAGLIO</div><div class="mode-desc">Il nemico dà la caccia con metodo</div></button>' +
+    '</div>' +
+    statsPanelHtml()
+  );
+  overlay.querySelectorAll('.mode-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.ui();
+      state.mode = btn.dataset.mode;
+      startPlacing();
+    });
+  });
+  const clear = overlay.querySelector('#clearStats');
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(STATS_KEY); } catch (e) {}
+    showMenu();
+  });
+}
+
+function showResult(won) {
+  const sunkOwn = state.own.ships.filter(s => s.sunk).length;
+  const sunkEnemy = state.enemy.ships.filter(s => s.sunk).length;
+  showOverlay(
+    '<div class="result-title ' + (won ? 'win' : 'lose') + '">' + (won ? 'VITTORIA!' : 'FLOTTA AFFONDATA') + '</div>' +
+    '<div class="series-line">NAVI NEMICHE AFFONDATE: ' + sunkEnemy + '/5<br>' +
+    'TUE NAVI PERSE: ' + sunkOwn + '/5<br>' +
+    'COLPI SPARATI: ' + state.playerShots + '</div>' +
+    '<button class="primary-btn" id="againBtn">NUOVA BATTAGLIA</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">MENU</button>'
+  );
+  overlay.querySelector('#againBtn').addEventListener('click', () => { sfx.ui(); startPlacing(); });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// INPUT
+// ============================================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'r' || e.key === 'R') {
+    if (state.screen === 'placing') {
+      state.placing.horizontal = !state.placing.horizontal;
+      renderOwn();
+    }
+  }
+  if (e.key === 'm' || e.key === 'M') toggleSound();
+});
+
+// ============================================================
+// PULSANTI
+// ============================================================
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('battaglianavale-neon-sound', soundOn);
+  document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+  if (soundOn) sfx.ui();
+}
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+
+// ============================================================
+// AVVIO
+// ============================================================
+state.own = { ships: [], grid: emptyGrid(-1), shots: emptyGrid(0) };
+state.enemy = { ships: [], grid: emptyGrid(-1), shots: emptyGrid(0) };
+renderAll();
+showMenu();
+</script>
+</body>
+</html>
