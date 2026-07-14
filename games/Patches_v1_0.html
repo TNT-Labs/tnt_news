@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>PATCHES — Neon Quilt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #0d0512;
+    --fg: #f6ecfb;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #ff5da2;
+    --accent2: #ffb63a;
+    --ok: #06ffa5;
+    --err: #ff2a5e;
+    --gold: #ffbe0b;
+    --panel: rgba(28, 12, 36, 0.55);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,93,162,0.08), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,182,58,0.06), transparent 60%),
+      linear-gradient(180deg, #0d0512 0%, #150920 50%, #100616 100%);
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none; z-index: 200; opacity: 0.22; mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative; z-index: 1;
+    height: 100vh; height: 100dvh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 10px; max-width: 560px; margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; }
+  .title {
+    font-family: 'Orbitron', sans-serif; font-weight: 900;
+    font-size: clamp(18px, 4.6vw, 30px); letter-spacing: 8px; padding-left: 8px;
+    background: linear-gradient(180deg, #ffffff 0%, #ff5da2 45%, #ffb63a 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,93,162,0.5)); animation: titleGlow 4s ease-in-out infinite;
+  }
+  @keyframes titleGlow { 0%,100% { filter: drop-shadow(0 0 16px rgba(255,93,162,0.5)); } 50% { filter: drop-shadow(0 0 26px rgba(255,182,58,0.6)); } }
+  .subtitle { font-size: 9px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 4px; }
+
+  .hud {
+    width: 100%; max-width: 420px; display: flex; justify-content: space-between; gap: 8px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 6px 14px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .hud .stat { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 54px; }
+  .hud .label { font-size: 8px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .hud .value { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 700; color: #fff; text-shadow: 0 0 10px rgba(255,93,162,0.4); }
+
+  .stage { position: relative; touch-action: none; }
+  .board {
+    position: relative;
+    background: rgba(6, 3, 10, 0.85);
+    border: 2px solid rgba(255,93,162,0.4);
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(255,93,162,0.10), inset 0 0 40px rgba(0,0,0,0.6);
+    touch-action: none; overflow: hidden;
+  }
+  .rects-layer, .cells-layer { position: absolute; inset: 0; pointer-events: none; }
+  .rects-layer { z-index: 1; }
+  .cells-layer { z-index: 2; display: grid; }
+
+  .gcell {
+    border-right: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 2px;
+  }
+  .gcell.lastcol { border-right: none; }
+  .gcell.lastrow { border-bottom: none; }
+
+  .clue {
+    width: 74%; height: 74%; border-radius: 8px;
+    background: rgba(10, 5, 16, 0.85);
+    border: 1.5px solid rgba(255,255,255,0.5);
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  }
+  .clue .n { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(11px, 3.2vw, 18px); color: #fff; line-height: 1; }
+  .clue.solved { border-color: var(--ok); box-shadow: 0 0 10px rgba(6,255,165,0.4); }
+
+  .shape { display: block; }
+  .shape.square { width: 8px; height: 8px; }
+  .shape.wide { width: 12px; height: 6px; }
+  .shape.tall { width: 6px; height: 12px; }
+  .shape i { display: block; width: 100%; height: 100%; border: 1.5px solid var(--accent2); border-radius: 2px; }
+
+  .rectbox {
+    position: absolute; border-radius: 7px;
+    border: 2px solid; box-sizing: border-box;
+  }
+  .rectbox.commit { background: var(--rc, rgba(255,93,162,0.22)); border-color: var(--rb, rgba(255,93,162,0.7)); }
+  .preview { position: absolute; border-radius: 7px; border: 2.5px dashed; box-sizing: border-box; z-index: 3; }
+  .preview.ok { border-color: var(--ok); background: rgba(6,255,165,0.16); }
+  .preview.bad { border-color: var(--err); background: rgba(255,42,94,0.16); }
+
+  .toolbar { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .tool {
+    font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1px;
+    padding: 9px 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); cursor: pointer; transition: all 0.15s;
+  }
+  .tool:hover { color: #fff; border-color: rgba(255,93,162,0.5); box-shadow: 0 0 10px rgba(255,93,162,0.2); }
+  .tool:disabled { opacity: 0.3; cursor: default; }
+
+  .overlay-scr {
+    position: fixed; inset: 0; background: rgba(13, 5, 18, 0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 100;
+  }
+  .overlay-scr.show { opacity: 1; pointer-events: all; }
+  .ov-content {
+    display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px;
+    max-width: 94%; max-height: 94%; overflow-y: auto; text-align: center;
+    background: rgba(28, 12, 36, 0.7); border: 1px solid var(--border); border-radius: 16px;
+  }
+  .ov-content h2 {
+    font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #ff5da2); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .mode-grid { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 440px; }
+  .mode-card {
+    background: rgba(34, 16, 44, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+    padding: 12px 8px; width: 96px; cursor: pointer; color: #fff; font-family: inherit; text-align: center; transition: all 0.25s;
+  }
+  .mode-card:hover { border-color: rgba(255,93,162,0.5); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,93,162,0.18); }
+  .mode-icon { font-size: 20px; margin-bottom: 4px; filter: drop-shadow(0 0 8px rgba(255,93,162,0.6)); }
+  .mode-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; color: var(--accent); }
+  .mode-desc { font-size: 8.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 3px;
+    padding: 11px 30px; border-radius: 8px; cursor: pointer; transition: all 0.25s;
+  }
+  .primary-btn { background: linear-gradient(135deg, #ff5da2, #ffb63a); color: #1a0810; border: none; box-shadow: 0 4px 22px rgba(255,93,162,0.4); }
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,93,162,0.6); }
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-title { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 900; letter-spacing: 4px; color: var(--ok); text-shadow: 0 0 22px rgba(6,255,165,0.7); }
+  .result-time { font-family: 'Orbitron', sans-serif; font-size: 30px; font-weight: 900; color: #fff; text-shadow: 0 0 18px rgba(255,93,162,0.6); }
+  .new-record { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 4px; color: var(--gold); animation: recPulse 1.2s ease-in-out infinite; }
+  @keyframes recPulse { 0%,100% { text-shadow: 0 0 10px rgba(255,190,11,0.6); } 50% { text-shadow: 0 0 24px rgba(255,190,11,1); } }
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; line-height: 1.7; }
+
+  .help-list { font-size: 10px; color: rgba(255,255,255,0.65); line-height: 1.9; text-align: left; max-width: 350px; }
+  .help-list strong { color: var(--accent); }
+  .help-shapes { display: flex; gap: 14px; justify-content: center; margin: 4px 0; }
+  .help-shapes div { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 8px; color: var(--muted); }
+  .help-shapes .sq { width: 16px; height: 16px; border: 2px solid var(--accent2); border-radius: 3px; }
+  .help-shapes .wd { width: 22px; height: 12px; border: 2px solid var(--accent2); border-radius: 3px; }
+  .help-shapes .tl { width: 12px; height: 22px; border: 2px solid var(--accent2); border-radius: 3px; }
+
+  .icon-btns { position: fixed; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 90; }
+  .icon-btn {
+    width: 32px; height: 32px; border-radius: 8px; background: rgba(28,12,36,0.7);
+    border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(255,93,162,0.3); }
+
+  @media (max-height: 700px) { header { display: none; } .app { gap: 6px; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">PATCHES</h1>
+    <div class="subtitle">NEON QUILT</div>
+  </header>
+
+  <div class="hud">
+    <div class="stat"><div class="label">LIVELLO</div><div class="value" id="hudLevel" style="font-size:11px">—</div></div>
+    <div class="stat"><div class="label">TEMPO</div><div class="value" id="hudTime">0:00</div></div>
+    <div class="stat"><div class="label">TOPPE</div><div class="value" id="hudPatches">0/0</div></div>
+    <div class="stat"><div class="label">RECORD</div><div class="value" id="hudBest">—</div></div>
+  </div>
+
+  <div class="stage">
+    <div class="board" id="board">
+      <div class="rects-layer" id="rectsLayer"></div>
+      <div class="cells-layer" id="cellsLayer"></div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="tool" id="clearBtn">✕ PULISCI</button>
+    <button class="tool" id="hintBtn">💡 AIUTO</button>
+    <button class="tool" id="newBtn">⟳ NUOVO</button>
+  </div>
+
+  <div class="icon-btns">
+    <button class="icon-btn" id="helpBtn" aria-label="Regole">?</button>
+    <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+    <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <div class="overlay-scr" id="overlay"></div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const STATS_KEY = 'patches-neon-scores';
+const LEVELS = {
+  facile:    { name: 'FACILE',    rows: 6, cols: 6, maxArea: 6, maxOnes: 2, minRects: 8,  budget: 300000 },
+  medio:     { name: 'MEDIO',     rows: 7, cols: 7, maxArea: 8, maxOnes: 2, minRects: 10, budget: 400000 },
+  difficile: { name: 'DIFFICILE', rows: 8, cols: 8, maxArea: 9, maxOnes: 2, minRects: 12, budget: 500000 },
+  esperto:   { name: 'ESPERTO',   rows: 9, cols: 9, maxArea: 10, maxOnes: 3, minRects: 14, budget: 700000 }
+};
+const PALETTE = [
+  ['rgba(255,93,162,0.24)', 'rgba(255,93,162,0.8)'],
+  ['rgba(0,229,255,0.22)', 'rgba(0,229,255,0.8)'],
+  ['rgba(198,255,58,0.20)', 'rgba(198,255,58,0.8)'],
+  ['rgba(255,182,58,0.22)', 'rgba(255,182,58,0.85)'],
+  ['rgba(176,102,255,0.24)', 'rgba(176,102,255,0.85)'],
+  ['rgba(6,255,165,0.20)', 'rgba(6,255,165,0.8)'],
+  ['rgba(255,122,0,0.22)', 'rgba(255,122,0,0.85)'],
+  ['rgba(0,180,255,0.22)', 'rgba(0,180,255,0.85)'],
+  ['rgba(255,80,80,0.22)', 'rgba(255,80,80,0.85)'],
+  ['rgba(120,255,200,0.20)', 'rgba(120,255,200,0.8)']
+];
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',
+  level: 'medio',
+  rows: 7, cols: 7,
+  puzzle: null,        // { rows, cols, clues:[{r,c,area,shape,id}], solutionRects:[{top,left,h,w,id}] }
+  assign: null,        // Int32Array cella->clueId o -1
+  clueRect: null,      // Map clueId -> {top,left,h,w}
+  colorOf: null,       // clueId -> palette index
+  drawing: false,
+  anchor: -1,
+  seconds: 0,
+  timerId: null,
+  won: false
+};
+let soundOn = localStorage.getItem('patches-neon-sound') !== 'false';
+
+// ============================================================
+// PUNTEGGI
+// ============================================================
+function loadScores() { try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return Array.isArray(s) ? s : []; } catch (e) { return []; } }
+function saveScore(entry) { const s = loadScores(); s.push(entry); s.sort((a, b) => a.seconds - b.seconds); try { localStorage.setItem(STATS_KEY, JSON.stringify(s.slice(0, 40))); } catch (e) {} }
+function bestTime(level) { const s = loadScores().filter(x => x.level === level); return s.length ? s[0].seconds : null; }
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if (audioCtx.state === 'suspended') audioCtx.resume(); return audioCtx; }
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try { const ctx = ac(); const t = ctx.currentTime + (delay || 0); const o = ctx.createOscillator(); const g = ctx.createGain();
+    o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol || 0.12, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur); o.connect(g); g.connect(ctx.destination); o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+const sfx = {
+  place() { beep(560, 0.08, 'triangle', 0.13); beep(720, 0.08, 'triangle', 0.12, 0.05); },
+  remove() { beep(240, 0.07, 'sine', 0.09); },
+  bad() { beep(180, 0.12, 'sawtooth', 0.1); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.12, 'triangle', 0.2, 0.2); beep(1047, 0.3, 'triangle', 0.22, 0.3); },
+  hint() { beep(880, 0.1, 'sine', 0.13); beep(1100, 0.12, 'sine', 0.13, 0.08); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// GENERATORE (Shikaku)
+// ============================================================
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function tileGrid(rows, cols, rnd, maxArea) {
+  const grid = new Int32Array(rows * cols).fill(-1);
+  const rects = []; let id = 0;
+  const at = (r, c) => r * cols + c;
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    if (grid[at(r, c)] !== -1) continue;
+    let maxW = 0; while (c + maxW < cols && grid[at(r, c + maxW)] === -1) maxW++;
+    let w = 1 + Math.floor(rnd() * maxW);
+    let maxH = 0;
+    outer: while (r + maxH < rows) { for (let cc = c; cc < c + w; cc++) if (grid[at(r + maxH, cc)] !== -1) break outer; maxH++; }
+    let h = 1 + Math.floor(rnd() * maxH);
+    while (h * w > maxArea && (h > 1 || w > 1)) { if (h >= w && h > 1) h--; else if (w > 1) w--; else break; }
+    for (let rr = r; rr < r + h; rr++) for (let cc = c; cc < c + w; cc++) grid[at(rr, cc)] = id;
+    rects.push({ top: r, left: c, h, w, area: h * w, id }); id++;
+  }
+  return rects;
+}
+function countShikaku(rows, cols, clues, limit, budget) {
+  const clueCells = new Set(clues.map(cl => cl.r * cols + cl.c));
+  function candidatesFor(cl) {
+    const A = cl.area, out = [];
+    for (let h = 1; h <= A; h++) {
+      if (A % h) continue; const w = A / h;
+      if (h > rows || w > cols) continue;
+      if (cl.shape === 'square' && h !== w) continue;
+      if (cl.shape === 'wide' && !(w > h)) continue;
+      if (cl.shape === 'tall' && !(h > w)) continue;
+      for (let top = Math.max(0, cl.r - h + 1); top <= Math.min(cl.r, rows - h); top++)
+        for (let left = Math.max(0, cl.c - w + 1); left <= Math.min(cl.c, cols - w); left++) {
+          let ok = true;
+          for (let rr = top; rr < top + h && ok; rr++) for (let cc = left; cc < left + w; cc++) {
+            const k = rr * cols + cc; if (k !== cl.r * cols + cl.c && clueCells.has(k)) { ok = false; break; }
+          }
+          if (ok) out.push({ top, left, h, w });
+        }
+    }
+    return out;
+  }
+  const cand = clues.map(candidatesFor);
+  if (cand.some(l => l.length === 0)) return { count: 0, budgetExceeded: false };
+  const covered = new Int8Array(rows * cols); const placed = new Array(clues.length).fill(false);
+  let count = 0, nodes = 0;
+  const fits = (rc) => { for (let rr = rc.top; rr < rc.top + rc.h; rr++) for (let cc = rc.left; cc < rc.left + rc.w; cc++) if (covered[rr * cols + cc]) return false; return true; };
+  const mark = (rc, v) => { for (let rr = rc.top; rr < rc.top + rc.h; rr++) for (let cc = rc.left; cc < rc.left + rc.w; cc++) covered[rr * cols + cc] += v; };
+  function dfs(pc) {
+    if (count >= limit || nodes > budget) return; nodes++;
+    if (pc === clues.length) { count++; return; }
+    let best = -1, bestList = null;
+    for (let i = 0; i < clues.length; i++) {
+      if (placed[i]) continue;
+      const valid = cand[i].filter(fits);
+      if (valid.length === 0) return;
+      if (best === -1 || valid.length < bestList.length) { best = i; bestList = valid; }
+      if (valid.length === 1) break;
+    }
+    placed[best] = true;
+    for (const rc of bestList) { if (!fits(rc)) continue; mark(rc, 1); dfs(pc + 1); mark(rc, -1); if (count >= limit || nodes > budget) break; }
+    placed[best] = false;
+  }
+  dfs(0);
+  return { count, budgetExceeded: nodes > budget };
+}
+function shapeOf(rc) { return rc.h === rc.w ? 'square' : (rc.w > rc.h ? 'wide' : 'tall'); }
+function generatePuzzle(cfg) {
+  const rows = cfg.rows, cols = cfg.cols, budget = cfg.budget;
+  const rnd = mulberry32((Math.random() * 2 ** 32) >>> 0);
+  for (let attempt = 0; attempt < 60; attempt++) {
+    const rects = tileGrid(rows, cols, rnd, cfg.maxArea);
+    if (rects.length < cfg.minRects) continue;
+    if (rects.filter(r => r.area === 1).length > cfg.maxOnes) continue;
+    const clues = rects.map(rc => {
+      const cr = rc.top + Math.floor(rnd() * rc.h), cc = rc.left + Math.floor(rnd() * rc.w);
+      return { r: cr, c: cc, area: rc.area, shape: null, trueShape: shapeOf(rc), id: rc.id };
+    });
+    let res = countShikaku(rows, cols, clues, 2, budget);
+    if (res.budgetExceeded) continue;
+    if (res.count === 1) return { rows, cols, clues, solutionRects: rects };
+    const order = clues.map((_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) { const j = (rnd() * (i + 1)) | 0; [order[i], order[j]] = [order[j], order[i]]; }
+    let unique = false;
+    for (const i of order) {
+      clues[i].shape = clues[i].trueShape;
+      res = countShikaku(rows, cols, clues, 2, budget);
+      if (res.budgetExceeded) { unique = false; break; }
+      if (res.count === 1) { unique = true; break; }
+    }
+    if (unique) return { rows, cols, clues, solutionRects: rects };
+  }
+  return null;
+}
+
+// ============================================================
+// DOM / BOARD
+// ============================================================
+const boardEl = document.getElementById('board');
+const rectsLayer = document.getElementById('rectsLayer');
+const cellsLayer = document.getElementById('cellsLayer');
+const overlay = document.getElementById('overlay');
+let boardPx = 320, cellPx = 45;
+let clueAt = null;       // cella -> indice clue (o -1)
+let previewEl = null;
+
+function buildBoardDom() {
+  const { rows, cols, clues } = state.puzzle;
+  rectsLayer.innerHTML = '';
+  cellsLayer.innerHTML = '';
+  cellsLayer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  cellsLayer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+  clueAt = new Int32Array(rows * cols).fill(-1);
+  clues.forEach((cl, i) => { clueAt[cl.r * cols + cl.c] = i; });
+
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    const d = document.createElement('div');
+    d.className = 'gcell' + (c === cols - 1 ? ' lastcol' : '') + (r === rows - 1 ? ' lastrow' : '');
+    const ci = clueAt[r * cols + c];
+    if (ci >= 0) {
+      const cl = clues[ci];
+      let shapeHtml = '';
+      if (cl.shape) shapeHtml = `<span class="shape ${cl.shape}"><i></i></span>`;
+      d.innerHTML = `<div class="clue" data-clue="${ci}"><span class="n">${cl.area}</span>${shapeHtml}</div>`;
+    }
+    cellsLayer.appendChild(d);
+  }
+  previewEl = document.createElement('div');
+  previewEl.className = 'preview';
+  previewEl.style.display = 'none';
+  rectsLayer.appendChild(previewEl);
+  sizeBoard();
+}
+
+function sizeBoard() {
+  const { rows, cols } = state.puzzle;
+  const N = Math.max(rows, cols);
+  const availW = Math.min(window.innerWidth - 24, 460);
+  const availH = window.innerHeight * (window.innerHeight <= 700 ? 0.60 : 0.54);
+  boardPx = Math.max(200, Math.min(availW, availH, 470));
+  cellPx = boardPx / N;
+  boardEl.style.width = (cellPx * cols) + 'px';
+  boardEl.style.height = (cellPx * rows) + 'px';
+}
+window.addEventListener('resize', () => { if (state.puzzle) { sizeBoard(); renderRects(); } });
+
+// ============================================================
+// LOGICA RETTANGOLI
+// ============================================================
+function rectFromCells(a, b) {
+  const cols = state.puzzle.cols;
+  const ra = (a / cols) | 0, ca = a % cols, rb = (b / cols) | 0, cb = b % cols;
+  const top = Math.min(ra, rb), left = Math.min(ca, cb);
+  const h = Math.abs(ra - rb) + 1, w = Math.abs(ca - cb) + 1;
+  return { top, left, h, w };
+}
+function cluesInside(rc) {
+  const cols = state.puzzle.cols; const found = [];
+  for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) {
+    const ci = clueAt[r * cols + c]; if (ci >= 0) found.push(ci);
+  }
+  return found;
+}
+// verifica validità (per commit). Ritorna clueId se valido, altrimenti null + motivo
+function evalRect(rc) {
+  const cols = state.puzzle.cols;
+  const inside = cluesInside(rc);
+  if (inside.length !== 1) return { ok: false };
+  const ci = inside[0], cl = state.puzzle.clues[ci];
+  if (rc.h * rc.w !== cl.area) return { ok: false, ci };
+  if (cl.shape && shapeOf(rc) !== cl.shape) return { ok: false, ci };
+  // niente sovrapposizioni con toppe di ALTRI indizi
+  for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) {
+    const owner = state.assign[r * cols + c];
+    if (owner !== -1 && owner !== ci) return { ok: false, ci };
+  }
+  return { ok: true, ci };
+}
+function clearClue(ci) {
+  if (!state.clueRect.has(ci)) return;
+  const cols = state.puzzle.cols; const rc = state.clueRect.get(ci);
+  for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) state.assign[r * cols + c] = -1;
+  state.clueRect.delete(ci);
+}
+function commitRect(ci, rc) {
+  clearClue(ci);
+  const cols = state.puzzle.cols;
+  for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) state.assign[r * cols + c] = ci;
+  state.clueRect.set(ci, rc);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderRects() {
+  // rimuovi box commit esistenti (mantieni preview)
+  rectsLayer.querySelectorAll('.rectbox').forEach(e => e.remove());
+  const cols = state.puzzle.cols;
+  for (const [ci, rc] of state.clueRect) {
+    const box = document.createElement('div');
+    box.className = 'rectbox commit';
+    const pal = PALETTE[state.colorOf[ci] % PALETTE.length];
+    box.style.setProperty('--rc', pal[0]);
+    box.style.setProperty('--rb', pal[1]);
+    box.style.left = (rc.left * cellPx) + 'px';
+    box.style.top = (rc.top * cellPx) + 'px';
+    box.style.width = (rc.w * cellPx) + 'px';
+    box.style.height = (rc.h * cellPx) + 'px';
+    rectsLayer.insertBefore(box, previewEl);
+  }
+  // segna gli indizi risolti
+  const clues = state.puzzle.clues;
+  cellsLayer.querySelectorAll('.clue').forEach(el => {
+    const ci = +el.dataset.clue;
+    el.classList.toggle('solved', state.clueRect.has(ci));
+  });
+  updateHud();
+}
+function showPreview(rc, ok) {
+  previewEl.style.display = '';
+  previewEl.className = 'preview ' + (ok ? 'ok' : 'bad');
+  previewEl.style.left = (rc.left * cellPx) + 'px';
+  previewEl.style.top = (rc.top * cellPx) + 'px';
+  previewEl.style.width = (rc.w * cellPx) + 'px';
+  previewEl.style.height = (rc.h * cellPx) + 'px';
+}
+function hidePreview() { previewEl.style.display = 'none'; }
+
+function updateHud() {
+  document.getElementById('hudLevel').textContent = LEVELS[state.level] ? LEVELS[state.level].name : '—';
+  document.getElementById('hudPatches').textContent = state.clueRect.size + '/' + state.puzzle.clues.length;
+  const best = bestTime(state.level);
+  document.getElementById('hudBest').textContent = best !== null ? fmtTime(best) : '—';
+  document.getElementById('hudTime').textContent = fmtTime(state.seconds);
+}
+
+function checkWin() {
+  if (state.clueRect.size !== state.puzzle.clues.length) return;
+  // tutte le toppe piazzate e disgiunte con aree corrette => copertura totale
+  state.won = true; state.screen = 'over';
+  clearInterval(state.timerId); sfx.win();
+  const best = bestTime(state.level);
+  const isRecord = best === null || state.seconds < best;
+  saveScore({ level: state.level, seconds: state.seconds, date: new Date().toISOString().slice(0, 10) });
+  setTimeout(() => showResult(isRecord), 800);
+}
+
+// ============================================================
+// INPUT
+// ============================================================
+function cellFromPointer(clientX, clientY) {
+  const rect = boardEl.getBoundingClientRect();
+  const x = clientX - rect.left, y = clientY - rect.top;
+  if (x < 0 || y < 0 || x >= rect.width || y >= rect.height) return -1;
+  const cols = state.puzzle.cols, rows = state.puzzle.rows;
+  const c = Math.min(cols - 1, Math.floor(x / (rect.width / cols)));
+  const r = Math.min(rows - 1, Math.floor(y / (rect.height / rows)));
+  return r * cols + c;
+}
+boardEl.addEventListener('pointerdown', (e) => {
+  if (state.screen !== 'playing') return;
+  ac();
+  const cell = cellFromPointer(e.clientX, e.clientY);
+  if (cell < 0) return;
+  boardEl.setPointerCapture(e.pointerId);
+  state.drawing = true;
+  state.anchor = cell;
+  // se parto da una toppa già piazzata, la rimuovo (per ridisegnare)
+  const owner = state.assign[cell];
+  if (owner !== -1) { clearClue(owner); sfx.remove(); renderRects(); }
+  updateDrag(cell);
+  e.preventDefault();
+});
+boardEl.addEventListener('pointermove', (e) => {
+  if (!state.drawing || state.screen !== 'playing') return;
+  const cell = cellFromPointer(e.clientX, e.clientY);
+  if (cell < 0) return;
+  updateDrag(cell);
+  e.preventDefault();
+});
+function updateDrag(cell) {
+  const rc = rectFromCells(state.anchor, cell);
+  const ev = evalRect(rc);
+  showPreview(rc, ev.ok);
+}
+function endDrag(e) {
+  if (!state.drawing) return;
+  state.drawing = false;
+  const cell = cellFromPointer(e.clientX, e.clientY);
+  hidePreview();
+  if (cell < 0) return;
+  const rc = rectFromCells(state.anchor, cell);
+  const ev = evalRect(rc);
+  if (ev.ok) { commitRect(ev.ci, rc); sfx.place(); renderRects(); checkWin(); }
+  else { if (rc.h * rc.w > 1) sfx.bad(); }
+}
+boardEl.addEventListener('pointerup', endDrag);
+boardEl.addEventListener('pointercancel', (e) => { state.drawing = false; hidePreview(); });
+
+// ============================================================
+// PARTITA
+// ============================================================
+function startGame(level) {
+  state.level = level;
+  const cfg = LEVELS[level];
+  const puzzle = generatePuzzle(cfg);
+  if (!puzzle) { showOverlay('<h2>PATCHES</h2><div class="series-line">Riprovo a generare…</div>'); setTimeout(() => startGame(level), 30); return; }
+  state.puzzle = puzzle;
+  state.rows = puzzle.rows; state.cols = puzzle.cols;
+  state.assign = new Int32Array(puzzle.rows * puzzle.cols).fill(-1);
+  state.clueRect = new Map();
+  // colori: assegna per id, mescolati
+  state.colorOf = {};
+  const perm = puzzle.clues.map((_, i) => i);
+  for (let i = perm.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  puzzle.clues.forEach((cl, i) => { state.colorOf[cl.id] = perm[i]; });
+  state.won = false; state.seconds = 0; state.screen = 'playing';
+  clearInterval(state.timerId);
+  state.timerId = setInterval(() => { if (state.screen === 'playing') { state.seconds++; document.getElementById('hudTime').textContent = fmtTime(state.seconds); } }, 1000);
+  hideOverlay();
+  buildBoardDom();
+  renderRects();
+}
+function doClear() {
+  if (state.screen !== 'playing') return;
+  state.assign.fill(-1); state.clueRect.clear();
+  sfx.ui(); renderRects();
+}
+function doHint() {
+  if (state.screen !== 'playing') return;
+  // trova una toppa non ancora corretta e piazzala dalla soluzione
+  const cols = state.puzzle.cols;
+  for (const rc of state.puzzle.solutionRects) {
+    const ci = clueAt[rcClueCell(rc)];
+    const cur = state.clueRect.get(ci);
+    if (cur && cur.top === rc.top && cur.left === rc.left && cur.h === rc.h && cur.w === rc.w) continue;
+    // libera eventuali celle occupate da ALTRE toppe in quest'area
+    for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) {
+      const owner = state.assign[r * cols + c];
+      if (owner !== -1 && owner !== ci) clearClue(owner);
+    }
+    commitRect(ci, { top: rc.top, left: rc.left, h: rc.h, w: rc.w });
+    sfx.hint(); renderRects(); checkWin();
+    return;
+  }
+}
+// trova la cella dell'indizio dentro un solutionRect
+function rcClueCell(rc) {
+  const cols = state.puzzle.cols;
+  for (let r = rc.top; r < rc.top + rc.h; r++) for (let c = rc.left; c < rc.left + rc.w; c++) {
+    if (clueAt[r * cols + c] >= 0) return r * cols + c;
+  }
+  return rc.top * cols + rc.left;
+}
+
+// ============================================================
+// OVERLAY / MENU
+// ============================================================
+function fmtTime(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function showOverlay(html) { overlay.innerHTML = '<div class="ov-content">' + html + '</div>'; overlay.classList.add('show'); }
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function scoresHtml() {
+  let rows = '';
+  for (const k of Object.keys(LEVELS)) { const t = bestTime(k); if (t !== null) rows += '<div class="series-line">' + LEVELS[k].name + ': <strong style="color:#ffbe0b">' + fmtTime(t) + '</strong></div>'; }
+  return rows || '<div class="series-line">Nessun tempo registrato</div>';
+}
+function showMenu() {
+  state.screen = 'menu'; clearInterval(state.timerId);
+  showOverlay(
+    '<h2>PATCHES</h2>' +
+    '<div class="series-line">DIVIDI LA GRIGLIA IN RETTANGOLI:<br>OGNI NUMERO È L\'AREA DELLA SUA TOPPA</div>' +
+    '<div class="mode-grid">' +
+    '<button class="mode-card" data-lv="facile"><div class="mode-icon">🌱</div><div class="mode-name">FACILE</div><div class="mode-desc">Griglia 6×6</div></button>' +
+    '<button class="mode-card" data-lv="medio"><div class="mode-icon">⚙️</div><div class="mode-name">MEDIO</div><div class="mode-desc">Griglia 7×7</div></button>' +
+    '<button class="mode-card" data-lv="difficile"><div class="mode-icon">🔥</div><div class="mode-name">DIFFICILE</div><div class="mode-desc">Griglia 8×8</div></button>' +
+    '<button class="mode-card" data-lv="esperto"><div class="mode-icon">💀</div><div class="mode-name">ESPERTO</div><div class="mode-desc">Griglia 9×9</div></button>' +
+    '</div>' +
+    '<div class="series-line" style="margin-top:4px">MIGLIORI TEMPI</div>' + scoresHtml() +
+    '<button class="ghost-btn" id="rulesBtn" style="margin-top:4px">REGOLE</button>'
+  );
+  overlay.querySelectorAll('.mode-card').forEach(btn => btn.addEventListener('click', () => { sfx.ui(); showGenerating(); setTimeout(() => startGame(btn.dataset.lv), 30); }));
+  overlay.querySelector('#rulesBtn').addEventListener('click', showHelp);
+}
+function showGenerating() { showOverlay('<h2>PATCHES</h2><div class="series-line">PREPARO LA TRAPUNTA…</div>'); }
+function showHelp() {
+  showOverlay(
+    '<h2>REGOLE</h2>' +
+    '<div class="help-list">' +
+    '· Dividi tutta la griglia in <strong>rettangoli</strong> (le toppe).<br>' +
+    '· Ogni toppa contiene <strong>un solo numero</strong>, uguale alla sua <strong>area</strong> (numero di celle).<br>' +
+    '· Le toppe non possono sovrapporsi e devono coprire ogni cella.<br>' +
+    '· Alcuni numeri hanno un indizio di <strong>forma</strong>:' +
+    '</div>' +
+    '<div class="help-shapes"><div><span class="sq"></span>QUADRATA</div><div><span class="wd"></span>LARGA</div><div><span class="tl"></span>ALTA</div></div>' +
+    '<div class="help-list">· Trascina da un angolo all\'altro per disegnare una toppa: <strong>verde</strong> = valida, <strong>rossa</strong> = errore.<br>' +
+    '· Trascina su una toppa esistente per rifarla.</div>' +
+    '<button class="primary-btn" id="closeBtn">HO CAPITO</button>'
+  );
+  overlay.querySelector('#closeBtn').addEventListener('click', () => { if (state.screen === 'menu') showMenu(); else hideOverlay(); });
+}
+function showResult(isRecord) {
+  showOverlay(
+    '<div class="result-title">TRAPUNTA COMPLETATA!</div>' +
+    '<div class="result-time">' + fmtTime(state.seconds) + '</div>' +
+    (isRecord ? '<div class="new-record">★ NUOVO RECORD ★</div>' : '') +
+    '<div class="series-line">LIVELLO ' + LEVELS[state.level].name + '</div>' +
+    '<button class="primary-btn" id="againBtn">NUOVO PUZZLE</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">MENU</button>'
+  );
+  overlay.querySelector('#againBtn').addEventListener('click', () => { sfx.ui(); showGenerating(); setTimeout(() => startGame(state.level), 30); });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// PULSANTI
+// ============================================================
+document.getElementById('clearBtn').addEventListener('click', doClear);
+document.getElementById('hintBtn').addEventListener('click', doHint);
+document.getElementById('newBtn').addEventListener('click', () => { if (state.screen !== 'menu') { sfx.ui(); showGenerating(); setTimeout(() => startGame(state.level), 30); } });
+document.getElementById('helpBtn').addEventListener('click', () => { sfx.ui(); showHelp(); });
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+function toggleSound() { soundOn = !soundOn; localStorage.setItem('patches-neon-sound', soundOn); document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4'; if (soundOn) sfx.ui(); }
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.addEventListener('keydown', (e) => { if (e.key === 'm' || e.key === 'M') toggleSound(); if (state.screen === 'playing' && (e.key === 'h' || e.key === 'H')) doHint(); });
+
+// ============================================================
+// AVVIO
+// ============================================================
+showMenu();
+</script>
+</body>
+</html>
