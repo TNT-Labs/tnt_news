@@ -617,6 +617,7 @@ function afterPlay(who) {
   if (!t.cards.player || !t.cards.cpu) {
     // Deve giocare l'altro
     state.turn = who === 'player' ? 'cpu' : 'player';
+    renderAll();
     updateStatus();
     if (state.turn === 'cpu') cpuMove();
     return;
