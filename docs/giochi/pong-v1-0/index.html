@@ -298,7 +298,7 @@
       <span><kbd>P</kbd> Pausa</span>
       <span><kbd>M</kbd> Audio</span>
     </div>
-    <div class="touch-hint">TRASCINA IL DITO SUL TUO LATO PER MUOVERE LA RACCHETTA</div>
+    <div class="touch-hint">TRASCINA SU E GIÙ OVUNQUE PER MUOVERE LA RACCHETTA — IN 2 GIOCATORI USA IL TUO LATO DELLO SCHERMO</div>
   </footer>
 </div>
 
@@ -844,23 +844,65 @@ canvas.addEventListener('mousemove', (e) => {
   if (isCpuMode()) mouseY = canvasY(e.clientY);
 });
 
-// Touch: ogni metà campo muove la propria racchetta
-canvas.addEventListener('touchstart', handleTouch, { passive: false });
-canvas.addEventListener('touchmove', handleTouch, { passive: false });
-function handleTouch(e) {
-  e.preventDefault();
-  for (const t of e.touches) {
-    const x = canvasX(t.clientX);
-    const y = canvasY(t.clientY);
-    if (isCpuMode()) {
-      state.p1.y = Math.max(PADDLE_H / 2, Math.min(H - PADDLE_H / 2, y));
-    } else if (x < W / 2) {
-      state.p1.y = Math.max(PADDLE_H / 2, Math.min(H - PADDLE_H / 2, y));
-    } else {
-      state.p2.y = Math.max(PADDLE_H / 2, Math.min(H - PADDLE_H / 2, y));
-    }
-  }
+// Touch: trascinamento relativo da qualunque punto dello schermo, così il
+// dito non deve coprire il campo (piccolo su smartphone) né centrare la
+// racchetta. In 2 giocatori il lato dello schermo sceglie la racchetta.
+const appEl = document.querySelector('.app');
+const activeTouches = {};   // identifier -> { which, startClientY, startPaddleY }
+
+function touchSensitivity() {
+  // Da px CSS a unità logiche, con una leggera amplificazione per ridurre la
+  // corsa del dito su schermi piccoli.
+  const rect = canvas.getBoundingClientRect();
+  const base = rect.height > 0 ? H / rect.height : 1.6;
+  return base * 1.35;
 }
+
+function moveWhich(which, startPaddleY, dy, anchor) {
+  const min = PADDLE_H / 2, max = H - PADDLE_H / 2;
+  let y = startPaddleY + dy;
+  // Ri-ancora al fondo/cima così, staccandosi dal bordo, la risposta è immediata.
+  if (y < min) { y = min; anchor.startPaddleY = min; anchor.startClientY = anchor.lastClientY; }
+  else if (y > max) { y = max; anchor.startPaddleY = max; anchor.startClientY = anchor.lastClientY; }
+  state[which].y = y;
+}
+
+function onTouchStart(e) {
+  if (state.screen !== 'playing') return;
+  let handled = false;
+  for (const t of e.changedTouches) {
+    if (t.target.closest('.icon-btn') || t.target.closest('.overlay') || t.target.closest('.mode-card') || t.target.closest('button')) continue;
+    let which = 'p1';
+    if (!isCpuMode()) which = t.clientX < window.innerWidth / 2 ? 'p1' : 'p2';
+    activeTouches[t.identifier] = { which, startClientY: t.clientY, lastClientY: t.clientY, startPaddleY: state[which].y };
+    handled = true;
+  }
+  if (handled) e.preventDefault();
+}
+
+function onTouchMove(e) {
+  if (state.screen !== 'playing') return;
+  const sens = touchSensitivity();
+  let handled = false;
+  for (const t of e.changedTouches) {
+    const a = activeTouches[t.identifier];
+    if (!a) continue;
+    a.lastClientY = t.clientY;
+    const dy = (t.clientY - a.startClientY) * sens;
+    moveWhich(a.which, a.startPaddleY, dy, a);
+    handled = true;
+  }
+  if (handled) e.preventDefault();
+}
+
+function onTouchEnd(e) {
+  for (const t of e.changedTouches) delete activeTouches[t.identifier];
+}
+
+appEl.addEventListener('touchstart', onTouchStart, { passive: false });
+appEl.addEventListener('touchmove', onTouchMove, { passive: false });
+appEl.addEventListener('touchend', onTouchEnd);
+appEl.addEventListener('touchcancel', onTouchEnd);
 
 // ============================================================
 // PULSANTI
