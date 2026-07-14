@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>BRISCOLA — Neon Carte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #041008;
+    --fg: #ecfaf1;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #06ffa5;
+    --accent2: #ffbe0b;
+    --gold: #ffbe0b;
+    --panel: rgba(8, 28, 16, 0.55);
+    --border: rgba(255,255,255,0.08);
+    --c-denari: #ffbe0b;
+    --c-coppe: #ff2a78;
+    --c-spade: #00f5ff;
+    --c-bastoni: #06ffa5;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 50%, rgba(6,255,165,0.07), transparent 70%),
+      linear-gradient(180deg, #041008 0%, #072112 50%, #051a0e 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; padding-top: 2px; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(16px, 4vw, 26px);
+    letter-spacing: 8px;
+    padding-left: 8px;
+    background: linear-gradient(180deg, #ffffff 0%, #06ffa5 45%, #ffbe0b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(6,255,165,0.5));
+  }
+
+  .subtitle { font-size: 8px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 3px; }
+
+  .cpu-row, .player-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--card-h);
+  }
+
+  .table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .deck-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 92px;
+    flex: 0 0 auto;
+    position: relative;
+  }
+  .deck-stack { position: relative; width: var(--card-w); height: var(--card-h); }
+  .deck-stack .back { position: absolute; inset: 0; }
+  .briscola-card { position: absolute; left: 16px; top: 6px; transform: rotate(90deg); z-index: -1; }
+  .deck-count {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .trick-zone {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-height: calc(var(--card-h) + 12px);
+  }
+  .trick-slot {
+    width: var(--card-w);
+    height: var(--card-h);
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trick-slot .slot-label { font-size: 7px; letter-spacing: 1px; color: rgba(255,255,255,0.25); font-weight: 700; }
+
+  .points-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 92px;
+    flex: 0 0 auto;
+    align-items: center;
+  }
+  .pt-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 76px;
+  }
+  .pt-box .who { font-size: 7.5px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .pt-box .pts { font-family: 'Orbitron', sans-serif; font-size: 17px; font-weight: 900; color: #fff; }
+  .pt-box.you .pts { color: var(--accent); text-shadow: 0 0 10px rgba(6,255,165,0.5); }
+  .pt-box.cpu .pts { color: var(--accent2); text-shadow: 0 0 10px rgba(255,190,11,0.5); }
+
+  .status-banner {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    min-height: 14px;
+    text-align: center;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(6,255,165,0.4);
+    padding: 2px 0;
+  }
+
+  /* ---------- CARTE ---------- */
+  .app { --card-w: clamp(58px, 17vw, 82px); --card-h: calc(var(--card-w) * 1.5); }
+
+  .card {
+    width: var(--card-w);
+    height: var(--card-h);
+    border-radius: 9px;
+    background: linear-gradient(160deg, #0d1f14 0%, #0a1810 100%);
+    border: 1.5px solid rgba(255,255,255,0.16);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+    flex: 0 0 auto;
+  }
+
+  .card.denari { border-color: rgba(255,190,11,0.55); box-shadow: 0 0 12px rgba(255,190,11,0.15); }
+  .card.coppe { border-color: rgba(255,42,120,0.55); box-shadow: 0 0 12px rgba(255,42,120,0.15); }
+  .card.spade { border-color: rgba(0,245,255,0.55); box-shadow: 0 0 12px rgba(0,245,255,0.15); }
+  .card.bastoni { border-color: rgba(6,255,165,0.55); box-shadow: 0 0 12px rgba(6,255,165,0.15); }
+
+  .card .rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: calc(var(--card-w) * 0.34);
+    font-weight: 900;
+    line-height: 1;
+  }
+  .card .suit-icon { font-size: calc(var(--card-w) * 0.3); margin-top: 4px; }
+  .card .pts-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    font-size: calc(var(--card-w) * 0.14);
+    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+  }
+  .card .corner {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: calc(var(--card-w) * 0.16);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .card.denari .rank, .card.denari .corner { color: var(--c-denari); }
+  .card.coppe .rank, .card.coppe .corner { color: var(--c-coppe); }
+  .card.spade .rank, .card.spade .corner { color: var(--c-spade); }
+  .card.bastoni .rank, .card.bastoni .corner { color: var(--c-bastoni); }
+
+  .card.back {
+    background:
+      repeating-linear-gradient(45deg, rgba(6,255,165,0.12), rgba(6,255,165,0.12) 4px, transparent 4px, transparent 9px),
+      linear-gradient(160deg, #0a2416 0%, #06180e 100%);
+    border-color: rgba(6,255,165,0.3);
+  }
+  .card.back::after {
+    content: '❖';
+    color: rgba(6,255,165,0.5);
+    font-size: calc(var(--card-w) * 0.3);
+  }
+
+  .player-row .card.playable { cursor: pointer; }
+  .player-row .card.playable:hover { transform: translateY(-8px); box-shadow: 0 10px 24px rgba(0,0,0,0.5), 0 0 18px rgba(6,255,165,0.3); }
+  .player-row .card.disabled { opacity: 0.55; }
+
+  .card.winner-glow { animation: winnerGlow 0.8s ease-in-out 2; }
+  @keyframes winnerGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 28px rgba(255,190,11,0.8); }
+  }
+
+  .card.dealt { animation: dealIn 0.3s ease-out; }
+  @keyframes dealIn {
+    0% { transform: translateY(-16px) scale(0.85); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  /* ---------- OVERLAY ---------- */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 16, 8, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    max-width: 94%;
+    max-height: 94%;
+    overflow-y: auto;
+    text-align: center;
+    background: rgba(8, 28, 16, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #06ffa5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 11px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .primary-btn {
+    background: linear-gradient(135deg, #06ffa5, #ffbe0b);
+    color: #05130a;
+    border: none;
+    box-shadow: 0 4px 22px rgba(6,255,165,0.4);
+  }
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(6,255,165,0.6); }
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+  .result-title.win { color: var(--accent); text-shadow: 0 0 22px rgba(6,255,165,0.7); }
+  .result-title.lose { color: #ff2a78; text-shadow: 0 0 22px rgba(255,42,120,0.7); }
+  .result-title.tie { color: var(--muted); }
+
+  .result-pts {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .result-pts .sep { color: var(--muted); margin: 0 8px; }
+
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; line-height: 1.7; }
+
+  .help-list { font-size: 9.5px; color: rgba(255,255,255,0.6); line-height: 1.9; text-align: left; max-width: 340px; }
+  .help-list strong { color: var(--accent2); font-weight: 700; }
+
+  .stats-panel {
+    width: 280px;
+    max-width: 84vw;
+    background: rgba(10, 34, 20, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stats-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .stats-row {
+    display: flex;
+    justify-content: space-around;
+    font-size: 9px;
+    padding: 4px 2px;
+  }
+  .stats-row .v { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; font-size: 13px; }
+  .stats-row .cell { display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); }
+  .stats-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  .icon-btns { position: fixed; top: 8px; right: 8px; display: flex; gap: 6px; z-index: 90; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(8,28,16,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(6,255,165,0.3); }
+
+  @media (max-height: 560px) {
+    header { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">BRISCOLA</h1>
+    <div class="subtitle">NEON CARTE</div>
+  </header>
+
+  <div class="cpu-row" id="cpuRow"></div>
+
+  <div class="table-row">
+    <div class="deck-zone">
+      <div class="deck-stack" id="deckStack"></div>
+      <div class="deck-count" id="deckCount"></div>
+    </div>
+    <div class="trick-zone">
+      <div class="trick-slot" id="slotCpu"><span class="slot-label">CPU</span></div>
+      <div class="trick-slot" id="slotPlayer"><span class="slot-label">TU</span></div>
+    </div>
+    <div class="points-zone">
+      <div class="pt-box cpu"><div class="who">CPU</div><div class="pts" id="ptsCpu">0</div></div>
+      <div class="pt-box you"><div class="who">TU</div><div class="pts" id="ptsPlayer">0</div></div>
+    </div>
+  </div>
+
+  <div class="status-banner" id="statusBanner">&nbsp;</div>
+
+  <div class="player-row" id="playerRow"></div>
+
+  <div class="icon-btns">
+    <button class="icon-btn" id="helpBtn" aria-label="Regole">?</button>
+    <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+    <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// COSTANTI
+// ============================================================
+const SUITS = ['denari', 'coppe', 'spade', 'bastoni'];
+const SUIT_ICONS = { denari: '🪙', coppe: '🏆', spade: '⚔️', bastoni: '🌿' };
+const SUIT_NAMES = { denari: 'DENARI', coppe: 'COPPE', spade: 'SPADE', bastoni: 'BASTONI' };
+const RANK_LABEL = { 1: 'A', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: 'F', 9: 'C', 10: 'R' };
+const POINTS = { 1: 11, 3: 10, 10: 4, 9: 3, 8: 2 };
+const STRENGTH = { 1: 10, 3: 9, 10: 8, 9: 7, 8: 6, 7: 5, 6: 4, 5: 3, 4: 2, 2: 1 };
+const STATS_KEY = 'briscola-neon-stats';
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',          // menu | playing | over
+  deck: [],
+  briscola: null,          // carta scoperta che indica il seme
+  hands: { player: [], cpu: [] },
+  captured: { player: [], cpu: [] },
+  trick: { leader: null, cards: {} },   // cards.player / cards.cpu
+  turn: 'player',
+  lock: false,
+  firstLeader: 'player'
+};
+
+let soundOn = localStorage.getItem('briscola-neon-sound') !== 'false';
+
+// ============================================================
+// STATISTICHE
+// ============================================================
+function loadStats() {
+  try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return s && typeof s === 'object' ? s : { win: 0, lose: 0, tie: 0 }; }
+  catch (e) { return { win: 0, lose: 0, tie: 0 }; }
+}
+function saveStats(s) { try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch (e) {} }
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol || 0.12, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+const sfx = {
+  play() { beep(340, 0.06, 'triangle', 0.1); },
+  take(pts) { beep(pts > 0 ? 520 : 300, 0.09, 'triangle', 0.12); if (pts >= 10) beep(660, 0.1, 'triangle', 0.12, 0.08); },
+  draw() { beep(430, 0.04, 'sine', 0.06); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.25, 'triangle', 0.22, 0.2); },
+  lose() { beep(330, 0.16, 'sawtooth', 0.12); beep(247, 0.16, 'sawtooth', 0.12, 0.14); beep(196, 0.3, 'sawtooth', 0.14, 0.28); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// MAZZO E REGOLE
+// ============================================================
+function newDeck() {
+  const deck = [];
+  for (const suit of SUITS) for (let rank = 1; rank <= 10; rank++) deck.push({ suit, rank });
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+  return deck;
+}
+
+function cardPoints(c) { return POINTS[c.rank] || 0; }
+
+function trickWinner(leadCard, leadWho, replyCard) {
+  const bri = state.briscola.suit;
+  const replyWho = leadWho === 'player' ? 'cpu' : 'player';
+  if (replyCard.suit === leadCard.suit) {
+    return STRENGTH[replyCard.rank] > STRENGTH[leadCard.rank] ? replyWho : leadWho;
+  }
+  if (replyCard.suit === bri) return replyWho;
+  return leadWho; // risposta di seme diverso e non briscola: prende chi ha aperto
+}
+
+function sumPoints(cards) { return cards.reduce((a, c) => a + cardPoints(c), 0); }
+
+// ============================================================
+// IA
+// ============================================================
+function cpuChooseCard() {
+  const hand = state.hands.cpu;
+  const bri = state.briscola.suit;
+  const lead = state.trick.cards[state.trick.leader];
+
+  const byValueAsc = hand.slice().sort((a, b) => {
+    const pa = cardPoints(a) + (a.suit === bri ? 0.5 + STRENGTH[a.rank] / 20 : 0);
+    const pb = cardPoints(b) + (b.suit === bri ? 0.5 + STRENGTH[b.rank] / 20 : 0);
+    return pa - pb || STRENGTH[a.rank] - STRENGTH[b.rank];
+  });
+
+  // La CPU apre il turno
+  if (!lead || state.trick.leader === 'cpu') {
+    // Apre col "liscio" più basso non di briscola; se ha solo briscole, la più bassa
+    const nonBri = byValueAsc.filter(c => c.suit !== bri);
+    if (nonBri.length > 0) return nonBri[0];
+    return byValueAsc[0];
+  }
+
+  // La CPU risponde
+  const trickPts = cardPoints(lead);
+  const winners = hand.filter(c => trickWinner(lead, 'player', c) === 'cpu');
+
+  if (winners.length > 0) {
+    // Vincitrici ordinate per costo: prima quelle di seme (non briscola), poi briscole basse
+    const cheap = winners.slice().sort((a, b) => {
+      const ca = (a.suit === bri ? 100 : 0) + STRENGTH[a.rank] * 2 + cardPoints(a);
+      const cb = (b.suit === bri ? 100 : 0) + STRENGTH[b.rank] * 2 + cardPoints(b);
+      return ca - cb;
+    });
+    const best = cheap[0];
+    const gain = trickPts + cardPoints(best);
+    const usesBriscola = best.suit === bri;
+    // Prende se il piatto vale abbastanza (soglia più alta se deve usare una briscola pesante)
+    const threshold = usesBriscola ? (cardPoints(best) >= 10 ? 10 : 4) : 0;
+    if (gain > threshold || state.deck.length === 0) return best;
+  }
+
+  // Scarta la carta che regala meno punti
+  const discards = hand.slice().sort((a, b) => {
+    const ca = cardPoints(a) * 3 + (a.suit === bri ? 8 + STRENGTH[a.rank] : STRENGTH[a.rank]);
+    const cb = cardPoints(b) * 3 + (b.suit === bri ? 8 + STRENGTH[b.rank] : STRENGTH[b.rank]);
+    return ca - cb;
+  });
+  return discards[0];
+}
+
+// ============================================================
+// SVOLGIMENTO
+// ============================================================
+function startGame() {
+  state.deck = newDeck();
+  state.hands.player = [state.deck.pop(), state.deck.pop(), state.deck.pop()];
+  state.hands.cpu = [state.deck.pop(), state.deck.pop(), state.deck.pop()];
+  // La briscola resta visibile sotto il mazzo e viene pescata per ultima
+  state.briscola = state.deck.shift();
+  state.deck.push(state.briscola);
+  state.captured.player = [];
+  state.captured.cpu = [];
+  state.trick = { leader: state.firstLeader, cards: {} };
+  state.turn = state.firstLeader;
+  state.firstLeader = state.firstLeader === 'player' ? 'cpu' : 'player';
+  state.lock = false;
+  state.screen = 'playing';
+  hideOverlay();
+  renderAll();
+  updateStatus();
+  if (state.turn === 'cpu') cpuMove();
+}
+
+function playerPlay(idx) {
+  if (state.screen !== 'playing' || state.turn !== 'player' || state.lock) return;
+  const card = state.hands.player.splice(idx, 1)[0];
+  state.trick.cards.player = card;
+  sfx.play();
+  renderAll();
+  afterPlay('player');
+}
+
+function cpuMove() {
+  state.lock = true;
+  updateStatus();
+  setTimeout(() => {
+    if (state.screen !== 'playing') return;
+    const card = cpuChooseCard();
+    state.hands.cpu.splice(state.hands.cpu.indexOf(card), 1);
+    state.trick.cards.cpu = card;
+    sfx.play();
+    state.lock = false;
+    renderAll();
+    afterPlay('cpu');
+  }, 650);
+}
+
+function afterPlay(who) {
+  const t = state.trick;
+  if (!t.cards.player || !t.cards.cpu) {
+    // Deve giocare l'altro
+    state.turn = who === 'player' ? 'cpu' : 'player';
+    updateStatus();
+    if (state.turn === 'cpu') cpuMove();
+    return;
+  }
+  // Piglio
+  state.lock = true;
+  const leadCard = t.cards[t.leader];
+  const replyCard = t.cards[t.leader === 'player' ? 'cpu' : 'player'];
+  const winner = trickWinner(leadCard, t.leader, replyCard);
+  const pts = sumPoints([t.cards.player, t.cards.cpu]);
+
+  setTimeout(() => {
+    const winSlot = winner === 'player' ? 'slotPlayer' : 'slotCpu';
+    const el = document.getElementById(winSlot).querySelector('.card');
+    if (el) el.classList.add('winner-glow');
+    sfx.take(pts);
+    showStatus(winner === 'player' ? 'PRENDI TU (+' + pts + ')' : 'PRENDE LA CPU (+' + pts + ')');
+  }, 500);
+
+  setTimeout(() => {
+    state.captured[winner].push(t.cards.player, t.cards.cpu);
+    state.trick = { leader: winner, cards: {} };
+    // Pesca: prima il vincitore
+    if (state.deck.length > 0) {
+      const order = winner === 'player' ? ['player', 'cpu'] : ['cpu', 'player'];
+      for (const w of order) {
+        if (state.deck.length > 0) {
+          state.hands[w].push(state.deck.shift());
+          sfx.draw();
+        }
+      }
+    }
+    state.turn = winner;
+    state.lock = false;
+    renderAll();
+    updateStatus();
+
+    if (state.hands.player.length === 0 && state.hands.cpu.length === 0) {
+      endGame();
+      return;
+    }
+    if (state.turn === 'cpu') cpuMove();
+  }, 1500);
+}
+
+function endGame() {
+  state.screen = 'over';
+  const pp = sumPoints(state.captured.player);
+  const cp = sumPoints(state.captured.cpu);
+  const stats = loadStats();
+  let result;
+  if (pp > cp) { result = 'win'; stats.win += 1; sfx.win(); }
+  else if (cp > pp) { result = 'lose'; stats.lose += 1; sfx.lose(); }
+  else { result = 'tie'; stats.tie += 1; }
+  saveStats(stats);
+  setTimeout(() => showResult(result, pp, cp), 900);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function cardHtml(c, cls) {
+  return '<div class="card ' + c.suit + ' ' + (cls || '') + '">' +
+    '<div class="corner">' + RANK_LABEL[c.rank] + '<br>' + SUIT_ICONS[c.suit] + '</div>' +
+    '<div class="rank">' + RANK_LABEL[c.rank] + '</div>' +
+    '<div class="suit-icon">' + SUIT_ICONS[c.suit] + '</div>' +
+    (cardPoints(c) > 0 ? '<div class="pts-badge">' + cardPoints(c) + 'pt</div>' : '') +
+    '</div>';
+}
+
+function renderAll() {
+  // Mano CPU (coperta)
+  const cpuRow = document.getElementById('cpuRow');
+  cpuRow.innerHTML = state.hands.cpu.map(() => '<div class="card back"></div>').join('');
+
+  // Mano giocatore
+  const playerRow = document.getElementById('playerRow');
+  const canPlay = state.screen === 'playing' && state.turn === 'player' && !state.lock;
+  playerRow.innerHTML = state.hands.player
+    .map((c, i) => cardHtml(c, canPlay ? 'playable' : 'disabled').replace('class="card', 'data-idx="' + i + '" class="card'))
+    .join('');
+  playerRow.querySelectorAll('.card.playable').forEach(el => {
+    el.addEventListener('click', () => playerPlay(parseInt(el.dataset.idx, 10)));
+  });
+
+  // Mazzo e briscola
+  const deckStack = document.getElementById('deckStack');
+  const n = state.deck.length;
+  let html = '';
+  if (state.briscola && n > 0) {
+    html += '<div class="briscola-card">' + cardHtml(state.briscola) + '</div>';
+    if (n > 1) html += '<div class="card back"></div>';
+  }
+  deckStack.innerHTML = html;
+  document.getElementById('deckCount').textContent = n > 0
+    ? n + ' CARTE · ' + SUIT_NAMES[state.briscola.suit]
+    : 'BRISCOLA: ' + SUIT_NAMES[state.briscola ? state.briscola.suit : ''];
+
+  // Prese in corso
+  const slotCpu = document.getElementById('slotCpu');
+  const slotPlayer = document.getElementById('slotPlayer');
+  slotCpu.innerHTML = state.trick.cards.cpu ? cardHtml(state.trick.cards.cpu, 'dealt') : '<span class="slot-label">CPU</span>';
+  slotPlayer.innerHTML = state.trick.cards.player ? cardHtml(state.trick.cards.player, 'dealt') : '<span class="slot-label">TU</span>';
+
+  // Punti
+  document.getElementById('ptsPlayer').textContent = sumPoints(state.captured.player);
+  document.getElementById('ptsCpu').textContent = sumPoints(state.captured.cpu);
+}
+
+let statusTimer = null;
+function showStatus(msg) {
+  const el = document.getElementById('statusBanner');
+  el.textContent = msg;
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(updateStatus, 1600);
+}
+function updateStatus() {
+  clearTimeout(statusTimer);
+  const el = document.getElementById('statusBanner');
+  if (state.screen !== 'playing') { el.textContent = ' '; return; }
+  el.textContent = state.turn === 'player' && !state.lock ? 'TOCCA A TE — SCEGLI UNA CARTA' : 'LA CPU PENSA…';
+}
+
+// ============================================================
+// OVERLAY
+// ============================================================
+const overlay = document.getElementById('overlay');
+function showOverlay(html) {
+  overlay.innerHTML = '<div class="overlay-content">' + html + '</div>';
+  overlay.classList.add('show');
+}
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function statsPanelHtml() {
+  const s = loadStats();
+  return '<div class="stats-panel"><div class="stats-title">STATISTICHE</div>' +
+    '<div class="stats-row">' +
+    '<div class="cell"><span class="v">' + s.win + '</span>VINTE</div>' +
+    '<div class="cell"><span class="v">' + s.lose + '</span>PERSE</div>' +
+    '<div class="cell"><span class="v">' + s.tie + '</span>PARI</div>' +
+    '</div>' +
+    '<button class="ghost-btn" id="clearStats">CANCELLA STATISTICHE</button></div>';
+}
+
+function showMenu() {
+  state.screen = 'menu';
+  showOverlay(
+    '<h2>BRISCOLA</h2>' +
+    '<div class="series-line">IL CLASSICO GIOCO DI CARTE ITALIANO<br>UNO CONTRO UNO CON LA CPU — 120 PUNTI IN PALIO</div>' +
+    '<button class="primary-btn" id="startBtn">GIOCA</button>' +
+    '<button class="ghost-btn" id="rulesBtn">REGOLE</button>' +
+    statsPanelHtml()
+  );
+  overlay.querySelector('#startBtn').addEventListener('click', () => { sfx.ui(); startGame(); });
+  overlay.querySelector('#rulesBtn').addEventListener('click', () => { sfx.ui(); showHelp(); });
+  const clear = overlay.querySelector('#clearStats');
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(STATS_KEY); } catch (e) {}
+    showMenu();
+  });
+}
+
+function showHelp() {
+  showOverlay(
+    '<h2>REGOLE</h2>' +
+    '<div class="help-list">' +
+    '· Mazzo da 40 carte, 3 a testa. La carta scoperta sotto il mazzo indica il seme di <strong>briscola</strong>.<br>' +
+    '· Non c\'è obbligo di rispondere al seme: puoi giocare qualsiasi carta.<br>' +
+    '· Prende la carta più alta dello stesso seme di chi ha aperto, oppure la <strong>briscola</strong> se viene giocata.<br>' +
+    '· Chi prende pesca per primo e apre il turno successivo.<br>' +
+    '· <strong>Punti</strong>: Asso 11 · Tre 10 · Re 4 · Cavallo 3 · Fante 2.<br>' +
+    '· Ordine di presa: A &gt; 3 &gt; R &gt; C &gt; F &gt; 7 &gt; 6 &gt; 5 &gt; 4 &gt; 2.<br>' +
+    '· Vince chi supera i <strong>60 punti</strong>.' +
+    '</div>' +
+    '<button class="primary-btn" id="closeBtn">HO CAPITO</button>'
+  );
+  overlay.querySelector('#closeBtn').addEventListener('click', () => {
+    if (state.screen === 'menu') showMenu(); else hideOverlay();
+  });
+}
+
+function showResult(result, pp, cp) {
+  const titles = { win: 'HAI VINTO!', lose: 'HA VINTO LA CPU', tie: 'PATTA — 60 PARI' };
+  showOverlay(
+    '<div class="result-title ' + result + '">' + titles[result] + '</div>' +
+    '<div class="result-pts">' + pp + '<span class="sep">—</span>' + cp + '</div>' +
+    '<div class="series-line">BRISCOLA: ' + SUIT_ICONS[state.briscola.suit] + ' ' + SUIT_NAMES[state.briscola.suit] + '</div>' +
+    '<button class="primary-btn" id="againBtn">RIVINCITA</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">MENU</button>'
+  );
+  overlay.querySelector('#againBtn').addEventListener('click', () => { sfx.ui(); startGame(); });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// PULSANTI
+// ============================================================
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('briscola-neon-sound', soundOn);
+  document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+  if (soundOn) sfx.ui();
+}
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+document.getElementById('helpBtn').addEventListener('click', () => { sfx.ui(); showHelp(); });
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'm' || e.key === 'M') toggleSound();
+  const n = parseInt(e.key, 10);
+  if (n >= 1 && n <= 3) playerPlay(n - 1);
+});
+
+// ============================================================
+// AVVIO
+// ============================================================
+renderAll();
+showMenu();
+</script>
+</body>
+</html>
