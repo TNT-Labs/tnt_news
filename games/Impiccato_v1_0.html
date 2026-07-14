@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>IMPICCATO — Neon Parole</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #0d0703;
+    --fg: #fbf2e8;
+    --muted: rgba(255,255,255,0.45);
+    --accent: #ff9e00;      /* ambra */
+    --accent2: #ff2a2a;     /* rosso pericolo */
+    --ok: #06ffa5;
+    --gold: #ffbe0b;
+    --panel: rgba(30, 16, 6, 0.55);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,158,0,0.09), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,42,42,0.06), transparent 60%),
+      linear-gradient(180deg, #0d0703 0%, #150b05 50%, #100804 100%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 4px);
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  header { text-align: center; line-height: 1; }
+
+  .title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(18px, 4.5vw, 30px);
+    letter-spacing: 8px;
+    padding-left: 8px;
+    background: linear-gradient(180deg, #ffffff 0%, #ff9e00 45%, #ff2a2a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,158,0,0.5));
+    animation: titleGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 16px rgba(255,158,0,0.5)); }
+    50% { filter: drop-shadow(0 0 26px rgba(255,42,42,0.6)); }
+  }
+
+  .subtitle { font-size: 9px; letter-spacing: 6px; color: rgba(255,255,255,0.35); font-weight: 700; margin-top: 4px; }
+
+  .hud {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 7px 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hud .stat { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 54px; }
+  .hud .label { font-size: 8px; letter-spacing: 2px; color: var(--muted); font-weight: 700; }
+  .hud .value { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 700; color: #fff; text-shadow: 0 0 10px rgba(255,158,0,0.4); }
+  .hud .value.danger { color: var(--accent2); text-shadow: 0 0 10px rgba(255,42,42,0.6); }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: rgba(10, 5, 2, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 0 50px rgba(255,158,0,0.10), inset 0 0 40px rgba(0,0,0,0.6);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .gallows-row { display: flex; align-items: center; gap: 14px; width: 100%; justify-content: center; }
+
+  #gallows { width: min(38vw, 170px); height: auto; flex: 0 0 auto; }
+  #gallows line, #gallows circle, #gallows path {
+    stroke: var(--accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+    filter: drop-shadow(0 0 6px rgba(255,158,0,0.6));
+  }
+  #gallows .body-part {
+    stroke: var(--accent2);
+    filter: drop-shadow(0 0 8px rgba(255,42,42,0.7));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  #gallows .body-part.show { opacity: 1; }
+
+  .side-info { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+
+  .category-chip {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    border: 1px solid rgba(255,158,0,0.35);
+    border-radius: 999px;
+    padding: 4px 12px;
+    background: rgba(255,158,0,0.07);
+  }
+
+  .lives-row { display: flex; gap: 5px; }
+  .life {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 8px rgba(6,255,165,0.6);
+    transition: all 0.3s;
+  }
+  .life.lost { background: rgba(255,255,255,0.1); box-shadow: none; }
+
+  .hint-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(255,190,11,0.4);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .hint-btn:hover:not(:disabled) { background: rgba(255,190,11,0.1); box-shadow: 0 0 12px rgba(255,190,11,0.3); }
+  .hint-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .word-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    min-height: 40px;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .letter-slot {
+    width: clamp(20px, 6vw, 30px);
+    height: clamp(28px, 8vw, 40px);
+    border-bottom: 3px solid rgba(255,158,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(14px, 4.5vw, 22px);
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255,158,0,0.6);
+  }
+  .letter-slot.space { border-bottom: none; width: 12px; }
+  .letter-slot.reveal { animation: pop 0.3s ease-out; }
+  .letter-slot.missed { color: var(--accent2); text-shadow: 0 0 12px rgba(255,42,42,0.7); border-color: rgba(255,42,42,0.5); }
+  @keyframes pop {
+    0% { transform: scale(0.4); opacity: 0; }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .kb-row { display: flex; gap: 4px; justify-content: center; width: 100%; }
+
+  .key {
+    flex: 0 1 40px;
+    min-width: 26px;
+    height: 40px;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .key:hover:not(:disabled) { background: rgba(255,158,0,0.15); border-color: rgba(255,158,0,0.5); }
+  .key:disabled { cursor: default; }
+  .key.hit { background: rgba(6,255,165,0.18); border-color: rgba(6,255,165,0.5); color: var(--ok); }
+  .key.miss { background: rgba(255,42,42,0.14); border-color: rgba(255,42,42,0.4); color: rgba(255,255,255,0.3); }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 5, 2, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 40;
+  }
+
+  .overlay.show { opacity: 1; pointer-events: all; }
+
+  .overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    max-width: 96%;
+    max-height: 96%;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .overlay-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff, #ff9e00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mode-grid { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 420px; }
+
+  .mode-card {
+    background: rgba(36, 20, 8, 0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 6px;
+    width: 92px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    text-align: center;
+    transition: all 0.25s;
+  }
+
+  .mode-card:hover {
+    border-color: rgba(255,158,0,0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255,158,0,0.18);
+  }
+
+  .mode-icon { font-size: 19px; margin-bottom: 4px; filter: drop-shadow(0 0 8px rgba(255,158,0,0.6)); }
+  .mode-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 1px; color: var(--accent); }
+
+  .primary-btn, .ghost-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 11px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .primary-btn {
+    background: linear-gradient(135deg, #ff9e00, #ff2a2a);
+    color: #180a02;
+    border: none;
+    box-shadow: 0 4px 22px rgba(255,158,0,0.4);
+  }
+
+  .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,158,0,0.6); }
+
+  .ghost-btn { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+  .ghost-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .result-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+  .result-title.win { color: var(--ok); text-shadow: 0 0 22px rgba(6,255,165,0.7); }
+  .result-title.lose { color: var(--accent2); text-shadow: 0 0 22px rgba(255,42,42,0.7); }
+
+  .word-reveal {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-shadow: 0 0 14px rgba(255,158,0,0.6);
+  }
+
+  .series-line { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); font-weight: 700; }
+  .streak-line {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(255,190,11,0.6);
+  }
+
+  .stats-panel {
+    width: 300px;
+    max-width: 84vw;
+    background: rgba(36, 20, 8, 0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stats-title { font-size: 9px; letter-spacing: 3px; color: var(--muted); font-weight: 700; text-align: center; margin-bottom: 6px; }
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    font-size: 9px;
+    padding: 4px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: baseline;
+  }
+  .stats-row:last-child { border-bottom: none; }
+  .stats-row .m { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 1px; color: var(--accent); }
+  .stats-row .v { font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff; }
+  .stats-empty { text-align: center; font-size: 9px; color: rgba(255,255,255,0.35); padding: 8px 0; }
+  .stats-panel .ghost-btn { display: block; width: 100%; margin-top: 8px; padding: 5px 10px; font-size: 8px; }
+
+  .icon-btns { position: absolute; top: 8px; right: 8px; display: flex; gap: 6px; z-index: 45; }
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(30,16,6,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: #fff; border-color: var(--accent); box-shadow: 0 0 10px rgba(255,158,0,0.3); }
+
+  @media (max-height: 620px) {
+    header { display: none; }
+    .app { gap: 5px; padding: 6px 10px; }
+    #gallows { width: min(30vw, 120px); }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1 class="title">IMPICCATO</h1>
+    <div class="subtitle">NEON PAROLE</div>
+  </header>
+
+  <div class="hud">
+    <div class="stat"><div class="label">VITTORIE</div><div class="value" id="hudWins">0</div></div>
+    <div class="stat"><div class="label">SERIE</div><div class="value" id="hudStreak">0</div></div>
+    <div class="stat"><div class="label">ERRORI</div><div class="value" id="hudErrors">0/6</div></div>
+  </div>
+
+  <div class="stage" id="stageEl">
+    <div class="gallows-row">
+      <svg id="gallows" viewBox="0 0 160 180">
+        <line x1="15" y1="170" x2="115" y2="170"/>
+        <line x1="45" y1="170" x2="45" y2="15"/>
+        <line x1="45" y1="15" x2="110" y2="15"/>
+        <line x1="55" y1="15" x2="45" y2="35"/>
+        <line x1="110" y1="15" x2="110" y2="32"/>
+        <circle class="body-part" id="bp0" cx="110" cy="46" r="14"/>
+        <line class="body-part" id="bp1" x1="110" y1="60" x2="110" y2="105"/>
+        <line class="body-part" id="bp2" x1="110" y1="70" x2="88" y2="90"/>
+        <line class="body-part" id="bp3" x1="110" y1="70" x2="132" y2="90"/>
+        <line class="body-part" id="bp4" x1="110" y1="105" x2="92" y2="138"/>
+        <line class="body-part" id="bp5" x1="110" y1="105" x2="128" y2="138"/>
+      </svg>
+      <div class="side-info">
+        <div class="category-chip" id="categoryChip">CATEGORIA</div>
+        <div class="lives-row" id="livesRow"></div>
+        <button class="hint-btn" id="hintBtn">💡 AIUTO (1)</button>
+      </div>
+    </div>
+
+    <div class="word-row" id="wordRow"></div>
+
+    <div class="keyboard" id="keyboard"></div>
+
+    <div class="icon-btns">
+      <button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ============================================================
+// PAROLE PER CATEGORIA (senza accenti, solo A-Z)
+// ============================================================
+const WORDS = {
+  ANIMALI: [
+    'ELEFANTE','GIRAFFA','SCOIATTOLO','RICCIO','VOLPE','LUPO','CINGHIALE','TASSO',
+    'AQUILA','FALCO','GUFO','CIVETTA','PICCHIO','RONDINE','PETTIROSSO','AIRONE',
+    'DELFINO','BALENA','POLPO','MEDUSA','CAVALLUCCIO','TARTARUGA','SALMONE','TONNO',
+    'FARFALLA','LIBELLULA','COCCINELLA','GRILLO','FORMICA','CICALA','LUCERTOLA','RAMARRO',
+    'CAMOSCIO','STAMBECCO','MARMOTTA','ERMELLINO','GHIRO','TALPA','PIPISTRELLO','CERVO',
+    'LEOPARDO','GHEPARDO','RINOCERONTE','IPPOPOTAMO','CANGURO','KOALA','PINGUINO','FENICOTTERO'
+  ],
+  'CITTA E LUOGHI': [
+    'BERGAMO','MILANO','BRESCIA','VENEZIA','FIRENZE','NAPOLI','TORINO','GENOVA',
+    'BOLOGNA','PALERMO','VERONA','PADOVA','TRIESTE','CAGLIARI','PERUGIA','ANCONA',
+    'MANTOVA','CREMONA','SONDRIO','LECCO','PAVIA','VARESE','MONZA','TREVIGLIO',
+    'PIAZZA','CASTELLO','FONTANA','CAMPANILE','ACQUEDOTTO','ANFITEATRO','BASILICA','MONASTERO',
+    'FUNICOLARE','BELVEDERE','LUNGOLAGO','PORTICI','MERCATO','STAZIONE','AEROPORTO','FARO'
+  ],
+  'CIBO E CUCINA': [
+    'POLENTA','CASONCELLI','RISOTTO','LASAGNE','CARBONARA','TIRAMISU','PANETTONE','FOCACCIA',
+    'STRACCIATELLA','GORGONZOLA','TALEGGIO','PARMIGIANO','MOZZARELLA','BRESAOLA','PROSCIUTTO','MORTADELLA',
+    'MELANZANA','ZUCCHINA','CARCIOFO','FINOCCHIO','BASILICO','ROSMARINO','PREZZEMOLO','ORIGANO',
+    'ESPRESSO','CAPPUCCINO','GRANITA','CANNOLO','SFOGLIATELLA','AMARETTO','TORRONE','CROSTATA',
+    'GNOCCHI','TORTELLINI','BRUSCHETTA','MINESTRONE','OSSOBUCO','SALTIMBOCCA','FRITTATA','ARANCINO'
+  ],
+  SPORT: [
+    'CALCIO','PALLAVOLO','PALLACANESTRO','ATLETICA','CICLISMO','NUOTO','SCHERMA','TENNIS',
+    'MARATONA','STAFFETTA','OSTACOLI','GINNASTICA','TUFFI','CANOTTAGGIO','ARRAMPICATA','ALPINISMO',
+    'PORTIERE','ATTACCANTE','ARBITRO','RIGORE','ROVESCIATA','TRAVERSA','FUORIGIOCO','PUNIZIONE',
+    'SLALOM','DISCESA','BIATHLON','PATTINAGGIO','SNOWBOARD','CURLING','BOB','HOCKEY',
+    'RIMBALZO','SCHIACCIATA','BATTUTA','PODIO','MEDAGLIA','ALLENATORE','TIFOSO','TRASFERTA'
+  ],
+  NATURA: [
+    'MONTAGNA','VALLATA','GHIACCIAIO','CASCATA','TORRENTE','SORGENTE','PIANURA','COLLINA',
+    'TEMPORALE','ARCOBALENO','GRANDINE','NEBBIA','BREZZA','TRAMONTO','AURORA','ECLISSI',
+    'QUERCIA','BETULLA','CASTAGNO','ABETE','LARICE','CIPRESSO','GIRASOLE','PAPAVERO',
+    'VULCANO','TERREMOTO','MAREA','SCOGLIERA','DUNA','OASI','PALUDE','BRUGHIERA',
+    'COSTELLAZIONE','GALASSIA','COMETA','METEORITE','SATELLITE','ORIZZONTE','CREPUSCOLO','RUGIADA'
+  ],
+  OGGETTI: [
+    'OMBRELLO','BUSSOLA','LANTERNA','CANNOCCHIALE','MACININO','SVEGLIA','TERMOMETRO','BAROMETRO',
+    'FORBICI','MARTELLO','CACCIAVITE','TRAPANO','PENNELLO','SCALPELLO','CHIODO','BULLONE',
+    'ZAINO','VALIGIA','PORTAFOGLIO','OCCHIALI','CAPPELLO','SCIARPA','GUANTI','STIVALI',
+    'CHITARRA','VIOLINO','TAMBURO','FISARMONICA','PIANOFORTE','TROMBA','FLAUTO','ARPA',
+    'SPECCHIO','CORNICE','TAPPETO','LAMPADARIO','POLTRONA','SCAFFALE','COMODINO','TENDA'
+  ],
+  MESTIERI: [
+    'FALEGNAME','FABBRO','MURATORE','IDRAULICO','ELETTRICISTA','IMBIANCHINO','GIARDINIERE','FORNAIO',
+    'PASTICCERE','MACELLAIO','SARTO','CALZOLAIO','OROLOGIAIO','GIOIELLIERE','LIBRAIO','FARMACISTA',
+    'INFERMIERE','VETERINARIO','ARCHITETTO','INGEGNERE','AVVOCATO','NOTAIO','GIORNALISTA','FOTOGRAFO',
+    'POMPIERE','POSTINO','FERROVIERE','TRANVIERE','PESCATORE','CONTADINO','APICOLTORE','CASARO',
+    'MAESTRO','BIBLIOTECARIO','TRADUTTORE','SCULTORE','PITTORE','REGISTA','ATTORE','MUSICISTA'
+  ]
+};
+const CATEGORY_ICONS = {
+  ANIMALI: '🦊', 'CITTA E LUOGHI': '🏛️', 'CIBO E CUCINA': '🍝', SPORT: '⚽',
+  NATURA: '🌋', OGGETTI: '🔧', MESTIERI: '🛠️'
+};
+
+const MAX_ERRORS = 6;
+const STATS_KEY = 'impiccato-neon-stats';
+const KB_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+
+// ============================================================
+// STATO
+// ============================================================
+const state = {
+  screen: 'menu',        // menu | playing | over
+  category: 'ANIMALI',
+  randomMode: false,
+  word: '',
+  guessed: new Set(),
+  errors: 0,
+  hintUsed: false,
+  streak: 0,
+  recentWords: []        // evita ripetizioni ravvicinate
+};
+
+let soundOn = localStorage.getItem('impiccato-neon-sound') !== 'false';
+
+// ============================================================
+// STATISTICHE
+// ============================================================
+function loadStats() {
+  try { const s = JSON.parse(localStorage.getItem(STATS_KEY)); return s && typeof s === 'object' ? s : { win: 0, lose: 0, bestStreak: 0 }; }
+  catch (e) { return { win: 0, lose: 0, bestStreak: 0 }; }
+}
+function saveStats(s) {
+  try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch (e) {}
+}
+
+// ============================================================
+// AUDIO
+// ============================================================
+let audioCtx = null;
+function ac() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function beep(freq, dur, type, vol, delay) {
+  if (!soundOn) return;
+  try {
+    const ctx = ac();
+    const t = ctx.currentTime + (delay || 0);
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol || 0.15, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) {}
+}
+const sfx = {
+  hit() { beep(620, 0.08, 'triangle', 0.16); },
+  miss() { beep(180, 0.18, 'sawtooth', 0.13); },
+  hint() { beep(880, 0.1, 'sine', 0.14); beep(1100, 0.12, 'sine', 0.14, 0.08); },
+  win() { beep(523, 0.12, 'triangle', 0.2); beep(659, 0.12, 'triangle', 0.2, 0.1); beep(784, 0.2, 'triangle', 0.22, 0.2); },
+  lose() { beep(330, 0.16, 'sawtooth', 0.12); beep(247, 0.16, 'sawtooth', 0.12, 0.14); beep(196, 0.35, 'sawtooth', 0.14, 0.28); },
+  ui() { beep(700, 0.05, 'square', 0.06); }
+};
+
+// ============================================================
+// DOM
+// ============================================================
+const wordRow = document.getElementById('wordRow');
+const keyboard = document.getElementById('keyboard');
+const overlay = document.getElementById('overlay');
+const livesRow = document.getElementById('livesRow');
+const hintBtn = document.getElementById('hintBtn');
+const keyEls = {};
+
+for (const row of KB_ROWS) {
+  const div = document.createElement('div');
+  div.className = 'kb-row';
+  for (const ch of row) {
+    const b = document.createElement('button');
+    b.className = 'key';
+    b.textContent = ch;
+    b.addEventListener('click', () => guess(ch));
+    div.appendChild(b);
+    keyEls[ch] = b;
+  }
+  keyboard.appendChild(div);
+}
+
+for (let i = 0; i < MAX_ERRORS; i++) {
+  const d = document.createElement('div');
+  d.className = 'life';
+  livesRow.appendChild(d);
+}
+
+// ============================================================
+// PARTITA
+// ============================================================
+function pickWord() {
+  let pool;
+  if (state.randomMode) {
+    const cats = Object.keys(WORDS);
+    state.category = cats[Math.floor(Math.random() * cats.length)];
+  }
+  pool = WORDS[state.category].filter(w => !state.recentWords.includes(w));
+  if (pool.length === 0) pool = WORDS[state.category];
+  const w = pool[Math.floor(Math.random() * pool.length)];
+  state.recentWords.push(w);
+  if (state.recentWords.length > 60) state.recentWords.shift();
+  return w;
+}
+
+function startGame() {
+  state.word = pickWord();
+  state.guessed = new Set();
+  state.errors = 0;
+  state.hintUsed = false;
+  state.screen = 'playing';
+  hideOverlay();
+  renderAll();
+}
+
+function guess(ch) {
+  if (state.screen !== 'playing') return;
+  if (state.guessed.has(ch)) return;
+  state.guessed.add(ch);
+  if (state.word.includes(ch)) {
+    sfx.hit();
+    keyEls[ch].classList.add('hit');
+    keyEls[ch].disabled = true;
+    renderWord(true);
+    if ([...state.word].every(c => c === ' ' || state.guessed.has(c))) endGame(true);
+  } else {
+    state.errors += 1;
+    sfx.miss();
+    keyEls[ch].classList.add('miss');
+    keyEls[ch].disabled = true;
+    renderGallows();
+    renderLives();
+    renderHud();
+    if (state.errors >= MAX_ERRORS) endGame(false);
+  }
+}
+
+function useHint() {
+  if (state.screen !== 'playing' || state.hintUsed) return;
+  const missing = [...new Set([...state.word])].filter(c => c !== ' ' && !state.guessed.has(c));
+  if (missing.length <= 1) return; // niente aiuto sull'ultima lettera
+  state.hintUsed = true;
+  hintBtn.disabled = true;
+  sfx.hint();
+  const ch = missing[Math.floor(Math.random() * missing.length)];
+  state.guessed.add(ch);
+  keyEls[ch].classList.add('hit');
+  keyEls[ch].disabled = true;
+  renderWord(true);
+}
+
+function endGame(won) {
+  state.screen = 'over';
+  const stats = loadStats();
+  if (won) {
+    state.streak += 1;
+    stats.win += 1;
+    if (state.streak > stats.bestStreak) stats.bestStreak = state.streak;
+    sfx.win();
+  } else {
+    state.streak = 0;
+    stats.lose += 1;
+    sfx.lose();
+    renderWord(false, true);
+  }
+  saveStats(stats);
+  renderHud();
+  setTimeout(() => showResult(won), won ? 700 : 1300);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderAll() {
+  document.getElementById('categoryChip').textContent =
+    (CATEGORY_ICONS[state.category] || '') + ' ' + state.category;
+  for (const ch in keyEls) {
+    keyEls[ch].classList.remove('hit', 'miss');
+    keyEls[ch].disabled = false;
+  }
+  hintBtn.disabled = false;
+  hintBtn.textContent = '💡 AIUTO (1)';
+  renderWord();
+  renderGallows();
+  renderLives();
+  renderHud();
+}
+
+function renderWord(animate, showMissed) {
+  wordRow.innerHTML = '';
+  for (const c of state.word) {
+    const d = document.createElement('div');
+    if (c === ' ') { d.className = 'letter-slot space'; }
+    else if (state.guessed.has(c)) {
+      d.className = 'letter-slot' + (animate ? ' reveal' : '');
+      d.textContent = c;
+    } else if (showMissed) {
+      d.className = 'letter-slot missed reveal';
+      d.textContent = c;
+    } else {
+      d.className = 'letter-slot';
+    }
+    wordRow.appendChild(d);
+  }
+}
+
+function renderGallows() {
+  for (let i = 0; i < MAX_ERRORS; i++) {
+    document.getElementById('bp' + i).classList.toggle('show', i < state.errors);
+  }
+}
+
+function renderLives() {
+  const lives = livesRow.children;
+  for (let i = 0; i < MAX_ERRORS; i++) {
+    lives[i].classList.toggle('lost', i < state.errors);
+  }
+}
+
+function renderHud() {
+  const stats = loadStats();
+  document.getElementById('hudWins').textContent = stats.win;
+  document.getElementById('hudStreak').textContent = state.streak;
+  const err = document.getElementById('hudErrors');
+  err.textContent = state.errors + '/' + MAX_ERRORS;
+  err.className = 'value' + (state.errors >= 4 ? ' danger' : '');
+}
+
+// ============================================================
+// OVERLAY
+// ============================================================
+function showOverlay(html) {
+  overlay.innerHTML = '<div class="overlay-content">' + html + '</div>';
+  overlay.classList.add('show');
+}
+function hideOverlay() { overlay.classList.remove('show'); }
+
+function showMenu() {
+  state.screen = 'menu';
+  const stats = loadStats();
+  let cards = '';
+  for (const cat of Object.keys(WORDS)) {
+    cards += '<button class="mode-card" data-cat="' + cat + '"><div class="mode-icon">' +
+      CATEGORY_ICONS[cat] + '</div><div class="mode-name">' + cat + '</div></button>';
+  }
+  cards += '<button class="mode-card" data-cat="__random"><div class="mode-icon">🎲</div><div class="mode-name">CASUALE</div></button>';
+  const statsBody = (stats.win + stats.lose) > 0
+    ? '<div class="stats-row"><span class="m">PARTITE</span><span class="v">' + stats.win + 'V</span><span class="v">' + stats.lose + 'S</span></div>' +
+      '<div class="stats-row"><span class="m">SERIE MIGLIORE</span><span class="v">' + stats.bestStreak + '</span><span class="v">🔥</span></div>'
+    : '<div class="stats-empty">Nessuna partita giocata</div>';
+  showOverlay(
+    '<h2>IMPICCATO</h2>' +
+    '<div class="series-line">SCEGLI UNA CATEGORIA — 6 ERRORI E SEI APPESO</div>' +
+    '<div class="mode-grid">' + cards + '</div>' +
+    '<div class="stats-panel"><div class="stats-title">STATISTICHE</div>' + statsBody +
+    '<button class="ghost-btn" id="clearStats">CANCELLA STATISTICHE</button></div>'
+  );
+  overlay.querySelectorAll('.mode-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sfx.ui();
+      if (btn.dataset.cat === '__random') { state.randomMode = true; }
+      else { state.randomMode = false; state.category = btn.dataset.cat; }
+      state.streak = 0;
+      startGame();
+    });
+  });
+  const clear = overlay.querySelector('#clearStats');
+  if (clear) clear.addEventListener('click', () => {
+    try { localStorage.removeItem(STATS_KEY); } catch (e) {}
+    showMenu();
+  });
+}
+
+function showResult(won) {
+  const stats = loadStats();
+  showOverlay(
+    '<div class="result-title ' + (won ? 'win' : 'lose') + '">' + (won ? 'SALVO!' : 'APPESO!') + '</div>' +
+    '<div class="word-reveal">' + state.word + '</div>' +
+    (won && state.streak > 1 ? '<div class="streak-line">🔥 SERIE DI ' + state.streak + '</div>' : '') +
+    '<div class="series-line">VITTORIE TOTALI: ' + stats.win + ' · SERIE MIGLIORE: ' + stats.bestStreak + '</div>' +
+    '<button class="primary-btn" id="againBtn">ALTRA PAROLA</button>' +
+    '<button class="ghost-btn" id="toMenuBtn">CATEGORIE</button>'
+  );
+  overlay.querySelector('#againBtn').addEventListener('click', () => { sfx.ui(); startGame(); });
+  overlay.querySelector('#toMenuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+}
+
+// ============================================================
+// INPUT
+// ============================================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'm' || e.key === 'M') {
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+  }
+  const ch = e.key.toUpperCase();
+  if (ch.length === 1 && ch >= 'A' && ch <= 'Z') {
+    if (state.screen === 'playing') { guess(ch); return; }
+  }
+  if (e.key === 'Enter' && state.screen === 'over') startGame();
+});
+
+hintBtn.addEventListener('click', useHint);
+
+// ============================================================
+// PULSANTI
+// ============================================================
+function toggleSound() {
+  soundOn = !soundOn;
+  localStorage.setItem('impiccato-neon-sound', soundOn);
+  document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+  if (soundOn) sfx.ui();
+}
+
+document.getElementById('soundBtn').addEventListener('click', toggleSound);
+document.getElementById('soundBtn').style.opacity = soundOn ? '1' : '0.4';
+document.getElementById('menuBtn').addEventListener('click', () => { sfx.ui(); showMenu(); });
+
+// ============================================================
+// AVVIO
+// ============================================================
+renderHud();
+showMenu();
+</script>
+</body>
+</html>
