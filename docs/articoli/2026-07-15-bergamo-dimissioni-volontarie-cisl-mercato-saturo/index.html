@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo» — TNT News</title>
+  <meta name="description" content="Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-15-bergamo-dimissioni-volontarie-cisl-mercato-saturo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo» — TNT News">
+  <meta property="og:description" content="Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-15-bergamo-dimissioni-volontarie-cisl-mercato-saturo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo» — TNT News">
+  <meta name="twitter:description" content="Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">lavoro</span><span class="tag">dimissioni</span><span class="tag">Cisl</span></div>
+    <h1>Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo»</h1>
+    <p class="article-summary">Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-15">15 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Nei primi tre mesi del 2026 sono state <strong>10.377 le dimissioni
+volontarie</strong> registrate in provincia di Bergamo, 252 in più rispetto
+allo stesso periodo del 2025. Lo rivela un'elaborazione della <strong>Cisl di
+Bergamo</strong> diffusa il 14 luglio: per il sindacato il dato conferma che il
+mercato del lavoro bergamasco è ormai «sostanzialmente saturo», con la domanda
+di personale da parte delle imprese che continua a superare l'offerta di
+lavoratori disponibili.</p>
+
+<h2>Un mercato «saturo», non in crisi</h2>
+<p>Secondo il segretario della Cisl bergamasca, <strong>Luca Nieri</strong>, la
+crescita delle dimissioni non va letta come un segnale di difficoltà
+occupazionale, ma come l'effetto di un mercato in cui chi lavora ha più
+alternative a disposizione.</p>
+
+<blockquote>Chi lascia il proprio posto lo fa quasi sempre per cercare
+opportunità più in linea con le proprie aspettative, non per mancanza di
+lavoro.</blockquote>
+
+<p>Nieri indica tra i fattori che spingono i lavoratori a cambiare impiego la
+ricerca di una migliore crescita professionale, di retribuzioni più
+competitive e di un equilibrio più sostenibile tra vita privata e lavoro.
+Per le aziende, aggiunge, la sfida diventa trattenere il personale offrendo
+flessibilità oraria, smart working e percorsi di formazione continua.</p>
+
+<h2>Le dimissioni pesano per il 39% delle cessazioni</h2>
+<p>Il fenomeno non è nuovo: nel 2025 le dimissioni volontarie erano state
+49.645, pari al 39% di tutte le cessazioni di rapporti di lavoro registrate in
+provincia, con un'incidenza particolarmente alta tra gli under 30, che da soli
+rappresentavano il 35% del totale. Il picco storico resta il 2022, quando le
+dimissioni annue avevano superato quota 42mila; negli ultimi due anni il
+ritmo si è leggermente ridotto, pur restando sopra le 40mila unità annue.</p>
+
+<h2>Il nodo della maternità</h2>
+<p>L'analisi della Cisl segnala anche un aspetto di genere: oltre tre quarti
+delle dimissioni convalidate in seguito alla maternità riguardano donne,
+un dato che il sindacato collega alle persistenti difficoltà di conciliare
+lavoro e cura dei figli in assenza di servizi di supporto familiare adeguati.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: dimissioni volontarie in provincia di Bergamo nel primo trimestre, confronto 2025-2026. Primo trimestre 2025: 10.125. Primo trimestre 2026: 10.377, pari a +252 (+2,5%). Fonte: elaborazione Cisl Bergamo su dati Osservatorio provinciale del mercato del lavoro.">
+    <text x="320" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Dimissioni volontarie a Bergamo, I trimestre (confronto 2025-2026)</text>
+    <line x1="120" y1="270" x2="520" y2="270" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    <g font-size="14" fill="currentColor">
+      <rect x="200" y="90" width="80" height="180" fill="#8fc0e6"/>
+      <text x="240" y="80" text-anchor="middle">10.125</text>
+      <text x="240" y="292" text-anchor="middle">I trim. 2025</text>
+
+      <rect x="360" y="80" width="80" height="190" fill="#3b6ea5"/>
+      <text x="400" y="70" text-anchor="middle">10.377</text>
+      <text x="400" y="292" text-anchor="middle">I trim. 2026</text>
+
+      <text x="320" y="310" text-anchor="middle" font-size="13">+252 dimissioni (+2,5%) rispetto al I trimestre 2025</text>
+    </g>
+  </svg>
+  <figcaption>Dimissioni volontarie registrate nella provincia di Bergamo nel
+  primo trimestre 2025 e 2026 (valore 2025 calcolato per differenza dal dato
+  Cisl). Fonte: elaborazione Cisl Bergamo, BergamoNews (14 luglio 2026).</figcaption>
+</figure>
+
+<h2>Il quadro confermato dall'Osservatorio provinciale</h2>
+<p>Una fotografia indipendente del trimestre arriva anche
+dall'<strong>Osservatorio provinciale del mercato del lavoro</strong>, ripresa
+da L'Eco di Bergamo: nei primi tre mesi del 2026 si contano 35.464 nuove
+assunzioni contro 32.750 cessazioni, per un saldo positivo di 2.714
+posizioni. Tra le cessazioni, le dimissioni volontarie censite
+dall'Osservatorio sono 9.244, in crescita del 5,1% sull'anno precedente: una
+cifra diversa da quella indicata dalla Cisl per differenze di perimetro e
+metodologia di rilevazione, ma coerente nella tendenza di fondo, quella di un
+turnover in aumento.</p>
+
+<p>Il contesto resta comunque quello di un territorio con pochissima
+disoccupazione: nel 2025 il tasso provinciale si è attestato all'1,3%, il più
+basso tra tutte le province italiane e sotto la soglia del 3% ininterrottamente
+dal 2019. È in questo scenario di piena occupazione, spiega la Cisl, che le
+imprese bergamasche devono ripensare le proprie politiche del personale per
+non perdere i lavoratori più qualificati.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/14/nei-primi-tre-mesi-del-2026-oltre-10-mila-dimissioni-mercato-del-lavoro-saturo-si-cercano-prospettive-migliori/909119" rel="noopener" target="_blank">BergamoNews – Nei primi tre mesi del 2026 oltre 10 mila dimissioni: &quot;Mercato del lavoro saturo, si cercano prospettive migliori&quot; (14 luglio 2026)</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/economia/bergamo-loccupazione-regge-lurto-delle-guerre-ma-aumenta-linstabilita-o_3904027_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Bergamo, l&#x27;occupazione regge l&#x27;urto delle guerre ma aumenta l&#x27;instabilità</a></li><li><a href="https://www.bergamonews.it/2026/07/07/carenza-di-lavoratori-nelle-aziende-bergamo-risponde-con-contratti-piu-stabili-e-azioni-mirate-su-under-30-e-over-60/907136" rel="noopener" target="_blank">BergamoNews – Bergamo, cresce il lavoro ma il mercato rallenta: disoccupazione ai minimi storici e carenza di personale per le imprese (7 luglio 2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, disoccupazione all&#x27;1,3% nel 2025: la più bassa d&#x27;italia, ma la crescita occupazionale rallenta l&#x27;indagine sul lavoro 2026 di confindustria bergamo conferma il tasso di disoccupazione più basso tra le province italiane, ma segnala una crescita occupazionale quasi ferma. i dati dell&#x27;osservatorio provinciale sul primo trimestre mostrano invece assunzioni in aumento, trainate da terziario e turismo. economia bergamo lavoro disoccupazione confindustria bergamo occupazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-07-bergamo-disoccupazione-minima-italia-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, disoccupazione all&#x27;1,3% nel 2025: la più bassa d&#x27;Italia, ma la crescita occupazionale rallenta</h2><p class="card-summary">L&#x27;Indagine sul Lavoro 2026 di Confindustria Bergamo conferma il tasso di disoccupazione più basso tra le province italiane, ma segnala una crescita occupazionale quasi ferma. I dati dell&#x27;Osservatorio provinciale sul primo trimestre mostrano invece assunzioni in aumento, trainate da terziario e turismo.</p><p class="card-meta">7 luglio 2026</p></div></a></article><article class="card" data-search="rimesse dei lavoratori stranieri da bergamo: nel 2025 scendono a 151,4 milioni di euro secondo l&#x27;analisi della fondazione leone moressa su dati banca d&#x27;italia, nel 2025 la provincia di bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. india, marocco e senegal restano le destinazioni principali. economia bergamo rimesse immigrazione fondazione leone moressa lavoro" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-06-rimesse-bergamo-2025-in-calo/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Rimesse dei lavoratori stranieri da Bergamo: nel 2025 scendono a 151,4 milioni di euro</h2><p class="card-summary">Secondo l&#x27;analisi della Fondazione Leone Moressa su dati Banca d&#x27;Italia, nel 2025 la provincia di Bergamo ha inviato all&#x27;estero 151,4 milioni di euro, in calo per il terzo anno consecutivo dal picco del 2022. India, Marocco e Senegal restano le destinazioni principali.</p><p class="card-meta">6 luglio 2026</p></div></a></article><article class="card" data-search="saldi estivi, primo weekend da 328 mila presenze in centro a bergamo il primo weekend dei saldi estivi ha portato circa 328 mila visite tra città bassa e città alta, con crescite superiori al 50% rispetto al weekend precedente. i dati di confcommercio bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in città alta. economia bergamo saldi commercio confcommercio bergamo città alta" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-08-saldi-estivi-bergamo-primo-weekend-presenze/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi, primo weekend da 328 mila presenze in centro a Bergamo</h2><p class="card-summary">Il primo weekend dei saldi estivi ha portato circa 328 mila visite tra Città Bassa e Città Alta, con crescite superiori al 50% rispetto al weekend precedente. I dati di Confcommercio Bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in Città Alta.</p><p class="card-meta">8 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
