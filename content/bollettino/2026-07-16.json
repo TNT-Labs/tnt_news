@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-16",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature già miti al mattino (20°C a Bergamo, 24°C verso Carugate e San Donato), vento debole ovunque e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "WSW"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "WSW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 83,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 31},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 38}
+    ],
+    "incidents": [
+      {"where": "A51 a Svincolo Agrate B. (SP13 Melzo-Monza-Dogana), direzione Allacciamento A1 Milano-Napoli", "desc": "Code per traffico intenso (fonte CCISS)."},
+      {"where": "A51 tra Area di servizio Cologno M. Est e Svincolo Lambrate (Melzo-Dogana Segrate), direzione Allacciamento A1 Milano-Napoli", "desc": "Code a tratti per traffico intenso (fonte CCISS)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 31+14+38=83 min. CCISS RSS letto (100 item, 2 pertinenti sulla A51 Carugate-San Donato, direzione sud/A1 conforme all'andata; nessun item sulla A4 Bergamo-Agrate). Milano Serravalle raggiunta ma priva di elenco eventi (pagina istituzionale, contenuto caricato via JS). Luceverde raggiunta (200) ma senza lista eventi utile (contenuto via JS); Autostrade per l'Italia risponde 404 sull'URL indicato. Ricerca web: nessun incidente odierno aggiuntivo confermato per il 16/07/2026 nella tratta e finestra d'interesse (i risultati sulla A4 Capriate-Trezzo si riferiscono a incidenti di date passate, non odierni)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature miti (20-24°C), ben sopra la soglia dei 7°C",
+      "Vento debole (max 5 km/h), raffiche massime 11 km/h, visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
