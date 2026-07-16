@@ -286,11 +286,52 @@
   }
   .icon-btn:hover { color: #fff; border-color: var(--accent2); box-shadow: 0 0 10px rgba(0,245,255,0.3); }
 
-  .touch-hint { display: none; font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
+  .touch-hint { display: none; }
+
+  /* --- Controlli touch dedicati (solo dispositivi mobili) --- */
+  .touch-controls {
+    display: none;
+    width: 100%;
+    max-width: 520px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 2px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .move-pad { display: flex; gap: 12px; }
+  .tc-btn {
+    touch-action: none;
+    -webkit-user-select: none; user-select: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(15,15,35,0.7);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .05s ease, box-shadow .15s, background .15s;
+    cursor: pointer;
+  }
+  .tc-btn.move { width: 74px; height: 66px; font-size: 26px; color: var(--accent2); }
+  .tc-btn.fire {
+    flex: 1; max-width: 170px; height: 66px;
+    font-size: 16px; letter-spacing: 3px;
+    color: #180307;
+    background: linear-gradient(135deg, #ff2a78, #ff7a45);
+    border: none;
+    box-shadow: 0 4px 18px rgba(255,42,120,0.4);
+  }
+  .tc-btn.auto { width: 66px; height: 66px; font-size: 11px; letter-spacing: 2px; color: var(--muted); flex-shrink: 0; }
+  .tc-btn.pressed { transform: translateY(2px) scale(0.97); background: rgba(0,245,255,0.16); box-shadow: 0 0 16px rgba(0,245,255,0.5); }
+  .tc-btn.fire.pressed { background: linear-gradient(135deg, #ff5a92, #ff9a6a); box-shadow: 0 0 20px rgba(255,42,120,0.7); }
+  .tc-btn.auto.active { color: var(--accent); border-color: rgba(6,255,165,0.6); box-shadow: 0 0 14px rgba(6,255,165,0.35); }
+  .touch-controls.auto-on .tc-btn.fire { display: none; }
 
   @media (pointer: coarse) {
     .controls { display: none; }
-    .touch-hint { display: block; }
+    .touch-controls { display: flex; }
   }
 </style>
 </head>
@@ -326,7 +367,14 @@
       <span><kbd>M</kbd> Audio</span>
       <span>oppure trascina il mouse e tieni premuto</span>
     </div>
-    <div class="touch-hint">TRASCINA PER MUOVERTI · TIENI PREMUTO PER SPARARE</div>
+    <div class="touch-controls" id="touchControls">
+      <div class="move-pad">
+        <button class="tc-btn move" id="btnLeft" aria-label="Muovi a sinistra">◀</button>
+        <button class="tc-btn move" id="btnRight" aria-label="Muovi a destra">▶</button>
+      </div>
+      <button class="tc-btn fire" id="btnFire" aria-label="Fuoco">FUOCO</button>
+      <button class="tc-btn auto" id="btnAuto" aria-label="Fuoco automatico">AUTO</button>
+    </div>
   </footer>
 </div>
 
@@ -422,7 +470,13 @@ const state = {
 let soundOn = localStorage.getItem('invaders-neon-sound') !== 'false';
 let keys = {};
 let pointerFire = false;
+let pointerActive = false;
 let pointerTargetX = null;
+
+// Controlli touch dedicati (pulsanti a schermo)
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
+let btnLeft = false, btnRight = false, btnFire = false;
+let autoFire = isTouch && localStorage.getItem('invaders-neon-autofire') !== 'false';
 
 // ============================================================
 // SALVATAGGIO PUNTEGGI
@@ -687,15 +741,15 @@ function update(dt) {
 
   // --- giocatore ---
   const speed = 270;
-  if (keys.ArrowLeft || keys.a) p.x -= speed * dt;
-  if (keys.ArrowRight || keys.d) p.x += speed * dt;
+  if (keys.ArrowLeft || keys.a || btnLeft) p.x -= speed * dt;
+  if (keys.ArrowRight || keys.d || btnRight) p.x += speed * dt;
   if (pointerTargetX !== null) {
     const diff = pointerTargetX - p.x;
     p.x += Math.max(-speed * 1.6 * dt, Math.min(speed * 1.6 * dt, diff));
   }
   p.x = Math.max(24, Math.min(W - 24, p.x));
   p.cooldown = Math.max(0, p.cooldown - dt);
-  if (keys[' '] || keys.ArrowUp || pointerFire) firePlayerBullet();
+  if (keys[' '] || keys.ArrowUp || pointerFire || btnFire || autoFire) firePlayerBullet();
 
   // --- proiettili giocatore ---
   for (let i = state.bullets.length - 1; i >= 0; i--) {
@@ -1121,6 +1175,9 @@ window.addEventListener('keyup', (e) => {
 window.addEventListener('blur', () => {
   keys = {};
   pointerFire = false;
+  pointerActive = false;
+  btnLeft = btnRight = btnFire = false;
+  document.querySelectorAll('.tc-btn.pressed').forEach(el => el.classList.remove('pressed'));
   if (state.screen === 'playing') togglePause();
 });
 
@@ -1134,15 +1191,18 @@ stage.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.icon-btn') || e.target.closest('.overlay')) return;
   ensureAudio();
   if (state.screen !== 'playing') return;
-  pointerFire = true;
+  pointerActive = true;
+  // Il mouse (desktop) muove e spara tenendo premuto; il tocco (mobile)
+  // muove soltanto: lo sparo è gestito dai pulsanti a schermo / fuoco automatico.
+  if (e.pointerType !== 'touch') pointerFire = true;
   pointerTargetX = pointerX(e);
   e.preventDefault();
 });
 stage.addEventListener('pointermove', (e) => {
-  if (pointerFire) pointerTargetX = pointerX(e);
+  if (pointerActive) pointerTargetX = pointerX(e);
 });
-window.addEventListener('pointerup', () => { pointerFire = false; pointerTargetX = null; });
-window.addEventListener('pointercancel', () => { pointerFire = false; pointerTargetX = null; });
+window.addEventListener('pointerup', () => { pointerFire = false; pointerActive = false; pointerTargetX = null; });
+window.addEventListener('pointercancel', () => { pointerFire = false; pointerActive = false; pointerTargetX = null; });
 
 document.getElementById('pauseBtn').addEventListener('click', togglePause);
 function toggleSound() {
@@ -1154,12 +1214,44 @@ function toggleSound() {
 document.getElementById('soundBtn').addEventListener('click', toggleSound);
 document.getElementById('soundBtn').textContent = soundOn ? '♪' : '✕';
 
+// --- Pulsanti touch: tieni premuto per muoverti / sparare ---
+function bindHold(el, setOn, setOff) {
+  el.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    ensureAudio();
+    try { el.setPointerCapture(e.pointerId); } catch (_) {}
+    el.classList.add('pressed');
+    setOn();
+  });
+  const release = () => { el.classList.remove('pressed'); setOff(); };
+  el.addEventListener('pointerup', release);
+  el.addEventListener('pointercancel', release);
+  el.addEventListener('lostpointercapture', release);
+}
+bindHold(document.getElementById('btnLeft'),  () => { btnLeft = true; },  () => { btnLeft = false; });
+bindHold(document.getElementById('btnRight'), () => { btnRight = true; }, () => { btnRight = false; });
+bindHold(document.getElementById('btnFire'),  () => { btnFire = true; },  () => { btnFire = false; });
+
+const touchControls = document.getElementById('touchControls');
+const autoBtn = document.getElementById('btnAuto');
+function applyAutoFireUI() {
+  autoBtn.classList.toggle('active', autoFire);
+  touchControls.classList.toggle('auto-on', autoFire);
+}
+autoBtn.addEventListener('click', () => {
+  autoFire = !autoFire;
+  localStorage.setItem('invaders-neon-autofire', autoFire);
+  applyAutoFireUI();
+});
+applyAutoFireUI();
+
 // ============================================================
 // RESIZE
 // ============================================================
 function resizeAll() {
   const availW = Math.min(window.innerWidth - 24, 520);
-  const availH = window.innerHeight - 190;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  const availH = window.innerHeight - (coarse ? 258 : 190);
   stageScale = Math.max(0.4, Math.min(availW / W, availH / H, 1.15));
   const dpr = window.devicePixelRatio || 1;
   canvas.style.width = (W * stageScale) + 'px';
