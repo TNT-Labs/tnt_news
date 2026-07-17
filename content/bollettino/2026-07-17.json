@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-17",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Rovesci di pioggia a Bergamo alla partenza (probabilità 67%, 3,9 mm), seguiti da cielo sereno lungo il resto del tragitto verso Carugate e San Donato; temperature miti (20-23°C) e vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Rovesci di pioggia", "temp_c": 20, "precip_mm": 3.9, "wind_kmh": 8, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato",         "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato",         "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 76,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 30},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 32}
+    ],
+    "incidents": [
+      {"where": "A51 a Svincolo Agrate B. (SP13 Melzo-Monza-Dogana), direzione Allacciamento A1 Milano-Napoli", "desc": "Code per traffico intenso (fonte CCISS)."},
+      {"where": "A51 tra Svincolo Cologno Monzese (S.S. Giovanni Sud) e Svincolo Lambrate (Melzo-Dogana Segrate), direzione Allacciamento A1 Milano-Napoli", "desc": "Code a tratti per traffico intenso (fonte CCISS)."}
+    ],
+    "debug": "Directions API OK sui 3 segmenti con departure_time reali (07:30/08:10/08:25): 30+14+32=76 min. CCISS RSS letto (100 item, 2 pertinenti sulla A51 Carugate-San Donato, direzione sud/A1 conforme all'andata; nessun item sulla A4 Bergamo-Agrate). Milano Serravalle raggiunta ma priva di elenco eventi (contenuto caricato via mappa interattiva). Luceverde raggiunta (200) ma senza lista eventi utile (contenuto via mappa interattiva); Autostrade per l'Italia risponde 404 sull'URL indicato. Ricerca web: nessun incidente odierno aggiuntivo confermato per il 17/07/2026 nella tratta e direzione d'interesse (i risultati su Capriate-Trezzo si riferiscono al 16/07 e a direzione Brescia, opposta all'andata)."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia prevista a Bergamo alla partenza: 3,9 mm con probabilità 67% (soglia 'no': ≥50%)",
+      "Asfalto bagnato: 2,3 mm di pioggia caduti nelle 3 ore precedenti a Bergamo",
+      "Resto del tragitto (Carugate, San Donato) sereno, ma la pioggia alla partenza è già motivo sufficiente per lo stop"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
