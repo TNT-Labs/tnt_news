@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto — TNT News</title>
+  <meta name="description" content="Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-17-linea-lecco-bergamo-chiusura-cantieri-rfi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto — TNT News">
+  <meta property="og:description" content="Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-17-linea-lecco-bergamo-chiusura-cantieri-rfi/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto — TNT News">
+  <meta name="twitter:description" content="Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Ferrovie</span><span class="tag">Pendolari</span><span class="tag">Ponte San Pietro</span></div>
+    <h1>Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto</h1>
+    <p class="article-summary">Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-17">17 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da questa mattina, venerdì 17 luglio, i treni della linea Lecco-Bergamo non
+circolano più tra Calolziocorte e Ponte San Pietro: al loro posto viaggiano
+autobus sostitutivi messi in campo da Trenord. La sospensione, decisa da Rete
+Ferroviaria Italiana (RFI) per lavori infrastrutturali a Calolziocorte e
+Ambivere, durerà fino al 2 agosto; seguirà poi, fino al 21 agosto, un
+servizio ferroviario a frequenza ridotta con ulteriori corse sostituite da
+bus. È l'apertura di un'estate di cantieri che toccherà da vicino anche altre
+linee del territorio bergamasco.</p>
+
+<h2>Due fasi di lavori sulla Lecco-Bergamo</h2>
+<p>Nella prima fase, dal 17 luglio al 2 agosto, il collegamento tra
+Calolziocorte e Ponte San Pietro è garantito interamente da bus sostitutivi,
+estesi fino a Calolziocorte. Nello stesso weekend, tra il 17 e il 19 luglio,
+un secondo cantiere RFI interrompe anche il tratto Lecco Maggianico-Carnate,
+con una navetta sostitutiva ogni 15 minuti tra Lecco e Carnate. Dal 3 al 21
+agosto l'offerta sulla Lecco-Bergamo sarà poi rimodulata con una riduzione
+della frequenza dei treni, sempre affiancata da bus sostitutivi.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Cronoprogramma dei cantieri ferroviari nel nodo di Bergamo, 17 luglio - 30 agosto 2026: bus sostitutivi Lecco-Carnate 17-19 luglio; bus sostitutivi Calolziocorte-Ponte San Pietro 17 luglio-2 agosto; servizio ridotto Calolziocorte-Ponte San Pietro 3-21 agosto; stop Bergamo-Treviglio 9-13 agosto; capacità ridotta Pioltello-Treviglio 3-30 agosto. Fonte: Giornale di Lecco e L'Eco di Bergamo, luglio 2026.">
+  <g font-family="sans-serif" font-size="12">
+    <line x1="150" y1="20" x2="150" y2="270" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+    <line x1="321" y1="20" x2="321" y2="270" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+    <line x1="524" y1="20" x2="524" y2="270" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+    <line x1="620" y1="20" x2="620" y2="270" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+
+    <text x="10" y="34">Lecco-Carnate (navetta)</text>
+    <rect x="150" y="20" width="21" height="22" fill="currentColor" opacity="0.9"/>
+
+    <text x="10" y="74">Calolziocorte-P.S.Pietro (bus)</text>
+    <rect x="150" y="60" width="171" height="22" fill="currentColor" opacity="0.85"/>
+
+    <text x="10" y="114">Calolziocorte-P.S.Pietro (rid.)</text>
+    <rect x="331" y="100" width="192" height="22" fill="currentColor" opacity="0.6"/>
+
+    <text x="10" y="154">Bergamo-Treviglio (stop)</text>
+    <rect x="396" y="140" width="43" height="22" fill="currentColor" opacity="0.9"/>
+
+    <text x="10" y="194">Pioltello-Treviglio (rid.)</text>
+    <rect x="331" y="180" width="288" height="22" fill="currentColor" opacity="0.45"/>
+
+    <text x="150" y="290" text-anchor="middle">17/7</text>
+    <text x="321" y="290" text-anchor="middle">2/8</text>
+    <text x="524" y="290" text-anchor="middle">21/8</text>
+    <text x="620" y="290" text-anchor="middle">30/8</text>
+  </g>
+</svg>
+<figcaption>Cronoprogramma (valori indicativi) dei cantieri ferroviari che
+interessano il nodo di Bergamo tra il 17 luglio e il 30 agosto 2026. Fonte:
+Giornale di Lecco e L'Eco di Bergamo, luglio 2026.</figcaption>
+</figure>
+
+<h2>Un'estate di cantieri per i pendolari bergamaschi</h2>
+<p>La chiusura della Lecco-Bergamo si somma ad altri interventi programmati
+da RFI nel nodo di Bergamo. Dal 9 al 13 agosto sarà sospesa anche la
+circolazione tra Bergamo e Treviglio, mentre dal 3 al 30 agosto una
+riduzione di capacità della linea tra Pioltello e Treviglio comporterà una
+rimodulazione dei treni sulla Milano-Bergamo e sulla Milano-Treviglio-Brescia.
+Secondo quanto ricostruito da L'Eco di Bergamo, si tratta di una delle
+stagioni di cantieri ferroviari più fitte degli ultimi anni per il
+territorio, con ricadute dirette su chi si sposta ogni giorno per lavoro o
+per studio.</p>
+
+<h2>Un'interrogazione al Governo</h2>
+<p>Il 13 luglio la deputata Giulia Pastorella (Azione) ha presentato
+un'interrogazione al ministero delle Infrastrutture e dei Trasporti,
+chiedendo conto della sovrapposizione dei cantieri e dei tempi di
+comunicazione ai viaggiatori. Nel testo, ripreso dal Giornale di Lecco, si
+legge che i lavori infrastrutturali sono necessari, ma che non sarebbe
+accettabile che chiusure sovrapposte e comunicazioni tardive ricadano da
+anni su viaggiatori, studenti e pendolari. La parlamentare ha chiesto al
+Governo di chiarire i tempi reali dei cantieri, valutare un'accelerazione
+per ridurre i disagi, garantire servizi sostitutivi adeguati e considerare
+forme di compensazione per gli abbonati coinvolti.</p>
+
+<h2>Il cantiere di fondo: il raddoppio verso Bergamo</h2>
+<p>I lavori di questi giorni si inseriscono nel più ampio progetto di
+raddoppio della linea ferroviaria tra Ponte San Pietro, Bergamo e Montello,
+finanziato anche con fondi PNRR, che riguarda circa 19 chilometri di
+tracciato e prevede l'inserimento di un secondo binario tra Ponte San
+Pietro e Bergamo. Il progetto è collegato al rinnovo della stazione di
+Bergamo, pensata come nodo di interscambio tra ferro, autobus e mobilità
+sostenibile verso Milano e Monza. Nel breve periodo, però, per i pendolari
+il bilancio più immediato resta quello di bus sostitutivi e tempi di
+viaggio più lunghi, almeno fino a fine agosto.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://giornaledilecco.it/attualita/sospensione-dei-treni-sulla-linea-lecco-bergamo-dal-17-al-19-luglio/" rel="noopener" target="_blank">Giornale di Lecco – Sospensione dei treni sulla linea Lecco-Bergamo dal 17 al 19 luglio</a></li><li><a href="https://giornaledilecco.it/attualita/interrogazione-al-governo-sulla-chiusura-della-lecco-bergamo-dal-17-luglio/" rel="noopener" target="_blank">Giornale di Lecco – Interrogazione al Governo sulla chiusura della Lecco-Bergamo dal 17 luglio</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/raffica-di-cantieri-ferroviari-estate-calda-per-i-pendolari-o_3910350_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Raffica di cantieri ferroviari: estate calda per i pendolari</a></li><li><a href="https://www.fsitaliane.it/content/fsitaliane/it/opere-strategiche/raddoppio-ponte-san-pietro---bergamo---montello.html" rel="noopener" target="_blank">FS Italiane – Raddoppio Ponte San Pietro-Bergamo-Montello</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tram t2, regione lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione la commissione bilancio di regione lombardia ha approvato un emendamento che destina 6,5 milioni di euro al comune di bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria t2 e il potenziamento della t1. il via libera definitivo è atteso in consiglio regionale tra il 22 e il 24 luglio. trasporti bergamo tram t2 teb regione lombardia villa d&#x27;almè" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-09-t2-bergamo-fondi-regione-gestione/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione</h2><p class="card-summary">La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.</p><p class="card-meta">9 luglio 2026</p></div></a></article><article class="card" data-search="autostrada bergamo-treviglio: il sondaggio ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati un sondaggio ipsos commissionato da autostrade bergamasche e presentato il 2 luglio in camera di commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada bergamo-treviglio. otto degli undici comuni attraversati dal tracciato respingono però la lettura dei dati. trasporti bergamo treviglio autostrada ipsos sindaci" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-03-sondaggio-autostrada-bergamo-treviglio-sindaci/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Autostrada Bergamo-Treviglio: il sondaggio Ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati</h2><p class="card-summary">Un sondaggio Ipsos commissionato da Autostrade Bergamasche e presentato il 2 luglio in Camera di Commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada Bergamo-Treviglio. Otto degli undici Comuni attraversati dal tracciato respingono però la lettura dei dati.</p><p class="card-meta">3 luglio 2026</p></div></a></article><article class="card" data-search="tram t2 bergamo–villa d&#x27;almè: cantieri in chiusura, rispettata la scadenza pnrr del 30 giugno i lavori principali della linea tramviaria t2 che collegherà bergamo a villa d&#x27;almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal pnrr. seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno. trasporti bergamo tram t2 pnrr villa d&#x27;almè valle brembana" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-25-tram-t2-bergamo-villa-alme-pnrr/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2 Bergamo–Villa d&#x27;Almè: cantieri in chiusura, rispettata la scadenza PNRR del 30 giugno</h2><p class="card-summary">I lavori principali della linea tramviaria T2 che collegherà Bergamo a Villa d&#x27;Almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal PNRR. Seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno.</p><p class="card-meta">25 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
