@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici — TNT News</title>
+  <meta name="description" content="Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-18-bergamo-efficientamento-energetico-163-edifici/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici — TNT News">
+  <meta property="og:description" content="Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-18-bergamo-efficientamento-energetico-163-edifici/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici — TNT News">
+  <meta name="twitter:description" content="Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Energia</span><span class="tag">Scuole</span><span class="tag">A2A</span></div>
+    <h1>Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici</h1>
+    <p class="article-summary">Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-18">18 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Entro la fine dell'estate 2026 si chiude il grande piano di efficientamento
+energetico che ha coinvolto 163 edifici pubblici del Comune di Bergamo, tra
+scuole, uffici, impianti sportivi e strutture culturali. Il progetto, portato
+avanti insieme ad A2A Calore e Servizi, punta a dimezzare le emissioni di
+CO2 degli immobili coinvolti, con un risparmio stimato in oltre 2.000
+tonnellate l'anno, equivalenti all'assorbimento di circa 13.000 alberi in
+dodici mesi.</p>
+
+<h2>Un contratto decennale da quasi 37 milioni di euro</h2>
+<p>L'intervento nasce da una gara pubblica assegnata nel 2024 all'associazione
+temporanea di imprese guidata da A2A Calore e Servizi, per un valore
+complessivo di 36,8 milioni di euro Iva compresa, nell'ambito di un contratto
+di gestione decennale dei servizi energetici. Il piano rientra negli impegni
+del Comune per la neutralità climatica e comprende, oltre ai lavori di
+riqualificazione, anche la manutenzione degli impianti, la fornitura di
+energia e l'installazione di sistemi di telecontrollo su tutti gli edifici
+interessati.</p>
+
+<h2>Scuole in prima linea, cantieri quasi conclusi</h2>
+<p>Tra i 163 edifici coinvolti figurano 37 plessi scolastici, con interventi
+differenziati a seconda delle condizioni degli immobili, e 12 edifici
+comunali sottoposti a lavori strutturali più consistenti. Il piano prevede 22
+riqualificazioni di centrali termiche e 20 nuovi allacciamenti alla rete di
+teleriscaldamento cittadino, per una potenza complessiva di 7.500 kilowatt
+termici, oltre all'installazione di più di 3.000 valvole termostatiche
+intelligenti e oltre 600 sonde ambientali per il monitoraggio dei consumi.
+Dieci interventi principali erano già stati completati entro l'estate 2025;
+i cantieri ancora attivi in questi giorni riguardano, tra gli altri, la
+scuola Corridoni e il complesso Manzoni al Villaggio degli Sposi.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Superfici interessate dagli interventi di efficientamento energetico sui 163 edifici pubblici di Bergamo: isolamento di coperture e sottotetti 18.700 metri quadrati, nuovi serramenti 4.700 metri quadrati, cappotto termico 3.100 metri quadrati. Fonte: Bergamonews e L'Eco di Bergamo, luglio 2026.">
+  <g font-family="sans-serif" font-size="14">
+    <text x="10" y="70">Isolamento coperture</text>
+    <text x="10" y="88">e sottotetti</text>
+    <rect x="180" y="55" width="440" height="26" fill="currentColor" opacity="0.9"/>
+    <text x="628" y="73" text-anchor="end" fill="#fff">18.700 m²</text>
+
+    <text x="10" y="160">Nuovi serramenti</text>
+    <rect x="180" y="145" width="111" height="26" fill="currentColor" opacity="0.65"/>
+    <text x="298" y="163">4.700 m²</text>
+
+    <text x="10" y="240">Cappotto termico</text>
+    <rect x="180" y="225" width="73" height="26" fill="currentColor" opacity="0.45"/>
+    <text x="260" y="243">3.100 m²</text>
+
+    <line x1="180" y1="20" x2="180" y2="270" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Superfici interessate dagli interventi di riqualificazione
+energetica sui 163 edifici pubblici di Bergamo. Fonte: Bergamonews e L'Eco
+di Bergamo, luglio 2026.</figcaption>
+</figure>
+
+<h2>L'effetto sulle emissioni</h2>
+<p>Secondo le stime diffuse dal Comune e da A2A, al termine dei lavori le
+emissioni di CO2 degli edifici coinvolti caleranno di circa il 50%, con un
+risparmio annuo superiore alle 2.000 tonnellate. Un risultato che, spiegano
+i promotori del progetto, si inserisce nel percorso verso la neutralità
+climatica sottoscritto da Bergamo con la Commissione europea nell'ambito
+delle "Climate City Contract". Al termine dei cantieri, il contratto
+decennale con A2A Calore e Servizi entrerà nella fase di gestione, con il
+monitoraggio dei consumi e della qualità dell'aria interna negli edifici
+riqualificati.</p>
+
+<p>Per gli istituti scolastici, i lavori sono stati programmati in modo da
+concludersi prima della riapertura delle lezioni a settembre, riducendo al
+minimo i disagi per studenti e personale. Restano da completare, nelle
+prossime settimane, gli ultimi cantieri più complessi, quelli che hanno
+richiesto interventi strutturali più ampi sugli involucri degli edifici.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/17/entro-lestate-si-chiude-la-riqualificazione-energetica-di-163-edifici-pubblici-emissioni-di-co%E2%82%82-dimezzate/909907" rel="noopener" target="_blank">Bergamonews – Entro l&#x27;estate si chiude la riqualificazione energetica di 163 edifici pubblici: emissioni di CO2 dimezzate</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/bergamo-36milioni-di-euro-per-136-edifici-rush-finale-del-piano-di-efficientam-o_3911077_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Bergamo, 36 milioni di euro per 163 edifici: rush finale del piano di efficientamento energetico</a></li><li><a href="https://www.a2acaloreservizi.it/it/media/comunicati-stampa/bergamo-investe-futuro-riqualificazione-energetica-163-edifici-comunali" rel="noopener" target="_blank">A2A Calore e Servizi – Bergamo investe nel futuro: al via la riqualificazione energetica per 163 edifici comunali</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati ats bergamo ha certificato la qualità delle acque dei laghi d&#x27;iseo, endine, gaiano e giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località gerù sul lago di endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione. ambiente bergamo laghi balneabilità ats bergamo" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-01-laghi-bergamaschi-balneabili-estate-2026/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati</h2><p class="card-summary">ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.</p><p class="card-meta">1 luglio 2026</p></div></a></article><article class="card" data-search="cascate del serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;italia il 13 giugno 2026 le cascate del serio di valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio. ambiente bergamo valle seriana cascate del serio valbondione" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-06-03-cascate-serio-apertura-stagione/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Cascate del Serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;Italia</h2><p class="card-summary">Il 13 giugno 2026 le Cascate del Serio di Valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio.</p><p class="card-meta">3 giugno 2026</p></div></a></article><article class="card" data-search="allarme ozono a bergamo: le centraline sforano i 200 µg/m³ con il caldo record con temperature oltre i 33°c e l&#x27;anticiclone sull&#x27;europa centro-occidentale, le stazioni arpa di bergamo e calusco d&#x27;adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. quasi tutta la lombardia è in allerta gialla; arpa raccomanda di limitare le attività all&#x27;aperto nelle ore più calde. ambiente bergamo ozono arpa lombardia qualità dell&#x27;aria" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-05-27-allerta-ozono-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allarme ozono a Bergamo: le centraline sforano i 200 µg/m³ con il caldo record</h2><p class="card-summary">Con temperature oltre i 33°C e l&#x27;anticiclone sull&#x27;Europa centro-occidentale, le stazioni ARPA di Bergamo e Calusco d&#x27;Adda hanno registrato concentrazioni di ozono vicine ai 200 µg/m³, ben oltre la soglia di informazione di 180 µg/m³. Quasi tutta la Lombardia è in allerta gialla; ARPA raccomanda di limitare le attività all&#x27;aperto nelle ore più calde.</p><p class="card-meta">27 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
