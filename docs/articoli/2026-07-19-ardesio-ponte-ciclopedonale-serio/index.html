@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Ardesio, debutta il nuovo ponte ciclopedonale sul Serio da 60 tonnellate — TNT News</title>
+  <meta name="description" content="Sabato 18 luglio è stato aperto al pubblico il nuovo ponte in acciaio da 51 metri sul fiume Serio ad Ardesio, opera da 490.000 euro finanziata anche con fondi PNRR nell&#x27;ambito del progetto &quot;Ardeo et Renascor&quot;.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-19-ardesio-ponte-ciclopedonale-serio/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Ardesio, debutta il nuovo ponte ciclopedonale sul Serio da 60 tonnellate — TNT News">
+  <meta property="og:description" content="Sabato 18 luglio è stato aperto al pubblico il nuovo ponte in acciaio da 51 metri sul fiume Serio ad Ardesio, opera da 490.000 euro finanziata anche con fondi PNRR nell&#x27;ambito del progetto &quot;Ardeo et Renascor&quot;.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-19-ardesio-ponte-ciclopedonale-serio/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ardesio, debutta il nuovo ponte ciclopedonale sul Serio da 60 tonnellate — TNT News">
+  <meta name="twitter:description" content="Sabato 18 luglio è stato aperto al pubblico il nuovo ponte in acciaio da 51 metri sul fiume Serio ad Ardesio, opera da 490.000 euro finanziata anche con fondi PNRR nell&#x27;ambito del progetto &quot;Ardeo et Renascor&quot;.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Ardesio</span><span class="tag">Val Seriana</span><span class="tag">PNRR</span><span class="tag">Mobilità sostenibile</span></div>
+    <h1>Ardesio, debutta il nuovo ponte ciclopedonale sul Serio da 60 tonnellate</h1>
+    <p class="article-summary">Sabato 18 luglio è stato aperto al pubblico il nuovo ponte in acciaio da 51 metri sul fiume Serio ad Ardesio, opera da 490.000 euro finanziata anche con fondi PNRR nell&#x27;ambito del progetto &quot;Ardeo et Renascor&quot;.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-19">19 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Sabato 18 luglio è stato aperto al pubblico ad Ardesio, in Alta Val
+Seriana, il nuovo ponte ciclopedonale sul fiume Serio: una struttura in
+acciaio lunga 51 metri e pesante circa 60 tonnellate, che collega via 1°
+Maggio al percorso ciclopedonale del paese. L'opera, costata 490.000 euro,
+rientra nel progetto di rigenerazione urbana "Ardeo et Renascor" ed è stata
+in gran parte finanziata con fondi europei del PNRR.</p>
+
+<h2>Una struttura a tre arcate pensata anche per il paesaggio</h2>
+<p>Il ponte, posizionato in loco a fine giugno con un'operazione durata circa
+quattro ore, ha una campata a tre arcate più stretta alle estremità e più
+larga al centro, dove crea una sorta di terrazza panoramica sul Serio e
+sulle Prealpi Orobie. Il piano di calpestio è realizzato in lamiera
+antisdrucciolo certificata. La progettazione strutturale porta la firma
+dell'ingegnere Marco Rota Nodari, mentre la cura estetica dell'opera è
+dell'architetto Fabio Rota Nodari; la realizzazione è stata affidata
+all'impresa Cosmet di Attilio Fantoni, con il sollevamento curato dalla
+ditta Zanoletti. Il sindaco di Ardesio, Yvan Caccia, ha seguito da vicino le
+fasi del cantiere.</p>
+
+<h2>Chi ha pagato l'opera</h2>
+<p>Dei 490.000 euro complessivi, 250.000 arrivano dai fondi PNRR del bando
+"Attrattività dei borghi storici" del Ministero della Cultura, 30.000 dal
+BIM (il consorzio dei Comuni del bacino imbrifero montano) e i restanti
+210.000 dalle casse comunali. Il nuovo attraversamento è uno dei dieci
+interventi previsti dal progetto "Ardeo et Renascor", finanziato
+dall'Unione europea attraverso NextGenerationEU: Ardesio è stato uno dei tre
+Comuni bergamaschi selezionati, su 229 in tutta Italia, ottenendo
+complessivamente 1,6 milioni di euro per interventi pubblici e altri
+584.709 euro destinati a nove imprese locali attive nel turismo, nella
+ricettività e nella mobilità elettrica.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Ripartizione del costo del ponte ciclopedonale di Ardesio, 490.000 euro totali: 250.000 euro da fondi PNRR, 210.000 euro dal Comune di Ardesio, 30.000 euro dal BIM. Fonte: L'Eco di Bergamo e Bergamonews, luglio 2026.">
+  <g font-family="sans-serif" font-size="14">
+    <text x="10" y="70">Fondi PNRR</text>
+    <rect x="150" y="55" width="440" height="26" fill="currentColor" opacity="0.9"/>
+    <text x="580" y="73" text-anchor="end" fill="#fff">250.000 €</text>
+
+    <text x="10" y="160">Comune di Ardesio</text>
+    <rect x="150" y="145" width="370" height="26" fill="currentColor" opacity="0.65"/>
+    <text x="510" y="163" text-anchor="end" fill="#fff">210.000 €</text>
+
+    <text x="10" y="250">BIM</text>
+    <rect x="150" y="235" width="53" height="26" fill="currentColor" opacity="0.45"/>
+    <text x="215" y="253">30.000 €</text>
+
+    <line x1="150" y1="20" x2="150" y2="280" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Ripartizione del costo del ponte ciclopedonale di Ardesio
+(490.000 euro totali). Fonte: L'Eco di Bergamo e Bergamonews, luglio
+2026.</figcaption>
+</figure>
+
+<h2>Un tassello per la mobilità dell'Alta Val Seriana</h2>
+<p>Oltre al valore paesaggistico e turistico, il nuovo attraversamento è
+pensato come tassello di una rete ciclopedonale più ampia: il Comune punta a
+collegarlo in futuro al percorso Villa d'Ogna-Gromo, per cui esiste già un
+progetto. L'obiettivo dichiarato dall'amministrazione è rafforzare la
+mobilità sostenibile in valle e offrire un nuovo punto di attrattiva per chi
+visita l'Alta Val Seriana, in un territorio che punta sui fondi PNRR anche
+per contrastare lo spopolamento dei borghi montani.</p>
+
+<p>Il ponte si aggiunge agli altri interventi già completati nell'ambito di
+"Ardeo et Renascor", come l'area di sosta camper "Orobie" e la
+riqualificazione del parco comunale, mentre restano in corso i lavori sul
+polo culturale del municipio, che prevede l'installazione di un ascensore,
+l'abbattimento delle barriere architettoniche e il trasferimento della
+biblioteca al piano terra.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/valle-seriana/ardesio-debutto-per-il-nuovo-ponte-o_3911700_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Ardesio, debutto per il nuovo ponte</a></li><li><a href="https://www.bergamonews.it/dal-territorio/ardesio-rinasce-con-fondi-pnrr-del-bando-borghi-1-6-milioni-per-il-comune-e-585-mila-per-le-imprese/" rel="noopener" target="_blank">Bergamonews – Ardesio rinasce con fondi PNRR del Bando Borghi: 1,6 milioni per il Comune e 585 mila per le imprese</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tram t2 bergamo–villa d&#x27;almè: cantieri in chiusura, rispettata la scadenza pnrr del 30 giugno i lavori principali della linea tramviaria t2 che collegherà bergamo a villa d&#x27;almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal pnrr. seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno. trasporti bergamo tram t2 pnrr villa d&#x27;almè valle brembana" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-25-tram-t2-bergamo-villa-alme-pnrr/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2 Bergamo–Villa d&#x27;Almè: cantieri in chiusura, rispettata la scadenza PNRR del 30 giugno</h2><p class="card-summary">I lavori principali della linea tramviaria T2 che collegherà Bergamo a Villa d&#x27;Almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal PNRR. Seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno.</p><p class="card-meta">25 giugno 2026</p></div></a></article><article class="card" data-search="e-brt bergamo–dalmine–verdellino: lavori all&#x27;82%, servizio al via il 1° luglio i cantieri della prima linea di trasporto rapido su bus elettrici della lombardia hanno raggiunto l&#x27;82% di completamento. con 84 milioni di euro di fondi pnrr, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-brt collegherà bergamo a verdellino dal 1° luglio 2026. trasporti bergamo e-brt trasporto pubblico pnrr" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-13-ebrt-bergamo-dalmine-verdellino/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio</h2><p class="card-summary">I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.</p><p class="card-meta">13 giugno 2026</p></div></a></article><article class="card" data-search="linea lecco-bergamo, da oggi treni sostituiti dai bus: cantieri rfi fino al 21 agosto da oggi 17 luglio e fino al 2 agosto i treni tra calolziocorte e ponte san pietro sono sostituiti da bus per lavori rfi legati al raddoppio della linea verso bergamo; seguirà un servizio ridotto fino al 21 agosto. una parlamentare ha presentato un&#x27;interrogazione al governo sui disagi per i pendolari. trasporti bergamo ferrovie pendolari ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-17-linea-lecco-bergamo-chiusura-cantieri-rfi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto</h2><p class="card-summary">Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.</p><p class="card-meta">17 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
