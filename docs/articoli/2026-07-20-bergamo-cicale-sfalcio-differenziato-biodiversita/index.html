@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, perché quest&#x27;estate si sente di più il canto delle cicale — TNT News</title>
+  <meta name="description" content="Il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a Bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-20-bergamo-cicale-sfalcio-differenziato-biodiversita/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, perché quest&#x27;estate si sente di più il canto delle cicale — TNT News">
+  <meta property="og:description" content="Il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a Bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-20-bergamo-cicale-sfalcio-differenziato-biodiversita/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, perché quest&#x27;estate si sente di più il canto delle cicale — TNT News">
+  <meta name="twitter:description" content="Il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a Bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Biodiversità</span><span class="tag">Verde pubblico</span><span class="tag">Sfalcio differenziato</span></div>
+    <h1>Bergamo, perché quest&#x27;estate si sente di più il canto delle cicale</h1>
+    <p class="article-summary">Il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a Bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-20">20 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da qualche settimana, nelle ore più calde della giornata, il frinire delle
+cicale si sente con insolita intensità lungo le Mura venete, nei parchi
+cittadini e sui viali alberati di Bergamo, dal quartiere Malpensata fino ad
+Astino. Non è un'impressione isolata: se ne parla in città, e gli esperti
+interpellati offrono due chiavi di lettura che si intrecciano, una
+entomologica e una amministrativa.</p>
+
+<h2>Le cicale non sono aumentate, ma si notano di più</h2>
+<p>Paolo Pantini, entomologo del Museo civico di scienze naturali "Enrico
+Caffi" di Bergamo, invita alla cautela: le cicale, spiega, "ci sono da
+sempre, non erano mai sparite". Trattandosi di insetti a sangue freddo, la
+loro attività dipende in larga parte dalla temperatura ambientale, e le
+ondate di caldo anomalo che hanno segnato giugno e luglio possono averne
+favorito il canto e la percezione. Pantini precisa però che mancano
+censimenti precisi su questi animali, quindi qualunque spiegazione resta
+allo stato di ipotesi plausibile, non di dato certificato.</p>
+
+<blockquote>"Sono animali a sangue freddo, dipendono dalla temperatura
+dell'ambiente" — Paolo Pantini, Museo civico di scienze naturali "Enrico
+Caffi"</blockquote>
+
+<h2>La svolta nella gestione del verde pubblico</h2>
+<p>Il secondo fattore chiamato in causa è amministrativo. L'assessora al
+Verde del Comune di Bergamo, Oriana Ruzzini, collega la maggiore presenza
+percepita di insetti alle scelte di gestione dei prati cittadini degli
+ultimi anni: dal taglio uniforme e frequente si è passati a uno sfalcio
+differenziato, che lascia crescere l'erba alta in molte aree per più
+settimane. Il programma, partito nel 2023 con 34.000 metri quadrati, è
+salito a 201.000 nel 2025 e ha raggiunto i 216.809 metri quadrati nel 2026,
+distribuiti su 65 zone della città (erano 52 l'anno precedente).</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Crescita della superficie a sfalcio differenziato a Bergamo: 34.000 metri quadrati nel 2023, 201.000 nel 2025, 216.809 nel 2026. Fonte: L'Eco di Bergamo, marzo 2026.">
+  <g font-family="sans-serif" font-size="14">
+    <text x="10" y="70">2023</text>
+    <rect x="90" y="55" width="34" height="26" fill="currentColor" opacity="0.45"/>
+    <text x="134" y="73">34.000 mq</text>
+
+    <text x="10" y="160">2025</text>
+    <rect x="90" y="145" width="201" height="26" fill="currentColor" opacity="0.7"/>
+    <text x="301" y="163">201.000 mq</text>
+
+    <text x="10" y="250">2026</text>
+    <rect x="90" y="235" width="217" height="26" fill="currentColor" opacity="0.9"/>
+    <text x="317" y="253">216.809 mq</text>
+
+    <line x1="90" y1="20" x2="90" y2="280" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Superficie del verde pubblico bergamasco a sfalcio
+differenziato, dal lancio del programma nel 2023 al 2026. Fonte: L'Eco di
+Bergamo, marzo 2026.</figcaption>
+</figure>
+
+<h2>Meno insetticidi, più insetti (anche utili)</h2>
+<p>Il programma comunale, condotto insieme al Museo Caffi e a Flora Alpina
+Bergamasca, ha affiancato al taglio ridotto anche una revisione dei
+trattamenti contro la zanzara tigre: si è passati da interventi adulticidi
+diffusi, che colpiscono indiscriminatamente molti insetti, a trattamenti
+larvicidi più mirati. Il monitoraggio scientifico sulle aree a erba alta ha
+censito oltre 8.000 esemplari di macroinvertebrati appartenenti a 11
+ordini diversi, contro una presenza quasi nulla nei prati rasati a raso, e
+355 specie vegetali, molte autoctone. Tra gli effetti collaterali
+osservati dal Comune figurano anche il ripopolamento di grilli, il ritorno
+delle lucciole lungo la Greenway, una minore presenza di zanzare e
+l'assenza di zecche nelle aree monitorate. L'ampliamento dello sfalcio
+differenziato avrebbe inoltre generato un risparmio per le casse comunali
+stimato in 111.000 euro, pari al 5,46% del budget dedicato alla
+manutenzione del verde.</p>
+
+<h2>Un nesso plausibile, non ancora dimostrato</h2>
+<p>Resta comunque una domanda aperta, che lo stesso Pantini non scioglie
+del tutto: quanto delle cicale più "udibili" sia dovuto al caldo e quanto
+alle nuove pratiche di gestione del verde. Il Museo Caffi prosegue con
+otto campionamenti annuali per confrontare le aree a crescita spontanea
+con quelle a taglio regolare, un lavoro che nei prossimi mesi potrà dire
+qualcosa di più solido sull'evoluzione della biodiversità urbana in città,
+cicale comprese.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/20/dalle-mura-ai-parchi-perche-questestate-a-bergamo-si-sente-di-piu-il-canto-delle-cicale/909608/" rel="noopener" target="_blank">BergamoNews – Dalle mura ai parchi: perché quest&#x27;estate a Bergamo si sente di più il canto delle cicale</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/bergamo-amplia-il-taglio-dellerba-differenziato-per-favorire-la-biodiversita-o_3752150_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Bergamo amplia il taglio dell&#x27;erba differenziato per favorire la biodiversità</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di bergamo, tra cui 37 scuole: attese emissioni di co2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate. ambiente bergamo energia scuole a2a" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-18-bergamo-efficientamento-energetico-163-edifici/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici</h2><p class="card-summary">Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.</p><p class="card-meta">18 luglio 2026</p></div></a></article><article class="card" data-search="laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati ats bergamo ha certificato la qualità delle acque dei laghi d&#x27;iseo, endine, gaiano e giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località gerù sul lago di endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione. ambiente bergamo laghi balneabilità ats bergamo" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-01-laghi-bergamaschi-balneabili-estate-2026/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati</h2><p class="card-summary">ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.</p><p class="card-meta">1 luglio 2026</p></div></a></article><article class="card" data-search="cascate del serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;italia il 13 giugno 2026 le cascate del serio di valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio. ambiente bergamo valle seriana cascate del serio valbondione" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-06-03-cascate-serio-apertura-stagione/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Cascate del Serio, prima apertura sabato 13 giugno: torna lo spettacolo più alto d&#x27;Italia</h2><p class="card-summary">Il 13 giugno 2026 le Cascate del Serio di Valbondione aprono per la prima volta questa stagione: cinque appuntamenti in calendario, con la novità di un sabato e un&#x27;apertura notturna in luglio.</p><p class="card-meta">3 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
