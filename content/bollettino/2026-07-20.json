@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-20",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole su Bergamo alla partenza, asfalto bagnato dalle piogge delle ultime ore; schiarite verso Carugate, possibili piovaschi residui su San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Lievi rovesci di pioggia", "temp_c": 21, "precip_mm": 1.35, "wind_kmh": 5,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato",               "temp_c": 24, "precip_mm": 0.02, "wind_kmh": 8,  "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Probabili precipitazioni", "temp_c": 24, "precip_mm": 0.12, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 80,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 34}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, tra Dalmine e Cavenago", "desc": "Code a tratti per traffico intenso dalle 06:19."},
+      {"where": "A51 dir. sud, tra Cologno Monzese e Lambrate", "desc": "Code a tratti per traffico intenso verso l'allacciamento A1."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). CCISS RSS letto: 2 eventi pertinenti (A4 dir. Milano Dalmine-Cavenago; A51 dir. sud Cologno-Lambrate); scartati 2 eventi in direzione opposta (A4 dir. Brescia; A51 dir. Lecco, veicolo in avaria a Carugate). Chiusura notturna caselli Trezzo/Capriate (21:00-05:00) non rilevante per la corsa del mattino. Serravalle viabilità: pagina generica senza dettagli utili. Luceverde: nessun contenuto utile. Autostrade.it traffico-in-tempo-reale: 404."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia in atto a Bergamo alla partenza (1.35 mm, probabilità 40%)",
+      "Asfalto bagnato: 2.82 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Piovaschi deboli previsti anche in arrivo a San Donato (0.12 mm)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
