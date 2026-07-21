@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-21",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole e residua su tutto il tragitto al mattino: asfalto ancora umido a Bergamo, condizioni instabili con probabilità di rovesci in graduale calo verso Carugate e San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Pioggia debole",           "temp_c": 21, "precip_mm": 0.27, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Probabili precipitazioni", "temp_c": 23, "precip_mm": 0.15, "wind_kmh": 6, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Parzialmente soleggiato",  "temp_c": 23, "precip_mm": 0.10, "wind_kmh": 8, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 84,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 31},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, tra Dalmine e Trezzo", "desc": "Code a tratti per traffico intenso dalle 06:15."},
+      {"where": "A51 dir. sud (A1), tra Cologno Monzese e Linate", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). CCISS RSS letto: 2 eventi pertinenti su 100 (A4 dir. Milano Dalmine-Trezzo dalle 06:15; A51 dir. sud/A1 Cologno Monzese-Linate); scartati eventi fuori tratta o in direzione opposta (A4 dir. Brescia/Torino zona Cormano-Greggio, A4 Venezia-Trieste). Caselli Trezzo/Capriate chiusi la notte scorsa (21:29-05:00), già riaperti alla partenza. Serravalle viabilità: pagina generica senza dettagli utili. Luceverde: nessun contenuto utile. Autostrade.it traffico-in-tempo-reale: 404. Ricerca web conferma cantiere Capriate-Cavenago dir. Milano e code sul tratto Gobba-Vimodrone dir. A1, coerenti con quanto rilevato da CCISS."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia prevista in tutti e tre i punti del tragitto (Bergamo 0.27 mm, Carugate 0.15 mm, San Donato 0.10 mm)",
+      "Asfalto non asciutto: 0.17 mm di pioggia caduti a Bergamo nelle 3 ore precedenti",
+      "Probabilità di temporale in aumento lungo il percorso (20-50%)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
