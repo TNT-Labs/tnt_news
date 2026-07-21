@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Siccità, per i campi della Bergamasca acqua garantita solo fino al 24 luglio — TNT News</title>
+  <meta name="description" content="L&#x27;intesa raggiunta il 16 luglio in Regione Lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il Consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-21-siccita-bergamasca-acqua-campi-24-luglio/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Siccità, per i campi della Bergamasca acqua garantita solo fino al 24 luglio — TNT News">
+  <meta property="og:description" content="L&#x27;intesa raggiunta il 16 luglio in Regione Lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il Consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-21-siccita-bergamasca-acqua-campi-24-luglio/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Siccità, per i campi della Bergamasca acqua garantita solo fino al 24 luglio — TNT News">
+  <meta name="twitter:description" content="L&#x27;intesa raggiunta il 16 luglio in Regione Lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il Consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Siccità</span><span class="tag">Agricoltura</span><span class="tag">Fiumi</span></div>
+    <h1>Siccità, per i campi della Bergamasca acqua garantita solo fino al 24 luglio</h1>
+    <p class="article-summary">L&#x27;intesa raggiunta il 16 luglio in Regione Lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il Consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-21">21 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Nella pianura bergamasca l'acqua per irrigare i campi è garantita, nella
+migliore delle ipotesi, solo fino al 24 luglio. L'intesa raggiunta il 16
+luglio a Palazzo Lombardia tra Regione, gestori idroelettrici, enti
+regolatori dei laghi e consorzi di bonifica ha messo a disposizione flussi
+straordinari per allungare la stagione irrigua di pochi giorni, ma sul
+territorio bergamasco il Consorzio di bonifica della media pianura ha
+comunque dichiarato una "crisi idrica di grado medio" e un taglio del 20%
+dell'erogazione per l'agricoltura.</p>
+
+<h2>Fiumi sotto la media storica</h2>
+<p>I dati Arpa aggiornati al 12 luglio fotografano un deficit idrico
+regionale del 43,4%, contro il 60% toccato nel 2022, l'anno della crisi più
+grave degli ultimi settant'anni nel bacino del Po. Sui corsi d'acqua
+bergamaschi la situazione è disomogenea: il Brembo segna un deficit del
+46,7%, il Serio del 31,9%. Nelle settimane precedenti la neve si era
+esaurita con circa un mese e mezzo di anticipo rispetto alla norma, a causa
+delle temperature elevate di giugno e luglio, mentre il livello del lago
+d'Iseo è sceso sotto lo zero idrometrico, attestandosi al 40% della
+disponibilità stagionale.</p>
+
+<blockquote>"La neve si è esaurita con un mese e mezzo di anticipo: non è
+più un'emergenza occasionale, ma un effetto strutturale dei cambiamenti
+climatici" — Damiano Di Simine, Legambiente</blockquote>
+
+<h2>L'intesa regionale e il taglio locale</h2>
+<p>Per allentare la pressione sui fiumi, il tavolo convocato dall'assessore
+regionale Massimo Sertori ha ottenuto il rilascio di 5 milioni di metri
+cubi d'acqua al giorno sul bacino dell'Adda, 1 milione sull'Oglio e 9
+milioni dalla Provincia autonoma di Trento per il bacino del Chiese,
+oltre ai 600.000 metri cubi giornalieri che Enel Green Power rilascia dai
+bacini alpini dal 2 luglio. Un aiuto che, secondo Sertori, "consente di
+bagnare ancora i campi", ma solo fino al 24 luglio. Sul territorio
+bergamasco, nel frattempo, il presidente del Consorzio di bonifica Franco
+Gatti ha già disposto una riduzione del 20% dell'acqua per l'irrigazione,
+con la possibilità di uno stop completo a turni su Serio e Brembo se la
+situazione dovesse peggiorare.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Deficit idrico rispetto alla media storica in Lombardia al 12 luglio 2026: media regionale 43,4%, fiume Brembo 46,7%, fiume Serio 31,9%. Fonte: dati Arpa citati da Bergamonews, 16 luglio 2026.">
+  <g font-family="sans-serif" font-size="14">
+    <text x="10" y="70">Media regione</text>
+    <rect x="150" y="55" width="217" height="26" fill="currentColor" opacity="0.55"/>
+    <text x="377" y="73">43,4%</text>
+
+    <text x="10" y="160">Brembo</text>
+    <rect x="150" y="145" width="233" height="26" fill="currentColor" opacity="0.75"/>
+    <text x="393" y="163">46,7%</text>
+
+    <text x="10" y="250">Serio</text>
+    <rect x="150" y="235" width="160" height="26" fill="currentColor" opacity="0.9"/>
+    <text x="320" y="253">31,9%</text>
+
+    <line x1="150" y1="20" x2="150" y2="280" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Deficit idrico rispetto alla media storica al 12 luglio 2026.
+Fonte: dati Arpa citati da Bergamonews, 16 luglio 2026.</figcaption>
+</figure>
+
+<h2>Agricoltori tra sollievo e preoccupazione</h2>
+<p>Per Franco Gatti il razionamento resta "un grande sacrificio per gli
+agricoltori" proprio nel periodo di pieno sviluppo delle coltivazioni,
+anche se rispetto al 2022 "oggi abbiamo armi in più" grazie agli
+interventi infrastrutturali realizzati negli ultimi anni. Il direttore
+generale del Consorzio, Mario Reduzzi, ha definito quella in corso "la
+seconda crisi idrica in cinque anni" e ha chiesto interventi strutturali
+permanenti, compresa una deroga al deflusso ecologico sui due fiumi
+principali della provincia. Sulla stessa linea l'assessore regionale
+all'Agricoltura Alessandro Beduschi, secondo cui il tavolo di Palazzo
+Lombardia ha garantito "il minimo indispensabile" per completare il primo
+raccolto, e Coldiretti Bergamo, che per bocca di Erminia Comencini
+sollecita investimenti strutturali sui fiumi torrentizi bergamaschi.</p>
+
+<h2>Cosa succede dopo il 24 luglio</h2>
+<p>L'intesa regionale copre solo gli otto giorni successivi al 16 luglio: a
+oggi non è stato annunciato alcun nuovo accordo per il periodo successivo
+al 24 luglio. Se le temperature non caleranno e non arriveranno
+precipitazioni significative, il rischio concreto è che il razionamento
+già in vigore nella pianura bergamasca si estenda ulteriormente, con
+possibili stop a turno sull'irrigazione di Serio e Brembo nelle settimane
+più calde dell'estate.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/16/siccita-regione-lombardia-trova-lintesa-sullacqua-garantita-lirrigazione-fino-al-24-luglio/909739/" rel="noopener" target="_blank">Bergamonews – Siccità, Regione Lombardia trova l&#x27;intesa sull&#x27;acqua: garantita l&#x27;irrigazione fino al 24 luglio</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/pianura/crisi-idrica-di-grado-medioda-lunedi-il-razionamento-per-lagricoltura-o_3896743_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – «Crisi idrica di grado medio»: da lunedì il razionamento per l&#x27;agricoltura</a></li><li><a href="https://www.bergamonews.it/2026/07/15/neve-sciolta-in-anticipo-alghe-nel-serio-e-lago-diseo-sotto-lo-zero-la-bergamasca-verso-unaltra-estate-di-siccita/909096" rel="noopener" target="_blank">Bergamonews – Neve sciolta in anticipo, alghe nel Serio e lago d&#x27;Iseo sotto lo zero: la Bergamasca verso un&#x27;altra estate di siccità</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, perché quest&#x27;estate si sente di più il canto delle cicale il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati. ambiente bergamo biodiversità verde pubblico sfalcio differenziato" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-20-bergamo-cicale-sfalcio-differenziato-biodiversita/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Bergamo, perché quest&#x27;estate si sente di più il canto delle cicale</h2><p class="card-summary">Il caldo anomalo e l&#x27;ampliamento dello sfalcio differenziato del verde pubblico, arrivato a 216.809 metri quadrati, spiegano perché a Bergamo il frinire delle cicale si avverte più forte tra mura, parchi e viali alberati.</p><p class="card-meta">20 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di bergamo, tra cui 37 scuole: attese emissioni di co2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate. ambiente bergamo energia scuole a2a" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-18-bergamo-efficientamento-energetico-163-edifici/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Bergamo, verso il traguardo il piano di efficientamento energetico di 163 edifici pubblici</h2><p class="card-summary">Entro la fine dell&#x27;estate si conclude il piano da 36,8 milioni di euro che ha coinvolto 163 edifici comunali di Bergamo, tra cui 37 scuole: attese emissioni di CO2 dimezzate e un risparmio annuo di oltre 2.000 tonnellate.</p><p class="card-meta">18 luglio 2026</p></div></a></article><article class="card" data-search="laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati ats bergamo ha certificato la qualità delle acque dei laghi d&#x27;iseo, endine, gaiano e giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località gerù sul lago di endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione. ambiente bergamo laghi balneabilità ats bergamo" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-01-laghi-bergamaschi-balneabili-estate-2026/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Laghi bergamaschi promossi per l&#x27;estate 2026: acque eccellenti in quasi tutti i punti monitorati</h2><p class="card-summary">ATS Bergamo ha certificato la qualità delle acque dei laghi d&#x27;Iseo, Endine, Gaiano e Giudici per la stagione balneare 2026: 35 punti su 36 ottengono la classificazione &#x27;eccellente&#x27;, con la sola eccezione della località Gerù sul lago di Endine, giudicata &#x27;buona&#x27; ma comunque sicura per la balneazione.</p><p class="card-meta">1 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
