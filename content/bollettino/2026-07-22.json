@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-22",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (19-23°C) e vento debole; a Bergamo lieve umidità residua sull'asfalto per una pioggerella nelle ore precedenti, ormai cessata.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 82,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, tra Dalmine e Cavenago", "desc": "Code a tratti per traffico intenso dalle 06:24."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). CCISS RSS letto: 1 evento pertinente su 100 (A4 dir. Milano tra Dalmine e Cavenago, traffico intenso dalle 06:24); nessun evento pertinente sull'A51. Serravalle viabilità: pagina raggiunta ma solo menu/JS, nessun dato utile. Luceverde: nessun contenuto utile. Autostrade.it traffico-in-tempo-reale: 404. Ricerca web non aggiunge eventi ulteriori per oggi sulla tratta."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Niente pioggia prevista lungo il tragitto (probabilità 0%)",
+      "Lieve umidità residua sull'asfalto a Bergamo: 0,13 mm caduti nelle 2 ore precedenti, pioggia ormai cessata",
+      "Temperatura ampiamente sopra i 7°C (19-23°C) e vento debole (raffiche max 14 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
