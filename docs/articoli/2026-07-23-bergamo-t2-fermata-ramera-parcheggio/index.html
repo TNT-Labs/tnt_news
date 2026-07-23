@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Tram T2 Bergamo-Villa d&#x27;Almè, all&#x27;apertura mancherà la fermata Ramera e il parcheggio più grande — TNT News</title>
+  <meta name="description" content="Quando la nuova linea tranviaria T2 entrerà in servizio in autunno, la fermata Ramera - Parco dei Colli tra Ponteranica e Sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area Grès non ancora avviati.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-23-bergamo-t2-fermata-ramera-parcheggio/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Tram T2 Bergamo-Villa d&#x27;Almè, all&#x27;apertura mancherà la fermata Ramera e il parcheggio più grande — TNT News">
+  <meta property="og:description" content="Quando la nuova linea tranviaria T2 entrerà in servizio in autunno, la fermata Ramera - Parco dei Colli tra Ponteranica e Sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area Grès non ancora avviati.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-23-bergamo-t2-fermata-ramera-parcheggio/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tram T2 Bergamo-Villa d&#x27;Almè, all&#x27;apertura mancherà la fermata Ramera e il parcheggio più grande — TNT News">
+  <meta name="twitter:description" content="Quando la nuova linea tranviaria T2 entrerà in servizio in autunno, la fermata Ramera - Parco dei Colli tra Ponteranica e Sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area Grès non ancora avviati.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">T2</span><span class="tag">Tranvia</span><span class="tag">Valle Brembana</span><span class="tag">Mobilità</span></div>
+    <h1>Tram T2 Bergamo-Villa d&#x27;Almè, all&#x27;apertura mancherà la fermata Ramera e il parcheggio più grande</h1>
+    <p class="article-summary">Quando la nuova linea tranviaria T2 entrerà in servizio in autunno, la fermata Ramera - Parco dei Colli tra Ponteranica e Sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area Grès non ancora avviati.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-23">23 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La nuova linea tranviaria T2 Bergamo-Villa d'Almè entrerà in servizio in
+autunno con una fermata su sedici ancora chiusa: si tratta di Ramera - Parco
+dei Colli, tra Ponteranica e Sorisole, la cui apertura dipende da lavori
+nell'ex area industriale Grès non ancora avviati. Con la fermata resta
+sospeso anche il parcheggio di interscambio più grande previsto lungo il
+tracciato, da 154 posti auto.</p>
+
+<h2>Una fermata legata a lavori non di competenza di Teb</h2>
+<p>Secondo quanto riportato da BergamoNews, l'apertura della fermata Ramera
+- Parco dei Colli è subordinata alla realizzazione di opere nell'ex area
+Grès che non sono ancora iniziate e che non dipendono da Teb, la società che
+gestisce la tramvia. Al momento non è stata indicata una data per
+l'attivazione. La fermata di Petosino, invece, aprirà regolarmente insieme
+alle altre.</p>
+
+<h2>Meno posti auto del previsto</h2>
+<p>La fermata mancante si porta dietro anche il parcheggio di interscambio
+più capiente del progetto, pensato per chi arriva in auto dalla Valle
+Brembana e prosegue poi in tram verso Bergamo. Al debutto della linea
+saranno disponibili 359 posti auto sui 513 complessivamente previsti lungo
+il tracciato, quasi un terzo in meno. Una compensazione parziale arriverà da
+un'area privata: circa 100 posti aggiuntivi messi a disposizione da Indeva
+nei pressi della fermata di Petosino.</p>
+
+<p>La sindaca di Ponteranica, Susanna Pini, ha spiegato la scelta di non
+concentrare il parcheggio nel centro del paese: "Abbiamo scelto di non
+collocare il parcheggio nel centro di Ponteranica per preservare la vitalità
+del paese e le attività commerciali."</p>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Posti auto nei parcheggi di interscambio della linea T2: 513 previsti a progetto contro 359 disponibili all'apertura in autunno, circa un terzo in meno per la chiusura della fermata Ramera - Parco dei Colli. Valori indicativi, fonte BergamoNews, 23 luglio 2026.">
+  <g font-family="sans-serif" font-size="15">
+    <text x="10" y="70">Previsti a progetto</text>
+    <rect x="230" y="45" width="380" height="40" fill="currentColor" opacity="0.5"/>
+    <text x="620" y="72" text-anchor="end">513 posti</text>
+
+    <text x="10" y="180">Disponibili all'apertura</text>
+    <rect x="230" y="155" width="266" height="40" fill="currentColor" opacity="0.85"/>
+    <text x="506" y="182" text-anchor="end">359 posti</text>
+
+    <line x1="230" y1="20" x2="230" y2="240" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Posti auto nei parcheggi di interscambio lungo la linea T2:
+previsti a progetto contro disponibili all'apertura in autunno. Valori
+indicativi. Fonte: BergamoNews, 23 luglio 2026.</figcaption>
+</figure>
+
+<h2>I lavori nel rush finale</h2>
+<p>La linea, lunga circa 11,5 chilometri con 16 fermate, collegherà la
+stazione di Bergamo a Villa d'Almè servendo oltre 240.000 residenti in
+cinque comuni. Secondo L'Eco di Bergamo, i lavori principali - iniziati
+nell'aprile 2024 - si sono conclusi entro il 30 giugno 2026, rispettando la
+scadenza fissata dal Pnrr: posati i binari lungo tutto il tracciato,
+completati il nuovo deposito, le banchine di fermata e due gallerie. Da fine
+giugno è partita una fase di 60 giorni dedicata a "lavori complementari e
+sistemazioni finali", tra cui il completamento di alcuni parcheggi, tratti
+della nuova pista ciclabile di circa 10 chilometri e una rotatoria sulla
+strada tra Villa d'Almè e Dalmine.</p>
+
+<p>Al termine di questa fase seguiranno le verifiche tecniche e le
+operazioni di preesercizio, che dovranno ottenere l'autorizzazione del
+Ministero delle Infrastrutture e di Ansfisa, l'agenzia nazionale per la
+sicurezza delle ferrovie e delle infrastrutture stradali. Teb punta ad
+avviare il servizio commerciale entro l'autunno 2026, condizionatamente
+all'esito dei collaudi. Sul fronte dei mezzi, sono già stati consegnati nove
+dei dieci nuovi tram Skoda, con l'ultimo atteso a ottobre: convogli lunghi
+33,5 metri, con 66 posti a sedere e una capienza complessiva di 281
+passeggeri.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/23/t2-una-fermata-restera-chiusa-allapertura-salta-anche-il-principale-parcheggio-di-interscambio/910821" rel="noopener" target="_blank">BergamoNews – T2, una fermata resterà chiusa all&#x27;apertura: salta anche il principale parcheggio di interscambio</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/tram-t2-bergamo-villa-dalme-lavori-in-chiusura-rispettata-la-scadenza-pnrr-de-o_3894514_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Tram T2 Bergamo-Villa d&#x27;Almè, lavori in chiusura: rispettata la scadenza Pnrr del 30 giugno</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tram t2 bergamo–villa d&#x27;almè: cantieri in chiusura, rispettata la scadenza pnrr del 30 giugno i lavori principali della linea tramviaria t2 che collegherà bergamo a villa d&#x27;almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal pnrr. seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno. trasporti bergamo tram t2 pnrr villa d&#x27;almè valle brembana" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-25-tram-t2-bergamo-villa-alme-pnrr/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2 Bergamo–Villa d&#x27;Almè: cantieri in chiusura, rispettata la scadenza PNRR del 30 giugno</h2><p class="card-summary">I lavori principali della linea tramviaria T2 che collegherà Bergamo a Villa d&#x27;Almè saranno conclusi entro il 30 giugno 2026, rispettando la scadenza imposta dal PNRR. Seguiranno 60 giorni di opere di finitura e collaudi; l&#x27;apertura al pubblico è attesa per l&#x27;autunno.</p><p class="card-meta">25 giugno 2026</p></div></a></article><article class="card" data-search="linea lecco-bergamo, da oggi treni sostituiti dai bus: cantieri rfi fino al 21 agosto da oggi 17 luglio e fino al 2 agosto i treni tra calolziocorte e ponte san pietro sono sostituiti da bus per lavori rfi legati al raddoppio della linea verso bergamo; seguirà un servizio ridotto fino al 21 agosto. una parlamentare ha presentato un&#x27;interrogazione al governo sui disagi per i pendolari. trasporti bergamo ferrovie pendolari ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-17-linea-lecco-bergamo-chiusura-cantieri-rfi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto</h2><p class="card-summary">Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.</p><p class="card-meta">17 luglio 2026</p></div></a></article><article class="card" data-search="tram t2, regione lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione la commissione bilancio di regione lombardia ha approvato un emendamento che destina 6,5 milioni di euro al comune di bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria t2 e il potenziamento della t1. il via libera definitivo è atteso in consiglio regionale tra il 22 e il 24 luglio. trasporti bergamo tram t2 teb regione lombardia villa d&#x27;almè" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-09-t2-bergamo-fondi-regione-gestione/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2, Regione Lombardia stanzia 6,5 milioni per l&#x27;avvio della gestione</h2><p class="card-summary">La Commissione Bilancio di Regione Lombardia ha approvato un emendamento che destina 6,5 milioni di euro al Comune di Bergamo tra 2026 e 2028 per l&#x27;avvio della linea tramviaria T2 e il potenziamento della T1. Il via libera definitivo è atteso in Consiglio regionale tra il 22 e il 24 luglio.</p><p class="card-meta">9 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
