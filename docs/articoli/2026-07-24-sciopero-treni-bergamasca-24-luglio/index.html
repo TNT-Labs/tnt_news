@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Sciopero dei treni, venerdì 24 luglio disagi anche in Bergamasca: le fasce garantite — TNT News</title>
+  <meta name="description" content="Uno sciopero ferroviario nazionale di 24 ore, proclamato da Cub Trasporti e Sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di Bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-24-sciopero-treni-bergamasca-24-luglio/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Sciopero dei treni, venerdì 24 luglio disagi anche in Bergamasca: le fasce garantite — TNT News">
+  <meta property="og:description" content="Uno sciopero ferroviario nazionale di 24 ore, proclamato da Cub Trasporti e Sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di Bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-24-sciopero-treni-bergamasca-24-luglio/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sciopero dei treni, venerdì 24 luglio disagi anche in Bergamasca: le fasce garantite — TNT News">
+  <meta name="twitter:description" content="Uno sciopero ferroviario nazionale di 24 ore, proclamato da Cub Trasporti e Sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di Bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Sciopero</span><span class="tag">Trenord</span><span class="tag">Pendolari</span></div>
+    <h1>Sciopero dei treni, venerdì 24 luglio disagi anche in Bergamasca: le fasce garantite</h1>
+    <p class="article-summary">Uno sciopero ferroviario nazionale di 24 ore, proclamato da Cub Trasporti e Sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di Bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-24">24 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da giovedì 23 luglio alle 21 fino a venerdì 24 alle 20:59 è in corso in
+Italia uno sciopero nazionale del trasporto ferroviario, proclamato dai
+sindacati Cub Trasporti e Sgb. La protesta coinvolge il personale del gruppo
+Ferrovie dello Stato Italiane, di Trenitalia, Trenitalia Tper, Italo, Trenord
+e Rfi, e può causare cancellazioni o variazioni sui treni regionali che
+attraversano la provincia di Bergamo, oltre che sui collegamenti Alta
+Velocità e Intercity.</p>
+
+<h2>Le fasce di garanzia</h2>
+<p>Come per ogni sciopero dei trasporti, restano attive fasce orarie in cui
+il servizio è comunque assicurato. Giovedì 23 luglio circolano regolarmente
+i treni con partenza entro le 21 e arrivo a destinazione entro le 22.
+Venerdì 24, invece, il servizio regionale è garantito nelle fasce 6-9 del
+mattino e 18-21 della sera; fuori da questi orari sono possibili
+cancellazioni, anche last minute, e variazioni di percorso. Trenord invita i
+viaggiatori a controllare gli annunci sonori e i tabelloni nelle stazioni
+della Bergamasca, oltre all'elenco dei treni garantiti pubblicato sul
+proprio sito.</p>
+
+<h2>Le ragioni della protesta</h2>
+<p>Le sigle sindacali che hanno proclamato lo sciopero contestano le
+esternalizzazioni dei servizi, l'aumento dei carichi di lavoro e la
+frammentazione societaria del gruppo Ferrovie dello Stato, oltre alla gara
+d'appalto in corso per l'assegnazione del servizio Intercity. Tra le
+richieste ci sono anche condizioni salariali migliori, a fronte
+dell'inflazione, e maggiori tutele sulla sicurezza sul lavoro.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo dello sciopero ferroviario nazionale dalle 21 di giovedì 23 luglio alle 20:59 di venerdì 24 luglio 2026: servizio garantito dalle 21 alle 22 di giovedì e, venerdì, nelle fasce 6-9 e 18-21; nelle altre ore sono possibili cancellazioni sui treni regionali, anche in Bergamasca. Fonte: L'Eco di Bergamo e Prima Bergamo, 23 luglio 2026.">
+  <g font-family="sans-serif">
+    <text x="320" y="28" text-anchor="middle" font-size="16" font-weight="bold">Sciopero ferroviario nazionale, 23-24 luglio 2026</text>
+
+    <rect x="40" y="130" width="560" height="50" fill="currentColor" opacity="0.15"/>
+    <rect x="40" y="130" width="23" height="50" fill="currentColor" opacity="0.85"/>
+    <rect x="250" y="130" width="70" height="50" fill="currentColor" opacity="0.85"/>
+    <rect x="530" y="130" width="70" height="50" fill="currentColor" opacity="0.85"/>
+
+    <line x1="40" y1="120" x2="40" y2="190" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <line x1="250" y1="120" x2="250" y2="190" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <line x1="320" y1="120" x2="320" y2="190" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <line x1="530" y1="120" x2="530" y2="190" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <line x1="600" y1="120" x2="600" y2="190" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+
+    <g font-size="12" text-anchor="middle">
+      <text x="40" y="210">21:00</text>
+      <text x="40" y="225">gio 23/7</text>
+      <text x="250" y="210">06:00</text>
+      <text x="320" y="210">09:00</text>
+      <text x="530" y="210">18:00</text>
+      <text x="600" y="210">20:59</text>
+      <text x="600" y="225">ven 24/7</text>
+    </g>
+
+    <g font-size="13">
+      <rect x="180" y="260" width="16" height="16" fill="currentColor" opacity="0.85"/>
+      <text x="202" y="273">treni garantiti</text>
+      <rect x="360" y="260" width="16" height="16" fill="currentColor" opacity="0.15"/>
+      <text x="382" y="273">possibili cancellazioni/variazioni</text>
+    </g>
+  </g>
+</svg>
+<figcaption>Fasce orarie dello sciopero ferroviario del 23-24 luglio 2026:
+in evidenza i periodi con servizio garantito. Fonte: L'Eco di Bergamo e
+Prima Bergamo, 23 luglio 2026.</figcaption>
+</figure>
+
+<h2>Cosa possono fare i pendolari</h2>
+<p>Chi ha acquistato un biglietto per un treno soppresso può chiedere il
+rimborso integrale a partire dal momento della proclamazione dello sciopero,
+oppure riprogrammare il viaggio a condizioni di trasporto simili,
+compatibilmente con la disponibilità di posti. Per chi si sposta in
+Bergamasca nelle fasce non garantite, le aziende ferroviarie raccomandano di
+verificare in anticipo lo stato dei collegamenti sui canali ufficiali e di
+valutare, dove possibile, soluzioni alternative nelle ore più a rischio.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/dalle-21-sciopero-dei-treni-attive-le-fasce-di-garanzia-o_3914991_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Dalle 21 sciopero dei treni, attive le fasce di garanzia</a></li><li><a href="https://primabergamo.it/cronaca/bergamasca-sciopero-ferroviario-di-24-ore-lelenco-dei-treni-che-circolano/" rel="noopener" target="_blank">Prima Bergamo – Fra giovedì e venerdì 24 luglio sciopero dei treni anche in Bergamasca: ecco l&#x27;elenco dei convogli garantiti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sciopero treni 11 giugno: 23 ore di disagi in lombardia, i sindacati di base confermano i sindacati di base (cub trasporti, sgb, cat, assemblea pdb e pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. i confederali si sono fermati dopo un tavolo al mit. trenord garantisce i treni nelle fasce 6-9 e 18-21. trasporti bergamo treni sciopero trenord" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-11-sciopero-treni-sindacati-base-lombardia/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero treni 11 giugno: 23 ore di disagi in Lombardia, i sindacati di base confermano</h2><p class="card-summary">I sindacati di base (CUB Trasporti, SGB, CAT, Assemblea Pdb e Pdm) confermano lo sciopero ferroviario nazionale dalle 3:00 dell&#x27;11 giugno alle 2:00 del 12 giugno. I confederali si sono fermati dopo un tavolo al MIT. Trenord garantisce i treni nelle fasce 6-9 e 18-21.</p><p class="card-meta">11 giugno 2026</p></div></a></article><article class="card" data-search="sciopero generale domani: treni, autobus e autostrade a rischio anche nella bergamasca venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da cub, si cobas e altri sindacati di base. i treni trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus atb, le autostrade e le scuole. trasporti bergamo sciopero trenord trasporti" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-28-sciopero-generale-29-maggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero generale domani: treni, autobus e autostrade a rischio anche nella Bergamasca</h2><p class="card-summary">Venerdì 29 maggio 2026 sciopero nazionale di 24 ore proclamato da CUB, SI Cobas e altri sindacati di base. I treni Trenord sono garantiti solo nelle fasce 6–9 e 18–21; a rischio anche gli autobus ATB, le autostrade e le scuole.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="linea lecco-bergamo, da oggi treni sostituiti dai bus: cantieri rfi fino al 21 agosto da oggi 17 luglio e fino al 2 agosto i treni tra calolziocorte e ponte san pietro sono sostituiti da bus per lavori rfi legati al raddoppio della linea verso bergamo; seguirà un servizio ridotto fino al 21 agosto. una parlamentare ha presentato un&#x27;interrogazione al governo sui disagi per i pendolari. trasporti bergamo ferrovie pendolari ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-17-linea-lecco-bergamo-chiusura-cantieri-rfi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Linea Lecco-Bergamo, da oggi treni sostituiti dai bus: cantieri RFI fino al 21 agosto</h2><p class="card-summary">Da oggi 17 luglio e fino al 2 agosto i treni tra Calolziocorte e Ponte San Pietro sono sostituiti da bus per lavori RFI legati al raddoppio della linea verso Bergamo; seguirà un servizio ridotto fino al 21 agosto. Una parlamentare ha presentato un&#x27;interrogazione al Governo sui disagi per i pendolari.</p><p class="card-meta">17 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
