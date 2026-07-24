@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-24",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (18-22°C), vento debole e asfalto asciutto ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Soleggiato", "temp_c": 18.6, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Soleggiato", "temp_c": 22,   "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)",     "cond": "Soleggiato", "temp_c": 22.1, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 71,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 28},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [
+      {"where": "A51 tra Cologno Monzese e Lambrate, dir. Allacciamento A1 (sud)", "desc": "Code a tratti causa traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). CCISS RSS letto: 4 eventi su A4/A51, di cui 1 pertinente (A51 Cologno-Lambrate dir. A1, coerente con la tratta e la direzione dell'andata); gli altri erano fuori tratta o in direzione opposta (A4 Monza-Cormano dir. Torino, A4 Cormano-Barriera Milano Est dir. Brescia, A51 Allacciamento A1-Lambrate dir. Lecco). Serravalle viabilità: pagina raggiunta ma solo contenuto generico/menu, nessun dato specifico. Luceverde: pagina raggiunta ma nessun dato di traffico specifico sulla tratta. Autostrade.it traffico-in-tempo-reale: 404. Ricerca web: solo articoli storici non datati oggi o lavori notturni fuori tratta/orario (casello Grumello, chiuso stanotte 24-25/7, fuori dalla tratta Bergamo-Agrate e fuori dall'orario di transito)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza a Bergamo",
+      "Temperature miti, ben sopra i 7°C (18,6-22,1°C)",
+      "Vento debole ovunque (max 10 km/h, raffiche massime 18 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
