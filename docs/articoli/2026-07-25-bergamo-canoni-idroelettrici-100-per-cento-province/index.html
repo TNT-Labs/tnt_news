@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca — TNT News</title>
+  <meta name="description" content="Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-25-bergamo-canoni-idroelettrici-100-per-cento-province/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca — TNT News">
+  <meta property="og:description" content="Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-25-bergamo-canoni-idroelettrici-100-per-cento-province/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca — TNT News">
+  <meta name="twitter:description" content="Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Idroelettrico</span><span class="tag">Comuni montani</span><span class="tag">Regione Lombardia</span></div>
+    <h1>Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca</h1>
+    <p class="article-summary">Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-25">25 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Dal 2027 le province lombarde dove sorgono le grandi dighe riceveranno il
+100% dei canoni pagati dai gestori delle centrali idroelettriche, contro
+l'80% attuale. Lo prevede un emendamento alla legge di bilancio della
+Regione Lombardia. Per la provincia di Bergamo, che con 21 grandi dighe e
+circa 99 centrali lungo Brembo, Serio, Adda e affluenti è tra i territori
+più interessati, la novità si traduce fin da subito in oltre 16 milioni di
+euro destinati a 53 comuni, tra arretrati e introiti relativi al 2025.</p>
+
+<h2>Una battaglia iniziata nel 2013</h2>
+<p>Il percorso che porta al 100% è durato oltre dieci anni. Fino al 2013 il
+trasferimento pieno dei canoni era garantito solo alla provincia di
+Sondrio, mentre gli altri territori con impianti idroelettrici ricevevano
+appena il 5-10% di quanto la Regione incassava dai concessionari. Nel 2020
+la quota era stata portata all'80%. Il consigliere regionale Jacopo
+Scandella (Pd), tra i promotori della richiesta di parificazione, ha
+commentato l'approvazione dell'emendamento parlando di una "battaglia
+storica" ormai vinta per i territori montani.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Quota dei canoni delle grandi derivazioni idroelettriche trasferita alle province lombarde diverse da Sondrio: circa 10% fino al 2013, 80% dal 2020, 100% dal 2027. Valori indicativi, fonte BergamoNews, 24 luglio 2026.">
+  <g font-family="sans-serif" font-size="15">
+    <text x="10" y="60">Fino al 2013</text>
+    <rect x="230" y="35" width="38" height="40" fill="currentColor" opacity="0.4"/>
+    <text x="288" y="62">~10%</text>
+
+    <text x="10" y="160">Dal 2020</text>
+    <rect x="230" y="135" width="304" height="40" fill="currentColor" opacity="0.65"/>
+    <text x="554" y="162">80%</text>
+
+    <text x="10" y="260">Dal 2027</text>
+    <rect x="230" y="235" width="380" height="40" fill="currentColor" opacity="0.9"/>
+    <text x="620" y="262" text-anchor="end">100%</text>
+
+    <line x1="230" y1="15" x2="230" y2="285" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+  </g>
+</svg>
+<figcaption>Quota dei canoni delle grandi derivazioni idroelettriche
+trasferita alle province lombarde (diverse da Sondrio, che già li
+riceveva). Valori indicativi. Fonte: BergamoNews, 24 luglio 2026.</figcaption>
+</figure>
+
+<h2>Un secondo canale di fondi: la sentenza della Cassazione</h2>
+<p>Alla riforma strutturale si somma un secondo flusso di risorse legato a
+un contenzioso pluriennale. Le Sezioni Unite della Corte di Cassazione hanno
+confermato la legittimità del cosiddetto "canone binomio" - la componente
+fissa e quella variabile del canone - e della cessione gratuita di una
+quota di energia ai territori che ospitano gli impianti, sbloccando a
+favore della Regione Lombardia oltre 200 milioni di euro di arretrati.
+Secondo quanto riportato da il Dolomiti, di questa cifra più di 120 milioni
+sono destinati alla sola provincia di Sondrio, mentre il resto verrà
+ripartito tra le altre province produttrici, Bergamo compresa. Il 23 luglio
+l'assessore regionale agli Enti locali, Montagna, Energia e Risorse
+idriche, Massimo Sertori, ha illustrato ai sindaci delle province
+interessate - Bergamo, Brescia, Como, Lecco, Monza e Brianza, Milano e
+Varese - la proposta di delibera che la Giunta regionale è attesa ad
+adottare il 27 luglio per trasferire le somme dovute per la monetizzazione
+dell'energia gratuita relativa al 2026.</p>
+
+<blockquote>"Vinta una battaglia storica": così Jacopo Scandella ha
+riassunto l'esito dell'iter, sottolineando come dai canoni idroelettrici
+passi in buona parte la tenuta economica dei territori montani della
+Bergamasca.</blockquote>
+
+<h2>Effetti attesi sui comuni bergamaschi</h2>
+<p>Le due misure insieme dovrebbero portare risorse aggiuntive a decine di
+municipi della provincia, in particolare nelle valli dove sorgono gli
+impianti: solo in Valle Brembana, secondo le prime stime circolate, la
+componente legata all'energia gratuita supererebbe i 5 milioni di euro per
+una ventina di comuni. Le somme complessive - canoni e cessione gratuita di
+energia - dovrebbero essere trasferite a comuni e province entro l'autunno.
+Restano da definire, comune per comune, gli importi esatti che saranno resi
+noti con l'adozione della delibera regionale.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/24/idroelettrico-il-100-dei-canoni-alle-province-scandella-vinta-una-battaglia-storica-oltre-16-milioni-di-euro-a-53-comuni/911222" rel="noopener" target="_blank">BergamoNews – Idroelettrico, il 100% dei canoni alle province. Scandella: &quot;Vinta una battaglia storica, oltre 16 milioni di euro a 53 Comuni&quot;</a></li><li><a href="https://www.ildolomiti.it/cronaca/2026/idroelettrico-tra-canoni-arretrati-e-energia-gratuita-in-lombardia-in-arrivo-oltre-200-milioni-piu-di-120-solo-a-sondrio" rel="noopener" target="_blank">il Dolomiti – Idroelettrico, tra canoni arretrati e energia gratuita in Lombardia in arrivo oltre 200 milioni (più di 120 solo a Sondrio)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la cisl, «mercato del lavoro saturo» nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di bergamo, 252 in più rispetto al 2025. per la cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione. economia bergamo lavoro dimissioni cisl" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-15-bergamo-dimissioni-volontarie-cisl-mercato-saturo/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo»</h2><p class="card-summary">Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.</p><p class="card-meta">15 luglio 2026</p></div></a></article><article class="card" data-search="saldi estivi, primo weekend da 328 mila presenze in centro a bergamo il primo weekend dei saldi estivi ha portato circa 328 mila visite tra città bassa e città alta, con crescite superiori al 50% rispetto al weekend precedente. i dati di confcommercio bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in città alta. economia bergamo saldi commercio confcommercio bergamo città alta" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-08-saldi-estivi-bergamo-primo-weekend-presenze/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi, primo weekend da 328 mila presenze in centro a Bergamo</h2><p class="card-summary">Il primo weekend dei saldi estivi ha portato circa 328 mila visite tra Città Bassa e Città Alta, con crescite superiori al 50% rispetto al weekend precedente. I dati di Confcommercio Bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in Città Alta.</p><p class="card-meta">8 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, disoccupazione all&#x27;1,3% nel 2025: la più bassa d&#x27;italia, ma la crescita occupazionale rallenta l&#x27;indagine sul lavoro 2026 di confindustria bergamo conferma il tasso di disoccupazione più basso tra le province italiane, ma segnala una crescita occupazionale quasi ferma. i dati dell&#x27;osservatorio provinciale sul primo trimestre mostrano invece assunzioni in aumento, trainate da terziario e turismo. economia bergamo lavoro disoccupazione confindustria bergamo occupazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-07-bergamo-disoccupazione-minima-italia-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, disoccupazione all&#x27;1,3% nel 2025: la più bassa d&#x27;Italia, ma la crescita occupazionale rallenta</h2><p class="card-summary">L&#x27;Indagine sul Lavoro 2026 di Confindustria Bergamo conferma il tasso di disoccupazione più basso tra le province italiane, ma segnala una crescita occupazionale quasi ferma. I dati dell&#x27;Osservatorio provinciale sul primo trimestre mostrano invece assunzioni in aumento, trainate da terziario e turismo.</p><p class="card-meta">7 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
