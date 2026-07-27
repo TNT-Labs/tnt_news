@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot; — TNT News</title>
+  <meta name="description" content="In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-27-kilometro-rosso-bergamo-universita-ingegneria-majorana/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot; — TNT News">
+  <meta property="og:description" content="In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-27-kilometro-rosso-bergamo-universita-ingegneria-majorana/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot; — TNT News">
+  <meta name="twitter:description" content="In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Kilometro Rosso</span><span class="tag">Università di Bergamo</span><span class="tag">Innovazione</span></div>
+    <h1>Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot;</h1>
+    <p class="article-summary">In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-27">27 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il direttore del parco scientifico e tecnologico Kilometro Rosso, Salvatore
+Majorana, ha rilanciato in un'intervista l'idea di trasferire nel campus di
+Bergamo la facoltà di Ingegneria dell'Università degli studi di Bergamo,
+oggi con sede a Dalmine. Per Majorana, alla guida della struttura dal 1°
+ottobre 2017, sarebbe "la svolta" per integrare stabilmente il parco nel
+tessuto economico e istituzionale della provincia.</p>
+
+<h2>Un campus con 85 aziende e 3.000 persone</h2>
+<p>Il Kilometro Rosso ospita oggi in pianta stabile 85 tra aziende e centri
+di ricerca, per un totale di circa 3.000 occupati con un'età media di
+33-34 anni e almeno la laurea come titolo di studio minimo. Il bacino di
+attrazione dei lavoratori, secondo Majorana, si estende per 50-60
+chilometri e coinvolge anche pendolari da Milano e Brescia. Quando il
+direttore è arrivato, nove anni fa, l'associazione contava circa 50
+aziende: nel frattempo la struttura si è ampliata con il JOiiNT LAB, con
+l'arrivo di Enea e con nuovi spazi per attività semiproduttive.</p>
+
+<h2>La difficoltà maggiore: il riconoscimento locale</h2>
+<p>Majorana indica come nodo principale del proprio mandato non la crescita
+del parco in sé, ma il suo inserimento "strutturale" nel sistema
+territoriale bergamasco: lamenta di non essere stato coinvolto nei tavoli
+legati all'OCSE né in quelli del progetto Bergamo 2030, nonostante
+l'atteggiamento definito "aperto e inclusivo" mantenuto nel tempo dalla
+famiglia Bombassei, fondatrice del parco. Secondo il direttore, il
+territorio bergamasco fatica strutturalmente a generare startup e a
+condividere progetti tra imprese, un limite culturale che frenerebbe
+l'innovazione rispetto a Francia e Germania, Paesi con un Pil simile ma una
+capacità di generare nuove imprese innovative superiore, secondo Majorana,
+di circa dieci volte.</p>
+
+<h2>Ingegneria al Kilometro Rosso, poi una Fondazione</h2>
+<p>Il progetto a breve termine riguarda il trasferimento del campus di
+Ingegneria nel parco, affiancato da un possibile polo di Medicina a
+Dalmine; Majorana cita in proposito il rettore dell'Università di Bergamo,
+Sergio Cavalieri, descritto come figura di "grande visione" sul dossier.
+Nel medio periodo l'obiettivo è trasformare il Kilometro Rosso in una
+Fondazione che riunisca Università, Confindustria Bergamo e altri soggetti
+del territorio come "casa comune" dell'innovazione, anche attraverso una
+Zona Industriale Speciale dedicata alla meccatronica. Nel lungo periodo,
+orizzonte 2034-2035, Majorana immagina un'aggregazione con le realtà di
+Brescia per raggiungere una massa critica paragonabile a quella di grandi
+poli tedeschi o milanesi.</p>
+
+<blockquote>"Siamo un posto nel quale non nascono startup ed è una cosa
+folle": così Majorana descrive il paradosso di un territorio capace di
+produrre imprese ma non, finora, cultura d'impresa condivisa e
+innovazione strutturata.</blockquote>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Tappe dello sviluppo del Kilometro Rosso di Bergamo: apertura nel 2007 con il centro ricerche Brembo, arrivo dei laboratori dell'Università di Bergamo nel 2009, dell'Istituto Mario Negri nel 2010, di i.Lab Italcementi nel 2012 e della sede di Confindustria Bergamo nel 2015, fino alle 85 aziende e circa 3.000 occupati di oggi. Fonte: Lombardia Beni Culturali e BergamoNews, 27 luglio 2026.">
+  <g font-family="sans-serif" font-size="14">
+    <line x1="40" y1="150" x2="600" y2="150" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+
+    <circle cx="80" cy="150" r="7" fill="currentColor"/>
+    <text x="80" y="120" text-anchor="middle">2007</text>
+    <text x="80" y="180" text-anchor="middle">Apertura</text>
+    <text x="80" y="198" text-anchor="middle">(Brembo)</text>
+
+    <circle cx="220" cy="150" r="7" fill="currentColor"/>
+    <text x="220" y="120" text-anchor="middle">2009</text>
+    <text x="220" y="180" text-anchor="middle">Laboratori</text>
+    <text x="220" y="198" text-anchor="middle">Univ. Bergamo</text>
+
+    <circle cx="340" cy="150" r="7" fill="currentColor"/>
+    <text x="340" y="120" text-anchor="middle">2010</text>
+    <text x="340" y="180" text-anchor="middle">Ist. Mario</text>
+    <text x="340" y="198" text-anchor="middle">Negri</text>
+
+    <circle cx="440" cy="150" r="7" fill="currentColor"/>
+    <text x="440" y="120" text-anchor="middle">2012</text>
+    <text x="440" y="180" text-anchor="middle">i.Lab</text>
+    <text x="440" y="198" text-anchor="middle">Italcementi</text>
+
+    <circle cx="540" cy="150" r="7" fill="currentColor"/>
+    <text x="540" y="120" text-anchor="middle">2015</text>
+    <text x="540" y="180" text-anchor="middle">Confindustria</text>
+    <text x="540" y="198" text-anchor="middle">Bergamo</text>
+
+    <circle cx="600" cy="150" r="9" fill="currentColor" opacity="0.9"/>
+    <text x="600" y="80" text-anchor="middle" font-weight="bold">Oggi</text>
+    <text x="600" y="240" text-anchor="middle">85 aziende</text>
+    <text x="600" y="258" text-anchor="middle">~3.000 occupati</text>
+  </g>
+</svg>
+<figcaption>Le tappe principali dello sviluppo del Kilometro Rosso, dalla
+nascita nel 2007 accanto al centro ricerche Brembo fino alle 85 aziende e
+circa 3.000 occupati di oggi. Valori indicativi. Fonti: Lombardia Beni
+Culturali e BergamoNews, 27 luglio 2026.</figcaption>
+</figure>
+
+<h2>Le proposte sul finanziamento dell'innovazione</h2>
+<p>Majorana ha inoltre chiesto un intervento nazionale per orientare una
+quota, tra l'1 e il 3%, delle risorse dei fondi pensione verso il venture
+capital, sul modello di quanto avviene già in altri Paesi europei, per
+colmare il divario di finanziamenti alle startup italiane rispetto a
+Francia e Germania. Il tema, secondo il direttore, riguarda tanto il
+Ministero dell'Università e della Ricerca quanto il Mimit, ed è condiviso
+con realtà come il CSMT di Brescia e l'associazione InnovUp.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/27/majorana-il-kilometro-rosso-e-una-linea-non-un-muro-luniversita-qui-sarebbe-la-svolta-per-bergamo/907913/" rel="noopener" target="_blank">BergamoNews – Majorana: &quot;Il Kilometro Rosso è una linea, non un muro. L&#x27;Università qui sarebbe la svolta per Bergamo&quot;</a></li><li><a href="https://www.lombardiabeniculturali.it/architetture900/schede/p4010-00325/" rel="noopener" target="_blank">Lombardia Beni Culturali – Parco scientifico Kilometro Rosso, Bergamo (BG)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della bergamasca un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. nella bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della cassazione sblocca altri arretrati per l&#x27;energia gratuita. economia bergamo idroelettrico comuni montani regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-25-bergamo-canoni-idroelettrici-100-per-cento-province/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca</h2><p class="card-summary">Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.</p><p class="card-meta">25 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la cisl, «mercato del lavoro saturo» nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di bergamo, 252 in più rispetto al 2025. per la cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione. economia bergamo lavoro dimissioni cisl" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-15-bergamo-dimissioni-volontarie-cisl-mercato-saturo/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo»</h2><p class="card-summary">Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.</p><p class="card-meta">15 luglio 2026</p></div></a></article><article class="card" data-search="saldi estivi, primo weekend da 328 mila presenze in centro a bergamo il primo weekend dei saldi estivi ha portato circa 328 mila visite tra città bassa e città alta, con crescite superiori al 50% rispetto al weekend precedente. i dati di confcommercio bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in città alta. economia bergamo saldi commercio confcommercio bergamo città alta" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-08-saldi-estivi-bergamo-primo-weekend-presenze/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi, primo weekend da 328 mila presenze in centro a Bergamo</h2><p class="card-summary">Il primo weekend dei saldi estivi ha portato circa 328 mila visite tra Città Bassa e Città Alta, con crescite superiori al 50% rispetto al weekend precedente. I dati di Confcommercio Bergamo mostrano due pubblici diversi: residenti della provincia in centro, turisti stranieri in Città Alta.</p><p class="card-meta">8 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
