@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Paladina-Sedrina, la Provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica — TNT News</title>
+  <meta name="description" content="Il Consiglio provinciale di Bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da Anas sull&#x27;ex discarica Monte Bianco di Sorisole, passaggio necessario per sbloccare il terzo lotto della Paladina-Sedrina. Il comitato &quot;Salviamo il Parco dei Colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della SP470.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-07-28-bergamo-paladina-sedrina-discarica-monte-bianco/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Paladina-Sedrina, la Provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica — TNT News">
+  <meta property="og:description" content="Il Consiglio provinciale di Bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da Anas sull&#x27;ex discarica Monte Bianco di Sorisole, passaggio necessario per sbloccare il terzo lotto della Paladina-Sedrina. Il comitato &quot;Salviamo il Parco dei Colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della SP470.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-07-28-bergamo-paladina-sedrina-discarica-monte-bianco/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Paladina-Sedrina, la Provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica — TNT News">
+  <meta name="twitter:description" content="Il Consiglio provinciale di Bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da Anas sull&#x27;ex discarica Monte Bianco di Sorisole, passaggio necessario per sbloccare il terzo lotto della Paladina-Sedrina. Il comitato &quot;Salviamo il Parco dei Colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della SP470.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Sorisole</span><span class="tag">Paladina-Sedrina</span><span class="tag">Anas</span></div>
+    <h1>Paladina-Sedrina, la Provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica</h1>
+    <p class="article-summary">Il Consiglio provinciale di Bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da Anas sull&#x27;ex discarica Monte Bianco di Sorisole, passaggio necessario per sbloccare il terzo lotto della Paladina-Sedrina. Il comitato &quot;Salviamo il Parco dei Colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della SP470.</p>
+    <p class="article-meta">
+      <time datetime="2026-07-28">28 luglio 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il Consiglio provinciale di Bergamo ha approvato una variazione di bilancio
+che stanzia <strong>250 mila euro</strong> per le analisi ambientali
+richieste da Anas sull'area dell'ex discarica Monte Bianco, a Sorisole, che
+attraversa il tracciato previsto per il terzo lotto della Paladina-Sedrina,
+la tangenziale sud della Val Brembana. Il passaggio, atteso da mesi, è
+condizione necessaria perché l'iter dell'opera prosegua.</p>
+
+<h2>Un'opera attesa da vent'anni, un ostacolo emerso in aprile</h2>
+<p>Il progetto complessivo della Paladina-Sedrina, suddiviso in tre lotti, è
+stimato in circa 520-527 milioni di euro; il secondo lotto, tra Curno e
+Valbrembo, ha già assorbito oltre 100 milioni. Lo scorso 13 aprile Anas
+aveva sospeso in via cautelativa l'iter del terzo lotto, segnalando
+l'impossibilità di escludere, senza indagini ambientali aggiornate, la
+presenza di sostanze inquinanti nell'area della ex discarica sul tracciato,
+con possibili ripercussioni sulla effettiva fattibilità dell'opera. Il
+finanziamento approvato ora dalla Provincia copre proprio le indagini
+integrative richieste dall'ente gestore della rete stradale nazionale.</p>
+
+<h3>La posizione della Provincia</h3>
+<p>Il presidente della Provincia di Bergamo, Gianfranco Gafforelli, ha
+difeso la scelta di proseguire sul tracciato individuato, respingendo le
+richieste di un ripensamento complessivo del progetto.</p>
+<blockquote>"Dopo quasi trent'anni non si può discutere ancora di
+alternative."</blockquote>
+
+<h2>Il comitato: "Allargare la SP470 costerebbe meno"</h2>
+<p>Il comitato "Salviamo il Parco dei Colli", nato nel 2024 e sostenuto da
+una petizione online con oltre 9.000 adesioni, contesta invece l'utilità e
+la sostenibilità del progetto così come concepito. Attraverso i propri
+componenti, tra cui Carolina e Alessio Agliardi, il comitato rilancia una
+soluzione alternativa già proposta nel 2001 dall'ingegnere Coluzzi:
+allargare a quattro corsie la statale 470, con interramenti selettivi nei
+punti più critici, anziché completare il nuovo tracciato della
+Paladina-Sedrina. Secondo il comitato questa opzione permetterebbe di
+risparmiare decine di milioni di euro rispetto al costo complessivo
+dell'opera attualmente prevista.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Tappe principali del dossier Paladina-Sedrina: proposta alternativa dell'ingegnere Coluzzi nel 2001, avvio dei lavori del secondo lotto Curno-Valbrembo (oltre 100 milioni di euro), nascita del comitato Salviamo il Parco dei Colli nel 2024, sospensione cautelativa di Anas il 13 aprile 2026 e stanziamento di 250 mila euro per le analisi ambientali il 27 luglio 2026. Valori indicativi. Fonti: BergamoNews e Il Giorno.">
+  <g font-family="sans-serif" font-size="13">
+    <line x1="40" y1="160" x2="600" y2="160" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+
+    <circle cx="70" cy="160" r="7" fill="currentColor"/>
+    <text x="70" y="130" text-anchor="middle">2001</text>
+    <text x="70" y="190" text-anchor="middle">Proposta</text>
+    <text x="70" y="206" text-anchor="middle">ing. Coluzzi</text>
+
+    <circle cx="230" cy="160" r="7" fill="currentColor"/>
+    <text x="230" y="130" text-anchor="middle">2° lotto</text>
+    <text x="230" y="190" text-anchor="middle">Curno-Valbrembo</text>
+    <text x="230" y="206" text-anchor="middle">oltre 100 mln</text>
+
+    <circle cx="360" cy="160" r="7" fill="currentColor"/>
+    <text x="360" y="130" text-anchor="middle">2024</text>
+    <text x="360" y="190" text-anchor="middle">Nasce il comitato</text>
+    <text x="360" y="206" text-anchor="middle">"Parco dei Colli"</text>
+
+    <circle cx="480" cy="160" r="7" fill="currentColor"/>
+    <text x="480" y="130" text-anchor="middle">13 apr 2026</text>
+    <text x="480" y="190" text-anchor="middle">Anas sospende</text>
+    <text x="480" y="206" text-anchor="middle">in via cautelativa</text>
+
+    <circle cx="600" cy="160" r="9" fill="currentColor" opacity="0.9"/>
+    <text x="600" y="100" text-anchor="middle" font-weight="bold">27 lug 2026</text>
+    <text x="600" y="240" text-anchor="middle">250.000 €</text>
+    <text x="600" y="256" text-anchor="middle">per le analisi</text>
+  </g>
+</svg>
+<figcaption>Le tappe principali del dossier Paladina-Sedrina, dalla proposta
+alternativa del 2001 allo stanziamento per le analisi ambientali approvato
+dal Consiglio provinciale il 27 luglio 2026. Valori indicativi. Fonti:
+BergamoNews e Il Giorno.</figcaption>
+</figure>
+
+<h2>I prossimi passi</h2>
+<p>Con il finanziamento delle indagini integrative, la palla passa ora ad
+Anas, che dovrà valutarne gli esiti e, in parallelo, reperire le risorse per
+la realizzazione dell'opera. Le tempistiche restano incerte: il presidente
+della Comunità Montana Valle Brembana, Valeriano Bianchi, ha assicurato
+l'impegno a intervenire con una bonifica qualora le analisi rilevassero
+sostanze inquinanti oltre i limiti previsti. Resta aperto il confronto tra
+chi considera il tracciato ormai non più negoziabile dopo decenni di attesa
+e chi, come il comitato dei Colli, chiede ancora una valutazione comparativa
+tra le due soluzioni prima di impegnare altre risorse pubbliche.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/07/28/paladina-sedrina-250-mila-euro-per-analizzare-lex-discarica-il-comitato-allargando-la-470-si-risparmiano-decine-di-milioni/911598/" rel="noopener" target="_blank">BergamoNews – Paladina-Sedrina, 250 mila euro per analizzare l&#x27;ex discarica. Il comitato: &quot;Allargando la 470 si risparmiano decine di milioni&quot;</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/paladina-sedrina-anas-brembana-i9730mcr" rel="noopener" target="_blank">Il Giorno – Sulla Paladina-Sedrina Anas non cambia idea: l&#x27;opera attesa da 20 anni sarà costruita</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="aeroporto di orio, treni sospesi tra bergamo e seriate per i lavori del futuro collegamento ferroviario domenica 26 luglio la circolazione dei treni tra bergamo e seriate è stata sospesa, con bus sostitutivi, per lavori propedeutici al futuro collegamento ferroviario con l&#x27;aeroporto di orio al serio, opera da circa 170 milioni di euro finanziata anche con fondi pnrr. trasporti bergamo trasporti aeroporto di orio al serio rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-26-bergamo-seriate-treni-sospesi-orio-al-serio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Aeroporto di Orio, treni sospesi tra Bergamo e Seriate per i lavori del futuro collegamento ferroviario</h2><p class="card-summary">Domenica 26 luglio la circolazione dei treni tra Bergamo e Seriate è stata sospesa, con bus sostitutivi, per lavori propedeutici al futuro collegamento ferroviario con l&#x27;aeroporto di Orio al Serio, opera da circa 170 milioni di euro finanziata anche con fondi PNRR.</p><p class="card-meta">26 luglio 2026</p></div></a></article><article class="card" data-search="sciopero dei treni, venerdì 24 luglio disagi anche in bergamasca: le fasce garantite uno sciopero ferroviario nazionale di 24 ore, proclamato da cub trasporti e sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21. trasporti bergamo sciopero trenord pendolari" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-24-sciopero-treni-bergamasca-24-luglio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Sciopero dei treni, venerdì 24 luglio disagi anche in Bergamasca: le fasce garantite</h2><p class="card-summary">Uno sciopero ferroviario nazionale di 24 ore, proclamato da Cub Trasporti e Sgb, può causare cancellazioni e variazioni sui treni regionali in provincia di Bergamo fino alle 20:59 di venerdì; il servizio è comunque garantito nelle fasce 6-9 e 18-21.</p><p class="card-meta">24 luglio 2026</p></div></a></article><article class="card" data-search="tram t2 bergamo-villa d&#x27;almè, all&#x27;apertura mancherà la fermata ramera e il parcheggio più grande quando la nuova linea tranviaria t2 entrerà in servizio in autunno, la fermata ramera - parco dei colli tra ponteranica e sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area grès non ancora avviati. trasporti bergamo t2 tranvia valle brembana mobilità" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-23-bergamo-t2-fermata-ramera-parcheggio/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Tram T2 Bergamo-Villa d&#x27;Almè, all&#x27;apertura mancherà la fermata Ramera e il parcheggio più grande</h2><p class="card-summary">Quando la nuova linea tranviaria T2 entrerà in servizio in autunno, la fermata Ramera - Parco dei Colli tra Ponteranica e Sorisole resterà chiusa e con essa il principale parcheggio di interscambio da 154 posti, legato a lavori nell&#x27;ex area Grès non ancora avviati.</p><p class="card-meta">23 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
