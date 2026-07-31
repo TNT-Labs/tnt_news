@@ -1,0 +1,45 @@
+{
+  "date": "2026-07-31",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno e soleggiato su tutto il tragitto, nessuna pioggia prevista, temperature calde in aumento (25-27°C) e vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Soleggiato", "temp_c": 24.7, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Soleggiato", "temp_c": 27.2, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",     "cond": "Soleggiato", "temp_c": 27.4, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "OSO"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 71,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 28},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [
+      {"where": "A51 tra Svincolo Cologno Monzese (S.Giovanni Sud) e Svincolo Lambrate (Melzo - Dogana Segrate), dir. Allacciamento A1 (sud)", "desc": "Code a tratti causa traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). Google Weather OK sui 3 punti e storico Bergamo (pioggia 3h precedenti = 0 mm). CCISS RSS letto: 3 eventi totali, 1 pertinente alla tratta e alla direzione dell'andata (A51 Cologno-Lambrate dir. A1/sud); i 2 eventi A4 (Cormano-Tangenziale Nord dir. Brescia; Barriera Milano Est-Cormano dir. Torino) sono fuori tratta (zona Milano, non Bergamo-Agrate) e sono stati scartati. Serravalle viabilità: pagina raggiunta ma priva di contenuto informativo dinamico specifico. Luceverde e Autostrade.it: nessun contenuto utile/404 come da storico. Ricerca web: nessun incidente/cantiere aggiuntivo segnalato per oggi su A4 Bergamo-Agrate o A51 Carugate-San Donato."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza a Bergamo",
+      "Temperature ampiamente sopra i 7°C (25-27°C)",
+      "Vento debole ovunque (max 6 km/h, raffiche massime 11 km/h) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
