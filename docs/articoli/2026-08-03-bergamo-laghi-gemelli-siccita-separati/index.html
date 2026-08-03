@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 — TNT News</title>
+  <meta name="description" content="Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-03-bergamo-laghi-gemelli-siccita-separati/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 — TNT News">
+  <meta property="og:description" content="Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-03-bergamo-laghi-gemelli-siccita-separati/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 — TNT News">
+  <meta name="twitter:description" content="Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Val Brembana</span><span class="tag">Siccità</span><span class="tag">Laghi Gemelli</span><span class="tag">Crisi idrica</span></div>
+    <h1>Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022</h1>
+    <p class="article-summary">Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-03">3 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>In Alta Val Brembana, nel territorio del comune di <strong>Branzi</strong>,
+i <strong>Laghi Gemelli</strong> sono tornati a separarsi. Il calo del livello
+del bacino idroelettrico, a oltre 2.000 metri di quota, ha riportato in
+superficie la lingua di terra che un tempo divideva i due specchi d'acqua,
+oggi uniti solo grazie alla diga costruita nel 1932. Non accadeva, in piena
+estate, dal 2022.</p>
+
+<h2>Un invaso tornato ai minimi</h2>
+<p>Prima della diga, che quando è piena raccoglie circa 8 milioni di metri
+cubi d'acqua, i due laghi erano naturalmente distinti: da qui il nome
+"Gemelli". L'opera li ha uniti in un unico bacino artificiale, ma quando le
+riserve scendono sotto una certa soglia la striscia di terra riemerge e i
+laghi tornano visivamente separati. Una fotografia del 2017, quando il
+bacino era pieno, mostra un unico specchio d'acqua continuo; il confronto con
+le immagini di questi giorni rende evidente la portata del calo. L'ultima
+volta che la lingua di terra era emersa, nel 2005, la causa era però diversa:
+un parziale svuotamento dell'invaso per lavori di manutenzione alla diga, non
+la siccità.</p>
+
+<h2>La provincia in "grave crisi idrica"</h2>
+<p>Il fenomeno dei Laghi Gemelli è la fotografia più visibile di una crisi
+che riguarda l'intera provincia. Secondo <strong>Mario Reduzzi</strong>,
+direttore del Consorzio di bonifica della Media Pianura Bergamasca, "siamo
+entrati in una fase di grave crisi idrica": nei bacini artificiali della Val
+Seriana restano poco più di 10 milioni di metri cubi d'acqua, in quelli della
+Val Brembana meno di 5 milioni. Il Barbellino, il più grande invaso delle
+Orobie bergamasche, con una capienza massima di 18 milioni di metri cubi a
+64 metri di altezza, si trova oggi oltre 20 metri sotto il livello di
+massimo invaso.</p>
+
+<p>Le conseguenze ricadono soprattutto sull'agricoltura della pianura. Il
+Consorzio ha annunciato che dall'<strong>8 agosto</strong> scatterà il
+razionamento dell'acqua del fiume Serio, seguito nelle settimane successive
+da quello del Brembo. La distribuzione avverrà "a giorni alterni", ha
+spiegato Reduzzi: un giorno l'acqua sarà destinata a una zona, il giorno
+successivo a un'altra porzione di campagna.</p>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Cronologia dello stato dei Laghi Gemelli di Branzi negli ultimi anni: laghi pieni e uniti nel 2017; lingua di terra riemersa nel 2005 per lavori di manutenzione alla diga; laghi separati per siccità nell'estate 2022; laghi di nuovo separati per siccità nell'agosto 2026. Fonte: BergamoNews, 3 agosto 2026.">
+  <g font-family="sans-serif" font-size="13">
+    <line x1="40" y1="150" x2="600" y2="150" stroke="currentColor" stroke-width="3" opacity="0.3"/>
+
+    <circle cx="90" cy="150" r="9" fill="currentColor" opacity="0.4"/>
+    <text x="90" y="120" text-anchor="middle" font-weight="bold">2005</text>
+    <text x="90" y="180" text-anchor="middle">Terra riemersa</text>
+    <text x="90" y="197" text-anchor="middle">(manutenzione diga)</text>
+
+    <circle cx="260" cy="150" r="9" fill="currentColor" opacity="0.15"/>
+    <text x="260" y="120" text-anchor="middle" font-weight="bold">2017</text>
+    <text x="260" y="180" text-anchor="middle">Laghi pieni</text>
+    <text x="260" y="197" text-anchor="middle">e uniti</text>
+
+    <circle cx="430" cy="150" r="9" fill="currentColor"/>
+    <text x="430" y="120" text-anchor="middle" font-weight="bold">2022</text>
+    <text x="430" y="180" text-anchor="middle">Separati</text>
+    <text x="430" y="197" text-anchor="middle">per siccità</text>
+
+    <circle cx="580" cy="150" r="9" fill="currentColor"/>
+    <text x="580" y="120" text-anchor="middle" font-weight="bold">Ago. 2026</text>
+    <text x="580" y="180" text-anchor="middle">Separati</text>
+    <text x="580" y="197" text-anchor="middle">per siccità</text>
+  </g>
+</svg>
+<figcaption>Gli anni in cui i Laghi Gemelli di Branzi sono apparsi separati
+o pieni, secondo il confronto fotografico riportato dalle fonti. Valori
+indicativi. Fonte: BergamoNews, 3 agosto 2026.</figcaption>
+</figure>
+
+<h2>Uno scenario già visto, ma raro d'estate</h2>
+<p>I gestori dei rifugi della zona ricordano che la separazione dei due
+bacini in tarda primavera, prima dello scioglimento delle nevi, non è
+insolita. Vederla ripetersi in piena estate, come nel 2022 e ora nel 2026, è
+invece un evento raro, legato alla combinazione di scarso innevamento
+invernale, temperature elevate e prelievi per uso idroelettrico e irriguo.
+Il Consorzio di bonifica segnala che, rispetto alla crisi del 2022, la
+provincia dispone oggi di alcuni strumenti in più, come la conversione di
+parte dell'irrigazione a scorrimento in sistemi a pioggia in alcune aree
+dell'alta pianura, ma questo non ha finora evitato l'avvio del
+razionamento.</p>
+
+<blockquote>"Siamo entrati in una fase di grave crisi idrica": il
+razionamento dell'acqua del Serio parte l'8 agosto, quello del Brembo nelle
+settimane successive.</blockquote>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/03/i-laghi-gemelli-si-separano-ancora-per-mancanza-di-acqua-il-paragone-con-una-foto-del-2017/912730/" rel="noopener" target="_blank">BergamoNews – I Laghi Gemelli si separano ancora per mancanza di acqua: il paragone con una foto del 2017</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/siccita-campi-acqua-razionata-consorzio-bonifica-bergamo-mv2wv0ja" rel="noopener" target="_blank">Il Giorno – Nella pianura bergamasca la crisi idrica è da allarme rosso: acqua nei campi solo a giorni alterni</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="crisi idrica severa in bergamasca: riserve dimezzate, nel brembo muoiono le trote il consorzio di bonifica della media pianura bergamasca e regione lombardia parlano di crisi idrica severa, con riserve complessive dimezzate rispetto alla media storica. un segnale concreto arriva dal brembo, dove un canale ostruito tra villa d&#x27;almè e almè ha causato la morte di un centinaio di trote. ambiente bergamo siccità fiumi crisi idrica" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-30-bergamo-crisi-idrica-severa-riserve-dimezzate/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Crisi idrica severa in Bergamasca: riserve dimezzate, nel Brembo muoiono le trote</h2><p class="card-summary">Il Consorzio di bonifica della Media Pianura Bergamasca e Regione Lombardia parlano di crisi idrica severa, con riserve complessive dimezzate rispetto alla media storica. Un segnale concreto arriva dal Brembo, dove un canale ostruito tra Villa d&#x27;Almè e Almè ha causato la morte di un centinaio di trote.</p><p class="card-meta">30 luglio 2026</p></div></a></article><article class="card" data-search="siccità, per i campi della bergamasca acqua garantita solo fino al 24 luglio l&#x27;intesa raggiunta il 16 luglio in regione lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione. ambiente bergamo siccità agricoltura fiumi" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-21-siccita-bergamasca-acqua-campi-24-luglio/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Siccità, per i campi della Bergamasca acqua garantita solo fino al 24 luglio</h2><p class="card-summary">L&#x27;intesa raggiunta il 16 luglio in Regione Lombardia assicura flussi extra ai fiumi solo per pochi giorni: nella pianura bergamasca il Consorzio di bonifica ha già dichiarato una crisi idrica di grado medio e un taglio del 20% dell&#x27;acqua per l&#x27;irrigazione.</p><p class="card-meta">21 luglio 2026</p></div></a></article><article class="card" data-search="rumore dell&#x27;aeroporto di orio al serio: dieci sindaci e la provincia chiedono più tutele dopo i risultati dello studio epidemiologico epidinamiche di ats bergamo, dieci sindaci del territorio e la provincia di bergamo chiedono nuove misure contro l&#x27;impatto acustico dell&#x27;aeroporto di orio al serio e un monitoraggio sanitario strutturato. ambiente bergamo orio al serio aeroporto rumore" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-07-31-bergamo-aeroporto-sindaci-rumore-studio-ats/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Rumore dell&#x27;aeroporto di Orio al Serio: dieci sindaci e la Provincia chiedono più tutele</h2><p class="card-summary">Dopo i risultati dello studio epidemiologico EpiDinamiche di ATS Bergamo, dieci sindaci del territorio e la Provincia di Bergamo chiedono nuove misure contro l&#x27;impatto acustico dell&#x27;aeroporto di Orio al Serio e un monitoraggio sanitario strutturato.</p><p class="card-meta">31 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
