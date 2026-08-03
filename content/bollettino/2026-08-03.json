@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-03",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno e soleggiato su tutto il tragitto, nessuna pioggia prevista, temperature calde in aumento (24-27°C) e vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Soleggiato",             "temp_c": 23.7, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Prevalentemente soleggiato", "temp_c": 26.9, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",     "cond": "Prevalentemente soleggiato", "temp_c": 27.1, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 74,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 31}
+    ],
+    "incidents": [
+      {"where": "A51 tra Svincolo Cologno Monzese (S.Giovanni Sud) e Svincolo Linate, dir. Allacciamento A1 (sud)", "desc": "Code a tratti causa traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25). Google Weather OK sui 3 punti e storico Bergamo (pioggia 3h precedenti = 0.01 mm, trascurabile/asfalto sostanzialmente asciutto). CCISS RSS letto: 5 eventi totali, 1 pertinente alla tratta e alla direzione dell'andata (A51 Cologno Monzese-Linate dir. A1/sud); i 4 eventi A4 (Allacciamento Tang. Est-Sesto S.Giovanni, Cormano-Monte Ceneri, Monte Ceneri-Barriera Milano Est, Sesto S.Giovanni-Monte Ceneri) sono fuori tratta (zona Milano, non Bergamo-Agrate) e sono stati scartati. Serravalle viabilità: pagina raggiunta ma priva di contenuto informativo dinamico specifico. Luceverde: nessun contenuto utile. Autostrade.it: 404 come da storico. Ricerca web: nessun incidente/cantiere aggiuntivo verificato per oggi su A4 Bergamo-Agrate o A51 Carugate-San Donato (risultati generici o riferiti a eventi passati)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto praticamente asciutto: solo 0.01 mm nelle 3 ore precedenti a Bergamo",
+      "Temperature ampiamente sopra i 7°C (24-27°C)",
+      "Vento debole ovunque (max 6 km/h, raffiche max 13 km/h) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
