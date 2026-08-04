@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Gioco d&#x27;azzardo, in provincia di Bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante — TNT News</title>
+  <meta name="description" content="La relazione sul gioco pubblico in Italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. Il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-04-bergamo-gioco-azzardo-raccolta-2025/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Gioco d&#x27;azzardo, in provincia di Bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante — TNT News">
+  <meta property="og:description" content="La relazione sul gioco pubblico in Italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. Il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-04-bergamo-gioco-azzardo-raccolta-2025/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gioco d&#x27;azzardo, in provincia di Bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante — TNT News">
+  <meta name="twitter:description" content="La relazione sul gioco pubblico in Italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. Il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Gioco d&#x27;azzardo</span><span class="tag">Economia</span><span class="tag">Gioco online</span><span class="tag">Monopoli di Stato</span></div>
+    <h1>Gioco d&#x27;azzardo, in provincia di Bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante</h1>
+    <p class="article-summary">La relazione sul gioco pubblico in Italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. Il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-04">4 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Nella provincia di Bergamo sono stati giocati <strong>2,667 miliardi di
+euro</strong> nel 2025, quasi <strong>100 milioni in più</strong> rispetto
+all'anno precedente (+3,9%). Lo certifica la relazione sul gioco pubblico
+basata sui dati dell'Agenzia delle Dogane e dei Monopoli, ripresa nei giorni
+scorsi dalla stampa locale. Il dato colloca la bergamasca al terzo posto in
+Lombardia per raccolta, dietro Milano (9,4 miliardi) e Brescia (3,2
+miliardi), in una regione che da sola vale 26 dei 165,3 miliardi giocati in
+Italia.</p>
+
+<h2>Online sempre più protagonista</h2>
+<p>La crescita della raccolta è trainata quasi interamente dal gioco a
+distanza: i giochi di abilità online hanno superato il miliardo di euro
+(1,055 miliardi, +16% sul 2024), mentre le tradizionali slot e videolottery
+fisiche (VLT e AWP) sono scese a 809 milioni, in calo del 4,6%. Seguono le
+scommesse sportive, a 263 milioni, e le lotterie istantanee, i cosiddetti
+"gratta e vinci", a 247 milioni. Secondo L'Eco di Bergamo, che ha incrociato
+i dati comune per comune, in <strong>166 municipi della provincia</strong> il
+gioco online ha ormai superato quello fisico, e in 27 comuni la raccolta
+avviene ormai esclusivamente attraverso piattaforme digitali.</p>
+
+<h2>Il costo per i giocatori e per lo Stato</h2>
+<p>Al netto delle vincite restituite ai giocatori, la spesa effettiva -
+quanto cioè è rimasto nelle casse dei concessionari e dello Stato - è stata
+di <strong>415,4 milioni di euro</strong> in un anno, pari a circa 2.821 euro
+per ogni residente maggiorenne della provincia. Il gettito fiscale generato
+dal settore si è fermato a 209,8 milioni, il 7,9% della raccolta
+complessiva: una quota che gli osservatori citati dalla stampa locale
+definiscono comunque contenuta rispetto al giro d'affari totale.</p>
+
+<figure>
+<svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre della raccolta del gioco d'azzardo in provincia di Bergamo nel 2025 per tipologia: giochi di abilità online 1.055 milioni di euro, VLT e AWP fisiche 809 milioni, scommesse sportive 263 milioni, lotterie istantanee 247 milioni. Fonte: L'Eco di Bergamo e BergamoNews, dati Agenzia delle Dogane e dei Monopoli, agosto 2026.">
+  <g font-family="sans-serif" font-size="13">
+    <line x1="170" y1="40" x2="170" y2="280" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+    <line x1="170" y1="280" x2="600" y2="280" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+
+    <text x="60" y="70" text-anchor="end">Online (abilità)</text>
+    <rect x="170" y="55" width="380" height="30" fill="currentColor" opacity="0.85"/>
+    <text x="560" y="75" text-anchor="start" font-weight="bold">1.055 M€</text>
+
+    <text x="60" y="120" text-anchor="end">VLT / AWP fisiche</text>
+    <rect x="170" y="105" width="291" height="30" fill="currentColor" opacity="0.6"/>
+    <text x="471" y="125" text-anchor="start" font-weight="bold">809 M€</text>
+
+    <text x="60" y="170" text-anchor="end">Scommesse sportive</text>
+    <rect x="170" y="155" width="95" height="30" fill="currentColor" opacity="0.6"/>
+    <text x="275" y="175" text-anchor="start" font-weight="bold">263 M€</text>
+
+    <text x="60" y="220" text-anchor="end">Lotterie istantanee</text>
+    <rect x="170" y="205" width="89" height="30" fill="currentColor" opacity="0.6"/>
+    <text x="269" y="225" text-anchor="start" font-weight="bold">247 M€</text>
+
+    <text x="385" y="310" text-anchor="middle" font-size="12" opacity="0.7">Raccolta 2025 per tipologia di gioco (provincia di Bergamo)</text>
+  </g>
+</svg>
+<figcaption>Raccolta 2025 del gioco pubblico in provincia di Bergamo, per
+tipologia. Dati Agenzia delle Dogane e dei Monopoli, riportati da L'Eco di
+Bergamo e BergamoNews (agosto 2026).</figcaption>
+</figure>
+
+<h2>Un fenomeno con ricadute sanitarie</h2>
+<p>BergamoNews inquadra i numeri anche nella loro dimensione sociale,
+ricordando che il disturbo da gioco d'azzardo è riconosciuto come una
+dipendenza comportamentale che l'ATS di Bergamo segue attraverso i propri
+servizi territoriali dedicati alle dipendenze. La crescita del gioco online,
+accessibile da smartphone in qualsiasi momento della giornata, viene
+indicata dagli operatori del settore come uno dei fattori che rende più
+difficile intercettare precocemente le situazioni di rischio rispetto al
+gioco nei locali fisici, dove il contatto diretto con gestori e altri
+avventori può favorire una prima segnalazione.</p>
+
+<p>Bergamo città resta il singolo comune con la raccolta più alta della
+provincia, circa 350 milioni di euro nel 2025, ma è nei centri minori che si
+registrano gli incrementi percentuali più marcati: a Locatello la raccolta è
+passata da 283mila a 2,6 milioni di euro, a Torre Pallavicina da 662mila a
+1,7 milioni. Solo Blello e Mezzoldo, i due comuni più piccoli della
+provincia, non registrano alcuna raccolta.</p>
+
+<blockquote>Nel 2025 la provincia di Bergamo ha giocato 2,667 miliardi di
+euro, +3,9% sul 2024: il gioco online, oltre 1 miliardo, cresce del 16% e
+supera ormai le slot fisiche in 166 comuni su 243.</blockquote>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/03/dentro-il-calderone-del-gioco-dazzardo-in-provincia-di-bergamo-quasi-tre-miliardi-giocati-nel-2025/912676" rel="noopener" target="_blank">BergamoNews – Dentro il calderone del gioco d&#x27;azzardo: &quot;In provincia di Bergamo spesi quasi tre miliardi nel 2025&quot;</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/gioco-dazzardo-slot-in-flessione-ma-esplode-quello-online-o_3880406_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Gioco d&#x27;azzardo, slot in flessione. Ma esplode quello online</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="kilometro rosso, il direttore majorana: &quot;portare qui la facoltà di ingegneria sarebbe la svolta per bergamo&quot; in un&#x27;intervista il direttore del parco scientifico kilometro rosso, salvatore majorana, propone di trasferire nel campus la facoltà di ingegneria dell&#x27;università di bergamo e immagina un&#x27;evoluzione della struttura in fondazione aperta al territorio. economia bergamo kilometro rosso università di bergamo innovazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-27-kilometro-rosso-bergamo-universita-ingegneria-majorana/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot;</h2><p class="card-summary">In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.</p><p class="card-meta">27 luglio 2026</p></div></a></article><article class="card" data-search="canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della bergamasca un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. nella bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della cassazione sblocca altri arretrati per l&#x27;energia gratuita. economia bergamo idroelettrico comuni montani regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-25-bergamo-canoni-idroelettrici-100-per-cento-province/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca</h2><p class="card-summary">Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.</p><p class="card-meta">25 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la cisl, «mercato del lavoro saturo» nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di bergamo, 252 in più rispetto al 2025. per la cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione. economia bergamo lavoro dimissioni cisl" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-15-bergamo-dimissioni-volontarie-cisl-mercato-saturo/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, dimissioni volontarie in aumento nel primo trimestre 2026: la Cisl, «mercato del lavoro saturo»</h2><p class="card-summary">Nei primi tre mesi del 2026 sono state 10.377 le dimissioni volontarie in provincia di Bergamo, 252 in più rispetto al 2025. Per la Cisl il mercato del lavoro locale è ormai «saturo»: chi si dimette cerca opportunità migliori, non fugge dalla disoccupazione.</p><p class="card-meta">15 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
