@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio — TNT News</title>
+  <meta name="description" content="La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-06-bergamo-distretti-commercio-bando-25-progetti/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio — TNT News">
+  <meta property="og:description" content="La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-06-bergamo-distretti-commercio-bando-25-progetti/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio — TNT News">
+  <meta name="twitter:description" content="La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Commercio</span><span class="tag">Distretti del commercio</span><span class="tag">Regione Lombardia</span></div>
+    <h1>Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio</h1>
+    <p class="article-summary">La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-06">6 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La provincia di Bergamo si conferma tra le più attive in Lombardia nel
+bando regionale <strong>Distretti del Commercio 2026-2030</strong>: entro la
+scadenza del 31 luglio sono stati presentati <strong>25 progetti</strong>,
+frutto del lavoro di Comuni, distretti del commercio, Confcommercio Bergamo
+e Confesercenti Bergamo, per un valore complessivo di <strong>oltre 34
+milioni di euro</strong> di investimenti.</p>
+
+<h2>Ventidue progetti in fascia eccellenza, tre in fascia ordinaria</h2>
+<p>Dei 25 progetti bergamaschi, <strong>22</strong> concorrono nella linea
+dedicata ai progetti di "eccellenza", riservata ai Comuni che hanno saputo
+presentare interventi per oltre un milione di euro e garantire almeno
+100 mila euro di risorse proprie da destinare a futuri bandi per le imprese
+commerciali. I restanti <strong>tre</strong> progetti sono stati candidati
+alla misura "ordinaria". Nel territorio bergamasco solo cinque distretti
+hanno scelto di non partecipare, mentre la grande maggioranza ha puntato
+proprio sulla qualifica di eccellenza.</p>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Grafico a barre: dei distretti del commercio della provincia di Bergamo, 22 hanno presentato progetti in fascia eccellenza, 3 in fascia ordinaria, 5 non hanno partecipato al bando. Fonte: BergamoNews, 5 agosto 2026.">
+  <g font-family="sans-serif" font-size="13">
+    <line x1="230" y1="30" x2="230" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+    <line x1="230" y1="260" x2="580" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+
+    <text x="220" y="75" text-anchor="end">Fascia eccellenza</text>
+    <rect x="230" y="55" width="308" height="34" fill="currentColor" opacity="0.85"/>
+    <text x="548" y="78" text-anchor="start" font-weight="bold">22</text>
+
+    <text x="220" y="140" text-anchor="end">Fascia ordinaria</text>
+    <rect x="230" y="120" width="42" height="34" fill="currentColor" opacity="0.6"/>
+    <text x="282" y="143" text-anchor="start" font-weight="bold">3</text>
+
+    <text x="220" y="205" text-anchor="end">Non partecipanti</text>
+    <rect x="230" y="185" width="70" height="34" fill="currentColor" opacity="0.4"/>
+    <text x="310" y="208" text-anchor="start" font-weight="bold">5</text>
+
+    <text x="405" y="285" text-anchor="middle" font-size="12" opacity="0.7">Distretti del commercio della provincia di Bergamo, bando 2026-2030</text>
+  </g>
+</svg>
+<figcaption>Ripartizione dei distretti del commercio bergamaschi rispetto
+al bando regionale Distretti del Commercio 2026-2030. Fonte: BergamoNews,
+5 agosto 2026.</figcaption>
+</figure>
+
+<h2>Dove vanno i fondi</h2>
+<p>All'interno dei 34 milioni di investimenti previsti dai progetti
+bergamaschi, <strong>2,2 milioni di euro</strong> sono destinati a bandi a
+sostegno delle attività commerciali da erogare entro il 2028, mentre circa
+<strong>136 mila euro</strong> finanzieranno percorsi di formazione e
+convegni rivolti agli imprenditori dei distretti coinvolti. I Comuni
+interessati vanno dal capoluogo a centri come Seriate, Treviglio, Dalmine,
+Clusone, Alzano Lombardo, Sarnico, San Pellegrino Terme e diversi altri
+centri della provincia, segno di una partecipazione diffusa su tutto il
+territorio.</p>
+
+<h2>Il contesto regionale</h2>
+<p>Il bando di Regione Lombardia mette complessivamente a disposizione
+<strong>63 milioni di euro</strong> per il periodo 2026-2030, tra fondi in
+conto capitale e in conto corrente, a favore dei distretti del commercio di
+tutta la regione. I contributi massimi previsti per i singoli progetti
+selezionati sono pari a 520 mila euro per la fascia eccellenza e a 189.900
+euro per la fascia ordinaria. Regione Lombardia pubblicherà la graduatoria
+definitiva, con l'assegnazione dei contributi ai progetti ammessi, entro il
+<strong>30 novembre 2026</strong>.</p>
+
+<blockquote>Grazie al supporto nella progettazione, i distretti bergamaschi
+portano in Regione idee interessanti e buone pratiche non solo per
+sostenere e sviluppare il commercio di vicinato, ma anche per creare
+comunità più forti e rafforzare il legame con il territorio.</blockquote>
+
+<p>Lo ha dichiarato <strong>Luciano Patelli</strong>, presidente di
+Confcommercio Bergamo, commentando la partecipazione dei distretti al
+bando. Sulla stessa linea <strong>Antonio Terzi</strong>, presidente di
+Confesercenti Bergamo, secondo cui l'alta adesione dei Comuni al bando
+regionale è "un segnale molto positivo", che dimostra "la vitalità del
+territorio e la capacità di fare rete tra amministrazioni, associazioni e
+operatori". Ora la parola passa a Regione Lombardia, che nei prossimi mesi
+valuterà i progetti presentati prima di assegnare i finanziamenti.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/05/bando-distretti-del-commercio-bergamo-presenta-25-progetti-per-oltre-34-milioni-di-investimenti/913443" rel="noopener" target="_blank">BergamoNews – Bando Distretti del Commercio, Bergamo presenta 25 progetti per oltre 34 milioni di investimenti</a></li><li><a href="https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioAvviso/servizi-e-informazioni/enti-e-operatori/commercio-e-fiere/distretti-del-commercio/criteri-bando-distretti26/criteri-bando-distretti26" rel="noopener" target="_blank">Regione Lombardia – Bando Distretti del commercio 2026</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della bergamasca un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. nella bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della cassazione sblocca altri arretrati per l&#x27;energia gratuita. economia bergamo idroelettrico comuni montani regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-25-bergamo-canoni-idroelettrici-100-per-cento-province/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Canoni idroelettrici, dal 2027 il 100% alle province: 16 milioni per 53 comuni della Bergamasca</h2><p class="card-summary">Un emendamento alla legge di bilancio regionale porta all&#x27;80% al 100% la quota dei canoni delle grandi derivazioni idroelettriche destinata alle province. Nella Bergamasca, che ospita 21 grandi dighe, la novità porta oltre 16 milioni di euro a 53 comuni; parallelamente una sentenza della Cassazione sblocca altri arretrati per l&#x27;energia gratuita.</p><p class="card-meta">25 luglio 2026</p></div></a></article><article class="card" data-search="turismo da record in bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva ad agosto le presenze turistiche in provincia di bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di filcams cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel nord-ovest, soprattutto donne. economia bergamo turismo lavoro salari" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-05-bergamo-turismo-record-lavoro-povero/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo da record in Bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva</h2><p class="card-summary">Ad agosto le presenze turistiche in provincia di Bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di Filcams Cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel Nord-Ovest, soprattutto donne.</p><p class="card-meta">5 agosto 2026</p></div></a></article><article class="card" data-search="gioco d&#x27;azzardo, in provincia di bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante la relazione sul gioco pubblico in italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche. economia bergamo gioco d&#x27;azzardo economia gioco online monopoli di stato" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-04-bergamo-gioco-azzardo-raccolta-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Gioco d&#x27;azzardo, in provincia di Bergamo giocati quasi 2,7 miliardi nel 2025: online sempre più dominante</h2><p class="card-summary">La relazione sul gioco pubblico in Italia fotografa una bergamasca che nel 2025 ha puntato 2,667 miliardi di euro, quasi il 4% in più del 2024. Il gioco online ha superato 1,3 miliardi e in oltre 160 comuni ha già scavalcato le giocate fisiche.</p><p class="card-meta">4 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
