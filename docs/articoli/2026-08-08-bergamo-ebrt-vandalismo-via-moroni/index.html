@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, doppio atto vandalico contro l&#x27;e-BRT in via Moroni: Atb e Comune annunciano azioni legali — TNT News</title>
+  <meta name="description" content="Tra il pomeriggio e la sera del 7 agosto ignoti hanno alterato la segnaletica anti-svolta e abbattuto un palo con telecamera lungo la corsia dell&#x27;e-BRT in via Moroni. Atb e Comune di Bergamo condannano i fatti e annunciano denuncia e richiesta di risarcimento.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-08-bergamo-ebrt-vandalismo-via-moroni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, doppio atto vandalico contro l&#x27;e-BRT in via Moroni: Atb e Comune annunciano azioni legali — TNT News">
+  <meta property="og:description" content="Tra il pomeriggio e la sera del 7 agosto ignoti hanno alterato la segnaletica anti-svolta e abbattuto un palo con telecamera lungo la corsia dell&#x27;e-BRT in via Moroni. Atb e Comune di Bergamo condannano i fatti e annunciano denuncia e richiesta di risarcimento.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-08-bergamo-ebrt-vandalismo-via-moroni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, doppio atto vandalico contro l&#x27;e-BRT in via Moroni: Atb e Comune annunciano azioni legali — TNT News">
+  <meta name="twitter:description" content="Tra il pomeriggio e la sera del 7 agosto ignoti hanno alterato la segnaletica anti-svolta e abbattuto un palo con telecamera lungo la corsia dell&#x27;e-BRT in via Moroni. Atb e Comune di Bergamo condannano i fatti e annunciano denuncia e richiesta di risarcimento.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">e-BRT</span><span class="tag">via Moroni</span><span class="tag">Atb</span><span class="tag">vandalismo</span></div>
+    <h1>Bergamo, doppio atto vandalico contro l&#x27;e-BRT in via Moroni: Atb e Comune annunciano azioni legali</h1>
+    <p class="article-summary">Tra il pomeriggio e la sera del 7 agosto ignoti hanno alterato la segnaletica anti-svolta e abbattuto un palo con telecamera lungo la corsia dell&#x27;e-BRT in via Moroni. Atb e Comune di Bergamo condannano i fatti e annunciano denuncia e richiesta di risarcimento.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-08">8 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Tra il pomeriggio e la sera di venerdì 7 agosto, ignoti hanno compiuto due
+distinti atti vandalici contro l'infrastruttura dell'e-BRT, la linea di
+trasporto rapido su gomma di Bergamo, lungo via Moroni (SP 525), al confine
+con Lallio. Prima è stata alterata la segnaletica orizzontale che vieta la
+svolta a sinistra, poi, in via per Grumello, nei pressi della fermata
+Kilometro Rosso, è stato abbattuto un palo con telecamera di videosorveglianza.
+Lo riferiscono Atb, la società di trasporto pubblico bergamasca, e il Comune
+di Bergamo, che hanno diffuso una nota congiunta.</p>
+
+<h2>I due episodi</h2>
+<p>Nel primo caso, la doppia riga continua che vieta la svolta a sinistra verso
+le attività commerciali sul lato opposto della carreggiata è stata trasformata
+in una linea tratteggiata, di fatto rendendo di nuovo possibile una manovra
+che il divieto era stato introdotto per eliminare. Il provvedimento, deciso in
+sede di conferenza di servizio, ha lo scopo di ridurre le interferenze tra i
+veicoli e migliorare la sicurezza e la scorrevolezza del traffico lungo la
+corsia riservata ai mezzi dell'e-BRT.</p>
+<p>Poche ore dopo, sempre nella stessa zona, è stato abbattuto un palo che
+sosteneva una telecamera del sistema di videosorveglianza della linea, vicino
+alla fermata Kilometro Rosso. Atb e Comune parlano di "grave vandalismo" che
+ha messo a rischio l'incolumità delle persone e compromesso l'integrità di
+un'infrastruttura pubblica.</p>
+
+<h2>La reazione di Atb e Comune</h2>
+<blockquote>
+"Atb esprime la più ferma condanna per questi comportamenti, che non sono in
+alcun modo giustificabili": così l'azienda di trasporto pubblico, in una nota
+diffusa insieme al Comune di Bergamo.
+</blockquote>
+<p>Le due amministrazioni hanno annunciato la presentazione di una denuncia
+alle autorità giudiziarie e la richiesta di risarcimento integrale dei danni.
+Le immagini registrate dal sistema di videosorveglianza dell'e-BRT sono state
+messe a disposizione degli inquirenti per risalire ai responsabili. La
+segnaletica orizzontale danneggiata è stata ripristinata nella notte tra
+venerdì 7 e sabato 8 agosto.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Timeline dei fatti del 7-8 agosto 2026 in via Moroni: pomeriggio, alterazione della segnaletica anti-svolta; sera, abbattimento del palo con telecamera in via per Grumello; notte, ripristino della segnaletica.">
+    <line x1="80" y1="130" x2="560" y2="130" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+
+    <circle cx="120" cy="130" r="8" fill="currentColor"/>
+    <text x="120" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Pomeriggio</text>
+    <text x="120" y="120" text-anchor="middle" font-size="12" fill="currentColor">7 agosto</text>
+    <text x="120" y="160" text-anchor="middle" font-size="13" fill="currentColor">Segnaletica</text>
+    <text x="120" y="176" text-anchor="middle" font-size="13" fill="currentColor">anti-svolta alterata</text>
+    <text x="120" y="192" text-anchor="middle" font-size="12" fill="currentColor">(via Moroni)</text>
+
+    <circle cx="340" cy="130" r="8" fill="currentColor"/>
+    <text x="340" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Sera</text>
+    <text x="340" y="120" text-anchor="middle" font-size="12" fill="currentColor">7 agosto</text>
+    <text x="340" y="160" text-anchor="middle" font-size="13" fill="currentColor">Palo con telecamera</text>
+    <text x="340" y="176" text-anchor="middle" font-size="13" fill="currentColor">abbattuto</text>
+    <text x="340" y="192" text-anchor="middle" font-size="12" fill="currentColor">(via per Grumello)</text>
+
+    <circle cx="560" cy="130" r="8" fill="currentColor"/>
+    <text x="560" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Notte</text>
+    <text x="560" y="120" text-anchor="middle" font-size="12" fill="currentColor">7-8 agosto</text>
+    <text x="560" y="160" text-anchor="middle" font-size="13" fill="currentColor">Segnaletica</text>
+    <text x="560" y="176" text-anchor="middle" font-size="13" fill="currentColor">ripristinata da Atb</text>
+
+    <text x="320" y="240" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">Orari indicativi. Fonte: BergamoNews e L'Eco di Bergamo, 7-8 agosto 2026</text>
+  </svg>
+  <figcaption>Cronologia dei due atti vandalici contro l'e-BRT in via Moroni e il
+  ripristino della segnaletica. Orari indicativi (pomeriggio/sera/notte) come
+  riportati dalle fonti giornalistiche.</figcaption>
+</figure>
+
+<h2>Perché quel divieto esiste</h2>
+<p>Il divieto di svolta a sinistra lungo la SP 525 non è una misura punitiva
+verso i commercianti della zona, ma una scelta tecnica legata alla sicurezza
+della corsia riservata ai mezzi dell'e-BRT: eliminare le manovre di
+attraversamento riduce il rischio di incidenti tra i bus e i veicoli privati e
+mantiene fluido il traffico sull'asse. È proprio questo il punto su cui, negli
+scorsi mesi, si erano già registrate segnalazioni e modifiche puntuali, come lo
+spostamento di alcuni pali dai marciapiedi limitrofi. Il doppio episodio di
+venerdì mostra però un salto di qualità, passando dalla segnalazione di un
+disagio al danneggiamento diretto dell'infrastruttura e dei suoi dispositivi
+di sicurezza.</p>
+<p>Al momento non sono stati resi noti fermi o identificazioni. Atb ha
+confermato che le indagini proseguono sulla base delle immagini di
+videosorveglianza a disposizione delle forze dell'ordine.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/07/e-brt-il-sabotaggio-delle-strisce-continue-che-vietano-la-svolta-a-sinistra-atb-e-comune-andremo-per-vie-legali/914102" rel="noopener" target="_blank">BergamoNews – e-Brt, il sabotaggio delle strisce continue che vietano la svolta a sinistra. Atb e Comune: &quot;Andremo per vie legali&quot;</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/e-brt-ignoti-cancellano-la-doppia-riga-continua-in-via-moroni-atto-vandalico-o_3925240_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – E-Brt, ignoti modificano la riga continua in via Moroni: atto vandalico</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="tremana, la perizia indica responsabilità del comune di bergamo mentre avanza il cantiere anti-allagamenti una consulenza tecnica disposta dal tribunale attribuisce al comune di bergamo responsabilità civili per l&#x27;esondazione del torrente tremana del 9 settembre 2024, mentre in viale giulio cesare procede il cantiere da 4,2 milioni di euro per lo scolmatore che dovrebbe ridurre il rischio in futuro. cronaca bergamo alluvione tremana giustizia opere pubbliche" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-22-bergamo-tremana-perizia-comune-scolmatore/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Tremana, la perizia indica responsabilità del Comune di Bergamo mentre avanza il cantiere anti-allagamenti</h2><p class="card-summary">Una consulenza tecnica disposta dal tribunale attribuisce al Comune di Bergamo responsabilità civili per l&#x27;esondazione del torrente Tremana del 9 settembre 2024, mentre in viale Giulio Cesare procede il cantiere da 4,2 milioni di euro per lo scolmatore che dovrebbe ridurre il rischio in futuro.</p><p class="card-meta">22 luglio 2026</p></div></a></article><article class="card" data-search="maltempo in bergamasca: tromba d&#x27;aria a bagnatica, quasi 90 interventi dei vigili del fuoco una violenta ondata di maltempo con raffiche fino a 150 km/h ha colpito mercoledì pomeriggio la provincia di bergamo: a bagnatica una tromba d&#x27;aria ha ribaltato un&#x27;auto su un festival, mentre alberi caduti e allagamenti hanno interessato scanzorosciate, treviglio e boltiere. cronaca bergamo maltempo bagnatica vigili del fuoco" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-16-maltempo-bagnatica-bergamasca/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Maltempo in Bergamasca: tromba d&#x27;aria a Bagnatica, quasi 90 interventi dei vigili del fuoco</h2><p class="card-summary">Una violenta ondata di maltempo con raffiche fino a 150 km/h ha colpito mercoledì pomeriggio la provincia di Bergamo: a Bagnatica una tromba d&#x27;aria ha ribaltato un&#x27;auto su un festival, mentre alberi caduti e allagamenti hanno interessato Scanzorosciate, Treviglio e Boltiere.</p><p class="card-meta">16 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, ancora un blackout in centro: negozianti chiedono i danni mentre parte il piano da 4,5 milioni per la rete elettrica lunedì 13 luglio un nuovo blackout ha lasciato al buio per circa sei ore 1.600 utenze nel centro di bergamo, il quarto episodio in poche settimane legato al caldo estremo. e-distribuzione ha già avviato un piano da 4,5 milioni di euro per rafforzare la rete entro il 2027. cronaca bergamo blackout caldo e-distribuzione rete elettrica" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-14-bergamo-blackout-centro-piano-resiliente/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, ancora un blackout in centro: negozianti chiedono i danni mentre parte il piano da 4,5 milioni per la rete elettrica</h2><p class="card-summary">Lunedì 13 luglio un nuovo blackout ha lasciato al buio per circa sei ore 1.600 utenze nel centro di Bergamo, il quarto episodio in poche settimane legato al caldo estremo. E-Distribuzione ha già avviato un piano da 4,5 milioni di euro per rafforzare la rete entro il 2027.</p><p class="card-meta">14 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
