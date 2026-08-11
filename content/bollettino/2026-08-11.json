@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-11",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, nessuna pioggia prevista, caldo già dal mattino (23-27°C) e vento debole ovunque; asfalto asciutto a Bergamo.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Soleggiato", "temp_c": 23.4, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Soleggiato", "temp_c": 26.4, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",     "cond": "Soleggiato", "temp_c": 26.5, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "SSE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 63,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 24}
+    ],
+    "incidents": [
+      {"where": "A4, svincolo Capriate", "desc": "Veicolo fermo/in avaria segnalato alle 07:05 (CCISS); direzione non specificata dalla fonte."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25, tempi da traffico reale). Google Weather OK sui 3 punti; storico Bergamo: 0 mm di pioggia nelle 3 ore precedenti, asfalto asciutto. CCISS RSS letto: un veicolo fermo/in avaria allo svincolo di Capriate sulla A4 Milano-Brescia (07:05), direzione non indicata dalla fonte; nessun evento pertinente su A51. Serravalle viabilità: pagina raggiunta ma priva di elenco eventi in tempo reale. Luceverde: nessun contenuto utile (pagina generica). Autostrade.it/traffico-in-tempo-reale: 404 come da storico. Ricerca web: nessun ulteriore incidente/cantiere con data odierna confermata su A4 Bergamo-Agrate o A51 Carugate-San Donato in direzione Milano/sud."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature ampiamente sopra i 7°C (23-27°C) e vento debole (max 6 km/h, raffiche max 11 km/h)",
+      "Visibilità ottima (16 km) su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
