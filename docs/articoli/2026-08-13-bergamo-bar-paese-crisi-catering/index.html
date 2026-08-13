@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019 — TNT News</title>
+  <meta name="description" content="Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-13-bergamo-bar-paese-crisi-catering/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019 — TNT News">
+  <meta property="og:description" content="Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-13-bergamo-bar-paese-crisi-catering/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019 — TNT News">
+  <meta name="twitter:description" content="Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Confcommercio</span><span class="tag">bar</span><span class="tag">commercio locale</span></div>
+    <h1>In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019</h1>
+    <p class="article-summary">Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-13">13 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Negli ultimi sette anni la provincia di Bergamo ha perso <strong>494 bar</strong>, un calo del <strong>14,4%</strong> rispetto al 2019. Lo rivela un'elaborazione di Confcommercio Bergamo sui dati del primo semestre 2026, che fotografa una ristorazione locale in profonda trasformazione: mentre i bar tradizionali arretrano, crescono i servizi di catering e fornitura pasti.</p>
+
+<h2>I numeri del settore</h2>
+<p>Al 30 giugno 2026 le attività di ristorazione attive in provincia sono 7.063. I bar restano la categoria più numerosa con 2.938 esercizi (41,6% del totale), seguiti dai ristoranti con 3.668 unità (51,9%) e dal catering, che si ferma a 405 attività (5,7%) ma è il comparto con la crescita più rapida.</p>
+<p>Rispetto al 2019, i ristoranti sono aumentati di 87 unità (+2,4%), mentre catering e fornitura pasti sono passati da circa 287 a 405 attività, un balzo del 41,1%. Secondo Confcommercio, se si escludono i bar dal computo, l'intero comparto della ristorazione bergamasca segna una crescita del 5,3%.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: variazione percentuale del numero di attività dal 2019 al 2026 in provincia di Bergamo. Bar: meno 14,4 per cento. Ristoranti: più 2,4 per cento. Catering e fornitura pasti: più 41,1 per cento.">
+    <line x1="60" y1="160" x2="600" y2="160" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+    <line x1="60" y1="40" x2="60" y2="280" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+
+    <rect x="120" y="160" width="90" height="86" fill="#c0392b"></rect>
+    <text x="165" y="272" text-anchor="middle" font-size="15">Bar</text>
+    <text x="165" y="150" text-anchor="middle" font-size="15" font-weight="bold">-14,4%</text>
+
+    <rect x="290" y="146" width="90" height="14" fill="#27ae60"></rect>
+    <text x="335" y="272" text-anchor="middle" font-size="15">Ristoranti</text>
+    <text x="335" y="136" text-anchor="middle" font-size="15" font-weight="bold">+2,4%</text>
+
+    <rect x="460" y="40" width="90" height="120" fill="#27ae60"></rect>
+    <text x="505" y="272" text-anchor="middle" font-size="14">Catering e pasti</text>
+    <text x="505" y="30" text-anchor="middle" font-size="15" font-weight="bold">+41,1%</text>
+
+    <text x="60" y="295" font-size="12" opacity="0.7">Variazione numero attività, provincia di Bergamo, 2019–2026</text>
+  </svg>
+  <figcaption>Variazione percentuale del numero di attività per comparto della ristorazione in provincia di Bergamo, 2019-2026. Fonte: Confcommercio Bergamo, dati primo semestre 2026 (elaborazione BergamoNews e L'Eco di Bergamo).</figcaption>
+</figure>
+
+<h2>Le cause del calo</h2>
+<p>Diego Rodeschini, rappresentante Fipe Confcommercio, parla di una perdita progressiva dei "bar di paese", i locali di prossimità che per decenni sono stati punto di ritrovo nei centri minori della Bergamasca. Tra le cause indicate dagli operatori figurano l'aumento dei costi di materie prime, utenze e affitti, la diffusione dello smart working, che ha ridotto le soste per la colazione fuori casa, un mercato ormai saturo per chi vuole aprire un bar tradizionale e la crescente difficoltà a reperire personale.</p>
+
+<blockquote>Chi resta sul mercato deve dotarsi di una struttura manageriale solida: senza la contrazione dei bar, l'intero comparto della ristorazione crescerebbe del 5,3%.</blockquote>
+<p>Lo osserva Oscar Fusini, direttore di Confcommercio Bergamo, sottolineando come il settore non sia in crisi nel suo complesso, ma stia semplicemente cambiando forma.</p>
+
+<h3>Verso servizi più strutturati</h3>
+<p>Petronilla Frosio, alla guida del gruppo ristoratori dell'associazione, evidenzia come il mercato premi oggi flessibilità e specializzazione: da qui la crescita di catering, mense aziendali e servizi di consegna pasti, format che si adattano meglio ai nuovi ritmi di vita e di lavoro rispetto al bar tradizionale.</p>
+<p>Sul piano societario, il settore resta comunque frammentato: le ditte individuali rappresentano il 38,4% delle attività, le società di capitali il 33,1% e le società di persone il 24,5%, segno che accanto ai gruppi più strutturati sopravvive ancora una rete diffusa di piccoli esercizi a conduzione familiare.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/10/bergamo-cambia-pelle-nella-ristorazione-in-7-anni-persi-494-bar-boom-di-catering-e-servizi-strutturati/914391" rel="noopener" target="_blank">BergamoNews</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/in-provincia-di-bergamo-crollano-i-bar-di-paese-dal-2019-sono-494-in-meno-o_3927709_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="saldi estivi al via il 4 luglio: a bergamo atteso un giro d&#x27;affari di 59 milioni sabato 4 luglio partono i saldi estivi in lombardia. a bergamo confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare. economia bergamo saldi estivi commercio confcommercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-06-30-saldi-estivi-bergamo-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Saldi estivi al via il 4 luglio: a Bergamo atteso un giro d&#x27;affari di 59 milioni</h2><p class="card-summary">Sabato 4 luglio partono i saldi estivi in Lombardia. A Bergamo Confcommercio stima un giro d&#x27;affari di 59,1 milioni di euro: più famiglie rispetto al 2025 (58% contro 54%), ma con una spesa media in calo a 209 euro per nucleo familiare.</p><p class="card-meta">30 giugno 2026</p></div></a></article><article class="card" data-search="bergamo capofila in lombardia: 25 progetti per oltre 34 milioni nel bando distretti del commercio la provincia di bergamo ha presentato 25 progetti al bando regionale distretti del commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. la graduatoria di regione lombardia è attesa per il 30 novembre. economia bergamo commercio distretti del commercio regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-06-bergamo-distretti-commercio-bando-25-progetti/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio</h2><p class="card-summary">La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.</p><p class="card-meta">6 agosto 2026</p></div></a></article><article class="card" data-search="turismo da record in bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva ad agosto le presenze turistiche in provincia di bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di filcams cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel nord-ovest, soprattutto donne. economia bergamo turismo lavoro salari" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-05-bergamo-turismo-record-lavoro-povero/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo da record in Bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva</h2><p class="card-summary">Ad agosto le presenze turistiche in provincia di Bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di Filcams Cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel Nord-Ovest, soprattutto donne.</p><p class="card-meta">5 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
