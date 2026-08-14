@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% — TNT News</title>
+  <meta name="description" content="Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-14-bergamo-siccita-allevamenti-latte-crisi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% — TNT News">
+  <meta property="og:description" content="Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-14-bergamo-siccita-allevamenti-latte-crisi/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% — TNT News">
+  <meta name="twitter:description" content="Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Coldiretti</span><span class="tag">Siccità</span><span class="tag">Agricoltura</span></div>
+    <h1>Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30%</h1>
+    <p class="article-summary">Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-14">14 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La siccità che da settimane colpisce la provincia di Bergamo comincia a lasciare segni pesanti su stalle e campi. Secondo Coldiretti Bergamo, la produzione di latte in diversi allevamenti è calata fino al 30%, mentre il secondo raccolto di mais rischia di non avere acqua a sufficienza per arrivare a maturazione. Se non arriveranno piogge consistenti, avverte l'associazione, l'estate 2026 potrebbe rivelarsi persino peggiore di quella del 2022, già ricordata come una delle più critiche degli ultimi anni per la crisi idrica.</p>
+
+<h2>Il caldo pesa sugli allevamenti</h2>
+<p>Negli allevamenti bergamaschi le temperature elevate, anche nelle ore notturne, stanno riducendo il benessere e la produttività degli animali. Un esempio citato da Coldiretti è quello dell'azienda agricola Piovanelli, che con un allevamento di 400 capi, di cui 150 in mungitura, registra un calo della produzione di latte tra il 25 e il 30%. Nelle stalle, dove di notte la temperatura resta intorno ai 30 gradi, gli animali non riescono a recuperare dallo stress termico accumulato durante il giorno: alcuni allevatori segnalano anche la perdita dei capi più fragili.</p>
+
+<h2>Mais a rischio, irrigazione ridotta</h2>
+<p>Sul fronte delle coltivazioni, una gestione attenta delle risorse disponibili ha per ora permesso di portare il primo raccolto di mais fino alla fase della trinciatura senza danni gravi. A preoccupare di più è il secondo raccolto, per il quale la disponibilità d'acqua potrebbe non bastare. Nel comprensorio agricolo del Brembo, il Consorzio di bonifica della Media Pianura Bergamasca ha già dovuto ridurre l'irrigazione a causa della scarsità della risorsa, in un quadro che si inserisce nella più ampia crisi dei bacini idroelettrici della provincia.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: livello dei bacini idroelettrici artificiali in provincia di Bergamo ad agosto 2026. Val Seriana: poco più di 10 milioni di metri cubi. Val Brembana: meno di 5 milioni di metri cubi.">
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+    <line x1="60" y1="40" x2="60" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+
+    <rect x="160" y="80" width="120" height="180" fill="#2980b9"></rect>
+    <text x="220" y="278" text-anchor="middle" font-size="15">Val Seriana</text>
+    <text x="220" y="70" text-anchor="middle" font-size="15" font-weight="bold">~10 milioni m³</text>
+
+    <rect x="380" y="170" width="120" height="90" fill="#c0392b"></rect>
+    <text x="440" y="278" text-anchor="middle" font-size="15">Val Brembana</text>
+    <text x="440" y="160" text-anchor="middle" font-size="15" font-weight="bold">&lt;5 milioni m³</text>
+
+    <text x="60" y="300" font-size="12" opacity="0.7">Volume invasato nei bacini idroelettrici artificiali, provincia di Bergamo, agosto 2026 (valori indicativi)</text>
+  </svg>
+  <figcaption>Livelli dei bacini idroelettrici artificiali in Val Seriana e Val Brembana ad agosto 2026, secondo il Consorzio di bonifica della Media Pianura Bergamasca. Valori indicativi. Fonte: Il Giorno.</figcaption>
+</figure>
+
+<h3>«Rischio peggio del 2022»</h3>
+<blockquote>Se alla scarsità d'acqua si aggiungessero nuove e prolungate ondate di caldo, l'estate 2026 rischierebbe di essere ricordata come peggiore di quella del 2022.</blockquote>
+<p>È la valutazione di Gabriele Borella, presidente di Coldiretti Bergamo, che si augura piogge nel breve periodo per contenere i danni a colture e allevamenti. Le previsioni meteo indicano possibili precipitazioni nei prossimi giorni: un eventuale ritorno della pioggia potrebbe evitare il peggio sia per il secondo raccolto di mais sia per gli allevamenti già sotto stress da caldo.</p>
+
+<h3>Una crisi idrica che dura da settimane</h3>
+<p>Il quadro descritto da Coldiretti si inserisce in una crisi idrica che nelle scorse settimane ha già portato al razionamento dell'acqua per l'irrigazione, prima dal fiume Serio e poi dal Brembo, e a un forte calo dei bacini idroelettrici che alimentano i corsi d'acqua della provincia. Gli agricoltori con impianti di irrigazione a pioggia, che consumano circa un terzo dell'acqua rispetto ai sistemi tradizionali a scorrimento, si trovano in una posizione relativamente meno svantaggiata rispetto a chi utilizza ancora metodi più tradizionali, ma per l'intero comparto agricolo bergamasco l'esito della stagione dipenderà in larga parte dalle piogge delle prossime settimane.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/economia/siccita-per-coldiretti-bergamo-se-non-piove-sara-peggio-del-2022-o_3929052_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Siccità, per Coldiretti Bergamo se non piove sarà peggio del 2022</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/siccita-campi-acqua-razionata-consorzio-bonifica-bergamo-mv2wv0ja" rel="noopener" target="_blank">Il Giorno – Nella pianura bergamasca la crisi idrica è da allarme rosso: acqua nei campi solo a giorni alterni</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="in provincia di bergamo chiudono i bar di paese: 494 in meno dal 2019 confcommercio bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%. economia bergamo confcommercio bar commercio locale" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-13-bergamo-bar-paese-crisi-catering/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019</h2><p class="card-summary">Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.</p><p class="card-meta">13 agosto 2026</p></div></a></article><article class="card" data-search="bergamo capofila in lombardia: 25 progetti per oltre 34 milioni nel bando distretti del commercio la provincia di bergamo ha presentato 25 progetti al bando regionale distretti del commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. la graduatoria di regione lombardia è attesa per il 30 novembre. economia bergamo commercio distretti del commercio regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-06-bergamo-distretti-commercio-bando-25-progetti/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio</h2><p class="card-summary">La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.</p><p class="card-meta">6 agosto 2026</p></div></a></article><article class="card" data-search="turismo da record in bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva ad agosto le presenze turistiche in provincia di bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di filcams cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel nord-ovest, soprattutto donne. economia bergamo turismo lavoro salari" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-05-bergamo-turismo-record-lavoro-povero/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo da record in Bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva</h2><p class="card-summary">Ad agosto le presenze turistiche in provincia di Bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di Filcams Cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel Nord-Ovest, soprattutto donne.</p><p class="card-meta">5 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
