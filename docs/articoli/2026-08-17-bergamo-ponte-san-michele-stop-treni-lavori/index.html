@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Ponte San Michele, stop ai treni fino al 30 agosto per i lavori di consolidamento — TNT News</title>
+  <meta name="description" content="Da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte San Michele, tra Calusco d&#x27;Adda e Paderno d&#x27;Adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea Bergamo-Milano.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-17-bergamo-ponte-san-michele-stop-treni-lavori/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Ponte San Michele, stop ai treni fino al 30 agosto per i lavori di consolidamento — TNT News">
+  <meta property="og:description" content="Da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte San Michele, tra Calusco d&#x27;Adda e Paderno d&#x27;Adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea Bergamo-Milano.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-17-bergamo-ponte-san-michele-stop-treni-lavori/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ponte San Michele, stop ai treni fino al 30 agosto per i lavori di consolidamento — TNT News">
+  <meta name="twitter:description" content="Da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte San Michele, tra Calusco d&#x27;Adda e Paderno d&#x27;Adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea Bergamo-Milano.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Calusco d&#x27;Adda</span><span class="tag">Ponte San Michele</span><span class="tag">Trenord</span><span class="tag">RFI</span></div>
+    <h1>Ponte San Michele, stop ai treni fino al 30 agosto per i lavori di consolidamento</h1>
+    <p class="article-summary">Da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte San Michele, tra Calusco d&#x27;Adda e Paderno d&#x27;Adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea Bergamo-Milano.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-17">17 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da oggi, lunedì 17 agosto, e fino al 30 agosto la circolazione dei treni è <strong>sospesa sul ponte San Michele</strong>, il viadotto ferroviario e stradale che attraversa l'Adda tra Calusco d'Adda, in provincia di Bergamo, e Paderno d'Adda, in provincia di Lecco. Lo stop, disposto da Rete Ferroviaria Italiana (RFI), riguarda la linea R14 Bergamo-Carnate-Milano e interessa quindi i pendolari che ogni giorno si spostano tra la Bergamasca e il capoluogo lombardo.</p>
+
+<h2>Lavori di consolidamento sulla campata storica</h2>
+<p>Secondo quanto riportato da L'Eco di Bergamo, l'interruzione serve a eseguire <strong>lavori di consolidamento</strong> e a installare un sistema di monitoraggio strutturale su una campata del ponte, per valutarne lo stato di degrado. Il viadotto, inaugurato nel 1889, è una struttura mista ferroviaria e stradale ormai storica: sul suo impalcato passano sia i treni sia le automobili, che normalmente si alternano con stop regolati al passaggio dei convogli.</p>
+
+<p>Le due settimane di chiusura sono state scelte non a caso a metà agosto, quando scuole e gran parte delle attività lavorative sono ferme, proprio per limitare il disagio ai pendolari abituali della linea.</p>
+
+<h2>Bus sostitutivi e traffico su strada</h2>
+<p>Per tutta la durata dei lavori sono attivi <strong>bus sostitutivi</strong> sulla tratta Paderno-Robbiate-Calusco, con interscambio alla stazione di Calusco d'Adda verso le corse dirette a Bergamo. Il traffico veicolare sul ponte, invece, non subisce interruzioni: anzi, secondo le indicazioni diffuse dagli enti locali, la circolazione delle auto risulta in questi giorni più scorrevole, perché non deve più fermarsi al passaggio dei treni come avviene in condizioni normali.</p>
+
+<h2>Il nodo del nuovo ponte</h2>
+<p>I lavori di questi giorni si inseriscono in un percorso più ampio. Come emerso a inizio luglio da un incontro tra la Regione e oltre quaranta sindaci dell'Isola bergamasca, del Meratese e dei territori limitrofi, è infatti in corso l'iter di progettazione di un <strong>nuovo ponte San Michele</strong>, affidato a RFI e Italferr, destinato ad affiancare o sostituire nel tempo la struttura ottocentesca. Il commissario regionale alle infrastrutture, Jonathan Lobati, ha assicurato che la priorità resta evitare interruzioni del servizio ferroviario e veicolare durante il cantiere.</p>
+
+<p>I sindaci del territorio, riuniti nelle scorse settimane, hanno chiesto che il ponte storico resti in esercizio per tutta la fase di realizzazione della nuova opera, che la struttura del 1889 venga preservata come monumento, che si limiti il transito di mezzi pesanti e treni merci notturni sulla nuova linea e che il nuovo manufatto abbia una qualità architettonica coerente con il paesaggio della valle dell'Adda.</p>
+
+<blockquote>
+  <p>L'iter per la progettazione del nuovo ponte San Michele sta procedendo: la priorità è evitare l'interruzione di treni e veicoli.</p>
+</blockquote>
+
+<h2>Numeri di un nodo strategico</h2>
+<p>Il ponte San Michele non è un'infrastruttura secondaria: secondo i dati citati dagli amministratori locali, sul viadotto transitano ogni giorno circa <strong>12mila veicoli</strong>, oltre ai treni della linea Bergamo-Milano. È uno dei motivi per cui gli enti coinvolti insistono sulla necessità di programmare i cantieri, come quello in corso, nei periodi di minore traffico pendolare.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Timeline dei lavori sul ponte San Michele: circolazione ferroviaria sospesa dal 17 al 30 agosto 2026 sulla linea R14 Bergamo-Carnate-Milano, con bus sostitutivi attivi sulla tratta Paderno-Robbiate-Calusco.">
+    <line x1="60" y1="130" x2="580" y2="130" stroke="currentColor" stroke-width="3" opacity="0.5"></line>
+
+    <circle cx="90" cy="130" r="7" fill="#2980b9"></circle>
+    <text x="90" y="100" text-anchor="middle" font-size="14" font-weight="bold">17 agosto</text>
+    <text x="90" y="118" text-anchor="middle" font-size="12" opacity="0.8">Stop treni</text>
+
+    <rect x="90" y="140" width="400" height="14" fill="#c0392b" opacity="0.85"></rect>
+    <text x="290" y="175" text-anchor="middle" font-size="13">Circolazione ferroviaria sospesa (14 giorni)</text>
+    <text x="290" y="192" text-anchor="middle" font-size="12" opacity="0.75">Bus sostitutivi Paderno-Robbiate-Calusco</text>
+
+    <circle cx="490" cy="130" r="7" fill="#27ae60"></circle>
+    <text x="490" y="100" text-anchor="middle" font-size="14" font-weight="bold">30 agosto</text>
+    <text x="490" y="118" text-anchor="middle" font-size="12" opacity="0.8">Ripresa treni</text>
+
+    <text x="60" y="230" font-size="12" opacity="0.7">Linea R14 Bergamo-Carnate-Milano. Traffico veicolare regolare per tutto il periodo (circa 12.000 veicoli/giorno, valore indicativo).</text>
+    <text x="60" y="248" font-size="12" opacity="0.7">Fonti: L'Eco di Bergamo, Comune di Calusco d'Adda.</text>
+  </svg>
+  <figcaption>Timeline dei lavori di consolidamento sul ponte San Michele, dal 17 al 30 agosto 2026. Fonti: L'Eco di Bergamo, Comune di Calusco d'Adda.</figcaption>
+</figure>
+
+<p>Al termine dei lavori, previsto per il 30 agosto, la circolazione ferroviaria dovrebbe tornare regolare sulla linea R14. Nel frattempo, chi deve muoversi tra la Bergamasca e Milano è invitato a verificare gli orari dei bus sostitutivi e a mettere in conto tempi di percorrenza più lunghi rispetto al treno diretto.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/isola-e-valle-san-martino/calusco-dadda-il-ponte-san-michele-chiude-ai-treni-dal-17-al-30-agosto-o_3920450_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Calusco d&#x27;Adda, il Ponte San Michele chiude ai treni dal 17 al 30 agosto</a></li><li><a href="https://www.bergamonews.it/2026/07/02/nuovo-ponte-san-michele-la-regione-ai-sindaci-liter-procede-prioritario-evitare-linterruzione-di-treni-e-veicoli/906092" rel="noopener" target="_blank">BergamoNews – Nuovo ponte San Michele, la Regione ai sindaci: l&#x27;iter procede</a></li><li><a href="https://www.comune.caluscodadda.bg.it/novita/news/ponte-san-michele" rel="noopener" target="_blank">Comune di Calusco d&#x27;Adda – Ponte San Michele</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nuovo ponte sull&#x27;adda: rfi lancia il concorso internazionale da 262 milioni rete ferroviaria italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico ponte san michele tra calusco d&#x27;adda (bg) e paderno d&#x27;adda (lc). budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034. trasporti bergamo calusco d&#x27;adda ponte san michele rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-05-ponte-san-michele-concorso-internazionale/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Nuovo Ponte sull&#x27;Adda: RFI lancia il concorso internazionale da 262 milioni</h2><p class="card-summary">Rete Ferroviaria Italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico Ponte San Michele tra Calusco d&#x27;Adda (BG) e Paderno d&#x27;Adda (LC). Budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034.</p><p class="card-meta">5 giugno 2026</p></div></a></article><article class="card" data-search="ponte san michele intasato: 37mila veicoli al giorno, le province chiedono aiuto dopo la chiusura del ponte di brivio il 4 maggio 2026, il traffico sul ponte san michele tra calusco d&#x27;adda e paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. le province di bergamo e lecco hanno scritto alle prefetture per chiedere un tavolo urgente. trasporti bergamo calusco d&#x27;adda ponte san michele traffico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-30-ponte-san-michele-traffico-allarme/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto</h2><p class="card-summary">Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.</p><p class="card-meta">30 maggio 2026</p></div></a></article><article class="card" data-search="bergamo, il ponte di via san bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura dopo circa un anno di chiusura per i lavori rfi di raddoppio della linea verso ponte san pietro, il ponte di via san bernardino a bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso colognola; la seconda carreggiata è attesa in autunno. trasporti bergamo via san bernardino rfi viabilità ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-02-bergamo-ponte-san-bernardino-riapertura-10-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il ponte di via San Bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura</h2><p class="card-summary">Dopo circa un anno di chiusura per i lavori RFI di raddoppio della linea verso Ponte San Pietro, il ponte di via San Bernardino a Bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso Colognola; la seconda carreggiata è attesa in autunno.</p><p class="card-meta">2 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
