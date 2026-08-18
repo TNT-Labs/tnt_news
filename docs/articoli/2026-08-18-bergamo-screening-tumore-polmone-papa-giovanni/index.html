@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone — TNT News</title>
+  <meta name="description" content="Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-18-bergamo-screening-tumore-polmone-papa-giovanni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone — TNT News">
+  <meta property="og:description" content="Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-18-bergamo-screening-tumore-polmone-papa-giovanni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone — TNT News">
+  <meta name="twitter:description" content="Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">Papa Giovanni XXIII</span><span class="tag">Screening oncologico</span><span class="tag">Regione Lombardia</span><span class="tag">Prevenzione</span></div>
+    <h1>Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone</h1>
+    <p class="article-summary">Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-18">18 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da oggi, martedì 18 agosto, l'ASST Papa Giovanni XXIII di Bergamo attiva il
+nuovo programma regionale di screening del tumore del polmone, promosso da
+Regione Lombardia. L'esame di riferimento è la TC spirale a basso dosaggio,
+una tecnica rapida e con ridotta esposizione alle radiazioni, in grado di
+individuare eventuali lesioni polmonari in una fase iniziale, quando le
+possibilità di cura sono maggiori.</p>
+
+<h2>A chi è rivolto</h2>
+<p>Il programma, su base volontaria, è riservato in questa prima fase a
+cittadini tra i 55 e i 74 anni che siano forti fumatori (oltre 20 sigarette
+al giorno) oppure ex forti fumatori che abbiano smesso da meno di 15 anni.
+Sono richiesti inoltre l'assenza di tumori negli ultimi cinque anni (escluse
+le forme cutanee), nessuna patologia polmonare acuta in corso e nessuna TC
+toracica eseguita nei 18 mesi precedenti.</p>
+
+<h2>Come funziona</h2>
+<p>Chi rientra nei criteri può candidarsi presso i Punti Unici di Accesso
+(PUA) dell'ospedale, attivi dal lunedì al sabato dalle 8 alle 14, oppure
+telefonando al numero 035.2278711 nelle stesse fasce orarie nei giorni
+feriali. Dopo un questionario di verifica dell'idoneità, il percorso prevede
+una visita di counselling presso il Centro Antifumo oppure l'accesso diretto
+alla TC spirale a basso dosaggio senza mezzo di contrasto, secondo quanto
+stabilito dal protocollo regionale.</p>
+
+<h2>Perché la diagnosi precoce conta</h2>
+<p>A motivare l'iniziativa è soprattutto un dato clinico: attualmente, in
+circa otto casi su dieci la malattia viene diagnosticata quando è già in
+fase avanzata, con possibilità di cura molto più limitate. Lo screening
+punta a ribaltare questa proporzione, intercettando le lesioni quando sono
+ancora circoscritte.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: attualmente circa l'80% dei tumori del polmone viene diagnosticato in fase avanzata, contro il 20% in fase iniziale">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a1a">Fase della diagnosi di tumore al polmone (oggi)</text>
+    <line x1="80" y1="260" x2="580" y2="260" stroke="#333" stroke-width="2"/>
+    <rect x="150" y="80" width="120" height="180" fill="#c0392b"/>
+    <text x="210" y="70" text-anchor="middle" font-size="24" font-weight="bold" fill="#c0392b">80%</text>
+    <text x="210" y="285" text-anchor="middle" font-size="15" fill="#1a1a1a">Fase avanzata</text>
+    <rect x="370" y="215" width="120" height="45" fill="#2e7d32"/>
+    <text x="430" y="205" text-anchor="middle" font-size="24" font-weight="bold" fill="#2e7d32">20%</text>
+    <text x="430" y="285" text-anchor="middle" font-size="15" fill="#1a1a1a">Fase iniziale</text>
+    <text x="320" y="310" text-anchor="middle" font-size="12" fill="#555">Valori indicativi. Fonte: ASST Papa Giovanni XXIII / L'Eco di Bergamo, 18 agosto 2026</text>
+  </svg>
+  <figcaption>Circa l'80% dei tumori del polmone viene oggi diagnosticato in fase avanzata: lo screening con TC a basso dosaggio punta a intercettarli prima. Valori indicativi riferiti dall'ospedale. Fonte: L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>Le parole dell'ospedale</h2>
+<blockquote>
+  "Individuare il tumore del polmone in una fase iniziale significa aumentare
+  le possibilità di trattamento e di guarigione", ha dichiarato Alessandro
+  Amorosi, direttore sanitario dell'ASST Papa Giovanni XXIII.
+</blockquote>
+
+<p>Il tumore del polmone resta una delle principali cause di mortalità
+oncologica. L'avvio dello screening a Bergamo si inserisce nella strategia
+di prevenzione promossa da Regione Lombardia, che ha esteso l'iniziativa
+alle principali strutture ospedaliere del territorio nel corso dell'estate.
+Le evidenze scientifiche indicano che la TC spirale a basso dosaggio, se
+utilizzata su popolazioni ad alto rischio, può contribuire a ridurre la
+mortalità per questa patologia.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/17/allospedale-papa-giovanni-inizia-il-programma-di-screening-del-tumore-del-polmone/915748" rel="noopener" target="_blank">BergamoNews – All&#x27;ospedale Papa Giovanni inizia il via il programma di screening del tumore del polmone</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/la-salute/tumore-del-polmone-al-papa-giovanni-parte-lo-screening-per-le-persone-piu-a-r-o_3931072_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Tumore del polmone, al «Papa Giovanni» parte lo screening per le persone più a rischio</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="nuova ondata di caldo in arrivo: a bergamo scattano i «cold spot» per alleggerire i pronto soccorso regione lombardia ha attivato i «cold spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°c in pianura bergamasca. il papa giovanni xxiii ha già avviato protocolli di massima allerta. sanità bergamo caldo sanità cold spot papa giovanni xxiii" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-07-11-caldo-cold-spot-bergamo-pronto-soccorso/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Nuova ondata di caldo in arrivo: a Bergamo scattano i «Cold Spot» per alleggerire i pronto soccorso</h2><p class="card-summary">Regione Lombardia ha attivato i «Cold Spot», punti di assistenza climatizzati collegati ai pronto soccorso, in vista della nuova ondata di caldo attesa dal 15 luglio con punte di 37°C in pianura bergamasca. Il Papa Giovanni XXIII ha già avviato protocolli di massima allerta.</p><p class="card-meta">11 luglio 2026</p></div></a></article><article class="card" data-search="doppio trapianto di cuore in simultanea al papa giovanni: trenta professionisti per salvare due vite all&#x27;ospedale papa giovanni xxiii di bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. un evento rarissimo in italia, coordinato da nitp e areu lombardia con due voli notturni verso il centro-sud. sanità bergamo trapianto papa giovanni xxiii cardiochirurgia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-05-28-doppio-trapianto-cuore-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Doppio trapianto di cuore in simultanea al Papa Giovanni: trenta professionisti per salvare due vite</h2><p class="card-summary">All&#x27;ospedale Papa Giovanni XXIII di Bergamo due équipe cardiochirurgiche hanno eseguito in contemporanea il trapianto di cuore su due pazienti di 40 e 59 anni affetti da cardiomiopatia. Un evento rarissimo in Italia, coordinato da NITp e AREU Lombardia con due voli notturni verso il Centro-Sud.</p><p class="card-meta">28 maggio 2026</p></div></a></article><article class="card" data-search="bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione. sanità bergamo sanità caldo pronto soccorso anziani" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-10-bergamo-pronto-soccorso-caldo-luglio/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio</h2><p class="card-summary">Nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della Bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione.</p><p class="card-meta">10 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
