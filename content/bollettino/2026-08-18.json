@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-18",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso lungo tutto il tragitto, nessuna pioggia prevista, temperature miti-calde (20-23°C) e vento debole ovunque; asfalto asciutto a Bergamo (0 mm nelle 3 ore precedenti).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Parzialmente soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Prevalentemente soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",     "cond": "Parzialmente soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 62,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 23}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (departure_time reali 07:30/08:10/08:25). Google Weather OK sui 3 punti; storico Bergamo: 0 mm di pioggia nelle 3 ore precedenti, asfalto asciutto. CCISS RSS letto (100 item): nessun evento su A4 Milano-Brescia (tratta Bergamo-Agrate) né su A51/Tangenziale Est di Milano. Serravalle viabilità: pagina raggiunta ma senza contenuto di traffico in tempo reale nel testo estratto. Luceverde e Autostrade.it: nessun contenuto utile (home generica / 404 come da storico). Ricerca web: unico riferimento A4 pertinente è la chiusura notturna già nota dell'uscita Trezzo (notti 19-20 agosto, non oggi); una segnalazione di veicolo fermo Trezzo-Capriate risultata dalla ricerca è in direzione Brescia (opposta all'andata) e priva di fonte datata verificabile, quindi esclusa. Per A51 la ricerca ha restituito solo descrizioni generiche di congestione tipica delle fasce orarie di punta (già incorporata nella stima Directions), nessun evento straordinario datato oggi."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista lungo l'intero tragitto (probabilità massima 5%)",
+      "Cielo sereno/poco nuvoloso e visibilità ottima (16 km) in tutti i punti",
+      "Vento debole (max 5 km/h, raffiche max 13 km/h)",
+      "Temperatura ben sopra i 7°C (20-23°C) e asfalto asciutto (0 mm nelle 3 ore precedenti)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
