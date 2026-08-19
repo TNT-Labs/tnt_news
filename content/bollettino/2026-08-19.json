@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-19",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso lungo tutto il tragitto, nessuna pioggia prevista, temperature calde (22-25°C) e vento debole ovunque; asfalto asciutto a Bergamo (0 mm nelle 3 ore precedenti).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Parzialmente soleggiato",    "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Parzialmente soleggiato",    "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",     "cond": "Parzialmente soleggiato",    "temp_c": 25, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 61,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 22}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (departure_time reali 07:30/08:10/08:25). Google Weather OK sui 3 punti; storico Bergamo: 0 mm di pioggia nelle 3 ore precedenti, asfalto asciutto. CCISS RSS letto (100 item): nessun evento pertinente su A4 Milano-Brescia (tratta Bergamo-Agrate); un unico evento A51 (veicolo in avaria a Ponte Lambro/Via Mecenate) è in direzione Lecco (nord), opposta all'andata odierna, quindi escluso. Serravalle viabilità: pagina raggiunta ma senza contenuto di traffico in tempo reale nel testo estratto (solo nav/footer statici). Luceverde: nessun contenuto utile (home generica). Autostrade.it/traffico-in-tempo-reale: 404 come da storico. Ricerca web: unico riferimento A4 pertinente è la chiusura notturna dell'uscita Trezzo (21:00 del 19 agosto - 05:00 del 20 agosto, per chi proviene da Milano), fuori dalla finestra di transito dell'andata odierna (07:30-08:45) e quindi escluso. Nessun altro incidente o cantiere datato oggi individuato su A4 o A51 nella tratta e direzione di interesse."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista lungo l'intero tragitto (probabilità massima 10%)",
+      "Cielo sereno/poco nuvoloso e visibilità ottima (16 km) in tutti i punti",
+      "Vento debole (5 km/h, raffiche max 14 km/h)",
+      "Temperatura ben sopra i 7°C (22-25°C) e asfalto asciutto (0 mm nelle 3 ore precedenti)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
