@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie — TNT News</title>
+  <meta name="description" content="In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-20-treviglio-scuola-14-settembre-cre/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie — TNT News">
+  <meta property="og:description" content="In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-20-treviglio-scuola-14-settembre-cre/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie — TNT News">
+  <meta name="twitter:description" content="In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Treviglio</span><span class="tag">Scuola</span><span class="tag">Calendario scolastico</span><span class="tag">Bergamo</span></div>
+    <h1>A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie</h1>
+    <p class="article-summary">In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-20">20 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>In tutta la Lombardia, provincia di Bergamo compresa, le lezioni del
+nuovo anno scolastico inizieranno lunedì <strong>14 settembre 2026</strong>.
+La data, fissata dalla Regione per evitare le "false partenze" del sabato
+che si erano verificate in passato, lascia però un vuoto di quasi due
+settimane tra la fine dei centri estivi e il primo giorno di scuola. A
+Treviglio, Comune e Fondazione Portaluppi hanno deciso di colmarlo con un
+centro ricreativo dedicato, dopo che diverse famiglie avevano segnalato
+difficoltà a conciliare lavoro e figli a casa.</p>
+
+<h2>Il calendario deciso a giugno</h2>
+<p>Il calendario scolastico lombardo 2026/2027 è stato ufficializzato lo
+scorso 29 giugno: le lezioni terminano l'8 giugno 2027 e la Provincia ha
+proposto tre giorni di sospensione facoltativi, non vincolanti per tutti
+gli istituti: lunedì 2 novembre, lunedì 7 dicembre e mercoledì 31 marzo. Le
+singole scuole restano libere di anticipare l'avvio delle lezioni prima
+del 14 settembre, se hanno esigenze organizzative specifiche e un accordo
+con gli enti locali, ma la maggior parte segue la data indicata dalla
+Regione.</p>
+
+<h2>Il Cre di settembre a Treviglio</h2>
+<p>Per rispondere al disagio delle famiglie, il Comune di Treviglio ha
+messo in campo due iniziative parallele. La prima, "Aspettando la
+campanella", è rivolta ai bambini della primaria e si svolge dall'1
+all'11 settembre, dal lunedì al venerdì, dalle 9 alle 16, negli spazi
+della Fondazione Portaluppi: 40 posti disponibili, al costo di 80 euro a
+settimana comprensivi di mensa, con laboratori, musica, attività nell'orto
+botanico, sport e piscina. La seconda, "Extra Estate", è invece gratuita e
+pensata per i ragazzi delle medie, con base all'oratorio di
+Sant'Agostino e proposte che spaziano dalla cucina alla musica, dal
+basket alla piscina.</p>
+
+<blockquote>"Il disagio delle famiglie è forte" — Pinuccia Prandina,
+vicesindaco di Treviglio</blockquote>
+
+<p>L'iniziativa porta la firma del sindaco Juri Imeri e della
+vicesindaco Prandina, in collaborazione con don Zaccaria Bonalumi,
+presidente della Fondazione Portaluppi, e con il direttore della
+Fondazione, Bruno Goisis.</p>
+
+<h2>Settimana corta in crescita</h2>
+<p>Il calendario 2026/2027 conferma anche un'altra tendenza già in atto
+nelle scuole superiori bergamasche: secondo la rilevazione provinciale,
+il 48% degli istituti superiori ha scelto la settimana corta (lezioni dal
+lunedì al venerdì), il 45% mantiene i sei giorni con il sabato di lezione
+e il restante 7% adotta soluzioni miste. Nella formazione professionale la
+settimana corta è ormai la norma, seguita dal 90% dei centri.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: organizzazione settimanale nelle scuole superiori bergamasche per l'anno 2026/2027. Settimana corta (lunedì-venerdì) 48%, sei giorni con sabato 45%, soluzione mista 7%. Valori dalla rilevazione provinciale citata da L'Eco di Bergamo, 29 giugno 2026.">
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+
+    <rect x="110" y="98" width="90" height="162" fill="currentColor" opacity="0.85"/>
+    <text x="155" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">48%</text>
+    <text x="155" y="282" text-anchor="middle" font-size="12" fill="currentColor">Settimana corta</text>
+    <text x="155" y="297" text-anchor="middle" font-size="12" fill="currentColor">(lun-ven)</text>
+
+    <rect x="275" y="114" width="90" height="146" fill="currentColor" opacity="0.6"/>
+    <text x="320" y="101" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">45%</text>
+    <text x="320" y="282" text-anchor="middle" font-size="12" fill="currentColor">Sei giorni</text>
+    <text x="320" y="297" text-anchor="middle" font-size="12" fill="currentColor">(con sabato)</text>
+
+    <rect x="440" y="237" width="90" height="23" fill="currentColor" opacity="0.35"/>
+    <text x="485" y="224" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">7%</text>
+    <text x="485" y="282" text-anchor="middle" font-size="12" fill="currentColor">Soluzione</text>
+    <text x="485" y="297" text-anchor="middle" font-size="12" fill="currentColor">mista</text>
+
+    <text x="320" y="24" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.8">Scuole superiori bergamasche, anno 2026/2027</text>
+  </svg>
+  <figcaption>Organizzazione dell'orario settimanale nelle scuole
+  superiori della provincia di Bergamo. Fonte: L'Eco di Bergamo,
+  rilevazione provinciale, 29 giugno 2026.</figcaption>
+</figure>
+
+<h2>Un tema che torna ogni anno</h2>
+<p>Il nodo del calendario scolastico lombardo, tra i più tardivi
+d'Italia nella ripresa di settembre, si ripresenta ogni anno alla vigilia
+della pausa estiva: enti locali, oratori e associazioni sono spesso
+chiamati a organizzare soluzioni ponte per le famiglie con genitori
+lavoratori, mentre la Regione difende la scelta con l'obiettivo di
+garantire un percorso didattico continuo e coerente, senza interruzioni
+il sabato a ridosso dell'avvio delle lezioni.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/20/scuola-apertura-il-14-settembre-prandina-il-disagio-delle-famiglie-e-forte/916301/" rel="noopener" target="_blank">BergamoNews – Scuola, apertura il 14 settembre: &quot;Il disagio delle famiglie è forte&quot;</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/scuola-in-bergamasca-prima-campanella-il-14-settembre-o_3898567_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Scuola, in Bergamasca prima campanella il 14 settembre</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova giovedì 18 giugno sono iniziati gli esami di stato per 9.203 maturandi della provincia di bergamo, su 528mila in tutta italia. tra le tracce del tema di italiano: cesare pavese, vitaliano brancati e il discorso di saragat all&#x27;assemblea costituente. attualità bergamo maturità scuola esami di stato" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-18-maturita-9200-studenti-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova</h2><p class="card-summary">Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.</p><p class="card-meta">18 giugno 2026</p></div></a></article><article class="card" data-search="eclissi di sole e perseidi: stasera doppio spettacolo nel cielo sopra bergamo questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da bergamo, seguita nella notte dal picco dello sciame meteorico delle perseidi in condizioni di visibilità quasi perfette. attualità bergamo eclissi solare perseidi astronomia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-12-bergamo-eclissi-sole-perseidi/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Eclissi di Sole e Perseidi: stasera doppio spettacolo nel cielo sopra Bergamo</h2><p class="card-summary">Questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da Bergamo, seguita nella notte dal picco dello sciame meteorico delle Perseidi in condizioni di visibilità quasi perfette.</p><p class="card-meta">12 agosto 2026</p></div></a></article><article class="card" data-search="caldo estremo in lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto la regione lombardia ha emesso l&#x27;ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema worklimate segnala rischio caldo &#x27;alto&#x27;. a bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba. attualità bergamo caldo cantieri sicurezza sul lavoro" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-23-ordinanza-caldo-cantieri-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Caldo estremo in Lombardia: stop ai cantieri tra le 12:30 e le 16:00 nelle giornate a rischio alto</h2><p class="card-summary">La Regione Lombardia ha emesso l&#x27;Ordinanza n. 484 del 9 giugno 2026 che vieta i lavori all&#x27;aperto in edilizia, agricoltura e cave dalle 12:30 alle 16:00 nelle giornate in cui il sistema Worklimate segnala rischio caldo &#x27;alto&#x27;. A Bergamo le imprese edili chiedono deroghe ai regolamenti comunali per anticipare i turni all&#x27;alba.</p><p class="card-meta">23 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
