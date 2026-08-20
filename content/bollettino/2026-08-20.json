@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-20",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso/prevalentemente nuvoloso su tutto il tragitto, temperature miti-calde (22-24°C) e niente pioggia prevista, ma a Bergamo l'asfalto è ancora umido per la pioggia caduta nelle ore precedenti.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Nuvoloso",               "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 8, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente nuvoloso","temp_c": 24, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNW"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente nuvoloso","temp_c": 24, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 62,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 23}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+23=62 min). CCISS RSS letto: nessun item su A4 Bergamo-Agrate o A51 Tangenziale Est. Serravalle e Luceverde raggiungibili ma senza lista eventi in tempo reale nel contenuto statico. Autostrade per l'Italia: 404 (fonte nota come inaffidabile, non riprovata). Ricerca web: i riscontri su un presunto incidente Capriate-Trezzo e una chiusura dell'uscita di Trezzo sono stati verificati e risultano non pertinenti a oggi (il comunicato Autostrade citato è del 14/05/2024); scartati per evitare falsi positivi. Nessun evento pertinente confermato per la tratta e la direzione odierne."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Niente pioggia prevista lungo l'intero tragitto (probabilità massima 22%)",
+      "Asfalto ancora umido a Bergamo: ~4 mm di pioggia nelle 3 ore precedenti la partenza, pioggia ormai cessata",
+      "Temperatura ampiamente sopra i 7°C lungo tutto il percorso (23-24°C)",
+      "Vento e raffiche entro i limiti di sicurezza (raffiche massime ~24 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
