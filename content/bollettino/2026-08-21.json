@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-21",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia in intensificazione lungo il percorso: lievi rovesci in partenza da Bergamo, pioggia intensa da Carugate a San Donato Milanese.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Lievi rovesci di pioggia", "temp_c": 19, "precip_mm": 0.05, "wind_kmh": 5, "wind_dir": "NE"},
+      {"name": "Carugate (08:15)",    "cond": "Pioggia intensa",          "temp_c": 20, "precip_mm": 7.0,  "wind_kmh": 5, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Pioggia intensa",          "temp_c": 20, "precip_mm": 9.25, "wind_kmh": 5, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 59,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 25},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 21}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (25+13+21=59 min). CCISS RSS letto: nessun item pertinente su A4 Bergamo-Agrate o A51 Carugate-San Donato (gli unici eventi A4 trovati erano tra Sesto San Giovanni e Tangenziale Nord Milano, fuori dalla tratta odierna). Serravalle e Luceverde raggiungibili ma senza lista eventi in tempo reale nel contenuto statico. Autostrade per l'Italia: 404 (fonte nota come inaffidabile, non riprovata). Ricerca web: unici riscontri (perdite di carico A4 zona Dalmine-Trezzo-Capriate, code A51 zona Cologno-Lambrate) datati al 20/08 o privi di data certa, non confermati per la mattina del 21/08: scartati per evitare falsi positivi."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia intensa prevista a Carugate e San Donato (7-9 mm, probabilità 94-97%)",
+      "Probabilità di pioggia ≥ 50% su due dei tre punti del tragitto",
+      "Pioggia già presente a Bergamo alla partenza (rovesci lievi, probabilità 30%)",
+      "Asfalto non asciutto a Bergamo: 0,45 mm di pioggia nelle 3 ore precedenti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
