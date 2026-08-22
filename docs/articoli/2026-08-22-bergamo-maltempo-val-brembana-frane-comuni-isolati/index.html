@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana — TNT News</title>
+  <meta name="description" content="Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-22-bergamo-maltempo-val-brembana-frane-comuni-isolati/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana — TNT News">
+  <meta property="og:description" content="Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-22-bergamo-maltempo-val-brembana-frane-comuni-isolati/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana — TNT News">
+  <meta name="twitter:description" content="Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Val Brembana</span><span class="tag">Val Seriana</span><span class="tag">Maltempo</span><span class="tag">Frane</span><span class="tag">Evacuazioni</span></div>
+    <h1>Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana</h1>
+    <p class="article-summary">Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-22">22 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Un violento nubifragio ha colpito la provincia di Bergamo tra la notte di mercoledì 19 e la giornata di venerdì 21 agosto, scaricando fino a 250 millimetri di pioggia sulle Orobie e provocando frane e allagamenti soprattutto in Alta Val Brembana e in Val Seriana. Sei comuni sono rimasti isolati, circa 150 persone sono state evacuate e i vigili del fuoco hanno effettuato oltre venti interventi in tutta la Bergamasca.</p>
+
+<h2>Le zone più colpite</h2>
+<p>Le precipitazioni più intense si sono concentrate sull'Alta Val Brembana: alla stazione del Lago Fregabolgia, sopra Carona, sono caduti 253 millimetri di pioggia dalla sera di mercoledì, mentre a Branzi l'accumulo ha superato i 190 millimetri, il valore più alto registrato in tutta la Lombardia. Le forti piogge hanno causato smottamenti diffusi lungo i versanti e ingrossato rapidamente i torrenti della zona.</p>
+<p>Nella notte tra giovedì e venerdì sono rimasti isolati quattro comuni dell'alta valle, Branzi, Carona, Foppolo e Valleve, raggiungibili solo con percorsi alternativi dopo il cedimento di alcuni tratti di versante lungo la statale che li collega al fondovalle. Venerdì l'emergenza si è estesa anche alla Val Seriana, dove il maltempo ha isolato Valbondione e Gandellino, portando a sei il totale dei comuni bergamaschi tagliati fuori dalla viabilità ordinaria.</p>
+
+<h2>Le evacuazioni</h2>
+<p>L'intervento più consistente ha riguardato il campeggio San Simone, nella frazione di Isola di Fondra, dove oltre 150 ospiti sono stati fatti allontanare in via precauzionale la sera di giovedì: la struttura era minacciata a monte da un movimento franoso e a valle dal rischio di esondazione di un torrente. A Valleve una frana ha isolato un'abitazione e i vigili del fuoco hanno evacuato tre residenti, tra cui due bambini. Alcune famiglie sono state trasferite nelle palestre comunali di Lenna e Piazza Brembana, allestite come punti di accoglienza.</p>
+
+<h2>Fiumi sotto osservazione</h2>
+<p>Anche i due principali corsi d'acqua della provincia sono stati sotto stretta osservazione. Il Brembo è arrivato in piena, con i collegamenti stradali lungo la valle ripristinati solo venerdì mattina dopo il lavoro dei mezzi di soccorso; il Serio è esondato giovedì pomeriggio nella zona di Gandellino, mentre ad Albino il ponte sul fiume è rimasto chiuso al traffico fino al mattino di venerdì. Nel frattempo la Provincia di Bergamo ha disposto il senso unico alternato sulla provinciale 49 a Parre, dove una frana ha interessato la sede stradale, e ha segnalato criticità anche sulla provinciale 2 nella zona di Isola di Fondra.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: millimetri di pioggia caduti in Alta Val Brembana tra mercoledì sera e venerdì 21 agosto 2026. Stazione Lago Fregabolgia (Carona): 253 millimetri. Massimo sulle Orobie: 250 millimetri. Branzi: oltre 190 millimetri.">
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+    <line x1="60" y1="40" x2="60" y2="260" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+
+    <rect x="120" y="60" width="110" height="200" fill="#2980b9"></rect>
+    <text x="175" y="278" text-anchor="middle" font-size="14">Carona (Lago Fregabolgia)</text>
+    <text x="175" y="50" text-anchor="middle" font-size="15" font-weight="bold">253 mm</text>
+
+    <rect x="290" y="62" width="110" height="198" fill="#8e44ad"></rect>
+    <text x="345" y="278" text-anchor="middle" font-size="14">Max Orobie</text>
+    <text x="345" y="52" text-anchor="middle" font-size="15" font-weight="bold">250 mm</text>
+
+    <rect x="460" y="110" width="110" height="150" fill="#c0392b"></rect>
+    <text x="515" y="278" text-anchor="middle" font-size="14">Branzi</text>
+    <text x="515" y="100" text-anchor="middle" font-size="15" font-weight="bold">oltre 190 mm</text>
+
+    <text x="60" y="300" font-size="12" opacity="0.7">Accumuli di pioggia in Alta Val Brembana, dalla sera di mercoledì 19 a venerdì 21 agosto 2026</text>
+  </svg>
+  <figcaption>Accumuli di pioggia registrati in Alta Val Brembana tra il 19 e il 21 agosto 2026. Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>Cosa succede ora</h2>
+<p>Nella mattina di venerdì i mezzi di soccorso hanno lavorato per liberare le strade da fango e detriti, ripristinando i principali collegamenti verso l'alta valle, anche se in alcuni tratti la circolazione resta regolata a senso unico. Secondo le previsioni riportate dalla stampa locale, il weekend dovrebbe portare un miglioramento con condizioni più stabili, mentre una nuova perturbazione, di intensità minore rispetto a quella dei giorni scorsi, è attesa martedì 25 agosto. Le squadre di Protezione civile e i tecnici della Provincia continuano a monitorare i versanti instabili in Val Brembana e Val Seriana per verificare la sicurezza dei tratti stradali riaperti.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/21/la-bergamasca-sottacqua-oltre-venti-interventi-dei-vigili-del-fuoco-brembo-e-serio-sotto-osservazione-le-previsioni/916823/" rel="noopener" target="_blank">BergamoNews – La Bergamasca sott&#x27;acqua: oltre venti interventi dei vigili del fuoco, Brembo e Serio sotto osservazione</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/maltempo-valle-seriana-pbsb0fp2" rel="noopener" target="_blank">Il Giorno – Maltempo in Valle Seriana, sei Comuni isolati: allagamenti, frane e alberi caduti</a></li><li><a href="https://www.bergamonews.it/2026/08/20/da-branzi-a-parre-il-maltempo-si-abbatte-sulla-bergamasca-le-immagini-del-brembo-in-piena/916467/" rel="noopener" target="_blank">BergamoNews – Da Branzi a Parre, il maltempo si abbatte sulla Bergamasca: le immagini del Brembo in piena</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="valgoglio dice no alle ricerche di uranio nella miniera di novazza il comune di valgoglio ha inviato al ministero dell&#x27;ambiente un parere negativo sulla valutazione di impatto ambientale per le ricerche minerarie di uranio a novazza, citando il rischio frane, l&#x27;assenza di dati su radioattività e radon e il sequestro giudiziario del piazzale d&#x27;accesso. ambiente valgoglio novazza uranio val seriana" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-19-valgoglio-no-uranio-novazza/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Valgoglio dice no alle ricerche di uranio nella miniera di Novazza</h2><p class="card-summary">Il Comune di Valgoglio ha inviato al Ministero dell&#x27;Ambiente un parere negativo sulla valutazione di impatto ambientale per le ricerche minerarie di uranio a Novazza, citando il rischio frane, l&#x27;assenza di dati su radioattività e radon e il sequestro giudiziario del piazzale d&#x27;accesso.</p><p class="card-meta">19 agosto 2026</p></div></a></article><article class="card" data-search="siccità, i laghi gemelli in val brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 il calo del bacino idroelettrico di branzi, in alta val brembana, ha riportato alla luce la lingua di terra che divide i due laghi gemelli. la provincia di bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto. ambiente bergamo val brembana siccità laghi gemelli crisi idrica" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-03-bergamo-laghi-gemelli-siccita-separati/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022</h2><p class="card-summary">Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.</p><p class="card-meta">3 agosto 2026</p></div></a></article><article class="card" data-search="colere, legambiente presenta un esposto in procura: &quot;a rischio l&#x27;area carsica del comprensorio&quot; legambiente ha depositato alla procura di bergamo un esposto sui lavori del comprensorio sciistico di colere, denunciando possibili violazioni delle prescrizioni ambientali a tutela del geosito carsico &quot;mare in burrasca&quot;. ambiente colere val di scalve legambiente area carsica comprensorio sciistico" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-11-colere-esposto-procura-area-carsica/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Colere, Legambiente presenta un esposto in Procura: &quot;A rischio l&#x27;area carsica del comprensorio&quot;</h2><p class="card-summary">Legambiente ha depositato alla Procura di Bergamo un esposto sui lavori del comprensorio sciistico di Colere, denunciando possibili violazioni delle prescrizioni ambientali a tutela del geosito carsico &quot;Mare in Burrasca&quot;.</p><p class="card-meta">11 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
