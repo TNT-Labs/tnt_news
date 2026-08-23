@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Maltempo, Regione Lombardia chiede lo stato di emergenza: la Bergamasca tra le zone più colpite — TNT News</title>
+  <meta name="description" content="Dopo il nubifragio che ha isolato sei comuni della Bergamasca ed evacuato centinaia di persone, il governatore Attilio Fontana ha chiesto al Governo lo stato di emergenza per la Lombardia. La richiesta attende ora il passaggio in Consiglio dei Ministri.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-23-bergamo-maltempo-stato-emergenza-regione/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Maltempo, Regione Lombardia chiede lo stato di emergenza: la Bergamasca tra le zone più colpite — TNT News">
+  <meta property="og:description" content="Dopo il nubifragio che ha isolato sei comuni della Bergamasca ed evacuato centinaia di persone, il governatore Attilio Fontana ha chiesto al Governo lo stato di emergenza per la Lombardia. La richiesta attende ora il passaggio in Consiglio dei Ministri.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-23-bergamo-maltempo-stato-emergenza-regione/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maltempo, Regione Lombardia chiede lo stato di emergenza: la Bergamasca tra le zone più colpite — TNT News">
+  <meta name="twitter:description" content="Dopo il nubifragio che ha isolato sei comuni della Bergamasca ed evacuato centinaia di persone, il governatore Attilio Fontana ha chiesto al Governo lo stato di emergenza per la Lombardia. La richiesta attende ora il passaggio in Consiglio dei Ministri.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/politica/">Politica</a><span class="tag">Bergamo</span><span class="tag">Maltempo</span><span class="tag">Stato di emergenza</span><span class="tag">Regione Lombardia</span><span class="tag">Protezione civile</span></div>
+    <h1>Maltempo, Regione Lombardia chiede lo stato di emergenza: la Bergamasca tra le zone più colpite</h1>
+    <p class="article-summary">Dopo il nubifragio che ha isolato sei comuni della Bergamasca ed evacuato centinaia di persone, il governatore Attilio Fontana ha chiesto al Governo lo stato di emergenza per la Lombardia. La richiesta attende ora il passaggio in Consiglio dei Ministri.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-23">23 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il governatore della Lombardia Attilio Fontana ha chiesto al ministro della Protezione civile Nello Musumeci il riconoscimento dello stato di emergenza per i danni causati dal maltempo che, a partire dal pomeriggio del 20 agosto, ha colpito diverse zone della regione. La Bergamasca, insieme al Bresciano e alla provincia di Sondrio, è indicata tra le aree più danneggiate: in Alta Val Brembana e Val Seriana il nubifragio ha isolato sei comuni ed evacuato centinaia di persone.</p>
+
+<h2>La richiesta della Regione</h2>
+<p>Musumeci ha garantito a Fontana che sottoporrà la richiesta della Lombardia al Consiglio dei Ministri "appena possibile". Il governatore ha incaricato gli assessori Romano La Russa, alla Protezione civile, e Gianluca Comazzi, al Territorio, di preparare la documentazione necessaria per formalizzare la domanda. Fontana ha sottolineato che "la situazione che si è determinata richiede una risposta adeguata alla portata degli eventi". Al momento la richiesta è depositata ma non ancora passata al vaglio del Consiglio dei Ministri, che dovrà deliberare il riconoscimento formale.</p>
+
+<h2>I numeri dell'emergenza</h2>
+<p>Le piogge, tra le più intense degli ultimi anni sulle Orobie, hanno fatto segnare accumuli fino a 270 millimetri in poco più di 24 ore. In tutta la Lombardia i vigili del fuoco hanno effettuato oltre 450 interventi e circa 400 persone sono state evacuate, in gran parte proprio nella Bergamasca: nella sola Isola di Fondra, in Alta Val Brembana, il campeggio San Simone ha dovuto sgomberare circa 250 ospiti per il rischio di frana ed esondazione. A Gandellino, in Val Seriana, si sono registrati cedimenti strutturali che hanno reso necessari ulteriori controlli tecnici.</p>
+
+<h2>La situazione nelle valli bergamasche</h2>
+<p>Le criticità maggiori restano concentrate in Alta Val Brembana, dove i collegamenti verso alcuni comuni sono stati interrotti dalle frane, e nell'alta Val Seriana, colpita da smottamenti e dall'esondazione del torrente Serio nei giorni scorsi. Le squadre di soccorso e i tecnici della Provincia hanno lavorato per liberare le strade da fango e detriti, ripristinando i collegamenti principali, anche se in diversi tratti la circolazione resta regolata a senso unico alternato in attesa di verifiche sulla stabilità dei versanti.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo dell'emergenza maltempo in Lombardia: 20 agosto inizio delle piogge intense; 21 agosto frane, isolamento di comuni e circa 400 evacuati con oltre 450 interventi dei vigili del fuoco; sera del 21 agosto richiesta dello stato di emergenza del governatore Fontana; 22 agosto riaperture parziali delle strade nelle valli bergamasche; prossimo passo, l'esame della richiesta da parte del Consiglio dei Ministri, ancora in attesa.">
+    <line x1="50" y1="160" x2="590" y2="160" stroke="currentColor" stroke-width="2" opacity="0.5"></line>
+
+    <circle cx="80" cy="160" r="8" fill="#2980b9"></circle>
+    <text x="80" y="130" text-anchor="middle" font-size="13" font-weight="bold">20 ago</text>
+    <text x="80" y="112" text-anchor="middle" font-size="12">Iniziano</text>
+    <text x="80" y="98" text-anchor="middle" font-size="12">le piogge intense</text>
+
+    <circle cx="220" cy="160" r="8" fill="#c0392b"></circle>
+    <text x="220" y="190" text-anchor="middle" font-size="13" font-weight="bold">21 ago</text>
+    <text x="220" y="208" text-anchor="middle" font-size="12">Frane, comuni isolati,</text>
+    <text x="220" y="224" text-anchor="middle" font-size="12">~400 evacuati,</text>
+    <text x="220" y="240" text-anchor="middle" font-size="12">oltre 450 interventi VVF</text>
+
+    <circle cx="360" cy="160" r="8" fill="#8e44ad"></circle>
+    <text x="360" y="130" text-anchor="middle" font-size="13" font-weight="bold">21 ago, sera</text>
+    <text x="360" y="112" text-anchor="middle" font-size="12">Fontana chiede</text>
+    <text x="360" y="98" text-anchor="middle" font-size="12">lo stato di emergenza</text>
+
+    <circle cx="490" cy="160" r="8" fill="#27ae60"></circle>
+    <text x="490" y="190" text-anchor="middle" font-size="13" font-weight="bold">22 ago</text>
+    <text x="490" y="208" text-anchor="middle" font-size="12">Riaperture parziali</text>
+    <text x="490" y="224" text-anchor="middle" font-size="12">delle strade nelle valli</text>
+
+    <circle cx="590" cy="160" r="8" fill="#7f8c8d"></circle>
+    <text x="590" y="130" text-anchor="middle" font-size="13" font-weight="bold">Prossimo passo</text>
+    <text x="590" y="112" text-anchor="middle" font-size="12">Esame in Consiglio</text>
+    <text x="590" y="98" text-anchor="middle" font-size="12">dei Ministri (in attesa)</text>
+  </svg>
+  <figcaption>Le tappe dell'emergenza maltempo in Lombardia, dal 20 agosto alla richiesta di stato di emergenza. Valori indicativi, elaborati sui dati riportati da BergamoNews e L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>Cosa succede ora</h2>
+<p>La palla passa ora al Governo: il Consiglio dei Ministri dovrà valutare la richiesta lombarda e, in caso di accoglimento, stanziare le risorse per i primi interventi urgenti e per il ripristino delle infrastrutture danneggiate. Nel frattempo la Regione ha avviato la ricognizione dei danni nei territori colpiti, passaggio necessario per quantificare l'entità dei fondi da richiedere. Per i comuni della Bergamasca coinvolti, dal ripristino della viabilità di montagna alla messa in sicurezza dei versanti, il riconoscimento dello stato di emergenza rappresenterebbe un accesso più rapido a risorse straordinarie.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/21/maltempo-regione-lombardia-chiede-al-governo-lo-stato-di-emergenza-la-bergamasca-tra-le-zone-piu-colpite/917022" rel="noopener" target="_blank">BergamoNews – Maltempo, Regione Lombardia chiede al Governo lo stato di emergenza: la Bergamasca tra le zone più colpite</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/maltempo-la-regione-lombardia-chiede-lo-stato-di-emergenza-o_3934070_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Maltempo, la Regione Lombardia chiede lo stato di emergenza</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="sicurezza a bergamo, la sindaca carnevali al viminale: in arrivo altri agenti la sindaca elena carnevali ha incontrato il 9 luglio il ministro dell&#x27;interno piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. l&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a bergamo e treviglio. politica bergamo sicurezza viminale elena carnevali piantedosi" data-cat="Politica"><a class="card-link" href="../../articoli/2026-07-10-sicurezza-bergamo-viminale-nuovi-agenti/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti</h2><p class="card-summary">La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.</p><p class="card-meta">10 luglio 2026</p></div></a></article><article class="card" data-search="elezioni comunali 2026 in provincia di bergamo: eletti i nuovi sindaci in 14 comuni il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. l&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. rinnovati tutti i consigli comunali. politica bergamo elezioni comuni amministrative 2026" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni</h2><p class="card-summary">Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.</p><p class="card-meta">29 maggio 2026</p></div></a></article><article class="card" data-search="comunali in bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. confermati, tra gli altri, i sindaci di almè, clusone e sorisole. politica bergamo elezioni" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-26-comunali-bergamo-affluenza-calo/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Comunali in Bergamasca: 14 comuni al voto, affluenza in netto calo e sindaci uscenti riconfermati</h2><p class="card-summary">Nei 14 comuni bergamaschi chiamati alle urne il 24 e 25 maggio l&#x27;affluenza scende al 45,59%, oltre otto punti in meno della tornata precedente. Confermati, tra gli altri, i sindaci di Almè, Clusone e Sorisole.</p><p class="card-meta">26 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
