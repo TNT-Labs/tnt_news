@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-24",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso su tutto il tragitto, nessuna pioggia prevista e vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Parzialmente soleggiato",   "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente soleggiato","temp_c": 22, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente soleggiato","temp_c": 22, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 63,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 24}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+24=63 min). CCISS RSS letto: unico item A4 pertinente al nome tratta era tra Svincolo Ponte Oglio e Svincolo Grumello (zona Brescia, fuori dal segmento Bergamo-Agrate della corsa odierna); nessun item su A51 Tangenziale Est. Serravalle e Luceverde raggiungibili ma senza lista eventi in tempo reale nel contenuto statico. Autostrade per l'Italia: 404 (fonte nota come inaffidabile, non riprovata). Ricerca web: nessun incidente o cantiere riportato per oggi 24/08 sulla tratta A4 Bergamo-Agrate o A51 Carugate-San Donato."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista e probabilità di precipitazioni pari a 0% su tutto il tragitto",
+      "Vento debole (3-6 km/h) e raffiche contenute in tutti e tre i punti",
+      "Temperature comprese tra 19°C e 22°C, ben sopra i 7°C minimi",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza da Bergamo"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
