@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, Roberta Marzani è oro nella spada ai Giochi del Mediterraneo di Taranto — TNT News</title>
+  <meta name="description" content="La schermitrice bergamasca ha battuto in rimonta la spagnola Daniela Pinyol Tomas per 15-14 nella finale della spada individuale femminile, conquistando il secondo titolo in carriera ai Giochi del Mediterraneo dopo Tarragona 2018.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-24-bergamo-marzani-oro-spada-giochi-mediterraneo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, Roberta Marzani è oro nella spada ai Giochi del Mediterraneo di Taranto — TNT News">
+  <meta property="og:description" content="La schermitrice bergamasca ha battuto in rimonta la spagnola Daniela Pinyol Tomas per 15-14 nella finale della spada individuale femminile, conquistando il secondo titolo in carriera ai Giochi del Mediterraneo dopo Tarragona 2018.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-24-bergamo-marzani-oro-spada-giochi-mediterraneo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, Roberta Marzani è oro nella spada ai Giochi del Mediterraneo di Taranto — TNT News">
+  <meta name="twitter:description" content="La schermitrice bergamasca ha battuto in rimonta la spagnola Daniela Pinyol Tomas per 15-14 nella finale della spada individuale femminile, conquistando il secondo titolo in carriera ai Giochi del Mediterraneo dopo Tarragona 2018.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sport/">Sport</a><span class="tag">Bergamo</span><span class="tag">Scherma</span><span class="tag">Roberta Marzani</span><span class="tag">Giochi del Mediterraneo</span></div>
+    <h1>Bergamo, Roberta Marzani è oro nella spada ai Giochi del Mediterraneo di Taranto</h1>
+    <p class="article-summary">La schermitrice bergamasca ha battuto in rimonta la spagnola Daniela Pinyol Tomas per 15-14 nella finale della spada individuale femminile, conquistando il secondo titolo in carriera ai Giochi del Mediterraneo dopo Tarragona 2018.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-24">24 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La schermitrice bergamasca <strong>Roberta Marzani</strong> ha conquistato
+la medaglia d'oro nella spada individuale femminile ai XX Giochi del
+Mediterraneo di Taranto, battendo in rimonta la spagnola <strong>Daniela
+Pinyol Tomas</strong> per 15-14 nella finale disputata domenica 23 agosto
+davanti al pubblico del PalaRicciardi. Per l'atleta, tesserata per il
+Centro Sportivo Esercito e cresciuta nella Bergamo Scherma Creberg, è il
+secondo titolo in carriera in questa manifestazione, dopo l'oro vinto a
+Tarragona nel 2018 e il bronzo di Orano nel 2022.</p>
+
+<h2>Una finale vinta in rimonta</h2>
+<p>Secondo la ricostruzione dei siti specializzati, Marzani è arrivata
+all'ultimo assalto della finale in svantaggio di tre stoccate, prima di
+ribaltare il punteggio e chiudere sul 15-14. Un copione già visto poche
+ore prima in semifinale, dove la bergamasca aveva superato la turca
+Aleyna Erturk per 15-11 recuperando anch'essa da una posizione di
+svantaggio. Il percorso verso l'oro era iniziato negli ottavi di finale
+con la vittoria, più netta, sulla slovena Francesca Parmesani per
+15-8.</p>
+
+<h2>Tre medaglie in tre partecipazioni</h2>
+<p>Con il successo di Taranto, Marzani sale a tre medaglie complessive in
+altrettante edizioni dei Giochi del Mediterraneo disputate: un bilancio
+che le è valso, nei resoconti della manifestazione, l'appellativo di
+"regina del Mediterraneo" nella spada femminile. Un risultato che si
+inserisce in un percorso di alto livello internazionale che negli
+ultimi anni ha visto l'atleta bergamasca salire sul podio anche in tappe
+di Coppa del Mondo a squadre, gareggiando con i colori dell'Esercito.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Grafico a barre del percorso di Roberta Marzani verso l'oro ai Giochi del Mediterraneo 2026: ottavi di finale contro Francesca Parmesani vinti 15 a 8, semifinale contro Aleyna Erturk vinta 15 a 11, finale contro Daniela Pinyol Tomas vinta 15 a 14. Fonte: L'Eco di Bergamo, 24 agosto 2026.">
+    <line x1="60" y1="240" x2="600" y2="240" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+
+    <rect x="100" y="80" width="70" height="160" fill="currentColor" opacity="0.85"/>
+    <text x="135" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">15-8</text>
+    <text x="135" y="262" text-anchor="middle" font-size="12" fill="currentColor">Ottavi</text>
+    <text x="135" y="277" text-anchor="middle" font-size="12" fill="currentColor">vs Parmesani (SLO)</text>
+
+    <rect x="285" y="120" width="70" height="120" fill="currentColor" opacity="0.85"/>
+    <text x="320" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">15-11</text>
+    <text x="320" y="262" text-anchor="middle" font-size="12" fill="currentColor">Semifinale</text>
+    <text x="320" y="277" text-anchor="middle" font-size="12" fill="currentColor">vs Erturk (TUR)</text>
+
+    <rect x="470" y="200" width="70" height="40" fill="currentColor" opacity="0.85"/>
+    <text x="505" y="190" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">15-14</text>
+    <text x="505" y="262" text-anchor="middle" font-size="12" fill="currentColor">Finale</text>
+    <text x="505" y="277" text-anchor="middle" font-size="12" fill="currentColor">vs Pinyol Tomas (ESP)</text>
+
+    <text x="330" y="24" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.8">Il cammino verso l'oro di Marzani, Taranto 23 agosto 2026</text>
+    <text x="330" y="44" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.6">Margine di vittoria progressivamente più ridotto ad ogni turno</text>
+  </svg>
+  <figcaption>Il percorso di Roberta Marzani nel tabellone della spada
+  individuale femminile, con i punteggi dei tre assalti decisivi. Fonte:
+  L'Eco di Bergamo, 24 agosto 2026.</figcaption>
+</figure>
+
+<h2>Un palmares che parte da giovanissima</h2>
+<p>Originaria del territorio bergamasco, Marzani si era già messa in luce
+a livello giovanile, vincendo nel 2014 l'oro a squadre ai Mondiali
+Under 20 di Mödling, in Austria, e conquistando negli anni successivi
+titoli italiani assoluti nella spada individuale. Il successo di Taranto
+arriva quindi al culmine di una carriera costruita su una lunga
+continuità di risultati, in un 2026 che la conferma tra le riferimenti
+internazionali della spada femminile italiana in vista dei prossimi
+appuntamenti stagionali di Coppa del Mondo.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/sport/marzani-doro-ai-giochi-del-mediterraneo-batte-la-spagnola-pinyol-tomas-in-fina-o_3935318_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – Marzani d&#x27;oro ai Giochi del Mediterraneo, batte la spagnola Pinyol Tomas in finale</a></li><li><a href="https://www.ansa.it/puglia/notizie/speciali/xx_giochi_del_mediterraneo_taranto_2026/2026/08/23/giochi-del-mediterraneo-marzani-doro-nella-spada-femminile_3d3d823f-5bc4-4e8f-8a93-4104f37b3c47.html" rel="noopener" target="_blank">ANSA – Giochi del Mediterraneo: Marzani d&#x27;oro nella spada femminile</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi con la qualificazione di pašalić (croazia) e sulemana (ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al mondiale 2026 hanno superato la fase a gironi. un risultato senza precedenti per il club bergamasco. sport bergamo atalanta mondiali 2026 sedicesimi di finale" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-28-atalantini-mondiali-otto-sedicesimi/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Mondiale 2026: otto su otto, tutti gli atalantini ai sedicesimi</h2><p class="card-summary">Con la qualificazione di Pašalić (Croazia) e Sulemana (Ghana) completata il 27 giugno, tutti e otto i nerazzurri convocati al Mondiale 2026 hanno superato la fase a gironi. Un risultato senza precedenti per il club bergamasco.</p><p class="card-meta">28 giugno 2026</p></div></a></article><article class="card" data-search="torna la notte bianca dello sport: il centro di bergamo diventa una palestra a cielo aperto sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza matteotti, il sentierone e le vie del centro. ingresso gratuito, istruttori a disposizione del pubblico. sport bergamo notte bianca sentierone sport gratuito" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-26-notte-bianca-sport-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Torna la Notte Bianca dello Sport: il centro di Bergamo diventa una palestra a cielo aperto</h2><p class="card-summary">Sabato 27 giugno, dalle 18 a mezzanotte, circa 50 società sportive animano piazza Matteotti, il Sentierone e le vie del centro. Ingresso gratuito, istruttori a disposizione del pubblico.</p><p class="card-meta">26 giugno 2026</p></div></a></article><article class="card" data-search="trail del centenario a foppolo: quinta edizione da record con 1.100 atleti la quinta edizione del trail del centenario lovato electric, disputata domenica 21 giugno a foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;alta val brembana. cristian minoggio ha vinto i 50 km, william boffelli i 25 km. sport bergamo trail running foppolo val brembana" data-cat="Sport"><a class="card-link" href="../../articoli/2026-06-22-trail-centenario-foppolo-record/"><div class="card-body"><div class="tags"><span class="tag">Sport</span></div><h2 class="card-title">Trail del Centenario a Foppolo: quinta edizione da record con 1.100 atleti</h2><p class="card-summary">La quinta edizione del Trail del Centenario Lovato Electric, disputata domenica 21 giugno a Foppolo, ha richiamato 1.100 atleti sulle tre distanze (13, 25 e 50 km): nuovo primato assoluto di partecipanti per la corsa dell&#x27;Alta Val Brembana. Cristian Minoggio ha vinto i 50 km, William Boffelli i 25 km.</p><p class="card-meta">22 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
