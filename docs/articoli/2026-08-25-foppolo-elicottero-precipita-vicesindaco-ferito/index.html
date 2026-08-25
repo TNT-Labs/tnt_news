@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Foppolo, elicottero precipita in atterraggio: feriti il pilota e il vicesindaco Gherardi — TNT News</title>
+  <meta name="description" content="Un elicottero ultraleggero è precipitato lunedì pomeriggio durante l&#x27;atterraggio a Foppolo, in Val Brembana: feriti in modo non grave il pilota 28enne e il vicesindaco del paese Alessandro Gherardi, entrambi trasportati al Papa Giovanni XXIII di Bergamo.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-25-foppolo-elicottero-precipita-vicesindaco-ferito/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Foppolo, elicottero precipita in atterraggio: feriti il pilota e il vicesindaco Gherardi — TNT News">
+  <meta property="og:description" content="Un elicottero ultraleggero è precipitato lunedì pomeriggio durante l&#x27;atterraggio a Foppolo, in Val Brembana: feriti in modo non grave il pilota 28enne e il vicesindaco del paese Alessandro Gherardi, entrambi trasportati al Papa Giovanni XXIII di Bergamo.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-25-foppolo-elicottero-precipita-vicesindaco-ferito/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Foppolo, elicottero precipita in atterraggio: feriti il pilota e il vicesindaco Gherardi — TNT News">
+  <meta name="twitter:description" content="Un elicottero ultraleggero è precipitato lunedì pomeriggio durante l&#x27;atterraggio a Foppolo, in Val Brembana: feriti in modo non grave il pilota 28enne e il vicesindaco del paese Alessandro Gherardi, entrambi trasportati al Papa Giovanni XXIII di Bergamo.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Foppolo</span><span class="tag">Val Brembana</span><span class="tag">Incidente</span><span class="tag">Simone Moro</span></div>
+    <h1>Foppolo, elicottero precipita in atterraggio: feriti il pilota e il vicesindaco Gherardi</h1>
+    <p class="article-summary">Un elicottero ultraleggero è precipitato lunedì pomeriggio durante l&#x27;atterraggio a Foppolo, in Val Brembana: feriti in modo non grave il pilota 28enne e il vicesindaco del paese Alessandro Gherardi, entrambi trasportati al Papa Giovanni XXIII di Bergamo.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-25">25 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Un elicottero ultraleggero è precipitato nel tardo pomeriggio di lunedì
+24 agosto, poco prima delle 17, mentre stava atterrando a Foppolo, in Val
+Brembana. A bordo del velivolo, un Robinson R22, si trovavano il pilota,
+un 28enne di Bergamo, e il vicesindaco del comune, <strong>Alessandro
+Gherardi</strong>, 35 anni. Entrambi hanno riportato ferite giudicate di
+media gravità e sono stati trasportati in eliambulanza all'ospedale Papa
+Giovanni XXIII di Bergamo: secondo i sanitari, nessuno dei due è in
+pericolo di vita.</p>
+
+<h2>La dinamica dell'incidente</h2>
+<p>L'elicottero stava effettuando quello che è stato descritto come un
+volo ricreativo quando è precipitato durante la fase di atterraggio nella
+zona delle Foppelle, nei pressi di un laghetto e di un rifugio in quota
+sopra il paese. Le cause dello schianto non sono ancora note: i
+carabinieri della stazione di Zogno stanno ricostruendo la dinamica per
+stabilire cosa abbia provocato la caduta durante la manovra.</p>
+
+<h2>Soccorsi tempestivi</h2>
+<p>L'allarme è scattato immediatamente dopo l'impatto e sul posto sono
+intervenuti in pochi minuti i vigili del fuoco del distaccamento di
+Zogno, una squadra del soccorso alpino della Val Brembana, due ambulanze
+e l'eliambulanza di Areu, il servizio regionale di emergenza-urgenza. Il
+pilota è riuscito a uscire autonomamente dal velivolo, mentre il
+vicesindaco Gherardi, che ha riportato politraumi soprattutto al torace
+e nei primi momenti è apparso confuso, è stato assistito e stabilizzato
+prima del trasporto in ospedale.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre dei mezzi di soccorso mobilitati per l'incidente dell'elicottero a Foppolo il 24 agosto 2026: una squadra di vigili del fuoco, una squadra di soccorso alpino, due ambulanze, un elicottero di soccorso Areu. Fonte: BergamoNews, 24 agosto 2026.">
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+
+    <rect x="90" y="140" width="70" height="120" fill="currentColor" opacity="0.85"/>
+    <text x="125" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">1</text>
+    <text x="125" y="282" text-anchor="middle" font-size="12" fill="currentColor">Vigili del</text>
+    <text x="125" y="296" text-anchor="middle" font-size="12" fill="currentColor">fuoco (Zogno)</text>
+
+    <rect x="230" y="140" width="70" height="120" fill="currentColor" opacity="0.85"/>
+    <text x="265" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">1</text>
+    <text x="265" y="282" text-anchor="middle" font-size="12" fill="currentColor">Soccorso alpino</text>
+    <text x="265" y="296" text-anchor="middle" font-size="12" fill="currentColor">Val Brembana</text>
+
+    <rect x="370" y="80" width="70" height="180" fill="currentColor" opacity="0.85"/>
+    <text x="405" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">2</text>
+    <text x="405" y="282" text-anchor="middle" font-size="12" fill="currentColor">Ambulanze</text>
+
+    <rect x="480" y="140" width="70" height="120" fill="currentColor" opacity="0.85"/>
+    <text x="515" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">1</text>
+    <text x="515" y="282" text-anchor="middle" font-size="12" fill="currentColor">Eliambulanza</text>
+    <text x="515" y="296" text-anchor="middle" font-size="12" fill="currentColor">Areu</text>
+
+    <text x="330" y="24" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.8">Mezzi di soccorso mobilitati a Foppolo, 24 agosto 2026</text>
+  </svg>
+  <figcaption>I mezzi di soccorso intervenuti dopo la caduta dell'elicottero
+  a Foppolo. Fonte: BergamoNews, 24 agosto 2026.</figcaption>
+</figure>
+
+<h2>Un velivolo legato ad ambienti alpinistici bergamaschi</h2>
+<p>L'elicottero apparteneva a una società aeronautica bergamasca
+riconducibile all'alpinista <strong>Simone Moro</strong>, che al momento
+dell'incidente si trovava all'estero e ne è stato informato solo in un
+secondo momento. Secondo quanto riferito dalle fonti, il mezzo risultava
+in regola con assicurazione, immatricolazione e manutenzione, così come
+il pilota, in possesso di tutti i brevetti richiesti per il volo.</p>
+
+<h2>Foppolo e il turismo in quota</h2>
+<p>Foppolo, poco più di 200 abitanti, è una delle mete più conosciute
+della Val Brembana per gli sport di montagna, sia d'inverno sugli
+impianti sciistici sia d'estate per escursionismo e attività all'aria
+aperta come i voli in elicottero panoramici. L'episodio non ha avuto
+conseguenze per terzi a terra, ma riporta l'attenzione sulla sicurezza
+dei voli turistici in quota nel periodo estivo, quando l'afflusso di
+visitatori in montagna è più alto. Le indagini dei carabinieri
+proseguiranno nei prossimi giorni con i rilievi tecnici sul velivolo per
+chiarire l'esatta dinamica dello schianto.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/24/foppolo-precipita-un-elicottero-con-a-bordo-due-persone/917384/" rel="noopener" target="_blank">BergamoNews – Foppolo, precipita un elicottero con a bordo due persone</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/valle-brembana/agganciati-bene-agganciati-bene-incidente-a-foppolo-con-lelicottero-i-due-o_3936142_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo – «Agganciati bene, agganciati bene». Incidente a Foppolo con l&#x27;elicottero, i due feriti stanno bene</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;hapoel: daspo di tre anni alla vigilia di atalanta-hapoel tel aviv, digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un b&amp;b del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città. cronaca bergamo sicurezza ordine pubblico stadio conference league" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-21-bergamo-sequestro-fuochi-artificio-hapoel-daspo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;Hapoel: Daspo di tre anni</h2><p class="card-summary">Alla vigilia di Atalanta-Hapoel Tel Aviv, Digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un B&amp;B del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città.</p><p class="card-meta">21 agosto 2026</p></div></a></article><article class="card" data-search="violenza domestica e di genere: oltre 400 denunce in bergamasca in poco più di due mesi tra il 1° giugno e il 10 agosto 2026 i carabinieri della provincia di bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. numeri che, secondo l&#x27;arma, fanno emergere situazioni di violenza rimaste nascoste per mesi. cronaca bergamo carabinieri codice rosso violenza di genere" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-15-bergamo-codice-rosso-denunce-estate/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Violenza domestica e di genere: oltre 400 denunce in Bergamasca in poco più di due mesi</h2><p class="card-summary">Tra il 1° giugno e il 10 agosto 2026 i Carabinieri della provincia di Bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. Numeri che, secondo l&#x27;Arma, fanno emergere situazioni di violenza rimaste nascoste per mesi.</p><p class="card-meta">15 agosto 2026</p></div></a></article><article class="card" data-search="bergamo, 53 nuovi agenti di polizia di stato in servizio tra questura, stradale, treviglio e orio al serio il questore vincenzo nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della polizia di stato assegnati alla provincia di bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al viminale con il ministro dell&#x27;interno matteo piantedosi. cronaca bergamo polizia di stato sicurezza questura treviglio orio al serio" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-09-bergamo-53-nuovi-agenti-polizia-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, 53 nuovi agenti di Polizia di Stato in servizio tra Questura, Stradale, Treviglio e Orio al Serio</h2><p class="card-summary">Il Questore Vincenzo Nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della Polizia di Stato assegnati alla provincia di Bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al Viminale con il ministro dell&#x27;Interno Matteo Piantedosi.</p><p class="card-meta">9 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
