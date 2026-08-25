@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-25",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia in atto a Bergamo alla partenza (75% di probabilità, 3.6 mm), pioggia debole lungo il resto del tragitto verso San Donato; asfalto bagnato per le piogge delle ultime ore.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Pioggia",        "temp_c": 19, "precip_mm": 3.6, "wind_kmh": 3, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Pioggia debole", "temp_c": 21, "precip_mm": 0.2, "wind_kmh": 5, "wind_dir": "SE"},
+      {"name": "San Donato (08:45)",  "cond": "Pioggia debole", "temp_c": 21, "precip_mm": 0.1, "wind_kmh": 5, "wind_dir": "ESE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 64,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 25}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+25=64 min). CCISS RSS letto (100 item): nessuno riguarda 'A4 Milano-Brescia' (tratta Bergamo-Agrate) né A51 Tangenziale Est, solo 'A4 Torino-Milano' (fuori tratta). Serravalle raggiungibile ma senza lista eventi in tempo reale nel contenuto statico. Luceverde raggiungibile ma pagina generale senza eventi (mappa interattiva richiede JS). Autostrade per l'Italia: 404 (fonte nota come inaffidabile, non riprovata). Ricerca web: nessun incidente confermato per oggi 25/08 sulla tratta A4 Bergamo-Agrate o A51 Carugate-San Donato; risultati trovati erano non pertinenti o riferiti al 24/08 (coda in uscita Bergamo ieri, traffico su SP13 Svincolo Agrate B. fuori dal tracciato A51) e sono stati scartati."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia in atto a Bergamo alla partenza: 3.6 mm e probabilità 75%",
+      "Pioggia presente in tutti e tre i punti del tragitto (Bergamo, Carugate, San Donato)",
+      "Probabilità di pioggia superiore al 50% al punto di partenza",
+      "Asfalto bagnato: 3.0 mm di pioggia nelle 3 ore precedenti la partenza da Bergamo"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
