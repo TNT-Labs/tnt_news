@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Alta Val Brembana, il conto del maltempo: 2,3 milioni per Isola di Fondra, nuove criticità a Branzi — TNT News</title>
+  <meta name="description" content="A una settimana dalle frane che hanno isolato l&#x27;Alta Val Brembana, il Comune di Isola di Fondra stima in 2,3 milioni di euro i danni da riparare, mentre a Branzi emergono nuove criticità nei canali di scolo. La zona aveva già ricevuto 7 milioni di euro negli ultimi anni per il dissesto idrogeologico.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-27-isola-di-fondra-branzi-conto-maltempo-milioni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Alta Val Brembana, il conto del maltempo: 2,3 milioni per Isola di Fondra, nuove criticità a Branzi — TNT News">
+  <meta property="og:description" content="A una settimana dalle frane che hanno isolato l&#x27;Alta Val Brembana, il Comune di Isola di Fondra stima in 2,3 milioni di euro i danni da riparare, mentre a Branzi emergono nuove criticità nei canali di scolo. La zona aveva già ricevuto 7 milioni di euro negli ultimi anni per il dissesto idrogeologico.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-27-isola-di-fondra-branzi-conto-maltempo-milioni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Alta Val Brembana, il conto del maltempo: 2,3 milioni per Isola di Fondra, nuove criticità a Branzi — TNT News">
+  <meta name="twitter:description" content="A una settimana dalle frane che hanno isolato l&#x27;Alta Val Brembana, il Comune di Isola di Fondra stima in 2,3 milioni di euro i danni da riparare, mentre a Branzi emergono nuove criticità nei canali di scolo. La zona aveva già ricevuto 7 milioni di euro negli ultimi anni per il dissesto idrogeologico.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Isola di Fondra</span><span class="tag">Branzi</span><span class="tag">Val Brembana</span><span class="tag">Dissesto idrogeologico</span><span class="tag">Maltempo</span></div>
+    <h1>Alta Val Brembana, il conto del maltempo: 2,3 milioni per Isola di Fondra, nuove criticità a Branzi</h1>
+    <p class="article-summary">A una settimana dalle frane che hanno isolato l&#x27;Alta Val Brembana, il Comune di Isola di Fondra stima in 2,3 milioni di euro i danni da riparare, mentre a Branzi emergono nuove criticità nei canali di scolo. La zona aveva già ricevuto 7 milioni di euro negli ultimi anni per il dissesto idrogeologico.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-27">27 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>A una settimana dalle frane che il 20 agosto hanno isolato diversi
+comuni dell'Alta Val Brembana, il Comune di <strong>Isola di
+Fondra</strong> ha quantificato in <strong>2,3 milioni di euro</strong>
+il costo degli interventi necessari per mettere in sicurezza il
+territorio. Lo ha reso noto il sindaco <strong>Carletto
+Forchini</strong>, che ha presentato otto progetti tramite le schede
+Rasda, i moduli con cui i Comuni censiscono i danni da eventi
+calamitosi ai fini dei rimborsi regionali e statali. Nel frattempo, a
+<strong>Branzi</strong>, il sindaco <strong>Angelo Rossi</strong> segnala
+nuove criticità nei canali di scolo che si estendono fino a quota 1.800
+metri, più gravi di quanto inizialmente stimato.</p>
+
+<h2>Una scena già vista</h2>
+<p>Le piogge del 19 e 20 agosto, oltre 190 millimetri caduti in poche
+ore, avevano provocato smottamenti lungo la strada provinciale tra
+Lenna e Foppolo, con un tratto di circa 4,5 chilometri interessato dai
+danni e circa 3 chilometri compresi tra pareti rocciose scoscese e
+versanti a rischio caduta massi. Il campeggio San Simone, a Isola di
+Fondra, era stato evacuato in via precauzionale insieme ad altre
+strutture della zona. «È stata una scena già vista», ha commentato il
+sindaco Forchini, ricordando le frane dello scorso 1° luglio che
+avevano colpito la stessa area.</p>
+
+<blockquote>
+  <p>«La cosa importante è che non si è fatto male nessuno.»</p>
+</blockquote>
+
+<p>È la frase con cui il sindaco di Branzi, Angelo Rossi, ha
+commentato l'accaduto, sottolineando comunque la gravità dei danni
+riscontrati nei giorni successivi lungo i canali di scolo montani. Al
+momento la riapertura della strada provinciale è prevista in giornata,
+grazie anche al posizionamento di new jersey in cemento a protezione
+temporanea della carreggiata.</p>
+
+<h2>Milioni già spesi, ma non bastano</h2>
+<p>Il caso di Isola di Fondra si inserisce in un quadro più ampio di
+investimenti sul dissesto idrogeologico dell'Alta Val Brembana che,
+secondo quanto ricostruito nei giorni scorsi, non sono comunque
+riusciti a prevenire i danni dell'ultimo evento. Tra il 2022 e il 2026
+i cinque comuni più colpiti dal maltempo del 20 agosto — Isola di
+Fondra, Branzi, Valleve, Carona e Foppolo — hanno ricevuto
+complessivamente circa <strong>7 milioni di euro</strong> da Regione e
+Stato per interventi di difesa del suolo, a fronte di una stima dei
+danni dell'ultima ondata di maltempo che si aggira sui <strong>20
+milioni di euro</strong> per l'intera area colpita. Tra i finanziamenti
+più recenti, risalenti al gennaio 2025, figurano oltre 80mila euro per
+la progettazione di fattibilità tecnico-economica a Isola di Fondra e
+1,8 milioni di euro per due interventi a Branzi: 950mila euro per la
+messa in sicurezza del torrente Pezzoldo e 900mila euro per la
+protezione del centro abitato in località Caprini.</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Confronto tra i fondi per il dissesto idrogeologico ricevuti dai cinque comuni dell'Alta Val Brembana tra il 2022 e il 2026 (7 milioni di euro), i danni stimati dal maltempo del 20 agosto 2026 sull'intera area (20 milioni di euro) e la sola stima per Isola di Fondra (2,3 milioni di euro). Valori indicativi. Fonte: BergamoNews, 25 e 27 agosto 2026.">
+    <line x1="70" y1="280" x2="600" y2="280" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+
+    <rect x="120" y="182" width="80" height="98" fill="currentColor" opacity="0.55"/>
+    <text x="160" y="170" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">7 mln €</text>
+    <text x="160" y="300" text-anchor="middle" font-size="12" fill="currentColor">Fondi 2022-2026</text>
+    <text x="160" y="315" text-anchor="middle" font-size="12" fill="currentColor">(5 comuni)</text>
+
+    <rect x="290" y="60" width="80" height="220" fill="currentColor" opacity="0.85"/>
+    <text x="330" y="48" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">20 mln €</text>
+    <text x="330" y="300" text-anchor="middle" font-size="12" fill="currentColor">Danni stimati</text>
+    <text x="330" y="315" text-anchor="middle" font-size="12" fill="currentColor">(intera area)</text>
+
+    <rect x="460" y="242" width="80" height="38" fill="currentColor" opacity="0.55"/>
+    <text x="500" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">2,3 mln €</text>
+    <text x="500" y="300" text-anchor="middle" font-size="12" fill="currentColor">Solo Isola</text>
+    <text x="500" y="315" text-anchor="middle" font-size="12" fill="currentColor">di Fondra</text>
+
+    <text x="330" y="24" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.8">Fondi vs danni del maltempo, Alta Val Brembana</text>
+  </svg>
+  <figcaption>Valori indicativi. Il confronto tra i 7 milioni di euro
+  stanziati dal 2022 per l'area e la stima di 20 milioni di danni
+  dell'ultimo evento mostra il divario tra prevenzione e ricostruzione.
+  Fonte: BergamoNews, 25 e 27 agosto 2026.</figcaption>
+</figure>
+
+<h2>Il nodo della prevenzione</h2>
+<p>Il divario tra le risorse stanziate finora e l'entità dei danni
+riporta al centro il tema della prevenzione strutturale nelle valli
+bergamasche. Un consigliere regionale aveva osservato nei giorni scorsi
+che «intervenire sul dissesto idrogeologico costa moltissimo e queste
+risorse non si trovano facilmente in nessun bilancio», sottolineando
+come i piccoli Comuni di montagna dispongano di capacità tecniche e
+amministrative limitate rispetto ai centri più grandi. Per Isola di
+Fondra e Branzi, ora, la priorità resta duplice: completare in tempi
+rapidi i lavori di somma urgenza sulla viabilità e ottenere lo
+sblocco dei fondi necessari per gli interventi strutturali segnalati
+nelle schede di censimento danni.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/27/il-conto-del-maltempo-a-isola-di-fondra-23-milioni-per-la-messa-in-sicurezza-nuove-criticita-a-branzi/917871/" rel="noopener" target="_blank">BergamoNews - Il conto del maltempo: a Isola di Fondra 2,3 milioni per la messa in sicurezza, nuove criticità a Branzi</a></li><li><a href="https://www.bergamonews.it/2026/08/25/lalta-val-brembana-frana-ancora-nonostante-i-milioni-spesi-la-prevenzione-resta-unemergenza/917364" rel="noopener" target="_blank">BergamoNews - L&#x27;Alta Val Brembana frana ancora: nonostante i milioni spesi, la prevenzione resta un&#x27;emergenza</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/valle-brembana/valle-brembana-frana-al-passo-san-marco-strada-chiusa-rifugi-isolati-foto-o_3932986_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Maltempo, frane in Valle Brembana: evacuato il campeggio San Simone. Isolati Isola di Fondra, Branzi, Valleve, Carona e Foppolo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maltempo record in bergamasca: frane isolano sei comuni tra val brembana e val seriana tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle orobie ha provocato frane e allagamenti in val brembana e val seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco. ambiente val brembana val seriana maltempo frane evacuazioni" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-22-bergamo-maltempo-val-brembana-frane-comuni-isolati/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana</h2><p class="card-summary">Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.</p><p class="card-meta">22 agosto 2026</p></div></a></article><article class="card" data-search="siccità, i laghi gemelli in val brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 il calo del bacino idroelettrico di branzi, in alta val brembana, ha riportato alla luce la lingua di terra che divide i due laghi gemelli. la provincia di bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto. ambiente bergamo val brembana siccità laghi gemelli crisi idrica" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-03-bergamo-laghi-gemelli-siccita-separati/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022</h2><p class="card-summary">Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.</p><p class="card-meta">3 agosto 2026</p></div></a></article><article class="card" data-search="torre boldone, il campo dove si allenò il bayern monaco devastato dalla popillia japonica il coleottero invasivo ha compromesso circa l&#x27;80% del manto erboso del campo sportivo di torre boldone, lo stesso dove il bayern monaco si allenò a marzo prima della sfida di champions league con l&#x27;atalanta. la società la torre calcio chiede il sostegno del comune per i lavori di ripristino in vista dell&#x27;esordio in campionato del 13 settembre. ambiente torre boldone popillia japonica calcio insetti invasivi" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-26-torre-boldone-campo-popillia-japonica-bayern/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Torre Boldone, il campo dove si allenò il Bayern Monaco devastato dalla Popillia japonica</h2><p class="card-summary">Il coleottero invasivo ha compromesso circa l&#x27;80% del manto erboso del campo sportivo di Torre Boldone, lo stesso dove il Bayern Monaco si allenò a marzo prima della sfida di Champions League con l&#x27;Atalanta. La società La Torre Calcio chiede il sostegno del Comune per i lavori di ripristino in vista dell&#x27;esordio in campionato del 13 settembre.</p><p class="card-meta">26 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
