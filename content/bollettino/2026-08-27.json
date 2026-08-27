@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-27",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da parzialmente soleggiato a nuvoloso, clima mite e senza pioggia lungo tutto il tragitto verso San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Parzialmente soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente nuvoloso", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente nuvoloso", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 63,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 24}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+24=63 min, più veloce della baseline 75-95 min). CCISS RSS letto (100 item): nessuno riguarda la tratta A4 Bergamo-Agrate o l'A51 Carugate-San Donato per l'orario di transito odierno (un veicolo fermo segnalato allo svincolo Palazzolo è fuori tratta, a est di Bergamo). Serravalle raggiungibile ma pagina di sola navigazione, senza lista eventi (widget JS non renderizzato). Luceverde raggiungibile ma senza contenuto di viabilità utile. Autostrade per l'Italia: 404 come da fonte nota inaffidabile, non riprovata oltre il tentativo singolo. Ricerca web: unici eventi trovati per l'A4 Bergamo e per l'allaccio A51/A4 sono chiusure notturne dalle 22:00 del 26/08 alle 05:00 del 27/08, già concluse prima della partenza; nessun incidente o cantiere confermato per oggi sulla tratta e nella direzione di interesse."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista in tutti e tre i punti del tragitto (0 mm, probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza da Bergamo",
+      "Temperature miti (21-24 °C) ben sopra la soglia dei 7 °C",
+      "Vento debole (max 6 km/h, raffiche fino a 10 km/h) e ottima visibilità (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
