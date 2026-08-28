@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, quasi 2mila brevetti europei in 16 anni: la provincia è terza in Lombardia per innovazione — TNT News</title>
+  <meta name="description" content="Uno studio di Unioncamere sui dati dell&#x27;Ufficio europeo dei brevetti conta quasi 2mila domande depositate dalla provincia di Bergamo tra il 2008 e il 2023, con un picco di 143 nel 2021. La provincia è terza in Lombardia dopo Milano e Brescia, trainata da meccanica e trasporti.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-08-28-bergamo-brevetti-europei-innovazione-terza-lombardia/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, quasi 2mila brevetti europei in 16 anni: la provincia è terza in Lombardia per innovazione — TNT News">
+  <meta property="og:description" content="Uno studio di Unioncamere sui dati dell&#x27;Ufficio europeo dei brevetti conta quasi 2mila domande depositate dalla provincia di Bergamo tra il 2008 e il 2023, con un picco di 143 nel 2021. La provincia è terza in Lombardia dopo Milano e Brescia, trainata da meccanica e trasporti.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-08-28-bergamo-brevetti-europei-innovazione-terza-lombardia/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, quasi 2mila brevetti europei in 16 anni: la provincia è terza in Lombardia per innovazione — TNT News">
+  <meta name="twitter:description" content="Uno studio di Unioncamere sui dati dell&#x27;Ufficio europeo dei brevetti conta quasi 2mila domande depositate dalla provincia di Bergamo tra il 2008 e il 2023, con un picco di 143 nel 2021. La provincia è terza in Lombardia dopo Milano e Brescia, trainata da meccanica e trasporti.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Brevetti</span><span class="tag">Innovazione</span><span class="tag">Camera di Commercio</span><span class="tag">Unioncamere</span><span class="tag">Industria</span></div>
+    <h1>Bergamo, quasi 2mila brevetti europei in 16 anni: la provincia è terza in Lombardia per innovazione</h1>
+    <p class="article-summary">Uno studio di Unioncamere sui dati dell&#x27;Ufficio europeo dei brevetti conta quasi 2mila domande depositate dalla provincia di Bergamo tra il 2008 e il 2023, con un picco di 143 nel 2021. La provincia è terza in Lombardia dopo Milano e Brescia, trainata da meccanica e trasporti.</p>
+    <p class="article-meta">
+      <time datetime="2026-08-28">28 agosto 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Tra il 2008 e il 2023 le imprese e i centri di ricerca della provincia
+di Bergamo hanno depositato <strong>quasi 2mila domande di brevetto
+europeo</strong>, con un andamento in crescita che colloca il
+territorio al <strong>terzo posto in Lombardia</strong> per numero di
+richieste, dietro solo a Milano e Brescia. Lo rileva uno studio di
+<strong>Unioncamere</strong>, che ha rielaborato i dati dell'Ufficio
+europeo dei brevetti (Epo) in una analisi ripresa dalla Camera di
+commercio di Bergamo.</p>
+
+<h2>Un percorso in salita dal 2008</h2>
+<p>La serie storica analizzata parte dal 2008 e mostra un andamento
+altalenante ma orientato alla crescita: il punto più basso è stato
+toccato nel 2015, con <strong>82 domande</strong>, mentre il picco è
+arrivato nel 2021, quando le richieste hanno raggiunto quota
+<strong>143</strong>. Nel 2023, ultimo anno coperto dallo studio, le
+domande si sono attestate a <strong>138</strong>, un livello comunque
+vicino al massimo storico e ben superiore ai valori registrati a metà
+del decennio scorso.</p>
+
+<h2>Meccanica e trasporti trainano l'innovazione</h2>
+<p>A guidare la produzione di brevetti bergamaschi sono soprattutto le
+tecnologie legate a <strong>meccanica e trasporti</strong>, settori che
+nel 2023 hanno pesato per <strong>65 domande</strong>, pari a circa il
+47% del totale provinciale. Seguono la chimica e il farmaceutico, con
+24 richieste, le tecnologie di produzione avanzata, con 23, e le
+tecnologie verdi, ferme a 10. Un dato che lo studio sottolinea è la
+matrice prevalentemente imprenditoriale dei depositi: il 95% delle
+domande arriva da aziende, a conferma di un tessuto produttivo che
+investe in modo continuativo nella tutela della proprietà industriale.</p>
+
+<blockquote>
+  <p>«Le imprese bergamasche fanno sempre più ricorso agli strumenti di
+  tutela della proprietà industriale previsti dall'ordinamento
+  europeo.»</p>
+</blockquote>
+
+<p>Lo ha commentato <strong>Giovanni Zambonelli</strong>, presidente
+della Camera di commercio di Bergamo, presentando i risultati dello
+studio.</p>
+
+<figure>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre delle domande di brevetto europeo depositate nel 2023 dalle province lombarde: Milano 698, altre province lombarde 496 in totale, Brescia 162, Bergamo 138, su un totale regionale di 1.494 domande. Fonte: studio Unioncamere su dati Ufficio europeo dei brevetti, ripreso da L'Eco di Bergamo, 28 agosto 2026.">
+    <line x1="70" y1="280" x2="600" y2="280" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+
+    <rect x="90" y="60" width="80" height="220" fill="currentColor" opacity="0.85"/>
+    <text x="130" y="48" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">698</text>
+    <text x="130" y="300" text-anchor="middle" font-size="12" fill="currentColor">Milano</text>
+
+    <rect x="230" y="124" width="80" height="156" fill="currentColor" opacity="0.55"/>
+    <text x="270" y="112" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">496</text>
+    <text x="270" y="300" text-anchor="middle" font-size="12" fill="currentColor">Altre province</text>
+    <text x="270" y="315" text-anchor="middle" font-size="12" fill="currentColor">lombarde</text>
+
+    <rect x="370" y="229" width="80" height="51" fill="currentColor" opacity="0.55"/>
+    <text x="410" y="217" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">162</text>
+    <text x="410" y="300" text-anchor="middle" font-size="12" fill="currentColor">Brescia</text>
+
+    <rect x="510" y="236" width="80" height="44" fill="currentColor" opacity="0.85"/>
+    <text x="550" y="224" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">138</text>
+    <text x="550" y="300" text-anchor="middle" font-size="12" fill="currentColor">Bergamo</text>
+
+    <text x="330" y="24" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.8">Domande di brevetto europeo per provincia lombarda (2023)</text>
+  </svg>
+  <figcaption>Domande di brevetto europeo depositate nel 2023 dalle
+  province lombarde (totale regionale: 1.494). Bergamo pesa per il
+  9,2% del dato lombardo. Fonte: studio Unioncamere su dati Ufficio
+  europeo dei brevetti, ripreso da L'Eco di Bergamo, 28 agosto
+  2026.</figcaption>
+</figure>
+
+<h2>Terza in Lombardia, ma il quadro resta composito</h2>
+<p>Con le sue 138 domande del 2023, Bergamo rappresenta circa il
+<strong>9,2%</strong> delle 1.494 richieste presentate complessivamente
+dalla Lombardia, la regione italiana più attiva in Europa in questo
+ambito. Il risultato va letto insieme a un altro fronte, quello dei
+brevetti nazionali gestiti direttamente dalla Camera di commercio di
+Bergamo, dove negli ultimi anni si è invece registrata una flessione
+delle domande a fronte di una crescita nazionale: un segnale che, letto
+insieme al dato europeo in salita, suggerisce come le imprese
+bergamasche stiano progressivamente orientando le proprie strategie di
+tutela verso il mercato unico europeo, più che verso la sola protezione
+nazionale.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/economia/bergamo-patria-di-brevetti-2mila-in-16-anni-meccanica-e-trasporti-accendono-l-o_3938159_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Bergamo patria di brevetti, 2mila in 16 anni: meccanica e trasporti accendono l&#x27;innovazione</a></li><li><a href="https://www.bergamonews.it/2025/06/30/invenzioni-industriali-a-bergamo-calano-le-richieste-di-brevetto-piu-richiesta-per-i-marchi/814901/" rel="noopener" target="_blank">BergamoNews - Invenzioni industriali a Bergamo: calano le richieste di brevetto, più richiesta per i marchi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="kilometro rosso, il direttore majorana: &quot;portare qui la facoltà di ingegneria sarebbe la svolta per bergamo&quot; in un&#x27;intervista il direttore del parco scientifico kilometro rosso, salvatore majorana, propone di trasferire nel campus la facoltà di ingegneria dell&#x27;università di bergamo e immagina un&#x27;evoluzione della struttura in fondazione aperta al territorio. economia bergamo kilometro rosso università di bergamo innovazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-27-kilometro-rosso-bergamo-universita-ingegneria-majorana/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot;</h2><p class="card-summary">In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.</p><p class="card-meta">27 luglio 2026</p></div></a></article><article class="card" data-search="manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in medio oriente. economia bergamo industria manifattura confindustria" data-cat="Economia"><a class="card-link" href="../../articoli/2026-05-27-manifattura-bergamasca-q1-2026/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Manifattura bergamasca: eccellente avvio d&#x27;anno, ma l&#x27;incertezza globale frena le aspettative</h2><p class="card-summary">Nel primo trimestre 2026 la produzione manifatturiera bergamasca registra una crescita significativa rispetto allo stesso periodo del 2025. Il dato positivo si inserisce in un quadro lombardo in espansione, pur con i prezzi delle materie prime in forte rialzo e le aspettative delle imprese in calo per le tensioni in Medio Oriente.</p><p class="card-meta">27 maggio 2026</p></div></a></article><article class="card" data-search="siccità in bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% coldiretti bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua. economia bergamo coldiretti siccità agricoltura" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-14-bergamo-siccita-allevamenti-latte-crisi/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30%</h2><p class="card-summary">Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.</p><p class="card-meta">14 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
