@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-28",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da parzialmente soleggiato a nuvoloso, clima molto mite e senza pioggia lungo tutto il tragitto verso San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Parzialmente soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente nuvoloso", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente nuvoloso", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 61,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 22}
+    ],
+    "incidents": [
+      {"where": "A51 Tangenziale Est tra Barriera di Agrate Brianza e svincolo SP208 Carugate (Brugherio Nord)", "desc": "Incidente segnalato in direzione Allacciamento A1 Milano-Napoli (sud), la stessa dell'andata odierna."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+22=61 min, più veloce della baseline 75-95 min, presumibilmente già al netto dell'incidente sotto). CCISS RSS letto: 1 evento pertinente, incidente sulla A51 tra Agrate Brianza e Carugate (SP208, Brugherio Nord) in direzione A1 Milano-Napoli, cioè nella direzione di marcia dell'andata odierna. Altri 2 eventi CCISS scartati per non pertinenza: A51 Rubattino-Lambrate in direzione Lecco (nord, opposta all'andata) e A4 tra interconnessione A21 e Brescia Ovest (fuori tratta, a est di Bergamo). Serravalle raggiungibile ma senza lista eventi (contenuto di sola navigazione, widget JS non renderizzato). Luceverde raggiungibile ma senza contenuto di viabilità utile; Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web: nessun cantiere/chiusura notturna pertinente per oggi sulla tratta A4 Bergamo-Agrate; per l'A51 risultati generici su code tra Brugherio/Cologno e Linate in direzione A1 Milano-Napoli, non chiaramente databili a oggi e citati solo come corroborazione indicativa, non come fonte autonoma."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Nessuna pioggia prevista nei tre punti del tragitto (probabilità massima 13%)",
+      "Asfalto non perfettamente asciutto: 1,7 mm di pioggia nelle 3 ore precedenti a Bergamo, ormai cessata",
+      "Temperature elevate (23-24 °C) e vento debole (max 6 km/h, raffiche fino a 18 km/h)",
+      "Visibilità ottima (16 km) su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
