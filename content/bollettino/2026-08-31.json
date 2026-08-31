@@ -1,0 +1,45 @@
+{
+  "date": "2026-08-31",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso, clima mite e senza pioggia su tutto il tragitto verso San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Prevalentemente soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato",                 "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNW"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato",                 "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "WSW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 68,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 27},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A51 Tangenziale Est tra Svincolo Cologno Monzese (S. Giovanni Sud) e Svincolo Lambrate (Melzo - Dogana Segrate)", "desc": "Code a tratti per traffico intenso in direzione Allacciamento A1 Milano-Napoli (sud), la stessa dell'andata odierna."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (27+13+28=68 min). CCISS RSS letto (100 item): 1 evento pertinente, code a tratti sull'A51 tra Cologno Monzese e Lambrate in direzione A1 Milano-Napoli (sud), coerente con la direzione dell'andata odierna; scartati un evento A4 Milano-Brescia tra Barriera Milano Est e Cormano (fuori tratta, a valle dell'uscita di Agrate) e due eventi sull'A4 Torino-Milano zona Pero/Rho-Arluno (ramo autostradale diverso, a ovest di Milano, fuori dalla tratta Bergamo-Agrate). Serravalle raggiungibile ma senza lista eventi (solo contenuto di navigazione). Luceverde raggiungibile ma senza contenuto di viabilità utile (solo news generiche); Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web: nessun incidente odierno segnalato tra Capriate e Trezzo sull'A4 (solo precedenti storici); chiusure notturne A4 Sesto S.G.-Cormano (21:00-05:00) fuori orario e fuori tratta; lavori notturni A51 tra Vimercate Centro e Oreno e interconnessione A51-A4 ad Agrate, a nord di Carugate quindi fuori dal tratto Carugate-San Donato usato dall'andata, e comunque in orario notturno; segnalazione generica di rallentamenti A51 zona Linate-Gobba a corroborare (non a sé stante) la coda CCISS di cui sopra."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista nei tre punti del tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature miti (20-23 °C) e vento debole (max 5 km/h, raffiche fino a 11 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno o poco nuvoloso su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
