@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo — TNT News</title>
+  <meta name="description" content="Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-01-bergamo-alfaparf-cosmo-brasile-acquisizione/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo — TNT News">
+  <meta property="og:description" content="Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-01-bergamo-alfaparf-cosmo-brasile-acquisizione/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo — TNT News">
+  <meta name="twitter:description" content="Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Osio Sotto</span><span class="tag">Alfaparf</span><span class="tag">Brasile</span><span class="tag">cosmetica</span></div>
+    <h1>Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo</h1>
+    <p class="article-summary">Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-01">1 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Il gruppo cosmetico Alfaparf Milano, con sede a Osio Sotto, in provincia di Bergamo, ha acquisito Cosmo</strong>, azienda brasiliana specializzata nello sviluppo e nella produzione di prodotti cosmetici e per l'igiene della persona. L'operazione, annunciata il 31 agosto, porta nel perimetro del gruppo bergamasco quattro nuovi stabilimenti industriali in Brasile e conferma l'espansione dell'azienda nel mercato sudamericano.</p>
+
+<h2>I numeri dell'acquisizione</h2>
+<p>Cosmo ha chiuso il 2025 con ricavi per 679,6 milioni di reais, pari a circa 113 milioni di euro, posizionandosi tra le realtà produttive più rilevanti del settore cosmetico brasiliano. Con l'operazione entrano nel gruppo quattro stabilimenti: tre nello Stato di San Paolo e uno nello Stato di Rio de Janeiro. Alfaparf Milano non ha reso noto il valore economico dell'operazione.</p>
+
+<h2>La strategia del gruppo bergamasco</h2>
+<p>Fondato e guidato da Roberto Franchina, che ne è presidente, Alfaparf Milano è un gruppo attivo lungo l'intera filiera della cosmesi, dai marchi propri alla produzione per conto terzi attraverso la divisione Private Label. Commentando l'operazione, Franchina ha dichiarato:</p>
+
+<blockquote>"L'acquisizione di Cosmo rafforza la nostra capacità di tradurre le esigenze delle aziende cosmetiche in progetti e prodotti."</blockquote>
+
+<p>L'obiettivo dichiarato dell'operazione è duplice: ampliare la capacità industriale del gruppo e consolidare proprio la divisione Private Label, che sviluppa e produce cosmetici per conto di altre aziende del settore.</p>
+
+<h2>Un percorso di espansione in Brasile</h2>
+<p>L'ingresso di Cosmo nel gruppo non è un episodio isolato. Negli ultimi anni Alfaparf Milano ha progressivamente rafforzato la propria presenza in Brasile attraverso una serie di acquisizioni in diversi segmenti della cosmesi: hair care, skin care, depilazione e dermocosmesi. Tra le operazioni precedenti figurano quelle di Bioclean, Depil Bella e Raavi Dermocosméticos; la più recente, prima di Cosmo, era stata l'acquisizione di Coferly Cosmética, annunciata a febbraio 2026 e attiva da 89 anni nella colorazione e decolorazione dei capelli in conto terzi, con circa 164 dipendenti e impianti su una superficie di circa 14mila metri quadrati.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre che confronta il fatturato 2025 del gruppo Alfaparf Milano, circa 492 milioni di euro, con quello di Cosmo, l'azienda brasiliana appena acquisita, circa 113 milioni di euro. Fonte: BergamoNews, dati aziendali Alfaparf Milano">
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Fatturato 2025: gruppo Alfaparf Milano e Cosmo a confronto</text>
+  <text x="320" y="46" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Valori in milioni di euro (valori indicativi, conversione da reais per Cosmo)</text>
+
+  <line x1="70" y1="270" x2="600" y2="270" stroke="#999" stroke-width="1"/>
+
+  <g>
+    <rect x="180" y="80" width="90" height="190" fill="#2f6f4f"/>
+    <text x="225" y="72" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">492 mln €</text>
+    <text x="225" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">Gruppo Alfaparf Milano</text>
+  </g>
+
+  <g>
+    <rect x="370" y="226" width="90" height="44" fill="#c76b1d"/>
+    <text x="415" y="218" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">113 mln €</text>
+    <text x="415" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">Cosmo (Brasile)</text>
+  </g>
+</svg>
+<figcaption>Confronto tra il fatturato consolidato 2025 del gruppo Alfaparf Milano (circa 492 milioni di euro, dato reso noto dall'azienda) e quello di Cosmo, l'azienda brasiliana appena acquisita (circa 113 milioni di euro). Fonte: BergamoNews, dati aziendali Alfaparf Milano.</figcaption>
+</figure>
+
+<h2>Il legame con il territorio bergamasco</h2>
+<p>Pur operando su scala internazionale, con la sede principale a Osio Sotto, Alfaparf Milano resta un punto di riferimento industriale per la provincia di Bergamo. Le acquisizioni all'estero, come quella di Cosmo, non riguardano direttamente l'occupazione sul territorio bergamasco, ma consolidano il ruolo del gruppo come multinazionale a radicamento locale, capace di competere sui mercati internazionali della cosmesi mantenendo il proprio centro decisionale in Bassa Bergamasca.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/31/alfaparf-milano-cresce-in-brasile-acquisita-cosmo-azienda-da-113-milioni-di-euro/918906" rel="noopener" target="_blank">BergamoNews - Alfaparf Milano cresce in Brasile: acquisita Cosmo, azienda da 113 milioni di euro</a></li><li><a href="https://beauty.pambianconews.com/2026/02/alfaparf-milano-acquisisce-coferly-e-si-rafforza-in-brasile/77744" rel="noopener" target="_blank">Beauty Pambianconews - Alfaparf Milano acquisisce Coferly Cosmética e si rafforza in Brasile</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="siccità in bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% coldiretti bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua. economia bergamo coldiretti siccità agricoltura" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-14-bergamo-siccita-allevamenti-latte-crisi/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30%</h2><p class="card-summary">Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.</p><p class="card-meta">14 agosto 2026</p></div></a></article><article class="card" data-search="in provincia di bergamo chiudono i bar di paese: 494 in meno dal 2019 confcommercio bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%. economia bergamo confcommercio bar commercio locale" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-13-bergamo-bar-paese-crisi-catering/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019</h2><p class="card-summary">Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.</p><p class="card-meta">13 agosto 2026</p></div></a></article><article class="card" data-search="bergamo capofila in lombardia: 25 progetti per oltre 34 milioni nel bando distretti del commercio la provincia di bergamo ha presentato 25 progetti al bando regionale distretti del commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. la graduatoria di regione lombardia è attesa per il 30 novembre. economia bergamo commercio distretti del commercio regione lombardia" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-06-bergamo-distretti-commercio-bando-25-progetti/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo capofila in Lombardia: 25 progetti per oltre 34 milioni nel bando Distretti del Commercio</h2><p class="card-summary">La provincia di Bergamo ha presentato 25 progetti al bando regionale Distretti del Commercio 2026-2030, per oltre 34 milioni di euro di investimenti complessivi: 22 in fascia eccellenza e 3 in fascia ordinaria. La graduatoria di Regione Lombardia è attesa per il 30 novembre.</p><p class="card-meta">6 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
