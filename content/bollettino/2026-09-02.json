@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-02",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti-calde (19-22 °C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 69,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 27},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A4 Milano-Brescia tra Svincolo Agrate e Svincolo Sesto San Giovanni-Viale Zara", "desc": "Code a tratti per traffico intenso dalle 07:00 in direzione Torino/Milano, appena a valle dell'uscita di Agrate usata dall'andata odierna."},
+      {"where": "A51 Tangenziale Est tra Svincolo SP113 Cernusco sul Naviglio e Svincolo Lambrate (Melzo - Dogana Segrate)", "desc": "Code a tratti per traffico intenso in direzione Allacciamento A1 Milano-Napoli (sud), la stessa dell'andata odierna; confermato anche da ricerche web."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (27+13+29=69 min). CCISS RSS letto (100 item): 2 eventi pertinenti (elencati sopra). Scartati: A4 Milano-Brescia tra Cormano e Barriera Milano Est (direzione Brescia, opposta all'andata), A4 Torino-Milano a Pero (fuori tratta), A52 Tangenziale Nord tra Nova Milanese e Monza (altra tangenziale, non A51), A4 Brescia-Padova a Verona (fuori tratta). Serravalle raggiungibile (HTTP 200) ma pagina generata via JS, nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità utile nel markup statico. Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web di conferma: nessun incidente aggiuntivo rilevante oltre a quanto già in CCISS; risultati su vecchi incidenti A4 Trezzo-Capriate scartati perché di mesi precedenti."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista nei tre punti del tragitto (probabilità massima 15% a Carugate)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature miti (19-22 °C) e vento debole (max 6 km/h, raffiche fino a 11 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
