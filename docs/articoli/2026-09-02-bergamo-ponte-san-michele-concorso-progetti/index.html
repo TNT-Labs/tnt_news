@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Nuovo ponte sull&#x27;Adda a San Michele: oltre 40 progetti in gara, ma sindaci e cittadini si oppongono — TNT News</title>
+  <meta name="description" content="Si è chiusa il 31 agosto la prima fase del concorso internazionale indetto da RFI per il nuovo ponte sull&#x27;Adda tra Calusco d&#x27;Adda (Bergamo) e Paderno d&#x27;Adda (Lecco), destinato a sostituire lo storico ponte San Michele. Arrivate oltre 40 proposte, ma amministrazioni locali e cittadini temono l&#x27;impatto sul paesaggio.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-02-bergamo-ponte-san-michele-concorso-progetti/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Nuovo ponte sull&#x27;Adda a San Michele: oltre 40 progetti in gara, ma sindaci e cittadini si oppongono — TNT News">
+  <meta property="og:description" content="Si è chiusa il 31 agosto la prima fase del concorso internazionale indetto da RFI per il nuovo ponte sull&#x27;Adda tra Calusco d&#x27;Adda (Bergamo) e Paderno d&#x27;Adda (Lecco), destinato a sostituire lo storico ponte San Michele. Arrivate oltre 40 proposte, ma amministrazioni locali e cittadini temono l&#x27;impatto sul paesaggio.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-02-bergamo-ponte-san-michele-concorso-progetti/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nuovo ponte sull&#x27;Adda a San Michele: oltre 40 progetti in gara, ma sindaci e cittadini si oppongono — TNT News">
+  <meta name="twitter:description" content="Si è chiusa il 31 agosto la prima fase del concorso internazionale indetto da RFI per il nuovo ponte sull&#x27;Adda tra Calusco d&#x27;Adda (Bergamo) e Paderno d&#x27;Adda (Lecco), destinato a sostituire lo storico ponte San Michele. Arrivate oltre 40 proposte, ma amministrazioni locali e cittadini temono l&#x27;impatto sul paesaggio.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Calusco d&#x27;Adda</span><span class="tag">Ponte San Michele</span><span class="tag">RFI</span><span class="tag">infrastrutture</span><span class="tag">Adda</span></div>
+    <h1>Nuovo ponte sull&#x27;Adda a San Michele: oltre 40 progetti in gara, ma sindaci e cittadini si oppongono</h1>
+    <p class="article-summary">Si è chiusa il 31 agosto la prima fase del concorso internazionale indetto da RFI per il nuovo ponte sull&#x27;Adda tra Calusco d&#x27;Adda (Bergamo) e Paderno d&#x27;Adda (Lecco), destinato a sostituire lo storico ponte San Michele. Arrivate oltre 40 proposte, ma amministrazioni locali e cittadini temono l&#x27;impatto sul paesaggio.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-02">2 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Si è chiusa il 31 agosto la prima fase del concorso internazionale di progettazione per il nuovo ponte sull'Adda</strong> che collegherà Calusco d'Adda, in provincia di Bergamo, a Paderno d'Adda, in provincia di Lecco, sostituendo lo storico ponte San Michele. Rete Ferroviaria Italiana (RFI), che ha bandito la gara, ha ricevuto oltre 40 proposte progettuali in busta chiusa: una commissione di valutazione dovrà ora selezionarne tre entro il 1° ottobre, che passeranno alla seconda fase del concorso.</p>
+
+<h2>Un ponte-simbolo arrivato al limite</h2>
+<p>Il ponte San Michele, costruito tra il 1887 e il 1889 su progetto dell'ingegnere Alberto Pio Salmoiraghi, è da oltre un secolo il collegamento ferroviario e stradale tra le due sponde dell'Adda nel tratto tra Bergamasca e Lecchese. Nel 2018 sono emersi gravi problemi strutturali che hanno imposto interventi urgenti: dopo un restauro costato 21,6 milioni di euro, la struttura è stata riaperta nel 2020, ma con limitazioni pesanti, tuttora in vigore, che impongono ai treni una velocità massima di 15 km/h e alle auto il transito a senso unico alternato.</p>
+
+<h2>Il concorso: oltre 40 idee, ne resteranno tre</h2>
+<p>Per superare questi limiti, RFI ha lanciato un concorso internazionale di progettazione articolato in due fasi. Nella prima, chiusasi il 31 agosto a mezzogiorno, gruppi di progettazione da tutta Europa hanno potuto presentare le proprie proposte in forma anonima. Le oltre 40 candidature pervenute verranno ora esaminate da una commissione nominata da RFI, che dovrà indicare entro il 1° ottobre le tre proposte ammesse alla fase due, in cui i progetti selezionati saranno sviluppati con maggiore dettaglio prima della scelta finale, attesa all'inizio del 2027.</p>
+
+<p>Il valore complessivo dell'opera è stimato tra 260 e 262 milioni di euro. Al gruppo vincitore andrà l'incarico di progettazione, remunerato con oltre 11 milioni di euro, mentre al secondo e al terzo classificato sono destinati premi di consolazione da 650.000 euro ciascuno, per un montepremi complessivo del concorso di circa 13 milioni di euro.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a imbuto delle fasi del concorso internazionale per il nuovo ponte sull'Adda: oltre 40 proposte progettuali pervenute entro il 31 agosto 2026, di cui solo 3 finaliste selezionate entro il 1° ottobre 2026, fino a 1 progetto vincitore atteso a inizio 2027. Fonte: BergamoNews e Il Giorno">
+  <text x="320" y="28" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Dal concorso al progetto vincitore</text>
+  <text x="320" y="48" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Le fasi di selezione del nuovo ponte sull'Adda a San Michele</text>
+
+  <g>
+    <rect x="70" y="80" width="500" height="46" fill="#2f6f7f"/>
+    <text x="320" y="108" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">Oltre 40 proposte pervenute (31 agosto 2026)</text>
+  </g>
+
+  <g>
+    <rect x="170" y="150" width="300" height="46" fill="#3f8f6f"/>
+    <text x="320" y="178" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">3 proposte finaliste (entro 1° ottobre 2026)</text>
+  </g>
+
+  <g>
+    <rect x="260" y="220" width="120" height="46" fill="#c76b1d"/>
+    <text x="320" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff" font-weight="bold">1 vincitore</text>
+  </g>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Costo stimato dell'opera: 260-262 milioni di euro. Premio al vincitore: oltre 11 milioni di euro. Fonte: BergamoNews, Il Giorno</text>
+</svg>
+<figcaption>Le tre fasi del concorso internazionale di progettazione indetto da RFI per il nuovo ponte sull'Adda tra Calusco d'Adda e Paderno d'Adda. Fonte: BergamoNews e Il Giorno.</figcaption>
+</figure>
+
+<h2>Le opposizioni sulle due sponde</h2>
+<p>Se da un lato l'opera punta a risolvere i problemi strutturali del vecchio ponte, dall'altro il progetto incontra resistenze crescenti tra amministrazioni locali e cittadini, sia sul versante bergamasco sia su quello lecchese. Le preoccupazioni riguardano soprattutto l'impatto paesaggistico di una nuova struttura in un contesto di forte valore storico e ambientale, e il timore che il potenziamento della linea comporti un sensibile aumento del traffico, sia ferroviario sia stradale, nell'area.</p>
+
+<blockquote>Il progetto complessivo prevede infatti anche il raddoppio della linea ferroviaria tra Paderno e Calusco e la soppressione di quattro passaggi a livello, interventi che secondo diversi sindaci del territorio meritano un confronto più approfondito con le comunità locali prima di procedere.</blockquote>
+
+<h2>Le prossime tappe</h2>
+<p>Dopo la selezione dei tre finalisti, attesa entro il 1° ottobre, la seconda fase del concorso porterà all'individuazione del progetto vincitore, presumibilmente nei primi mesi del 2027. Il vecchio ponte San Michele, secondo le indicazioni finora circolate, dovrebbe restare in servizio, con le attuali limitazioni, fino al completamento della nuova opera, la cui apertura è ipotizzata negli anni successivi. Resta da capire se e come le richieste di sindaci e cittadini di un maggiore coinvolgimento nella fase decisionale troveranno spazio nel prosieguo dell'iter.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/02/piu-di-40-proposte-per-il-nuovo-ponte-san-michele-solamente-tre-passeranno-alla-seconda-fase/919424/" rel="noopener" target="_blank">BergamoNews - Più di 40 proposte per il nuovo ponte San Michele: solamente tre passeranno alla seconda fase</a></li><li><a href="https://www.ilgiorno.it/lecco/cronaca/ponte-adda-paderno-proposte-progetto-vmh4v09x" rel="noopener" target="_blank">Il Giorno (Lecco) - Il nuovo ponte sull&#x27;Adda: 40 proposte per un&#x27;opera da 260 milioni di euro che sindaci e cittadini non vogliono</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="ponte san michele, stop ai treni fino al 30 agosto per i lavori di consolidamento da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte san michele, tra calusco d&#x27;adda e paderno d&#x27;adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea bergamo-milano. trasporti bergamo calusco d&#x27;adda ponte san michele trenord rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-17-bergamo-ponte-san-michele-stop-treni-lavori/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Ponte San Michele, stop ai treni fino al 30 agosto per i lavori di consolidamento</h2><p class="card-summary">Da oggi e fino al 30 agosto la circolazione ferroviaria è sospesa sul ponte San Michele, tra Calusco d&#x27;Adda e Paderno d&#x27;Adda, per lavori di consolidamento sulla storica struttura del 1889: attivi bus sostitutivi sulla linea Bergamo-Milano.</p><p class="card-meta">17 agosto 2026</p></div></a></article><article class="card" data-search="nuovo ponte sull&#x27;adda: rfi lancia il concorso internazionale da 262 milioni rete ferroviaria italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico ponte san michele tra calusco d&#x27;adda (bg) e paderno d&#x27;adda (lc). budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034. trasporti bergamo calusco d&#x27;adda ponte san michele rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-05-ponte-san-michele-concorso-internazionale/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Nuovo Ponte sull&#x27;Adda: RFI lancia il concorso internazionale da 262 milioni</h2><p class="card-summary">Rete Ferroviaria Italiana ha pubblicato il bando europeo per progettare il nuovo viadotto che affiancherà il storico Ponte San Michele tra Calusco d&#x27;Adda (BG) e Paderno d&#x27;Adda (LC). Budget di costruzione 262,2 milioni di euro, montepremi oltre 13 milioni, completamento previsto nel 2034.</p><p class="card-meta">5 giugno 2026</p></div></a></article><article class="card" data-search="ponte san michele intasato: 37mila veicoli al giorno, le province chiedono aiuto dopo la chiusura del ponte di brivio il 4 maggio 2026, il traffico sul ponte san michele tra calusco d&#x27;adda e paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. le province di bergamo e lecco hanno scritto alle prefetture per chiedere un tavolo urgente. trasporti bergamo calusco d&#x27;adda ponte san michele traffico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-05-30-ponte-san-michele-traffico-allarme/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Ponte San Michele intasato: 37mila veicoli al giorno, le Province chiedono aiuto</h2><p class="card-summary">Dopo la chiusura del ponte di Brivio il 4 maggio 2026, il traffico sul ponte San Michele tra Calusco d&#x27;Adda e Paderno è aumentato del 30%, raggiungendo 37mila veicoli al giorno. Le Province di Bergamo e Lecco hanno scritto alle Prefetture per chiedere un tavolo urgente.</p><p class="card-meta">30 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
