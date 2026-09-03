@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-03",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (19-21 °C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 69,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 27},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A51 Tangenziale Est tra Svincolo Cologno Monzese e Svincolo Lambrate (Melzo - Dogana Segrate)", "desc": "Code a tratti per traffico intenso in direzione Allacciamento A1 Milano-Napoli (sud), la stessa dell'andata odierna; confermato anche da ricerca web."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (27+13+29=69 min). CCISS RSS letto (100 item): 1 evento pertinente (elencato sopra). Scartati: A51 Tangenziale Est a Svincolo Agrate B. (a nord dell'ingresso di Carugate usato dalla rotta, fuori tratta), A52 Tangenziale Nord (altra tangenziale, non A51), A4 Milano-Brescia tra Svincolo Monza e Svincolo Cormano dir. Torino e tra Cormano e Barriera Milano Est dir. Brescia (entrambi a valle dell'uscita di Agrate, fuori dal segmento A4 usato dalla rotta), più vari eventi fuori regione (SS434 Transpolesana, A24, A26, A4 Brescia-Padova a Verona). Serravalle raggiungibile (HTTP 200) ma pagina generata via JS, nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità utile nel markup statico. Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web: confermato l'evento A51 Cologno-Lambrate già da CCISS; una sintesi IA ha citato genericamente 'personale su strada' ed 'esodo scortato' tra Bergamo, Capriate, Trezzo e Agrate senza fonte verificabile né riscontro in CCISS: scartato come non affidabile."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista né probabilità di pioggia nei tre punti del tragitto",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature miti (19-21 °C) e vento debole (max 6 km/h, raffiche fino a 11 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
