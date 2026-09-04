@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-04",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (19-22 °C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 63,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 26},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 24}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (26+13+24=63 min). CCISS RSS letto (100 item): nessun evento pertinente alla tratta e alla direzione dell'andata odierna. Scartati: A4 Milano-Brescia code tra Svincolo Viale Monte Ceneri/Certosa e Barriera Milano Est e perdita di carico tra Svincolo Trezzo e Svincolo Capriate, entrambi in direzione Brescia (opposta all'andata, che percorre direzione Milano); A52 Tangenziale Nord (altra tangenziale, non A51); vari eventi fuori regione. Serravalle raggiungibile (HTTP 200) ma pagina di sola navigazione, nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente nel markup statico. Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web: nessun incidente/cantiere specifico confermato per oggi sulla tratta e direzione dell'andata; solo pattern di congestione ricorrente su A51 nelle fasce orarie di punta e code in direzione opposta (verso Lecco/A1) a Carugate-Cologno-Lambrate, non pertinenti."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista né probabilità di pioggia nei tre punti del tragitto",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature miti (19-22 °C) e vento debole (max 6 km/h, raffiche fino a 13 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
