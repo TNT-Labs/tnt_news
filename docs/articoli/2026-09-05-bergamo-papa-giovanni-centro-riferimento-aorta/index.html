@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo — TNT News</title>
+  <meta name="description" content="Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-05-bergamo-papa-giovanni-centro-riferimento-aorta/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo — TNT News">
+  <meta property="og:description" content="Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-05-bergamo-papa-giovanni-centro-riferimento-aorta/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo — TNT News">
+  <meta name="twitter:description" content="Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">Papa Giovanni XXIII</span><span class="tag">Sanità</span><span class="tag">Chirurgia vascolare</span><span class="tag">Regione Lombardia</span></div>
+    <h1>Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo</h1>
+    <p class="article-summary">Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-05">5 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>L'ospedale Papa Giovanni XXIII di Bergamo diventerà dal 1° gennaio 2027 l'unico centro di riferimento della provincia per la cura delle patologie dell'aorta</strong>, comprese quelle più complesse che richiedono interventi chirurgici o endovascolari d'urgenza. La struttura bergamasca entra nel gruppo A della nuova rete regionale di chirurgia vascolare, appena approvata da Regione Lombardia su proposta dell'assessore al Welfare Guido Bertolaso, che riorganizza su tutto il territorio lombardo la presa in carico dei pazienti con malattie acute e croniche dell'aorta.</p>
+
+<h2>Una rete regionale su 23 ospedali</h2>
+<p>Il nuovo modello concentra gli interventi sull'aorta in 23 strutture lombarde, suddivise in fasce a seconda della complessità dei casi che possono trattare. Al gruppo A, il più qualificato, appartengono le strutture in grado di gestire l'intero spettro delle patologie aortiche - toraciche, addominali e toraco-addominali - comprese le forme più gravi che richiedono protesi personalizzate o ramificate. Gli altri ospedali della provincia continueranno a occuparsi delle patologie vascolari non aortiche, mentre i casi più delicati verranno indirizzati al Papa Giovanni.</p>
+<p>Per rientrare tra i centri di riferimento, le strutture devono garantire copertura vascolare attiva 24 ore su 24, in coordinamento con AREU, la possibilità di accedere rapidamente a diagnostica per immagini, sala operatoria o sala ibrida, supporto anestesiologico-rianimatorio e la capacità di attivare in tempi brevi un'équipe multidisciplinare che comprenda chirurgia vascolare, cardiochirurgia, cardiologia, radiologia e anestesia.</p>
+
+<h2>Un volume di interventi già tre volte la soglia minima</h2>
+<p>La soglia minima fissata dalla Regione per essere riconosciuti centro di riferimento è di almeno 30 interventi aortici, chirurgici o endovascolari, all'anno. Il Papa Giovanni la supera ampiamente: secondo i dati riportati dall'ospedale, la Chirurgia Vascolare bergamasca ha eseguito 81 interventi sull'aorta nel 2023, 85 nel 2024 e altrettanti nel 2025, con una media di circa 84 procedure annue, quasi il triplo del minimo richiesto.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: interventi sull'aorta eseguiti dal Papa Giovanni XXIII di Bergamo nel 2023 (81), 2024 (85) e 2025 (85), a confronto con la soglia minima regionale di 30 interventi annui. Fonte: BergamoNews">
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Interventi sull'aorta al Papa Giovanni XXIII</text>
+  <text x="320" y="46" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Numero di interventi annui, a confronto con la soglia minima regionale</text>
+
+  <line x1="80" y1="260" x2="600" y2="260" stroke="#999" stroke-width="1"/>
+
+  <g>
+    <rect x="120" y="87" width="70" height="173" fill="#2f6f7f"/>
+    <text x="155" y="77" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1a1a1a" font-weight="bold">81</text>
+    <text x="155" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">2023</text>
+  </g>
+
+  <g>
+    <rect x="245" y="65" width="70" height="195" fill="#2f6f7f"/>
+    <text x="280" y="55" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1a1a1a" font-weight="bold">85</text>
+    <text x="280" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">2024</text>
+  </g>
+
+  <g>
+    <rect x="370" y="65" width="70" height="195" fill="#2f6f7f"/>
+    <text x="405" y="55" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1a1a1a" font-weight="bold">85</text>
+    <text x="405" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">2025</text>
+  </g>
+
+  <g>
+    <rect x="495" y="192" width="70" height="68" fill="#c76b1d"/>
+    <text x="530" y="182" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1a1a1a" font-weight="bold">30</text>
+    <text x="530" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">Soglia minima</text>
+    <text x="530" y="292" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">richiesta dalla Regione</text>
+  </g>
+
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews, dati Papa Giovanni XXIII. La soglia regionale si applica dal 2027.</text>
+</svg>
+<figcaption>Negli ultimi tre anni il Papa Giovanni XXIII ha eseguito quasi il triplo degli interventi aortici richiesti dalla nuova soglia regionale. Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>Le voci dell'ospedale</h2>
+<p>A commentare la designazione sono stati i vertici dell'Asst Papa Giovanni XXIII. Il direttore della Chirurgia Vascolare, Stefano Pirrelli, ha sottolineato il valore clinico del riconoscimento, mentre il direttore generale, Francesco Locati, e il direttore sanitario, Alessandro Amorosi, hanno evidenziato come la scelta regionale confermi il ruolo di hub del Papa Giovanni nella rete lombarda, frutto di anni di investimenti su competenze, tecnologie e volumi di attività.</p>
+
+<blockquote>La collocazione nel gruppo A della rete regionale conferma il valore del Papa Giovanni XXIII come punto di riferimento per le patologie aortiche più complesse dell'intera provincia di Bergamo.</blockquote>
+
+<h2>Cosa cambia per i pazienti bergamaschi</h2>
+<p>Per i cittadini della provincia, la riorganizzazione significa che dal 1° gennaio 2027 ogni caso complesso di patologia aortica - comprese le emergenze come le rotture o le dissezioni dell'aorta, tra le condizioni più critiche in medicina vascolare - dovrà essere indirizzato al Papa Giovanni, che dovrà garantire una risposta rapida e continuativa grazie al coordinamento con il sistema di emergenza-urgenza regionale AREU. Gli altri ospedali bergamaschi continueranno invece a occuparsi delle patologie vascolari non legate all'aorta, mantenendo così una parte dell'attività diffusa sul territorio.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/03/patologie-dellaorta-il-papa-giovanni-diventa-centro-di-riferimento-provinciale/919789" rel="noopener" target="_blank">BergamoNews - Patologie dell&#x27;aorta, il Papa Giovanni diventa centro di riferimento provinciale</a></li><li><a href="https://www.informatoreorobico.it/2026/09/04/chirurgia-aortica-il-papa-giovanni-xxiii-sara-il-centro-di-riferimento-per-la-provincia-di-bergamo/" rel="noopener" target="_blank">Informatore Orobico - Chirurgia aortica, il Papa Giovanni XXIII sarà il centro di riferimento per la provincia di Bergamo</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="al papa giovanni xxiii parte lo screening gratuito per il tumore del polmone da oggi l&#x27;asst papa giovanni xxiii di bergamo attiva il programma regionale di screening del tumore del polmone con tc spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni. sanità bergamo papa giovanni xxiii screening oncologico regione lombardia prevenzione" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-18-bergamo-screening-tumore-polmone-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone</h2><p class="card-summary">Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.</p><p class="card-meta">18 agosto 2026</p></div></a></article><article class="card" data-search="bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione. sanità bergamo sanità caldo pronto soccorso anziani" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-10-bergamo-pronto-soccorso-caldo-luglio/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio</h2><p class="card-summary">Nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della Bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione.</p><p class="card-meta">10 agosto 2026</p></div></a></article><article class="card" data-search="l&#x27;ospedale papa giovanni xxiii di bergamo tra i 250 più sostenibili al mondo nella prima classifica &quot;world&#x27;s greenest hospitals 2026&quot; di newsweek e statista, il papa giovanni xxiii entra tra i 250 ospedali più sostenibili al mondo con quattro &quot;foglie verdi&quot;, unico ospedale pubblico italiano presente in graduatoria. sanità bergamo sanità ospedale papa giovanni xxiii sostenibilità" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-07-bergamo-ospedale-papa-giovanni-sostenibile-mondo/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">L&#x27;ospedale Papa Giovanni XXIII di Bergamo tra i 250 più sostenibili al mondo</h2><p class="card-summary">Nella prima classifica &quot;World&#x27;s Greenest Hospitals 2026&quot; di Newsweek e Statista, il Papa Giovanni XXIII entra tra i 250 ospedali più sostenibili al mondo con quattro &quot;foglie verdi&quot;, unico ospedale pubblico italiano presente in graduatoria.</p><p class="card-meta">7 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
