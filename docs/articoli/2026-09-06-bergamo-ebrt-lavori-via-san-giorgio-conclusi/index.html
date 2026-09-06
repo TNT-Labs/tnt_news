@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani — TNT News</title>
+  <meta name="description" content="Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani — TNT News">
+  <meta property="og:description" content="Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani — TNT News">
+  <meta name="twitter:description" content="Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">e-Brt</span><span class="tag">Viabilità</span><span class="tag">Trasporto pubblico</span><span class="tag">Via San Giorgio</span></div>
+    <h1>Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h1>
+    <p class="article-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-06">6 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Si sono conclusi il 5 settembre i lavori stradali nel nodo di via San Giorgio, a Bergamo, resisi necessari per correggere le criticità di traffico emerse dopo l'entrata in funzione dell'e-Brt</strong>, la linea di autobus elettrici su corsia riservata che dal 3 agosto collega la città a Dalmine e Verdellino. Il cantiere, aperto il 24 agosto dal Comune, ha interessato tre strade - via San Giorgio, via Fratelli Calvi e via Baschenis - individuate come uno dei punti più delicati della nuova rete di trasporto pubblico cittadina.</p>
+
+<h2>Cosa cambia nelle tre strade</h2>
+<p>In via San Giorgio, tra via Fratelli Calvi e l'incrocio semaforico, le corsie per le auto sono passate da due a tre, affiancate da una corsia dedicata all'e-Brt: la carreggiata conta quindi complessivamente quattro corsie. Il marciapiede sul lato destro è stato ridotto da 2,60 a 1,60 metri per ricavare lo spazio necessario. In via Fratelli Calvi è stato eliminato l'accesso diretto a via San Giorgio per chi proviene da quella strada, mentre in via Baschenis è stata introdotta la sola svolta a destra verso via San Giorgio, con l'eliminazione delle svolte a sinistra e la creazione di nuovi stalli di sosta a pagamento e di spazi per il carico e lo scarico delle merci.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: corsie di marcia in via San Giorgio prima e dopo i lavori. Prima: 2 corsie per le auto. Dopo: 4 corsie totali, di cui 3 per le auto e 1 dedicata all'e-Brt. Fonte: BergamoNews">
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Corsie in via San Giorgio, prima e dopo i lavori</text>
+  <text x="320" y="46" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Numero di corsie di marcia nel tratto tra via Fratelli Calvi e l'incrocio semaforico</text>
+
+  <line x1="80" y1="260" x2="600" y2="260" stroke="#999" stroke-width="1"/>
+
+  <g>
+    <rect x="150" y="180" width="110" height="80" fill="#2f6f7f"/>
+    <text x="205" y="170" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1a1a1a" font-weight="bold">2 corsie auto</text>
+    <text x="205" y="278" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Prima dei lavori</text>
+  </g>
+
+  <g>
+    <rect x="380" y="140" width="110" height="120" fill="#2f6f7f"/>
+    <rect x="380" y="100" width="110" height="40" fill="#c76b1d"/>
+    <text x="435" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a" font-weight="bold">3 corsie auto</text>
+    <text x="435" y="90" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a" font-weight="bold">1 corsia e-Brt</text>
+    <text x="435" y="278" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Dopo i lavori</text>
+  </g>
+
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews. Configurazione provvisoria, in attesa del completamento del cantiere ferroviario RFI.</text>
+</svg>
+<figcaption>Nel tratto centrale di via San Giorgio le corsie sono passate da due a quattro, con l'aggiunta di una corsia riservata all'e-Brt. Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>Le proteste degli operatori extraurbani</h2>
+<p>Le modifiche non sono passate senza polemiche. <strong>Autoservizi Locatelli</strong> e <strong>Tbso</strong>, le due società che gestiscono le linee extraurbane tra Bergamo, l'Isola bergamasca e il Lecchese, hanno contestato pubblicamente il nuovo assetto già dai giorni precedenti l'avvio del cantiere, lamentando di averlo appreso dalla stampa e non da un confronto preventivo con il Comune. Le due aziende temevano in particolare il rischio di rallentamenti per un centinaio di autobus al giorno, nelle due direzioni, in transito verso via Simoncini e la stazione, oltre a possibili code lungo via San Giorgio fino a via Quarenghi.</p>
+
+<blockquote>La richiesta di Locatelli e Tbso al Comune è aprire le corsie riservate a tutti i mezzi pubblici nella fase transitoria, avviare un monitoraggio congiunto dei tempi di percorrenza e dei passeggeri, e istituire un tavolo tecnico periodico con Comune, Agenzia Tpl, Atb e operatori extraurbani.</blockquote>
+
+<h2>Una configurazione ancora provvisoria</h2>
+<p>Va segnalato che l'attuale assetto a quattro corsie di via San Giorgio non è definitivo: la segnaletica orizzontale appena tracciata resta provvisoria in attesa del completamento del cantiere ferroviario di RFI sul ponte di via San Bernardino, la cui riapertura integrale è prevista per la fine di ottobre 2026. Solo a quel punto potranno essere realizzati gli interventi definitivi previsti dal progetto, tra cui la priorità semaforica per i bus e un tratto di corsia riservata di circa 300 metri in prossimità della stazione.</p>
+
+<h2>Cosa cambia per chi viaggia in città</h2>
+<p>Per residenti e pendolari che attraversano quotidianamente il nodo di via San Giorgio, la fine del cantiere significa il ripristino della normale viabilità dopo due settimane di limitazioni, con velocità ridotta a 30 km/h, divieti di sosta temporanei e percorsi pedonali deviati. Resta però aperto il confronto tra Comune e operatori del trasporto pubblico extraurbano sull'effettivo impatto delle nuove regole di circolazione, che nelle prossime settimane sarà verificato sul campo con l'osservazione dei flussi di traffico reali.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/08/20/e-brt-dal-24-agosto-i-lavori-nel-nodo-di-via-san-giorgio-chiusura-dei-cantieri-il-5-settembre/916255" rel="noopener" target="_blank">BergamoNews - e-Brt, dal 24 agosto i lavori nel nodo di via San Giorgio: &quot;Chiusura dei cantieri il 5 settembre&quot;</a></li><li><a href="https://www.bergamonews.it/2026/08/18/locatelli-e-tbso-contestano-la-nuova-viabilita-no-alle-corsie-e-brt-riservate/915799/" rel="noopener" target="_blank">BergamoNews - Locatelli e Tbso contestano la nuova viabilità: &quot;No&quot; alle corsie e-Brt riservate</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/e-brt-a-bergamo-via-san-giorgio-a-4-corsie-disegnata-la-nuova-segnaletica-o_3857509_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - E-Brt a Bergamo, via San Giorgio a 4 corsie: disegnata la nuova segnaletica</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, il ponte di via san bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura dopo circa un anno di chiusura per i lavori rfi di raddoppio della linea verso ponte san pietro, il ponte di via san bernardino a bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso colognola; la seconda carreggiata è attesa in autunno. trasporti bergamo via san bernardino rfi viabilità ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-02-bergamo-ponte-san-bernardino-riapertura-10-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il ponte di via San Bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura</h2><p class="card-summary">Dopo circa un anno di chiusura per i lavori RFI di raddoppio della linea verso Ponte San Pietro, il ponte di via San Bernardino a Bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso Colognola; la seconda carreggiata è attesa in autunno.</p><p class="card-meta">2 agosto 2026</p></div></a></article><article class="card" data-search="e-brt bergamo–dalmine–verdellino: lavori all&#x27;82%, servizio al via il 1° luglio i cantieri della prima linea di trasporto rapido su bus elettrici della lombardia hanno raggiunto l&#x27;82% di completamento. con 84 milioni di euro di fondi pnrr, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-brt collegherà bergamo a verdellino dal 1° luglio 2026. trasporti bergamo e-brt trasporto pubblico pnrr" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-13-ebrt-bergamo-dalmine-verdellino/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">E-BRT Bergamo–Dalmine–Verdellino: lavori all&#x27;82%, servizio al via il 1° luglio</h2><p class="card-summary">I cantieri della prima linea di trasporto rapido su bus elettrici della Lombardia hanno raggiunto l&#x27;82% di completamento. Con 84 milioni di euro di fondi PNRR, 29,7 km di percorso e 15 bus a zero emissioni, l&#x27;e-BRT collegherà Bergamo a Verdellino dal 1° luglio 2026.</p><p class="card-meta">13 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
