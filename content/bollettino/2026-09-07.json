@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-07",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (21-23 °C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 73,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A4 tra svincolo Agrate e allacciamento A51 Tangenziale Est", "desc": "Incidente dalle 06:41, direzione Milano."},
+      {"where": "A4 tra Dalmine e Cavenago-Cambiago", "desc": "Code a tratti causa traffico intenso dalle 06:18, direzione Milano."},
+      {"where": "A51 tra Cologno Monzese e Lambrate", "desc": "Code causa traffico intenso in direzione Allacciamento A1 Milano-Napoli (verso San Donato)."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (32+13+28=73 min, traffic_model=best_guess). CCISS RSS letto (100 item, 3 pertinenti alla tratta e alla direzione Milano/sud dell'andata odierna, elencati in incidents; scartati eventi su A4 direzione Torino/Brescia opposta e su tratte fuori dai limiti di sezione 3.5). Serravalle raggiungibile (HTTP 200) ma pagina di sola navigazione, nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente nel markup statico. Autostrade per l'Italia risponde 404, come da fonti storicamente inaffidabili, non riprovate oltre il tentativo singolo. Ricerca web conferma le code segnalate da CCISS su A51 tra Cologno Monzese e Lambrate (direzione A1); nessuna chiusura totale rilevata."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista né probabilità di pioggia nei tre punti del tragitto",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature miti (21-23 °C) e vento debole (max 6 km/h, raffiche fino a 11 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
