@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo estende le Zone 30 a undici nuovi quartieri, l&#x27;obiettivo è l&#x27;88% delle strade entro fine 2026 — TNT News</title>
+  <meta name="description" content="Il Comune di Bergamo avvia una nuova fase del piano Zone 30 che riguarderà undici quartieri, per circa 48 chilometri di strade in più a limite di velocità ridotto. Con questo intervento, da completare entro fine anno, la copertura salirà all&#x27;88% della rete comunale idonea.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-08-bergamo-zone-30-undici-quartieri/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo estende le Zone 30 a undici nuovi quartieri, l&#x27;obiettivo è l&#x27;88% delle strade entro fine 2026 — TNT News">
+  <meta property="og:description" content="Il Comune di Bergamo avvia una nuova fase del piano Zone 30 che riguarderà undici quartieri, per circa 48 chilometri di strade in più a limite di velocità ridotto. Con questo intervento, da completare entro fine anno, la copertura salirà all&#x27;88% della rete comunale idonea.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-08-bergamo-zone-30-undici-quartieri/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo estende le Zone 30 a undici nuovi quartieri, l&#x27;obiettivo è l&#x27;88% delle strade entro fine 2026 — TNT News">
+  <meta name="twitter:description" content="Il Comune di Bergamo avvia una nuova fase del piano Zone 30 che riguarderà undici quartieri, per circa 48 chilometri di strade in più a limite di velocità ridotto. Con questo intervento, da completare entro fine anno, la copertura salirà all&#x27;88% della rete comunale idonea.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Zone 30</span><span class="tag">Sicurezza stradale</span><span class="tag">Mobilità urbana</span></div>
+    <h1>Bergamo estende le Zone 30 a undici nuovi quartieri, l&#x27;obiettivo è l&#x27;88% delle strade entro fine 2026</h1>
+    <p class="article-summary">Il Comune di Bergamo avvia una nuova fase del piano Zone 30 che riguarderà undici quartieri, per circa 48 chilometri di strade in più a limite di velocità ridotto. Con questo intervento, da completare entro fine anno, la copertura salirà all&#x27;88% della rete comunale idonea.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-08">8 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Il Comune di Bergamo ha avviato una nuova fase del piano Zone 30, che nelle prossime settimane porterà il limite di velocità a 30 km/h in undici quartieri cittadini</strong>, per un totale di circa 48 chilometri di strade aggiuntive. Gli interventi, che comprendono segnaletica orizzontale e verticale rinforzata, dovranno concludersi entro la fine del 2026.</p>
+
+<p>I quartieri coinvolti in questa fase sono Conca Fiorita, Redona, Borgo Palazzo, Centro Papa Giovanni XXIII, Centro Sant'Alessandro, Malpensata, Carnovali, Campagnola, Villaggio Sposi, Grumello del Piano e San Tomaso, secondo quanto riportato da L'Eco di Bergamo.</p>
+
+<h2>Dal 73% all'88% della rete stradale</h2>
+<p>Con questo nuovo intervento la copertura complessiva delle Zone 30 sulla rete stradale comunale "idonea" salirà all'88%, pari a 253 dei 287 chilometri individuati dall'amministrazione come effettivamente convertibili al limite ridotto. Per "strade idonee" il Comune intende quelle su cui è concretamente possibile intervenire, escludendo le direttrici di traffico principale e gli assi dove il limite di 50 km/h resta necessario, come ha precisato l'assessore alla Mobilità Marco Berlanda.</p>
+
+<p>Il punto di partenza, secondo le fonti, era una copertura al 73% nel giugno 2025: un traguardo raggiunto per gradi, con una prima estensione di 21 chilometri completata entro giugno 2026 e una seconda, da 27,3 chilometri, avviata nei mesi successivi.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: copertura delle Zone 30 sulla rete stradale comunale di Bergamo, dal 73% di giugno 2025 all'88% previsto entro fine 2026. Fonte: L'Eco di Bergamo.">
+  <text x="320" y="28" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Zone 30 a Bergamo: copertura della rete stradale idonea</text>
+  <text x="320" y="48" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Percentuale di strade comunali "idonee" con limite a 30 km/h</text>
+
+  <line x1="100" y1="260" x2="560" y2="260" stroke="#999" stroke-width="1"/>
+
+  <rect x="180" y="260" width="120" height="0" fill="#2f6f7f"/>
+  <rect x="180" y="115" width="120" height="145" fill="#2f6f7f"/>
+  <text x="240" y="105" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1a1a1a" font-weight="bold">73%</text>
+  <text x="240" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Giugno 2025</text>
+
+  <rect x="380" y="84" width="120" height="176" fill="#c0392b"/>
+  <text x="440" y="74" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1a1a1a" font-weight="bold">88%</text>
+  <text x="440" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Fine 2026 (previsto)</text>
+  <text x="440" y="298" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">253 km su 287 km idonei</text>
+
+  <text x="320" y="316" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: L'Eco di Bergamo. Valori indicativi riferiti alla rete stradale comunale "idonea" secondo il Comune.</text>
+</svg>
+<figcaption>La copertura delle Zone 30 sulla rete stradale comunale "idonea" passa dal 73% di giugno 2025 all'88% previsto con il completamento della fase in corso, entro fine 2026. Fonte: L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>Come sono state scelte le strade</h2>
+<p>Secondo quanto dichiarato dall'assessorato alla Mobilità, l'individuazione delle vie da inserire nelle Zone 30 si è basata su dati di incidentalità, velocità medie rilevate, presenza di scuole e parchi, oltre alle segnalazioni dei cittadini. L'obiettivo dichiarato, ha spiegato Berlanda, è rendere la città "più sicura e più vivibile", integrando il limite ridotto con dissuasori fisici come i cuscini berlinesi, dossi che rallentano le auto senza ostacolare il passaggio di mezzi pubblici e ambulanze.</p>
+
+<blockquote>"Nelle Zone 30 più estese stiamo rafforzando l'informazione", ha detto l'assessore Marco Berlanda, sottolineando l'importanza di una segnaletica chiara per mantenere la consapevolezza del limite tra automobilisti e residenti.</blockquote>
+
+<h2>Un piano avviato per gradi, tra ritardi e nuovi dispositivi</h2>
+<p>Il percorso non è stato lineare: a metà agosto BergamoNews aveva riportato un ritardo nella fornitura della segnaletica verticale, con la fase allora in corso ferma al 60% di completamento pur avendo già realizzato quasi tutta la segnaletica orizzontale. In quella fase erano stati installati anche dispositivi di controllo affidati ad Atb Mobilità, tra cui una quindicina di cuscini berlinesi e oltre venti postazioni di rilevamento della velocità (speed check), insieme a rilevatori di rumore.</p>
+
+<p>L'amministrazione comunale ha più volte ribadito un approccio graduale, per evitare le polarizzazioni politiche registrate in altre città italiane sul tema del limite a 30 km/h. Resta da vedere se la nuova fase, quella che interesserà gli undici quartieri annunciati, rispetterà la scadenza di fine 2026 dopo i ritardi già segnalati sulla fornitura dei cartelli.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/zone-30-in-arrivo-in-altri-undici-quartieri-di-bergamo-coperto-l88-delle-str-o_3943769_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Zone 30 in arrivo in altri undici quartieri di Bergamo</a></li><li><a href="https://www.bergamonews.it/2026/03/21/bergamo-accelera-sulla-sicurezza-estese-le-zone-30-e-installati-nuovi-dispostivi/877543" rel="noopener" target="_blank">BergamoNews - Bergamo accelera sulla sicurezza: estese le zone 30 e installati nuovi dispositivi</a></li><li><a href="https://www.bergamonews.it/2026/08/13/bergamo-cambia-marcia-sulle-zone-30-spuntano-bolli-e-cartelli/914878" rel="noopener" target="_blank">BergamoNews - Bergamo cambia marcia sulle Zone 30: spuntano bolli, cartelli e dossi. Piano al 60%</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="caro carburante, ryanair taglia i voli invernali: incertezza anche su orio al serio ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di bergamo orio al serio, tra i suoi storici scali italiani. trasporti bergamo orio al serio ryanair sacbo aeroporto" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-04-bergamo-orio-serio-ryanair-tagli-voli-invernali/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Caro carburante, Ryanair taglia i voli invernali: incertezza anche su Orio al Serio</h2><p class="card-summary">Ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di Bergamo Orio al Serio, tra i suoi storici scali italiani.</p><p class="card-meta">4 settembre 2026</p></div></a></article><article class="card" data-search="treni e bus più cari da martedì: la bergamasca paga il rincaro trenord del 3,9% da martedì 1° settembre salgono i prezzi di biglietti e abbonamenti trenord in lombardia (+3,9% circa) e del trasporto pubblico locale (+1,85%). le opposizioni in regione parlano di un aumento vicino al 10% negli ultimi anni; per i pendolari bergamaschi si tratta della terza stangata di legislatura. trasporti bergamo trenord pendolari regione lombardia" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-30-bergamo-trenord-rincari-biglietti-settembre/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Treni e bus più cari da martedì: la Bergamasca paga il rincaro Trenord del 3,9%</h2><p class="card-summary">Da martedì 1° settembre salgono i prezzi di biglietti e abbonamenti Trenord in Lombardia (+3,9% circa) e del trasporto pubblico locale (+1,85%). Le opposizioni in Regione parlano di un aumento vicino al 10% negli ultimi anni; per i pendolari bergamaschi si tratta della terza stangata di legislatura.</p><p class="card-meta">30 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
