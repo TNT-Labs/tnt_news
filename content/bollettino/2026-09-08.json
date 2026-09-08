@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-08",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature calde (21-24 °C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 23, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 24, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 74,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 32}
+    ],
+    "incidents": [
+      {"where": "A51 tra Cologno Monzese e Lambrate", "desc": "Code a tratti causa traffico intenso dalle 07:00, in direzione Allacciamento A1 Milano-Napoli (verso San Donato)."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (29+13+32=74 min, traffic_model=best_guess). CCISS RSS letto (100 item, 1 pertinente alla tratta e alla direzione sud dell'andata odierna, elencato in incidents; scartati eventi A4 nei pressi di Cormano/Sesto San Giovanni/Grumello-Seriate perché fuori dai limiti di sezione 3.5 o su direzione opposta). Serravalle raggiungibile (HTTP 200) ma pagina di sola navigazione (iframe), nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente nel markup statico. Autostrade per l'Italia risponde 404, non riprovate oltre il tentativo singolo. Ricerca web non aggiunge eventi pertinenti oltre a quanto già rilevato da CCISS per la tratta e la direzione odierna; segnalata una chiusura notturna 21:00-05:00 all'allacciamento A4/Tangenziale Est ma non ricade nella finestra di transito odierna."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista né probabilità di pioggia nei tre punti del tragitto",
+      "Asfalto asciutto: pioggia trascurabile (0,01 mm, arrotondata a 0) nelle 3 ore precedenti a Bergamo",
+      "Temperature calde (21-24 °C) e vento debole (max 6 km/h, raffiche fino a 11 km/h)",
+      "Visibilità ottima (16 km) e cielo sereno su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
