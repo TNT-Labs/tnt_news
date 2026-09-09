@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-09",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia in atto su Bergamo alla partenza (rovesci, ~4 mm, probabilità 65%), asciutto ma nuvoloso più a sud verso Carugate e San Donato; temperature miti (19-22 °C).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Rovesci di pioggia", "temp_c": 19, "precip_mm": 4.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Nuvoloso",           "temp_c": 21, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "E"},
+      {"name": "San Donato (08:45)",  "cond": "Nuvoloso",           "temp_c": 22, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 72,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 30},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Trezzo e Allacciamento Tangenziale Est, dir. Milano", "desc": "Code a tratti causa traffico intenso dalle 06:44."},
+      {"where": "A4 a Svincolo Capriate, dir. Milano", "desc": "Straripamenti causa pioggia dalle 06:35."},
+      {"where": "A51 tra Allacciamento Tangenziale Nord e Svincolo Rubattino (Segrate-Città Studi), dir. A1 Milano-Napoli", "desc": "Code a tratti causa traffico intenso."},
+      {"where": "A51 tra Svincolo C.A.M.M. Monlue e Allacciamento A1, dir. A1 Milano-Napoli", "desc": "Traffico rallentato causa incidente."},
+      {"where": "A51 tra Allacciamento A1 e Svincolo SP41 Cascina Morosina (Burago)", "desc": "Pioggia segnalata sull'intera tratta, effetti sulla scorrevolezza non esclusi."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (30+13+29=72 min, traffic_model=best_guess, orari di imbocco 07:30/08:10/08:25); essendo basata su previsione real-time, potrebbe non riflettere pienamente le code segnalate da CCISS pochi minuti prima della query. CCISS RSS letto (100 item totali, 4 pertinenti a tratta/direzione odierna elencati in incidents, più 1 nota pioggia su tutta la A51); scartati 2 item A4 a Sesto San Giovanni (fuori percorso, direzione opposta 'da Torino') e la chiusura notturna A51 Usmate-Velate (fuori percorso, già terminata alle 05:00). Serravalle raggiungibile (HTTP 200) ma nessuna lista eventi nel markup statico. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente. Autostrade per l'Italia risponde 404, non riprovato oltre il tentativo singolo. Ricerca web non aggiunge eventi odierni pertinenti oltre a CCISS (risultati su Capriate-Trezzo relativi a giorni precedenti, non a oggi)."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia in atto a Bergamo al momento della partenza (~4 mm, rovesci)",
+      "Probabilità di pioggia a Bergamo del 65%, ben oltre la soglia del 50%",
+      "Asfalto bagnato: circa 4,8 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Miglioramento verso sud (Carugate e San Donato asciutti) ma la partenza resta compromessa"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
