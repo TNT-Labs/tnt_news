@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti — TNT News</title>
+  <meta name="description" content="Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-10-bergamo-brebemi-incidente-bariano-romano/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti — TNT News">
+  <meta property="og:description" content="Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-10-bergamo-brebemi-incidente-bariano-romano/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti — TNT News">
+  <meta name="twitter:description" content="Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">A35 Brebemi</span><span class="tag">Incidente stradale</span><span class="tag">Bariano</span><span class="tag">Romano di Lombardia</span></div>
+    <h1>Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti</h1>
+    <p class="article-summary">Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-10">10 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Un grave tamponamento a catena si è verificato mercoledì 9 settembre, poco dopo le 7.30, sull'autostrada A35 Brebemi, nel tratto tra i caselli di Bariano e Romano di Lombardia, in direzione Brescia.</strong> Nello scontro, che ha coinvolto diversi veicoli tra furgoni, un'auto e un mezzo pesante, un uomo di 51 anni ha perso la vita. Diverse altre persone sono rimaste ferite, alcune in modo grave, e sono state soccorse e trasportate negli ospedali di Bergamo, Treviglio e Brescia.</p>
+
+<h2>La dinamica e i soccorsi</h2>
+<p>Secondo quanto riportato da BergamoNews e da Il Giorno, l'allarme è scattato poco dopo le 7.30 del mattino. Sul posto sono intervenuti sei ambulanze, tre automediche e l'elisoccorso, insieme a squadre dei vigili del fuoco e alla Polizia Stradale di Chiari, competente per il tratto autostradale. Le operazioni di soccorso e i successivi rilievi per ricostruire la dinamica dell'incidente hanno richiesto diverse ore. Le cause esatte del tamponamento non sono ancora state accertate: le due fonti concordano sull'orario e sulla dinamica generale, ma riportano cifre leggermente diverse sul numero di mezzi coinvolti e sul totale dei feriti, tra nove e dieci a seconda della fonte; il bilancio definitivo dovrà essere confermato dagli organi competenti nelle prossime ore.</p>
+
+<h2>Autostrada chiusa, uscita obbligatoria a Bariano</h2>
+<p>Per consentire i soccorsi e gli accertamenti, il tratto della Brebemi interessato dall'incidente è stato chiuso al traffico in direzione Brescia, con uscita obbligatoria al casello di Bariano. Al momento della chiusura non era inoltre possibile entrare in autostrada da quello stesso casello in nessuna delle due direzioni. La società Brebemi ha collaborato con le forze dell'ordine per gestire la viabilità alternativa sulla rete locale, mentre gli automobilisti diretti verso Brescia hanno dovuto fare i conti con rallentamenti e deviazioni per gran parte della mattinata.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: mezzi di soccorso mobilitati per l'incidente sulla Brebemi del 9 settembre 2026 tra Bariano e Romano di Lombardia. Sei ambulanze, tre automediche, un elisoccorso. Fonti: BergamoNews, Il Giorno.">
+  <text x="320" y="28" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Soccorsi mobilitati sulla Brebemi</text>
+  <text x="320" y="48" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Incidente del 9 settembre 2026, tra Bariano e Romano di Lombardia</text>
+
+  <line x1="70" y1="260" x2="580" y2="260" stroke="#999" stroke-width="1"/>
+
+  <rect x="110" y="90" width="110" height="170" fill="#2f6f7f"/>
+  <text x="165" y="80" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a" font-weight="bold">6</text>
+  <text x="165" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Ambulanze</text>
+
+  <rect x="265" y="175" width="110" height="85" fill="#4f8a9c"/>
+  <text x="320" y="165" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a" font-weight="bold">3</text>
+  <text x="320" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Automediche</text>
+
+  <rect x="420" y="232" width="110" height="28" fill="#c0392b"/>
+  <text x="475" y="222" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a" font-weight="bold">1</text>
+  <text x="475" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Elisoccorso</text>
+
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonti: BergamoNews, Il Giorno. Non include i mezzi di vigili del fuoco e forze dell'ordine.</text>
+</svg>
+<figcaption>I mezzi sanitari mobilitati per soccorrere i feriti del tamponamento sulla Brebemi del 9 settembre 2026, secondo le fonti citate.</figcaption>
+</figure>
+
+<h2>I feriti trasportati in tre ospedali</h2>
+<p>I feriti sono stati distribuiti tra l'ospedale Papa Giovanni XXIII di Bergamo, l'ospedale di Treviglio e gli Spedali Civili di Brescia, a seconda della gravità delle condizioni e della disponibilità dei reparti. Le condizioni delle persone coinvolte non sono state comunicate nel dettaglio nelle prime ore successive all'incidente. La vicenda si aggiunge a una serie di episodi di viabilità difficile registrati nei giorni scorsi sul territorio bergamasco, legati anche alle condizioni meteorologiche instabili che hanno caratterizzato l'inizio di settembre.</p>
+
+<p>Le autorità competenti proseguono gli accertamenti per stabilire con precisione la dinamica del tamponamento e le eventuali responsabilità. Aggiornamenti sulla riapertura completa del tratto autostradale sono attesi dalla società Brebemi nelle prossime ore.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/incidente-brebemi-hgx4c5ev" rel="noopener" target="_blank">Il Giorno - Maxi incidente sulla BreBeMi tra Bariano e Romano di Lombardia: un morto e nove feriti e autostrada chiusa</a></li><li><a href="https://www.bergamonews.it/2026/09/09/maxi-incidente-sulla-brebemi-tra-bariano-e-romano-ci-sono-feriti-gravi-autostrada-chiusa/921078/" rel="noopener" target="_blank">BergamoNews - Maxi incidente sulla Brebemi tra Bariano e Romano: un morto e feriti gravi, autostrada chiusa</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;hapoel: daspo di tre anni alla vigilia di atalanta-hapoel tel aviv, digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un b&amp;b del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città. cronaca bergamo sicurezza ordine pubblico stadio conference league" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-21-bergamo-sequestro-fuochi-artificio-hapoel-daspo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;Hapoel: Daspo di tre anni</h2><p class="card-summary">Alla vigilia di Atalanta-Hapoel Tel Aviv, Digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un B&amp;B del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città.</p><p class="card-meta">21 agosto 2026</p></div></a></article><article class="card" data-search="violenza domestica e di genere: oltre 400 denunce in bergamasca in poco più di due mesi tra il 1° giugno e il 10 agosto 2026 i carabinieri della provincia di bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. numeri che, secondo l&#x27;arma, fanno emergere situazioni di violenza rimaste nascoste per mesi. cronaca bergamo carabinieri codice rosso violenza di genere" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-15-bergamo-codice-rosso-denunce-estate/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Violenza domestica e di genere: oltre 400 denunce in Bergamasca in poco più di due mesi</h2><p class="card-summary">Tra il 1° giugno e il 10 agosto 2026 i Carabinieri della provincia di Bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. Numeri che, secondo l&#x27;Arma, fanno emergere situazioni di violenza rimaste nascoste per mesi.</p><p class="card-meta">15 agosto 2026</p></div></a></article><article class="card" data-search="bergamo, 53 nuovi agenti di polizia di stato in servizio tra questura, stradale, treviglio e orio al serio il questore vincenzo nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della polizia di stato assegnati alla provincia di bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al viminale con il ministro dell&#x27;interno matteo piantedosi. cronaca bergamo polizia di stato sicurezza questura treviglio orio al serio" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-09-bergamo-53-nuovi-agenti-polizia-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, 53 nuovi agenti di Polizia di Stato in servizio tra Questura, Stradale, Treviglio e Orio al Serio</h2><p class="card-summary">Il Questore Vincenzo Nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della Polizia di Stato assegnati alla provincia di Bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al Viminale con il ministro dell&#x27;Interno Matteo Piantedosi.</p><p class="card-meta">9 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
