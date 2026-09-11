@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-11",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso su tutta la tratta, tempo asciutto e temperature miti (16-17 °C), vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Prevalentemente soleggiato", "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNW"},
+      {"name": "Carugate (08:15)",    "cond": "Parzialmente soleggiato",    "temp_c": 17, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "W"},
+      {"name": "San Donato (08:45)",  "cond": "Parzialmente soleggiato",    "temp_c": 17, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "WSW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 65,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 27},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 25}
+    ],
+    "incidents": [
+      {"where": "A51 tra Svincolo Cologno Monzese e Svincolo Linate (V.le Forlanini-SP14 Rivoltana), dir. A1 Milano-Napoli", "desc": "Code a tratti causa traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (27+13+25=65 min, traffic_model=best_guess, orari di imbocco 07:30/08:10/08:25). CCISS RSS letto (100 item totali, 1 pertinente alla tratta/direzione odierna: A51 Cologno Monzese-Linate dir. A1 Milano-Napoli); scartati 2 item A4 Milano-Brescia (direzione Brescia o tratto Monza-Certosa, fuori percorso/direzione) e 1 item locale Bergamo Piazzale Goisis (strada urbana, non A4). Serravalle raggiungibile (HTTP 200) ma pagina generica senza lista eventi. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente (solo news generiche). Autostrade per l'Italia risponde 404, non riprovato oltre il tentativo singolo. Ricerca web: individuata chiusura notturna A4 Bergamo-Seriate (22:00 dell'11/9-06:00 del 12/9) ma non pertinente perché in orario successivo alla partenza e sul tratto opposto (a est di Bergamo, non sul percorso verso Agrate); nessun altro incidente odierno pertinente trovato oltre a CCISS."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Nessuna pioggia prevista lungo il tragitto, cielo sereno o poco nuvoloso in tutti e tre i punti",
+      "Lieve umidità residua sull'asfalto: 0,09 mm di pioggia caduti a Bergamo tra le 05:00 e le 06:00, ormai cessata",
+      "Temperature miti (16-17 °C) e vento debole (2-3 km/h) su tutta la tratta",
+      "Visibilità buona (11-14 km) in tutti i punti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
