@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Fiera di Bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni — TNT News</title>
+  <meta name="description" content="Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-11-bergamo-fiera-ampliamento-primo-lotto/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Fiera di Bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni — TNT News">
+  <meta property="og:description" content="Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-11-bergamo-fiera-ampliamento-primo-lotto/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fiera di Bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni — TNT News">
+  <meta name="twitter:description" content="Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Fiera di Bergamo</span><span class="tag">Ampliamento</span><span class="tag">Investimenti</span><span class="tag">Via Lunga</span></div>
+    <h1>Fiera di Bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni</h1>
+    <p class="article-summary">Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-11">11 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga.</strong> L'avviso, pubblicato il 9 settembre, riguarda un intervento da 10 milioni di euro che prevede due nuovi padiglioni espositivi da circa 2.900 metri quadrati ciascuno, collegati da uno spazio ibrido di ulteriori 1.000 metri quadrati. I professionisti interessati a partecipare hanno tempo fino alle 12 del 15 ottobre per presentare le candidature.</p>
+
+<h2>Un progetto complessivo da 45 milioni di euro</h2>
+<p>Il primo lotto è la prima tappa concreta di un piano di ampliamento più ampio, presentato nei mesi scorsi e stimato in circa 45 milioni di euro complessivi. L'obiettivo, secondo quanto riportato da BergamoNews e Il Giorno, è raddoppiare la superficie espositiva coperta della fiera, portandola dagli attuali 13.000 metri quadrati a circa 26.600, a fronte di un'area fieristica complessiva di 173.000 metri quadrati su via Lunga. Il masterplan, elaborato dal Politecnico di Milano, articola l'intervento in cinque lotti autonomi: due blocchi espositivi gemelli, un padiglione multifunzionale, una galleria vetrata e un nuovo parcheggio.</p>
+
+<h2>"Spazi già saturi"</h2>
+<p>Giuseppe Epinati, amministratore unico di Bergamo Fiera Nuova, ha spiegato che "gli spazi disponibili si trovano già oggi in saturazione" e che l'ampliamento rappresenta una priorità per la crescita del sistema economico bergamasco. Il progetto punta a portare il quartiere fieristico a un livello più competitivo rispetto ad altri poli italiani ed europei, offrendo alle imprese manifatturiere del territorio spazi adeguati per fiere ed eventi di maggiori dimensioni.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: superficie espositiva coperta della Fiera di Bergamo, oggi 13.000 metri quadrati, dopo l'ampliamento circa 26.600 metri quadrati. Fonti: BergamoNews, Il Giorno.">
+  <text x="320" y="28" text-anchor="middle" font-size="17" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Superficie espositiva della Fiera di Bergamo</text>
+  <text x="320" y="48" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Situazione attuale e obiettivo dell'ampliamento (metri quadrati coperti)</text>
+
+  <line x1="70" y1="260" x2="580" y2="260" stroke="#999" stroke-width="1"/>
+
+  <rect x="160" y="130" width="130" height="130" fill="#2f6f7f"/>
+  <text x="225" y="120" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a" font-weight="bold">13.000</text>
+  <text x="225" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">Oggi</text>
+
+  <rect x="350" y="70" width="130" height="190" fill="#c0392b"/>
+  <text x="415" y="60" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a" font-weight="bold">26.600</text>
+  <text x="415" y="282" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1a1a1a">A fine progetto (2029)</text>
+
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonti: BergamoNews, Il Giorno. Valori in metri quadrati di superficie coperta.</text>
+</svg>
+<figcaption>Il raddoppio previsto della superficie espositiva coperta della Fiera di Bergamo, secondo i dati diffusi da Bergamo Fiera Nuova.</figcaption>
+</figure>
+
+<h2>Le tappe fino al 2029</h2>
+<p>Dopo la scadenza delle candidature del 15 ottobre, il calendario indicato da Bergamo Fiera Nuova prevede il progetto di fattibilità nella primavera 2027, quello esecutivo nell'estate dello stesso anno e l'affidamento dei lavori in autunno 2027. L'apertura del cantiere del primo lotto è attesa per la primavera 2028, con completamento previsto entro il 2029. Le due fonti concordano sui dati economici e sulle superfici del primo lotto, ma la tempistica complessiva del progetto più ampio, presentato per la prima volta la scorsa primavera, ha subito nel frattempo alcuni aggiustamenti: i riferimenti più recenti, legati all'avviso pubblicato in questi giorni, sono quelli riportati in questo articolo.</p>
+
+<p>L'intervento si inserisce in un contesto più ampio di potenziamento delle infrastrutture attorno al quartiere fieristico: nei mesi scorsi sono stati completati due sottopassi ciclopedonali su via Lunga, opere propedeutiche alla futura fermata ferroviaria "Bergamo Fiera" lungo la nuova linea che collegherà Bergamo, l'aeroporto di Orio al Serio e Milano. Il completamento dell'intero polo, con il raddoppio della capacità espositiva, è considerato dai promotori un tassello chiave per rafforzare l'attrattività del sistema fieristico bergamasco nei confronti di imprese ed espositori.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/10/fiera-di-bergamo-parte-il-progetto-di-ampliamento-10-milioni-per-il-primo-lotto/921432" rel="noopener" target="_blank">BergamoNews - Fiera di Bergamo, parte il progetto di ampliamento: 10 milioni per il primo lotto</a></li><li><a href="https://www.ilgiorno.it/bergamo/economia/fiera-progetto-he2ouigx" rel="noopener" target="_blank">Il Giorno - Fiera di Bergamo raddoppia: &quot;Sarà la cittadella del business&quot;</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="alfaparf milano, il gruppo cosmetico di osio sotto acquista la brasiliana cosmo il gruppo cosmetico di osio sotto, in provincia di bergamo, rileva cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra san paolo e rio de janeiro. è la quinta acquisizione in brasile negli ultimi anni. economia bergamo osio sotto alfaparf brasile cosmetica" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-01-bergamo-alfaparf-cosmo-brasile-acquisizione/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo</h2><p class="card-summary">Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.</p><p class="card-meta">1 settembre 2026</p></div></a></article><article class="card" data-search="siccità in bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30% coldiretti bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua. economia bergamo coldiretti siccità agricoltura" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-14-bergamo-siccita-allevamenti-latte-crisi/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Siccità in Bergamasca, allevamenti in affanno: la produzione di latte cala fino al 30%</h2><p class="card-summary">Coldiretti Bergamo lancia l&#x27;allarme: senza piogge significative l&#x27;estate 2026 rischia di essere peggiore del 2022. Negli allevamenti la produzione di latte è già calata fino al 30%, mentre il secondo raccolto di mais è a rischio per la scarsità d&#x27;acqua.</p><p class="card-meta">14 agosto 2026</p></div></a></article><article class="card" data-search="in provincia di bergamo chiudono i bar di paese: 494 in meno dal 2019 confcommercio bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%. economia bergamo confcommercio bar commercio locale" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-13-bergamo-bar-paese-crisi-catering/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">In provincia di Bergamo chiudono i bar di paese: 494 in meno dal 2019</h2><p class="card-summary">Confcommercio Bergamo fotografa una ristorazione in trasformazione: in sette anni il territorio ha perso 494 bar (-14,4%), mentre catering e servizi pasti crescono del 41,1%.</p><p class="card-meta">13 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
