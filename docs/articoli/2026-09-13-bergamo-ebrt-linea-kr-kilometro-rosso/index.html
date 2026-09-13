@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso — TNT News</title>
+  <meta name="description" content="Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso — TNT News">
+  <meta property="og:description" content="Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso — TNT News">
+  <meta name="twitter:description" content="Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">ATB</span><span class="tag">e-Brt</span><span class="tag">Kilometro Rosso</span><span class="tag">Stezzano</span></div>
+    <h1>Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso</h1>
+    <p class="article-summary">Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-13">13 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Da lunedì 14 settembre il trasporto pubblico bergamasco cambia passo.</strong> Secondo quanto riportato da BergamoNews, la linea e-Brt che collega Bergamo, Dalmine e Verdellino entra in una nuova fase operativa con un deciso aumento delle corse, mentre debutta la linea KR, il collegamento elettrico dedicato che porta dalla città al Parco Scientifico del Kilometro Rosso di Stezzano. Le modifiche coincidono con il rientro a scuola e al lavoro dopo la pausa estiva.</p>
+
+<h2>Più corse su tutta la rete e-Brt</h2>
+<p>Nella fascia di punta del mattino i bus passeranno ogni 7-8 minuti, mentre a mezzogiorno e tra le 17 e le 19 la frequenza sarà di una corsa ogni 10 minuti. Negli altri orari resterà un passaggio ogni 15 minuti. Il servizio, riferisce BergamoNews, sarà attivo dalle 5:20 alle 22:45 da Bergamo e dalle 5:50 alle 22:55 da Verdellino, dal lunedì al sabato.</p>
+
+<h2>La nuova linea KR per il Kilometro Rosso</h2>
+<p>La vera novità è la linea KR, attiva dal lunedì al venerdì con cadenza di 30 minuti. Collega la fermata e-Brt di Bergamo Morali-Km Rosso con il Parco Scientifico del Kilometro Rosso e con le tre fermate interne all'Innovation District di Stezzano, in un percorso di sei fermate che tocca anche la stazione FS di Stezzano e la zona Cascinetto. Le partenze da Bergamo sono previste tra le 7:35 e le 18:35, quelle dal Parco Scientifico tra le 7:55 e le 18:49. Per consentire il passaggio in sicurezza delle navette, dallo stesso giorno via Gorizia adotta un senso unico alternato regolato da un semaforo attivabile a distanza dagli autisti ATB.</p>
+
+<h2>Un progetto da 84 milioni di euro</h2>
+<p>L'e-Brt, entrato in servizio lo scorso 3 agosto, è secondo L'Eco di Bergamo il primo sistema di trasporto rapido interamente elettrico della Lombardia, realizzato con un investimento di 84 milioni di euro su un percorso di quasi 30 chilometri e 18 fermate per senso di marcia. La trazione elettrica, spiega il quotidiano, consente di evitare l'emissione di circa 780 tonnellate di CO2 all'anno, a cui si aggiungono altre 183 tonnellate grazie ai pannelli solari installati sui depositi; lungo il corridoio sono stati piantumati oltre 360 alberi. Obiettivo dichiarato della direttrice di ATB, Liliana Donato, è riportare l'utenza del trasporto pubblico bergamasco ai livelli pre-pandemia: nel 2025 i passeggeri trasportati sono stati 26,5 milioni, contro gli oltre 30 milioni del 2019.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre della frequenza dei bus e-Brt a Bergamo dal 14 settembre 2026: 7,5 minuti nella punta del mattino, 10 minuti a mezzogiorno e tra le 17 e le 19, 15 minuti negli altri orari, 30 minuti per la nuova linea KR verso il Kilometro Rosso. Fonte: BergamoNews.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Frequenza dei bus, dal 14 settembre</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Minuti di attesa tra una corsa e l'altra</text>
+
+  <line x1="70" y1="250" x2="600" y2="250" stroke="#999" stroke-width="2"/>
+
+  <rect x="110" y="212.5" width="80" height="37.5" fill="#2f6f7f"/>
+  <text x="150" y="203" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">7,5 min</text>
+  <text x="150" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Punta mattino</text>
+  <text x="150" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">e-Brt</text>
+
+  <rect x="250" y="200" width="80" height="50" fill="#2f6f7f"/>
+  <text x="290" y="190" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">10 min</text>
+  <text x="290" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Pranzo e sera</text>
+  <text x="290" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">e-Brt</text>
+
+  <rect x="390" y="175" width="80" height="75" fill="#2f6f7f"/>
+  <text x="430" y="165" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">15 min</text>
+  <text x="430" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Altri orari</text>
+  <text x="430" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">e-Brt</text>
+
+  <rect x="530" y="100" width="80" height="150" fill="#c0392b"/>
+  <text x="570" y="90" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">30 min</text>
+  <text x="570" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Linea KR</text>
+  <text x="570" y="283" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Kilometro Rosso</text>
+
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews, orari e frequenze annunciati da ATB per il 14 settembre 2026.</text>
+</svg>
+<figcaption>La frequenza dei passaggi sulla rete e-Brt e sulla nuova linea KR per il Kilometro Rosso, in vigore dal 14 settembre 2026 secondo i dati diffusi da ATB e ripresi da BergamoNews.</figcaption>
+</figure>
+
+<h2>Le altre novità della rete ATB</h2>
+<p>Il cambio di orario invernale porta anche una riorganizzazione delle linee urbane: la linea 2 (ex C1) collega Tasca e Verdi passando per l'ospedale Papa Giovanni XXIII e Santa Lucia, mentre le linee 51 e 52 (ex C2) servono il Villaggio degli Sposi e la zona dell'ospedale. La linea 5 si articola nei rami 5T verso Torre Boldone, 5R verso Ranica, 5N verso Nese e 5A verso Alzano, mentre la nuova linea 15 collega la Stazione con Gavarno e Villa di Serio. Anche il tram T1 viene rafforzato, con una corsa ogni 15 minuti nei giorni feriali, che scende a 10 minuti nelle fasce scolastiche e a 5 minuti negli orari di punta.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/12/atb-dal-14-settembre-piu-corse-e-nuove-linee-cosi-cambia-il-trasporto-pubblico-a-bergamo/921788" rel="noopener" target="_blank">BergamoNews - Atb, dal 14 settembre più corse e nuove linee: così cambia il trasporto pubblico a Bergamo</a></li><li><a href="https://www.ecodibergamo.it/stories/ecobergamo/mobilita/bus-elettrici-e-nuove-linee-per-ridurre-traffico-ed-emissioni-o_3923112_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Bus elettrici e nuove linee per ridurre traffico ed emissioni</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article><article class="card" data-search="da martedì 9 giugno gli orari estivi di atb e teb: cosa cambia per bus e tram a bergamo con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. la linea tranviaria t1 bergamo–albino corre ogni 15 minuti nei giorni feriali; i lavori in via paglia devianti le linee bus 5 e 6. trasporti bergamo atb teb trasporto pubblico" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-07-orari-estivi-atb-teb-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Da martedì 9 giugno gli orari estivi di ATB e TEB: cosa cambia per bus e tram a Bergamo</h2><p class="card-summary">Con la chiusura delle scuole entrano in vigore i nuovi orari estivi dei trasporti pubblici bergamaschi. La linea tranviaria T1 Bergamo–Albino corre ogni 15 minuti nei giorni feriali; i lavori in via Paglia devianti le linee bus 5 e 6.</p><p class="card-meta">7 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
