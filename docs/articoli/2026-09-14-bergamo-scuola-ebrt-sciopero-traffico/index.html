@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri — TNT News</title>
+  <meta name="description" content="Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-14-bergamo-scuola-ebrt-sciopero-traffico/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri — TNT News">
+  <meta property="og:description" content="Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-14-bergamo-scuola-ebrt-sciopero-traffico/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri — TNT News">
+  <meta name="twitter:description" content="Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">e-Brt</span><span class="tag">scuola</span><span class="tag">traffico</span><span class="tag">sciopero</span></div>
+    <h1>Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri</h1>
+    <p class="article-summary">Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-14">14 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Lunedì 14 settembre il rientro sui banchi di circa 147mila studenti bergamaschi si è trasformato nel primo vero stress test per la viabilità cittadina</strong>, alle prese contemporaneamente con l'e-Brt a pieno carico, uno sciopero dei bus extraurbani e diversi cantieri ancora aperti in città. Lo riportano BergamoNews e L'Eco di Bergamo, che hanno seguito la mattinata sul territorio.</p>
+
+<h2>L'e-Brt affronta la prima vera punta di richiesta</h2>
+<p>Secondo L'Eco di Bergamo, dalle 7 del mattino i bus della linea e-Brt Bergamo-Dalmine-Verdellino sono partiti già pieni, con circa 100 passeggeri a bordo di ogni corsa nei punti di salita di Lallio, Dalmine e Osio. Si sono registrati alcuni ritardi contenuti, dovuti sia all'invasione della corsia riservata da parte di auto sia ai tempi più lunghi per le operazioni di salita e discesa dei passeggeri. ATB e TEB hanno intanto attivato l'orario invernale, con corse rinforzate su bus, tram, funicolari ed e-Brt nelle ore di punta.</p>
+
+<h2>Traffico intenso in diversi punti della città</h2>
+<p>I nodi più critici individuati da L'Eco di Bergamo sono stati via Gavazzeni in direzione Malpensata, via Autostrada nei pressi del mercato e via Carnovali, sempre verso Malpensata, dove si sono formate code. Rallentamenti anche in Val Brembana, con saturazione tra i ponti di Sedrina e Almè attorno alle 7. BergamoNews segnala inoltre difficoltà nel nodo tra via San Giorgio e via Autostrada e lungo la direttrice tra la stazione e largo Tironi, che attraversa via Bonomelli, via Simoncini, via Paleocapa e via San Giorgio.</p>
+
+<h2>Sciopero dei bus e cantieri aperti</h2>
+<p>A complicare la mattinata, tra le 8:30 e le 12:30 il personale di Arriva Italia ha incrociato le braccia, con possibili disagi sulle linee 7 e 9. Restano inoltre aperti diversi cantieri che condizionano la viabilità: in via dei Caniana proseguono i lavori per il ponte legato al raddoppio della linea ferroviaria, con un ritardo di oltre un anno sul programma; nel sottopasso di via San Bernardino una canna resta chiusa, con senso unico verso Colognola in vigore da agosto; in viale Giulio Cesare è invece appena riaperto, in un solo senso verso il centro e fino al 30 novembre, il cantiere legato al canale scolmatore del Tremana. Restrizioni anche in via Rovelli, tra il passaggio a livello e il cavalcavia di Boccaleone.</p>
+<p>Per alleggerire il nodo di San Giorgio, il Comune ha introdotto quattro modifiche alla circolazione, tra cui la chiusura parziale di via Fratelli Calvi e il divieto di svolta a sinistra da via Baschenis, con l'obiettivo di dirottare il traffico diretto verso l'A4 su via Spino. Le opposizioni di Forza Italia, Lega e Fratelli d'Italia hanno criticato l'introduzione dell'e-Brt e le misure sulla viabilità legate al suo funzionamento.</p>
+
+<h2>Nessun incidente grave, ma sistema sotto pressione</h2>
+<p>Nonostante la concomitanza di fattori, entrambe le testate concordano nel dire che non si sono registrati incidenti gravi né blocchi prolungati: la giornata si è chiusa con ritardi diffusi ma contenuti. Resta però evidente, secondo BergamoNews, che la sovrapposizione tra rientro scolastico, cantieri e nuova rete di trasporto rapido metterà alla prova la tenuta del sistema anche nelle prossime settimane, quando il traffico tornerà ai livelli abituali dell'anno scolastico.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo della mattinata di lunedì 14 settembre 2026 a Bergamo: ore 7 inizio lezioni ed e-Brt pieno con circa 100 passeggeri a corsa, ore 7-8 punta di traffico su via Gavazzeni, via Autostrada, via Carnovali e Val Brembana, ore 8:30-12:30 sciopero Arriva Italia sulle linee 7 e 9, bilancio finale nessun incidente grave e ritardi contenuti. Fonti: BergamoNews e L'Eco di Bergamo.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">La mattinata del 14 settembre a Bergamo</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Cronologia degli eventi principali</text>
+
+  <line x1="60" y1="160" x2="580" y2="160" stroke="#999" stroke-width="2"/>
+
+  <circle cx="100" cy="160" r="7" fill="#2f6f7f"/>
+  <text x="100" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">7:00</text>
+  <text x="100" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Inizio lezioni,</text>
+  <text x="100" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">e-Brt pieno</text>
+  <text x="100" y="211" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">(~100 pax/corsa)</text>
+
+  <circle cx="250" cy="160" r="7" fill="#2f6f7f"/>
+  <text x="250" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">7-8</text>
+  <text x="250" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Punta di traffico:</text>
+  <text x="250" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Gavazzeni, Autostrada,</text>
+  <text x="250" y="211" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Carnovali, Val Brembana</text>
+
+  <circle cx="420" cy="160" r="7" fill="#c0392b"/>
+  <text x="420" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">8:30-12:30</text>
+  <text x="420" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Sciopero Arriva Italia</text>
+  <text x="420" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">(linee 7 e 9)</text>
+
+  <circle cx="560" cy="160" r="7" fill="#3a8f5b"/>
+  <text x="560" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Bilancio</text>
+  <text x="560" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Nessun incidente</text>
+  <text x="560" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">grave, ritardi</text>
+  <text x="560" y="211" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">contenuti</text>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonti: BergamoNews e L'Eco di Bergamo, cronaca della mattinata del 14 settembre 2026.</text>
+</svg>
+<figcaption>Cronologia della mattinata del primo giorno di scuola a Bergamo, tra e-Brt a pieno carico, traffico intenso e sciopero dei bus, secondo la ricostruzione di BergamoNews e L'Eco di Bergamo.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/14/scuole-e-brt-e-cantieri-per-bergamo-e-il-primo-vero-stress-test-del-traffico/921982" rel="noopener" target="_blank">BergamoNews - Scuole, e-Brt e cantieri: per Bergamo è il primo vero stress test del traffico</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/scuola-la-prima-prova-del-traffico-a-bergamo-e-brt-affollata-e-lievi-ritardi-o_3950065_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Scuola, la prima prova del traffico a Bergamo: e-Brt affollata e lievi ritardi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, da lunedì più corse sull&#x27;e-brt e debutta la linea kr per il kilometro rosso da lunedì 14 settembre la rete e-brt bergamo-dalmine-verdellino aumenta le corse e nasce la linea kr, il collegamento dedicato che porta al parco scientifico del kilometro rosso a stezzano. trasporti bergamo atb e-brt kilometro rosso stezzano" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso</h2><p class="card-summary">Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.</p><p class="card-meta">13 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
