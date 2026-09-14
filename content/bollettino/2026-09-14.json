@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-14",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o soleggiato su tutta la tratta, tempo asciutto e temperature miti in aumento (16-18 °C), vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato",  "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato",  "temp_c": 18, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "N"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato",  "temp_c": 18, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "SW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 70,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Svincolo Trezzo, dir. Milano", "desc": "Code a tratti causa traffico intenso (dalle 06:27)."},
+      {"where": "A51 tra Svincolo Cologno Monzese e Svincolo Lambrate, dir. A1 Milano-Napoli", "desc": "Code a tratti causa traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (29+13+28=70 min, traffic_model=best_guess, orari di imbocco 07:30/08:10/08:25). CCISS RSS letto (100 item totali, 2 pertinenti alla tratta/direzione odierna: A4 Dalmine-Trezzo dir. Milano; A51 Cologno Monzese-Lambrate dir. A1 Milano-Napoli); scartati altri item A4/A51 fuori percorso o direzione opposta (A4 Torino-Milano Pero-Molino Dorino; A4 Milano-Brescia Monza-Sesto S.Giovanni dir. Torino; A50/A52 Tangenziali Ovest/Nord, altre direttrici). Serravalle raggiungibile (HTTP 200) ma pagina generica senza lista eventi. Luceverde raggiungibile (HTTP 200) ma senza contenuto di viabilità pertinente (solo news generiche). Autostrade per l'Italia risponde 404, non riprovato oltre il tentativo singolo. Ricerca web: individuata chiusura notturna A4 stazione di Bergamo (21:00-05:00, dal 14 al 19/9) non pertinente perché fuori dall'orario di transito mattutino; nessun altro incidente odierno pertinente oltre a quanto già rilevato da CCISS."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista lungo l'intero tragitto, cielo sereno o soleggiato in tutti e tre i punti",
+      "Asfalto asciutto: 0 mm di pioggia caduti a Bergamo nelle 3 ore precedenti la partenza",
+      "Temperature miti e in aumento (16-18 °C) su tutta la tratta",
+      "Vento debole (2-5 km/h) e raffiche contenute (max 10 km/h)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
