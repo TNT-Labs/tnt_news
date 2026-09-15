@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-15",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno su tutto il tragitto, temperature miti (17-20°C) e vento debole: condizioni ottimali.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Soleggiato", "temp_c": 17, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 71,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A51 Tangenziale Est, tra Cologno Monzese Nord e Lambrate", "desc": "Code a tratti per traffico intenso in direzione sud (verso A1), come da bollettino CCISS."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess). CCISS RSS letto (100 item, 1 pertinente su A51 Cologno-Lambrate dir. sud). Serravalle raggiungibile ma pagina solo informativa, senza lista incidenti puntuale. Luceverde raggiungibile ma homepage generica senza dati specifici sulla tratta. Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun incidente odierno confermato su A4 Bergamo-Agrate (un articolo apparentemente attuale su un incidente Agrate-Trezzo risultava in realtà datato 21/02/2025, scartato)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Cielo sereno e nessuna pioggia prevista lungo tutto il tragitto",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti a Bergamo",
+      "Temperature tra 17°C e 20°C, ben sopra la soglia dei 7°C",
+      "Vento debole (5-6 km/h) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
