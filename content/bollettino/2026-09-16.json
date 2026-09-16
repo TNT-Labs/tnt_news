@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-16",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da nuvoloso a soleggiato lungo il tragitto, temperature miti (19-20°C), vento debole e nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Prevalentemente nuvoloso", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"},
+      {"name": "San Donato (08:45)",  "cond": "Soleggiato", "temp_c": 20, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 76,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 31},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 32}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Trezzo sull'Adda, dir. Milano", "desc": "Code a tratti per traffico intenso (segnalate dalle 06:21), come da bollettino CCISS."},
+      {"where": "A51 Tangenziale Est, tra Cologno Monzese Sud e Lambrate, dir. sud (A1 Milano-Napoli)", "desc": "Code a tratti per traffico intenso, come da bollettino CCISS."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess). CCISS RSS letto (100 item, 2 pertinenti: A4 Dalmine-Trezzo dir. Milano e A51 Cologno-Lambrate dir. sud). Serravalle raggiungibile ma senza lista incidenti puntuale (solo pagina informativa generica). Luceverde raggiungibile ma senza dati specifici sulla tratta (solo portale/mappa interattiva). Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun ulteriore incidente pertinente per orario e direzione dell'andata odierna (un risultato su un incidente Cavenago-Trezzo delle 14:23 dir. Brescia riguarda un orario e una direzione diversi da questa corsa, quindi scartato)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista lungo tutto il tragitto (probabilità massima 10%, a Bergamo)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Temperature tra 19°C e 20°C, ben sopra la soglia dei 7°C",
+      "Vento debole (3-5 km/h) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
