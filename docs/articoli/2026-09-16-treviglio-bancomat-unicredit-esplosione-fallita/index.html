@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Treviglio, doppia esplosione contro il bancomat Unicredit di via Roma: colpo fallito — TNT News</title>
+  <meta name="description" content="Nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale Unicredit di via Roma a Treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. È il secondo assalto simile in città in quattro mesi.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-16-treviglio-bancomat-unicredit-esplosione-fallita/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Treviglio, doppia esplosione contro il bancomat Unicredit di via Roma: colpo fallito — TNT News">
+  <meta property="og:description" content="Nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale Unicredit di via Roma a Treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. È il secondo assalto simile in città in quattro mesi.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-16-treviglio-bancomat-unicredit-esplosione-fallita/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Treviglio, doppia esplosione contro il bancomat Unicredit di via Roma: colpo fallito — TNT News">
+  <meta name="twitter:description" content="Nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale Unicredit di via Roma a Treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. È il secondo assalto simile in città in quattro mesi.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Treviglio</span><span class="tag">sicurezza</span><span class="tag">bancomat</span><span class="tag">banda del botto</span></div>
+    <h1>Treviglio, doppia esplosione contro il bancomat Unicredit di via Roma: colpo fallito</h1>
+    <p class="article-summary">Nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale Unicredit di via Roma a Treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. È il secondo assalto simile in città in quattro mesi.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-16">16 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Due esplosioni nella notte hanno svegliato il centro di Treviglio, dove una banda ha tentato di far saltare il bancomat della filiale Unicredit di via Roma senza riuscire a portare via un euro.</strong> Il colpo, messo a segno tra le 2:40 e le 2:45 di mercoledì 16 settembre, è il secondo assalto esplosivo a uno sportello automatico cittadino in quattro mesi, dopo quello alla Bnl di piazza Mentana della scorsa primavera.</p>
+
+<h2>La dinamica del colpo</h2>
+<p>Secondo le prime ricostruzioni riprese da BergamoNews e L'Eco di Bergamo, il gruppo era composto da almeno quattro persone, alcune delle quali con il volto travisato: una parte del commando è entrata in azione contro lo sportello, mentre un complice restava al volante di un'auto di grossa cilindrata pronta alla fuga. I banditi hanno innescato un primo ordigno e, non riuscendo nell'intento, ne hanno fatto esplodere un secondo a distanza di pochi minuti.</p>
+<p>Le due deflagrazioni hanno divelto la vetrina della filiale, danneggiato le postazioni di lavoro interne e sparso vetri e detriti sulla strada, ma senza intaccare la struttura portante dell'edificio, recentemente ristrutturato. A dare l'allarme al 112 è stato un residente della zona, svegliato dal boato. Sul posto sono intervenuti vigili del fuoco, carabinieri, polizia e il personale della vigilanza privata Mondialpol, insieme alla polizia scientifica per i rilievi.</p>
+
+<h2>Il colpo fallisce grazie alla cassaforte blindata</h2>
+<p>A differenza di quanto temuto nei primi minuti, la banda non è riuscita a sottrarre denaro: il vano blindato dello sportello ha retto a entrambe le esplosioni, mantenendo il contante al sicuro. Non risultano feriti né persone coinvolte: le immagini delle telecamere di sorveglianza, al vaglio degli investigatori per ricostruire il percorso di fuga dei banditi, confermano che al momento del raid non transitavano pedoni nella via. Gli inquirenti stanno ora analizzando le riprese per risalire al veicolo e agli autori del colpo.</p>
+<p>I danni alla filiale sono comunque rilevanti: la banca potrebbe riaprire un accesso laterale già da lunedì 21 settembre, mentre per il ripristino completo dei locali sono stimati circa un mese di lavori.</p>
+
+<h2>Il precedente di piazza Mentana</h2>
+<p>L'episodio richiama da vicino quanto accaduto nella notte tra il 26 e il 27 maggio scorsi a poche centinaia di metri di distanza, quando una banda di analoga composizione aveva colpito il bancomat della Bnl di piazza Mentana con la cosiddetta tecnica della "marmotta", l'inserimento di un ordigno artigianale direttamente nella bocchetta dello sportello. In quel caso i banditi erano riusciti a impossessarsi della cassetta con il contante prima di fuggire, anche se l'ammontare esatto del bottino non era mai stato reso noto con certezza per l'intervento dei sistemi di sicurezza interni ai contenitori di banconote.</p>
+<p>Il confronto tra i due episodi mostra quindi esiti opposti: bottino sottratto in primavera, colpo a vuoto in settembre.</p>
+
+<h2>Le indagini proseguono</h2>
+<p>Le forze dell'ordine non escludono che si tratti dello stesso gruppo criminale già attivo in primavera, specializzato in assalti esplosivi a sportelli automatici nella pianura bergamasca. L'indagine, coordinata dai carabinieri della Compagnia di Treviglio, è ancora nella fase iniziale e punta a identificare gli autori attraverso le immagini delle telecamere di zona e l'esame dei materiali esplosivi utilizzati.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Timeline: due assalti esplosivi a bancomat nel centro di Treviglio nel 2026. 26-27 maggio: bancomat Bnl di piazza Mentana, bottino sottratto. 16 settembre: bancomat Unicredit di via Roma, colpo fallito, nessun bottino. Fonte: BergamoNews e L'Eco di Bergamo.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Assalti esplosivi a bancomat a Treviglio, 2026</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Due colpi in quattro mesi nel centro cittadino</text>
+
+  <line x1="80" y1="160" x2="560" y2="160" stroke="#999" stroke-width="3"/>
+
+  <circle cx="180" cy="160" r="9" fill="#c0392b"/>
+  <text x="180" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">26-27 maggio</text>
+  <text x="180" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Bancomat Bnl, piazza Mentana</text>
+  <text x="180" y="190" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#c0392b" font-weight="bold">Bottino sottratto</text>
+
+  <circle cx="460" cy="160" r="9" fill="#2f6f7f"/>
+  <text x="460" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">16 settembre</text>
+  <text x="460" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Bancomat Unicredit, via Roma</text>
+  <text x="460" y="190" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2f6f7f" font-weight="bold">Colpo fallito</text>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews e L'Eco di Bergamo (ricostruzioni giornalistiche, dati 2026).</text>
+</svg>
+<figcaption>I due assalti esplosivi a sportelli bancomat nel centro di Treviglio nel 2026 hanno avuto esiti opposti: bottino sottratto a maggio, colpo a vuoto a settembre grazie alla cassaforte blindata. Fonte: BergamoNews, L'Eco di Bergamo.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/16/treviglio-colpo-allunicredit-di-via-roma-i-ladri-fanno-esplodere-il-bancomat/922529/" rel="noopener" target="_blank">BergamoNews - Treviglio, colpo all&#x27;Unicredit di via Roma: i ladri fanno esplodere il bancomat</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/pianura/esplosione-nella-notte-a-treviglio-colpito-il-bancomat-unicredit-di-via-roma-o_3951492_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Esplosione nella notte a Treviglio, colpito il bancomat Unicredit di via Roma</a></li><li><a href="https://www.bergamonews.it/2026/05/27/treviglio-il-ritorno-della-banda-del-botto-assalto-al-bancomat-bnl/897102" rel="noopener" target="_blank">BergamoNews - Treviglio, il ritorno della banda del botto: assalto al bancomat Bnl (27/5/2026)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, 53 nuovi agenti di polizia di stato in servizio tra questura, stradale, treviglio e orio al serio il questore vincenzo nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della polizia di stato assegnati alla provincia di bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al viminale con il ministro dell&#x27;interno matteo piantedosi. cronaca bergamo polizia di stato sicurezza questura treviglio orio al serio" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-09-bergamo-53-nuovi-agenti-polizia-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, 53 nuovi agenti di Polizia di Stato in servizio tra Questura, Stradale, Treviglio e Orio al Serio</h2><p class="card-summary">Il Questore Vincenzo Nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della Polizia di Stato assegnati alla provincia di Bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al Viminale con il ministro dell&#x27;Interno Matteo Piantedosi.</p><p class="card-meta">9 agosto 2026</p></div></a></article><article class="card" data-search="treviglio, tentata rapina all&#x27;incasso del revel summer festival: caccia ai tre aggressori nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del revel summer festival di treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri. cronaca treviglio revel summer festival rapina carabinieri" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-12-treviglio-rapina-incasso-revel-festival/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori</h2><p class="card-summary">Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.</p><p class="card-meta">12 luglio 2026</p></div></a></article><article class="card" data-search="maxi tamponamento sulla brebemi tra bariano e romano di lombardia: un morto e diversi feriti un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada a35 brebemi, tra bariano e romano di lombardia, in provincia di bergamo. un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione brescia per soccorsi e rilievi. cronaca bergamo a35 brebemi incidente stradale bariano romano di lombardia" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-09-10-bergamo-brebemi-incidente-bariano-romano/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti</h2><p class="card-summary">Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.</p><p class="card-meta">10 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
