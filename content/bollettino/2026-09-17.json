@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-17",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Rovesci di pioggia su Bergamo alla partenza, instabilità residua fino a Carugate, poi miglioramento verso San Donato; temperature miti (17-19°C).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Rovesci di pioggia", "temp_c": 17, "precip_mm": 3.2, "wind_kmh": 3, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",    "cond": "Probabili precipitazioni", "temp_c": 19, "precip_mm": 0.58, "wind_kmh": 2, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente nuvoloso", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 71,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 30},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Cavenago-Cambiago, dir. Milano", "desc": "Code a tratti per traffico intenso (segnalate dalle 06:19), come da bollettino CCISS."},
+      {"where": "A51 Tangenziale Est, tra Cologno Monzese Nord e Lambrate (Melzo-Dogana Segrate), dir. sud (A1 Milano-Napoli)", "desc": "Code a tratti per traffico intenso, come da bollettino CCISS."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess). CCISS RSS letto (100 item, 2 pertinenti: A4 Dalmine-Cavenago dir. Milano e A51 Cologno-Lambrate dir. sud). Serravalle raggiungibile ma senza lista incidenti puntuale (solo pagina informativa/menu generico). Luceverde raggiungibile ma senza dati specifici sulla tratta (solo portale/news generiche). Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun risultato con data odierna verificabile per la tratta; i riferimenti trovati (es. incidente Capriate-Trezzo) risalgono a giorni precedenti e sono stati scartati."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia in atto a Bergamo alla partenza: 3,2 mm previsti con probabilità 61%",
+      "Asfalto bagnato: 2,4 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Instabilità residua anche a Carugate (probabilità di pioggia 40%)",
+      "Temperature e vento nella norma, ma la pioggia prevista esclude comunque il via libera"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
