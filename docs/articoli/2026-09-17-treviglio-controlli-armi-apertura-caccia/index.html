@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Treviglio, controlli sulle armi prima della caccia: 24 fucili e 452 munizioni ritirati nel 2026 — TNT News</title>
+  <meta name="description" content="Il Commissariato di Treviglio ha intensificato i controlli sui porto d&#x27;armi in vista dell&#x27;apertura della stagione venatoria del 20 settembre: da inizio anno ritirati 24 fucili e 452 munizioni, mentre proseguono le verifiche su oltre 400 titoli tra nuovi rilasci e rinnovi.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-17-treviglio-controlli-armi-apertura-caccia/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Treviglio, controlli sulle armi prima della caccia: 24 fucili e 452 munizioni ritirati nel 2026 — TNT News">
+  <meta property="og:description" content="Il Commissariato di Treviglio ha intensificato i controlli sui porto d&#x27;armi in vista dell&#x27;apertura della stagione venatoria del 20 settembre: da inizio anno ritirati 24 fucili e 452 munizioni, mentre proseguono le verifiche su oltre 400 titoli tra nuovi rilasci e rinnovi.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-17-treviglio-controlli-armi-apertura-caccia/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Treviglio, controlli sulle armi prima della caccia: 24 fucili e 452 munizioni ritirati nel 2026 — TNT News">
+  <meta name="twitter:description" content="Il Commissariato di Treviglio ha intensificato i controlli sui porto d&#x27;armi in vista dell&#x27;apertura della stagione venatoria del 20 settembre: da inizio anno ritirati 24 fucili e 452 munizioni, mentre proseguono le verifiche su oltre 400 titoli tra nuovi rilasci e rinnovi.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Treviglio</span><span class="tag">sicurezza</span><span class="tag">caccia</span><span class="tag">porto d&#x27;armi</span><span class="tag">polizia</span></div>
+    <h1>Treviglio, controlli sulle armi prima della caccia: 24 fucili e 452 munizioni ritirati nel 2026</h1>
+    <p class="article-summary">Il Commissariato di Treviglio ha intensificato i controlli sui porto d&#x27;armi in vista dell&#x27;apertura della stagione venatoria del 20 settembre: da inizio anno ritirati 24 fucili e 452 munizioni, mentre proseguono le verifiche su oltre 400 titoli tra nuovi rilasci e rinnovi.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-17">17 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>A tre giorni dall'apertura della stagione venatoria, fissata per il 20 settembre, la polizia ha intensificato i controlli sul possesso di armi nella zona di Treviglio.</strong> Il bilancio reso noto dal Commissariato di Pubblica Sicurezza cittadino parla di 24 fucili e 452 munizioni ritirati dall'inizio del 2026, nell'ambito di un'attività di verifica che ha riguardato anche centinaia di porto d'armi tra nuovi rilasci e rinnovi.</p>
+
+<h2>Chi controlla e perché</h2>
+<p>I controlli sono condotti dall'Ufficio di Polizia Amministrativa e di Sicurezza della Questura di Bergamo, in coordinamento con il Commissariato di Treviglio, e servono a verificare che chi detiene armi da fuoco mantenga nel tempo i requisiti previsti dalla legge: idoneità psicofisica, assenza di precedenti ostativi e corretta custodia. L'attività si intensifica tradizionalmente nelle settimane che precedono l'apertura della caccia, quando aumenta il numero di persone che ritirano o rinnovano il proprio titolo per l'uso venatorio.</p>
+
+<h2>I numeri dei controlli</h2>
+<p>Da gennaio a settembre 2026 l'ufficio ha gestito oltre 400 pratiche relative ai porto d'armi: 2 nuovi rilasci e 113 rinnovi per uso caccia, a cui si aggiungono 55 nuovi rilasci e 232 rinnovi per uso tiro a volo. Parallelamente, le verifiche periodiche e le segnalazioni hanno portato al ritiro cautelativo di 24 armi e 452 munizioni, destinate alle procedure di rottamazione e distruzione. Si tratta in gran parte di ritiri legati al venir meno dei requisiti per la detenzione, più che di sequestri collegati a reati.</p>
+
+<h2>Un intervento nell'ambito del "codice rosso"</h2>
+<p>Tra i casi trattati nel corso dell'anno, gli agenti citano anche un intervento cautelare nei confronti di un uomo segnalato per minacce rivolte all'ex moglie: in quella circostanza la polizia ha proceduto al ritiro preventivo di armi e munizioni in suo possesso, nell'ambito delle procedure previste dal cosiddetto "codice rosso" per la tutela delle vittime di violenza domestica. Non risultano, allo stato, condanne collegate all'episodio.</p>
+
+<h2>Le regole per chi va a caccia</h2>
+<p>Con l'apertura della stagione ormai imminente, la Questura ricorda che il rispetto delle norme sul porto d'armi non è solo un adempimento burocratico, ma una misura di prevenzione della sicurezza pubblica: i controlli proseguiranno anche nelle prossime settimane, sia sui nuovi richiedenti sia su chi già detiene un titolo in corso di validità.</p>
+
+<blockquote>Le verifiche sul porto d'armi proseguono tutto l'anno, ma si intensificano prima dell'apertura della caccia, quando cresce il numero di pratiche da esaminare e di titoli da rinnovare.</blockquote>
+
+<figure>
+<svg viewBox="0 0 640 360" role="img" aria-label="Grafico a barre: pratiche di porto d'armi gestite a Treviglio da gennaio a settembre 2026. Caccia: 2 nuovi rilasci, 113 rinnovi. Tiro a volo: 55 nuovi rilasci, 232 rinnovi. Fonte: L'Eco di Bergamo e BergamoNews.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Porto d'armi a Treviglio, gennaio–settembre 2026</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Nuovi rilasci e rinnovi per uso caccia e tiro a volo</text>
+
+  <line x1="70" y1="300" x2="600" y2="300" stroke="#999" stroke-width="1.5"/>
+
+  <rect x="110" y="288" width="60" height="12" fill="#2f6f7f"/>
+  <text x="140" y="282" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">2</text>
+  <text x="140" y="318" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Caccia</text>
+  <text x="140" y="332" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">nuovi rilasci</text>
+
+  <rect x="210" y="130" width="60" height="170" fill="#2f6f7f"/>
+  <text x="240" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">113</text>
+  <text x="240" y="318" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Caccia</text>
+  <text x="240" y="332" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">rinnovi</text>
+
+  <rect x="340" y="225" width="60" height="75" fill="#c0392b"/>
+  <text x="370" y="217" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">55</text>
+  <text x="370" y="318" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Tiro a volo</text>
+  <text x="370" y="332" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">nuovi rilasci</text>
+
+  <rect x="440" y="60" width="60" height="240" fill="#c0392b"/>
+  <text x="470" y="52" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">232</text>
+  <text x="470" y="318" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Tiro a volo</text>
+  <text x="470" y="332" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666">rinnovi</text>
+
+  <text x="320" y="352" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: L'Eco di Bergamo, BergamoNews (dati Commissariato di Treviglio, gen.-set. 2026).</text>
+</svg>
+<figcaption>Nel 2026 il Commissariato di Treviglio ha gestito oltre 400 pratiche di porto d'armi, in maggioranza rinnovi per uso tiro a volo e caccia. Fonte: L'Eco di Bergamo, BergamoNews.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/pianura/treviglio-controlli-sulle-armi-ritirati-24-fucili-e-452-munizioni-o_3952287_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Treviglio, controlli sulle armi: ritirati 24 fucili e 452 munizioni</a></li><li><a href="https://www.bergamonews.it/2026/09/17/inizia-la-stagione-di-caccia-scattano-i-controlli-24-armi-e-452-munizioni-ritirate-da-inizio-anno/922787" rel="noopener" target="_blank">BergamoNews - Inizia la stagione di caccia, scattano i controlli: 24 armi e 452 munizioni ritirate da inizio anno</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="treviglio, doppia esplosione contro il bancomat unicredit di via roma: colpo fallito nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale unicredit di via roma a treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. è il secondo assalto simile in città in quattro mesi. cronaca treviglio sicurezza bancomat banda del botto" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-09-16-treviglio-bancomat-unicredit-esplosione-fallita/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Treviglio, doppia esplosione contro il bancomat Unicredit di via Roma: colpo fallito</h2><p class="card-summary">Nella notte una banda di almeno quattro persone ha fatto detonare due ordigni contro lo sportello automatico della filiale Unicredit di via Roma a Treviglio, senza riuscire a sottrarre denaro grazie alla cassaforte blindata. È il secondo assalto simile in città in quattro mesi.</p><p class="card-meta">16 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, 53 nuovi agenti di polizia di stato in servizio tra questura, stradale, treviglio e orio al serio il questore vincenzo nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della polizia di stato assegnati alla provincia di bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al viminale con il ministro dell&#x27;interno matteo piantedosi. cronaca bergamo polizia di stato sicurezza questura treviglio orio al serio" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-09-bergamo-53-nuovi-agenti-polizia-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, 53 nuovi agenti di Polizia di Stato in servizio tra Questura, Stradale, Treviglio e Orio al Serio</h2><p class="card-summary">Il Questore Vincenzo Nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della Polizia di Stato assegnati alla provincia di Bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al Viminale con il ministro dell&#x27;Interno Matteo Piantedosi.</p><p class="card-meta">9 agosto 2026</p></div></a></article><article class="card" data-search="treviglio, tentata rapina all&#x27;incasso del revel summer festival: caccia ai tre aggressori nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del revel summer festival di treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri. cronaca treviglio revel summer festival rapina carabinieri" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-07-12-treviglio-rapina-incasso-revel-festival/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Treviglio, tentata rapina all&#x27;incasso del Revel Summer Festival: caccia ai tre aggressori</h2><p class="card-summary">Nella notte tra sabato 11 e domenica 12 luglio tre uomini hanno tentato di rapinare l&#x27;incasso della serata finale del Revel Summer Festival di Treviglio, spaccando a colpi di martello il finestrino dell&#x27;auto degli organizzatori. Un collaboratore è rimasto lievemente ferito, il colpo è stato sventato e sono in corso le indagini dei carabinieri.</p><p class="card-meta">12 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
