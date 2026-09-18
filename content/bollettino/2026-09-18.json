@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-18",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole e continua lungo tutto il percorso, da Bergamo a San Donato; temperature miti (17-19°C).",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Pioggia debole", "temp_c": 17, "precip_mm": 0.4,  "wind_kmh": 3,  "wind_dir": "NE"},
+      {"name": "Carugate (08:15)",    "cond": "Pioggia debole", "temp_c": 18, "precip_mm": 0.35, "wind_kmh": 8,  "wind_dir": "E"},
+      {"name": "San Donato (08:45)",  "cond": "Pioggia debole", "temp_c": 19, "precip_mm": 0.05, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 68,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 30},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 25}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Barriera di Milano Est, dir. Milano", "desc": "Code a tratti per traffico intenso dalle 06:15, come da bollettino CCISS; il tratto include il segmento Bergamo-Agrate."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess). CCISS RSS letto (100 item, 1 pertinente per direzione/tratta: A4 Dalmine-Barriera Milano Est dir. Milano; altri 2 item A51 scartati perché relativi a tratti a nord di Carugate, fuori dal segmento Carugate-San Donato). Serravalle raggiungibile ma senza lista incidenti puntuale (solo pagina menu/generica). Luceverde raggiungibile ma senza dati specifici sulla tratta (solo news generiche). Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404. Ricerca web: nessun incidente verificato per la data odierna sulla tratta; i riferimenti trovati erano relativi a giorni precedenti o a chiusure notturne già concluse."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole in atto in tutti e tre i punti (0,4 / 0,35 / 0,05 mm previsti)",
+      "Asfalto bagnato: 1,47 mm di pioggia nelle 3 ore precedenti la partenza a Bergamo",
+      "Probabilità di pioggia 20-36%: sotto soglia, ma le precipitazioni già presenti escludono comunque il via libera",
+      "Temperature miti (17-19°C) e vento moderato, condizioni altrimenti favorevoli"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
