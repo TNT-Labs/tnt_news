@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone — TNT News</title>
+  <meta name="description" content="Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-18-bergamo-quarto-savona-15-falcone-memoria/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone — TNT News">
+  <meta property="og:description" content="Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-18-bergamo-quarto-savona-15-falcone-memoria/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone — TNT News">
+  <meta name="twitter:description" content="Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Bergamo</span><span class="tag">memoria</span><span class="tag">legalità</span><span class="tag">Giovanni Falcone</span><span class="tag">Palazzo della Provincia</span></div>
+    <h1>A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone</h1>
+    <p class="article-summary">Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-18">18 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Da oggi, venerdì 18 settembre, e fino al 28 settembre, il cortile di Palazzo della Provincia in via Tasso a Bergamo ospita la teca con i resti della "Quarto Savona 15", l'auto blindata che trasportava gli agenti della scorta di Giovanni Falcone e che fu distrutta nella strage di Capaci del 23 maggio 1992.</strong> L'esposizione, a ingresso libero, apre una settimana di iniziative dedicate alla memoria e alla legalità, rivolte in particolare alle giovani generazioni.</p>
+
+<h2>Cosa si vede in via Tasso</h2>
+<p>Nella teca sono conservati i resti del veicolo che, insieme ad altre due auto del corteo, scortava il magistrato lungo l'autostrada A29 all'altezza di Capaci, nel Palermitano. L'attentato, organizzato da Cosa Nostra con un ordigno piazzato sotto la carreggiata, uccise Falcone, la moglie Francesca Morvillo e gli agenti Antonio Montinaro, Rocco Dicillo e Vito Schifani. Il relitto dell'auto è da anni portato in giro per l'Italia come strumento di sensibilizzazione, in un percorso che ha già toccato altre città e istituzioni del Paese.</p>
+
+<h2>Il programma a Bergamo</h2>
+<p>La cerimonia ufficiale di scopertura della teca si tiene nella mattinata di venerdì 18 settembre, alla presenza di autorità e rappresentanti istituzionali. Da quel momento e fino a lunedì 28 settembre, il pubblico potrà visitare l'esposizione gratuitamente tutti i giorni dalle 9 alle 18. Le fonti riportano che la settimana sarà accompagnata da iniziative sul tema della legalità, pensate soprattutto per avvicinare studenti e giovani alla storia della lotta alle mafie, anche se il dettaglio dei singoli appuntamenti non è stato ancora reso pubblico.</p>
+
+<h3>Un simbolo che viaggia in Italia</h3>
+<p>La Quarto Savona 15 è diventata negli anni un simbolo itinerante della lotta alla criminalità organizzata: la sua tappa bergamasca si inserisce in un calendario di esposizioni che ha già coinvolto altre realtà locali, con l'obiettivo dichiarato di trasformare la memoria della strage "in un'occasione di conoscenza, riflessione e impegno civile".</p>
+
+<blockquote>La settimana di iniziative a Bergamo punta sulla sensibilizzazione, con particolare attenzione alle giovani generazioni, attorno ai temi della memoria e della legalità.</blockquote>
+
+<h2>Trentaquattro anni dopo Capaci</h2>
+<p>Dal 23 maggio 1992 sono trascorsi 34 anni, ma la strage di Capaci resta uno dei momenti più incisi nella memoria collettiva del Paese, insieme all'attentato di via D'Amelio che pochi mesi dopo costò la vita al giudice Paolo Borsellino e alla sua scorta. L'arrivo della teca a Bergamo, in un luogo pubblico e centrale come il cortile di Palazzo della Provincia, rende accessibile a tutti un pezzo di quella storia senza bisogno di prenotazione o biglietto.</p>
+
+<figure>
+<svg viewBox="0 0 640 300" role="img" aria-label="Linea del tempo: 23 maggio 1992, strage di Capaci; 18-28 settembre 2026, esposizione della Quarto Savona 15 a Bergamo, undici giorni di apertura gratuita dalle 9 alle 18. Fonte: BergamoNews, L'Eco di Bergamo.">
+  <text x="320" y="28" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Dalla strage di Capaci a Bergamo</text>
+  <text x="320" y="47" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">34 anni dopo, la Quarto Savona 15 esposta in via Tasso</text>
+
+  <line x1="80" y1="150" x2="560" y2="150" stroke="#999" stroke-width="2"/>
+
+  <circle cx="120" cy="150" r="8" fill="#c0392b"/>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">23 maggio 1992</text>
+  <text x="120" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Strage di Capaci</text>
+  <text x="120" y="175" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">5 vittime</text>
+
+  <circle cx="500" cy="150" r="8" fill="#2f6f7f"/>
+  <text x="500" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">18-28 settembre 2026</text>
+  <text x="500" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Esposizione a Bergamo</text>
+  <text x="500" y="175" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">11 giorni, ore 9-18, ingresso libero</text>
+
+  <text x="320" y="150" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a" dy="-14">34 anni</text>
+
+  <text x="320" y="280" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews, L'Eco di Bergamo.</text>
+</svg>
+<figcaption>Trentaquattro anni separano la strage di Capaci dall'esposizione della Quarto Savona 15 nel cortile di Palazzo della Provincia a Bergamo, aperta gratuitamente dal 18 al 28 settembre. Fonte: BergamoNews, L'Eco di Bergamo.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/16/la-quarto-savona-15-i-resti-dellauto-della-scorta-di-giovanni-falcone-esposta-a-bergamo/922525/" rel="noopener" target="_blank">BergamoNews - La Quarto Savona 15, i resti dell&#x27;auto della scorta di Giovanni Falcone, esposta a Bergamo</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/quarto-savona-15-a-bergamo-i-resti-dellauto-della-scorta-di-falcone-in-via-tas-o_3950827_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Quarto Savona 15 a Bergamo: i resti dell&#x27;auto della scorta di Falcone in via Tasso</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo festeggia gli alpini: la 41ª adunata sezionale per i 105 anni della sezione bergamo ospita fino a domenica il raduno del 2° raggruppamento a.n.a. e la 41ª adunata sezionale per i 105 anni della sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica. cultura alpini bergamo adunata città alta palazzo frizzoni" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-12-bergamo-alpini-41-adunata-105-anni/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Bergamo festeggia gli Alpini: la 41ª Adunata sezionale per i 105 anni della Sezione</h2><p class="card-summary">Bergamo ospita fino a domenica il raduno del 2° Raggruppamento A.N.A. e la 41ª Adunata sezionale per i 105 anni della Sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica.</p><p class="card-meta">12 settembre 2026</p></div></a></article><article class="card" data-search="ferragosto boliviano a bergamo: 15mila persone per la processione della madonna di urkupiña sabato 15 agosto circa 15mila persone, secondo la stima delle forze dell&#x27;ordine, hanno affollato il centro di bergamo per la processione della comunità boliviana in onore della madonna di urkupiña, la &quot;patrona dell&#x27;integrazione&quot;. cultura bergamo comunità boliviana urkupiña ferragosto integrazione" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-08-16-bergamo-madonna-urkupina-comunita-boliviana/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Ferragosto boliviano a Bergamo: 15mila persone per la processione della Madonna di Urkupiña</h2><p class="card-summary">Sabato 15 agosto circa 15mila persone, secondo la stima delle forze dell&#x27;ordine, hanno affollato il centro di Bergamo per la processione della comunità boliviana in onore della Madonna di Urkupiña, la &quot;patrona dell&#x27;integrazione&quot;.</p><p class="card-meta">16 agosto 2026</p></div></a></article><article class="card" data-search="dieci piani di ponteggio nella basilica di santa maria maggiore: al via il maxi-restauro del presbiterio la fondazione mia ha avviato l&#x27;11 maggio il cantiere nel cuore di bergamo alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. il ponteggio di 18 metri è già visibile all&#x27;interno. cultura bergamo patrimonio fondazione mia restauro" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-06-17-basilica-santa-maria-maggiore-restauro/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Dieci piani di ponteggio nella Basilica di Santa Maria Maggiore: al via il maxi-restauro del presbiterio</h2><p class="card-summary">La Fondazione MIA ha avviato l&#x27;11 maggio il cantiere nel cuore di Bergamo Alta: un milione di euro per restaurare affreschi, tele, stucchi e arazzi del presbiterio in tre anni e mezzo. Il ponteggio di 18 metri è già visibile all&#x27;interno.</p><p class="card-meta">17 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
