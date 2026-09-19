@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Stop al bollo auto dal 2027: per la Bergamasca un risparmio stimato in 75 milioni — TNT News</title>
+  <meta name="description" content="Il decreto approvato dal Consiglio dei Ministri esenta dal 2027 dal bollo le auto fino a 80 kW: in provincia di Bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-19-bergamo-bollo-auto-esenzione-2027/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Stop al bollo auto dal 2027: per la Bergamasca un risparmio stimato in 75 milioni — TNT News">
+  <meta property="og:description" content="Il decreto approvato dal Consiglio dei Ministri esenta dal 2027 dal bollo le auto fino a 80 kW: in provincia di Bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-19-bergamo-bollo-auto-esenzione-2027/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stop al bollo auto dal 2027: per la Bergamasca un risparmio stimato in 75 milioni — TNT News">
+  <meta name="twitter:description" content="Il decreto approvato dal Consiglio dei Ministri esenta dal 2027 dal bollo le auto fino a 80 kW: in provincia di Bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">bollo auto</span><span class="tag">fisco</span><span class="tag">risparmio famiglie</span></div>
+    <h1>Stop al bollo auto dal 2027: per la Bergamasca un risparmio stimato in 75 milioni</h1>
+    <p class="article-summary">Il decreto approvato dal Consiglio dei Ministri esenta dal 2027 dal bollo le auto fino a 80 kW: in provincia di Bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-19">19 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Il Consiglio dei Ministri ha varato un decreto legge che, a partire dal 2027, esenta dal pagamento del bollo le automobili di piccola e media cilindrata e i motocicli</strong>: una misura pensata per contrastare il caro carburanti che, secondo le prime stime, in provincia di Bergamo porterebbe un risparmio complessivo vicino ai 75 milioni di euro. Il provvedimento, approvato mercoledì 17 settembre e pubblicato in Gazzetta Ufficiale, è stato ripreso e analizzato da L'Eco di Bergamo con dati aggiornati sul territorio orobico.</p>
+
+<h2>Come funziona l'esenzione</h2>
+<p>Il decreto prevede che, per l'anno 2027, non sia dovuto il bollo per un solo veicolo per persona fisica, a benzina o gasolio anche ad alimentazione ibrida, con potenza non superiore a 80 kW. L'esenzione riguarda anche chi utilizza l'auto in leasing o a noleggio a lungo termine, oltre ai motocicli. A livello nazionale lo Stato ha stanziato oltre 2,3 miliardi di euro per coprire il mancato gettito, una cifra che secondo le stime interesserà più di 14 milioni di veicoli, circa il 70% del parco circolante italiano.</p>
+
+<h2>L'impatto sulla Bergamasca</h2>
+<p>Applicando i criteri del decreto ai dati ACI aggiornati al 31 dicembre 2025, in provincia di Bergamo risultano immatricolate 734.764 autovetture, di cui 508.814 rientrano nella fascia di potenza più vicina al nuovo limite di legge: si tratta quindi di circa il 70% del parco auto provinciale, una quota in linea con la media nazionale. A questi si aggiungono i circa 147.000 motocicli censiti sul territorio, anch'essi potenzialmente coperti dall'esenzione se rispettano i requisiti di potenza.</p>
+
+<p>Secondo un'elaborazione di Facile.it citata da L'Eco di Bergamo, il risparmio medio per proprietario in Lombardia si aggirerebbe intorno ai 163,50 euro l'anno. Moltiplicando questa cifra per il numero di veicoli bergamaschi potenzialmente esenti, il giornale stima un beneficio complessivo per il territorio vicino ai 75 milioni di euro nel solo 2027.</p>
+
+<h2>Le riserve dei consumatori</h2>
+<p>Non mancano le voci critiche. L'Unione Nazionale Consumatori ha segnalato che il beneficio dell'esenzione rischia di essere in parte assorbito dall'aumento dei prezzi dei carburanti, con la benzina che in questi giorni viaggia in media intorno a 2,147 euro al litro e il gasolio a 2,297 euro al litro.</p>
+
+<blockquote>Il risparmio sul bollo rischia di essere eroso dal caro carburanti, se i prezzi di benzina e gasolio continueranno a salire nei prossimi mesi.</blockquote>
+
+<p>Resta inoltre da chiarire, nei prossimi mesi, come le famiglie che possiedono più di un'auto dovranno scegliere il veicolo su cui applicare l'esenzione, essendo il beneficio riconosciuto una sola volta per persona.</p>
+
+<h2>Un beneficio diffuso, ma non per tutti</h2>
+<p>Il provvedimento, per come è costruito, avvantaggia soprattutto i proprietari di utilitarie e city car, mentre resta escluso chi possiede veicoli di cilindrata più elevata. Per la Bergamasca, provincia con un tasso di motorizzazione storicamente alto, la misura potrebbe tradursi in un sollievo tangibile per centinaia di migliaia di famiglie a partire dai bollettini del 2027, pur con l'incognita legata all'andamento dei prezzi dei carburanti nei prossimi mesi.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: autovetture immatricolate in provincia di Bergamo, totale 734.764, di cui esenti dal bollo dal 2027 (fascia di potenza fino a 85 kW, banda ACI più vicina al limite di legge di 80 kW) 508.814, pari a circa il 70%. Fonte: L'Eco di Bergamo su dati ACI al 31/12/2025.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Autovetture in provincia di Bergamo (dati ACI 31/12/2025)</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Totale immatricolate e quota esente dal bollo dal 2027</text>
+
+  <line x1="60" y1="220" x2="580" y2="220" stroke="#999" stroke-width="2"/>
+
+  <rect x="160" y="70" width="110" height="150" fill="#2f6f7f"/>
+  <text x="215" y="59" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">734.764</text>
+  <text x="215" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Autovetture totali</text>
+
+  <rect x="370" y="116" width="110" height="104" fill="#3a8f5b"/>
+  <text x="425" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">508.814 (~70%)</text>
+  <text x="425" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Esenti dal 2027</text>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: L'Eco di Bergamo su dati ACI al 31/12/2025. Fascia "esenti" = potenza fino a 85 kW (banda ACI più vicina al limite di legge di 80 kW).</text>
+</svg>
+<figcaption>Circa 7 autovetture su 10 immatricolate in provincia di Bergamo rientrano nella fascia di potenza che dal 2027 sarà esente dal bollo. Fonte: L'Eco di Bergamo su dati ACI al 31/12/2025.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/bergamo-lo-stop-del-bollo-auto-vale-75-milioni-o_3953846_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Bergamo, lo stop del bollo auto vale 75 milioni</a></li><li><a href="https://www.ansa.it/canale_motori/notizie/istituzioni/2026/09/17/stop-al-bollo-auto-ecco-i-modelli-esenti_a3537fe2-1ab1-4664-8606-9235ddf52f8c.html" rel="noopener" target="_blank">ANSA - Stop al bollo auto, ecco i modelli esenti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="export bergamasco fermo nel secondo trimestre: bene chimica ed elettrico, giù macchinari e metalli la camera di commercio di bergamo certifica un export provinciale sostanzialmente stabile nel secondo trimestre 2026 (-0,1%), molto sotto la crescita di lombardia e italia: bene chimica ed elettrico, in calo macchinari e metalli. economia bergamo export economia camera di commercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-15-bergamo-export-secondo-trimestre-stabile/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Export bergamasco fermo nel secondo trimestre: bene chimica ed elettrico, giù macchinari e metalli</h2><p class="card-summary">La Camera di Commercio di Bergamo certifica un export provinciale sostanzialmente stabile nel secondo trimestre 2026 (-0,1%), molto sotto la crescita di Lombardia e Italia: bene chimica ed elettrico, in calo macchinari e metalli.</p><p class="card-meta">15 settembre 2026</p></div></a></article><article class="card" data-search="fiera di bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni bergamo fiera nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre. economia bergamo fiera di bergamo ampliamento investimenti via lunga" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-11-bergamo-fiera-ampliamento-primo-lotto/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Fiera di Bergamo, al via la progettazione del primo lotto dell&#x27;ampliamento da 10 milioni</h2><p class="card-summary">Bergamo Fiera Nuova ha avviato la procedura per affidare la progettazione del primo lotto del maxi ampliamento del polo fieristico di via Lunga: due nuovi padiglioni per 10 milioni di euro, candidature entro il 15 ottobre.</p><p class="card-meta">11 settembre 2026</p></div></a></article><article class="card" data-search="alfaparf milano, il gruppo cosmetico di osio sotto acquista la brasiliana cosmo il gruppo cosmetico di osio sotto, in provincia di bergamo, rileva cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra san paolo e rio de janeiro. è la quinta acquisizione in brasile negli ultimi anni. economia bergamo osio sotto alfaparf brasile cosmetica" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-01-bergamo-alfaparf-cosmo-brasile-acquisizione/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Alfaparf Milano, il gruppo cosmetico di Osio Sotto acquista la brasiliana Cosmo</h2><p class="card-summary">Il gruppo cosmetico di Osio Sotto, in provincia di Bergamo, rileva Cosmo, azienda brasiliana da circa 113 milioni di euro di ricavi, con quattro stabilimenti tra San Paolo e Rio de Janeiro. È la quinta acquisizione in Brasile negli ultimi anni.</p><p class="card-meta">1 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
