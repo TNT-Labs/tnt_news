@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi — TNT News</title>
+  <meta name="description" content="Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-20-bergamo-millegradini-16-edizione-13mila/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi — TNT News">
+  <meta property="og:description" content="Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-20-bergamo-millegradini-16-edizione-13mila/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi — TNT News">
+  <meta name="twitter:description" content="Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Bergamo</span><span class="tag">Millegradini</span><span class="tag">Città Alta</span><span class="tag">eventi culturali</span><span class="tag">accessibilità</span></div>
+    <h1>Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi</h1>
+    <p class="article-summary">Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-20">20 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Bergamo si trasforma per un weekend in un percorso diffuso tra scalette, vicoli e siti storici</strong>: sabato 19 e domenica 20 settembre è tornata la Millegradini, la manifestazione che invita residenti e visitatori a riscoprire la città a piedi tra Città Bassa e Città Alta. Giunta alla 16ª edizione, l'iniziativa è nata nel 2011 da un'idea dell'Oratorio del Seminarino e dell'Unione ex Alunni dell'Oratorio del Seminarino della Parrocchia della Cattedrale, e nel corso degli anni ha visto crescere sensibilmente la partecipazione, dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti, secondo i dati diffusi dagli organizzatori.</p>
+
+<h2>Due giorni tra cultura e sport</h2>
+<p>Sabato 19 settembre i quasi 70 siti culturali aderenti all'iniziativa - chiese, musei, palazzi storici e spazi artistici normalmente poco accessibili - hanno aperto le porte ai visitatori, liberi di comporre il proprio itinerario. Nel pomeriggio, al Sentierone, spazio a "Millegradini for Kids" con attività dedicate alle famiglie, mentre in serata si sono disputate le gare competitive: il Gran Premio Millegradini, alla sua 16ª edizione in forma individuale, e la Bergamo City Trail Millegradini, alla 10ª edizione a coppie, su un percorso di circa 17 chilometri con oltre 1.600 gradini di dislivello in salita.</p>
+
+<p>Domenica 20 settembre la manifestazione è entrata nel vivo con la tradizionale partenza collettiva, fissata alle 9 da piazzetta Don Spada, davanti alla sede de L'Eco di Bergamo. Il percorso ha toccato viale Papa Giovanni XXIII, il Sentierone e le Mura Venete, per concludersi con il ristoro all'Oratorio del Seminarino, in Città Alta.</p>
+
+<h2>Zerogradini e il ruolo degli studenti</h2>
+<p>Accanto al percorso principale, la 13ª edizione della Zerogradini ha proposto un itinerario privo di barriere architettoniche, pensato per persone con difficoltà motorie, disabilità, anziani, donne in gravidanza e famiglie con bambini piccoli. Il progetto ha previsto anche una navetta assistita con 17 fermate a chiamata e due visite guidate accessibili realizzate in collaborazione con il progetto Storicity.</p>
+
+<p>A raccontare la storia dei luoghi visitati sono stati, come da tradizione, gli studenti di otto istituti scolastici cittadini, tra cui il Liceo Linguistico Giovanni Falcone, il Liceo Classico Paolo Sarpi, l'Istituto Tecnico Giacomo Quarenghi, il Seminario Vescovile Giovanni XXIII e il Liceo Artistico Giacomo e Pip Manzù, impegnati come "ciceroni" lungo l'itinerario.</p>
+
+<blockquote>Dai 700 iscritti della prima edizione del 2011 ai 13 mila partecipanti delle edizioni più recenti: la Millegradini è diventata negli anni la camminata più partecipata della città.</blockquote>
+
+<h2>Iscrizione e viabilità</h2>
+<p>La partecipazione ha richiesto un contributo di iscrizione di 9 euro, comprensivo di maglietta ufficiale, pass di accesso ai siti culturali e trasporto pubblico gratuito su rete ATB, e-BRT e TEB dalle 6 alle 19 in entrambe le giornate. L'evento, organizzato da ASD Steel Triathlon, CSI Bergamo, Runners Bergamo, Senzacca e Gruppo Sesaab con il patrocinio di Comune e Provincia, ha comportato anche modifiche alla viabilità cittadina dalle 14 di sabato 19 alle 18 di domenica 20, con deviazioni per alcune linee di trasporto pubblico nella zona di Città Alta.</p>
+
+<p>Numeri alla mano, la Millegradini si conferma un appuntamento capace di unire sport, cultura e inclusione, portando ogni anno migliaia di persone a riscoprire angoli della città spesso poco conosciuti anche da chi vi abita.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: crescita dei partecipanti alla Millegradini di Bergamo, da 700 iscritti nella prima edizione del 2011 a 13.000 nelle edizioni più recenti. Valori diffusi dagli organizzatori.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">La crescita della Millegradini</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Partecipanti, dalla prima edizione a oggi (valori indicativi)</text>
+
+  <line x1="60" y1="220" x2="580" y2="220" stroke="#999" stroke-width="2"/>
+
+  <rect x="160" y="205" width="110" height="15" fill="#2f6f7f"/>
+  <text x="215" y="196" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">700</text>
+  <text x="215" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Edizione 2011</text>
+
+  <rect x="370" y="70" width="110" height="150" fill="#3a8f5b"/>
+  <text x="425" y="59" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">13.000</text>
+  <text x="425" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Edizioni più recenti</text>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: L'Eco di Bergamo e Il Giorno, dati diffusi dagli organizzatori della Millegradini. Valori indicativi.</text>
+</svg>
+<figcaption>In quindici anni la partecipazione alla Millegradini è cresciuta di quasi venti volte, dai 700 iscritti del 2011 ai circa 13.000 delle edizioni più recenti. Fonte: L'Eco di Bergamo, Il Giorno.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/sabato-19-e-domenica-20-settembre-torna-la-millegradini-ecco-tutti-i-luoghi-o_3952333_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Sabato 19 e domenica 20 settembre torna la Millegradini</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/i-vicoli-della-cultura-torna-0e2a14ee" rel="noopener" target="_blank">Il Giorno - I vicoli della cultura. Torna Millegradini, ciceroni gli studenti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo festeggia gli alpini: la 41ª adunata sezionale per i 105 anni della sezione bergamo ospita fino a domenica il raduno del 2° raggruppamento a.n.a. e la 41ª adunata sezionale per i 105 anni della sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica. cultura alpini bergamo adunata città alta palazzo frizzoni" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-12-bergamo-alpini-41-adunata-105-anni/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Bergamo festeggia gli Alpini: la 41ª Adunata sezionale per i 105 anni della Sezione</h2><p class="card-summary">Bergamo ospita fino a domenica il raduno del 2° Raggruppamento A.N.A. e la 41ª Adunata sezionale per i 105 anni della Sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica.</p><p class="card-meta">12 settembre 2026</p></div></a></article><article class="card" data-search="a bergamo la &quot;quarto savona 15&quot;, i resti dell&#x27;auto della scorta di falcone dal 18 al 28 settembre il cortile di palazzo della provincia in via tasso ospita la teca con i resti della quarto savona 15, l&#x27;auto blindata distrutta nella strage di capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità. cultura bergamo memoria legalità giovanni falcone palazzo della provincia" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-18-bergamo-quarto-savona-15-falcone-memoria/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone</h2><p class="card-summary">Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.</p><p class="card-meta">18 settembre 2026</p></div></a></article><article class="card" data-search="ferragosto boliviano a bergamo: 15mila persone per la processione della madonna di urkupiña sabato 15 agosto circa 15mila persone, secondo la stima delle forze dell&#x27;ordine, hanno affollato il centro di bergamo per la processione della comunità boliviana in onore della madonna di urkupiña, la &quot;patrona dell&#x27;integrazione&quot;. cultura bergamo comunità boliviana urkupiña ferragosto integrazione" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-08-16-bergamo-madonna-urkupina-comunita-boliviana/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Ferragosto boliviano a Bergamo: 15mila persone per la processione della Madonna di Urkupiña</h2><p class="card-summary">Sabato 15 agosto circa 15mila persone, secondo la stima delle forze dell&#x27;ordine, hanno affollato il centro di Bergamo per la processione della comunità boliviana in onore della Madonna di Urkupiña, la &quot;patrona dell&#x27;integrazione&quot;.</p><p class="card-meta">16 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
