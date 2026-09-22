@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-22",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da parzialmente nuvoloso a soleggiato lungo tutto il percorso, nessuna pioggia, temperature miti (16-19°C) e vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",     "cond": "Parzialmente nuvoloso",      "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5,  "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",    "cond": "Prevalentemente soleggiato", "temp_c": 18, "precip_mm": 0.0, "wind_kmh": 6,  "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",  "cond": "Prevalentemente soleggiato", "temp_c": 19, "precip_mm": 0.0, "wind_kmh": 10, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 72,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 28},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 31}
+    ],
+    "incidents": [
+      {"where": "A51 Svincolo Agrate B. (SP13 Melzo-Monza-Dogana), dir. A1/San Donato", "desc": "Code causa traffico intenso, come da bollettino CCISS; il punto ricade nell'ingresso al segmento Carugate-San Donato."},
+      {"where": "A51 tra Svincolo Cologno Monzese e Svincolo Lambrate, dir. A1/San Donato", "desc": "Code a tratti causa traffico intenso, come da bollettino CCISS; il tratto ricade nel segmento Carugate-San Donato."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess, departure_time reali 07:30/08:10/08:25). CCISS RSS letto (feed generato alle 05:13 UTC, decine di item, 2 pertinenti per tratta/direzione sull'A51 tra Agrate e Lambrate dir. A1/sud; gli item A4 Milano-Brescia trovati erano tutti tra Svincolo Monza e Barriera di Milano Est, cioè oltre l'uscita di Agrate rispetto al nostro segmento, quindi scartati). Serravalle raggiungibile (200) ma pagina generale senza lista puntuale di eventi. Luceverde raggiungibile ma senza dati puntuali sulla tratta. Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404 come nelle esecuzioni precedenti. Ricerca web: nessun incidente con data odierna confermato sulla tratta oltre a quanto già rilevato da CCISS; i riferimenti trovati erano generici o relativi a episodi di mesi/anni passati."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 5%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza da Bergamo",
+      "Vento debole ovunque (max 10 km/h, raffiche max 18 km/h)",
+      "Temperature miti (16-19°C) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
