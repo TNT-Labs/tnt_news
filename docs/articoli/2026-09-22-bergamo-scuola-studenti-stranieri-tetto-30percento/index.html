@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare» — TNT News</title>
+  <meta name="description" content="Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-22-bergamo-scuola-studenti-stranieri-tetto-30percento/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare» — TNT News">
+  <meta property="og:description" content="Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-22-bergamo-scuola-studenti-stranieri-tetto-30percento/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare» — TNT News">
+  <meta name="twitter:description" content="Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Bergamo</span><span class="tag">Scuola</span><span class="tag">Studenti stranieri</span><span class="tag">Integrazione</span></div>
+    <h1>A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare»</h1>
+    <p class="article-summary">Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-22">22 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Nelle scuole della provincia di Bergamo gli studenti con cittadinanza non italiana sono 25.038</strong>, quasi uno su cinque del totale degli iscritti: lo confermano i dati dell'anno scolastico 2024/25 diffusi da L'Eco di Bergamo. Il tema torna d'attualità mentre il Governo lavora a una norma che renderebbe vincolante, con forza di legge, il tetto del 30% di alunni stranieri per classe, oggi solo un criterio orientativo introdotto nel 2010.</p>
+
+<h2>I numeri della Bergamasca</h2>
+<p>Rispetto all'anno precedente, quando gli studenti non italiani nella Bergamasca erano 24.308, l'aumento è di 730 unità. Il dato colpisce ancora di più se letto insieme a un altro numero: la popolazione scolastica complessiva della provincia è invece scesa, da 128.216 a 126.582 iscritti. Il risultato è che l'incidenza degli studenti stranieri sul totale è salita dal 19% circa a quasi il 19,8%, avvicinandosi alla soglia simbolica di "uno su cinque".</p>
+
+<h2>Un tetto nato nel 2010, mai davvero rigido</h2>
+<p>Il riferimento del dibattito è una circolare firmata l'8 gennaio 2010 dall'allora ministra dell'Istruzione Mariastella Gelmini, che indicava nel 30% per classe una soglia di attenzione per gli alunni con cittadinanza non italiana. Non si è mai trattato di un divieto assoluto: la circolare prevedeva deroghe, ad esempio quando gli studenti avessero già una buona conoscenza dell'italiano. Il nuovo provvedimento allo studio dell'esecutivo, annunciato dalla presidente del Consiglio Giorgia Meloni e dal ministro Giuseppe Valditara, punta a trasformare quel criterio in una norma cogente, con l'obiettivo dichiarato di distribuire meglio gli alunni tra le scuole di uno stesso territorio.</p>
+
+<h2>Le perplessità dei presidi bergamaschi</h2>
+<p>Sul territorio, i dirigenti scolastici guardano alla proposta con scetticismo. Luca Rossi, preside dell'Istituto comprensivo Mazzi, sottolinea che applicare rigidamente il 30% sarebbe "impossibile" in alcuni contesti: in certe classi la quota di studenti non italofoni arriva già all'80%, e uno spostamento forzato di alunni tra scuole non risolverebbe il problema senza risorse proporzionate alla complessità. Paolo Zoppetti, dell'Istituto comprensivo Camozzi, ricorda invece che molti di questi ragazzi sono cresciuti a Bergamo e si sentono a tutti gli effetti bergamaschi, grazie anche ai progetti di integrazione già attivi nelle scuole.</p>
+
+<blockquote>Il vero nodo non è la percentuale complessiva di studenti stranieri, ma quanti tra loro sono appena arrivati e non conoscono l'italiano: servono più insegnanti di potenziamento linguistico e mediatori culturali, non semplici trasferimenti tra istituti.</blockquote>
+
+<p>È la posizione di Claudio Ghilardi, presidente dell'Associazione nazionale presidi di Bergamo, secondo cui l'attenzione andrebbe concentrata sui cosiddetti NAI, gli alunni "neoarrivati in Italia", piuttosto che su una soglia calcolata sul totale degli iscritti stranieri, molti dei quali nati o scolarizzati fin da piccoli nel Paese.</p>
+
+<h2>Il contesto lombardo</h2>
+<p>Il caso bergamasco si inserisce in una tendenza più ampia. Anche nel Bresciano, dove il tema è stato analizzato dal Giornale di Brescia, si registrano situazioni molto diverse da un istituto all'altro: si va da scuole con una presenza di studenti stranieri sotto il 10% ad altre, come l'Istituto comprensivo di Leno, dove la quota nel 2025/26 è del 24%, in calo però rispetto al 2010, quando superava proprio quel 30% oggi al centro del dibattito politico.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: incidenza percentuale degli studenti con cittadinanza non italiana sul totale degli iscritti nelle scuole della provincia di Bergamo, circa 19 per cento nell'anno scolastico 2023/24 e circa 19,8 per cento nel 2024/25, con una linea di riferimento al 30 per cento corrispondente alla soglia allo studio del Governo. Fonte: L'Eco di Bergamo, elaborazione su dati 2023/24-2024/25. Valori indicativi.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Studenti stranieri nelle scuole bergamasche</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Incidenza % sul totale iscritti, a confronto con la soglia proposta dal Governo</text>
+
+  <line x1="60" y1="240" x2="580" y2="240" stroke="#999" stroke-width="2"/>
+
+  <line x1="60" y1="72" x2="580" y2="72" stroke="#b23b3b" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="575" y="65" text-anchor="end" font-family="sans-serif" font-size="12" fill="#b23b3b">Soglia 30% (proposta)</text>
+
+  <rect x="180" y="133" width="110" height="107" fill="#2f6f7f"/>
+  <text x="235" y="122" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">≈19,0%</text>
+  <text x="235" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">2023/24</text>
+
+  <rect x="390" y="128" width="110" height="112" fill="#2f6f7f"/>
+  <text x="445" y="117" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">≈19,8%</text>
+  <text x="445" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">2024/25</text>
+
+  <text x="320" y="295" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: L'Eco di Bergamo, elaborazione su dati 2023/24-2024/25. Valori indicativi.</text>
+</svg>
+<figcaption>Nella provincia di Bergamo l'incidenza degli studenti con cittadinanza non italiana è passata da circa il 19% nel 2023/24 a circa il 19,8% nel 2024/25, ancora lontana dalla soglia del 30% al centro del dibattito nazionale. Fonte: L'Eco di Bergamo. Valori indicativi.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/a-scuola-uno-straniero-su-cinque-i-presidi-sul-tetto-del-30-difficile-da-app-o_3956072_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - «A scuola uno straniero su cinque. I presidi sul tetto del 30%: &#x27;Difficile da applicare&#x27;»</a></li><li><a href="https://www.giornaledibrescia.it/scuola/stranieri-scuola-presidi-30-per-ogni-classe-solo-propaganda-dsfukxjo" rel="noopener" target="_blank">Giornale di Brescia - «Stranieri a scuola, i presidi: &#x27;Il 30% per ogni classe? Solo propaganda&#x27;»</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="a treviglio la scuola riapre il 14 settembre, il comune attiva un cre per le famiglie in tutta la lombardia le lezioni ripartono lunedì 14 settembre 2026: a treviglio il comune e la fondazione portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro. attualità treviglio scuola calendario scolastico bergamo" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-20-treviglio-scuola-14-settembre-cre/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie</h2><p class="card-summary">In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.</p><p class="card-meta">20 agosto 2026</p></div></a></article><article class="card" data-search="maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova giovedì 18 giugno sono iniziati gli esami di stato per 9.203 maturandi della provincia di bergamo, su 528mila in tutta italia. tra le tracce del tema di italiano: cesare pavese, vitaliano brancati e il discorso di saragat all&#x27;assemblea costituente. attualità bergamo maturità scuola esami di stato" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-06-18-maturita-9200-studenti-bergamo/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Maturità 2026: oltre 9.200 studenti bergamaschi alla prima prova</h2><p class="card-summary">Giovedì 18 giugno sono iniziati gli esami di Stato per 9.203 maturandi della provincia di Bergamo, su 528mila in tutta Italia. Tra le tracce del tema di italiano: Cesare Pavese, Vitaliano Brancati e il discorso di Saragat all&#x27;Assemblea Costituente.</p><p class="card-meta">18 giugno 2026</p></div></a></article><article class="card" data-search="eclissi di sole e perseidi: stasera doppio spettacolo nel cielo sopra bergamo questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da bergamo, seguita nella notte dal picco dello sciame meteorico delle perseidi in condizioni di visibilità quasi perfette. attualità bergamo eclissi solare perseidi astronomia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-12-bergamo-eclissi-sole-perseidi/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Eclissi di Sole e Perseidi: stasera doppio spettacolo nel cielo sopra Bergamo</h2><p class="card-summary">Questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da Bergamo, seguita nella notte dal picco dello sciame meteorico delle Perseidi in condizioni di visibilità quasi perfette.</p><p class="card-meta">12 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
