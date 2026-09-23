@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027 — TNT News</title>
+  <meta name="description" content="L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-23-bergamo-atb-fotovoltaico-nuovi-autobus/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027 — TNT News">
+  <meta property="og:description" content="L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-23-bergamo-atb-fotovoltaico-nuovi-autobus/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027 — TNT News">
+  <meta name="twitter:description" content="L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">ATB</span><span class="tag">Trasporto pubblico</span><span class="tag">Sostenibilità</span></div>
+    <h1>ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027</h1>
+    <p class="article-summary">L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-23">23 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>ATB, l'azienda del trasporto pubblico di Bergamo, realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro la fine del 2027.</strong> Lo ha reso noto l'azienda, che inserisce i due interventi in un piano più ampio di transizione ecologica sostenuto anche da due progetti finanziati dall'Unione Europea, CE4CE ed E-MED, dedicati rispettivamente all'economia circolare e al riutilizzo delle batterie degli autobus elettrici.</p>
+
+<h2>Il fotovoltaico di via Monte Gleno</h2>
+<p>Il deposito di via Monte Gleno concentra da solo l'88% dei consumi elettrici complessivi dell'azienda, anche per la presenza delle colonnine di ricarica dei mezzi elettrici. Il nuovo impianto fotovoltaico, con una potenza di circa 1 MWp, è pensato per massimizzare l'autoconsumo dell'energia prodotta in loco e sostenere proprio la ricarica della flotta elettrica. Secondo le stime di ATB, il risparmio energetico atteso è di 187 tonnellate equivalenti di petrolio (TEP) all'anno. Al progetto principale si affianca un piano di fotovoltaico diffuso, con pannelli previsti anche lungo il tracciato dell'e-BRT, sulle pensiline e alle paline di fermata.</p>
+
+<h2>26 nuovi autobus entro il 2027</h2>
+<p>Sul fronte della flotta, ATB conta oggi 159 mezzi complessivi: 28 alimentati a gasolio, 73 a metano e 46 elettrici. Entro la fine del 2027 si aggiungeranno 26 nuovi autobus, che andranno a rinnovare ulteriormente il parco veicoli. È inoltre prevista, sempre dal 2027, la sostituzione delle batterie dei bus Solaris Urbino in servizio dal 2018.</p>
+
+<h2>I progetti europei CE4CE ed E-MED</h2>
+<p>La transizione è accompagnata da due iniziative finanziate dall'Unione Europea. Il progetto CE4CE (Circular Economy for Central Europe) punta a integrare criteri di economia circolare negli acquisti e nella manutenzione predittiva dei mezzi, con l'obiettivo di definire criteri di approvvigionamento circolare per 65 e-bus entro il 2030. Il progetto E-MED studia invece una "seconda vita" per le batterie esauste degli autobus elettrici: è allo studio, in particolare, il riutilizzo di 72 batterie provenienti da 18 mezzi come sistemi di accumulo energetico.</p>
+
+<blockquote>L'obiettivo è rendere la gestione della flotta sempre più efficiente e sostenibile, valorizzando risorse che altrimenti andrebbero smaltite.</blockquote>
+
+<h2>Più passeggeri sull'e-BRT</h2>
+<p>I dati diffusi da ATB indicano anche una crescita dei passeggeri sulla linea e-BRT: nella settimana dal 14 al 18 settembre la media giornaliera è stata di 5.677 passeggeri, con un picco di 6.339 registrato il 21 settembre, pari a un incremento dell'80% rispetto alla settimana precedente. ATB collega l'aumento all'avvio degli orari invernali, con corse più frequenti sulla rete.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: composizione della flotta ATB di Bergamo, 159 autobus totali suddivisi in 28 a gasolio, 73 a metano e 46 elettrici, con in evidenza i 26 nuovi autobus previsti in servizio entro fine 2027. Fonte: ATB, tramite BergamoNews e L'Eco di Bergamo.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">La flotta ATB di Bergamo</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Mezzi per alimentazione (oggi 159 totali) e nuovi bus attesi entro il 2027</text>
+
+  <line x1="60" y1="255" x2="600" y2="255" stroke="#999" stroke-width="2"/>
+
+  <rect x="90" y="150" width="90" height="105" fill="#8a8a8a"/>
+  <text x="135" y="140" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">28</text>
+  <text x="135" y="275" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Gasolio</text>
+
+  <rect x="230" y="70" width="90" height="185" fill="#4a6fa5"/>
+  <text x="275" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">73</text>
+  <text x="275" y="275" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Metano</text>
+
+  <rect x="370" y="138" width="90" height="117" fill="#2f7f5f"/>
+  <text x="415" y="128" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">46</text>
+  <text x="415" y="275" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Elettrici</text>
+
+  <rect x="510" y="189" width="90" height="66" fill="#2f7f5f" fill-opacity="0.45" stroke="#2f7f5f" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="555" y="179" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">+26</text>
+  <text x="555" y="275" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Nuovi (2027)</text>
+
+  <text x="320" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: ATB, tramite BergamoNews e L'Eco di Bergamo.</text>
+</svg>
+<figcaption>La flotta ATB conta oggi 159 autobus (28 a gasolio, 73 a metano, 46 elettrici); entro fine 2027 sono previsti 26 nuovi mezzi. Fonte: ATB.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/22/atb-per-la-transizione-ecologica-nuovi-autobus-fotovoltaico-e-progetti-europei-per-un-trasporto-pubblico-piu-efficiente-e-sostenibile/923874" rel="noopener" target="_blank">BergamoNews - «ATB per la transizione ecologica: nuovi autobus, fotovoltaico e progetti europei per un trasporto pubblico più efficiente e sostenibile»</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/atb-e-la-transizione-energetica-nuovo-impianto-fotovoltaico-in-via-monte-gleno-o_3956156_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - «Atb e la transizione energetica: nuovo impianto fotovoltaico in via Monte Gleno»</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, da lunedì più corse sull&#x27;e-brt e debutta la linea kr per il kilometro rosso da lunedì 14 settembre la rete e-brt bergamo-dalmine-verdellino aumenta le corse e nasce la linea kr, il collegamento dedicato che porta al parco scientifico del kilometro rosso a stezzano. trasporti bergamo atb e-brt kilometro rosso stezzano" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso</h2><p class="card-summary">Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.</p><p class="card-meta">13 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
