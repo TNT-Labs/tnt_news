@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo si trasforma nella capitale mondiale del formaggio — TNT News</title>
+  <meta name="description" content="Da oggi fino a domenica Piazza Vecchia ospita World Cheese Capital 2026, il festival che segue la fiera B2B B2Cheese chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-25-bergamo-world-cheese-capital-b2cheese/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo si trasforma nella capitale mondiale del formaggio — TNT News">
+  <meta property="og:description" content="Da oggi fino a domenica Piazza Vecchia ospita World Cheese Capital 2026, il festival che segue la fiera B2B B2Cheese chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-25-bergamo-world-cheese-capital-b2cheese/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo si trasforma nella capitale mondiale del formaggio — TNT News">
+  <meta name="twitter:description" content="Da oggi fino a domenica Piazza Vecchia ospita World Cheese Capital 2026, il festival che segue la fiera B2B B2Cheese chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Bergamo</span><span class="tag">World Cheese Capital</span><span class="tag">B2Cheese</span><span class="tag">formaggi DOP</span><span class="tag">Città Alta</span></div>
+    <h1>Bergamo si trasforma nella capitale mondiale del formaggio</h1>
+    <p class="article-summary">Da oggi fino a domenica Piazza Vecchia ospita World Cheese Capital 2026, il festival che segue la fiera B2B B2Cheese chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-25">25 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Da oggi, venerdì 25 settembre, e fino a domenica 27, Piazza Vecchia e il Circolino di Città Alta ospitano World Cheese Capital 2026, il festival pubblico e gratuito dedicato al formaggio che segue la due giorni di affari di B2Cheese, chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori, 28 dei quali esteri.</strong> L'inaugurazione del festival è in programma alle 15 in Piazza Vecchia.</p>
+
+<h2>Una fiera B2B, poi la festa in città</h2>
+<p>B2Cheese, alla sua quarta edizione, si è svolta il 23 e 24 settembre negli spazi della Fiera di Bergamo su circa 9.000 metri quadrati, riunendo operatori della filiera lattiero-casearia da diverse regioni italiane e dall'estero. Secondo i dati diffusi dagli organizzatori, gli scambi commerciali riconducibili agli espositori presenti valgono complessivamente circa 40 miliardi di euro di fatturato. Da giovedì il baricentro dell'iniziativa si sposta dal padiglione fieristico al centro storico, con l'avvio della parte aperta al pubblico.</p>
+
+<h2>Bergamo, nove Dop su 53 in Italia</h2>
+<p>Il capoluogo orobico rivendica un ruolo di primo piano nel comparto caseario nazionale: il territorio bergamasco conta 9 formaggi a denominazione di origine protetta sulle 53 riconosciute in Italia, e Bergamo è Città Creativa UNESCO per la Gastronomia dal 2019. Su queste basi è costruito il posizionamento di "capitale europea del formaggio" rivendicato dagli organizzatori della manifestazione, promossa dall'associazione Cheese Valleys (Le Tre Signorie) insieme a Promoberg e alla Camera di Commercio di Bergamo.</p>
+
+<h2>I numeri della filiera</h2>
+<p>Gli organizzatori hanno diffuso in occasione della fiera anche alcuni dati aggiornati sul settore lattiero-caseario. Nel 2025 la filiera a livello nazionale ha generato un valore stimato in 28,5 miliardi di euro, con esportazioni per circa 6,7 miliardi di euro. Sono cifre che gli organizzatori hanno usato per inquadrare il peso economico di un comparto che a Bergamo trova uno dei suoi poli produttivi e commerciali più rilevanti, tra le valli storicamente vocate alla caseificazione e le aziende della pianura.</p>
+
+<h2>Il programma del weekend</h2>
+<p>Il festival prevede la partecipazione di oltre 30 esperti internazionali del settore, tra affinatori e tecnici arrivati anche da Svizzera, Francia, Brasile e Regno Unito, impegnati in masterclass di degustazione della durata di circa mezz'ora ciascuna. In programma anche laboratori gratuiti di caseificazione curati dall'Istituto Agrario Stanga, dimostrazioni del gioco tradizionale del pirlì e una serie di seminari tecnici aperti al pubblico distribuiti nei tre giorni in diversi punti di Città Alta.</p>
+
+<figure>
+<svg viewBox="0 0 640 340" role="img" aria-label="Grafico a barre che confronta tre cifre del comparto lattiero-caseario legate a World Cheese Capital e B2Cheese 2026 a Bergamo: fatturato generato in fiera dagli espositori circa 40 miliardi di euro, valore della filiera nazionale nel 2025 circa 28,5 miliardi di euro, esportazioni nazionali 2025 circa 6,7 miliardi di euro. Fonte: organizzatori B2Cheese, tramite BergamoNews.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Il peso economico della filiera del formaggio</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Cifre in miliardi di euro citate per B2Cheese e World Cheese Capital 2026</text>
+
+  <line x1="60" y1="275" x2="600" y2="275" stroke="#999" stroke-width="2"/>
+
+  <rect x="100" y="75" width="110" height="200" fill="#4a6fa5"/>
+  <text x="155" y="65" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">~40 mld</text>
+  <text x="155" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Fatturato</text>
+  <text x="155" y="311" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">espositori in fiera</text>
+
+  <rect x="265" y="132" width="110" height="143" fill="#2f7f5f"/>
+  <text x="320" y="122" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">~28,5 mld</text>
+  <text x="320" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Valore filiera</text>
+  <text x="320" y="311" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">nazionale 2025</text>
+
+  <rect x="430" y="241" width="110" height="34" fill="#b5824a"/>
+  <text x="485" y="231" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">~6,7 mld</text>
+  <text x="485" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Export nazionale</text>
+  <text x="485" y="311" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">2025</text>
+
+  <text x="320" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Valori indicativi diffusi dagli organizzatori di B2Cheese. Fonte: BergamoNews.</text>
+</svg>
+<figcaption>Le tre cifre economiche diffuse in occasione di B2Cheese e World Cheese Capital 2026: fatturato riconducibile agli espositori in fiera, valore stimato della filiera lattiero-casearia nazionale nel 2025 ed esportazioni nazionali 2025. Valori indicativi, fonte BergamoNews.</figcaption>
+</figure>
+
+<p>Per Bergamo, che ospita entrambe le manifestazioni a pochi giorni di distanza, l'appuntamento si conferma come una delle vetrine più rilevanti dell'autunno per il comparto agroalimentare del territorio, con ricadute attese anche sul turismo di Città Alta nel weekend.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/23/bergamo-ospita-la-manifestazione-internazionale-world-cheese-capital-2026/924112" rel="noopener" target="_blank">BergamoNews - World Cheese Capital 2026</a></li><li><a href="https://www.bergamonews.it/2026/09/23/b2cheese-2026-torna-a-bergamo-due-giorni-di-business-per-la-filiera-lattiero-casearia/924143" rel="noopener" target="_blank">BergamoNews - B2Cheese 2026</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/a-bergamo-torna-world-cheese-capital-2026-il-programma-o_3953185_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Torna World Cheese Capital 2026</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="millegradini 2026: bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi nel weekend del 19 e 20 settembre torna la millegradini, la camminata tra città alta e città bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti. cultura bergamo millegradini città alta eventi culturali accessibilità" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-20-bergamo-millegradini-16-edizione-13mila/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi</h2><p class="card-summary">Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.</p><p class="card-meta">20 settembre 2026</p></div></a></article><article class="card" data-search="bergamo festeggia gli alpini: la 41ª adunata sezionale per i 105 anni della sezione bergamo ospita fino a domenica il raduno del 2° raggruppamento a.n.a. e la 41ª adunata sezionale per i 105 anni della sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica. cultura alpini bergamo adunata città alta palazzo frizzoni" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-12-bergamo-alpini-41-adunata-105-anni/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Bergamo festeggia gli Alpini: la 41ª Adunata sezionale per i 105 anni della Sezione</h2><p class="card-summary">Bergamo ospita fino a domenica il raduno del 2° Raggruppamento A.N.A. e la 41ª Adunata sezionale per i 105 anni della Sezione: attese fino a 15.000 persone tra alpini e familiari, con eventi in centro città e la grande sfilata di domenica.</p><p class="card-meta">12 settembre 2026</p></div></a></article><article class="card" data-search="a bergamo la &quot;quarto savona 15&quot;, i resti dell&#x27;auto della scorta di falcone dal 18 al 28 settembre il cortile di palazzo della provincia in via tasso ospita la teca con i resti della quarto savona 15, l&#x27;auto blindata distrutta nella strage di capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità. cultura bergamo memoria legalità giovanni falcone palazzo della provincia" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-18-bergamo-quarto-savona-15-falcone-memoria/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone</h2><p class="card-summary">Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.</p><p class="card-meta">18 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
