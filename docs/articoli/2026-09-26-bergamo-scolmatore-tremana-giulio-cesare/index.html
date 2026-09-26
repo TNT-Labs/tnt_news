@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Scolmatore del Tremana a Bergamo, cantiere in anticipo di due mesi — TNT News</title>
+  <meta name="description" content="I lavori del nuovo canale scolmatore in viale Giulio Cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-26-bergamo-scolmatore-tremana-giulio-cesare/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Scolmatore del Tremana a Bergamo, cantiere in anticipo di due mesi — TNT News">
+  <meta property="og:description" content="I lavori del nuovo canale scolmatore in viale Giulio Cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-26-bergamo-scolmatore-tremana-giulio-cesare/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Scolmatore del Tremana a Bergamo, cantiere in anticipo di due mesi — TNT News">
+  <meta name="twitter:description" content="I lavori del nuovo canale scolmatore in viale Giulio Cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">viale Giulio Cesare</span><span class="tag">scolmatore Tremana</span><span class="tag">alluvione</span><span class="tag">viabilità</span></div>
+    <h1>Scolmatore del Tremana a Bergamo, cantiere in anticipo di due mesi</h1>
+    <p class="article-summary">I lavori del nuovo canale scolmatore in viale Giulio Cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-26">26 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Il cantiere dello scolmatore del torrente Tremana, in viale Giulio Cesare a Bergamo, chiuderà con circa due mesi di anticipo sul programma.</strong> Lo ha annunciato l'assessore ai Lavori pubblici del Comune, Ferruccio Rota, spiegando che i lavori sono entrati nella fase finale e che la strada tornerà a doppio senso di marcia entro la prossima settimana, in tempo per la partita casalinga dell'Atalanta contro il Venezia in programma il 12 ottobre.</p>
+
+<h2>Un canale sotterraneo di 427 metri</h2>
+<p>Lo scolmatore è un nuovo canale interrato lungo circa 427 metri, realizzato per alleggerire il torrente Tremana durante le piogge più intense. L'opera intercetta le portate in eccesso a monte dello stadio e le devia verso il torrente Morla, riducendo il rischio di esondazione nei tratti più vulnerabili. L'intervento era diventato una priorità dopo l'alluvione del 9 settembre 2024, quando lo straripamento di Tremana e Morla causò allagamenti e danni in diverse zone della città.</p>
+
+<h2>Un investimento da 4,2 milioni di euro</h2>
+<p>Il valore complessivo dell'opera è di 4,2 milioni di euro, finanziati in parti uguali dal Comune di Bergamo e da Regione Lombardia nell'ambito dei fondi per la difesa del suolo e la riduzione del rischio idrogeologico. Il cantiere lungo viale Giulio Cesare era partito in primavera, dopo una prima fase di lavori avviata nella zona di parco Rosselli, e per accelerare la conclusione sono stati previsti anche turni di lavoro notturni.</p>
+
+<h2>Viabilità: stop al senso unico entro pochi giorni</h2>
+<p>Per tutta la durata del cantiere, viale Giulio Cesare ha funzionato a senso unico in direzione del centro città, con inevitabili ripercussioni sul traffico della zona. Secondo l'assessore Rota, il ripristino della doppia corsia è atteso entro la fine della prossima settimana:</p>
+
+<blockquote>Credo che sarà tutto finito entro la prossima settimana.</blockquote>
+
+<p>La tempistica non è indifferente per il quartiere, visto che la riapertura arriverebbe poco prima della partita casalinga dell'Atalanta contro il Venezia, quando il traffico veicolare attorno allo stadio aumenta sensibilmente.</p>
+
+<h2>Perché conta per Bergamo</h2>
+<p>Al di là del disagio temporaneo per residenti e automobilisti, l'opera rientra nel più ampio piano di messa in sicurezza idraulica della città est, un tema diventato centrale dopo gli eventi del 2024. La chiusura in anticipo del cantiere permette inoltre di contenere i costi accessori legati ai disagi alla viabilità, restituendo prima del previsto una delle direttrici di accesso al centro.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Cronologia dello scolmatore del Tremana a Bergamo: alluvione il 9 settembre 2024, avvio dei lavori in primavera 2026, chiusura del cantiere prevista con circa due mesi di anticipo entro l'inizio di ottobre 2026, prima della partita Atalanta-Venezia del 12 ottobre 2026. Valori indicativi sulle date, desunti dai resoconti giornalistici. Fonte: L'Eco di Bergamo, Comune di Bergamo, Bergamo Tomorrow.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Lo scolmatore del Tremana: le tappe</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Dall'alluvione del 2024 alla chiusura del cantiere in anticipo</text>
+
+  <line x1="60" y1="170" x2="600" y2="170" stroke="#999" stroke-width="2"/>
+
+  <circle cx="100" cy="170" r="8" fill="#8a3a3a"/>
+  <text x="100" y="140" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Set. 2024</text>
+  <text x="100" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Alluvione di</text>
+  <text x="100" y="214" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Tremana e Morla</text>
+
+  <circle cx="280" cy="170" r="8" fill="#4a6fa5"/>
+  <text x="280" y="140" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Primavera 2026</text>
+  <text x="280" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Avvio cantiere</text>
+  <text x="280" y="214" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">viale Giulio Cesare</text>
+
+  <circle cx="460" cy="170" r="9" fill="#2f7f5f"/>
+  <text x="460" y="140" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">Ottobre 2026</text>
+  <text x="460" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Chiusura cantiere,</text>
+  <text x="460" y="214" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">~2 mesi in anticipo</text>
+
+  <circle cx="580" cy="170" r="7" fill="#8a8a8a"/>
+  <text x="580" y="140" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">12 ott. 2026</text>
+  <text x="580" y="200" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Atalanta-</text>
+  <text x="580" y="212" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Venezia</text>
+
+  <line x1="100" y1="170" x2="280" y2="170" stroke="#4a6fa5" stroke-width="4"/>
+  <line x1="280" y1="170" x2="460" y2="170" stroke="#2f7f5f" stroke-width="4"/>
+  <line x1="460" y1="170" x2="580" y2="170" stroke="#8a8a8a" stroke-width="3" stroke-dasharray="5,4"/>
+
+  <text x="320" y="250" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a" font-weight="bold">Opera da 4,2 milioni di euro (50% Comune, 50% Regione Lombardia)</text>
+  <text x="320" y="268" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Canale sotterraneo di circa 427 metri, dal Tremana verso il Morla</text>
+
+  <text x="320" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Valori indicativi sulle date. Fonte: L'Eco di Bergamo, Comune di Bergamo, Bergamo Tomorrow.</text>
+</svg>
+<figcaption>Le tappe principali del progetto, dall'alluvione del 2024 alla chiusura anticipata del cantiere in viale Giulio Cesare.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/scolmatore-lavori-al-rush-finale-in-viale-giulio-cesare-il-cantiere-chiude-due-o_3959186_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Scolmatore, lavori al rush finale in viale Giulio Cesare</a></li><li><a href="https://www.comune.bergamo.it/notizie/scolmatore-del-tremana:-al-via-i-primi-lavori-lungo-viale-giulio-cesare" rel="noopener" target="_blank">Comune di Bergamo - Scolmatore del Tremana: al via i primi lavori lungo viale Giulio Cesare</a></li><li><a href="https://www.bergamotomorrow.it/2026/07/21/bergamo-proseguono-i-lavori-dello-scolmatore-del-tremana-mai-piu-allagamenti/" rel="noopener" target="_blank">Bergamo Tomorrow - Proseguono i lavori dello scolmatore del Tremana: mai più allagamenti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="allerta meteo arancione su bergamo: parchi cittadini chiusi mercoledì 9 settembre la protezione civile della lombardia ha diramato un&#x27;allerta arancione per temporali che interessa anche il territorio di bergamo. il comune ha chiuso in via precauzionale tutti i parchi cittadini per mercoledì 9 settembre, fino a cessata emergenza. ambiente bergamo allerta meteo maltempo protezione civile" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-09-09-bergamo-allerta-arancione-parchi-chiusi/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allerta meteo arancione su Bergamo: parchi cittadini chiusi mercoledì 9 settembre</h2><p class="card-summary">La Protezione civile della Lombardia ha diramato un&#x27;allerta arancione per temporali che interessa anche il territorio di Bergamo. Il Comune ha chiuso in via precauzionale tutti i parchi cittadini per mercoledì 9 settembre, fino a cessata emergenza.</p><p class="card-meta">9 settembre 2026</p></div></a></article><article class="card" data-search="alberi provati dal caldo a bergamo: il comune prepara una task force di cittadini per irrigare senza sprechi dopo un&#x27;estate di caldo intenso, il comune di bergamo lavora a un programma strutturato che coinvolga i cittadini nell&#x27;annaffiatura degli alberi pubblici in difficoltà, monitorando consumi e orari per non sprecare acqua. sotto osservazione circa 7.000 alberi e piante forestali messi a dimora dall&#x27;amministrazione. ambiente bergamo alberi clima verde pubblico siccità" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-31-bergamo-alberi-caldo-task-force-irrigazione/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Alberi provati dal caldo a Bergamo: il Comune prepara una task force di cittadini per irrigare senza sprechi</h2><p class="card-summary">Dopo un&#x27;estate di caldo intenso, il Comune di Bergamo lavora a un programma strutturato che coinvolga i cittadini nell&#x27;annaffiatura degli alberi pubblici in difficoltà, monitorando consumi e orari per non sprecare acqua. Sotto osservazione circa 7.000 alberi e piante forestali messi a dimora dall&#x27;amministrazione.</p><p class="card-meta">31 agosto 2026</p></div></a></article><article class="card" data-search="siccità, i laghi gemelli in val brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022 il calo del bacino idroelettrico di branzi, in alta val brembana, ha riportato alla luce la lingua di terra che divide i due laghi gemelli. la provincia di bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto. ambiente bergamo val brembana siccità laghi gemelli crisi idrica" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-03-bergamo-laghi-gemelli-siccita-separati/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Siccità, i Laghi Gemelli in Val Brembana tornano a separarsi: non succedeva d&#x27;estate dal 2022</h2><p class="card-summary">Il calo del bacino idroelettrico di Branzi, in Alta Val Brembana, ha riportato alla luce la lingua di terra che divide i due Laghi Gemelli. La provincia di Bergamo è entrata in una fase di grave crisi idrica, con il razionamento dell&#x27;acqua per l&#x27;agricoltura in arrivo dall&#x27;8 agosto.</p><p class="card-meta">3 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
