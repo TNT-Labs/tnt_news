@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>A Zogno la seconda edizione degli Stati generali delle Orobie: il PD propone cooperative di comunità e concessioni idroelettriche per la montagna — TNT News</title>
+  <meta name="description" content="Il Partito Democratico Bergamasco ha riunito a Zogno la seconda edizione degli Stati generali delle Orobie, proponendo cooperative di comunità e il rinnovo delle concessioni idroelettriche come leve contro spopolamento e carenza di servizi in Valle Brembana.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-27-zogno-pd-stati-generali-orobie-montagna/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="A Zogno la seconda edizione degli Stati generali delle Orobie: il PD propone cooperative di comunità e concessioni idroelettriche per la montagna — TNT News">
+  <meta property="og:description" content="Il Partito Democratico Bergamasco ha riunito a Zogno la seconda edizione degli Stati generali delle Orobie, proponendo cooperative di comunità e il rinnovo delle concessioni idroelettriche come leve contro spopolamento e carenza di servizi in Valle Brembana.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-27-zogno-pd-stati-generali-orobie-montagna/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Zogno la seconda edizione degli Stati generali delle Orobie: il PD propone cooperative di comunità e concessioni idroelettriche per la montagna — TNT News">
+  <meta name="twitter:description" content="Il Partito Democratico Bergamasco ha riunito a Zogno la seconda edizione degli Stati generali delle Orobie, proponendo cooperative di comunità e il rinnovo delle concessioni idroelettriche come leve contro spopolamento e carenza di servizi in Valle Brembana.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/politica/">Politica</a><span class="tag">Bergamo</span><span class="tag">Valle Brembana</span><span class="tag">Zogno</span><span class="tag">montagna</span><span class="tag">PD Bergamasco</span></div>
+    <h1>A Zogno la seconda edizione degli Stati generali delle Orobie: il PD propone cooperative di comunità e concessioni idroelettriche per la montagna</h1>
+    <p class="article-summary">Il Partito Democratico Bergamasco ha riunito a Zogno la seconda edizione degli Stati generali delle Orobie, proponendo cooperative di comunità e il rinnovo delle concessioni idroelettriche come leve contro spopolamento e carenza di servizi in Valle Brembana.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-27">27 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Sabato 26 settembre il Partito Democratico Bergamasco ha riunito alla Green House di Zogno, in Valle Brembana, la seconda edizione degli "Stati generali delle Orobie".</strong> L'iniziativa, nata l'anno scorso a Clusone, è pensata come un appuntamento periodico per discutere dei problemi delle valli bergamasche e proporre soluzioni concrete a spopolamento, carenza di servizi e difficoltà di mobilità.</p>
+
+<h2>Un'agenda su demografia, servizi e clima</h2>
+<p>L'incontro è stato aperto dal segretario provinciale del PD, Gabriele Giudici, insieme al coordinatore del partito in Valle Brembana, Marco Milesi. I temi al centro della discussione sono stati la crisi demografica delle aree montane, l'adeguatezza dei servizi sanitari e di trasporto, gli effetti del cambiamento climatico e i modelli di sviluppo economico per i territori più fragili.</p>
+
+<blockquote>Le valli sono il nostro patrimonio più prezioso: un territorio in continuo mutamento, che merita una politica attenta, concreta e vicina, capace di restituire ai cittadini un ruolo da protagonisti.</blockquote>
+
+<p>Secondo Giudici, il rischio da evitare è quello di trattare le valli come semplici "aree interne" periferiche rispetto al capoluogo, anziché come territori con una propria identità e priorità specifiche.</p>
+
+<h2>Cooperative di comunità e concessioni idroelettriche</h2>
+<p>Tra le proposte discusse, il consigliere regionale del PD Davide Casati ha presentato una propria proposta di legge, la Pdl 186, dedicata alle cooperative di comunità: strumenti che il partito indica come leva per la rigenerazione economica e sociale nelle aree colpite dallo spopolamento, capaci di gestire in forma associata servizi altrimenti a rischio chiusura.</p>
+
+<p>Il consigliere regionale Jacopo Scandella ha invece affrontato il tema delle concessioni idroelettriche in scadenza sui corsi d'acqua orobici, indicando nel loro rinnovo un'occasione per garantire alla montagna una fonte di finanziamento stabile nel tempo, da destinare a infrastrutture e servizi locali.</p>
+
+<h2>Mobilità interna e sanità di prossimità</h2>
+<p>Un altro nodo emerso è quello della mobilità: secondo quanto discusso a Zogno, i collegamenti nelle valli bergamasche sono stati finora pensati soprattutto in direzione di Bergamo città, trascurando gli spostamenti interni tra i diversi paesi della valle. Allo stesso modo, per la vicesegretaria provinciale Alessandra Bertolotti la programmazione dei servizi sanitari dovrebbe tenere conto delle oggettive difficoltà di spostamento in territorio montano, evitando una calibrazione uniforme pensata sulla scala dell'intera provincia.</p>
+
+<h2>Perché conta per il territorio</h2>
+<p>Si tratta, va precisato, di proposte politiche avanzate da un partito e non di provvedimenti già approvati: la Pdl sulle cooperative di comunità dovrà seguire il proprio iter in Regione Lombardia, così come il tema delle concessioni idroelettriche resta aperto a livello normativo. L'iniziativa conferma comunque l'attenzione crescente, da più forze politiche, verso i temi dello spopolamento montano in una provincia dove le valli rappresentano una parte rilevante del territorio bergamasco.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Cronologia degli Stati generali delle Orobie: prima edizione a Clusone nel 2025, seconda edizione a Zogno il 26 settembre 2026, con quattro temi al centro del dibattito: crisi demografica, servizi, clima e mobilità. Fonte: BergamoNews, La Voce delle Valli.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Stati generali delle Orobie: le due edizioni</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Dall'avvio a Clusone al secondo appuntamento di Zogno</text>
+
+  <line x1="80" y1="150" x2="560" y2="150" stroke="#999" stroke-width="2"/>
+
+  <circle cx="140" cy="150" r="9" fill="#4a6fa5"/>
+  <text x="140" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">2025</text>
+  <text x="140" y="180" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Prima edizione</text>
+  <text x="140" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">a Clusone</text>
+
+  <line x1="140" y1="150" x2="500" y2="150" stroke="#4a6fa5" stroke-width="4"/>
+
+  <circle cx="500" cy="150" r="10" fill="#2f7f5f"/>
+  <text x="500" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">26 set. 2026</text>
+  <text x="500" y="180" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Seconda edizione</text>
+  <text x="500" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">alla Green House di Zogno</text>
+
+  <rect x="80" y="225" width="115" height="40" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="137" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a1a1a">Crisi demografica</text>
+
+  <rect x="205" y="225" width="105" height="40" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="257" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a1a1a">Servizi essenziali</text>
+
+  <rect x="320" y="225" width="105" height="40" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="372" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a1a1a">Clima e territorio</text>
+
+  <rect x="435" y="225" width="115" height="40" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="492" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a1a1a">Mobilità interna</text>
+
+  <text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a" font-weight="bold">I quattro temi al centro del confronto di Zogno</text>
+  <text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666">Fonte: BergamoNews, La Voce delle Valli.</text>
+</svg>
+<figcaption>Le due edizioni degli Stati generali delle Orobie e i quattro temi discussi nell'incontro di Zogno del 26 settembre 2026.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/27/crisi-demografica-servizi-e-mobilita-il-pd-bergamasco-le-montagne-tornino-al-centro/924863" rel="noopener" target="_blank">BergamoNews - Crisi demografica, servizi e mobilità, il Pd Bergamasco: &quot;Le montagne tornino al centro&quot;</a></li><li><a href="https://www.lavocedellevalli.it/stati-generali-delle-orobie-il-pd-a-zogno-no-alle-valli-come-aree-interne-non-sono-una-periferia" rel="noopener" target="_blank">La Voce delle Valli - Stati Generali delle Orobie, il PD a Zogno: &quot;No alle valli come aree interne, non sono una periferia&quot;</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maltempo, regione lombardia chiede lo stato di emergenza: la bergamasca tra le zone più colpite dopo il nubifragio che ha isolato sei comuni della bergamasca ed evacuato centinaia di persone, il governatore attilio fontana ha chiesto al governo lo stato di emergenza per la lombardia. la richiesta attende ora il passaggio in consiglio dei ministri. politica bergamo maltempo stato di emergenza regione lombardia protezione civile" data-cat="Politica"><a class="card-link" href="../../articoli/2026-08-23-bergamo-maltempo-stato-emergenza-regione/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Maltempo, Regione Lombardia chiede lo stato di emergenza: la Bergamasca tra le zone più colpite</h2><p class="card-summary">Dopo il nubifragio che ha isolato sei comuni della Bergamasca ed evacuato centinaia di persone, il governatore Attilio Fontana ha chiesto al Governo lo stato di emergenza per la Lombardia. La richiesta attende ora il passaggio in Consiglio dei Ministri.</p><p class="card-meta">23 agosto 2026</p></div></a></article><article class="card" data-search="sicurezza a bergamo, la sindaca carnevali al viminale: in arrivo altri agenti la sindaca elena carnevali ha incontrato il 9 luglio il ministro dell&#x27;interno piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. l&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a bergamo e treviglio. politica bergamo sicurezza viminale elena carnevali piantedosi" data-cat="Politica"><a class="card-link" href="../../articoli/2026-07-10-sicurezza-bergamo-viminale-nuovi-agenti/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Sicurezza a Bergamo, la sindaca Carnevali al Viminale: in arrivo altri agenti</h2><p class="card-summary">La sindaca Elena Carnevali ha incontrato il 9 luglio il ministro dell&#x27;Interno Piantedosi per chiedere più agenti e videosorveglianza contro furti e spaccate. L&#x27;incontro arriva a un giorno dall&#x27;annuncio di 24 nuovi agenti già assegnati a Bergamo e Treviglio.</p><p class="card-meta">10 luglio 2026</p></div></a></article><article class="card" data-search="elezioni comunali 2026 in provincia di bergamo: eletti i nuovi sindaci in 14 comuni il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. l&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. rinnovati tutti i consigli comunali. politica bergamo elezioni comuni amministrative 2026" data-cat="Politica"><a class="card-link" href="../../articoli/2026-05-29-elezioni-comunali-bergamo-14-comuni/"><div class="card-body"><div class="tags"><span class="tag">Politica</span></div><h2 class="card-title">Elezioni comunali 2026 in provincia di Bergamo: eletti i nuovi sindaci in 14 comuni</h2><p class="card-summary">Il 24 e 25 maggio 2026, oltre 36.000 bergamaschi hanno votato in 14 comuni della provincia. L&#x27;affluenza è scesa al 45,59%, quasi nove punti in meno rispetto alle elezioni precedenti. Rinnovati tutti i consigli comunali.</p><p class="card-meta">29 maggio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
