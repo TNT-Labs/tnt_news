@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>BergamoIncontra 2026, la diciannovesima edizione chiude al ChorusLife con oltre 4mila partecipanti — TNT News</title>
+  <meta name="description" content="Dal 25 al 27 settembre il festival BergamoIncontra ha riunito al ChorusLife oltre 4mila persone in tre giorni, tra incontri su intelligenza artificiale, giustizia riparativa e cura, mostre, laboratori e 100 volontari coinvolti.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-28-bergamo-bergamoincontra-19-edizione-choruslife/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="BergamoIncontra 2026, la diciannovesima edizione chiude al ChorusLife con oltre 4mila partecipanti — TNT News">
+  <meta property="og:description" content="Dal 25 al 27 settembre il festival BergamoIncontra ha riunito al ChorusLife oltre 4mila persone in tre giorni, tra incontri su intelligenza artificiale, giustizia riparativa e cura, mostre, laboratori e 100 volontari coinvolti.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-28-bergamo-bergamoincontra-19-edizione-choruslife/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BergamoIncontra 2026, la diciannovesima edizione chiude al ChorusLife con oltre 4mila partecipanti — TNT News">
+  <meta name="twitter:description" content="Dal 25 al 27 settembre il festival BergamoIncontra ha riunito al ChorusLife oltre 4mila persone in tre giorni, tra incontri su intelligenza artificiale, giustizia riparativa e cura, mostre, laboratori e 100 volontari coinvolti.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cultura/">Cultura</a><span class="tag">Bergamo</span><span class="tag">ChorusLife</span><span class="tag">BergamoIncontra</span><span class="tag">cultura</span><span class="tag">volontariato</span></div>
+    <h1>BergamoIncontra 2026, la diciannovesima edizione chiude al ChorusLife con oltre 4mila partecipanti</h1>
+    <p class="article-summary">Dal 25 al 27 settembre il festival BergamoIncontra ha riunito al ChorusLife oltre 4mila persone in tre giorni, tra incontri su intelligenza artificiale, giustizia riparativa e cura, mostre, laboratori e 100 volontari coinvolti.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-28">28 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Si è chiusa domenica 27 settembre, negli spazi del ChorusLife a Bergamo, la diciannovesima edizione di BergamoIncontra: tre giorni di incontri, mostre e laboratori che hanno richiamato oltre 4mila partecipanti.</strong> Il festival, organizzato dall'omonima associazione attiva in città dal 2008, si è svolto dal 25 al 27 settembre attorno al tema "Fu come giungere in porto dopo un mare in tempesta", una citazione del cardinale John Henry Newman.</p>
+
+<h2>I numeri della tre giorni</h2>
+<p>Secondo i dati diffusi dagli organizzatori, oltre 4mila persone hanno preso parte complessivamente alle iniziative del festival, mentre più di mille visitatori hanno visto le due mostre allestite per l'occasione, una dedicata a Léon Harmel e l'altra al tema conduttore dell'edizione. Il programma ha coinvolto 25 relatori e ha potuto contare sul lavoro di 100 volontari, oltre a uno spazio bimbi con laboratori dedicati e un'area ristorazione.</p>
+
+<h2>Intelligenza artificiale, giustizia riparativa e cura</h2>
+<p>Gli incontri hanno toccato temi legati all'impresa, alla medicina, al sociale e alla cultura, con un'attenzione particolare al rapporto tra intelligenza artificiale e lavoro umano, alla giustizia riparativa e alla cura nella fase finale della vita. Tra gli ospiti sono intervenuti il teologo Javier María Prades López, membro della Commissione Teologica Internazionale, il criminologo Adolfo Ceretti dell'Università Milano-Bicocca e lo scrittore ed educatore Franco Nembrini.</p>
+
+<p>Spazio anche alle testimonianze dirette: Franco Bonisoli, ex militante delle Brigate Rosse oggi impegnato in percorsi di giustizia riparativa, e Fabrizio Maiello, noto come "il Maradona delle carceri" per l'attività sportiva svolta con i detenuti, hanno portato le loro esperienze nell'ambito del filone dedicato alla riconciliazione. La palliativista Aurora Minetti ha invece affrontato il tema dell'accompagnamento a fine vita.</p>
+
+<blockquote>Una comunità viva, curiosa e desiderosa di confrontarsi sulle grandi domande del presente.</blockquote>
+
+<p>Con queste parole la presidente dell'associazione BergamoIncontra, Michela Milesi, ha commentato la partecipazione registrata nei tre giorni di festival.</p>
+
+<h2>Un'opera collettiva per chiudere il festival</h2>
+<p>La manifestazione si è conclusa con un momento performativo: l'artista Matteo Negri ha realizzato dal vivo un'opera composta con frammenti raccolti dai visitatori lungo il percorso espositivo, un modo per restituire in forma visiva i pensieri e le suggestioni emerse durante la tre giorni.</p>
+
+<h2>Perché conta per il territorio</h2>
+<p>Giunto alla sua diciannovesima edizione, BergamoIncontra si conferma uno degli appuntamenti culturali più partecipati della città, capace di attrarre un pubblico trasversale su temi di attualità sociale ed etica. Per la Bergamasca, dove il tessuto associativo è storicamente denso, l'evento rappresenta anche un banco di prova per il volontariato organizzato, con cento persone coinvolte nella sola gestione logistica dei tre giorni.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre con i numeri della diciannovesima edizione di BergamoIncontra 2026: oltre 4000 partecipanti complessivi, oltre 1000 visitatori alle mostre, 100 volontari coinvolti, 25 relatori. Fonte: BergamoNews, L'Eco di Bergamo.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">BergamoIncontra 2026 in numeri</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Tre giorni al ChorusLife, 25-27 settembre</text>
+
+  <line x1="70" y1="270" x2="600" y2="270" stroke="#999" stroke-width="1"/>
+
+  <rect x="110" y="80" width="70" height="190" fill="#4a6fa5" rx="4"/>
+  <text x="145" y="70" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">4.000+</text>
+  <text x="145" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Partecipanti</text>
+  <text x="145" y="304" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">totali</text>
+
+  <rect x="230" y="190" width="70" height="80" fill="#2f7f5f" rx="4"/>
+  <text x="265" y="180" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">1.000+</text>
+  <text x="265" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Visitatori</text>
+  <text x="265" y="304" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">alle mostre</text>
+
+  <rect x="350" y="242" width="70" height="28" fill="#c98a3a" rx="4"/>
+  <text x="385" y="232" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">100</text>
+  <text x="385" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Volontari</text>
+  <text x="385" y="304" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">coinvolti</text>
+
+  <rect x="470" y="263" width="70" height="7" fill="#8a5fa5" rx="3"/>
+  <text x="505" y="253" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">25</text>
+  <text x="505" y="290" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Relatori</text>
+  <text x="505" y="304" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">nel programma</text>
+</svg>
+<figcaption>I numeri diffusi dagli organizzatori per la diciannovesima edizione di BergamoIncontra (25-27 settembre 2026). Fonte: BergamoNews, L'Eco di Bergamo.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/27/bergamoincontra-fa-il-pieno-a-choruslife-oltre-4mila-partecipanti/924933" rel="noopener" target="_blank">BergamoNews - BergamoIncontra fa il pieno a ChorusLife: oltre 4mila partecipanti</a></li><li><a href="https://www.ecodibergamo.it/stories/eppen/extra/appuntamenti/tre-giornate-con-bergamoincontra-2026-per-cercare-un-approdo-nella-tempesta-o_3957604_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Tre giornate con «BergamoIncontra» 2026 per cercare un approdo nella tempesta</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo si trasforma nella capitale mondiale del formaggio da oggi fino a domenica piazza vecchia ospita world cheese capital 2026, il festival che segue la fiera b2b b2cheese chiusa mercoledì alla fiera di bergamo con circa 200 espositori. cultura bergamo world cheese capital b2cheese formaggi dop città alta" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-25-bergamo-world-cheese-capital-b2cheese/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Bergamo si trasforma nella capitale mondiale del formaggio</h2><p class="card-summary">Da oggi fino a domenica Piazza Vecchia ospita World Cheese Capital 2026, il festival che segue la fiera B2B B2Cheese chiusa mercoledì alla Fiera di Bergamo con circa 200 espositori.</p><p class="card-meta">25 settembre 2026</p></div></a></article><article class="card" data-search="millegradini 2026: bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi nel weekend del 19 e 20 settembre torna la millegradini, la camminata tra città alta e città bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti. cultura bergamo millegradini città alta eventi culturali accessibilità" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-20-bergamo-millegradini-16-edizione-13mila/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">Millegradini 2026: Bergamo si scopre a piedi, dai 700 iscritti del 2011 ai 13 mila di oggi</h2><p class="card-summary">Nel weekend del 19 e 20 settembre torna la Millegradini, la camminata tra Città Alta e Città Bassa giunta alla 16ª edizione: circa 70 siti culturali aperti e una partecipazione cresciuta dai 700 iscritti del debutto ai 13 mila delle edizioni più recenti.</p><p class="card-meta">20 settembre 2026</p></div></a></article><article class="card" data-search="a bergamo la &quot;quarto savona 15&quot;, i resti dell&#x27;auto della scorta di falcone dal 18 al 28 settembre il cortile di palazzo della provincia in via tasso ospita la teca con i resti della quarto savona 15, l&#x27;auto blindata distrutta nella strage di capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità. cultura bergamo memoria legalità giovanni falcone palazzo della provincia" data-cat="Cultura"><a class="card-link" href="../../articoli/2026-09-18-bergamo-quarto-savona-15-falcone-memoria/"><div class="card-body"><div class="tags"><span class="tag">Cultura</span></div><h2 class="card-title">A Bergamo la &quot;Quarto Savona 15&quot;, i resti dell&#x27;auto della scorta di Falcone</h2><p class="card-summary">Dal 18 al 28 settembre il cortile di Palazzo della Provincia in via Tasso ospita la teca con i resti della Quarto Savona 15, l&#x27;auto blindata distrutta nella strage di Capaci: apertura gratuita, cerimonia inaugurale con le autorità e iniziative dedicate alla legalità.</p><p class="card-meta">18 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
