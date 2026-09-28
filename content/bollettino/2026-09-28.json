@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-28",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno o poco nuvoloso lungo tutto il percorso, nessuna pioggia prevista, temperature miti (14-15°C) e vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",       "cond": "Sereno con nuvolosità variabile", "temp_c": 14, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",      "cond": "Soleggiato",                      "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",    "cond": "Soleggiato",                      "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "N"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 74,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Dalmine e Svincolo Agrate, dir. Milano", "desc": "Code a tratti causa traffico intenso dalle 06:18, come da bollettino CCISS; il tratto ricade nel segmento Bergamo-Agrate."},
+      {"where": "A51 Svincolo Agrate B. (SP13 Melzo-Monza-Dogana), dir. A1/San Donato", "desc": "Code a tratti causa traffico intenso, come da bollettino CCISS; il punto ricade nell'ingresso al segmento Carugate-San Donato."},
+      {"where": "A51 tra Svincolo Cologno Monzese e Svincolo Linate, dir. A1/San Donato", "desc": "Code a tratti causa traffico intenso, come da bollettino CCISS; il tratto ricade nel segmento Carugate-San Donato."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (traffic_model=best_guess, departure_time reali 07:30/08:10/08:25). CCISS RSS letto (100 item, 3 pertinenti sulla tratta e direzione odierne: 1 su A4 Dalmine-Agrate dir. Milano, 2 su A51 dir. A1/San Donato nel segmento Carugate-San Donato; scartati eventi fuori tratta o in direzione opposta, es. A51 dir. Lecco/Brescia). Serravalle raggiungibile (200) ma pagina generale senza lista puntuale di eventi. Luceverde raggiungibile (200) ma contenuto solo generico/JS, nessun dato puntuale sulla tratta. Autostrade per l'Italia (traffico-in-tempo-reale) risponde 404 come nelle esecuzioni precedenti. Ricerca web: nessun incidente odierno aggiuntivo oltre a quanto rilevato da CCISS; unico riferimento a chiusura notturna A4 uscita Viale Marconi (23:00-02:00, 28-29/09), fuori tratta e non applicabile alla partenza delle 07:30."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità 0%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza da Bergamo",
+      "Vento debole ovunque (max 5 km/h, raffiche max 13 km/h)",
+      "Temperature miti (14-15°C) e visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
