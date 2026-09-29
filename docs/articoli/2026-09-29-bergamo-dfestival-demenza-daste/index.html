@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>A Bergamo torna il DFestival: tre giorni contro i pregiudizi sulla demenza — TNT News</title>
+  <meta name="description" content="Da oggi al 1° ottobre negli spazi di Daste la sesta edizione del DFestival propone mostre, teatro e laboratori sul disorientamento, con la presentazione della DFC Bergamo, una rete di dieci realtà per una comunità più inclusiva verso le persone con demenza.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-29-bergamo-dfestival-demenza-daste/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="A Bergamo torna il DFestival: tre giorni contro i pregiudizi sulla demenza — TNT News">
+  <meta property="og:description" content="Da oggi al 1° ottobre negli spazi di Daste la sesta edizione del DFestival propone mostre, teatro e laboratori sul disorientamento, con la presentazione della DFC Bergamo, una rete di dieci realtà per una comunità più inclusiva verso le persone con demenza.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-29-bergamo-dfestival-demenza-daste/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Bergamo torna il DFestival: tre giorni contro i pregiudizi sulla demenza — TNT News">
+  <meta name="twitter:description" content="Da oggi al 1° ottobre negli spazi di Daste la sesta edizione del DFestival propone mostre, teatro e laboratori sul disorientamento, con la presentazione della DFC Bergamo, una rete di dieci realtà per una comunità più inclusiva verso le persone con demenza.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">Daste</span><span class="tag">demenza</span><span class="tag">DFestival</span><span class="tag">volontariato</span></div>
+    <h1>A Bergamo torna il DFestival: tre giorni contro i pregiudizi sulla demenza</h1>
+    <p class="article-summary">Da oggi al 1° ottobre negli spazi di Daste la sesta edizione del DFestival propone mostre, teatro e laboratori sul disorientamento, con la presentazione della DFC Bergamo, una rete di dieci realtà per una comunità più inclusiva verso le persone con demenza.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-29">29 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Da oggi, martedì 29 settembre, e fino a giovedì 1° ottobre, gli spazi di Daste a Bergamo ospitano la sesta edizione del DFestival, la rassegna socio-culturale dedicata al tema del disorientamento e alla lotta ai pregiudizi sulla demenza.</strong> La manifestazione è organizzata da Generazioni FA Cooperativa Sociale, con il contributo della Provincia di Bergamo e dell'Ambito di Bergamo e il sostegno di Alzheimer Italia.</p>
+
+<h2>Un festival per superare le etichette</h2>
+<p>L'obiettivo dichiarato dagli organizzatori è "mettere in discussione le etichette" che spesso riducono una persona alla sua malattia, alla sua età o alla sua fragilità, per ridurre paure, silenzi e distanze. Il programma alterna mostre, teatro, formazione e momenti conviviali pensati per far vivere in prima persona l'esperienza del disorientamento, prima ancora di parlarne in modo teorico.</p>
+
+<h2>Il programma dei tre giorni</h2>
+<p>La rassegna si apre oggi alle 18.30 con l'inaugurazione di due mostre, "Ombre e luci", realizzata dalla RSA Vaglietti Corsini, e "Voci di donne". Alle 20.30 va in scena "Il Treno dei Desideri", performance teatrale interpretata dalle Ragazze di Orio al Serio, diciassette donne over 70.</p>
+<p>Mercoledì 30 settembre la giornata è dedicata alla formazione, con il percorso "La cura che abilita" sul teatro sociale e l'approccio mente-corpo; in serata è in programma "Cortocircuito sensoriale", una cena accompagnata da musica jazz dal vivo pensata per far sperimentare ai partecipanti una condizione di disorientamento sensoriale.</p>
+<p>Giovedì 1° ottobre chiude il festival con il laboratorio artistico "Quanti colori può avere un incontro?", il dialogo "Vivere a lungo, vivere bene" con Rossana De Beni e Sara Fascendini sul tema dell'invecchiamento, e la pratica di danza inclusiva Dance Well.</p>
+
+<h2>La novità 2026: la DFC Bergamo</h2>
+<p>Tra i momenti centrali di questa edizione c'è la presentazione della DFC Bergamo, acronimo di "Dementia Friendly Community", un progetto nato in seno al festival che riunisce dieci realtà del territorio, tra cui il Comune di Bergamo, l'ASST e Alzheimer Bergamo, insieme a strutture socio-sanitarie e associazioni. Lo scopo della rete è costruire una comunità più consapevole e capace di sostenere la partecipazione sociale delle persone con demenza e delle loro famiglie, riducendo lo stigma che ancora accompagna queste patologie.</p>
+
+<blockquote>Mettere in discussione le etichette per ridurre paure, silenzi e distanze.</blockquote>
+
+<h2>L'ExtraFestival nei comuni della provincia</h2>
+<p>Accanto al programma principale a Daste, il DFestival prevede anche una sezione itinerante, l'ExtraFestival, che porta iniziative di sensibilizzazione, tra cui giochi intergenerazionali, in diversi comuni della Bergamasca: Orio al Serio, Gorle, Ranica, Sorisole e altre zone di Bergamo.</p>
+
+<h2>Perché conta per il territorio</h2>
+<p>Con l'invecchiamento della popolazione, la demenza è una condizione che riguarda un numero crescente di famiglie bergamasche, spesso alle prese non solo con la gestione della malattia ma anche con l'isolamento sociale che ne deriva. Iniziative come la DFC Bergamo, che mettono insieme istituzioni pubbliche, sanità e terzo settore, puntano a costruire risposte di comunità che vadano oltre l'assistenza sanitaria in senso stretto, coinvolgendo anche i comuni più piccoli della provincia attraverso l'ExtraFestival.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Timeline del DFestival 2026 a Bergamo: martedì 29 settembre inaugurazione mostre e teatro, mercoledì 30 settembre formazione e cena sensoriale, giovedì 1 ottobre laboratorio, dialogo e danza inclusiva. Fonte: L'Eco di Bergamo, BergamoNews.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">DFestival 2026 — il programma</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Daste, Bergamo — 29 settembre / 1 ottobre</text>
+
+  <line x1="60" y1="90" x2="580" y2="90" stroke="#999" stroke-width="2"/>
+
+  <circle cx="120" cy="90" r="8" fill="#4a6fa5"/>
+  <text x="120" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">29 set</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Mostre "Ombre</text>
+  <text x="120" y="134" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">e luci" e "Voci</text>
+  <text x="120" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">di donne"; teatro</text>
+  <text x="120" y="162" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">"Il Treno dei Desideri"</text>
+
+  <circle cx="320" cy="90" r="8" fill="#2f7f5f"/>
+  <text x="320" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">30 set</text>
+  <text x="320" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Formazione</text>
+  <text x="320" y="134" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">"La cura che</text>
+  <text x="320" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">abilita"; cena con</text>
+  <text x="320" y="162" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">jazz "Cortocircuito"</text>
+
+  <circle cx="520" cy="90" r="8" fill="#c98a3a"/>
+  <text x="520" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a1a1a">1 ott</text>
+  <text x="520" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Laboratorio artistico,</text>
+  <text x="520" y="134" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">dialogo su longevità,</text>
+  <text x="520" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">danza inclusiva</text>
+  <text x="520" y="162" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333">Dance Well</text>
+
+  <rect x="60" y="200" width="520" height="90" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="320" y="228" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">DFC Bergamo — Dementia Friendly Community</text>
+  <text x="320" y="252" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">10 realtà del territorio coinvolte</text>
+  <text x="320" y="270" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Comune di Bergamo, ASST, Alzheimer Bergamo e strutture socio-sanitarie</text>
+</svg>
+<figcaption>Il programma della sesta edizione del DFestival e i soggetti coinvolti nella nuova rete DFC Bergamo. Fonte: L'Eco di Bergamo, BergamoNews.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/volontariato/dfestival-2026-a-bergamo-tre-giorni-contro-i-pregiudizi-sulla-demenza-o_3960624_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - DFestival 2026 a Bergamo: tre giorni contro i pregiudizi sulla demenza</a></li><li><a href="https://www.bergamonews.it/2026/09/28/dfestival-la-rassegna-socio-culturale-dedicata-al-disorientamento/925091" rel="noopener" target="_blank">BergamoNews - DFestival, la rassegna socio-culturale dedicata al disorientamento</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="chirurgia dell&#x27;aorta, il papa giovanni xxiii diventa centro di riferimento per tutta la provincia di bergamo con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale papa giovanni xxiii sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta. sanità bergamo papa giovanni xxiii sanità chirurgia vascolare regione lombardia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-09-05-bergamo-papa-giovanni-centro-riferimento-aorta/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo</h2><p class="card-summary">Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.</p><p class="card-meta">5 settembre 2026</p></div></a></article><article class="card" data-search="ospedale papa giovanni, al via il bando per l&#x27;ottava torre da 100 milioni dedicata all&#x27;oncoematologia asst papa giovanni xxiii ha pubblicato il bando da 8,5 milioni di euro per progettare l&#x27;ottava torre dell&#x27;ospedale di bergamo, un ampliamento da 100 milioni dedicato all&#x27;oncoematologia già finanziato da regione e stato. sanità bergamo ospedale papa giovanni xxiii oncoematologia sanità pubblica" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-09-03-bergamo-ottava-torre-papa-giovanni-oncoematologia/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Ospedale Papa Giovanni, al via il bando per l&#x27;ottava torre da 100 milioni dedicata all&#x27;oncoematologia</h2><p class="card-summary">ASST Papa Giovanni XXIII ha pubblicato il bando da 8,5 milioni di euro per progettare l&#x27;ottava torre dell&#x27;ospedale di Bergamo, un ampliamento da 100 milioni dedicato all&#x27;oncoematologia già finanziato da Regione e Stato.</p><p class="card-meta">3 settembre 2026</p></div></a></article><article class="card" data-search="al papa giovanni xxiii parte lo screening gratuito per il tumore del polmone da oggi l&#x27;asst papa giovanni xxiii di bergamo attiva il programma regionale di screening del tumore del polmone con tc spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni. sanità bergamo papa giovanni xxiii screening oncologico regione lombardia prevenzione" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-18-bergamo-screening-tumore-polmone-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone</h2><p class="card-summary">Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.</p><p class="card-meta">18 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
