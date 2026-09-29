@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-29",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da nuvoloso a soleggiato lungo tutto il tragitto, temperature miti (15-16°C), vento debole: nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",       "cond": "Prevalentemente nuvoloso",  "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",      "cond": "Prevalentemente soleggiato", "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",    "cond": "Soleggiato",                "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 89,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 41},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 34}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Agrate Brianza, dir. Milano", "desc": "Code a tratti per traffico intenso dalle 06:12."},
+      {"where": "A51 tra Cologno Monzese e Lambrate, dir. San Donato/A1", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti. CCISS RSS letto: 2 eventi pertinenti (A4 Dalmine-Agrate, A51 Cologno-Lambrate), entrambi già riflessi nell'ETA. Serravalle e Luceverde raggiungibili ma senza dati specifici sulla tratta (pagine statiche/mappa JS). Autostrade.it non raggiungibile (404)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 10% a Bergamo)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Temperature tra 15 e 16 °C, ben sopra i 7 °C minimi",
+      "Vento debole (5-6 km/h) e raffiche contenute (fino a 11 km/h), visibilità 16 km ovunque"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"}
+  ]
+}
