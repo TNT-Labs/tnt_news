@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio — TNT News</title>
+  <meta name="description" content="RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio — TNT News">
+  <meta property="og:description" content="RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio — TNT News">
+  <meta name="twitter:description" content="RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">RFI</span><span class="tag">cantieri ferroviari</span><span class="tag">Orio al Serio</span><span class="tag">Ponte San Pietro</span></div>
+    <h1>Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h1>
+    <p class="article-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p>
+    <p class="article-meta">
+      <time datetime="2026-09-30">30 settembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori sulla linea Bergamo-Ponte San Pietro, a causa di criticità nell'esecuzione dell'appalto.</strong> La notizia, emersa nei giorni scorsi, ha spinto Comune e Provincia di Bergamo a chiedere un incontro urgente ai vertici politici e istituzionali, in programma venerdì 2 ottobre alle 9.30 in via Tasso, sede della Provincia.</p>
+
+<h2>I cantieri coinvolti</h2>
+<p>Sotto la lente ci sono due opere strategiche per il territorio: il raddoppio della linea ferroviaria verso Ponte San Pietro e il collegamento ferroviario con l'aeroporto di Orio al Serio. Entrambi i progetti erano attesi entro il 2027, ma i ritardi accumulati rendono ormai quell'obiettivo, secondo le stesse istituzioni locali, "implausibile".</p>
+
+<h2>Le nuove tempistiche</h2>
+<p>Due passaggi chiave del cantiere hanno già subito slittamenti concreti. L'apertura del secondo fornice del ponte di via San Bernardino, inizialmente prevista in autunno, è stata rinviata al periodo natalizio. Il ponte di via dei Caniana, invece, non sarà completato prima di metà gennaio 2027. Sono proprio queste "scarse progressioni" e le "tempistiche incerte" contestate dal Comune a RFI ad aver innescato la richiesta di risoluzione contrattuale presentata dalla stessa società al Collegio Consultivo Tecnico, l'organismo che dirime le controversie sugli appalti pubblici.</p>
+
+<h2>La lettera di Comune e Provincia</h2>
+<p>A firmare la richiesta di incontro urgente sono stati il presidente della Provincia, Gianfranco Gafforelli, e la sindaca di Bergamo, Elena Carnevali. La lettera è stata indirizzata al ministro per gli Affari regionali e le Autonomie, Roberto Calderoli, al ministro delle Infrastrutture e dei Trasporti, Matteo Salvini, ai parlamentari bergamaschi, agli assessori regionali competenti e al presidente di Sacbo, la società che gestisce l'aeroporto di Orio al Serio, Giovanni Sanga.</p>
+
+<blockquote>Le tempistiche incerte rendono implausibile il completamento dei lavori entro il 2027.</blockquote>
+
+<h2>I disagi per pendolari e studenti</h2>
+<p>La linea verso Ponte San Pietro è chiusa da oltre due anni per i lavori di raddoppio, con un servizio sostitutivo che nella fascia di punta mattutina, tra le 7.30 e le 9.30, conta 38 autobus in servizio. La prosecuzione dei ritardi comporta disagi quotidiani soprattutto per studenti pendolari, che devono fare i conti con tempi di percorrenza più lunghi e un maggiore affollamento dei mezzi sostitutivi, spingendo alcuni a preferire l'auto privata.</p>
+
+<h2>Perché conta per il territorio</h2>
+<p>Il raddoppio della Bergamo-Ponte San Pietro e il collegamento con Orio al Serio sono considerati opere strategiche per la mobilità della provincia, anche in vista di eventi come Bergamo Città europea dello sport 2027. Un ulteriore slittamento, unito all'incertezza aperta dalla richiesta di risoluzione contrattuale, rischia di allungare ancora i disagi per i pendolari e di ritardare un collegamento aeroportuale atteso da anni. L'incontro del 2 ottobre sarà il primo banco di prova per capire se le istituzioni nazionali intendono intervenire per sbloccare la situazione.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Timeline dei ritardi nei cantieri ferroviari di Bergamo: linea Ponte San Pietro chiusa da oltre due anni, ponte via San Bernardino rinviato a Natale 2026, ponte via dei Caniana rinviato a metà gennaio 2027, incontro istituzionale il 2 ottobre 2026. Fonte: BergamoNews, Il Giorno.">
+  <text x="320" y="26" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Cantieri ferroviari Bergamo — le tappe</text>
+  <text x="320" y="45" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Raddoppio Bergamo-Ponte San Pietro e collegamento Orio al Serio</text>
+
+  <line x1="60" y1="100" x2="580" y2="100" stroke="#999" stroke-width="2"/>
+
+  <circle cx="90" cy="100" r="8" fill="#8a3a3a"/>
+  <text x="90" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">2 ott 2026</text>
+  <text x="90" y="125" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Incontro</text>
+  <text x="90" y="138" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">urgente in</text>
+  <text x="90" y="151" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Provincia</text>
+
+  <circle cx="280" cy="100" r="8" fill="#4a6fa5"/>
+  <text x="280" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">Natale 2026</text>
+  <text x="280" y="125" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Apertura 2° fornice</text>
+  <text x="280" y="138" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">ponte via San</text>
+  <text x="280" y="151" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Bernardino</text>
+
+  <circle cx="480" cy="100" r="8" fill="#c98a3a"/>
+  <text x="480" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a1a1a">metà gen 2027</text>
+  <text x="480" y="125" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">Completamento</text>
+  <text x="480" y="138" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">ponte via</text>
+  <text x="480" y="151" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333">dei Caniana</text>
+
+  <rect x="60" y="200" width="520" height="90" rx="6" fill="#eef2f6" stroke="#c7d2dc"/>
+  <text x="320" y="228" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Linea Bergamo-Ponte San Pietro</text>
+  <text x="320" y="252" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Chiusa da oltre 2 anni — 38 bus sostitutivi (7.30-9.30)</text>
+  <text x="320" y="270" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Obiettivo 2027 ora ritenuto implausibile dalle istituzioni locali</text>
+</svg>
+<figcaption>Le prossime tappe dei cantieri ferroviari bergamaschi dopo la richiesta di risoluzione del contratto presentata da RFI. Fonte: BergamoNews, Il Giorno.</figcaption>
+</figure>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/09/29/rfi-rescinde-il-contratto-per-i-cantieri-ferroviari-comune-e-provincia-chiedono-un-incontro-urgente-con-i-parlamentari-bergamaschi/925343" rel="noopener" target="_blank">BergamoNews - RFI rescinde il contratto per i cantieri ferroviari, Comune e Provincia chiedono un incontro urgente con i parlamentari bergamaschi</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/cantieri-rfi-chiesto-un-confronto-8e0a2b64" rel="noopener" target="_blank">Il Giorno - Cantieri Rfi. Chiesto un confronto</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, il ponte di via san bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura dopo circa un anno di chiusura per i lavori rfi di raddoppio della linea verso ponte san pietro, il ponte di via san bernardino a bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso colognola; la seconda carreggiata è attesa in autunno. trasporti bergamo via san bernardino rfi viabilità ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-02-bergamo-ponte-san-bernardino-riapertura-10-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il ponte di via San Bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura</h2><p class="card-summary">Dopo circa un anno di chiusura per i lavori RFI di raddoppio della linea verso Ponte San Pietro, il ponte di via San Bernardino a Bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso Colognola; la seconda carreggiata è attesa in autunno.</p><p class="card-meta">2 agosto 2026</p></div></a></article><article class="card" data-search="treno per orio e raddoppio verso ponte san pietro: cantieri ferroviari slittati a dicembre 2027 rfi ha comunicato che i lavori per il collegamento ferroviario tra bergamo e l&#x27;aeroporto di orio al serio e il raddoppio della linea verso ponte san pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. costituita una task force per recuperare il tempo perso. trasporti bergamo ferrovia orio al serio rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-09-ferrovia-bergamo-orio-ritardo-2027/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027</h2><p class="card-summary">RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.</p><p class="card-meta">9 giugno 2026</p></div></a></article><article class="card" data-search="caro carburante, ryanair taglia i voli invernali: incertezza anche su orio al serio ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di bergamo orio al serio, tra i suoi storici scali italiani. trasporti bergamo orio al serio ryanair sacbo aeroporto" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-04-bergamo-orio-serio-ryanair-tagli-voli-invernali/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Caro carburante, Ryanair taglia i voli invernali: incertezza anche su Orio al Serio</h2><p class="card-summary">Ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di Bergamo Orio al Serio, tra i suoi storici scali italiani.</p><p class="card-meta">4 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
