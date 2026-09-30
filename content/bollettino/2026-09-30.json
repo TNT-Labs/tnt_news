@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-30",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo da nuvoloso a soleggiato lungo tutto il tragitto, temperature miti (14-16°C), vento debole: nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",       "cond": "Prevalentemente nuvoloso",   "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",      "cond": "Prevalentemente soleggiato", "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",    "cond": "Parzialmente soleggiato",    "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 75,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 31},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [
+      {"where": "A4 dir. Milano, tra Trezzo sull'Adda e Agrate Brianza", "desc": "Code a tratti per traffico intenso dalle 06:17."},
+      {"where": "A4 dir. Milano, tra Dalmine e Capriate San Gervasio", "desc": "Code per veicolo fermo/in avaria dalle 07:00."},
+      {"where": "A4 allo svincolo di Capriate San Gervasio", "desc": "Veicolo fermo o in avaria dalle 06:45 (direzione non specificata)."},
+      {"where": "A51 dir. A1/San Donato, tra Cernusco sul Naviglio e Lambrate", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (31+14+30 min). Google Weather OK su Bergamo, Carugate, San Donato e storico Bergamo (0 mm ultime 3h). CCISS RSS letto: 4 eventi pertinenti su A4/A51 direzione Milano, già riflessi nell'ETA. Serravalle raggiungibile ma senza contenuto specifico (pagina JS). Luceverde raggiungibile ma senza contenuto utile; Autostrade.it non raggiungibile (404). Ricerca web: nessuna notizia aggiuntiva rilevante per oggi oltre a CCISS."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 10% a Bergamo)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Temperature tra 15 e 16 °C, ben sopra i 7 °C minimi",
+      "Vento debole (3-6 km/h) e raffiche contenute (fino a 16 km/h), visibilità 16 km ovunque"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"}
+  ]
+}
