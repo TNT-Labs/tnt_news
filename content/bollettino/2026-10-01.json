@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-01",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso lungo tutto il tragitto, temperature miti (16-18°C) e vento debole: nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",       "cond": "Nuvoloso", "temp_c": 16, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",      "cond": "Nuvoloso", "temp_c": 17, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",    "cond": "Nuvoloso", "temp_c": 18, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 72,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 13},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [
+      {"where": "A51 dir. A1/San Donato, tra Cologno Monzese e Gobba (Treviglio-Vimodrone)", "desc": "Code per 3 km causa incidente."},
+      {"where": "A51 dir. A1/San Donato, tra Tangenziale Nord Milano e Gobba (Treviglio-Vimodrone)", "desc": "Incidente segnalato, possibili rallentamenti."},
+      {"where": "A51 dir. A1/San Donato, allo svincolo Agrate B. (SP13 Melzo-Monza-Dogana)", "desc": "Code per traffico intenso."},
+      {"where": "A51 dir. A1/San Donato, tra Cologno Monzese e Lambrate (Melzo-Dogana Segrate)", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (29+13+30 min). Google Weather OK su Bergamo, Carugate, San Donato e storico Bergamo (0 mm ultime 3h). CCISS RSS letto: 4 eventi pertinenti su A51 direzione A1/San Donato, già riflessi nell'ETA; nessun evento pertinente sul tratto A4 Bergamo-Agrate. Serravalle e Luceverde raggiungibili ma senza contenuto specifico sulla tratta (pagine JS); Autostrade.it non raggiungibile (404). Ricerca web: nessuna notizia aggiuntiva rilevante per oggi oltre a CCISS."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista lungo tutto il tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Temperature tra 16 e 18 °C, ben sopra la soglia minima di 7 °C",
+      "Vento debole (3-5 km/h) e raffiche contenute (fino a 11 km/h), visibilità 16 km ovunque"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"}
+  ]
+}
