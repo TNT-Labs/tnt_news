@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;Conca Fiorita&quot; all&#x27;ex Sacro Cuore — TNT News</title>
+  <meta name="description" content="Nell&#x27;ex complesso del Sacro Cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-03-bergamo-polo-infanzia-conca-fiorita-sacro-cuore/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;Conca Fiorita&quot; all&#x27;ex Sacro Cuore — TNT News">
+  <meta property="og:description" content="Nell&#x27;ex complesso del Sacro Cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-03-bergamo-polo-infanzia-conca-fiorita-sacro-cuore/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;Conca Fiorita&quot; all&#x27;ex Sacro Cuore — TNT News">
+  <meta name="twitter:description" content="Nell&#x27;ex complesso del Sacro Cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Bergamo</span><span class="tag">scuola</span><span class="tag">infanzia</span><span class="tag">PNRR</span><span class="tag">Sacro Cuore</span></div>
+    <h1>Bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;Conca Fiorita&quot; all&#x27;ex Sacro Cuore</h1>
+    <p class="article-summary">Nell&#x27;ex complesso del Sacro Cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-03">3 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Venerdì 2 ottobre è stato inaugurato a Bergamo il nuovo polo per l'infanzia "Conca Fiorita", ricavato nell'ex complesso del Sacro Cuore in via dei Ghirardelli. La struttura riunisce sotto lo stesso tetto il nido comunale "Il Pesco", gestito dalla cooperativa sociale Codess, e una sezione della scuola dell'infanzia statale dell'Istituto Comprensivo Camozzi: è il terzo polo 0-6 anni realizzato in città.</strong></p>
+
+<h2>Un percorso educativo unico da zero a sei anni</h2>
+<p>Il nido dispone di 50 posti distribuiti in quattro sezioni, già tutti occupati, con 13 educatrici e una coordinatrice. La scuola dell'infanzia accoglie per ora 16 bambini in un'unica sezione, con una capienza massima di 25 posti, affidata a due maestre e un'assistente educatrice. Nello stesso edificio opera anche la Sezione Primavera di Monterosso, dedicata ai bambini tra 24 e 36 mesi, con 14 iscritti e posti ancora disponibili.</p>
+<p>L'idea alla base del polo, come già indicato dal Comune al momento dell'approvazione della convenzione con l'Istituto Camozzi, è costruire una continuità educativa reale tra nido e scuola dell'infanzia: educatrici e insegnanti condividono programmazione, formazione e spazi comuni, pur mantenendo attività distinte per fascia d'età. A coordinare il progetto pedagogico e il coinvolgimento delle famiglie è un "gruppo di polo" con rappresentanti del Comune, dell'Istituto Camozzi e della cooperativa che gestisce il nido.</p>
+
+<h2>Le dichiarazioni</h2>
+<p>All'inaugurazione erano presenti la sindaca Elena Carnevali e l'assessora ai Servizi per l'infanzia Marzia Marchesi, che aveva già descritto così la filosofia del polo al momento della sua approvazione:</p>
+<blockquote>"Non si tratta solo di vicinanza fisica, ma di un luogo di ricerca, sperimentazione e partecipazione."</blockquote>
+<p>Alla cerimonia hanno partecipato anche Paola Delmonte, senior advisor di Near Sgr, e René Stern, portavoce della visione educativa del padre Arno Stern, pedagogista noto per i suoi studi sul gioco libero dei bambini.</p>
+
+<h2>Gli investimenti e i nuovi posti nido in città</h2>
+<p>L'apertura del polo "Conca Fiorita" rientra in un piano più ampio di investimento sui nidi comunali da circa 12 milioni di euro, di cui 8,7 milioni provenienti dal PNRR e il resto cofinanziato dalla Regione Lombardia attraverso i programmi Fesr e Fse+ 2021-2027. Grazie ai nuovi poli, i posti nido disponibili in città salgono da 574 a oltre 700, un incremento di circa 130 posti che il Comune presenta come una delle risposte alla domanda di servizi per la prima infanzia a Bergamo.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: posti nido comunali a Bergamo prima e dopo l'apertura dei nuovi poli, da 574 a oltre 700 posti. Valori indicativi. Fonte: BergamoNews.">
+  <text x="320" y="24" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Posti nido comunali a Bergamo</text>
+  <text x="320" y="42" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Prima e dopo i nuovi poli 0-6 anni (valori indicativi)</text>
+
+  <line x1="70" y1="270" x2="600" y2="270" stroke="#999" stroke-width="2"/>
+
+  <rect x="170" y="100" width="100" height="170" rx="4" fill="#9c9c9c"/>
+  <text x="220" y="90" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">574</text>
+  <text x="220" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Prima</text>
+
+  <rect x="370" y="60" width="100" height="210" rx="4" fill="#4a7a5c"/>
+  <text x="420" y="50" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">700+</text>
+  <text x="420" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Dopo i nuovi poli</text>
+</svg>
+<figcaption>Posti nido comunali a Bergamo prima e dopo l'apertura dei nuovi poli 0-6 anni, tra cui "Conca Fiorita": da 574 a oltre 700 (valori indicativi). Fonte: BergamoNews.</figcaption>
+</figure>
+
+<h2>La storia del complesso</h2>
+<p>L'ex Sacro Cuore, nel quartiere che dà il nome al nuovo polo, è un complesso che il Comune sta riconvertendo progressivamente a servizi pubblici: oltre al polo per l'infanzia, nella stessa area è prevista anche l'apertura di una Casa di Comunità dell'Asst Papa Giovanni XXIII, segno di una più ampia trasformazione dell'edificio da struttura dismessa a presidio di servizi per il quartiere.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/03/al-sacro-cuore-inaugurato-il-nuovo-polo-dellinfanzia-conca-fiorita/926270" rel="noopener" target="_blank">BergamoNews - Al Sacro Cuore inaugurato il nuovo polo dell&#x27;infanzia &quot;Conca Fiorita&quot;</a></li><li><a href="https://primabergamo.it/scuola/ex-sacro-cuore-inaugurato-il-nuovo-polo-dellinfanzia-conca-fiorita-a-bergamo/" rel="noopener" target="_blank">Prima Bergamo - Ex Sacro Cuore: inaugurato il nuovo polo dell&#x27;infanzia &quot;Conca Fiorita&quot; a Bergamo</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/bergamo-nasce-il-nuovo-polo-per-linfanzia-conca-fiorita-o_3924473_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Bergamo, nasce il nuovo Polo per l&#x27;infanzia «Conca Fiorita»</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="a bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «difficile da applicare» nelle scuole della bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. mentre il governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione. attualità bergamo scuola studenti stranieri integrazione" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-09-22-bergamo-scuola-studenti-stranieri-tetto-30percento/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare»</h2><p class="card-summary">Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.</p><p class="card-meta">22 settembre 2026</p></div></a></article><article class="card" data-search="a treviglio la scuola riapre il 14 settembre, il comune attiva un cre per le famiglie in tutta la lombardia le lezioni ripartono lunedì 14 settembre 2026: a treviglio il comune e la fondazione portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro. attualità treviglio scuola calendario scolastico bergamo" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-20-treviglio-scuola-14-settembre-cre/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie</h2><p class="card-summary">In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.</p><p class="card-meta">20 agosto 2026</p></div></a></article><article class="card" data-search="eclissi di sole e perseidi: stasera doppio spettacolo nel cielo sopra bergamo questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da bergamo, seguita nella notte dal picco dello sciame meteorico delle perseidi in condizioni di visibilità quasi perfette. attualità bergamo eclissi solare perseidi astronomia" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-12-bergamo-eclissi-sole-perseidi/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Eclissi di Sole e Perseidi: stasera doppio spettacolo nel cielo sopra Bergamo</h2><p class="card-summary">Questa sera un&#x27;eclissi solare parziale oscurerà oltre il 92% del disco solare visto da Bergamo, seguita nella notte dal picco dello sciame meteorico delle Perseidi in condizioni di visibilità quasi perfette.</p><p class="card-meta">12 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
