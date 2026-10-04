@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Variante Paladina-Sedrina, la Val Brembana in piazza dopo quasi 30 anni di attesa — TNT News</title>
+  <meta name="description" content="Circa 500 persone hanno manifestato a Villa d&#x27;Almè per chiedere la conclusione della variante Paladina-Sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. I sindaci chiedono un commissario straordinario e fondi garantiti.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-04-bergamo-paladina-sedrina-variante-protesta-val-brembana/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Variante Paladina-Sedrina, la Val Brembana in piazza dopo quasi 30 anni di attesa — TNT News">
+  <meta property="og:description" content="Circa 500 persone hanno manifestato a Villa d&#x27;Almè per chiedere la conclusione della variante Paladina-Sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. I sindaci chiedono un commissario straordinario e fondi garantiti.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-04-bergamo-paladina-sedrina-variante-protesta-val-brembana/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Variante Paladina-Sedrina, la Val Brembana in piazza dopo quasi 30 anni di attesa — TNT News">
+  <meta name="twitter:description" content="Circa 500 persone hanno manifestato a Villa d&#x27;Almè per chiedere la conclusione della variante Paladina-Sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. I sindaci chiedono un commissario straordinario e fondi garantiti.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Val Brembana</span><span class="tag">Paladina-Sedrina</span><span class="tag">viabilità</span><span class="tag">Tangenziale Sud</span></div>
+    <h1>Variante Paladina-Sedrina, la Val Brembana in piazza dopo quasi 30 anni di attesa</h1>
+    <p class="article-summary">Circa 500 persone hanno manifestato a Villa d&#x27;Almè per chiedere la conclusione della variante Paladina-Sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. I sindaci chiedono un commissario straordinario e fondi garantiti.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-04">4 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Circa 500 persone hanno manifestato sabato 3 ottobre in largo Risorgimento a Villa d'Almè per chiedere la conclusione della variante Paladina-Sedrina, il terzo e ultimo lotto della Tangenziale Sud di Bergamo che dovrebbe collegare la Val Brembana e la Valle Imagna al capoluogo. Il progetto, avviato quasi trent'anni fa, ha visto il costo stimato salire da 90 a oltre 520 milioni di euro.</strong></p>
+
+<h2>Trent'anni di attese e un costo lievitato</h2>
+<p>La variante Paladina-Sedrina nasce a metà degli anni Novanta per decongestionare la statale che risale la Val Brembana, oggi percorsa ogni giorno da migliaia di pendolari e mezzi pesanti. Nel 2006 il costo dell'opera era stimato in 90 milioni di euro; le stime più recenti lo collocano invece oltre i 520 milioni. Ad aprile Anas aveva sospeso l'iter per un motivo specifico: lungo il tracciato si trova l'ex discarica di Sorisole, e in assenza di indagini ambientali aggiornate non si poteva escludere la presenza di sostanze inquinanti nel terreno. A maggio Anas ha confermato l'intenzione di procedere, mentre la Provincia di Bergamo ha stanziato 60mila euro per nuovi sondaggi sull'area.</p>
+
+<h2>La protesta dei cittadini</h2>
+<p>Alla manifestazione di Villa d'Almè hanno preso parte cittadini, imprenditori e amministratori locali, tra cui il presidente della Provincia Gianfranco Gafforelli, la sindaca di Villa d'Almè Valentina Ceruti, il vicesindaco di San Pellegrino Terme Vittorio Milesi e il sindaco di Piazzatorre e presidente della Comunità Montana Valeriano Bianchi. I manifestanti denunciano tempi di percorrenza che definiscono insostenibili: per raggiungere Bergamo da alcuni comuni della valle, segnalano, occorre "quasi due ore per fare poco più di trenta chilometri".</p>
+
+<p>Vittorio Milesi ha riassunto le richieste della valle in cinque punti:</p>
+<ul>
+  <li>completare rapidamente le indagini ambientali sull'ex discarica di Sorisole;</li>
+  <li>nominare un commissario straordinario per l'opera;</li>
+  <li>garantire il finanziamento integrale dell'intervento;</li>
+  <li>istituire un tavolo permanente con le imprese per monitorare l'avanzamento dei lavori;</li>
+  <li>realizzare intanto interventi immediati sulla viabilità esistente.</li>
+</ul>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: costo stimato della variante Paladina-Sedrina, da 90 milioni di euro nel 2006 a oltre 520 milioni nel 2026. Fonti: BergamoNews, Il Giorno.">
+  <text x="320" y="24" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">Il costo della variante Paladina-Sedrina</text>
+  <text x="320" y="42" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Stima iniziale e stima attuale, in milioni di euro</text>
+
+  <line x1="70" y1="270" x2="600" y2="270" stroke="#999" stroke-width="2"/>
+
+  <rect x="170" y="240" width="100" height="30" rx="4" fill="#9c9c9c"/>
+  <text x="220" y="230" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">90</text>
+  <text x="220" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Stima 2006</text>
+
+  <rect x="370" y="80" width="100" height="190" rx="4" fill="#a14b4b"/>
+  <text x="420" y="70" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">520+</text>
+  <text x="420" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Stima 2026</text>
+</svg>
+<figcaption>Il costo stimato della variante Paladina-Sedrina è salito da 90 milioni di euro (2006) a oltre 520 milioni (2026). Valori indicativi, fonti: BergamoNews, Il Giorno.</figcaption>
+</figure>
+
+<h2>Le proposte alternative</h2>
+<p>Non tutti gli attori del territorio sostengono l'opera nella sua forma attuale. Il comitato "Salviamo il Parco dei Colli" contesta da tempo utilità e sostenibilità ambientale del progetto e propone, in alternativa, l'allargamento della strada provinciale 470 e l'estensione della linea tranviaria T2 fino a Zogno. Le proposte hanno però raccolto finora un sostegno istituzionale limitato.</p>
+
+<p>Sui tempi di realizzazione le valutazioni divergono: il sindaco di Piazzatorre Valeriano Bianchi parla di 7-8 anni di lavori una volta avviato il cantiere, mentre le previsioni ufficiali più caute indicano fino a 15 anni. Il percorso dell'opera resta quindi legato all'esito delle nuove indagini ambientali e alla nomina, richiesta dai sindaci, di un commissario che ne garantisca il finanziamento e l'avanzamento.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/04/paladina-sedrina-lappello-della-val-brembana-dopo-trentanni-di-attesa-basta-rinvii-il-traffico-soffoca-cittadini-e-imprese/926444/" rel="noopener" target="_blank">BergamoNews - Paladina-Sedrina, l&#x27;appello della Val Brembana dopo trent&#x27;anni di attesa: &quot;Basta rinvii, il traffico soffoca cittadini e imprese&quot;</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/paladina-sedrina-anas-brembana-i9730mcr" rel="noopener" target="_blank">Il Giorno - Paladina-Sedrina, Anas conferma il progetto</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="paladina-sedrina, la provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica il consiglio provinciale di bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da anas sull&#x27;ex discarica monte bianco di sorisole, passaggio necessario per sbloccare il terzo lotto della paladina-sedrina. il comitato &quot;salviamo il parco dei colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della sp470. trasporti bergamo sorisole paladina-sedrina anas" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-28-bergamo-paladina-sedrina-discarica-monte-bianco/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Paladina-Sedrina, la Provincia stanzia 250 mila euro per analizzare l&#x27;ex discarica</h2><p class="card-summary">Il Consiglio provinciale di Bergamo ha approvato un finanziamento di 250 mila euro per le analisi ambientali richieste da Anas sull&#x27;ex discarica Monte Bianco di Sorisole, passaggio necessario per sbloccare il terzo lotto della Paladina-Sedrina. Il comitato &quot;Salviamo il Parco dei Colli&quot; rilancia un&#x27;alternativa basata sull&#x27;allargamento della SP470.</p><p class="card-meta">28 luglio 2026</p></div></a></article><article class="card" data-search="cantieri ferroviari a bergamo, rfi chiede la risoluzione del contratto: ritardi fino a gennaio rfi ha presentato al collegio consultivo tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della bergamo-ponte san pietro e del collegamento con l&#x27;aeroporto di orio al serio. comune e provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre. trasporti bergamo rfi cantieri ferroviari orio al serio ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h2><p class="card-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p><p class="card-meta">30 settembre 2026</p></div></a></article><article class="card" data-search="atb bergamo, un impianto fotovoltaico da 1 mwp e 26 nuovi bus entro il 2027 l&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 mwp nel deposito di via monte gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei ce4ce ed e-med per l&#x27;economia circolare e il riuso delle batterie. trasporti bergamo atb trasporto pubblico sostenibilità" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-23-bergamo-atb-fotovoltaico-nuovi-autobus/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027</h2><p class="card-summary">L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.</p><p class="card-meta">23 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
