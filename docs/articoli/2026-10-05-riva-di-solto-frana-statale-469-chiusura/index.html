@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Frana sulla statale 469 a Riva di Solto: due auto colpite, oggi il sopralluogo Anas — TNT News</title>
+  <meta name="description" content="Sabato un masso si è staccato lungo la Sebina Occidentale colpendo due auto senza ferire nessuno; la strada resta chiusa tra Castro e Riva di Solto e lunedì Anas interviene con il disgaggio dei massi pericolanti.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-05-riva-di-solto-frana-statale-469-chiusura/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Frana sulla statale 469 a Riva di Solto: due auto colpite, oggi il sopralluogo Anas — TNT News">
+  <meta property="og:description" content="Sabato un masso si è staccato lungo la Sebina Occidentale colpendo due auto senza ferire nessuno; la strada resta chiusa tra Castro e Riva di Solto e lunedì Anas interviene con il disgaggio dei massi pericolanti.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-05-riva-di-solto-frana-statale-469-chiusura/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Frana sulla statale 469 a Riva di Solto: due auto colpite, oggi il sopralluogo Anas — TNT News">
+  <meta name="twitter:description" content="Sabato un masso si è staccato lungo la Sebina Occidentale colpendo due auto senza ferire nessuno; la strada resta chiusa tra Castro e Riva di Solto e lunedì Anas interviene con il disgaggio dei massi pericolanti.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Riva di Solto</span><span class="tag">Castro</span><span class="tag">Lago d&#x27;Iseo</span><span class="tag">frana</span><span class="tag">statale 469</span></div>
+    <h1>Frana sulla statale 469 a Riva di Solto: due auto colpite, oggi il sopralluogo Anas</h1>
+    <p class="article-summary">Sabato un masso si è staccato lungo la Sebina Occidentale colpendo due auto senza ferire nessuno; la strada resta chiusa tra Castro e Riva di Solto e lunedì Anas interviene con il disgaggio dei massi pericolanti.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-05">5 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p><strong>Sabato 3 ottobre, intorno alle 11, un masso si è staccato dalla parete rocciosa lungo la statale 469 "Sebina Occidentale", poco fuori da una galleria tra Castro e Riva di Solto, sulla sponda occidentale del lago d'Iseo. Due auto in transito sono state colpite: nessun ferito, ma la strada è stata chiusa in entrambe le direzioni e lunedì 5 ottobre Anas è intervenuta con il disgaggio dei massi pericolanti.</strong></p>
+
+<h2>Cosa è successo</h2>
+<p>All'altezza del chilometro 4.800-4.900 della Sebina Occidentale, il tratto che costeggia il lago tra Castro e Riva di Solto, alcuni sassi si sono staccati dal versante roccioso colpendo due veicoli in transito: una Ford Kuga, con a bordo una madre e un bambino di Riva di Solto, danneggiata nella carrozzeria, e una Volkswagen T-Roc, con a bordo una coppia di Lovere, il cui parabrezza è stato sfondato da un sasso di circa due chili finito sul cruscotto. Nessuno dei due equipaggi ha riportato ferite, anche se l'impatto ha inevitabilmente spaventato gli occupanti.</p>
+
+<p>Sul posto sono intervenuti i carabinieri della compagnia di Clusone, la polizia stradale di Bergamo e i tecnici Anas, chiamati a verificare la stabilità del versante e la presenza di ulteriore materiale instabile sopra la carreggiata.</p>
+
+<h2>Strada chiusa, deviazioni per tutti</h2>
+<p>Dalle 13 di sabato la statale è stata chiusa al traffico in entrambe le direzioni proprio nel tratto interessato dal distacco. Il traffico, comprese le corse degli scuolabus, è stato deviato sulla vecchia provinciale che passa per Solto Collina, percorso più lungo ma l'unica alternativa disponibile per collegare i due comuni che si affacciano sul lago.</p>
+
+<blockquote>La strada resterà chiusa in entrambe le direzioni finché non sarà ripristinato il transito in sicurezza.</blockquote>
+
+<h2>Lunedì il sopralluogo Anas</h2>
+<p>Come anticipato da Anas nei giorni successivi all'episodio, lunedì 5 ottobre sono partite le operazioni di disgaggio dei massi pericolanti rimasti in bilico sul versante, propedeutiche a stabilire se riaprire la strada e con quali eventuali limitazioni. Anas stessa ha indicato che l'esito di questi interventi servirà anche a chiarire se si sia trattato di un episodio isolato, legato alle piogge dei giorni precedenti, oppure se il versante richieda ulteriori verifiche di stabilità nel tratto, che fino a questo episodio non risultava tra i punti della Sebina Occidentale sotto osservazione per rischio frana.</p>
+
+<figure>
+<svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo della frana sulla statale 469 a Riva di Solto: sabato 3 ottobre ore 11 caduta massi, ore 13 chiusura della strada, lunedì 5 ottobre sopralluogo e disgaggio Anas. Fonti: Il Giorno, L'Eco di Bergamo.">
+  <text x="320" y="28" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#1a1a1a" font-weight="bold">La cronologia della frana sulla SS469</text>
+  <text x="320" y="48" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#666">Riva di Solto / Castro, lago d'Iseo</text>
+
+  <line x1="80" y1="170" x2="560" y2="170" stroke="#999" stroke-width="3"/>
+
+  <circle cx="120" cy="170" r="9" fill="#a14b4b"/>
+  <text x="120" y="140" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Sab 3/10, ore 11</text>
+  <text x="120" y="200" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Masso colpisce</text>
+  <text x="120" y="216" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">due auto</text>
+
+  <circle cx="320" cy="170" r="9" fill="#c07a2b"/>
+  <text x="320" y="140" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Sab 3/10, ore 13</text>
+  <text x="320" y="200" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Statale chiusa</text>
+  <text x="320" y="216" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">in entrambi i sensi</text>
+
+  <circle cx="520" cy="170" r="9" fill="#2b7a3f"/>
+  <text x="520" y="140" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Lun 5/10</text>
+  <text x="520" y="200" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">Sopralluogo e</text>
+  <text x="520" y="216" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">disgaggio Anas</text>
+</svg>
+<figcaption>Cronologia degli eventi legati alla frana sulla statale 469 tra Castro e Riva di Solto. Fonti: Il Giorno, L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>I comuni coinvolti</h2>
+<p>La chiusura riguarda direttamente Castro e Riva di Solto, i due comuni collegati dal tratto di statale interrotto, che resta la via più diretta tra le sponde occidentale e meridionale del lago d'Iseo. In attesa degli esiti del sopralluogo, le amministrazioni locali seguono l'evolversi della situazione insieme ad Anas, da cui dipendono i tempi di una possibile riapertura, al momento non ancora comunicati.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/sacrica-sassi-sebina-occidentale-hvhc51k5" rel="noopener" target="_blank">Il Giorno - Scarica di sassi lungo la Sebina Occidentale a Riva di Solto: colpite due auto, un parabrezza in frantumi</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/val-calepio-e-sebino/riva-di-solto-frana-sulla-statale-469-due-auto-coinvolte-ma-nessun-ferito-str-o_3964441_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Riva di Solto, paura per una frana sulla 469: due auto coinvolte ma nessun ferito. Strada chiusa</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/val-calepio-e-sebino/frana-sulla-litoranea-del-lago-lunedi-5-ottobre-via-al-disgaggio-dei-massi-o_3965706_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Frana sulla litoranea del lago, lunedì 5 ottobre via al disgaggio dei massi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="variante paladina-sedrina, la val brembana in piazza dopo quasi 30 anni di attesa circa 500 persone hanno manifestato a villa d&#x27;almè per chiedere la conclusione della variante paladina-sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. i sindaci chiedono un commissario straordinario e fondi garantiti. trasporti bergamo val brembana paladina-sedrina viabilità tangenziale sud" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-10-04-bergamo-paladina-sedrina-variante-protesta-val-brembana/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Variante Paladina-Sedrina, la Val Brembana in piazza dopo quasi 30 anni di attesa</h2><p class="card-summary">Circa 500 persone hanno manifestato a Villa d&#x27;Almè per chiedere la conclusione della variante Paladina-Sedrina, il cui costo stimato è salito da 90 a oltre 520 milioni di euro in vent&#x27;anni. I sindaci chiedono un commissario straordinario e fondi garantiti.</p><p class="card-meta">4 ottobre 2026</p></div></a></article><article class="card" data-search="cantieri ferroviari a bergamo, rfi chiede la risoluzione del contratto: ritardi fino a gennaio rfi ha presentato al collegio consultivo tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della bergamo-ponte san pietro e del collegamento con l&#x27;aeroporto di orio al serio. comune e provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre. trasporti bergamo rfi cantieri ferroviari orio al serio ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h2><p class="card-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p><p class="card-meta">30 settembre 2026</p></div></a></article><article class="card" data-search="atb bergamo, un impianto fotovoltaico da 1 mwp e 26 nuovi bus entro il 2027 l&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 mwp nel deposito di via monte gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei ce4ce ed e-med per l&#x27;economia circolare e il riuso delle batterie. trasporti bergamo atb trasporto pubblico sostenibilità" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-23-bergamo-atb-fotovoltaico-nuovi-autobus/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027</h2><p class="card-summary">L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.</p><p class="card-meta">23 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
