@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-06",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Parzialmente nuvoloso con temperature miti (13-15°C), nessuna pioggia prevista e vento debole su tutto il tragitto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Parzialmente nuvoloso", "temp_c": 13, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)", "cond": "Parzialmente soleggiato", "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)", "cond": "Prevalentemente nuvoloso", "temp_c": 15, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 83,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 30},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Cavenago, dir. Milano", "desc": "Code a tratti per traffico intenso dalle 06:05."},
+      {"where": "A51 svincolo Agrate Brianza (innesto SP13 Melzo-Monza-Dogana), dir. A1/San Donato", "desc": "Code per traffico intenso."},
+      {"where": "A51 tra Cologno Monzese e Lambrate, dir. A1/San Donato", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess). Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm). CCISS RSS letto: 3 eventi pertinenti sulla tratta/direzione odierna, già incorporati nell'ETA Directions. Serravalle leggibile ma senza dettagli specifici. Luceverde e Autostrade senza contenuto utile (tentativo unico, come da fonti storicamente illeggibili)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Nessuna pioggia prevista sull'intero tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Vento debole (max 5 km/h, raffiche fino a 11 km/h) in tutti i punti",
+      "Temperature comprese tra 13 e 15 °C, visibilità ottima (16 km)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
