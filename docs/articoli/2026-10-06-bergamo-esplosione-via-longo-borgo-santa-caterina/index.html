@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, esplosione per fuga di gas in via Longo: nove feriti e palazzina evacuata — TNT News</title>
+  <meta name="description" content="Una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di Borgo Santa Caterina, a Bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-06-bergamo-esplosione-via-longo-borgo-santa-caterina/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, esplosione per fuga di gas in via Longo: nove feriti e palazzina evacuata — TNT News">
+  <meta property="og:description" content="Una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di Borgo Santa Caterina, a Bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-06-bergamo-esplosione-via-longo-borgo-santa-caterina/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, esplosione per fuga di gas in via Longo: nove feriti e palazzina evacuata — TNT News">
+  <meta name="twitter:description" content="Una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di Borgo Santa Caterina, a Bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Borgo Santa Caterina</span><span class="tag">esplosione</span><span class="tag">fuga di gas</span></div>
+    <h1>Bergamo, esplosione per fuga di gas in via Longo: nove feriti e palazzina evacuata</h1>
+    <p class="article-summary">Una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di Borgo Santa Caterina, a Bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-06">6 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Una violenta esplosione ha scosso lunedì sera il quartiere di Borgo Santa Caterina, a
+Bergamo. Poco dopo le 19.30 un boato ha investito via Longo, all'altezza del numero 9,
+dove un appartamento al piano terra di un palazzo di sei piani è andato distrutto.
+Il bilancio, aggiornato nelle ore successive, è di nove persone ferite, due delle quali
+in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina, dichiarata
+inagibile dai vigili del fuoco.</p>
+
+<h2>Una fuga di gas prima dello scoppio</h2>
+<p>Secondo quanto ricostruito dai soccorritori, intorno alle 19 un forte odore di gas
+si era già diffuso nell'edificio. Il portinaio dello stabile si era messo a cercare
+l'origine della fuga insieme ad alcuni residenti quando, pochi minuti dopo, è avvenuta
+l'esplosione, partita dalla cucina dell'appartamento al piano terra. Il portinaio è
+rimasto illeso, protetto da un muro al momento del botto. Le cause esatte della fuga
+restano al momento oggetto di accertamenti da parte dei tecnici e delle autorità
+competenti.</p>
+
+<h2>Danni e soccorsi</h2>
+<p>L'esplosione ha distrutto due appartamenti al piano terra, la guardiola della
+portineria e l'ascensore del palazzo, facendo saltare circa una dozzina di porte di
+garage. L'onda d'urto ha frantumato vetri e infissi anche nelle case vicine, comprese
+quelle di via Albani, e si è fatta sentire distintamente in tutto il borgo e nella
+vicina via Suardi. Sul posto sono intervenuti cinque squadre dei vigili del fuoco con
+autoscala, autobotte e automezzi, insieme ad ambulanze con mezzi di rianimazione,
+polizia, carabinieri e polizia locale. Sul luogo sono giunti anche il prefetto, il
+questore e un assessore del Comune.</p>
+
+<h2>I feriti</h2>
+<p>Tra le persone coinvolte, due residenti dell'appartamento investito dallo scoppio
+hanno riportato le conseguenze più serie, con ustioni che ne hanno reso necessario il
+trasferimento in codice rosso, rispettivamente verso un centro ospedaliero di Verona e
+verso l'ospedale Niguarda di Milano, con elicottero del 118. Altre due persone sono
+state portate in codice giallo all'ospedale Papa Giovanni XXIII di Bergamo, mentre le
+restanti cinque hanno riportato ferite più lievi, codice verde. Il grafico seguente
+riassume la distribuzione dei feriti per livello di gravità.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre dei nove feriti nell'esplosione di via Longo a Bergamo, divisi per codice di gravità: due in codice rosso, due in codice giallo, cinque in codice verde. Fonte: L'Eco di Bergamo." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Feriti nell'esplosione di via Longo, per codice</text>
+    <line x1="80" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="1.5"/>
+    <!-- Codice rosso: 2 -->
+    <rect x="140" y="208" width="100" height="52" fill="#c0392b"/>
+    <text x="190" y="196" text-anchor="middle" font-size="22" font-weight="bold" fill="currentColor">2</text>
+    <text x="190" y="285" text-anchor="middle" font-size="15" fill="currentColor">Codice rosso</text>
+    <!-- Codice giallo: 2 -->
+    <rect x="280" y="208" width="100" height="52" fill="#e1b12c"/>
+    <text x="330" y="196" text-anchor="middle" font-size="22" font-weight="bold" fill="currentColor">2</text>
+    <text x="330" y="285" text-anchor="middle" font-size="15" fill="currentColor">Codice giallo</text>
+    <!-- Codice verde: 5 -->
+    <rect x="420" y="130" width="100" height="130" fill="#27ae60"/>
+    <text x="470" y="118" text-anchor="middle" font-size="22" font-weight="bold" fill="currentColor">5</text>
+    <text x="470" y="285" text-anchor="middle" font-size="15" fill="currentColor">Codice verde</text>
+  </svg>
+  <figcaption>Distribuzione dei nove feriti per codice di gravità all'arrivo dei
+  soccorsi (dati L'Eco di Bergamo, 5-6 ottobre 2026).</figcaption>
+</figure>
+
+<h2>Sfollati e prospettive</h2>
+<p>Degli oltre sessanta appartamenti del palazzo, circa quaranta sono stati evacuati
+nelle ore successive allo scoppio. Il Comune ha attivato un'accoglienza temporanea in
+alcune strutture hoteliere e nell'ostello cittadino per chi non ha potuto fare rientro
+in casa. Via Longo, chiusa al traffico subito dopo l'esplosione per permettere i
+soccorsi e le verifiche di stabilità, è stata riaperta dopo la mezzanotte. Nei prossimi
+giorni i tecnici dovranno stabilire quando e a quali condizioni i residenti sgomberati
+potranno rientrare nelle rispettive abitazioni.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/esplosione-in-via-longo-a-bergamo-due-persone-a-terra-o_3965891_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Esplosione in via Longo a Bergamo</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/via-longo-il-portinaio-cerca-la-fuga-di-gas-fino-allesplosione-il-muro-gli-h-o_3966421_11" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Via Longo, il portinaio cerca la fuga di gas fino all&#x27;esplosione</a></li><li><a href="https://www.ansa.it/sito/notizie/cronaca/2026/10/05/esplosione-nel-centro-di-bergamo-per-una-fuga-di-gas-8-feriti_f192acd0-1cec-4e0e-9b4f-7667f4c0cb97.html" rel="noopener" target="_blank">ANSA - Esplosione nel centro di Bergamo per una fuga di gas, 8 feriti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="maxi tamponamento sulla brebemi tra bariano e romano di lombardia: un morto e diversi feriti un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada a35 brebemi, tra bariano e romano di lombardia, in provincia di bergamo. un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione brescia per soccorsi e rilievi. cronaca bergamo a35 brebemi incidente stradale bariano romano di lombardia" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-09-10-bergamo-brebemi-incidente-bariano-romano/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Maxi tamponamento sulla Brebemi tra Bariano e Romano di Lombardia: un morto e diversi feriti</h2><p class="card-summary">Un tamponamento a catena si è verificato la mattina del 9 settembre sull&#x27;autostrada A35 Brebemi, tra Bariano e Romano di Lombardia, in provincia di Bergamo. Un uomo di 51 anni è morto e diverse persone sono rimaste ferite; l&#x27;autostrada è stata chiusa in direzione Brescia per soccorsi e rilievi.</p><p class="card-meta">10 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;hapoel: daspo di tre anni alla vigilia di atalanta-hapoel tel aviv, digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un b&amp;b del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città. cronaca bergamo sicurezza ordine pubblico stadio conference league" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-21-bergamo-sequestro-fuochi-artificio-hapoel-daspo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;Hapoel: Daspo di tre anni</h2><p class="card-summary">Alla vigilia di Atalanta-Hapoel Tel Aviv, Digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un B&amp;B del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città.</p><p class="card-meta">21 agosto 2026</p></div></a></article><article class="card" data-search="violenza domestica e di genere: oltre 400 denunce in bergamasca in poco più di due mesi tra il 1° giugno e il 10 agosto 2026 i carabinieri della provincia di bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. numeri che, secondo l&#x27;arma, fanno emergere situazioni di violenza rimaste nascoste per mesi. cronaca bergamo carabinieri codice rosso violenza di genere" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-15-bergamo-codice-rosso-denunce-estate/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Violenza domestica e di genere: oltre 400 denunce in Bergamasca in poco più di due mesi</h2><p class="card-summary">Tra il 1° giugno e il 10 agosto 2026 i Carabinieri della provincia di Bergamo hanno raccolto oltre 400 denunce per reati da &quot;codice rosso&quot;. Numeri che, secondo l&#x27;Arma, fanno emergere situazioni di violenza rimaste nascoste per mesi.</p><p class="card-meta">15 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
