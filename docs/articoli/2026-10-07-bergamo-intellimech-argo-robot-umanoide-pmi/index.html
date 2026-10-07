@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, arriva Argo: l&#x27;umanoide di Intellimech al servizio delle Pmi del territorio — TNT News</title>
+  <meta name="description" content="Il consorzio di meccatronica Intellimech ha acquisito un robot umanoide Unitree H2, battezzato Argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-07-bergamo-intellimech-argo-robot-umanoide-pmi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, arriva Argo: l&#x27;umanoide di Intellimech al servizio delle Pmi del territorio — TNT News">
+  <meta property="og:description" content="Il consorzio di meccatronica Intellimech ha acquisito un robot umanoide Unitree H2, battezzato Argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-07-bergamo-intellimech-argo-robot-umanoide-pmi/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, arriva Argo: l&#x27;umanoide di Intellimech al servizio delle Pmi del territorio — TNT News">
+  <meta name="twitter:description" content="Il consorzio di meccatronica Intellimech ha acquisito un robot umanoide Unitree H2, battezzato Argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Intellimech</span><span class="tag">robotica</span><span class="tag">innovazione industriale</span><span class="tag">Joiint Lab</span></div>
+    <h1>Bergamo, arriva Argo: l&#x27;umanoide di Intellimech al servizio delle Pmi del territorio</h1>
+    <p class="article-summary">Il consorzio di meccatronica Intellimech ha acquisito un robot umanoide Unitree H2, battezzato Argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-07">7 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Si chiama Argo, è alto circa un metro e ottanta, pesa 70 chilogrammi e da questa
+settimana è a disposizione delle piccole e medie imprese bergamasche. Il Consorzio
+Intellimech, realtà di ricerca in meccatronica con sede a Bergamo e 83 aziende
+associate, ha acquisito un robot umanoide prodotto dalla cinese Unitree Robotics
+(modello H2) per capire, nella pratica, cosa significhi davvero portare questo tipo
+di tecnologia dentro una fabbrica.</p>
+
+<h2>Un investimento da 100.000 euro</h2>
+<p>Il robot è arrivato nei laboratori del consorzio a metà settembre e in queste
+settimane è seguito da un piccolo team di ricercatori con competenze diverse:
+programmazione, automazione, informatica, meccatronica e intelligenza artificiale.
+Per ora Argo compie soprattutto movimenti di base, guidati con un joystick, mentre
+il team lavora per renderlo progressivamente più autonomo. L'investimento complessivo,
+circa 100.000 euro, è stato sostenuto dal consorzio nel suo insieme: una cifra che,
+secondo Intellimech, sarebbe stata difficile da affrontare per una singola piccola
+impresa, ma diventa sostenibile grazie alla struttura consortile che ne mette ora i
+risultati a disposizione di tutti gli 83 soci.</p>
+
+<h2>Dove nasce il progetto</h2>
+<p>Argo si sta "ambientando" nel Joiint Lab, il laboratorio congiunto di robotica
+nato dalla collaborazione tra Intellimech e l'Istituto Italiano di Tecnologia, con il
+sostegno di Confindustria Bergamo, Kilometro Rosso e Università di Bergamo. Il
+presidente di Intellimech, Gianluigi Viscardi, ha spiegato che l'obiettivo attuale è
+esplorativo: testare il robot in scenari diversi per capire i tempi e i passaggi
+necessari perché una macchina di questo tipo possa davvero affiancare gli operai in
+azienda, su compiti pericolosi, faticosi o ripetitivi. Il nome scelto non è casuale:
+Argo era la nave che, nella mitologia greca, portò Giasone alla ricerca del vello
+d'oro, un'immagine di viaggio verso una scoperta ancora da completare.</p>
+
+<figure>
+  <svg viewBox="0 0 640 260" role="img" aria-label="Linea del tempo dell'arrivo di Argo a Bergamo: metà settembre 2026 arrivo nel laboratorio Joiint Lab, settimane successive test con movimenti base guidati a joystick, 7 ottobre 2026 disponibilità per gli 83 soci del Consorzio Intellimech. Fonti: BergamoNews, L'Eco di Bergamo." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Il percorso di Argo verso le imprese bergamasche</text>
+    <line x1="80" y1="140" x2="560" y2="140" stroke="currentColor" stroke-width="2"/>
+    <circle cx="100" cy="140" r="9" fill="#2980b9"/>
+    <text x="100" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Metà settembre</text>
+    <text x="100" y="170" text-anchor="middle" font-size="13" fill="currentColor">Arrivo al Joiint Lab</text>
+    <circle cx="320" cy="140" r="9" fill="#e67e22"/>
+    <text x="320" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Settembre-ottobre</text>
+    <text x="320" y="170" text-anchor="middle" font-size="13" fill="currentColor">Test a joystick</text>
+    <circle cx="540" cy="140" r="9" fill="#27ae60"/>
+    <text x="540" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">7 ottobre 2026</text>
+    <text x="540" y="170" text-anchor="middle" font-size="13" fill="currentColor">Disponibile per gli 83 soci</text>
+  </svg>
+  <figcaption>Tappe principali del progetto Argo in Intellimech, secondo le fonti
+  citate (date indicative, basate sulle dichiarazioni del consorzio).</figcaption>
+</figure>
+
+<h2>Le sinergie e i prossimi passi</h2>
+<p>Intellimech, nato oltre venti anni fa come consorzio promosso da Kilometro Rosso
+e Confindustria Bergamo, punta a far dialogare Argo con il software già sviluppato
+insieme al Joiint Lab e con alcuni costruttori italiani di robotica, in modo da
+arrivare ad applicazioni pensate sulle esigenze reali delle aziende del territorio.
+Per ora, come sottolineano dal consorzio, non si tratta di avviare una
+commercializzazione, quanto di capire concretamente quale ruolo questi "facilitatori"
+meccanici potranno avere nelle fabbriche bergamasche, alleggerendo i lavoratori dai
+compiti più gravosi senza sostituirli.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/07/argo-lumanoide-di-intellimech-che-entrera-nelle-aziende-patrimonio-di-tutti-le-accompagniamo-nellindustria-del-futuro/926956" rel="noopener" target="_blank">BergamoNews - Argo, l&#x27;umanoide di Intellimech che entrerà nelle aziende</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/economia/ecco-argo-lumanoide-al-servizio-delle-pmi-bergamasche-o_3967131_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Ecco Argo, l&#x27;umanoide al servizio delle Pmi bergamasche</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="benzina a bergamo: dopo lo sconto eni, distributori a secco in città il taglio dei prezzi deciso da eni (benzina a 1,99 euro, diesel a 2,19) ha scatenato la corsa al rifornimento: diversi distributori enilive a bergamo sono rimasti senza carburante, mentre i gestori lamentano perdite economiche sulle scorte vecchie. economia bergamo carburanti eni price cap confcommercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-02-bergamo-benzina-eni-price-cap-distributori-vuoti/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Benzina a Bergamo: dopo lo sconto Eni, distributori a secco in città</h2><p class="card-summary">Il taglio dei prezzi deciso da Eni (benzina a 1,99 euro, diesel a 2,19) ha scatenato la corsa al rifornimento: diversi distributori Enilive a Bergamo sono rimasti senza carburante, mentre i gestori lamentano perdite economiche sulle scorte vecchie.</p><p class="card-meta">2 ottobre 2026</p></div></a></article><article class="card" data-search="bollette luce e gas, a bergamo rincari fino al 38,3%: famiglie verso 1.079 euro in quattro mesi uno studio di facile.it stima per le famiglie della bergamasca una spesa di circa 1.079 euro per luce e gas tra settembre e dicembre 2026, il 38,3% in più rispetto allo stesso periodo del 2025. federconsumatori e adiconsum invitano a monitorare le bollette e valutare offerte a prezzo bloccato. economia bergamo bollette luce e gas facile.it federconsumatori" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-21-bergamo-bollette-rincari-autunno-383percento/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bollette luce e gas, a Bergamo rincari fino al 38,3%: famiglie verso 1.079 euro in quattro mesi</h2><p class="card-summary">Uno studio di Facile.it stima per le famiglie della Bergamasca una spesa di circa 1.079 euro per luce e gas tra settembre e dicembre 2026, il 38,3% in più rispetto allo stesso periodo del 2025. Federconsumatori e Adiconsum invitano a monitorare le bollette e valutare offerte a prezzo bloccato.</p><p class="card-meta">21 settembre 2026</p></div></a></article><article class="card" data-search="stop al bollo auto dal 2027: per la bergamasca un risparmio stimato in 75 milioni il decreto approvato dal consiglio dei ministri esenta dal 2027 dal bollo le auto fino a 80 kw: in provincia di bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro. economia bergamo bollo auto fisco risparmio famiglie" data-cat="Economia"><a class="card-link" href="../../articoli/2026-09-19-bergamo-bollo-auto-esenzione-2027/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Stop al bollo auto dal 2027: per la Bergamasca un risparmio stimato in 75 milioni</h2><p class="card-summary">Il decreto approvato dal Consiglio dei Ministri esenta dal 2027 dal bollo le auto fino a 80 kW: in provincia di Bergamo coinvolge oltre mezzo milione di veicoli, per un risparmio complessivo stimato in 75 milioni di euro.</p><p class="card-meta">19 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
