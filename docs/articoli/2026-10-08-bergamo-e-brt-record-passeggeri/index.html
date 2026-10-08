@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, l&#x27;e-Brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico — TNT News</title>
+  <meta name="description" content="La linea di bus elettrici rapidi Bergamo-Dalmine-Verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-08-bergamo-e-brt-record-passeggeri/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, l&#x27;e-Brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico — TNT News">
+  <meta property="og:description" content="La linea di bus elettrici rapidi Bergamo-Dalmine-Verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-08-bergamo-e-brt-record-passeggeri/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, l&#x27;e-Brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico — TNT News">
+  <meta name="twitter:description" content="La linea di bus elettrici rapidi Bergamo-Dalmine-Verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">e-Brt</span><span class="tag">Atb</span><span class="tag">mobilità sostenibile</span><span class="tag">Dalmine</span></div>
+    <h1>Bergamo, l&#x27;e-Brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico</h1>
+    <p class="article-summary">La linea di bus elettrici rapidi Bergamo-Dalmine-Verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-08">8 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Lunedì 5 ottobre l'e-Brt, la linea di bus elettrici rapidi che collega Bergamo,
+Dalmine e Verdellino, ha registrato il suo record di utenti in un solo giorno:
+7.311 passeggeri. Il dato, comunicato da Atb, arriva a poco più di due mesi
+dall'avvio del servizio e conferma una crescita costante della domanda, legata
+soprattutto agli spostamenti di studenti nei giorni feriali.</p>
+
+<h2>Un servizio ancora giovane, numeri in crescita</h2>
+<p>L'e-Brt è entrato in funzione il 3 agosto 2026: è il primo corridoio di
+trasporto rapido con autobus interamente elettrici realizzato in Italia con i
+fondi del Piano nazionale di ripresa e resilienza. Il percorso, lungo circa 30
+chilometri, collega le stazioni di Bergamo e Verdellino passando per Dalmine,
+con il 73% del tracciato su corsia riservata. Il servizio è garantito da 15
+autobus articolati completamente elettrici, con una capacità fino a 120
+passeggeri ciascuno.</p>
+<p>Secondo i dati diffusi da Atb, nella settimana del record la media è stata
+superiore a 39.000 passeggeri complessivi, con una media nei giorni feriali di
+6.600 utenti al giorno: il valore di lunedì 5 ottobre, 7.311 persone, si colloca
+quindi sensibilmente sopra la media del periodo.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: media dei passeggeri dell'e-Brt nei giorni feriali pari a 6.600 contro il record di 7.311 passeggeri registrato lunedì 5 ottobre 2026. Fonte: L'Eco di Bergamo, dati Atb." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">e-Brt: il record di lunedì 5 ottobre</text>
+    <line x1="80" y1="260" x2="580" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="160" y="98" width="120" height="162" fill="#2980b9"/>
+    <text x="220" y="88" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">6.600</text>
+    <text x="220" y="285" text-anchor="middle" font-size="13" fill="currentColor">Media giorni feriali</text>
+    <rect x="380" y="80" width="120" height="180" fill="#27ae60"/>
+    <text x="440" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">7.311</text>
+    <text x="440" y="285" text-anchor="middle" font-size="13" fill="currentColor">Record 5 ottobre</text>
+    <text x="440" y="300" text-anchor="middle" font-size="12" fill="currentColor">(lunedì)</text>
+  </svg>
+  <figcaption>Confronto tra la media dei passeggeri nei giorni feriali e il
+  record giornaliero del 5 ottobre 2026 (valori assoluti dichiarati da Atb).
+  Fonte: L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>Più informazioni, anche in inglese</h2>
+<p>Ad accompagnare l'annuncio del record, Atb ha introdotto alcune novità per i
+passeggeri. Alle pensiline della stazione di Bergamo, di Bergamo Caniana e di
+Dalmine UniBg-Point, le bacheche digitali touch mostrano ora le informazioni
+anche in inglese, selezionabili tramite le bandiere delle due lingue: una scelta
+pensata per gli studenti stranieri e i turisti che usano la linea, soprattutto
+nella tratta che porta all'Università di Bergamo. La stessa funzione, spiega
+l'azienda, sarà estesa anche agli schermi delle altre fermate dell'e-Brt.</p>
+<p>Da questa settimana, inoltre, i dati di utilizzo della linea sono consultabili
+pubblicamente sul sito di Atb, con il totale dei passeggeri trasportati,
+l'andamento dell'ultima settimana e lo storico del servizio, aggiornati a
+inizio di ogni settimana. È stata attivata anche una pagina dedicata alla
+raccolta di suggerimenti da parte di passeggeri e cittadini.</p>
+
+<h2>Il commento di Atb</h2>
+<blockquote>I numeri raccontano solo una parte della storia.</blockquote>
+<p>Lo ha detto Stefano Negretti, responsabile dell'area commerciale di Atb,
+commentando il record di utenza. Negretti ha sottolineato che, al di là delle
+cifre, l'obiettivo dell'azienda è continuare a migliorare l'accessibilità del
+servizio, a partire dalle informazioni multilingue alle fermate, da completare
+"velocemente" su tutta la linea.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/pianura/e-brt-lunedi-nuovo-record-di-passeggeri-7311-o_3967955_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - E-Brt, lunedì nuovo record di passeggeri: 7.311</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/bus-elettrici-xt37lex2" rel="noopener" target="_blank">Il Giorno - Bus 100% elettrici e pensiline hi-tech, Bergamo è la prima in Italia</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, il rientro a scuola diventa il primo vero test del traffico: e-brt pieno, sciopero e cantieri con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-brt a pieno carico, uno sciopero dei bus arriva e diversi cantieri aperti in città. trasporti bergamo e-brt scuola traffico sciopero" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-14-bergamo-scuola-ebrt-sciopero-traffico/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri</h2><p class="card-summary">Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.</p><p class="card-meta">14 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, da lunedì più corse sull&#x27;e-brt e debutta la linea kr per il kilometro rosso da lunedì 14 settembre la rete e-brt bergamo-dalmine-verdellino aumenta le corse e nasce la linea kr, il collegamento dedicato che porta al parco scientifico del kilometro rosso a stezzano. trasporti bergamo atb e-brt kilometro rosso stezzano" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso</h2><p class="card-summary">Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.</p><p class="card-meta">13 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
