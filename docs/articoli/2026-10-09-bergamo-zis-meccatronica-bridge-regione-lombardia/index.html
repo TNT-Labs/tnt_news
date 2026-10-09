@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo diventa la prima Zona di Innovazione e Sviluppo della Lombardia, puntando sulla meccatronica — TNT News</title>
+  <meta name="description" content="Regione Lombardia ha riconosciuto il progetto bergamasco B.R.I.D.g.E., con hub al Kilometro Rosso, come prima Zona di Innovazione e Sviluppo (Zis) lombarda dedicata alla meccatronica: punteggio 97/100 e realizzazione prevista entro il primo trimestre 2027.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-09-bergamo-zis-meccatronica-bridge-regione-lombardia/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo diventa la prima Zona di Innovazione e Sviluppo della Lombardia, puntando sulla meccatronica — TNT News">
+  <meta property="og:description" content="Regione Lombardia ha riconosciuto il progetto bergamasco B.R.I.D.g.E., con hub al Kilometro Rosso, come prima Zona di Innovazione e Sviluppo (Zis) lombarda dedicata alla meccatronica: punteggio 97/100 e realizzazione prevista entro il primo trimestre 2027.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-09-bergamo-zis-meccatronica-bridge-regione-lombardia/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo diventa la prima Zona di Innovazione e Sviluppo della Lombardia, puntando sulla meccatronica — TNT News">
+  <meta name="twitter:description" content="Regione Lombardia ha riconosciuto il progetto bergamasco B.R.I.D.g.E., con hub al Kilometro Rosso, come prima Zona di Innovazione e Sviluppo (Zis) lombarda dedicata alla meccatronica: punteggio 97/100 e realizzazione prevista entro il primo trimestre 2027.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Meccatronica</span><span class="tag">Kilometro Rosso</span><span class="tag">Innovazione</span><span class="tag">Intellimech</span></div>
+    <h1>Bergamo diventa la prima Zona di Innovazione e Sviluppo della Lombardia, puntando sulla meccatronica</h1>
+    <p class="article-summary">Regione Lombardia ha riconosciuto il progetto bergamasco B.R.I.D.g.E., con hub al Kilometro Rosso, come prima Zona di Innovazione e Sviluppo (Zis) lombarda dedicata alla meccatronica: punteggio 97/100 e realizzazione prevista entro il primo trimestre 2027.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-09">9 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Bergamo è ufficialmente la prima Zona di Innovazione e Sviluppo (Zis)
+riconosciuta da Regione Lombardia. L'annuncio è arrivato giovedì 8 ottobre al
+Kilometro Rosso, dove l'assessore regionale allo Sviluppo economico Guido
+Guidesi ha presentato il progetto bergamasco B.R.I.D.g.E. (Boosting Research
+&amp; Innovation for the Development of a Mechatronic Ecosystem), dedicato alla
+meccatronica, che ha ottenuto un punteggio di 97 su 100 nella valutazione
+regionale. La piena realizzazione è prevista entro il primo trimestre del 2027.</p>
+
+<h2>Una rete di territorio, un modello "Hub &amp; Spoke"</h2>
+<p>La candidatura è nata nell'ambito del Tavolo Bergamo 2030 e porta la firma di
+una rete di soggetti del territorio: Consorzio Intellimech, Confindustria
+Bergamo, Camera di Commercio di Bergamo, Università degli Studi di Bergamo,
+Imprese &amp; Territorio e Kilometro Rosso. Alla presentazione erano presenti,
+tra gli altri, il presidente di Confindustria Bergamo Matteo Zanetti, il
+presidente del Consorzio Intellimech Gianluigi Viscardi, il presidente della
+Camera di Commercio Giovanni Zambonelli, il rettore dell'Università di Bergamo
+Sergio Cavalieri e il consigliere delegato del Kilometro Rosso Roberto
+Vavassori.</p>
+<p>Il modello operativo scelto è di tipo "Hub &amp; Spoke": un presidio centrale
+al Kilometro Rosso Innovation District, affiancato da una rete di laboratori
+distribuiti sul territorio. Tra questi, il potenziamento del JOiiNT Lab, il
+rafforzamento di Lisa Tech per la manifattura additiva e un nuovo laboratorio
+al Point di Dalmine dedicato alla digitalizzazione dei cantieri.</p>
+
+<h2>Tre direttrici di lavoro</h2>
+<p>Il progetto si articola su tre ambiti: sistemi meccatronici intelligenti in
+grado di interagire con persone e ambienti (Human-System Interaction), processi
+produttivi più efficienti e sostenibili (Sustainable Systems) e la gestione
+sicura e condivisa dei dati industriali (Industrial Data Space). L'obiettivo,
+secondo i promotori, è rendere più semplice l'accesso delle piccole e medie
+imprese a competenze avanzate e spazi di sperimentazione, aumentando le
+possibilità di successo nei bandi nazionali ed europei.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: filiera della meccatronica nella provincia di Bergamo secondo la Camera di Commercio. 12.183 imprese fornitrici, 382 imprese produttrici di macchine e impianti, 2.099 imprese di manutenzione, riparazione, commercio e installazione. Fonte: Camera di Commercio di Bergamo, dati citati da L'Eco di Bergamo e BergamoNews." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">La filiera della meccatronica bergamasca</text>
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="110" y="70" width="110" height="190" fill="#2980b9"/>
+    <text x="165" y="60" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">12.183</text>
+    <text x="165" y="280" text-anchor="middle" font-size="12" fill="currentColor">Imprese fornitrici</text>
+    <rect x="280" y="245" width="110" height="15" fill="#27ae60"/>
+    <text x="335" y="238" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">382</text>
+    <text x="335" y="280" text-anchor="middle" font-size="12" fill="currentColor">Produttrici di macchine</text>
+    <rect x="450" y="225" width="110" height="35" fill="#e67e22"/>
+    <text x="505" y="218" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">2.099</text>
+    <text x="505" y="280" text-anchor="middle" font-size="12" fill="currentColor">Manutenzione e commercio</text>
+  </svg>
+  <figcaption>Numero di imprese della filiera meccatronica in provincia di
+  Bergamo, per categoria. Dati della Camera di Commercio di Bergamo, citati da
+  L'Eco di Bergamo e BergamoNews.</figcaption>
+</figure>
+
+<h2>Il nodo del costo dell'energia</h2>
+<p>Nel suo intervento, Guidesi ha collegato il futuro della Zis al tema del
+costo dell'energia per le imprese, criticando i tempi della Commissione
+Europea nel valutare le proposte lombarde sul tema.</p>
+<blockquote>Se il costo dell'energia non viene sistemato, la corda si
+spezza.</blockquote>
+<p>Lo ha dichiarato l'assessore regionale, chiedendo maggiore trasparenza nel
+calcolo dei costi energetici a livello nazionale. Sulla stessa linea si è
+espresso il presidente di Confindustria Bergamo Matteo Zanetti, secondo il
+quale i rincari energetici, insieme al rialzo del costo del denaro, rischiano
+di frenare gli investimenti industriali: Zanetti ha rivolto un appello alle
+banche perché aumentino l'entità dei fidi e riducano i tempi di risposta alle
+imprese.</p>
+
+<h2>Prossimi passi</h2>
+<p>Guidesi ha indicato un orizzonte strategico che arriva fino al 2030-2050,
+auspicando che altre aree della Lombardia possano ottenere in futuro lo stesso
+riconoscimento di Zona di Innovazione e Sviluppo. Per Bergamo, i prossimi mesi
+serviranno a definire nel dettaglio azioni, infrastrutture e servizi necessari
+a completare il progetto entro il primo trimestre del 2027.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/economia/regione-riconosce-la-prima-zona-di-innovazione-e-sviluppo-sara-bergamo-il-centr-o_3968026_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Regione riconosce la prima zona di innovazione e sviluppo: sarà Bergamo il centro della meccatronica lombarda</a></li><li><a href="https://www.bergamonews.it/2026/10/09/ecco-la-zis-meccatronica-di-bergamo-vogliamo-essere-hub-europeo-ma-senza-interventi-sul-costo-dellenergia-la-corda-si-spezza/927653/" rel="noopener" target="_blank">BergamoNews - Ecco la Zis Meccatronica di Bergamo: &quot;Vogliamo essere hub europeo, ma senza interventi sul costo dell&#x27;energia la corda si spezza&quot;</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="kilometro rosso, il direttore majorana: &quot;portare qui la facoltà di ingegneria sarebbe la svolta per bergamo&quot; in un&#x27;intervista il direttore del parco scientifico kilometro rosso, salvatore majorana, propone di trasferire nel campus la facoltà di ingegneria dell&#x27;università di bergamo e immagina un&#x27;evoluzione della struttura in fondazione aperta al territorio. economia bergamo kilometro rosso università di bergamo innovazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-07-27-kilometro-rosso-bergamo-universita-ingegneria-majorana/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Kilometro Rosso, il direttore Majorana: &quot;Portare qui la facoltà di Ingegneria sarebbe la svolta per Bergamo&quot;</h2><p class="card-summary">In un&#x27;intervista il direttore del parco scientifico Kilometro Rosso, Salvatore Majorana, propone di trasferire nel campus la facoltà di Ingegneria dell&#x27;Università di Bergamo e immagina un&#x27;evoluzione della struttura in Fondazione aperta al territorio.</p><p class="card-meta">27 luglio 2026</p></div></a></article><article class="card" data-search="bergamo, arriva argo: l&#x27;umanoide di intellimech al servizio delle pmi del territorio il consorzio di meccatronica intellimech ha acquisito un robot umanoide unitree h2, battezzato argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile. economia bergamo intellimech robotica innovazione industriale joiint lab" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-07-bergamo-intellimech-argo-robot-umanoide-pmi/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, arriva Argo: l&#x27;umanoide di Intellimech al servizio delle Pmi del territorio</h2><p class="card-summary">Il consorzio di meccatronica Intellimech ha acquisito un robot umanoide Unitree H2, battezzato Argo, per sperimentare in concreto l&#x27;automazione nelle imprese bergamasche: un investimento da 100.000 euro reso possibile dalla struttura consortile.</p><p class="card-meta">7 ottobre 2026</p></div></a></article><article class="card" data-search="benzina a bergamo: dopo lo sconto eni, distributori a secco in città il taglio dei prezzi deciso da eni (benzina a 1,99 euro, diesel a 2,19) ha scatenato la corsa al rifornimento: diversi distributori enilive a bergamo sono rimasti senza carburante, mentre i gestori lamentano perdite economiche sulle scorte vecchie. economia bergamo carburanti eni price cap confcommercio" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-02-bergamo-benzina-eni-price-cap-distributori-vuoti/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Benzina a Bergamo: dopo lo sconto Eni, distributori a secco in città</h2><p class="card-summary">Il taglio dei prezzi deciso da Eni (benzina a 1,99 euro, diesel a 2,19) ha scatenato la corsa al rifornimento: diversi distributori Enilive a Bergamo sono rimasti senza carburante, mentre i gestori lamentano perdite economiche sulle scorte vecchie.</p><p class="card-meta">2 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
