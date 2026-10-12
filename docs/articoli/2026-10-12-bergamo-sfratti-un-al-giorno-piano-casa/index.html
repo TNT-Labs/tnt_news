@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, uno sfratto al giorno: i sindacati chiedono un piano casa — TNT News</title>
+  <meta name="description" content="Nel 2025 in provincia di Bergamo sono stati eseguiti 360 sfratti, quasi uno al giorno, in leggero aumento rispetto al 2024. CGIL, CISL e UIL chiedono un piano casa nazionale e più edilizia pubblica per fermare l&#x27;emergenza abitativa.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-12-bergamo-sfratti-un-al-giorno-piano-casa/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, uno sfratto al giorno: i sindacati chiedono un piano casa — TNT News">
+  <meta property="og:description" content="Nel 2025 in provincia di Bergamo sono stati eseguiti 360 sfratti, quasi uno al giorno, in leggero aumento rispetto al 2024. CGIL, CISL e UIL chiedono un piano casa nazionale e più edilizia pubblica per fermare l&#x27;emergenza abitativa.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-12-bergamo-sfratti-un-al-giorno-piano-casa/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, uno sfratto al giorno: i sindacati chiedono un piano casa — TNT News">
+  <meta name="twitter:description" content="Nel 2025 in provincia di Bergamo sono stati eseguiti 360 sfratti, quasi uno al giorno, in leggero aumento rispetto al 2024. CGIL, CISL e UIL chiedono un piano casa nazionale e più edilizia pubblica per fermare l&#x27;emergenza abitativa.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/attualita/">Attualità</a><span class="tag">Bergamo</span><span class="tag">casa</span><span class="tag">sfratti</span><span class="tag">sindacati</span><span class="tag">lavoro</span></div>
+    <h1>Bergamo, uno sfratto al giorno: i sindacati chiedono un piano casa</h1>
+    <p class="article-summary">Nel 2025 in provincia di Bergamo sono stati eseguiti 360 sfratti, quasi uno al giorno, in leggero aumento rispetto al 2024. CGIL, CISL e UIL chiedono un piano casa nazionale e più edilizia pubblica per fermare l&#x27;emergenza abitativa.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-12">12 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>In provincia di Bergamo nel 2025 sono stati eseguiti 360 sfratti, quasi uno
+al giorno e in leggero aumento (+3,7%) rispetto ai 347 del 2024. Lo rivela
+l'ultimo aggiornamento del Ministero dell'Interno, ripreso da L'Eco di
+Bergamo, che fotografa un'emergenza abitativa ancora lontana dal rientrare.
+Le richieste di esecuzione presentate all'ufficiale giudiziario sono state
+1.842, mentre i provvedimenti di sfratto emessi dal giudice sono scesi a 486,
+quasi 310 in meno rispetto all'anno precedente: un calo legato soprattutto
+allo smaltimento dell'arretrato accumulato durante il blocco degli sfratti
+imposto in piena pandemia, tra il 2020 e il 2021.</p>
+
+<h2>Morosità, la causa principale</h2>
+<p>Nella grande maggioranza dei casi, circa l'80%, il provvedimento nasce da
+morosità: l'inquilino non riesce più a pagare il canone. Il restante 20% è
+legato alla cosiddetta "finita locazione", quando il proprietario rientra in
+possesso dell'immobile per usarlo direttamente, destinarlo ad affitti brevi o
+metterlo in vendita. Un fenomeno collaterale, segnalato dagli stessi dati, è
+la crescita del mercato delle stanze singole, scelte sempre più spesso da chi
+non può permettersi un alloggio intero.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: sfratti eseguiti in provincia di Bergamo per anno. 2018: 668; 2022: 665; 2023: 495; 2024: 347; 2025: 360. Fonte Ministero dell'Interno, dati ripresi da L'Eco di Bergamo, 12 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Sfratti eseguiti in provincia di Bergamo</text>
+    <line x1="50" y1="270" x2="620" y2="270" stroke="currentColor" stroke-width="2"/>
+    <rect x="70" y="80" width="80" height="190" fill="#2980b9"/>
+    <text x="110" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">668</text>
+    <text x="110" y="288" text-anchor="middle" font-size="12" fill="currentColor">2018</text>
+    <rect x="180" y="81" width="80" height="189" fill="#27ae60"/>
+    <text x="220" y="71" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">665</text>
+    <text x="220" y="288" text-anchor="middle" font-size="12" fill="currentColor">2022</text>
+    <rect x="290" y="129" width="80" height="141" fill="#c0392b"/>
+    <text x="330" y="119" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">495</text>
+    <text x="330" y="288" text-anchor="middle" font-size="12" fill="currentColor">2023</text>
+    <rect x="400" y="171" width="80" height="99" fill="#8e44ad"/>
+    <text x="440" y="161" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">347</text>
+    <text x="440" y="288" text-anchor="middle" font-size="12" fill="currentColor">2024</text>
+    <rect x="510" y="168" width="80" height="102" fill="#e67e22"/>
+    <text x="550" y="158" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">360</text>
+    <text x="550" y="288" text-anchor="middle" font-size="12" fill="currentColor">2025</text>
+  </svg>
+  <figcaption>Numero di sfratti eseguiti ogni anno in provincia di Bergamo
+  (dati Ministero dell'Interno, anni selezionati 2018-2025). Dopo il crollo
+  del biennio 2023-2024, legato anche allo smaltimento dell'arretrato
+  pandemico, il 2025 segna una nuova, lieve risalita. Fonte: L'Eco di
+  Bergamo, 12 ottobre 2026.</figcaption>
+</figure>
+
+<h2>Un problema che riguarda tutta la Lombardia</h2>
+<p>Il dato bergamasco si inserisce in un quadro regionale più ampio: secondo
+i dati del Ministero dell'Interno relativi all'anno precedente, in Lombardia
+venivano emessi circa 18 provvedimenti di sfratto al giorno ed eseguiti circa
+13, con le richieste di esecuzione in forte crescita rispetto alla media
+nazionale. Anche l'osservatorio sui contratti d'affitto, citato dal
+sindacato inquilini Sunia, racconta la stessa tendenza: i contratti di lungo
+periodo sono in calo, mentre crescono rapidamente quelli transitori, più
+redditizi per i proprietari ma meno stabili per chi li firma.</p>
+
+<h2>Le richieste dei sindacati</h2>
+<p>Per i sindacati confederali bergamaschi il nodo centrale resta il
+divario tra stipendi e costo degli affitti. Marco Toscano, segretario
+generale della Cgil di Bergamo, chiede un piano casa nazionale che rilanci
+l'edilizia residenziale pubblica, insieme ad accordi territoriali sui canoni
+concordati e a incentivi fiscali per i proprietari che scelgono questa
+strada. Francesco Corna, segretario generale della Cisl bergamasca, propone
+di destinare il Superbonus al recupero di alloggi pubblici, con assegnazioni
+di lungo periodo sul modello del vecchio Piano Fanfani, coinvolgendo anche
+gli enti bilaterali per trovare risorse a livello locale.</p>
+
+<blockquote>Con 1.200-1.300 euro al mese un lavoratore non riesce a permettersi
+una casa: serve una vera riforma abitativa, con il coinvolgimento del mondo
+bancario e un mix sociale nell'edilizia residenziale per evitare la
+formazione di ghetti.</blockquote>
+
+<p>La sintesi, attribuita a Pasquale Papaianni, coordinatore territoriale
+della Uil di Bergamo, riassume la posizione comune dei sindacati: senza un
+intervento pubblico più deciso sul fronte della casa, il numero di famiglie
+bergamasche che rischiano lo sfratto per motivi economici difficilmente
+scenderà nei prossimi anni.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/sfratti-uno-al-giorno-stipendi-bassi-urge-un-piano-casa-o_3970749_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Sfratti, uno al giorno: «Stipendi bassi, urge un Piano casa»</a></li><li><a href="https://www.ilgiorno.it/cronaca/casa-13-sfratti-al-giorno-e-leffetto-fuga-dai-contratti-lunghi-o89d6fs1" rel="noopener" target="_blank">Il Giorno - Casa, 13 sfratti al giorno e l&#x27;effetto fuga dai contratti lunghi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;conca fiorita&quot; all&#x27;ex sacro cuore nell&#x27;ex complesso del sacro cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati. attualità bergamo scuola infanzia pnrr sacro cuore" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-10-03-bergamo-polo-infanzia-conca-fiorita-sacro-cuore/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">Bergamo, inaugurato il nuovo polo per l&#x27;infanzia &quot;Conca Fiorita&quot; all&#x27;ex Sacro Cuore</h2><p class="card-summary">Nell&#x27;ex complesso del Sacro Cuore ha aperto il terzo polo 0-6 anni della città: nido e scuola dell&#x27;infanzia condividono spazi e progetti educativi, con 50 posti al nido già tutti occupati.</p><p class="card-meta">3 ottobre 2026</p></div></a></article><article class="card" data-search="a bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «difficile da applicare» nelle scuole della bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. mentre il governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione. attualità bergamo scuola studenti stranieri integrazione" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-09-22-bergamo-scuola-studenti-stranieri-tetto-30percento/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">A Bergamo uno studente su cinque è straniero, i presidi sul tetto del 30%: «Difficile da applicare»</h2><p class="card-summary">Nelle scuole della Bergamasca gli studenti con cittadinanza non italiana sono 25.038, quasi il 20% del totale. Mentre il Governo lavora a una legge che renda vincolante il tetto del 30% per classe, i presidi bergamaschi segnalano difficoltà applicative e chiedono più risorse per l&#x27;integrazione.</p><p class="card-meta">22 settembre 2026</p></div></a></article><article class="card" data-search="a treviglio la scuola riapre il 14 settembre, il comune attiva un cre per le famiglie in tutta la lombardia le lezioni ripartono lunedì 14 settembre 2026: a treviglio il comune e la fondazione portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro. attualità treviglio scuola calendario scolastico bergamo" data-cat="Attualità"><a class="card-link" href="../../articoli/2026-08-20-treviglio-scuola-14-settembre-cre/"><div class="card-body"><div class="tags"><span class="tag">Attualità</span></div><h2 class="card-title">A Treviglio la scuola riapre il 14 settembre, il Comune attiva un Cre per le famiglie</h2><p class="card-summary">In tutta la Lombardia le lezioni ripartono lunedì 14 settembre 2026: a Treviglio il Comune e la Fondazione Portaluppi hanno organizzato un centro estivo di inizio settembre per venire incontro alle famiglie con genitori al lavoro.</p><p class="card-meta">20 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
