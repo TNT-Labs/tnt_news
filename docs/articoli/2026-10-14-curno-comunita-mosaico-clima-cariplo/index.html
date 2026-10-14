@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Cinque Comuni della Bergamasca uniti contro la crisi climatica: nasce &quot;Comunità Mosaico&quot; — TNT News</title>
+  <meta name="description" content="Curno, Mozzo, Ponte San Pietro, Bonate Sopra e Treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da Fondazione Cariplo: rinaturalizzazione del Brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-14-curno-comunita-mosaico-clima-cariplo/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Cinque Comuni della Bergamasca uniti contro la crisi climatica: nasce &quot;Comunità Mosaico&quot; — TNT News">
+  <meta property="og:description" content="Curno, Mozzo, Ponte San Pietro, Bonate Sopra e Treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da Fondazione Cariplo: rinaturalizzazione del Brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-14-curno-comunita-mosaico-clima-cariplo/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cinque Comuni della Bergamasca uniti contro la crisi climatica: nasce &quot;Comunità Mosaico&quot; — TNT News">
+  <meta name="twitter:description" content="Curno, Mozzo, Ponte San Pietro, Bonate Sopra e Treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da Fondazione Cariplo: rinaturalizzazione del Brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Bergamo</span><span class="tag">Curno</span><span class="tag">clima</span><span class="tag">Fondazione Cariplo</span></div>
+    <h1>Cinque Comuni della Bergamasca uniti contro la crisi climatica: nasce &quot;Comunità Mosaico&quot;</h1>
+    <p class="article-summary">Curno, Mozzo, Ponte San Pietro, Bonate Sopra e Treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da Fondazione Cariplo: rinaturalizzazione del Brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-14">14 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>
+Cinque Comuni dell'hinterland bergamasco hanno unito le forze per affrontare
+insieme gli effetti del cambiamento climatico. Curno, Mozzo, Ponte San
+Pietro, Bonate Sopra e Treviolo hanno presentato "Comunità Mosaico", una
+strategia di transizione climatica intercomunale che prevede 24 azioni da
+realizzare nei prossimi tre anni, per un investimento complessivo di quasi
+2,5 milioni di euro.
+</p>
+
+<h2>Un progetto selezionato da Fondazione Cariplo</h2>
+<p>
+"Comunità Mosaico", con Curno come Comune capofila, è stato scelto
+nell'ambito della quarta e ultima edizione della call for ideas "Strategia
+Clima" promossa da Fondazione Cariplo, che ha selezionato in tutto quattro
+progetti in Lombardia per un budget complessivo di 6,47 milioni di euro, da
+realizzare nei prossimi tre anni. Per il solo progetto bergamasco, la
+Fondazione stanzia 1,47 milioni di euro; la parte restante è a carico dei
+cinque Comuni, in proporzione alle azioni previste sul proprio territorio.
+Il programma, attivo dal 2019 attraverso l'iniziativa F2C - Fondazione
+Cariplo per il Clima, conta oggi dodici strategie di transizione climatica
+in corso in Lombardia.
+</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: ripartizione dei 2,5 milioni di euro del progetto Comunità Mosaico, 1,47 milioni da Fondazione Cariplo e circa 1,03 milioni dai cinque Comuni">
+    <text x="320" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a1a">Chi finanzia "Comunità Mosaico" (totale: 2,5 mln €)</text>
+
+    <line x1="80" y1="260" x2="580" y2="260" stroke="#888" stroke-width="1"/>
+
+    <rect x="140" y="80" width="120" height="180" fill="#2f7d4f"/>
+    <text x="200" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">1,47 mln €</text>
+    <text x="200" y="282" text-anchor="middle" font-size="13" fill="#1a1a1a">Fondazione Cariplo</text>
+
+    <rect x="360" y="134" width="120" height="126" fill="#4a90c2"/>
+    <text x="420" y="124" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">1,03 mln €</text>
+    <text x="420" y="282" text-anchor="middle" font-size="13" fill="#1a1a1a">I cinque Comuni</text>
+
+    <text x="320" y="306" text-anchor="middle" font-size="11" fill="#555">Fonte: BergamoNews, 14/10/2026 - importi arrotondati</text>
+  </svg>
+  <figcaption>
+    Ripartizione del finanziamento complessivo di "Comunità Mosaico": 1,47
+    milioni di euro arrivano da Fondazione Cariplo, il resto è a carico dei
+    cinque Comuni coinvolti in proporzione alle azioni sul proprio
+    territorio. Fonte: BergamoNews.
+  </figcaption>
+</figure>
+
+<h2>Dal fiume Brembo alle piazze rifugio dal caldo</h2>
+<p>
+Le azioni previste partono dai luoghi della vita quotidiana. Sul fronte
+dell'acqua, è in programma la rinaturalizzazione di aree tra Curno,
+Treviolo e Bonate Sopra per ridurre il rischio idraulico e recuperare gli
+habitat fluviali del Brembo, oltre a una vasca di laminazione tra Curno e
+Mozzo per trattenere le acque meteoriche ed evitare allagamenti.
+</p>
+<p>
+Sul verde urbano, Curno prevede una forestazione con oltre 1.500 nuovi
+alberi e la riqualificazione di piazza Giovanni XXIII come "rifugio
+climatico", con nuove aree verdi e strutture ombreggianti per contrastare
+le ondate di calore estremo. Tra le altre misure figurano un biciplan
+sovracomunale per gli spostamenti a piedi e in bicicletta, un impianto
+fotovoltaico comunitario a Curno e lo sviluppo di una comunità energetica
+rinnovabile con attenzione alla povertà energetica.
+</p>
+
+<h2>Le voci dei sindaci</h2>
+<blockquote>
+  "Mettere in comune competenze e risorse è essenziale per affrontare sfide
+  che un solo territorio non può gestire. Il futuro si costruisce insieme."
+</blockquote>
+<p>
+Lo ha dichiarato il sindaco di Mozzo, Gianluigi Ubiali. Per il sindaco di
+Curno, Andrea Saccogna, il progetto "supera i confini del singolo Comune e
+trasforma lo studio del territorio in azioni concrete". Anche Federico
+Beffa, project leader per il Clima di Fondazione Cariplo, ha sottolineato
+che "la transizione climatica diventa concreta quando parte dai territori
+e coinvolge le comunità".
+</p>
+
+<h2>Climate Days, un mese di iniziative gratuite</h2>
+<p>
+Per accompagnare il lancio della strategia, i cinque Comuni hanno
+organizzato i "Climate Days", prima rassegna diffusa sul territorio con
+incontri, passeggiate naturalistiche e attività culturali gratuite per
+tutte le età, in programma dall'11 ottobre al 28 novembre tra Curno, Mozzo,
+Treviolo, Bonate Sopra e Ponte San Pietro. Tra gli appuntamenti in
+calendario, una camminata di biomonitoraggio lungo il Brembo, un forum
+tecnico con l'Università di Bergamo e l'ERSAF sui territori resilienti e
+un incontro pubblico sulla transizione energetica in Italia.
+</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/14/dagli-habitat-del-brembo-alla-piazza-rifugio-dal-caldo-estremo-cinque-comuni-insieme-contro-la-crisi-climatica/928819/" rel="noopener" target="_blank">BergamoNews - Dagli habitat del Brembo alla piazza rifugio dal caldo estremo: cinque Comuni insieme contro la crisi climatica</a></li><li><a href="https://www.renewablematter.eu/adattamento-climatico-sfida-passa-territori-lombardi" rel="noopener" target="_blank">Renewable Matter - L&#x27;adattamento climatico, una sfida che passa dai territori lombardi</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="diesel euro 5, rinviato al 2027 il blocco della circolazione a bergamo il divieto di circolazione per le auto diesel euro 5 nelle città lombarde sopra i 100mila abitanti, compresa bergamo, sarebbe dovuto scattare proprio oggi: un decreto legge lo ha rinviato di un anno, al 1° ottobre 2027. a bergamo e provincia sono circa 60mila i veicoli coinvolti. ambiente bergamo diesel euro 5 qualità dell&#x27;aria traffico decreto" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-10-01-bergamo-diesel-euro5-blocco-rinviato-2027/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Diesel Euro 5, rinviato al 2027 il blocco della circolazione a Bergamo</h2><p class="card-summary">Il divieto di circolazione per le auto diesel Euro 5 nelle città lombarde sopra i 100mila abitanti, compresa Bergamo, sarebbe dovuto scattare proprio oggi: un decreto legge lo ha rinviato di un anno, al 1° ottobre 2027. A Bergamo e provincia sono circa 60mila i veicoli coinvolti.</p><p class="card-meta">1 ottobre 2026</p></div></a></article><article class="card" data-search="scolmatore del tremana a bergamo, cantiere in anticipo di due mesi i lavori del nuovo canale scolmatore in viale giulio cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni. ambiente bergamo viale giulio cesare scolmatore tremana alluvione viabilità" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-09-26-bergamo-scolmatore-tremana-giulio-cesare/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Scolmatore del Tremana a Bergamo, cantiere in anticipo di due mesi</h2><p class="card-summary">I lavori del nuovo canale scolmatore in viale Giulio Cesare, nati dopo l&#x27;alluvione del settembre 2024, chiudono con circa due mesi di anticipo: la strada tornerà a doppio senso entro pochi giorni.</p><p class="card-meta">26 settembre 2026</p></div></a></article><article class="card" data-search="allerta meteo arancione su bergamo: parchi cittadini chiusi mercoledì 9 settembre la protezione civile della lombardia ha diramato un&#x27;allerta arancione per temporali che interessa anche il territorio di bergamo. il comune ha chiuso in via precauzionale tutti i parchi cittadini per mercoledì 9 settembre, fino a cessata emergenza. ambiente bergamo allerta meteo maltempo protezione civile" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-09-09-bergamo-allerta-arancione-parchi-chiusi/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Allerta meteo arancione su Bergamo: parchi cittadini chiusi mercoledì 9 settembre</h2><p class="card-summary">La Protezione civile della Lombardia ha diramato un&#x27;allerta arancione per temporali che interessa anche il territorio di Bergamo. Il Comune ha chiuso in via precauzionale tutti i parchi cittadini per mercoledì 9 settembre, fino a cessata emergenza.</p><p class="card-meta">9 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
