@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Cantieri ferroviari in ritardo: il Consiglio comunale di Bergamo chiede tempi certi al Ministero — TNT News</title>
+  <meta name="description" content="Il Consiglio comunale di Bergamo ha approvato all&#x27;unanimità una mozione che impegna il Comune a chiedere al Ministero delle Infrastrutture scadenze certe sui cantieri ferroviari in ritardo. Via libera anche al monitoraggio dell&#x27;e-Brt per 120 giorni.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-15-bergamo-cantieri-ferroviari-consiglio-comunale-e-brt/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Cantieri ferroviari in ritardo: il Consiglio comunale di Bergamo chiede tempi certi al Ministero — TNT News">
+  <meta property="og:description" content="Il Consiglio comunale di Bergamo ha approvato all&#x27;unanimità una mozione che impegna il Comune a chiedere al Ministero delle Infrastrutture scadenze certe sui cantieri ferroviari in ritardo. Via libera anche al monitoraggio dell&#x27;e-Brt per 120 giorni.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-15-bergamo-cantieri-ferroviari-consiglio-comunale-e-brt/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cantieri ferroviari in ritardo: il Consiglio comunale di Bergamo chiede tempi certi al Ministero — TNT News">
+  <meta name="twitter:description" content="Il Consiglio comunale di Bergamo ha approvato all&#x27;unanimità una mozione che impegna il Comune a chiedere al Ministero delle Infrastrutture scadenze certe sui cantieri ferroviari in ritardo. Via libera anche al monitoraggio dell&#x27;e-Brt per 120 giorni.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Rfi</span><span class="tag">Cantieri ferroviari</span><span class="tag">e-Brt</span><span class="tag">Consiglio comunale</span></div>
+    <h1>Cantieri ferroviari in ritardo: il Consiglio comunale di Bergamo chiede tempi certi al Ministero</h1>
+    <p class="article-summary">Il Consiglio comunale di Bergamo ha approvato all&#x27;unanimità una mozione che impegna il Comune a chiedere al Ministero delle Infrastrutture scadenze certe sui cantieri ferroviari in ritardo. Via libera anche al monitoraggio dell&#x27;e-Brt per 120 giorni.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-15">15 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il Consiglio comunale di Bergamo ha approvato all'unanimità, nella seduta di
+mercoledì 14 ottobre, una mozione che impegna la Giunta a chiedere al Ministero
+delle Infrastrutture e dei Trasporti (Mit) scadenze certe per il completamento
+dei cantieri ferroviari che da mesi rallentano la città. Il documento, firmato
+dalla capogruppo del Pd Francesca Riccardi, arriva dopo un incontro tenuto il 2
+ottobre in via Tasso tra Comune, Provincia e alcuni parlamentari bergamaschi:
+da quell'incontro è nata la richiesta di un vertice urgente con il Mit, già
+fissato per il 21 ottobre a Roma.</p>
+
+<h2>"Un segnale della gravità della situazione"</h2>
+<p>Nel presentare il testo, Riccardi ha richiamato la richiesta di risoluzione
+del contratto avanzata da Rfi nei confronti dell'impresa appaltatrice,
+definendola un segnale di quanto sia seria la situazione dei lavori. L'assessore
+alla Mobilità Marco Berlanda ha fornito ai consiglieri il quadro degli incontri
+tenuti con Rfi e con l'impresa dal 2023: 65 riunioni complessive, di cui 33 nel
+solo 2025 e 19 nei primi mesi del 2026, segno di un confronto diventato via via
+più frequente di fronte ai ritardi. Forza Italia, con il consigliere Cesare Di
+Cintio, ha ritirato un proprio documento per sostenere quello della
+maggioranza.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: numero di riunioni tra Comune di Bergamo, Rfi e impresa appaltatrice sui cantieri ferroviari. 13 riunioni nel biennio 2023-2024, 33 riunioni nel 2025, 19 riunioni nei primi mesi del 2026. Fonte: dati dell'assessore alla Mobilità Marco Berlanda, citati da BergamoNews, Consiglio comunale di Bergamo del 14 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Riunioni Comune-Rfi-impresa sui cantieri ferroviari</text>
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="110" y="190" width="110" height="70" fill="#2980b9"/>
+    <text x="165" y="180" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">13</text>
+    <text x="165" y="280" text-anchor="middle" font-size="12" fill="currentColor">2023-2024</text>
+    <rect x="280" y="80" width="110" height="180" fill="#e67e22"/>
+    <text x="335" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">33</text>
+    <text x="335" y="280" text-anchor="middle" font-size="12" fill="currentColor">2025</text>
+    <rect x="450" y="156" width="110" height="104" fill="#27ae60"/>
+    <text x="505" y="146" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">19</text>
+    <text x="505" y="280" text-anchor="middle" font-size="12" fill="currentColor">2026 (finora)</text>
+  </svg>
+  <figcaption>Numero di riunioni tra Comune di Bergamo, Rfi e impresa
+  appaltatrice sui cantieri ferroviari, per periodo. Dati indicati
+  dall'assessore alla Mobilità Marco Berlanda in Consiglio comunale il 14
+  ottobre 2026, riportati da BergamoNews.</figcaption>
+</figure>
+
+<h2>Via libera anche al monitoraggio dell'e-Brt</h2>
+<p>Nella stessa seduta è passato, con voti trasversali, anche un ordine del
+giorno della Lega sull'e-Brt, la linea di autobus rapido che collega la città.
+Rispetto al testo originale sono stati eliminati i punti più controversi, come
+l'ipotesi di circolazione promiscua vicino al centro e il passaggio delle moto
+sulle corsie riservate, per ragioni tecniche e politiche. È stato invece
+confermato un monitoraggio di 120 giorni sugli effetti dei cantieri Rfi sul
+servizio: una via di mezzo tra i 60 giorni proposti inizialmente dal
+consigliere della Lega Carrara e l'estensione a quattro mesi chiesta da Paola
+Rossi (Bergamo Europea). Il monitoraggio è partito con la riapertura delle
+scuole, ma l'analisi completa scatterà quando tornerà la doppia circolazione
+sotto il ponte di via San Bernardino.</p>
+
+<p>Berlanda ha anticipato alcuni primi dati, ricavati da un database aggiornato
+ogni 15 minuti con rilevazioni Gps, relativi alle prime quattro settimane dopo
+la riapertura delle scuole, confrontate con lo stesso periodo del 2025: in
+centro gli accodamenti sono aumentati solo nella fascia 7-10 del mattino, mentre
+sono diminuiti nell'ora di punta pomeridiana in uscita; sulle vie di adduzione i
+tempi di accesso al mattino sono leggermente superiori rispetto al 2025, ma
+quelli di uscita nel pomeriggio risultano sensibilmente inferiori. Lo stesso
+andamento, ha detto l'assessore, si registra anche nelle zone di ingresso più
+periferiche.</p>
+
+<h2>Le voci in aula</h2>
+<p>Tra gli interventi, la consigliera di Fratelli d'Italia Ida Tentorio ha
+sottolineato che i ritardi delle opere pubbliche vanno sempre contestati, pur
+mantenendo qualche dubbio sul nesso diretto tra i cantieri Rfi e i problemi
+dell'e-Brt. Paola Rossi ha insistito sulla necessità di preservare le corsie
+riservate per garantire la puntualità della linea. La sindaca Elena Carnevali
+ha definito l'unanimità del voto "un buon segno", ricordando che la città
+"merita garanzie" sui tempi dei cantieri ferroviari.</p>
+
+<h2>Il contesto: ritardi che durano da oltre un anno</h2>
+<p>I lavori coinvolti sono il raddoppio della linea Ponte San Pietro-Bergamo-
+Montello e il collegamento ferroviario tra Bergamo e l'aeroporto di Orio al
+Serio, partiti nel febbraio 2024 e inizialmente previsti in conclusione entro
+dicembre 2026. Già in giugno l'amministratore delegato di Rfi Aldo Isi aveva
+riconosciuto pubblicamente che i tempi non sarebbero stati rispettati,
+indicando dicembre 2027 come nuovo orizzonte e annunciando l'istituzione di una
+task force interna per recuperare il ritardo. Rfi aveva attribuito parte dei
+rallentamenti all'alto numero di cantieri attivi in tutta Italia, mentre
+Regione Lombardia aveva segnalato anche una scarsa celerità dell'impresa
+esecutrice. L'appuntamento del 21 ottobre a Roma sarà il primo banco di prova
+per capire se le nuove scadenze annunciate dal Comune troveranno risposte
+concrete da parte del Ministero.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/15/cantieri-ferroviari-unanimita-in-consiglio-comunale-contro-i-ritardi-e-brt-120-giorni-di-monitoraggio/929104/" rel="noopener" target="_blank">BergamoNews - Cantieri ferroviari, unanimità in Consiglio comunale contro i ritardi: e-Brt, 120 giorni di monitoraggio</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/ritardi-cantieri-orio-rfi-task-force-ecd3n9n1" rel="noopener" target="_blank">Il Giorno Bergamo - Ritardi nei cantieri, Orio e Rfi: una task force per recuperare il tempo perduto</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, l&#x27;e-brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico la linea di bus elettrici rapidi bergamo-dalmine-verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri. trasporti bergamo e-brt atb mobilità sostenibile dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-10-08-bergamo-e-brt-record-passeggeri/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, l&#x27;e-Brt vola a 7.311 passeggeri in un giorno: è record per il bus elettrico</h2><p class="card-summary">La linea di bus elettrici rapidi Bergamo-Dalmine-Verdellino, attiva da inizio agosto, ha toccato lunedì 5 ottobre il suo massimo storico di utenti in un giorno, con una media settimanale che supera i 39.000 passeggeri.</p><p class="card-meta">8 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo, il rientro a scuola diventa il primo vero test del traffico: e-brt pieno, sciopero e cantieri con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-brt a pieno carico, uno sciopero dei bus arriva e diversi cantieri aperti in città. trasporti bergamo e-brt scuola traffico sciopero" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-14-bergamo-scuola-ebrt-sciopero-traffico/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il rientro a scuola diventa il primo vero test del traffico: e-Brt pieno, sciopero e cantieri</h2><p class="card-summary">Con il ritorno in classe di circa 147mila studenti bergamaschi, lunedì 14 settembre la città ha affrontato il primo banco di prova del traffico con l&#x27;e-Brt a pieno carico, uno sciopero dei bus Arriva e diversi cantieri aperti in città.</p><p class="card-meta">14 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, da lunedì più corse sull&#x27;e-brt e debutta la linea kr per il kilometro rosso da lunedì 14 settembre la rete e-brt bergamo-dalmine-verdellino aumenta le corse e nasce la linea kr, il collegamento dedicato che porta al parco scientifico del kilometro rosso a stezzano. trasporti bergamo atb e-brt kilometro rosso stezzano" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-13-bergamo-ebrt-linea-kr-kilometro-rosso/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, da lunedì più corse sull&#x27;e-Brt e debutta la linea KR per il Kilometro Rosso</h2><p class="card-summary">Da lunedì 14 settembre la rete e-Brt Bergamo-Dalmine-Verdellino aumenta le corse e nasce la linea KR, il collegamento dedicato che porta al Parco Scientifico del Kilometro Rosso a Stezzano.</p><p class="card-meta">13 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
