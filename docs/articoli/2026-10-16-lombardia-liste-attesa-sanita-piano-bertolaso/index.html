@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Liste d&#x27;attesa in sanità, Regione Lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare — TNT News</title>
+  <meta name="description" content="Il Piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. Coinvolte anche le strutture pubbliche e private di Bergamo.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-16-lombardia-liste-attesa-sanita-piano-bertolaso/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Liste d&#x27;attesa in sanità, Regione Lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare — TNT News">
+  <meta property="og:description" content="Il Piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. Coinvolte anche le strutture pubbliche e private di Bergamo.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-16-lombardia-liste-attesa-sanita-piano-bertolaso/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Liste d&#x27;attesa in sanità, Regione Lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare — TNT News">
+  <meta name="twitter:description" content="Il Piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. Coinvolte anche le strutture pubbliche e private di Bergamo.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Lombardia</span><span class="tag">Bergamo</span><span class="tag">Sanità</span><span class="tag">Liste d&#x27;attesa</span><span class="tag">Bertolaso</span></div>
+    <h1>Liste d&#x27;attesa in sanità, Regione Lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare</h1>
+    <p class="article-summary">Il Piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. Coinvolte anche le strutture pubbliche e private di Bergamo.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-16">16 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Regione Lombardia ha aggiornato le regole del Piano regionale di governo
+delle liste d'attesa 2026-2028, che riguarda ospedali pubblici e strutture
+private accreditate di tutto il territorio, compresa la provincia di Bergamo.
+La novità più concreta per i pazienti riguarda le prenotazioni: dal 1°
+novembre 2026 l'indirizzo email diventa obbligatorio per le nuove
+registrazioni e per gli aggiornamenti nel sistema regionale Lar, il
+Libro unico delle agende regionali, per rendere più rapide le comunicazioni
+su conferme, spostamenti e disponibilità di appuntamenti.</p>
+
+<h2>Criteri uniformi per visite e ricoveri</h2>
+<p>Il piano introduce criteri comuni per l'inserimento nelle liste d'attesa,
+per le classi di priorità clinica e per il calcolo dei tempi di attesa reali,
+con l'obiettivo di eliminare duplicazioni e posizioni non più valide. Sotto
+osservazione ci sono soprattutto le prestazioni più critiche: prime visite
+specialistiche, endoscopie, ecografie, risonanze magnetiche e Tac. Le
+strutture sanitarie potranno attivare prestazioni aggiuntive durante l'anno in
+base alle necessità rilevate, mentre aumentano i controlli sull'appropriatezza
+delle prescrizioni, per dare priorità a chi ha reali urgenze cliniche. Per gli
+interventi meno complessi si potrà valutare il ricovero negli ospedali
+cosiddetti "Spoke", più piccoli, per alleggerire il carico sui grandi "Hub",
+garantendo comunque la libera scelta del paziente. Il coordinamento e il
+monitoraggio del piano sono affidati alle Agenzie di tutela della salute
+(Ats).</p>
+
+<h2>Le risorse: 91 milioni di euro</h2>
+<p>Il piano operativo regionale, varato nel corso del 2026 e ora integrato con
+le nuove regole per i pazienti, muove complessivamente 91 milioni di euro.
+Di questi, 61 milioni sono destinati al funzionamento ordinario del piano
+operativo regionale, ripartiti tra enti pubblici (41 milioni) e privati
+accreditati (20 milioni); altri 10 milioni sono riservati a manifestazioni di
+interesse rivolte alle strutture private per prestazioni aggiuntive; i
+restanti 20 milioni servono a recuperare i ricoveri ancora in lista d'attesa
+al 1° gennaio 2026. Tra le misure di contorno figurano l'estensione
+dell'attività ambulatoriale al pomeriggio e al sabato mattina, e l'obbligo per
+gli enti pubblici di garantire ogni mese almeno il 70% dei volumi erogati nei
+mesi corrispondenti del 2025.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: ripartizione dei 91 milioni di euro del piano regionale liste d'attesa in Lombardia. 61 milioni per il piano operativo (pubblico e privato accreditato), 20 milioni per il recupero dei ricoveri in lista al 1° gennaio 2026, 10 milioni per manifestazioni di interesse ai privati. Fonte: Il Giorno, provvedimento di Regione Lombardia dell'11 maggio 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Le risorse del piano (totale: 91 milioni di euro)</text>
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="100" y="80" width="110" height="180" fill="#2980b9"/>
+    <text x="155" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">61 mln</text>
+    <text x="155" y="280" text-anchor="middle" font-size="12" fill="currentColor">Piano operativo</text>
+    <text x="155" y="296" text-anchor="middle" font-size="12" fill="currentColor">(pubblico+privato)</text>
+    <rect x="280" y="200" width="110" height="60" fill="#27ae60"/>
+    <text x="335" y="190" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">20 mln</text>
+    <text x="335" y="280" text-anchor="middle" font-size="12" fill="currentColor">Recupero ricoveri</text>
+    <text x="335" y="296" text-anchor="middle" font-size="12" fill="currentColor">al 1° gennaio 2026</text>
+    <rect x="460" y="230" width="110" height="30" fill="#e67e22"/>
+    <text x="515" y="220" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">10 mln</text>
+    <text x="515" y="280" text-anchor="middle" font-size="12" fill="currentColor">Manifestazioni</text>
+    <text x="515" y="296" text-anchor="middle" font-size="12" fill="currentColor">di interesse (privati)</text>
+  </svg>
+  <figcaption>Ripartizione dei 91 milioni di euro del piano regionale liste
+  d'attesa 2026-2028. Dati riferiti al provvedimento di Regione Lombardia
+  dell'11 maggio 2026, riportati da Il Giorno.</figcaption>
+</figure>
+
+<h2>Obiettivo "azzerare le attese"</h2>
+<p>L'assessore regionale al Welfare Guido Bertolaso ha indicato come obiettivo
+"azzerare i tempi di attesa entro la fine dell'anno", sottolineando la volontà
+di sfruttare al massimo le potenzialità del sistema pubblico e di quello
+privato accreditato. Bertolaso ha anche annunciato un nuovo progetto per
+migliorare il coordinamento tra i medici di famiglia e gli ospedali, senza
+tuttavia fornire ulteriori dettagli o una scadenza precisa.</p>
+
+<blockquote>
+  <p>"Azzerare i tempi di attesa entro la fine dell'anno" &mdash; Guido
+  Bertolaso, assessore regionale al Welfare.</p>
+</blockquote>
+
+<h2>Cosa cambia per chi vive a Bergamo</h2>
+<p>Le nuove regole si applicano anche agli ospedali pubblici e alle strutture
+private accreditate della provincia di Bergamo, che dal 1° novembre dovranno
+quindi raccogliere l'indirizzo email di ogni nuovo paziente al momento della
+registrazione o dell'aggiornamento dei dati nel sistema Lar. Per chi ha già
+una prenotazione attiva, il cambiamento non comporta finora obblighi
+retroattivi, ma la Regione punta a estendere progressivamente la raccolta
+delle email anche alle agende già esistenti, per rendere più efficaci gli
+avvisi su eventuali anticipi o disponibilità di posti liberi.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/la-salute/sanita-liste-dattesa-nuove-regole-in-lombardia-cosa-cambia-per-i-pazienti-o_3973054_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Sanità, liste d&#x27;attesa: nuove regole in Lombardia. Cosa cambia per i pazienti</a></li><li><a href="https://www.ilgiorno.it/salute/liste-attesa-lombardia-uyqfyrx4" rel="noopener" target="_blank">Il Giorno - Liste d&#x27;attesa, il piano della Lombardia: le cifre e le misure</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="chirurgia dell&#x27;aorta, il papa giovanni xxiii diventa centro di riferimento per tutta la provincia di bergamo con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale papa giovanni xxiii sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta. sanità bergamo papa giovanni xxiii sanità chirurgia vascolare regione lombardia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-09-05-bergamo-papa-giovanni-centro-riferimento-aorta/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo</h2><p class="card-summary">Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.</p><p class="card-meta">5 settembre 2026</p></div></a></article><article class="card" data-search="bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione. sanità bergamo sanità caldo pronto soccorso anziani" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-10-bergamo-pronto-soccorso-caldo-luglio/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Bergamasca, caldo e pronto soccorso: accessi in aumento fino al 14% nell&#x27;ultima settimana di luglio</h2><p class="card-summary">Nell&#x27;ultima settimana di luglio gli accessi ai pronto soccorso della Bergamasca sono cresciuti fino al 14,2% rispetto al 2025, soprattutto per malori legati al caldo tra gli anziani; a livello regionale i ricoveri restano invece stabili grazie alla rete di prevenzione.</p><p class="card-meta">10 agosto 2026</p></div></a></article><article class="card" data-search="l&#x27;ospedale papa giovanni xxiii di bergamo tra i 250 più sostenibili al mondo nella prima classifica &quot;world&#x27;s greenest hospitals 2026&quot; di newsweek e statista, il papa giovanni xxiii entra tra i 250 ospedali più sostenibili al mondo con quattro &quot;foglie verdi&quot;, unico ospedale pubblico italiano presente in graduatoria. sanità bergamo sanità ospedale papa giovanni xxiii sostenibilità" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-07-bergamo-ospedale-papa-giovanni-sostenibile-mondo/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">L&#x27;ospedale Papa Giovanni XXIII di Bergamo tra i 250 più sostenibili al mondo</h2><p class="card-summary">Nella prima classifica &quot;World&#x27;s Greenest Hospitals 2026&quot; di Newsweek e Statista, il Papa Giovanni XXIII entra tra i 250 ospedali più sostenibili al mondo con quattro &quot;foglie verdi&quot;, unico ospedale pubblico italiano presente in graduatoria.</p><p class="card-meta">7 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
