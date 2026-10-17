@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni — TNT News</title>
+  <meta name="description" content="Un&#x27;anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-17-bergamo-orio-al-serio-guasto-enav-voli-cancellati/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni — TNT News">
+  <meta property="og:description" content="Un&#x27;anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-17-bergamo-orio-al-serio-guasto-enav-voli-cancellati/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni — TNT News">
+  <meta name="twitter:description" content="Un&#x27;anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Orio al Serio</span><span class="tag">Enav</span><span class="tag">Aeroporti</span><span class="tag">Trasporti aerei</span></div>
+    <h1>Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni</h1>
+    <p class="article-summary">Un&#x27;anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-17">17 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Un'anomalia nella rete di trasmissione dati che supporta i servizi di
+controllo del traffico aereo ha provocato ritardi e cancellazioni in tutta
+Italia nella giornata di venerdì 16 ottobre 2026. A farne le spese è stato
+anche l'aeroporto di Orio al Serio, dove sono stati cancellati 7 voli in
+partenza e 7 in arrivo, mentre altri hanno accumulato ritardi fino a oltre
+tre ore.</p>
+
+<h2>Che cosa è successo</h2>
+<p>Secondo Enav, la società che gestisce il traffico aereo civile in Italia,
+le anomalie sono emerse nella notte e sono state individuate nella rete
+geografica di trasmissione dati. L'ente ha escluso attacchi informatici o
+sabotaggi, parlando di un "problema tecnico sui servizi a supporto" del
+controllo del traffico, con verifiche ancora in corso per accertarne
+l'origine esatta. Fino alle 6 del mattino i sistemi di contingency hanno
+permesso una gestione regolare dei voli, senza riduzioni di capacità. Da
+quell'ora, però, Enav ha dovuto introdurre misure di regolazione dei
+flussi, che hanno ridotto temporaneamente la capacità di gestione degli
+aeromobili nello spazio aereo nazionale.</p>
+
+<h2>I disagi a Orio al Serio</h2>
+<p>Al Milan Bergamo Airport le conseguenze si sono fatte sentire soprattutto
+sulle partenze. Il volo Ryanair delle 6:50 per Trapani è decollato con
+un'ora e mezza di ritardo, quello per Berlino con un'ora e venti. Il
+Volotea in arrivo da Olbia, previsto alle 7:45, è atterrato solo alle
+11:18, con oltre tre ore e mezza di ritardo. Nel pomeriggio e in serata la
+situazione non si era ancora normalizzata: i tabelloni dello scalo
+continuavano a segnalare partenze in ritardo, e i gestori hanno invitato i
+passeggeri a consultare il sito ufficiale dell'aeroporto per lo stato dei
+singoli voli.</p>
+
+<h2>Ritardi anche a Malpensa e Linate</h2>
+<p>I disagi non si sono limitati alla Bergamasca. Negli altri due scali
+lombardi i tempi di attesa sono stati altrettanto significativi: a
+Malpensa i ritardi in partenza sono variati da mezz'ora a oltre due ore,
+con gli arrivi meno colpiti; a Linate gli arrivi hanno accumulato tra venti
+minuti e un'ora di ritardo, le partenze anche oltre un'ora. Il Giorno
+segnala inoltre il rischio di ulteriori disagi legati a uno sciopero
+nazionale del settore, di cui però non sono ancora note sigle sindacali e
+compagnie coinvolte.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: ritardi accumulati da tre voli di Orio al Serio il 16 ottobre 2026 a causa del guasto Enav. Ryanair per Trapani: 90 minuti. Ryanair per Berlino: 80 minuti. Volotea da Olbia: 213 minuti. Fonte: Il Giorno." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Ritardi a Orio al Serio, 16 ottobre 2026</text>
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="110" y="188" width="110" height="72" fill="#2980b9"/>
+    <text x="165" y="178" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">90 min</text>
+    <text x="165" y="280" text-anchor="middle" font-size="12" fill="currentColor">Ryanair</text>
+    <text x="165" y="296" text-anchor="middle" font-size="12" fill="currentColor">per Trapani</text>
+    <rect x="280" y="196" width="110" height="64" fill="#27ae60"/>
+    <text x="335" y="186" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">80 min</text>
+    <text x="335" y="280" text-anchor="middle" font-size="12" fill="currentColor">Ryanair</text>
+    <text x="335" y="296" text-anchor="middle" font-size="12" fill="currentColor">per Berlino</text>
+    <rect x="450" y="90" width="110" height="170" fill="#e67e22"/>
+    <text x="505" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">213 min</text>
+    <text x="505" y="280" text-anchor="middle" font-size="12" fill="currentColor">Volotea</text>
+    <text x="505" y="296" text-anchor="middle" font-size="12" fill="currentColor">da Olbia</text>
+  </svg>
+  <figcaption>Ritardi accumulati da tre voli dello scalo di Orio al Serio il
+  16 ottobre 2026 a causa del guasto alla rete di trasmissione dati di Enav.
+  Dati riportati da Il Giorno.</figcaption>
+</figure>
+
+<h2>Le cause restano da accertare</h2>
+<p>Al momento Enav non ha fornito un orario preciso di ripristino della
+piena operatività della rete, né ha comunicato una stima complessiva dei
+voli coinvolti a livello nazionale. L'ente ha confermato che le verifiche
+tecniche sono ancora in corso per stabilire con certezza l'origine del
+guasto nella rete geografica di trasmissione dati, pur escludendo fin da
+subito ipotesi di matrice dolosa. Non è la prima volta che una anomalia
+di questo tipo si propaga sugli scali lombardi: negli ultimi anni Orio al
+Serio è già stato coinvolto in episodi simili, legati a guasti tecnici o a
+condizioni meteo avverse, che hanno messo in evidenza la sensibilità dello
+scalo bergamasco a problemi della rete nazionale di controllo del
+traffico aereo.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/milano/cronaca/ritardi-malpensa-linate-e-orio-al-serio-aeroporti-rd5ye17a" rel="noopener" target="_blank">Il Giorno - Malpensa, Linate e Orio al Serio: negli aeroporti lombardi ritardi fino a due ore per il guasto alla rete</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/hinterland/guasto-al-sistema-di-controllo-aereo-voli-in-ritardo-in-tutta-italia-disagi-an-o_3973787_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Guasto al sistema di controllo aereo, voli in ritardo in tutta Italia. Disagi anche a Orio al Serio: 14 voli cancellati</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="cantieri ferroviari a bergamo, rfi chiede la risoluzione del contratto: ritardi fino a gennaio rfi ha presentato al collegio consultivo tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della bergamo-ponte san pietro e del collegamento con l&#x27;aeroporto di orio al serio. comune e provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre. trasporti bergamo rfi cantieri ferroviari orio al serio ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h2><p class="card-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p><p class="card-meta">30 settembre 2026</p></div></a></article><article class="card" data-search="caro carburante, ryanair taglia i voli invernali: incertezza anche su orio al serio ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di bergamo orio al serio, tra i suoi storici scali italiani. trasporti bergamo orio al serio ryanair sacbo aeroporto" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-04-bergamo-orio-serio-ryanair-tagli-voli-invernali/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Caro carburante, Ryanair taglia i voli invernali: incertezza anche su Orio al Serio</h2><p class="card-summary">Ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di Bergamo Orio al Serio, tra i suoi storici scali italiani.</p><p class="card-meta">4 settembre 2026</p></div></a></article><article class="card" data-search="treno per orio e raddoppio verso ponte san pietro: cantieri ferroviari slittati a dicembre 2027 rfi ha comunicato che i lavori per il collegamento ferroviario tra bergamo e l&#x27;aeroporto di orio al serio e il raddoppio della linea verso ponte san pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. costituita una task force per recuperare il tempo perso. trasporti bergamo ferrovia orio al serio rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-06-09-ferrovia-bergamo-orio-ritardo-2027/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Treno per Orio e raddoppio verso Ponte San Pietro: cantieri ferroviari slittati a dicembre 2027</h2><p class="card-summary">RFI ha comunicato che i lavori per il collegamento ferroviario tra Bergamo e l&#x27;aeroporto di Orio al Serio e il raddoppio della linea verso Ponte San Pietro non saranno ultimati prima di dicembre 2027, con un ritardo di oltre un anno rispetto alle previsioni. Costituita una task force per recuperare il tempo perso.</p><p class="card-meta">9 giugno 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>

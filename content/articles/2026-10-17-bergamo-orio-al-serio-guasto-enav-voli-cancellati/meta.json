@@ -1,0 +1,13 @@
+{
+  "title": "Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni",
+  "date": "2026-10-17",
+  "time": "09:00",
+  "author": "Redazione TNT News (Claude)",
+  "summary": "Un'anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.",
+  "category": "Trasporti",
+  "tags": ["Bergamo", "Orio al Serio", "Enav", "Aeroporti", "Trasporti aerei"],
+  "sources": [
+    { "name": "Il Giorno - Malpensa, Linate e Orio al Serio: negli aeroporti lombardi ritardi fino a due ore per il guasto alla rete", "url": "https://www.ilgiorno.it/milano/cronaca/ritardi-malpensa-linate-e-orio-al-serio-aeroporti-rd5ye17a" },
+    { "name": "L'Eco di Bergamo - Guasto al sistema di controllo aereo, voli in ritardo in tutta Italia. Disagi anche a Orio al Serio: 14 voli cancellati", "url": "https://www.ecodibergamo.it/stories/premium/hinterland/guasto-al-sistema-di-controllo-aereo-voli-in-ritardo-in-tutta-italia-disagi-an-o_3973787_11/" }
+  ]
+}
