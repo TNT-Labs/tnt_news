@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura — TNT News</title>
+  <meta name="description" content="Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-18-bergamo-corteo-studenti-vandalismi-questura/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura — TNT News">
+  <meta property="og:description" content="Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-18-bergamo-corteo-studenti-vandalismi-questura/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura — TNT News">
+  <meta name="twitter:description" content="Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Studenti</span><span class="tag">Corteo</span><span class="tag">Scuola</span></div>
+    <h1>Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura</h1>
+    <p class="article-summary">Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-18">18 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Sabato 17 ottobre 2026 centinaia di studenti delle scuole superiori
+bergamasche hanno sfilato per le vie del centro di Bergamo per chiedere una
+scuola più inclusiva e per protestare contro la guerra, nell'ambito di una
+mobilitazione studentesca nazionale legata anche al tema della Palestina.
+La giornata, iniziata in modo pacifico, si è conclusa con tensioni: un
+gruppo si è staccato dal corteo compiendo atti vandalici, mentre altri
+manifestanti si sono poi riuniti in presidio davanti alla Questura per
+chiedere il rilascio dei fermati.</p>
+
+<h2>Il corteo e le richieste degli studenti</h2>
+<p>Il ritrovo era fissato per le 9 nella zona della stazione delle
+Autolinee e dell'Urban Center. Alle 10 il corteo è partito da piazzale
+Marconi in direzione di largo Porta Nuova, per poi proseguire lungo viale
+Roma, viale Vittorio Emanuele e il Sentierone fino a piazzale della
+Libertà. Alla manifestazione, sostenuta dalla Flc Cgil di Bergamo e
+dall'Unione degli Studenti, hanno aderito centinaia di ragazzi, con cori e
+striscioni. Il segretario generale della Flc Cgil bergamasca, Fabio
+Cubito, ha dichiarato che il diritto allo studio non deve dipendere dal
+reddito delle famiglie e che la scuola deve farsi carico anche del
+benessere psicologico degli studenti. Tra le richieste concrete: trasporti
+pubblici più accessibili, edifici scolastici sicuri e maggiore attenzione
+alla salute mentale.</p>
+
+<h2>Il gruppo che si è staccato e i disordini</h2>
+<p>Durante il percorso, in particolare nella zona delle Autolinee e in
+largo Porta Nuova, un gruppo di manifestanti si è allontanato dal corteo
+principale. Secondo la ricostruzione della Questura, circa duecento
+giovani avrebbero assunto comportamenti aggressivi, rovesciando cestini e
+bidoni della spazzatura, danneggiando segnaletica e cartelloni e lanciando
+bottiglie di vetro, anche contro gli agenti. Gli episodi si sono ripetuti
+più volte, con il gruppo che si allontanava e tornava poi in piazza. Nel
+bilancio diffuso nel corso della giornata, due agenti delle forze
+dell'ordine sono rimasti feriti, con una prognosi di sette giorni.</p>
+
+<h2>Fermi, denunce e presidio davanti alla Questura</h2>
+<p>Una decina di giovani è stata accompagnata in Questura per
+accertamenti. Secondo gli aggiornamenti riportati da L'Eco di Bergamo, tra
+loro sono scattati due arresti &mdash; un cittadino pakistano nato nel
+1991 e un cittadino nigeriano nato nel 2007 &mdash; e cinque denunce, oltre
+alla segnalazione alla Procura per i minorenni di un giovane di 14 anni,
+non identificabile per legge. Le prime informazioni diffuse in mattinata
+da altre fonti parlavano invece soltanto di una decina di fermati, senza
+arresti confermati: la differenza riflette l'evoluzione del bilancio nel
+corso della giornata, e alcuni dettagli &mdash; a partire dalle accuse
+precise rivolte alle persone arrestate &mdash; restano da verificare nei
+prossimi giorni, in attesa di eventuali comunicati ufficiali e nel rispetto
+della presunzione di innocenza.</p>
+
+<p>Poco dopo mezzogiorno un gruppo di manifestanti, scortato da polizia e
+carabinieri, ha raggiunto la Questura di via Noli per chiedere il rilascio
+dei fermati, restando in presidio per diverse ore. I manifestanti hanno
+denunciato quelli che hanno definito "atti di brutalità" da parte delle
+forze dell'ordine durante il corteo: accuse che, al momento, non hanno
+riscontri ufficiali. Il traffico nel centro città è rimasto a lungo
+congestionato, con code segnalate da via Angelo Mai a via Camozzi, mentre
+via Suardi è stata chiusa temporaneamente per motivi di sicurezza.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: bilancio del corteo studentesco di Bergamo del 17 ottobre 2026. Fermati portati in Questura: 10. Denunciati: 5. Arrestati: 2. Agenti feriti: 2. Dati riportati da L'Eco di Bergamo, da verificare nei prossimi giorni." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="currentColor">Bilancio del corteo, 17 ottobre 2026</text>
+    <line x1="60" y1="260" x2="600" y2="260" stroke="currentColor" stroke-width="2"/>
+    <rect x="80" y="90" width="90" height="170" fill="#c0392b"/>
+    <text x="125" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">10</text>
+    <text x="125" y="280" text-anchor="middle" font-size="12" fill="currentColor">Fermati in</text>
+    <text x="125" y="296" text-anchor="middle" font-size="12" fill="currentColor">Questura</text>
+    <rect x="235" y="175" width="90" height="85" fill="#e67e22"/>
+    <text x="280" y="165" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">5</text>
+    <text x="280" y="280" text-anchor="middle" font-size="12" fill="currentColor">Denunciati</text>
+    <rect x="390" y="226" width="90" height="34" fill="#2980b9"/>
+    <text x="435" y="216" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">2</text>
+    <text x="435" y="280" text-anchor="middle" font-size="12" fill="currentColor">Arrestati</text>
+    <rect x="490" y="226" width="90" height="34" fill="#7f8c8d"/>
+    <text x="535" y="216" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">2</text>
+    <text x="535" y="280" text-anchor="middle" font-size="12" fill="currentColor">Agenti feriti</text>
+  </svg>
+  <figcaption>Bilancio del corteo studentesco di Bergamo del 17 ottobre
+  2026, secondo gli aggiornamenti riportati da L'Eco di Bergamo nel corso
+  della giornata: dati ancora da confermare ufficialmente nei giorni
+  successivi.</figcaption>
+</figure>
+
+<h2>Una mobilitazione nazionale</h2>
+<p>La manifestazione bergamasca si è inserita in una giornata di proteste
+studentesche in diverse città italiane, iniziata già venerdì 16 ottobre,
+con al centro i temi della pace, della scuola pubblica e dei diritti degli
+studenti. Non è la prima volta che un corteo scolastico a Bergamo si
+conclude con momenti di tensione: episodi analoghi si erano già registrati
+in occasione di precedenti manifestazioni cittadine legate a temi sociali
+e internazionali.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ilgiorno.it/bergamo/cronaca/bergamo-atti-vandalici-al-corteo-manifestanti-portati-in-questura-liikcwrm" rel="noopener" target="_blank">Il Giorno - Bergamo, atti vandalici al corteo: manifestanti portati in Questura</a></li><li><a href="https://www.bergamonews.it/2026/10/17/studenti-in-piazza-a-bergamo-contro-la-guerra-e-i-tagli-alla-scuola-momenti-di-tensione-durante-il-corteo/929963" rel="noopener" target="_blank">BergamoNews - Studenti in piazza a Bergamo contro la guerra e i tagli alla scuola, momenti di tensione durante il corteo</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/centinaia-di-studenti-in-piazzale-marconi-per-una-scuola-migliore-foto-o_3974527_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Corteo degli studenti in centro per una scuola migliore e contro la guerra. Vandalismi e tensioni con la Polizia: due arresti</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, le denunce di reato tornano a salire: +3,1% nel 2025, calano furti e rapine secondo l&#x27;indice della criminalità 2026 del sole 24 ore, in provincia di bergamo le denunce sono state 39.181 nel 2025, il livello più alto dal 2018: calano furti e rapine, crescono truffe informatiche, percosse e violenze sessuali. cronaca bergamo criminalità sicurezza statistiche sole 24 ore" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-13-bergamo-reati-indice-criminalita-2026/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, le denunce di reato tornano a salire: +3,1% nel 2025, calano furti e rapine</h2><p class="card-summary">Secondo l&#x27;Indice della criminalità 2026 del Sole 24 Ore, in provincia di Bergamo le denunce sono state 39.181 nel 2025, il livello più alto dal 2018: calano furti e rapine, crescono truffe informatiche, percosse e violenze sessuali.</p><p class="card-meta">13 ottobre 2026</p></div></a></article><article class="card" data-search="filago, muore schiacciato da un escavatore: la bergamasca e l&#x27;allarme infortuni sul lavoro un imprenditore edile di 62 anni è morto a filago travolto da un mini escavatore ribaltatosi durante lo scarico da un camion. la tragedia riaccende il dibattito sull&#x27;aumento degli infortuni sul lavoro nella bergamasca, in particolare tra i lavoratori più anziani. cronaca bergamo filago sicurezza sul lavoro infortuni cgil" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-10-bergamo-infortuni-lavoro-filago-stucchi/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Filago, muore schiacciato da un escavatore: la Bergamasca e l&#x27;allarme infortuni sul lavoro</h2><p class="card-summary">Un imprenditore edile di 62 anni è morto a Filago travolto da un mini escavatore ribaltatosi durante lo scarico da un camion. La tragedia riaccende il dibattito sull&#x27;aumento degli infortuni sul lavoro nella Bergamasca, in particolare tra i lavoratori più anziani.</p><p class="card-meta">10 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo, esplosione per fuga di gas in via longo: nove feriti e palazzina evacuata una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di borgo santa caterina, a bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile. cronaca bergamo borgo santa caterina esplosione fuga di gas" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-06-bergamo-esplosione-via-longo-borgo-santa-caterina/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, esplosione per fuga di gas in via Longo: nove feriti e palazzina evacuata</h2><p class="card-summary">Una fuga di gas ha provocato lunedì sera un&#x27;esplosione in un palazzo di Borgo Santa Caterina, a Bergamo: nove feriti, due in gravi condizioni, e circa quaranta residenti evacuati dalla palazzina dichiarata inagibile.</p><p class="card-meta">6 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
