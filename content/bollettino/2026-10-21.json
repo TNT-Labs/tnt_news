@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-21",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia su tutta la tratta, da moderata a Bergamo a debole verso San Donato, con raffiche di vento e asfalto bagnato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Pioggia da moderata a forte", "temp_c": 14, "precip_mm": 7.0, "wind_kmh": 10, "wind_dir": "E"},
+      {"name": "Carugate (08:15)", "cond": "Pioggia da leggera a moderata", "temp_c": 16, "precip_mm": 2.0, "wind_kmh": 14, "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Pioggia debole", "temp_c": 16, "precip_mm": 0.9, "wind_kmh": 16, "wind_dir": "ESE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 90,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 35},
+      {"name": "Surface Agrate → Carugate", "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 40}
+    ],
+    "incidents": [
+      {"where": "A4 Milano-Brescia, tra Svincolo Dalmine e Svincolo Cavenago, dir. Milano", "desc": "Code a tratti per traffico intenso (dalle 06:29)."},
+      {"where": "A51 Tangenziale Est, tra Svincolo Cologno Monzese e Svincolo V. Rubattino (Segrate-Città Studi), dir. Allacciamento A1 Milano-Napoli", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 35+15+40=90 min. Google Weather OK sui 3 punti più storico 3h a Bergamo (8.79 mm nelle ultime 3 ore: asfalto bagnato, pioggia in corso). CCISS RSS: 2 eventi pertinenti (A4 tra Dalmine e Cavenago dir. Milano; A51 tra Cologno Monzese e V. Rubattino/Segrate-Città Studi dir. Allacciamento A1 Milano-Napoli). Esclusi per tratta/direzione: A4 tra Ponte Oglio e Palazzolo dir. Brescia; A4 tra Monza e Certosa dir. Torino; A4 Brescia-Padova (altra tratta); A51 a Svincolo Agrate B. dir. A1 (a nord di Carugate); A51 tra Paullo e Gobba dir. Lecco (direzione opposta). Serravalle leggibile ma senza contenuto su incidenti puntuali (pagina dinamica). Luceverde pagina JS-rendered senza contenuto utile (tentativo unico). Autostrade per l'Italia risponde 404 (tentativo unico). Ricerca web: nessun evento aggiuntivo per la data odierna, solo notizie storiche non pertinenti."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia prevista su tutto il tragitto (fino a 7 mm/h a Bergamo, probabilità 50-95%)",
+      "Asfalto bagnato: 8,8 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Raffiche di vento fino a 31 km/h lungo la tratta",
+      "Visibilità ridotta a tratti (fino a 8 km a Bergamo)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
