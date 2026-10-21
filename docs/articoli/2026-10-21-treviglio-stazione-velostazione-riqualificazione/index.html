@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Treviglio, via libera al progetto per la nuova piazza della stazione: velostazione da 92 posti e piste ciclabili — TNT News</title>
+  <meta name="description" content="La giunta di Treviglio ha approvato il progetto esecutivo di riqualificazione del piazzale della Stazione Centrale, finanziato con 2.966.585 euro di fondi regionali FESR: nuova velostazione coperta, aree verdi e una rete di piste ciclabili verso il centro città.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-21-treviglio-stazione-velostazione-riqualificazione/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Treviglio, via libera al progetto per la nuova piazza della stazione: velostazione da 92 posti e piste ciclabili — TNT News">
+  <meta property="og:description" content="La giunta di Treviglio ha approvato il progetto esecutivo di riqualificazione del piazzale della Stazione Centrale, finanziato con 2.966.585 euro di fondi regionali FESR: nuova velostazione coperta, aree verdi e una rete di piste ciclabili verso il centro città.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-21-treviglio-stazione-velostazione-riqualificazione/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Treviglio, via libera al progetto per la nuova piazza della stazione: velostazione da 92 posti e piste ciclabili — TNT News">
+  <meta name="twitter:description" content="La giunta di Treviglio ha approvato il progetto esecutivo di riqualificazione del piazzale della Stazione Centrale, finanziato con 2.966.585 euro di fondi regionali FESR: nuova velostazione coperta, aree verdi e una rete di piste ciclabili verso il centro città.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Treviglio</span><span class="tag">Stazione</span><span class="tag">Mobilità ciclabile</span><span class="tag">Fondi FESR</span><span class="tag">Viabilità</span></div>
+    <h1>Treviglio, via libera al progetto per la nuova piazza della stazione: velostazione da 92 posti e piste ciclabili</h1>
+    <p class="article-summary">La giunta di Treviglio ha approvato il progetto esecutivo di riqualificazione del piazzale della Stazione Centrale, finanziato con 2.966.585 euro di fondi regionali FESR: nuova velostazione coperta, aree verdi e una rete di piste ciclabili verso il centro città.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-21">21 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La giunta comunale di Treviglio ha approvato il progetto esecutivo per
+la riqualificazione del piazzale della Stazione Centrale, uno dei nodi
+ferroviari più trafficati della provincia di Bergamo. L'intervento, da
+2.966.585 euro finanziati da Regione Lombardia nell'ambito del programma
+europeo FESR 2021-2027, prevede una nuova velostazione, aree verdi, una
+rete di piste ciclabili verso il centro città e una riorganizzazione del
+traffico davanti all'ingresso. La gara d'appalto è prevista per novembre,
+con l'avvio dei cantieri indicato a gennaio 2027 e una durata stimata dei
+lavori di 52 settimane.</p>
+
+<h2>Il piazzale: meno auto, più trasporto pubblico</h2>
+<p>Il progetto, firmato dall'architetta comunale Cristina Benigni e
+dall'ingegnere Andrea Bruni, riserva l'accesso diretto davanti alla
+stazione a bus, taxi, mezzi di soccorso, forze dell'ordine, veicoli Rfi e
+persone con mobilità ridotta. Nell'ora di punta il piazzale è oggi
+attraversato da 434 veicoli, di cui 32 autobus: per gestire questi flussi
+è prevista una mini-rotatoria da 9 metri di diametro, con corsie e
+banchine dedicate al trasporto pubblico. Gli stalli Kiss&amp;Ride, oggi
+davanti all'ingresso, saranno spostati lungo l'aiuola. Al posto di
+asfalto e parcheggi nasceranno tre nuove aiuole irrigate per circa 540
+metri quadrati, con pensiline, sedute, illuminazione a LED, bacheche
+informative, porte USB e un rafforzamento della videosorveglianza. Nel
+parcheggio di via Acquedotto arriveranno anche colonnine per la ricarica
+delle auto elettriche.</p>
+
+<h2>Una velostazione da 92 posti</h2>
+<p>Il cuore della mobilità ciclabile sarà la nuova velostazione: 92 posti
+coperti su due livelli, ad accesso riservato ai possessori di tessera
+personalizzata, con area chiusa e videosorvegliata. Sono previste
+postazioni per la ricarica delle bici elettriche e un'officina
+self-service con attrezzi per le riparazioni. Il collegamento tra il
+sottopasso e il piazzale sarà facilitato da canaline sulle scale per
+accompagnare le biciclette, mentre nuovi portabici saranno installati
+agli accessi secondari della stazione.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Timeline del progetto: ottobre 2026 approvazione del progetto esecutivo, novembre 2026 gara d'appalto, gennaio 2027 avvio dei cantieri, fine lavori stimata dopo 52 settimane, intorno a gennaio 2028. Fonte: BergamoNews e Comune di Treviglio." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">Riqualificazione stazione di Treviglio: le tappe</text>
+    <line x1="60" y1="150" x2="580" y2="150" stroke="currentColor" stroke-width="3"/>
+    <circle cx="90" cy="150" r="9" fill="#2980b9"/>
+    <text x="90" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">Ott. 2026</text>
+    <text x="90" y="130" text-anchor="middle" font-size="12" fill="currentColor">Progetto</text>
+    <text x="90" y="145" text-anchor="middle" font-size="12" fill="currentColor">approvato</text>
+    <text x="90" y="180" text-anchor="middle" font-size="12" fill="currentColor">2.966.585 €</text>
+    <text x="90" y="196" text-anchor="middle" font-size="12" fill="currentColor">da fondi FESR</text>
+    <circle cx="260" cy="150" r="9" fill="#2980b9"/>
+    <text x="260" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">Nov. 2026</text>
+    <text x="260" y="130" text-anchor="middle" font-size="12" fill="currentColor">Gara</text>
+    <text x="260" y="145" text-anchor="middle" font-size="12" fill="currentColor">d'appalto</text>
+    <circle cx="430" cy="150" r="9" fill="#8e44ad"/>
+    <text x="430" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">Gen. 2027</text>
+    <text x="430" y="130" text-anchor="middle" font-size="12" fill="currentColor">Avvio</text>
+    <text x="430" y="145" text-anchor="middle" font-size="12" fill="currentColor">cantieri</text>
+    <circle cx="560" cy="150" r="9" fill="#8e44ad"/>
+    <text x="560" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">~Gen. 2028</text>
+    <text x="560" y="130" text-anchor="middle" font-size="12" fill="currentColor">Fine lavori</text>
+    <text x="560" y="145" text-anchor="middle" font-size="12" fill="currentColor">(stima)</text>
+    <text x="560" y="180" text-anchor="middle" font-size="12" fill="currentColor">52 settimane</text>
+    <text x="560" y="196" text-anchor="middle" font-size="12" fill="currentColor">di cantiere</text>
+    <text x="320" y="270" text-anchor="middle" font-size="11" fill="currentColor">Tempi indicativi: possibili ritardi per gara d'appalto, sottoservizi o maltempo. Fonte: BergamoNews, 21-10-2026.</text>
+  </svg>
+  <figcaption>Le tappe principali del cantiere, secondo il calendario
+  comunicato dal Comune di Treviglio. Fonte: BergamoNews, 21 ottobre
+  2026.</figcaption>
+</figure>
+
+<h2>Piste ciclabili e tutela degli alberi</h2>
+<p>Il progetto estende la rete ciclabile verso il centro: una pista di
+circa 300 metri su viale De Gasperi fino a piazza Insurrezione, e un
+percorso di circa 600 metri lungo i viali Filagno e del Partigiano fino a
+piazza Setti, passando per piazza del Popolo, dove nascerà una nuova area
+verde. In via Leonardo da Vinci la pista sarà protetta da un cordolo e da
+una pavimentazione rossa antiscivolo, con l'eliminazione di 13 posti auto;
+altri 8 stalli saranno rimossi all'incrocio tra viale del Partigiano, via
+Bellini e via Toti per un attraversamento rialzato. Particolare attenzione
+è dedicata ai 229 tigli storici dei viali interessati: sono previste
+verifiche di stabilità su 297 alberi, aiuole più ampie, scavi limitati e
+pavimentazioni drenanti per proteggere le radici, con un agronomo
+presente in cantiere.</p>
+
+<blockquote>
+  «È un progetto che renderà più bello e sicuro il piazzale della
+  stazione centrale», ha dichiarato il sindaco Juri Imeri, aggiungendo di
+  contare «di partire con i cantieri nel corso dell'inverno».
+</blockquote>
+
+<p>L'assessore ai Lavori pubblici Basilio Mangano ha sottolineato che
+l'intervento «ha una forte impronta ecologica», tra nuove aree verdi,
+tutela degli alberi esistenti e gestione delle acque piovane grazie alle
+pavimentazioni drenanti. Il cantiere della stazione si inserisce in un
+più ampio piano di trasformazione della zona sud di Treviglio, dove è in
+corso anche l'ampliamento del polo fieristico di TreviglioFiera.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/21/velostazione-aree-verdi-e-viabilita-ripensata-ecco-il-nuovo-volto-della-stazione-centrale/930677/" rel="noopener" target="_blank">BergamoNews - Velostazione, aree verdi e viabilità ripensata: ecco il nuovo volto della stazione centrale</a></li><li><a href="https://treviglio-api.municipiumapp.it/s3/7438/allegati/news/comunicati-stampa/cs-comune-di-treviglio-11062025.pdf" rel="noopener" target="_blank">Comune di Treviglio - Comunicato stampa 11 giugno 2025 (esiti bando regionale &quot;multimodale urbano&quot;)</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, il ponte di via san bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura dopo circa un anno di chiusura per i lavori rfi di raddoppio della linea verso ponte san pietro, il ponte di via san bernardino a bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso colognola; la seconda carreggiata è attesa in autunno. trasporti bergamo via san bernardino rfi viabilità ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-02-bergamo-ponte-san-bernardino-riapertura-10-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il ponte di via San Bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura</h2><p class="card-summary">Dopo circa un anno di chiusura per i lavori RFI di raddoppio della linea verso Ponte San Pietro, il ponte di via San Bernardino a Bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso Colognola; la seconda carreggiata è attesa in autunno.</p><p class="card-meta">2 agosto 2026</p></div></a></article><article class="card" data-search="autostrada bergamo-treviglio: il sondaggio ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati un sondaggio ipsos commissionato da autostrade bergamasche e presentato il 2 luglio in camera di commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada bergamo-treviglio. otto degli undici comuni attraversati dal tracciato respingono però la lettura dei dati. trasporti bergamo treviglio autostrada ipsos sindaci" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-03-sondaggio-autostrada-bergamo-treviglio-sindaci/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Autostrada Bergamo-Treviglio: il sondaggio Ipsos dice 85% &quot;non contrario&quot;, i sindaci contestano i dati</h2><p class="card-summary">Un sondaggio Ipsos commissionato da Autostrade Bergamasche e presentato il 2 luglio in Camera di Commercio indica l&#x27;85% del campione &quot;non contrario&quot; alla nuova autostrada Bergamo-Treviglio. Otto degli undici Comuni attraversati dal tracciato respingono però la lettura dei dati.</p><p class="card-meta">3 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
