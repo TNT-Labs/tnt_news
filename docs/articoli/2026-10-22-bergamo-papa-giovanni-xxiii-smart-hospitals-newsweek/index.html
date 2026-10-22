@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Il Papa Giovanni XXIII secondo ospedale pubblico italiano nella classifica Newsweek sugli smart hospitals — TNT News</title>
+  <meta name="description" content="Nella classifica Newsweek-Statista &quot;World&#x27;s Best Smart Hospitals 2027&quot; l&#x27;ASST Papa Giovanni XXIII di Bergamo sale all&#x27;8° posto tra gli ospedali italiani e al 146° a livello globale, secondo ospedale pubblico italiano dopo il San Camillo Forlanini di Roma.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-22-bergamo-papa-giovanni-xxiii-smart-hospitals-newsweek/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Il Papa Giovanni XXIII secondo ospedale pubblico italiano nella classifica Newsweek sugli smart hospitals — TNT News">
+  <meta property="og:description" content="Nella classifica Newsweek-Statista &quot;World&#x27;s Best Smart Hospitals 2027&quot; l&#x27;ASST Papa Giovanni XXIII di Bergamo sale all&#x27;8° posto tra gli ospedali italiani e al 146° a livello globale, secondo ospedale pubblico italiano dopo il San Camillo Forlanini di Roma.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-22-bergamo-papa-giovanni-xxiii-smart-hospitals-newsweek/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Il Papa Giovanni XXIII secondo ospedale pubblico italiano nella classifica Newsweek sugli smart hospitals — TNT News">
+  <meta name="twitter:description" content="Nella classifica Newsweek-Statista &quot;World&#x27;s Best Smart Hospitals 2027&quot; l&#x27;ASST Papa Giovanni XXIII di Bergamo sale all&#x27;8° posto tra gli ospedali italiani e al 146° a livello globale, secondo ospedale pubblico italiano dopo il San Camillo Forlanini di Roma.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/sanita/">Sanità</a><span class="tag">Bergamo</span><span class="tag">Sanità</span><span class="tag">Papa Giovanni XXIII</span><span class="tag">Intelligenza artificiale</span><span class="tag">Classifiche</span></div>
+    <h1>Il Papa Giovanni XXIII secondo ospedale pubblico italiano nella classifica Newsweek sugli smart hospitals</h1>
+    <p class="article-summary">Nella classifica Newsweek-Statista &quot;World&#x27;s Best Smart Hospitals 2027&quot; l&#x27;ASST Papa Giovanni XXIII di Bergamo sale all&#x27;8° posto tra gli ospedali italiani e al 146° a livello globale, secondo ospedale pubblico italiano dopo il San Camillo Forlanini di Roma.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-22">22 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>L'ASST Papa Giovanni XXIII di Bergamo è il secondo ospedale pubblico
+italiano per innovazione tecnologica secondo la classifica <em>World's Best
+Smart Hospitals 2027</em>, realizzata da Newsweek in collaborazione con la
+società di analisi dati Statista. Lo riportano <em>BergamoNews</em> e
+<em>L'Eco di Bergamo</em>, che hanno ripreso i risultati pubblicati nei
+giorni scorsi. Il nosocomio bergamasco occupa l'8° posto tra i 17 ospedali
+italiani selezionati, risalendo dal 15° posto dell'anno precedente, e si
+colloca al 146° posto nella classifica mondiale su 400 strutture di 33
+Paesi, contro il 234° dello scorso anno: un balzo di 89 posizioni. Tra gli
+ospedali pubblici italiani precede solo il San Camillo Forlanini di Roma,
+primo della lista nazionale.</p>
+
+<h2>Come viene costruita la classifica</h2>
+<p>La graduatoria di Newsweek e Statista valuta l'adozione di tecnologie
+avanzate nei percorsi di cura, combinando le raccomandazioni di
+professionisti sanitari internazionali, un'indagine sul livello di
+digitalizzazione delle strutture e i dati sulle accreditazioni ospedaliere
+internazionali. La rilevazione analizza sette ambiti, tra cui intelligenza
+artificiale, robotica e automazione, sistemi informativi per i pazienti,
+telemedicina e governance, con particolare attenzione quest'anno ai nuovi
+criteri di valutazione sull'IA. Per il Papa Giovanni XXIII è la quinta
+presenza consecutiva nella classifica.</p>
+
+<h2>Le tecnologie premiate</h2>
+<p>Secondo quanto riportato dalle due testate, l'ospedale bergamasco impiega
+l'intelligenza artificiale per il triage e per la gestione di ictus e
+patologie vascolari, per l'analisi delle immagini neuroradiologiche e per la
+diagnostica per immagini, in particolare in ambito oncologico e nelle
+patologie infiammatorie, con sviluppi recenti anche nell'anatomia patologica
+digitale. A questo si affiancano il monitoraggio in tempo reale degli
+spostamenti dei pazienti chirurgici e il tracciamento di circa 3.000 tra
+apparecchiature e dispositivi medicali, oltre a soluzioni di robotica e
+automazione per la chirurgia mininvasiva e per alcuni processi
+amministrativi e logistici interni.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre orizzontali: posizione del Papa Giovanni XXIII nella classifica Newsweek-Statista tra gli ospedali italiani, dove un numero più basso indica una posizione migliore. Anno precedente: 15° posto su 17. Quest'anno: 8° posto su 17. Fonte: Newsweek-Statista World's Best Smart Hospitals 2027, ripreso da BergamoNews e L'Eco di Bergamo, 21-22 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">Papa Giovanni XXIII: posizione tra i 17 ospedali italiani</text>
+    <text x="320" y="46" text-anchor="middle" font-size="12" fill="currentColor">(numero più basso = posizione migliore)</text>
+    <line x1="150" y1="80" x2="150" y2="270" stroke="currentColor" stroke-width="2"/>
+    <rect x="150" y="100" width="340" height="50" fill="#95a5a6"/>
+    <text x="500" y="132" font-size="14" font-weight="bold" fill="currentColor">15° posto</text>
+    <text x="40" y="132" font-size="13" fill="currentColor">Anno prec.</text>
+    <rect x="150" y="190" width="181" height="50" fill="#27ae60"/>
+    <text x="341" y="222" font-size="14" font-weight="bold" fill="currentColor">8° posto</text>
+    <text x="40" y="222" font-size="13" fill="currentColor">Quest'anno</text>
+  </svg>
+  <figcaption>Posizione dell'ASST Papa Giovanni XXIII tra i 17 ospedali
+  italiani presenti nella classifica Newsweek-Statista "World's Best Smart
+  Hospitals 2027" (le barre sono proporzionali al numero di posizione, non
+  invertite: una barra più corta indica una classifica migliore). Fonte:
+  Newsweek-Statista, ripreso da BergamoNews e L'Eco di Bergamo (21-22
+  ottobre 2026).</figcaption>
+</figure>
+
+<h2>Il commento della direzione</h2>
+<p>Il direttore generale dell'ASST Papa Giovanni XXIII, Francesco Locati, ha
+definito il riconoscimento un motivo di orgoglio per l'azienda ospedaliera,
+indicando l'innovazione digitale come una leva strategica per la qualità
+delle cure. Locati ha sottolineato l'impegno nell'investimento su
+intelligenza artificiale, robotica e telemedicina secondo un approccio di
+tipo Lean, orientato a ripensare i processi organizzativi, e ha ringraziato
+il professor Davide Croce, direttore del Crems e docente della Liuc
+Università Cattaneo, per il contributo alla formazione del personale
+sull'uso dell'intelligenza artificiale in ambito clinico.</p>
+
+<p>La classifica non riporta punteggi numerici dettagliati per le singole
+voci valutate, ma solo le posizioni finali in graduatoria: i dati su
+posizionamento italiano e mondiale riferiti in questo articolo sono quelli
+diffusi dalle fonti citate.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/22/sanita-digitale-il-papa-giovanni-xxiii-e-il-secondo-ospedale-pubblico-italiano-per-innovazione-tecnologica/931155/" rel="noopener" target="_blank">BergamoNews - Sanità digitale, il Papa Giovanni XXIII è il secondo Ospedale pubblico italiano per innovazione tecnologica</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/la-salute/newsweek-il-papa-giovanni-di-bergamo-sul-podio-degli-ospedali-pubblici-piu-t-o_3977448_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Newsweek, il «Papa Giovanni» di Bergamo sul podio degli ospedali pubblici più tecnologici d&#x27;Italia</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="chirurgia dell&#x27;aorta, il papa giovanni xxiii diventa centro di riferimento per tutta la provincia di bergamo con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale papa giovanni xxiii sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta. sanità bergamo papa giovanni xxiii sanità chirurgia vascolare regione lombardia" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-09-05-bergamo-papa-giovanni-centro-riferimento-aorta/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Chirurgia dell&#x27;aorta, il Papa Giovanni XXIII diventa centro di riferimento per tutta la provincia di Bergamo</h2><p class="card-summary">Con la nuova rete regionale di chirurgia vascolare, l&#x27;ospedale Papa Giovanni XXIII sarà dal 1° gennaio 2027 l&#x27;unico punto di riferimento bergamasco per le patologie più complesse dell&#x27;aorta.</p><p class="card-meta">5 settembre 2026</p></div></a></article><article class="card" data-search="liste d&#x27;attesa in sanità, regione lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare il piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. coinvolte anche le strutture pubbliche e private di bergamo. sanità lombardia bergamo sanità liste d&#x27;attesa bertolaso" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-10-16-lombardia-liste-attesa-sanita-piano-bertolaso/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Liste d&#x27;attesa in sanità, Regione Lombardia aggiorna le regole: dal 1° novembre email obbligatoria per prenotare</h2><p class="card-summary">Il Piano regionale di governo delle liste d&#x27;attesa 2026-2028 introduce criteri uniformi per ricoveri e visite e, dal 1° novembre, l&#x27;obbligo dell&#x27;email per i pazienti. Coinvolte anche le strutture pubbliche e private di Bergamo.</p><p class="card-meta">16 ottobre 2026</p></div></a></article><article class="card" data-search="al papa giovanni xxiii parte lo screening gratuito per il tumore del polmone da oggi l&#x27;asst papa giovanni xxiii di bergamo attiva il programma regionale di screening del tumore del polmone con tc spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni. sanità bergamo papa giovanni xxiii screening oncologico regione lombardia prevenzione" data-cat="Sanità"><a class="card-link" href="../../articoli/2026-08-18-bergamo-screening-tumore-polmone-papa-giovanni/"><div class="card-body"><div class="tags"><span class="tag">Sanità</span></div><h2 class="card-title">Al Papa Giovanni XXIII parte lo screening gratuito per il tumore del polmone</h2><p class="card-summary">Da oggi l&#x27;ASST Papa Giovanni XXIII di Bergamo attiva il programma regionale di screening del tumore del polmone con TC spirale a basso dosaggio, rivolto ai forti fumatori ed ex fumatori tra 55 e 74 anni.</p><p class="card-meta">18 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
