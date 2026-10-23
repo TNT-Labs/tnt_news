@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-23",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso ma asciutto su tutta la tratta, vento debole e asfalto asciutto: condizioni favorevoli.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Nuvoloso",             "temp_c": 9,  "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Prevalentemente nuvoloso", "temp_c": 10, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "E"},
+      {"name": "San Donato (08:45)",     "cond": "Prevalentemente nuvoloso", "temp_c": 11, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 70,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 29},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 27}
+    ],
+    "incidents": [
+      {"where": "A4 Milano-Brescia, tra Svincolo Dalmine e Svincolo Cavenago, dir. Milano", "desc": "Code a tratti per traffico intenso (dalle 06:27)."},
+      {"where": "A51 Tangenziale Est, tra Svincolo Cologno Monzese (S.Giovanni Sud) e Svincolo Linate (V.le Forlanini-SP14 Rivoltana), dir. Allacciamento A1 Milano-Napoli", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 29+14+27=70 min. Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm nelle ultime 3 ore: asfalto asciutto). CCISS RSS: 2 eventi pertinenti per la direzione andata (code A4 tra Dalmine e Cavenago dir. Milano; code A51 tra Cologno M. S.Giovanni Sud e Linate dir. Allacciamento A1 Milano-Napoli). Scartati per direzione opposta (dir. Brescia, pertinenti solo al ritorno): A4 tra Monza e Agrate, A4 tra Cavenago e Trezzo. Scartato per tratta fuori range: A4 tra Monza e Sesto San Giovanni dir. Torino. Serravalle leggibile ma senza contenuto su incidenti puntuali (pagina dinamica). Luceverde raggiungibile ma senza contenuto utile sul traffico (tentativo unico). Autostrade per l'Italia risponde 404 (tentativo unico). Ricerca web: nessun evento aggiuntivo per la data odierna, solo notizie storiche non pertinenti."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperatura tra 9 e 11 °C lungo tutta la tratta",
+      "Vento debole (6 km/h) con raffiche massime di 14 km/h"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
