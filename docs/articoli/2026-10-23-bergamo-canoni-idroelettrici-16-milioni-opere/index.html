@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Canoni idroelettrici, oltre 16 milioni di euro per strade, scuole e ponti in Bergamasca — TNT News</title>
+  <meta name="description" content="La Provincia di Bergamo ha presentato la ripartizione dei canoni idroelettrici arretrati tra i Comuni: quasi 16,5 milioni di euro per interventi su strade, dissesto idrogeologico, scuole e ponti, soprattutto nelle valli, da realizzare nel 2027-2028.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-23-bergamo-canoni-idroelettrici-16-milioni-opere/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Canoni idroelettrici, oltre 16 milioni di euro per strade, scuole e ponti in Bergamasca — TNT News">
+  <meta property="og:description" content="La Provincia di Bergamo ha presentato la ripartizione dei canoni idroelettrici arretrati tra i Comuni: quasi 16,5 milioni di euro per interventi su strade, dissesto idrogeologico, scuole e ponti, soprattutto nelle valli, da realizzare nel 2027-2028.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-23-bergamo-canoni-idroelettrici-16-milioni-opere/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Canoni idroelettrici, oltre 16 milioni di euro per strade, scuole e ponti in Bergamasca — TNT News">
+  <meta name="twitter:description" content="La Provincia di Bergamo ha presentato la ripartizione dei canoni idroelettrici arretrati tra i Comuni: quasi 16,5 milioni di euro per interventi su strade, dissesto idrogeologico, scuole e ponti, soprattutto nelle valli, da realizzare nel 2027-2028.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Provincia di Bergamo</span><span class="tag">Canoni idroelettrici</span><span class="tag">Opere pubbliche</span><span class="tag">Val Brembana</span></div>
+    <h1>Canoni idroelettrici, oltre 16 milioni di euro per strade, scuole e ponti in Bergamasca</h1>
+    <p class="article-summary">La Provincia di Bergamo ha presentato la ripartizione dei canoni idroelettrici arretrati tra i Comuni: quasi 16,5 milioni di euro per interventi su strade, dissesto idrogeologico, scuole e ponti, soprattutto nelle valli, da realizzare nel 2027-2028.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-23">23 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La Provincia di Bergamo ha presentato giovedì 22 ottobre la ripartizione
+tra i Comuni dei canoni idroelettrici arretrati: quasi 16,5 milioni di euro
+che, tra il 2027 e il 2028, finanzieranno interventi su strade, dissesto
+idrogeologico, scuole e ponti, con particolare attenzione alle valli
+bergamasche colpite dal maltempo estivo. Lo riportano <em>BergamoNews</em> e
+<em>L'Eco di Bergamo</em>, che hanno seguito la conferenza stampa della
+Provincia.</p>
+
+<p>I canoni sono il denaro che i concessionari delle centrali idroelettriche
+versano per l'utilizzo delle acque pubbliche. Circa 10 milioni della somma
+annunciata sono arretrati, riconosciuti dopo alcune sentenze favorevoli alla
+Regione Lombardia, mentre la parte restante corrisponde alla quota ordinaria
+annuale che la Provincia riceve dalla Regione, pari a circa 6,3 milioni. La
+ripartizione ha già ottenuto il parere favorevole dell'Ufficio territoriale
+regionale e sarà formalizzata con una delibera della Regione entro fine
+novembre.</p>
+
+<h2>Strade e dissesto idrogeologico, la quota maggiore</h2>
+<p>La parte più consistente dei fondi riguarda la viabilità provinciale e la
+sicurezza del territorio. Il progetto singolo più costoso è il milione di
+euro per la manutenzione della Rivierasca (SP 170) tra Bottanuco, Capriate
+San Gervasio, Calusco d'Adda, Medolago e Suisio, nell'Isola bergamasca.
+Seguono gli interventi per la messa in sicurezza idrogeologica, tra cui
+632mila euro per Isola di Fondra, 500mila per Ardesio e 450mila per il
+collegamento Zogno-Endenna. In Alta Val Brembana, tra le zone più colpite
+dai temporali di agosto, sono previsti finanziamenti a Lenna, Moio de'
+Calvi, Branzi e Valleve: la provinciale che collega questi paesi era rimasta
+isolata il 20 agosto scorso. Altri interventi minori, tra muri, guard-rail,
+consolidamento di scarpate e manutenzione straordinaria, riguardano decine
+di comuni delle valli, da Colere a Schilpario, da Gromo a Serina.</p>
+
+<h2>Scuole, ponti e mobilità</h2>
+<p>Tra gli interventi sugli edifici scolastici, il più rilevante è l'1,8
+milioni di euro per l'impianto di riscaldamento dell'istituto Marconi di
+Dalmine, seguito da 560mila euro per copertura e serramenti dell'istituto
+Maironi da Ponte di Presezzo. Sul fronte di ponti e mobilità, 400mila euro
+sono destinati al ponte di via Papa Giovanni XXIII a Mozzo e alla
+sistemazione idraulica del torrente Quisa, mentre 450mila euro
+cofinanzieranno una rotatoria ad Albino e altri fondi sosterranno
+collegamenti ciclopedonali a Osio Sopra e Osio Sotto e il tratto bergamasco
+della ciclovia Milano-Monaco a Trescore Balneario.</p>
+
+<figure>
+  <svg viewBox="0 0 640 360" role="img" aria-label="Grafico a barre verticali: ripartizione indicativa dei circa 16,5 milioni di euro di canoni idroelettrici tra tre macro-categorie di intervento. Strade e dissesto idrogeologico: circa 12 milioni di euro. Scuole: circa 2,8 milioni di euro. Ponti e mobilità: circa 1,7 milioni di euro. Valori stimati dalla somma degli importi singoli citati da BergamoNews e L'Eco di Bergamo, 23 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">Canoni idroelettrici: ripartizione indicativa (milioni di &#8364;)</text>
+    <text x="320" y="48" text-anchor="middle" font-size="12" fill="currentColor">Valori indicativi, stimati dalla somma degli importi singoli citati dalle fonti</text>
+    <line x1="80" y1="90" x2="80" y2="300" stroke="currentColor" stroke-width="2"/>
+    <line x1="80" y1="300" x2="600" y2="300" stroke="currentColor" stroke-width="2"/>
+    <rect x="140" y="110" width="110" height="190" fill="#2980b9"/>
+    <text x="195" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">~12,0</text>
+    <text x="195" y="320" text-anchor="middle" font-size="13" fill="currentColor">Strade e</text>
+    <text x="195" y="336" text-anchor="middle" font-size="13" fill="currentColor">dissesto idro.</text>
+    <rect x="320" y="255" width="110" height="45" fill="#27ae60"/>
+    <text x="375" y="245" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">~2,8</text>
+    <text x="375" y="320" text-anchor="middle" font-size="13" fill="currentColor">Scuole</text>
+    <rect x="460" y="273" width="110" height="27" fill="#e67e22"/>
+    <text x="515" y="263" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">~1,7</text>
+    <text x="515" y="320" text-anchor="middle" font-size="13" fill="currentColor">Ponti e mobilità</text>
+  </svg>
+  <figcaption>Ripartizione indicativa dei circa 16,5 milioni di euro di
+  canoni idroelettrici tra le principali categorie di intervento, calcolata
+  sommando gli importi dei singoli interventi citati dalle fonti (valori
+  indicativi, non una ripartizione ufficiale per categoria). Fonte:
+  BergamoNews e L'Eco di Bergamo, 23 ottobre 2026.</figcaption>
+</figure>
+
+<h2>Le dichiarazioni</h2>
+<p>Il presidente della Provincia, Gianfranco Gafforelli, ha dichiarato che
+«l'obiettivo è che le risorse non rimangano soltanto cifre all'interno di
+una programmazione», sottolineando che ora si apre la fase della
+realizzazione concreta delle opere. Il presidente della Comunità montana
+della Valle Brembana, Valeriano Bianchi, ha evidenziato il cambio di
+metodo rispetto al passato: «Normalmente si andava ognuno per la propria
+strada, quest'anno è stata scelta la condivisione». Il vicepresidente della
+Provincia Umberto Valois ha riconosciuto che diversi Comuni della pianura
+bergamasca non sono rientrati in questa ripartizione, promettendo maggiore
+attenzione alla Bassa nelle prossime distribuzioni di risorse.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/23/dallisola-alla-val-brembana-colpita-dal-maltempo-dai-canoni-idroelettrici-opere-per-oltre-16-milioni/931204/" rel="noopener" target="_blank">BergamoNews - Dall&#x27;Isola alla Val Brembana colpita dal maltempo, dai canoni idroelettrici opere per oltre 16 milioni</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/dai-canoni-idroelettrici-165-milioni-per-strade-scuole-e-ponti-in-bergamasca-o_3978173_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Dai canoni idroelettrici 16,5 milioni per strade, scuole e ponti in Bergamasca</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili l&#x27;osservatorio sul mercato del lavoro nel turismo di confcommercio bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in lombardia dopo milano. il 69,2% dei contratti è a tempo indeterminato. economia bergamo turismo lavoro confcommercio occupazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-20-bergamo-turismo-record-occupati-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili</h2><p class="card-summary">L&#x27;Osservatorio sul mercato del lavoro nel turismo di Confcommercio Bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in Lombardia dopo Milano. Il 69,2% dei contratti è a tempo indeterminato.</p><p class="card-meta">20 ottobre 2026</p></div></a></article><article class="card" data-search="stipendi ed inflazione, a bergamo persi 7,5 punti di potere d&#x27;acquisto in dieci anni l&#x27;osservatorio jobpricing certifica che tra il 2015 e il 2025 le retribuzioni nella bergamasca sono cresciute dell&#x27;11,6%, contro un&#x27;inflazione cumulata del 19,1%: una perdita stimata in 2.200-2.300 euro. a settembre i prezzi locali sono tornati ad accelerare. economia bergamo inflazione stipendi lavoro sindacati" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-19-bergamo-inflazione-stipendi-potere-acquisto/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Stipendi ed inflazione, a Bergamo persi 7,5 punti di potere d&#x27;acquisto in dieci anni</h2><p class="card-summary">L&#x27;Osservatorio Jobpricing certifica che tra il 2015 e il 2025 le retribuzioni nella Bergamasca sono cresciute dell&#x27;11,6%, contro un&#x27;inflazione cumulata del 19,1%: una perdita stimata in 2.200-2.300 euro. A settembre i prezzi locali sono tornati ad accelerare.</p><p class="card-meta">19 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo, boom di investimenti alberghieri: in arrivo dieci nuovi hotel e mille camere entro il 2030 tra città e prima fascia dell&#x27;hinterland sono in cantiere una decina di nuovi alberghi, tra cui un hilton garden inn collegato all&#x27;aeroporto di orio al serio, per un totale di oltre mille nuove camere entro il 2030. federalberghi invita alla prudenza sulla sostenibilità del mercato. economia bergamo turismo hotel orio al serio aeroporto" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-11-bergamo-boom-hotel-mille-camere-2030/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo, boom di investimenti alberghieri: in arrivo dieci nuovi hotel e mille camere entro il 2030</h2><p class="card-summary">Tra città e prima fascia dell&#x27;hinterland sono in cantiere una decina di nuovi alberghi, tra cui un Hilton Garden Inn collegato all&#x27;aeroporto di Orio al Serio, per un totale di oltre mille nuove camere entro il 2030. Federalberghi invita alla prudenza sulla sostenibilità del mercato.</p><p class="card-meta">11 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
