@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre — TNT News</title>
+  <meta name="description" content="Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-25-bergamo-corteo-studenti-daspo-urbani-blitz-questura/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre — TNT News">
+  <meta property="og:description" content="Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-25-bergamo-corteo-studenti-daspo-urbani-blitz-questura/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre — TNT News">
+  <meta name="twitter:description" content="Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Bergamo</span><span class="tag">Ordine pubblico</span><span class="tag">Studenti</span><span class="tag">Questura</span><span class="tag">Daspo</span></div>
+    <h1>Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre</h1>
+    <p class="article-summary">Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-25">25 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Venerdì 23 ottobre la Polizia di Stato ha condotto a Bergamo e in alcuni
+comuni della provincia un'ampia operazione contro la devianza giovanile,
+dopo i disordini che il 17 ottobre avevano accompagnato un corteo
+studentesco in città. Nel mirino, in particolare, l'area della stazione
+Autolinee e i dintorni di diversi istituti scolastici. Lo riportano
+<em>BergamoNews</em> e <em>L'Eco di Bergamo</em>, che hanno seguito
+l'operazione e il corteo del giorno successivo.</p>
+
+<h2>Il blitz di venerdì: 350 identificati, 12 Daspo urbani</h2>
+<p>All'operazione hanno partecipato la Squadra Mobile, la Digos, la
+Divisione Anticrimine della Questura di Bergamo, Reparti Prevenzione
+Crimine arrivati da Milano, Torino e Pescara e un'unità cinofila
+antiesplosivo. Complessivamente sono stati identificati circa 350 giovani,
+in gran parte minorenni, molti dei quali già noti alle forze dell'ordine
+per i disordini della settimana precedente.</p>
+<p>Per dodici di loro - due diciottenni stranieri e dieci minorenni tra i
+15 e i 17 anni, otto stranieri e due italiani - la Questura ha disposto un
+Daspo urbano (Dacur): il provvedimento vieta l'accesso, in determinate
+fasce orarie compatibili con la frequenza scolastica, alle zone dei
+danneggiamenti del 17 ottobre, tra stazione, largo Porta Nuova e piazza
+della Libertà. Le abitazioni dei dodici, residenti nel capoluogo e in
+alcuni comuni della provincia, sono state perquisite.</p>
+
+<h2>Sanzioni, un permesso di soggiorno e una denuncia</h2>
+<p>Al blitz si sono aggiunte altre misure. Tre persone legate ad ambienti
+antagonisti e filopalestinesi, tra cui un minorenne, hanno ricevuto una
+sanzione amministrativa da 1.000 a 10.000 euro per aver organizzato
+manifestazioni senza il preavviso previsto alla Questura. È stata inoltre
+avviata la procedura di revoca del permesso di soggiorno di lungo periodo
+per un cittadino straniero già individuato durante disordini analoghi a
+Milano. Un quindicenne italiano incensurato, segnalato da un compagno di
+scuola al numero unico di emergenza 112 perché ritenuto in possesso di
+un'arma, è stato trovato con un'asta da selfie modificata per essere usata
+come bastone: è stato denunciato alla Procura per i Minorenni e riaffidato
+ai genitori. A Dalmine, infine, la polizia ha perquisito l'abitazione di un
+minorenne che in una chat organizzativa aveva incitato ad appiccare un
+incendio nei pressi di una scuola in occasione di un corteo, poi annullato.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre orizzontali: composizione dei 12 Daspo urbani disposti dalla Questura di Bergamo il 23 ottobre 2026. Minorenni stranieri: 8. Maggiorenni stranieri: 2. Minorenni italiani: 2. Fonte: BergamoNews e L'Eco di Bergamo, 23-24 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">I 12 Daspo urbani del 23 ottobre</text>
+    <text x="320" y="48" text-anchor="middle" font-size="12" fill="currentColor">Composizione per età e cittadinanza dei destinatari del provvedimento</text>
+    <line x1="240" y1="90" x2="240" y2="260" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <text x="230" y="118" text-anchor="end" font-size="13" fill="currentColor">Minorenni stranieri</text>
+    <rect x="240" y="100" width="320" height="36" fill="#2980b9"/>
+    <text x="570" y="123" font-size="14" font-weight="bold" fill="currentColor">8</text>
+    <text x="230" y="178" text-anchor="end" font-size="13" fill="currentColor">Maggiorenni stranieri</text>
+    <rect x="240" y="160" width="80" height="36" fill="#e67e22"/>
+    <text x="330" y="183" font-size="14" font-weight="bold" fill="currentColor">2</text>
+    <text x="230" y="238" text-anchor="end" font-size="13" fill="currentColor">Minorenni italiani</text>
+    <rect x="240" y="220" width="80" height="36" fill="#27ae60"/>
+    <text x="330" y="243" font-size="14" font-weight="bold" fill="currentColor">2</text>
+  </svg>
+  <figcaption>Composizione dei 12 Daspo urbani (divieto di accesso alle
+  zone dei danneggiamenti) disposti dalla Questura di Bergamo il 23 ottobre
+  2026, su un totale di circa 350 giovani identificati nel corso del blitz.
+  Fonte: BergamoNews e L'Eco di Bergamo, 23-24 ottobre 2026.</figcaption>
+</figure>
+
+<h2>Sabato in piazza, sotto stretta sorveglianza</h2>
+<p>Sabato 24 ottobre, come da programma, l'Unione degli studenti di Bergamo
+ha comunque dato vita a un nuovo corteo, con partenza alle 15 da piazza
+della Libertà. La Prefettura ha predisposto un dispositivo di sicurezza
+rafforzato: un elicottero ha sorvolato la città fin dal mattino e sulle
+strade sono stati impiegati agenti di Polizia, Carabinieri e Guardia di
+Finanza, con un monitoraggio costante dei social network. A differenza di
+quanto avvenuto in altre città del Nord Italia, i negozianti del centro non
+hanno protetto le vetrine con barriere.</p>
+<p>Prima della manifestazione, Confcommercio aveva scritto alla Prefettura
+esprimendo la preoccupazione di alcuni commercianti, pronti in certi casi
+ad abbassare le saracinesche; il prefetto Luca Rotondi ha risposto
+convocando un comitato per l'ordine e la sicurezza pubblica e un tavolo
+tecnico in Questura, assicurando un presidio diffuso a tutela delle
+attività. Diversa la posizione della consigliera comunale Oriana Ruzzini,
+che ha criticato sia il Daspo urbano sia le proposte del Governo di
+ampliare gli istituti penali per i minori, invitando i giovani a manifestare
+in modo pacifico.</p>
+<p>Al momento della pubblicazione di questo articolo le fonti consultate
+non riportano ancora un bilancio conclusivo della manifestazione di sabato
+pomeriggio. Per tutti i minori coinvolti nelle misure amministrative resta
+fermo il principio della tutela dell'identità, e i provvedimenti adottati -
+amministrativi e non giudiziari - non equivalgono a una condanna.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/23/bergamo-maxi-blitz-della-polizia-di-stato-contro-i-gruppi-violenti-350-giovani-identificati-e-12-misure/931532/" rel="noopener" target="_blank">BergamoNews - Bergamo, maxi blitz della Polizia di Stato contro i gruppi violenti: 350 giovani identificati e 12 misure</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/commercianti-preoccupati-per-il-corteo-degli-studenti-nel-pomeriggio-daspo-a-12-o_3979655_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Commercianti preoccupati per il corteo degli studenti nel pomeriggio. Daspo a 12 giovani: genitori in lacrime</a></li><li><a href="https://www.bergamonews.it/2026/10/24/manifestazione-degli-studenti-nessuna-vetrina-blindata-in-centro-sicurezza-rafforzata-in-volo-anche-lelicottero/931778/" rel="noopener" target="_blank">BergamoNews - Manifestazione degli studenti, nessuna vetrina blindata in centro: sicurezza rafforzata, in volo anche l&#x27;elicottero</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="corteo degli studenti a bergamo, tensioni e due arresti davanti alla questura sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della questura due arresti e cinque denunce. cronaca bergamo studenti corteo scuola" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-18-bergamo-corteo-studenti-vandalismi-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura</h2><p class="card-summary">Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.</p><p class="card-meta">18 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;hapoel: daspo di tre anni alla vigilia di atalanta-hapoel tel aviv, digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un b&amp;b del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città. cronaca bergamo sicurezza ordine pubblico stadio conference league" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-21-bergamo-sequestro-fuochi-artificio-hapoel-daspo/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, sequestrati 45 chili di fuochi d&#x27;artificio a due tifosi dell&#x27;Hapoel: Daspo di tre anni</h2><p class="card-summary">Alla vigilia di Atalanta-Hapoel Tel Aviv, Digos e carabinieri hanno trovato oltre 45 chili tra torce e fuochi d&#x27;artificio nella stanza di due tifosi israeliani in un B&amp;B del centro: per entrambi tre anni di divieto di accedere agli stadi, nell&#x27;ambito del più ampio piano di sicurezza straordinario messo in campo in città.</p><p class="card-meta">21 agosto 2026</p></div></a></article><article class="card" data-search="bergamo, 53 nuovi agenti di polizia di stato in servizio tra questura, stradale, treviglio e orio al serio il questore vincenzo nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della polizia di stato assegnati alla provincia di bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al viminale con il ministro dell&#x27;interno matteo piantedosi. cronaca bergamo polizia di stato sicurezza questura treviglio orio al serio" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-08-09-bergamo-53-nuovi-agenti-polizia-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo, 53 nuovi agenti di Polizia di Stato in servizio tra Questura, Stradale, Treviglio e Orio al Serio</h2><p class="card-summary">Il Questore Vincenzo Nicolì ha accolto venerdì 8 agosto 53 nuovi agenti della Polizia di Stato assegnati alla provincia di Bergamo, rinforzo arrivato dopo l&#x27;incontro di luglio al Viminale con il ministro dell&#x27;Interno Matteo Piantedosi.</p><p class="card-meta">9 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
