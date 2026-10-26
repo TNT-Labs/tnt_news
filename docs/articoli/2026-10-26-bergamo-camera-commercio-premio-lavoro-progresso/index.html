@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a Somet — TNT News</title>
+  <meta name="description" content="La Camera di commercio di Bergamo ha celebrato domenica la 64ª edizione del Riconoscimento del lavoro e del progresso economico, con benemerenze a Gian Battista Arrigoni, Marco Francesco Eigenmann e Andrea Mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a Somet.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-26-bergamo-camera-commercio-premio-lavoro-progresso/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a Somet — TNT News">
+  <meta property="og:description" content="La Camera di commercio di Bergamo ha celebrato domenica la 64ª edizione del Riconoscimento del lavoro e del progresso economico, con benemerenze a Gian Battista Arrigoni, Marco Francesco Eigenmann e Andrea Mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a Somet.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-26-bergamo-camera-commercio-premio-lavoro-progresso/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a Somet — TNT News">
+  <meta name="twitter:description" content="La Camera di commercio di Bergamo ha celebrato domenica la 64ª edizione del Riconoscimento del lavoro e del progresso economico, con benemerenze a Gian Battista Arrigoni, Marco Francesco Eigenmann e Andrea Mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a Somet.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Bergamo</span><span class="tag">Camera di commercio</span><span class="tag">Lavoro</span><span class="tag">Imprese</span><span class="tag">Sostenibilità</span></div>
+    <h1>Bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a Somet</h1>
+    <p class="article-summary">La Camera di commercio di Bergamo ha celebrato domenica la 64ª edizione del Riconoscimento del lavoro e del progresso economico, con benemerenze a Gian Battista Arrigoni, Marco Francesco Eigenmann e Andrea Mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a Somet.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-26">26 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Domenica 25 ottobre, negli spazi dell'ex fabbrica Daste a Bergamo, la
+Camera di commercio ha celebrato la 64ª edizione del Riconoscimento del
+lavoro e del progresso economico. Davanti alla sindaca Elena Carnevali e a
+rappresentanti di Regione Lombardia e Diocesi, il presidente camerale
+Giovanni Zambonelli ha consegnato le benemerenze a tre personalità del
+territorio e ha premiato, per la prima volta nella storia della
+manifestazione, un'impresa per il suo impegno sulla sostenibilità. Lo
+riportano <em>BergamoNews</em> e <em>L'Eco di Bergamo</em>, presenti
+all'evento.</p>
+
+<h2>Tre benemerenze per il territorio</h2>
+<p>Il riconoscimento è andato a Gian Battista Arrigoni, alla guida
+dell'omonima azienda lattiero-casearia di Pagazzano - fondata dal nonno e
+oggi alla terza generazione, produttrice di quattro formaggi Dop
+bergamaschi tra cui taleggio e gorgonzola - per il contributo
+all'eccellenza agroalimentare e alla cooperazione internazionale. La
+seconda benemerenza è andata a Marco Francesco Eigenmann, alla guida di
+Fine Foods, azienda di Verdellino attiva nella farmaceutica, nella
+nutraceutica e nella cosmetica, che oggi conta 1.126 dipendenti, quasi la
+metà donne, impegnate per quasi un terzo nei ruoli manageriali. La terza
+benemerenza, inedita per la categoria, è andata all'artista Andrea
+Mastrovito, autore dell'Agnus Dei realizzato per completare la Torre di
+Gesù Cristo della Sagrada Familia di Barcellona, premiato per il respiro
+internazionale della sua ricerca.</p>
+
+<h2>Trentadue carriere e trentadue imprese che durano</h2>
+<p>Al centro della cerimonia restano però i riconoscimenti "di base":
+trentadue dipendenti con un'anzianità di servizio compresa tra 25 e 42
+anni, e altrettante imprese bergamasche attive ininterrottamente da oltre
+trent'anni, quattordici delle quali ancora a conduzione familiare.
+Insieme alle tre benemerenze e al nuovo premio per la sostenibilità,
+compongono il quadro complessivo dei premiati di quest'anno.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre orizzontali: riconoscimenti assegnati alla 64ª edizione del Riconoscimento del lavoro e del progresso economico della Camera di commercio di Bergamo, 25 ottobre 2026. Dipendenti con 25-42 anni di servizio: 32. Imprese attive da oltre 30 anni: 32, di cui 14 familiari. Benemerenze a personalità: 3. Premio sostenibilità, prima edizione: 1. Fonte: BergamoNews e L'Eco di Bergamo." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="bold" fill="currentColor">I premiati del 25 ottobre</text>
+    <text x="320" y="46" text-anchor="middle" font-size="12" fill="currentColor">Riconoscimento del lavoro e del progresso economico, 64ª edizione</text>
+    <line x1="270" y1="64" x2="270" y2="290" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    <text x="260" y="92" text-anchor="end" font-size="13" fill="currentColor">Dipendenti (25-42 anni)</text>
+    <rect x="270" y="74" width="300" height="32" fill="#2980b9"/>
+    <text x="580" y="95" font-size="14" font-weight="bold" fill="currentColor">32</text>
+    <text x="260" y="144" text-anchor="end" font-size="13" fill="currentColor">Imprese (oltre 30 anni)</text>
+    <rect x="270" y="126" width="300" height="32" fill="#16a085"/>
+    <text x="580" y="147" font-size="14" font-weight="bold" fill="currentColor">32</text>
+    <text x="260" y="196" text-anchor="end" font-size="13" fill="currentColor">...di cui familiari</text>
+    <rect x="270" y="178" width="131" height="32" fill="#1abc9c" opacity="0.7"/>
+    <text x="411" y="199" font-size="14" font-weight="bold" fill="currentColor">14</text>
+    <text x="260" y="248" text-anchor="end" font-size="13" fill="currentColor">Benemerenze a personalità</text>
+    <rect x="270" y="230" width="28" height="32" fill="#e67e22"/>
+    <text x="308" y="251" font-size="14" font-weight="bold" fill="currentColor">3</text>
+    <text x="260" y="282" text-anchor="end" font-size="13" fill="currentColor">Premio sostenibilità (nuovo)</text>
+    <rect x="270" y="264" width="9" height="18" fill="#c0392b"/>
+    <text x="289" y="279" font-size="14" font-weight="bold" fill="currentColor">1</text>
+  </svg>
+  <figcaption>Numero di premiati per categoria alla 64ª edizione del
+  Riconoscimento del lavoro e del progresso economico della Camera di
+  commercio di Bergamo (25 ottobre 2026). Fonte: BergamoNews e L'Eco di
+  Bergamo.</figcaption>
+</figure>
+
+<h2>La novità: il premio per la sostenibilità</h2>
+<p>Quest'anno la Camera di commercio ha introdotto un nuovo premio
+dedicato alla sostenibilità, assegnato alla Somet, azienda bergamasca
+della fusione di metalli non ferrosi. La motivazione riconosce la capacità
+dell'impresa di trasformare gli scarti di produzione in energia e di
+contenere sprechi e rifiuti: secondo quanto dichiarato dall'azienda,
+placche e billette vengono realizzate con materiali riciclati al 100% e il
+tasso di recupero dei rifiuti di lavorazione si mantiene stabilmente sopra
+il 90%.</p>
+
+<p>Nel suo intervento, Zambonelli ha definito la cerimonia un omaggio a chi
+"con competenza, passione e responsabilità" contribuisce alla solidità del
+tessuto economico e sociale bergamasco. La sindaca Carnevali ha invece
+insistito sulla necessità di investire in formazione e aggiornamento delle
+competenze, definendo la sostenibilità "un fattore di competitività e di
+qualità dello sviluppo economico" per il territorio.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/26/lavoro-impresa-e-talento-bergamo-celebra-i-protagonisti-del-progresso-economico/931994/" rel="noopener" target="_blank">BergamoNews - Lavoro, impresa e talento: Bergamo celebra i protagonisti del progresso economico</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/economia/bergamo-premia-il-lavoro-riconoscimenti-ad-arrigoni-eigenmann-e-mastrovito-o_3980386_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Bergamo premia il lavoro: riconoscimenti ad Arrigoni, Eigenmann e Mastrovito</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili l&#x27;osservatorio sul mercato del lavoro nel turismo di confcommercio bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in lombardia dopo milano. il 69,2% dei contratti è a tempo indeterminato. economia bergamo turismo lavoro confcommercio occupazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-20-bergamo-turismo-record-occupati-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili</h2><p class="card-summary">L&#x27;Osservatorio sul mercato del lavoro nel turismo di Confcommercio Bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in Lombardia dopo Milano. Il 69,2% dei contratti è a tempo indeterminato.</p><p class="card-meta">20 ottobre 2026</p></div></a></article><article class="card" data-search="stipendi ed inflazione, a bergamo persi 7,5 punti di potere d&#x27;acquisto in dieci anni l&#x27;osservatorio jobpricing certifica che tra il 2015 e il 2025 le retribuzioni nella bergamasca sono cresciute dell&#x27;11,6%, contro un&#x27;inflazione cumulata del 19,1%: una perdita stimata in 2.200-2.300 euro. a settembre i prezzi locali sono tornati ad accelerare. economia bergamo inflazione stipendi lavoro sindacati" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-19-bergamo-inflazione-stipendi-potere-acquisto/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Stipendi ed inflazione, a Bergamo persi 7,5 punti di potere d&#x27;acquisto in dieci anni</h2><p class="card-summary">L&#x27;Osservatorio Jobpricing certifica che tra il 2015 e il 2025 le retribuzioni nella Bergamasca sono cresciute dell&#x27;11,6%, contro un&#x27;inflazione cumulata del 19,1%: una perdita stimata in 2.200-2.300 euro. A settembre i prezzi locali sono tornati ad accelerare.</p><p class="card-meta">19 ottobre 2026</p></div></a></article><article class="card" data-search="turismo da record in bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva ad agosto le presenze turistiche in provincia di bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di filcams cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel nord-ovest, soprattutto donne. economia bergamo turismo lavoro salari" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-05-bergamo-turismo-record-lavoro-povero/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo da record in Bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva</h2><p class="card-summary">Ad agosto le presenze turistiche in provincia di Bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di Filcams Cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel Nord-Ovest, soprattutto donne.</p><p class="card-meta">5 agosto 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
