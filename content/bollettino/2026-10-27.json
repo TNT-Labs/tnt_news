@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-27",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno e soleggiato su tutta la tratta, ma temperature sotto i 7 °C a Bergamo alla partenza: moto con cautela per il freddo.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Soleggiato",               "temp_c": 6.7, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Soleggiato",               "temp_c": 7.2, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNE"},
+      {"name": "San Donato (08:45)",     "cond": "Parzialmente soleggiato",  "temp_c": 7.3, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 80,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 34},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 32}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 34+14+32=80 min. Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm nelle ultime 3 ore: asfalto asciutto). CCISS RSS (100 voci): nessun evento su A4 Milano-Brescia (tratta Bergamo-Agrate) o su A51/Tangenziale Est; l'unico item A4 presente riguarda la A4 Torino-Milano, fuori tratta. Serravalle leggibile ma senza contenuto su incidenti puntuali (pagina statica). Luceverde raggiungibile ma senza contenuto utile sul traffico (tentativo unico). Autostrade per l'Italia risponde 404 (tentativo unico). Ricerca web: nessuna notizia odierna su incidenti/cantieri sulla tratta; solo episodi storici (2019-2024) non pertinenti a oggi."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperatura a Bergamo alla partenza (07:30) di 6,7 °C, sotto la soglia dei 7 °C per il via libera pieno",
+      "Nessuna pioggia prevista sull'intero tragitto (0 mm, probabilità massima 5%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Vento debole su tutta la tratta (massimo 13 km/h di raffica)"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
