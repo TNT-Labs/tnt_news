@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Alzano Lombardo, al via la demolizione dell&#x27;ex Zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione — TNT News</title>
+  <meta name="description" content="Lunedì sera ad Alzano Lombardo è iniziata la demolizione dell&#x27;ex stabilimento Zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal Gruppo Impresa Bergamelli, nascerà un polo per l&#x27;artigianato leggero.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-27-alzano-lombardo-ex-zerowatt-demolizione/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Alzano Lombardo, al via la demolizione dell&#x27;ex Zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione — TNT News">
+  <meta property="og:description" content="Lunedì sera ad Alzano Lombardo è iniziata la demolizione dell&#x27;ex stabilimento Zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal Gruppo Impresa Bergamelli, nascerà un polo per l&#x27;artigianato leggero.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-27-alzano-lombardo-ex-zerowatt-demolizione/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Alzano Lombardo, al via la demolizione dell&#x27;ex Zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione — TNT News">
+  <meta name="twitter:description" content="Lunedì sera ad Alzano Lombardo è iniziata la demolizione dell&#x27;ex stabilimento Zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal Gruppo Impresa Bergamelli, nascerà un polo per l&#x27;artigianato leggero.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Alzano Lombardo</span><span class="tag">Zerowatt</span><span class="tag">Valle Seriana</span><span class="tag">Rigenerazione urbana</span><span class="tag">Industria</span></div>
+    <h1>Alzano Lombardo, al via la demolizione dell&#x27;ex Zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione</h1>
+    <p class="article-summary">Lunedì sera ad Alzano Lombardo è iniziata la demolizione dell&#x27;ex stabilimento Zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal Gruppo Impresa Bergamelli, nascerà un polo per l&#x27;artigianato leggero.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-27">27 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Lunedì sera, ad Alzano Lombardo, è calata la prima «pinzata» sull'ex stabilimento
+Zerowatt, nella frazione di Nese. Dopo 26 anni di abbandono, è iniziata la
+demolizione del complesso industriale che per oltre mezzo secolo ha
+rappresentato uno dei simboli del lavoro in Valle Seriana. Alla serata, aperta
+alla cittadinanza, hanno partecipato numerosi ex dipendenti, residenti, il
+sindaco Camillo Bertocchi e il presidente della Comunità Montana Valle
+Seriana, Giampiero Calegari.</p>
+
+<h2>Mezzo secolo di storia industriale</h2>
+<p>La fabbrica aveva iniziato la produzione nel 1957, specializzandosi in
+elettrodomestici — lavatrici e piccoli apparecchi come aspirapolvere,
+piastre elettriche, macchine da caffè e ventilatori. Negli anni di maggiore
+sviluppo arrivò a contare quasi 500 dipendenti, diventando un punto di
+riferimento occupazionale per l'intera Busa di Nese. La produzione si fermò
+nel 2001, dopo l'acquisizione dell'azienda da parte di Candy e il
+trasferimento delle attività a Brugherio, in Brianza: le trattative sindacali
+di allora non riuscirono a evitare la chiusura del sito bergamasco.</p>
+
+<h2>Che cosa prevede il progetto di rigenerazione</h2>
+<p>L'area, pari a circa 26mila metri quadrati, è stata acquistata dal Gruppo
+Impresa Bergamelli. Il cantiere avviato in questi giorni riguarda circa
+10mila metri quadrati destinati alla demolizione completa, mentre i restanti
+16mila metri quadrati saranno recuperati nell'ambito del nuovo intervento. A
+rendere possibile l'operazione è il Piano di governo del territorio (Pgt)
+approvato nel 2025 dal Comune di Alzano Lombardo, che introduce incentivi
+urbanistici per la riqualificazione delle aree industriali dismesse e impone
+la demolizione delle strutture abbandonate entro un anno dall'entrata in
+vigore delle nuove norme. Il progetto, ancora in fase di definizione nei
+dettagli, punta a un nuovo comparto dedicato all'artigianato leggero.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: dei 26.000 metri quadrati dell'area ex Zerowatt, 10.000 saranno demoliti e 16.000 recuperati" xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a1a">Area ex Zerowatt: 26.000 m² complessivi</text>
+    <line x1="80" y1="260" x2="600" y2="260" stroke="#888" stroke-width="1"/>
+    <rect x="140" y="70" width="90" height="190" fill="#2e6f9e"/>
+    <text x="185" y="60" text-anchor="middle" font-size="16" fill="#1a1a1a">26.000 m²</text>
+    <text x="185" y="282" text-anchor="middle" font-size="14" fill="#333">Area totale</text>
+    <rect x="300" y="187" width="90" height="73" fill="#c0392b"/>
+    <text x="345" y="177" text-anchor="middle" font-size="16" fill="#1a1a1a">10.000 m²</text>
+    <text x="345" y="282" text-anchor="middle" font-size="14" fill="#333">Area demolita</text>
+    <rect x="460" y="90" width="90" height="170" fill="#2e8b57"/>
+    <text x="505" y="80" text-anchor="middle" font-size="16" fill="#1a1a1a">16.000 m²</text>
+    <text x="505" y="282" text-anchor="middle" font-size="14" fill="#333">Area recuperata</text>
+  </svg>
+  <figcaption>Ripartizione dell'area dell'ex Zerowatt tra demolizione e recupero.
+  Valori indicativi, fonte: L'Eco di Bergamo, 11 ottobre 2026.</figcaption>
+</figure>
+
+<h2>Le voci della comunità</h2>
+<p>Per il sindaco Bertocchi, che già all'avvio dell'iter aveva parlato di un
+«passaggio storico per la nostra comunità», la serata di lunedì ha segnato
+un momento di svolta per il paese:</p>
+<blockquote>«Una serata importante: con questa demolizione qui si parte da
+zero.»</blockquote>
+<p>Il sindaco ha ricordato come, per oltre cinquant'anni, il nome Zerowatt
+abbia rappresentato innovazione, tecnologia e lavoro per il territorio, e
+come ora spetti alla comunità dare un nuovo futuro a quegli spazi. A ricordo
+dell'azienda resta, dal 2023, l'insegna rossa «Zerowatt» realizzata
+dall'artista Francesco Lussana, installata nella zona della Busa.</p>
+
+<h2>I prossimi passi</h2>
+<p>Terminata la fase di abbattimento e bonifica, l'area dovrà passare a una
+nuova fase di progettazione urbanistica, prima dell'avvio dei lavori di
+riqualificazione. Non sono ancora stati comunicati tempi definitivi per il
+completamento del cantiere né i dettagli esecutivi del futuro polo
+artigianale.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/valle-seriana/zerowatt-fine-di-unera-ad-alzano-le-ruspe-a-fine-mese-o_3970110_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Zerowatt, fine di un&#x27;era ad Alzano: le ruspe a fine mese</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/valle-seriana/zerowatt-iniziata-la-demolizione-in-tantissimi-ad-alzano-foto-o_3981611_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Zerowatt, iniziata la demolizione. In tantissimi ad Alzano - Foto</a></li><li><a href="https://www.bergamonews.it/2026/10/10/alzano-al-via-la-demolizione-dellex-area-zerowatt-il-sindaco-passaggio-storico-per-la-nostra-comunita/928062" rel="noopener" target="_blank">BergamoNews - Alzano, al via la demolizione dell&#x27;ex area Zerowatt. Il sindaco: &quot;Passaggio storico per la nostra comunità&quot;</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="pradalunga, case che tremano: sismografi in tre abitazioni per capire la causa delle vibrazioni a pradalunga, in valle seriana, vibrazioni anomale avvertite in diverse abitazioni dal 21 ottobre hanno spinto il comune a incaricare un geologo e un ingegnere: da lunedì sismografi in tre case per verificare il possibile legame con la riapertura della traversa sul fiume serio. cronaca pradalunga valle seriana fiume serio vigili del fuoco" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-24-pradalunga-vibrazioni-sismografi-serio/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Pradalunga, case che tremano: sismografi in tre abitazioni per capire la causa delle vibrazioni</h2><p class="card-summary">A Pradalunga, in Valle Seriana, vibrazioni anomale avvertite in diverse abitazioni dal 21 ottobre hanno spinto il Comune a incaricare un geologo e un ingegnere: da lunedì sismografi in tre case per verificare il possibile legame con la riapertura della traversa sul fiume Serio.</p><p class="card-meta">24 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo blinda il corteo degli studenti: 350 identificati e 12 daspo urbani dopo i disordini del 17 ottobre dopo i disordini del corteo studentesco del 17 ottobre, la questura di bergamo ha identificato 350 giovani e applicato 12 daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato. cronaca bergamo ordine pubblico studenti questura daspo" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-25-bergamo-corteo-studenti-daspo-urbani-blitz-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre</h2><p class="card-summary">Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.</p><p class="card-meta">25 ottobre 2026</p></div></a></article><article class="card" data-search="corteo degli studenti a bergamo, tensioni e due arresti davanti alla questura sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della questura due arresti e cinque denunce. cronaca bergamo studenti corteo scuola" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-18-bergamo-corteo-studenti-vandalismi-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Corteo degli studenti a Bergamo, tensioni e due arresti davanti alla Questura</h2><p class="card-summary">Sabato 17 ottobre centinaia di studenti bergamaschi hanno sfilato per una scuola migliore e contro la guerra. Un gruppo si è staccato dal corteo con atti vandalici: una decina di fermati, secondo gli aggiornamenti della Questura due arresti e cinque denunce.</p><p class="card-meta">18 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
