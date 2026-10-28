@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-28",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso ma asciutto su tutta la tratta, temperature intorno agli 8 °C e vento debole: condizioni favorevoli per la moto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Nuvoloso", "temp_c": 8.4, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Nuvoloso", "temp_c": 8.6, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NW"},
+      {"name": "San Donato (08:45)",     "cond": "Nuvoloso", "temp_c": 8.4, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "W"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 75,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 32},
+      {"name": "Surface Agrate → Carugate",           "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A51 km 10,3-10,7 dir. San Donato (Cologno Sud)", "desc": "Corsia di emergenza chiusa e corsia di decelerazione limitata per protezione della barriera di un ponte; lavori a tempo indeterminato (\"fino a revoca\")."},
+      {"where": "A51 km 2,8-3,4 dir. San Donato (svincolo Mecenate)", "desc": "Configurazione provvisoria della nuova complanare per riqualificazione dello svincolo Mecenate (lavori Olimpiadi 2026), in corso fino al 31/12/2026."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 32+15+28=75 min. Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm nelle ultime 3 ore: asfalto asciutto). CCISS RSS: nessun evento su A4 Milano-Brescia (tratta Bergamo-Agrate) o su A51/Tangenziale Est pertinente. Serravalle: pagina viabilità senza contenuto utile sugli eventi puntuali; la tabella cantieri PDF (periodo nominale 1/3-30/6/2026, quindi alcune voci già scadute) riporta due limitazioni ancora valide in direzione Sud: chiusura corsia di emergenza a Cologno Sud (km 10,3-10,7, 'fino a revoca', ordinanza pregressa) e configurazione provvisoria svincolo Mecenate (km 2,8-3,4, fino al 31/12/2026); altre voci della stessa tabella con scadenza 30/06/2026 sono state scartate perché superate. Luceverde raggiungibile ma senza contenuto utile sul traffico puntuale (tentativo unico). Autostrade per l'Italia risponde 404 (tentativo unico). Ricerca web: nessuna notizia odierna su incidenti/cantieri sulla tratta; solo episodi storici non pertinenti a oggi."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (0 mm, probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperatura sopra i 7 °C in tutti e tre i punti (8,4-8,6 °C)",
+      "Vento debole ovunque, raffiche massime di 11 km/h"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Milano Serravalle — tabella cantieri inamovibili", "url": "https://www.serravalle.it/uploads/pagine/TAB_Cantieri_MARZO_2026.pdf"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
