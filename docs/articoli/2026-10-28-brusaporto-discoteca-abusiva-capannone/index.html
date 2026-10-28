@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Brusaporto, discoteca abusiva in un capannone: due giovani denunciati e multe per oltre 9mila euro — TNT News</title>
+  <meta name="description" content="La Polizia di Stato ha scoperto un evento danzante clandestino allestito in un capannone industriale di Brusaporto, con circa 100 persone, bar abusivo e biglietti venduti in contanti: due organizzatori denunciati e sanzioni amministrative per oltre 9mila euro.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-28-brusaporto-discoteca-abusiva-capannone/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Brusaporto, discoteca abusiva in un capannone: due giovani denunciati e multe per oltre 9mila euro — TNT News">
+  <meta property="og:description" content="La Polizia di Stato ha scoperto un evento danzante clandestino allestito in un capannone industriale di Brusaporto, con circa 100 persone, bar abusivo e biglietti venduti in contanti: due organizzatori denunciati e sanzioni amministrative per oltre 9mila euro.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-28-brusaporto-discoteca-abusiva-capannone/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Brusaporto, discoteca abusiva in un capannone: due giovani denunciati e multe per oltre 9mila euro — TNT News">
+  <meta name="twitter:description" content="La Polizia di Stato ha scoperto un evento danzante clandestino allestito in un capannone industriale di Brusaporto, con circa 100 persone, bar abusivo e biglietti venduti in contanti: due organizzatori denunciati e sanzioni amministrative per oltre 9mila euro.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/cronaca/">Cronaca</a><span class="tag">Brusaporto</span><span class="tag">Questura di Bergamo</span><span class="tag">Sicurezza pubblica</span><span class="tag">Eventi abusivi</span></div>
+    <h1>Brusaporto, discoteca abusiva in un capannone: due giovani denunciati e multe per oltre 9mila euro</h1>
+    <p class="article-summary">La Polizia di Stato ha scoperto un evento danzante clandestino allestito in un capannone industriale di Brusaporto, con circa 100 persone, bar abusivo e biglietti venduti in contanti: due organizzatori denunciati e sanzioni amministrative per oltre 9mila euro.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-28">28 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>La notte tra il 10 e l'11 ottobre, in un capannone industriale preso in
+affitto a Brusaporto, due giovani avevano allestito una discoteca abusiva
+completa di consolle per dj, impianto audio professionale e luci stroboscopiche.
+All'evento, promosso sui social con data fissata e ingresso a pagamento ma
+senza indicare il luogo esatto, hanno partecipato circa cento persone. Il 26
+ottobre i due organizzatori sono stati denunciati dalla Polizia di Stato.</p>
+
+<h2>Come è stata scoperta la festa clandestina</h2>
+<p>A individuare l'evento è stata la Squadra della Divisione Polizia
+amministrativa e di sicurezza della Questura di Bergamo, che monitora
+abitualmente i principali social network. Gli agenti hanno seguito la
+promozione della serata, per la quale il luogo di svolgimento veniva
+comunicato soltanto dopo l'acquisto di un biglietto in prevendita. L'ingresso
+costava 15 euro, sia in prevendita sia alla porta, con pagamento esclusivamente
+in contanti. All'interno del capannone era inoltre attivo un bar abusivo che
+serviva alcolici, sempre incassando solo in contanti.</p>
+
+<h2>Le violazioni riscontrate</h2>
+<p>Il locale non disponeva delle autorizzazioni di pubblica sicurezza né dei
+certificati di idoneità richiesti per lo svolgimento di spettacoli aperti al
+pubblico, in violazione degli articoli 68 e 80 del Testo unico delle leggi di
+pubblica sicurezza (Tulps). Al momento del controllo l'evento è stato
+interrotto e le persone presenti sono state fatte uscire in sicurezza, senza
+conseguenze per la loro incolumità. I due organizzatori sono stati denunciati
+per aver organizzato un evento di pubblico spettacolo senza le necessarie
+autorizzazioni; restano inoltre da verificare, da parte delle autorità
+competenti, eventuali violazioni di natura fiscale legate agli incassi di
+biglietti e bar.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Grafico a barre: incasso stimato della serata, circa 1.500 euro con cento biglietti da 15 euro, a confronto con le sanzioni amministrative comminate, oltre 9.000 euro" xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a1a">Incasso stimato vs sanzioni (euro)</text>
+    <line x1="80" y1="260" x2="600" y2="260" stroke="#888" stroke-width="1"/>
+    <rect x="160" y="200" width="120" height="60" fill="#2e6f9e"/>
+    <text x="220" y="190" text-anchor="middle" font-size="16" fill="#1a1a1a">~1.500 €</text>
+    <text x="220" y="282" text-anchor="middle" font-size="14" fill="#333">Incasso ingressi</text>
+    <text x="220" y="300" text-anchor="middle" font-size="12" fill="#666">(100 biglietti x 15 €, stima)</text>
+    <rect x="360" y="75" width="120" height="185" fill="#c0392b"/>
+    <text x="420" y="65" text-anchor="middle" font-size="16" fill="#1a1a1a">oltre 9.000 €</text>
+    <text x="420" y="282" text-anchor="middle" font-size="14" fill="#333">Sanzioni amministrative</text>
+  </svg>
+  <figcaption>Confronto tra l'incasso stimato della serata (valore indicativo,
+  calcolato su circa 100 partecipanti a 15 euro a biglietto) e l'importo
+  complessivo delle sanzioni amministrative comminate dalla Questura di
+  Bergamo. Fonte: BergamoNews e L'Eco di Bergamo, 28 ottobre 2026.</figcaption>
+</figure>
+
+<h2>Un fenomeno da monitorare</h2>
+<p>Il caso di Brusaporto rientra nel filone dei party abusivi organizzati
+tramite i social network, un fenomeno che le forze dell'ordine bergamasche
+tengono sotto osservazione per i rischi legati alla sicurezza dei
+partecipanti — impianti elettrici non certificati, vie di fuga non
+verificate, assenza di controlli antincendio — e per la concorrenza sleale
+nei confronti dei locali che operano nel rispetto delle norme. La vicenda è
+ancora in fase di approfondimento sul fronte fiscale, mentre il procedimento
+penale per i due organizzatori segue il suo corso: trattandosi di una
+denuncia, nei loro confronti vale la presunzione di non colpevolezza fino a
+un eventuale accertamento definitivo.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/10/28/discoteca-abusiva-in-un-capannone-maxi-multa-denunciati-due-giovani/932642/" rel="noopener" target="_blank">BergamoNews - Discoteca abusiva in un capannone: maxi multa, denunciati due giovani</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/hinterland/brusaporto-discoteca-abusiva-in-un-capannone-denunciati-due-organizzatori-o_3982430_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Brusaporto, discoteca abusiva in un capannone: denunciati due organizzatori</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="alzano lombardo, al via la demolizione dell&#x27;ex zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione lunedì sera ad alzano lombardo è iniziata la demolizione dell&#x27;ex stabilimento zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal gruppo impresa bergamelli, nascerà un polo per l&#x27;artigianato leggero. cronaca alzano lombardo zerowatt valle seriana rigenerazione urbana industria" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-27-alzano-lombardo-ex-zerowatt-demolizione/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Alzano Lombardo, al via la demolizione dell&#x27;ex Zerowatt: 26 anni dopo la chiusura si apre la strada alla rigenerazione</h2><p class="card-summary">Lunedì sera ad Alzano Lombardo è iniziata la demolizione dell&#x27;ex stabilimento Zerowatt, chiuso nel 2001: sui 26mila metri quadrati del sito, acquistato dal Gruppo Impresa Bergamelli, nascerà un polo per l&#x27;artigianato leggero.</p><p class="card-meta">27 ottobre 2026</p></div></a></article><article class="card" data-search="bergamo blinda il corteo degli studenti: 350 identificati e 12 daspo urbani dopo i disordini del 17 ottobre dopo i disordini del corteo studentesco del 17 ottobre, la questura di bergamo ha identificato 350 giovani e applicato 12 daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato. cronaca bergamo ordine pubblico studenti questura daspo" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-25-bergamo-corteo-studenti-daspo-urbani-blitz-questura/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Bergamo blinda il corteo degli studenti: 350 identificati e 12 Daspo urbani dopo i disordini del 17 ottobre</h2><p class="card-summary">Dopo i disordini del corteo studentesco del 17 ottobre, la Questura di Bergamo ha identificato 350 giovani e applicato 12 Daspo urbani; sabato 24 la nuova manifestazione si è svolta con un dispositivo di sicurezza rafforzato.</p><p class="card-meta">25 ottobre 2026</p></div></a></article><article class="card" data-search="pradalunga, case che tremano: sismografi in tre abitazioni per capire la causa delle vibrazioni a pradalunga, in valle seriana, vibrazioni anomale avvertite in diverse abitazioni dal 21 ottobre hanno spinto il comune a incaricare un geologo e un ingegnere: da lunedì sismografi in tre case per verificare il possibile legame con la riapertura della traversa sul fiume serio. cronaca pradalunga valle seriana fiume serio vigili del fuoco" data-cat="Cronaca"><a class="card-link" href="../../articoli/2026-10-24-pradalunga-vibrazioni-sismografi-serio/"><div class="card-body"><div class="tags"><span class="tag">Cronaca</span></div><h2 class="card-title">Pradalunga, case che tremano: sismografi in tre abitazioni per capire la causa delle vibrazioni</h2><p class="card-summary">A Pradalunga, in Valle Seriana, vibrazioni anomale avvertite in diverse abitazioni dal 21 ottobre hanno spinto il Comune a incaricare un geologo e un ingegnere: da lunedì sismografi in tre case per verificare il possibile legame con la riapertura della traversa sul fiume Serio.</p><p class="card-meta">24 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
