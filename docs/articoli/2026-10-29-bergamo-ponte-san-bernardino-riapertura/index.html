@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, riapre il ponte di via San Bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere — TNT News</title>
+  <meta name="description" content="Dalle 19 di venerdì 30 ottobre il ponte ferroviario di via San Bernardino a Bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea Bergamo-Ponte San Pietro. Il cantiere completo è previsto entro giugno 2027.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-29-bergamo-ponte-san-bernardino-riapertura/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, riapre il ponte di via San Bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere — TNT News">
+  <meta property="og:description" content="Dalle 19 di venerdì 30 ottobre il ponte ferroviario di via San Bernardino a Bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea Bergamo-Ponte San Pietro. Il cantiere completo è previsto entro giugno 2027.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-29-bergamo-ponte-san-bernardino-riapertura/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, riapre il ponte di via San Bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere — TNT News">
+  <meta name="twitter:description" content="Dalle 19 di venerdì 30 ottobre il ponte ferroviario di via San Bernardino a Bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea Bergamo-Ponte San Pietro. Il cantiere completo è previsto entro giugno 2027.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Viabilità</span><span class="tag">RFI</span><span class="tag">Cantieri ferroviari</span></div>
+    <h1>Bergamo, riapre il ponte di via San Bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere</h1>
+    <p class="article-summary">Dalle 19 di venerdì 30 ottobre il ponte ferroviario di via San Bernardino a Bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea Bergamo-Ponte San Pietro. Il cantiere completo è previsto entro giugno 2027.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-29">29 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da venerdì 30 ottobre, alle 19, il ponte ferroviario di via San
+Bernardino a Bergamo torna transitabile a doppio senso su un'unica
+corsia, dopo oltre un anno di chiusura legata ai lavori di raddoppio
+della linea Bergamo-Ponte San Pietro. Il provvedimento, valido fino al
+31 dicembre 2026, consente il passaggio a tutti i veicoli tranne quelli
+sopra le 3,5 tonnellate a pieno carico. Il cantiere, affidato a Rete
+Ferroviaria Italiana (RFI), era partito nel settembre 2025 con la
+demolizione e ricostruzione della struttura; una prima corsia era già
+stata riaperta parzialmente nel mese di agosto.</p>
+
+<h2>Più di un anno di disagi</h2>
+<p>La chiusura del ponte, uno degli assi di accesso alla città da sud,
+ha riversato il traffico sulle vie limitrofe, in particolare su via
+Autostrada, dove nelle ore di punta si sono registrate code sia in
+entrata che in uscita da Bergamo. La sindaca Elena Carnevali ha definito
+la riapertura «un passo avanti decisivo, frutto di richieste mai
+abbandonate», parlando di «una boccata d'ossigeno» per la viabilità
+cittadina, ma avvertendo che le difficoltà non sono ancora superate: il
+cantiere ha comportato anche l'interruzione della linea ferroviaria,
+sostituita da bus, e un aumento del traffico di auto private.</p>
+
+<p>L'assessore alla Mobilità Marco Berlanda ha chiesto il rispetto delle
+scadenze dopo i ritardi già accumulati, dicendo di aspettarsi che
+questa volta non ci siano ulteriori slittamenti. Il Comune ha reso noto
+che continuerà a monitorare l'avanzamento del cantiere insieme a RFI e
+all'impresa appaltatrice.</p>
+
+<h2>Le prossime fasi del cantiere</h2>
+<p>La riapertura a doppio senso non chiude il cantiere, che proseguirà
+a fasi fino al 2027. Da fine gennaio, per circa 60 giorni, i lavori si
+concentreranno sul fornice ovest, mentre quello est resterà a doppio
+senso; tra marzo e metà maggio 2027, per circa 45 giorni, si invertirà
+la situazione, con il cantiere sul fornice est e quello ovest aperto al
+traffico. Da metà maggio 2027 entrambi i fornici dovrebbero essere
+percorribili, con possibili chiusure notturne, tra le 23 e le 6, per
+posare il nuovo impalcato ferroviario, montare le passerelle e
+completare i collaudi. La fine dei lavori è prevista per giugno 2027.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Timeline del cantiere del ponte di via San Bernardino a Bergamo: settembre 2025 chiusura e inizio lavori, agosto 2026 apertura parziale di un fornice, 30 ottobre 2026 doppio senso su una corsia, da fine gennaio a metà maggio 2027 lavori a fasi sui due fornici, giugno 2027 fine lavori prevista. Fonte: L'Eco di Bergamo e Il Giorno, 28-29 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Ponte di via San Bernardino: le tappe del cantiere</text>
+    <line x1="50" y1="150" x2="590" y2="150" stroke="currentColor" stroke-width="3"/>
+    <circle cx="70" cy="150" r="8" fill="#c0392b"/>
+    <text x="70" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Set. 2025</text>
+    <text x="70" y="130" text-anchor="middle" font-size="11" fill="currentColor">Chiusura e</text>
+    <text x="70" y="143" text-anchor="middle" font-size="11" fill="currentColor">inizio lavori</text>
+    <circle cx="210" cy="150" r="8" fill="#e67e22"/>
+    <text x="210" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ago. 2026</text>
+    <text x="210" y="130" text-anchor="middle" font-size="11" fill="currentColor">Apertura</text>
+    <text x="210" y="143" text-anchor="middle" font-size="11" fill="currentColor">parziale</text>
+    <circle cx="340" cy="150" r="9" fill="#2980b9"/>
+    <text x="340" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">30 ott. 2026</text>
+    <text x="340" y="130" text-anchor="middle" font-size="11" fill="currentColor">Doppio senso</text>
+    <text x="340" y="143" text-anchor="middle" font-size="11" fill="currentColor">su una corsia</text>
+    <circle cx="470" cy="150" r="8" fill="#8e44ad"/>
+    <text x="470" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Gen.-mag. 2027</text>
+    <text x="470" y="130" text-anchor="middle" font-size="11" fill="currentColor">Cantiere a fasi</text>
+    <text x="470" y="143" text-anchor="middle" font-size="11" fill="currentColor">sui due fornici</text>
+    <circle cx="590" cy="150" r="8" fill="#27ae60"/>
+    <text x="590" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Giu. 2027</text>
+    <text x="590" y="130" text-anchor="middle" font-size="11" fill="currentColor">Fine lavori</text>
+    <text x="590" y="143" text-anchor="middle" font-size="11" fill="currentColor">(prevista)</text>
+    <text x="320" y="185" text-anchor="middle" font-size="12" fill="currentColor">Valido fino al 31 dicembre 2026, con possibili chiusure notturne (23-6)</text>
+    <text x="320" y="270" text-anchor="middle" font-size="11" fill="currentColor">Date comunicate da Comune di Bergamo e RFI. Fonte: L'Eco di Bergamo, Il Giorno, 28-29 ottobre 2026.</text>
+  </svg>
+  <figcaption>Le fasi principali del cantiere di raddoppio ferroviario
+  sul ponte di via San Bernardino, secondo il calendario comunicato dal
+  Comune di Bergamo. Fonte: L'Eco di Bergamo e Il Giorno, 28-29 ottobre
+  2026.</figcaption>
+</figure>
+
+<h2>La viabilità in zona</h2>
+<p>Con la riapertura arriva anche un pacchetto di misure per regolare
+il traffico attorno al cantiere: un semaforo temporaneo all'incrocio
+con largo Tironi, con una fase dedicata ai pedoni e al passaggio
+dell'e-BRT, il passaggio pedonale sotto il ponte limitato al solo
+fornice ovest, e il divieto di sosta permanente, con rimozione forzata,
+su largo Tironi e su un tratto di via San Bernardino. Via Magrini
+diventa a doppio senso ma riservata a residenti e frontisti, con
+accesso da via San Bernardino chiuso.</p>
+
+<blockquote>
+  «È una boccata d'ossigeno per la viabilità della città, ma le
+  difficoltà non sono superate», ha dichiarato la sindaca Elena
+  Carnevali, ricordando i mesi di confronto con RFI e con l'impresa
+  appaltatrice.
+</blockquote>
+
+<p>Secondo il Comune, il miglioramento della situazione del traffico in
+città passerà anche dall'entrata in servizio di nuovi collegamenti di
+trasporto pubblico, come la tramvia della Valle Brembana e i bus
+elettrici e-BRT verso Verdellino, pensati per alleggerire la pressione
+sulle strade mentre il cantiere ferroviario prosegue verso il
+completamento, atteso per giugno 2027.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/riapre-il-ponte-di-via-san-bernardino-doppio-senso-di-marcia-dal-30-ottobre-o_3982513_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Riapre il ponte di via San Bernardino: doppio senso di marcia dal 30 ottobre</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/bergamo-un-2026-di-cantieri-dd41fa6e" rel="noopener" target="_blank">Il Giorno - Bergamo, un 2026 di cantieri</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, il ponte di via san bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura dopo circa un anno di chiusura per i lavori rfi di raddoppio della linea verso ponte san pietro, il ponte di via san bernardino a bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso colognola; la seconda carreggiata è attesa in autunno. trasporti bergamo via san bernardino rfi viabilità ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-08-02-bergamo-ponte-san-bernardino-riapertura-10-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, il ponte di via San Bernardino riapre parzialmente il 10 agosto dopo un anno di chiusura</h2><p class="card-summary">Dopo circa un anno di chiusura per i lavori RFI di raddoppio della linea verso Ponte San Pietro, il ponte di via San Bernardino a Bergamo riaprirà lunedì 10 agosto con una corsia in uscita verso Colognola; la seconda carreggiata è attesa in autunno.</p><p class="card-meta">2 agosto 2026</p></div></a></article><article class="card" data-search="cantieri ferroviari in ritardo: il consiglio comunale di bergamo chiede tempi certi al ministero il consiglio comunale di bergamo ha approvato all&#x27;unanimità una mozione che impegna il comune a chiedere al ministero delle infrastrutture scadenze certe sui cantieri ferroviari in ritardo. via libera anche al monitoraggio dell&#x27;e-brt per 120 giorni. trasporti bergamo rfi cantieri ferroviari e-brt consiglio comunale" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-10-15-bergamo-cantieri-ferroviari-consiglio-comunale-e-brt/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari in ritardo: il Consiglio comunale di Bergamo chiede tempi certi al Ministero</h2><p class="card-summary">Il Consiglio comunale di Bergamo ha approvato all&#x27;unanimità una mozione che impegna il Comune a chiedere al Ministero delle Infrastrutture scadenze certe sui cantieri ferroviari in ritardo. Via libera anche al monitoraggio dell&#x27;e-Brt per 120 giorni.</p><p class="card-meta">15 ottobre 2026</p></div></a></article><article class="card" data-search="cantieri ferroviari a bergamo, rfi chiede la risoluzione del contratto: ritardi fino a gennaio rfi ha presentato al collegio consultivo tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della bergamo-ponte san pietro e del collegamento con l&#x27;aeroporto di orio al serio. comune e provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre. trasporti bergamo rfi cantieri ferroviari orio al serio ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h2><p class="card-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p><p class="card-meta">30 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
