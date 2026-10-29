@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-29",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo prevalentemente soleggiato su tutta la tratta, temperature sugli 8-9 °C e vento debole: nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Prevalentemente soleggiato", "temp_c": 8.9, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",       "cond": "Prevalentemente soleggiato", "temp_c": 8.5, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "NNW"},
+      {"name": "San Donato (08:45)",     "cond": "Parzialmente soleggiato",   "temp_c": 8.3, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "W"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 80,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 35},
+      {"name": "Surface Agrate → Carugate",           "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 30}
+    ],
+    "incidents": [],
+    "notice": "Fonti cantieri Serravalle irraggiungibili oggi: cantieri noti di ieri (Cologno Sud, svincolo Mecenate) probabilmente ancora attivi ma non riverificati.",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 35+15+30=80 min. Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm nelle ultime 3 ore: asfalto asciutto). CCISS RSS: nessun evento pertinente su A4 Milano-Brescia (tratta Bergamo-Agrate) nella finestra di oggi; le uniche voci A51 sono due chiusure notturne (22:00-06:00) allo svincolo SP113 Cernusco, fuori dall'orario della corsa andata. Milano Serravalle (pagina viabilità e PDF tabella cantieri) irraggiungibile oggi: timeout via curl su entrambi gli URL e 503 via WebFetch; non è stato possibile riverificare i due cantieri noti dal bollettino del 28/10 (corsia di emergenza chiusa a Cologno Sud 'fino a revoca'; configurazione provvisoria svincolo Mecenate fino al 31/12/2026), che restano probabilmente attivi ma non confermati oggi. Luceverde raggiungibile ma senza contenuto utile sul traffico puntuale (tentativo unico). Autostrade per l'Italia: 404 (tentativo unico, come da nota storica). Ricerca web: nessuna notizia odierna su incidenti o cantieri straordinari sulla tratta; solo episodi storici non pertinenti a oggi."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 5%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature tra 8,3 e 8,9 °C, sopra la soglia dei 7 °C",
+      "Vento debole (max 5 km/h) e raffiche contenute (max 13 km/h), visibilità ≥10 km"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Milano Serravalle — tabella cantieri (PDF)", "url": "https://www.serravalle.it/uploads/pagine/TAB_Cantieri_MARZO_2026.pdf"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
