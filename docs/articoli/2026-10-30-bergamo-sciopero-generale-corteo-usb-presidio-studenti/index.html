@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, sciopero generale del 30 ottobre: vietato il corteo degli studenti, autorizzato quello di Usb nel pomeriggio — TNT News</title>
+  <meta name="description" content="Nella giornata di sciopero generale nazionale di venerdì 30 ottobre, la Questura di Bergamo ha vietato il corteo mattutino degli studenti, autorizzando solo un presidio statico, mentre nel pomeriggio è stata concessa la manifestazione di Usb da Porta Nuova a piazza Vittorio Veneto. Previsti anche disagi su scuole, bus e uffici pubblici.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-10-30-bergamo-sciopero-generale-corteo-usb-presidio-studenti/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, sciopero generale del 30 ottobre: vietato il corteo degli studenti, autorizzato quello di Usb nel pomeriggio — TNT News">
+  <meta property="og:description" content="Nella giornata di sciopero generale nazionale di venerdì 30 ottobre, la Questura di Bergamo ha vietato il corteo mattutino degli studenti, autorizzando solo un presidio statico, mentre nel pomeriggio è stata concessa la manifestazione di Usb da Porta Nuova a piazza Vittorio Veneto. Previsti anche disagi su scuole, bus e uffici pubblici.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-10-30-bergamo-sciopero-generale-corteo-usb-presidio-studenti/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, sciopero generale del 30 ottobre: vietato il corteo degli studenti, autorizzato quello di Usb nel pomeriggio — TNT News">
+  <meta name="twitter:description" content="Nella giornata di sciopero generale nazionale di venerdì 30 ottobre, la Questura di Bergamo ha vietato il corteo mattutino degli studenti, autorizzando solo un presidio statico, mentre nel pomeriggio è stata concessa la manifestazione di Usb da Porta Nuova a piazza Vittorio Veneto. Previsti anche disagi su scuole, bus e uffici pubblici.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Sciopero</span><span class="tag">Usb</span><span class="tag">Questura</span><span class="tag">Trasporto pubblico</span></div>
+    <h1>Bergamo, sciopero generale del 30 ottobre: vietato il corteo degli studenti, autorizzato quello di Usb nel pomeriggio</h1>
+    <p class="article-summary">Nella giornata di sciopero generale nazionale di venerdì 30 ottobre, la Questura di Bergamo ha vietato il corteo mattutino degli studenti, autorizzando solo un presidio statico, mentre nel pomeriggio è stata concessa la manifestazione di Usb da Porta Nuova a piazza Vittorio Veneto. Previsti anche disagi su scuole, bus e uffici pubblici.</p>
+    <p class="article-meta">
+      <time datetime="2026-10-30">30 ottobre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Venerdì 30 ottobre Bergamo è attraversata dallo sciopero generale
+nazionale di 24 ore proclamato dai sindacati di base, tra cui Usb. La
+Questura ha vietato il corteo mattutino annunciato dall'Unione degli
+Studenti, autorizzando solo un presidio statico, mentre nel pomeriggio
+ha concesso, con alcune condizioni, la manifestazione organizzata da
+Usb nel centro città. Oltre alle piazze, la giornata porta possibili
+disagi su trasporto pubblico, scuole, università, sanità e uffici
+pubblici.</p>
+
+<h2>Mattina: presidio alla stazione, niente corteo</h2>
+<p>Il ritrovo degli studenti è fissato per le 9 nel piazzale della
+stazione di Bergamo, ma la Questura ha negato l'autorizzazione a
+sfilare per le vie della città, limitando la mobilitazione a un
+presidio fermo. Il provvedimento, secondo quanto riportato da
+BergamoNews, sarebbe motivato da ragioni di ordine pubblico e dal
+timore che gruppi violenti possano infiltrarsi nel corteo, come già
+accaduto in precedenti manifestazioni studentesche in città. Alfredo Di
+Sirio ed Elisabetta Maffioletti, di Sinistra Italiana Bergamo, hanno
+definito la decisione «miope e pericolosa», chiedendone la revoca e
+criticando anche i controlli preventivi sui minorenni. Gli studenti
+rivendicano trasporti più accessibili, misure contro il carovita e
+l'opposizione ai tagli all'istruzione.</p>
+
+<h2>Pomeriggio: il corteo di Usb da Porta Nuova</h2>
+<p>Alle 17 è previsto il ritrovo in largo Porta Nuova per il corteo
+legato allo sciopero generale, promosso da Usb con il sostegno di
+Rifondazione Comunista Bergamo e dei Giovani Comunisti. L'autorizzazione
+è arrivata con alcune condizioni: ai partecipanti è vietato travisare
+il volto o portare oggetti potenzialmente offensivi. Il percorso non
+potrà fermarsi davanti alla sede del Comune, in piazza Matteotti, e
+dovrà concludersi in piazza Vittorio Veneto, una misura pensata per non
+interferire con il flusso di persone in una fascia orario di maggiore
+affluenza. Il segretario provinciale di Rifondazione, Ezio Locatelli, e
+il portavoce dei Giovani Comunisti, Aaron Cortiana, hanno lanciato un
+appello a tornare in piazza «contro la guerra e il riarmo», denunciando
+l'aumento dei prezzi, in particolare quelli energetici, i salari e le
+pensioni basse, e lo spostamento di risorse dalla spesa sociale a
+quella militare.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Timeline della giornata di sciopero del 30 ottobre 2026 a Bergamo: ore 9 presidio statico degli studenti in piazzale stazione (corteo vietato dalla Questura), ore 17 corteo di Usb da largo Porta Nuova a piazza Vittorio Veneto, con divieto di sosta davanti al Comune in piazza Matteotti. Fonte: L'Eco di Bergamo e BergamoNews, 28-29 ottobre 2026." xmlns="http://www.w3.org/2000/svg">
+    <text x="320" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">Sciopero del 30 ottobre: le due manifestazioni a Bergamo</text>
+    <line x1="60" y1="150" x2="580" y2="150" stroke="currentColor" stroke-width="3"/>
+    <circle cx="90" cy="150" r="9" fill="#2980b9"/>
+    <text x="90" y="110" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ore 9:00</text>
+    <text x="90" y="128" text-anchor="middle" font-size="11" fill="currentColor">Presidio statico</text>
+    <text x="90" y="178" text-anchor="middle" font-size="11" fill="currentColor">Piazzale stazione</text>
+    <text x="90" y="192" text-anchor="middle" font-size="11" fill="currentColor">(corteo vietato)</text>
+    <circle cx="340" cy="150" r="9" fill="#e67e22"/>
+    <text x="340" y="110" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Ore 17:00</text>
+    <text x="340" y="128" text-anchor="middle" font-size="11" fill="currentColor">Corteo Usb</text>
+    <text x="340" y="178" text-anchor="middle" font-size="11" fill="currentColor">Partenza: largo Porta Nuova</text>
+    <circle cx="580" cy="150" r="9" fill="#27ae60"/>
+    <text x="580" y="110" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">Arrivo</text>
+    <text x="580" y="128" text-anchor="middle" font-size="11" fill="currentColor">Piazza Vittorio</text>
+    <text x="580" y="142" text-anchor="middle" font-size="11" fill="currentColor">Veneto</text>
+    <text x="320" y="200" text-anchor="middle" font-size="11" fill="currentColor">Vietata la sosta davanti al Comune, in piazza Matteotti</text>
+    <text x="320" y="270" text-anchor="middle" font-size="11" fill="currentColor">Orari e percorso comunicati da Questura e organizzatori. Fonte: L'Eco di Bergamo e BergamoNews, 28-29 ottobre 2026.</text>
+  </svg>
+  <figcaption>Le due manifestazioni della giornata di sciopero generale a
+  Bergamo: il presidio statico degli studenti del mattino e il corteo
+  di Usb del pomeriggio. Fonte: L'Eco di Bergamo e BergamoNews, 28-29
+  ottobre 2026.</figcaption>
+</figure>
+
+<h2>Trasporti, scuole e uffici pubblici</h2>
+<p>Sul fronte dei servizi, Arriva Italia ha comunicato che gli autobus
+seguiranno la programmazione ordinaria, in base alle disposizioni
+ministeriali e ai rilievi della Commissione di Garanzia, anche se non
+sono escluse adesioni individuali del personale. Più critica la
+situazione sulla linea extraurbana M Bergamo-Crema di Autoguidovie, per
+cui non sono garantite le corse dall'inizio del servizio alle 5.29,
+dalle 8.31 alle 14.59 e dalle 18.01 fino a fine servizio. Nelle scuole
+e nell'Università di Bergamo sono possibili lezioni a rischio in caso
+di adesione di docenti e personale, mentre l'ateneo avvisa che non
+saranno garantiti il regolare svolgimento delle attività e l'apertura
+degli uffici. Riduzioni di servizio sono possibili anche in sanità e
+nella pubblica amministrazione, mentre in tribunale resteranno
+garantiti i presidi di cancelleria per i servizi essenziali.</p>
+
+<blockquote>
+  «Torniamo in piazza contro la guerra e il riarmo»: con questo appello
+  Rifondazione Comunista Bergamo e i Giovani Comunisti hanno chiamato a
+  raccolta per il corteo delle 17, denunciando il caro vita e lo
+  spostamento di risorse dalla spesa sociale a quella militare.
+</blockquote>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/sciopero-generale-del-30-ottobre-a-bergamo-corteo-in-centro-dalle-17-o_3982493_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Sciopero generale del 30 ottobre a Bergamo: corteo in centro dalle 17</a></li><li><a href="https://www.bergamonews.it/2026/10/29/bergamo-vietato-il-corteo-degli-studenti-autorizzato-il-presidio-statico-nel-pomeriggio-sfilera-usb/932927/" rel="noopener" target="_blank">BergamoNews - Bergamo, vietato il corteo degli studenti: autorizzato solo il presidio statico, nel pomeriggio sfilerà Usb</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="atb bergamo, un impianto fotovoltaico da 1 mwp e 26 nuovi bus entro il 2027 l&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 mwp nel deposito di via monte gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei ce4ce ed e-med per l&#x27;economia circolare e il riuso delle batterie. trasporti bergamo atb trasporto pubblico sostenibilità" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-23-bergamo-atb-fotovoltaico-nuovi-autobus/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">ATB Bergamo, un impianto fotovoltaico da 1 MWp e 26 nuovi bus entro il 2027</h2><p class="card-summary">L&#x27;azienda del trasporto pubblico bergamasco realizzerà un impianto fotovoltaico da circa 1 MWp nel deposito di via Monte Gleno e porterà in servizio 26 nuovi autobus entro fine 2027, nell&#x27;ambito dei progetti europei CE4CE ed E-MED per l&#x27;economia circolare e il riuso delle batterie.</p><p class="card-meta">23 settembre 2026</p></div></a></article><article class="card" data-search="bergamo, concluso il cantiere e-brt nel nodo di via san giorgio: nuova viabilità tra le proteste degli operatori extraurbani si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-brt in via san giorgio, via fratelli calvi e via baschenis, con nuove corsie e divieti di svolta. le aziende di trasporto extraurbano locatelli e tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche. trasporti bergamo e-brt viabilità trasporto pubblico via san giorgio" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-06-bergamo-ebrt-lavori-via-san-giorgio-conclusi/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, concluso il cantiere e-Brt nel nodo di via San Giorgio: nuova viabilità tra le proteste degli operatori extraurbani</h2><p class="card-summary">Si sono conclusi il 5 settembre i lavori stradali legati all&#x27;e-Brt in via San Giorgio, via Fratelli Calvi e via Baschenis, con nuove corsie e divieti di svolta. Le aziende di trasporto extraurbano Locatelli e Tbso contestano però l&#x27;assenza di un confronto preventivo sulle modifiche.</p><p class="card-meta">6 settembre 2026</p></div></a></article><article class="card" data-search="e-brt bergamo-dalmine-verdellino: partono le corse di prova, debutto il 3 agosto il nuovo bus rapido elettrico che collegherà bergamo a verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. il servizio regolare parte lunedì 3 agosto, mentre atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio. trasporti bergamo e-brt trasporto pubblico dalmine" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-07-29-bergamo-ebrt-corse-prova-avvio-3-agosto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">e-Brt Bergamo-Dalmine-Verdellino: partono le corse di prova, debutto il 3 agosto</h2><p class="card-summary">Il nuovo bus rapido elettrico che collegherà Bergamo a Verdellino ha effettuato oggi le prime corse di prova gratuite: il percorso di circa 30 km ha richiesto 44 minuti, contro i 38-39 previsti a regime. Il servizio regolare parte lunedì 3 agosto, mentre Atb chiede di congelare gli aumenti tariffari per accompagnarne il lancio.</p><p class="card-meta">29 luglio 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
