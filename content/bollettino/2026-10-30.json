@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-30",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo parzialmente soleggiato su Bergamo e Carugate, più nuvoloso in arrivo a San Donato; temperature tra 9 e 10 °C, vento debole: nessuna pioggia prevista.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Parzialmente soleggiato",  "temp_c": 9.1, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)",       "cond": "Parzialmente soleggiato",  "temp_c": 9.8, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "ENE"},
+      {"name": "San Donato (08:45)",     "cond": "Prevalentemente nuvoloso", "temp_c": 9.6, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "S"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 76,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 38},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 24}
+    ],
+    "incidents": [
+      {"where": "A4 tra Svincolo Trezzo e Svincolo Cavenago, dir. Milano", "desc": "Incidente dalle 05:56 e coda per lavori dalle 05:23: possibile rallentamento residuo sulla tratta Bergamo-Agrate."},
+      {"where": "A51 tra Svincolo SP208 Carugate e Svincolo SP3 Cologno M. Nord, dir. Allacciamento A1 (sud, verso San Donato)", "desc": "Lavori in corso, coerenti con la chiusura della corsia di emergenza a Cologno Sud già segnalata nei giorni scorsi."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess): 38+14+24=76 min (l'ETA incorpora già l'effetto dell'incidente A4 Trezzo-Cavenago). Google Weather OK sui 3 punti più storico 3h a Bergamo (0 mm nelle ultime 3 ore: asfalto asciutto). CCISS RSS: 2 eventi pertinenti su A4 Milano-Brescia (incidente e coda lavori tra Trezzo e Cavenago, dir. Milano) e 1 su A51 (lavori tra Carugate e Cologno M. Nord, dir. sud); le due chiusure notturne A51 a Cernusco (22:00-06:00) terminano prima della finestra di transito e sono state escluse. Milano Serravalle (pagina viabilità) e Luceverde raggiungibili ma senza contenuto utile puntuale (solo menu/shell, nessun dato cantieri renderizzato via curl/WebFetch). Autostrade per l'Italia: 404 (tentativo unico, come da nota storica). Ricerca web: nessuna notizia odierna di incidenti straordinari; confermano solo i cantieri già noti su A51 a Cologno Sud/Carugate (corsia di emergenza chiusa fino a revoca, documento Serravalle marzo 2026)."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista sull'intero tragitto (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperature tra 9,1 e 9,8 °C, sopra la soglia dei 7 °C",
+      "Vento debole (max 5 km/h) e raffiche contenute (max 14 km/h), visibilità ≥13 km"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
