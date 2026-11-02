@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-02",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo sereno/soleggiato su tutto il tragitto, nessuna pioggia prevista, ma temperature basse al mattino (4-5°C) nella fascia di cautela; vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Sereno",     "temp_c": 4.3, "precip_mm": 0.0, "wind_kmh": 6, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",       "cond": "Soleggiato", "temp_c": 5.1, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNO"},
+      {"name": "San Donato (08:45)",     "cond": "Soleggiato", "temp_c": 5.1, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 81,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 37},
+      {"name": "Surface Agrate → Carugate",           "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Trezzo, direzione Milano", "desc": "Traffico rallentato per traffico intenso dalle 06:07 (CCISS)."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25, tempi da traffico reale best_guess). Google Weather OK sui 3 punti; storico Bergamo: 0 mm di pioggia nelle 3 ore precedenti, asfalto asciutto. CCISS RSS letto: traffico rallentato per traffico intenso tra Dalmine e Trezzo sulla A4 Milano-Brescia, direzione Milano, dalle 06:07 (pertinente, precede Agrate); un secondo evento sulla A4 tra Cormano e Sesto S. Giovanni è fuori tratta e scartato; nessun evento pertinente su A51. Serravalle viabilità: pagina raggiunta ma senza elenco eventi in tempo reale per A51 Carugate-San Donato. Luceverde: nessun contenuto utile (pagina generica). Autostrade.it/traffico-in-tempo-reale: 404 come da storico. Ricerca web: nessun incidente/cantiere con data odierna confermata oltre a quanto già riportato da CCISS; alcune fonti secondarie menzionano lavori permanenti con corsia di emergenza chiusa a Carugate/Cologno Sud (tabella cantieri Serravalle), ma non confermati dalla pagina ufficiale viabilità consultata direttamente: non inclusi come incidenti per non rischiare di inventare."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperature comprese tra 4°C e 7°C in tutti i punti del tragitto (fascia di cautela)",
+      "Nessuna pioggia prevista e asfalto asciutto: 0 mm nelle 3 ore precedenti a Bergamo",
+      "Vento debole ovunque (max 6 km/h, raffiche max 14 km/h), ben entro i limiti",
+      "Visibilità ottima (16 km) e cielo sereno/soleggiato su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
