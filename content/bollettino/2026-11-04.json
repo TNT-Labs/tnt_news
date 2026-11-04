@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-04",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole in partenza da Bergamo, poi cielo nuvoloso senza precipitazioni verso Carugate e San Donato; temperature miti (8-10°C) e vento debole ovunque.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Pioggia debole",            "temp_c": 8.4, "precip_mm": 0.02, "wind_kmh": 2, "wind_dir": "NNW"},
+      {"name": "Carugate (08:15)",       "cond": "Nuvoloso",                  "temp_c": 9.4, "precip_mm": 0.0,  "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",     "cond": "Prevalentemente nuvoloso",  "temp_c": 9.7, "precip_mm": 0.0,  "wind_kmh": 5, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 77,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 33},
+      {"name": "Surface Agrate → Carugate",           "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 29}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (dep 07:30/08:10/08:25, tempi da traffico reale best_guess). Google Weather OK sui 3 punti; storico Bergamo: 0 mm nelle 3 ore precedenti (02:00-05:00 UTC), ma la previsione indica pioggia debole (0,02 mm, prob. 20%) proprio all'orario di partenza. CCISS RSS letto: nessun evento pertinente sulla A4 Bergamo-Agrate o sulla A51 Carugate-San Donato (esclusi un incidente su rampa allo svincolo Monza in direzione Brescia e lavori A51 Lambrate-Tangenziale Nord in direzione Lecco, entrambi fuori tratta/direzione). Serravalle viabilità: pagina generica senza elenco eventi in tempo reale. Luceverde: nessun contenuto utile (pagina invita a segnalare, nessun elenco eventi). Autostrade.it/traffico-in-tempo-reale: 404 come da storico. Ricerca web: nessuna notizia di incidenti o cantieri datati 4 novembre 2026 sulla tratta; permane un documento cantieri Serravalle di marzo 2026 su corsia ridotta/chiusa in zona Carugate Ovest/Cologno Sud, non confermato da fonte ufficiale aggiornata a oggi e quindi non incluso come incidente."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole prevista a Bergamo proprio all'orario di partenza (0,02 mm, probabilità 20%)",
+      "Asfalto asciutto nelle ore precedenti a Bergamo (0 mm nelle ultime 3 ore), ma la pioggia inizia al momento della partenza",
+      "Temperature miti su tutto il tragitto (8-10°C) e vento debole (max 5 km/h, raffiche max 6 km/h)",
+      "Nessuna nebbia, neve o temporale previsti; visibilità buona (16 km) su tutto il percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
