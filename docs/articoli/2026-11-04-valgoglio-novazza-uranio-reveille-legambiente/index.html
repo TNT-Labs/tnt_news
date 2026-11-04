@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Uranio a Novazza: la società Reveille richiama lo storico geologo dell&#x27;Agip, Legambiente chiede lo stop — TNT News</title>
+  <meta name="description" content="La società Reveille, nata dallo scorporo delle attività italiane di Zenith Energy, ha nominato come consulente il geologo che negli anni Settanta e Ottanta guidò le ricerche Agip sull&#x27;uranio di Novazza, a Valgoglio. Legambiente chiede al Ministero di non autorizzare nuovi scavi esplorativi; il Comune condiziona qualsiasi intervento alla bonifica del piazzale della vecchia miniera.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-11-04-valgoglio-novazza-uranio-reveille-legambiente/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Uranio a Novazza: la società Reveille richiama lo storico geologo dell&#x27;Agip, Legambiente chiede lo stop — TNT News">
+  <meta property="og:description" content="La società Reveille, nata dallo scorporo delle attività italiane di Zenith Energy, ha nominato come consulente il geologo che negli anni Settanta e Ottanta guidò le ricerche Agip sull&#x27;uranio di Novazza, a Valgoglio. Legambiente chiede al Ministero di non autorizzare nuovi scavi esplorativi; il Comune condiziona qualsiasi intervento alla bonifica del piazzale della vecchia miniera.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-11-04-valgoglio-novazza-uranio-reveille-legambiente/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Uranio a Novazza: la società Reveille richiama lo storico geologo dell&#x27;Agip, Legambiente chiede lo stop — TNT News">
+  <meta name="twitter:description" content="La società Reveille, nata dallo scorporo delle attività italiane di Zenith Energy, ha nominato come consulente il geologo che negli anni Settanta e Ottanta guidò le ricerche Agip sull&#x27;uranio di Novazza, a Valgoglio. Legambiente chiede al Ministero di non autorizzare nuovi scavi esplorativi; il Comune condiziona qualsiasi intervento alla bonifica del piazzale della vecchia miniera.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/ambiente/">Ambiente</a><span class="tag">Valgoglio</span><span class="tag">Val Seriana</span><span class="tag">Uranio</span><span class="tag">Novazza</span></div>
+    <h1>Uranio a Novazza: la società Reveille richiama lo storico geologo dell&#x27;Agip, Legambiente chiede lo stop</h1>
+    <p class="article-summary">La società Reveille, nata dallo scorporo delle attività italiane di Zenith Energy, ha nominato come consulente il geologo che negli anni Settanta e Ottanta guidò le ricerche Agip sull&#x27;uranio di Novazza, a Valgoglio. Legambiente chiede al Ministero di non autorizzare nuovi scavi esplorativi; il Comune condiziona qualsiasi intervento alla bonifica del piazzale della vecchia miniera.</p>
+    <p class="article-meta">
+      <time datetime="2026-11-04">4 novembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il 3 novembre la società <strong>Reveille</strong>, nata nel 2026 dallo scorporo delle attività italiane sull'uranio di Zenith Energy, ha annunciato la nomina del geologo <strong>Camillo Maria Pessina</strong> come consulente strategico per i progetti di Novazza, nel comune di Valgoglio (alta Val Seriana, Bergamo), e di Val Vedello, in provincia di Sondrio. Pessina, classe 1945, fu assunto dall'Agip nel 1974 e tra gli anni Settanta e Ottanta guidò la geologia del programma di ricerca sull'uranio di Agip e Agip Nucleare proprio su quei giacimenti. Ora dovrà riesaminare i dati storici e stimarne il potenziale con tecnologie moderne.</p>
+
+<h2>Una miniera chiusa da quarant'anni</h2>
+<p>Il giacimento di Novazza fu scoperto nel 1959 ed è tra i più noti depositi di uranio in Italia. Le gallerie furono usate soprattutto per attività di ricerca scientifica, finché la miniera chiuse nel 1986, dopo l'incidente di Chernobyl, e non fu più riaperta in seguito al referendum sul nucleare del 1987. Le stime storiche sulla quantità di minerale variano secondo la fonte: Legambiente, citando le ricerche di Agip Nucleare, parla di 1.830 tonnellate di minerale uranifero, di cui 1.397 estraibili, con concentrazioni intorno allo 0,1% o inferiori; altre fonti giornalistiche riportano invece una stima di circa mille tonnellate di uranio metallico. Il dato esatto resta quindi incerto e sarà uno degli oggetti del nuovo riesame tecnico.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo della miniera di uranio di Novazza: scoperta del giacimento nel 1959, chiusura nel 1986 dopo Chernobyl, referendum sul nucleare nel 1987, richiesta di permesso di esplorazione e opposizione del Comune nel 2026, nomina del geologo Pessina da parte di Reveille il 3 novembre 2026.">
+    <rect x="0" y="0" width="640" height="320" fill="#f7f5f0"/>
+    <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f2a3a">Novazza: le tappe della vicenda uranio</text>
+
+    <line x1="50" y1="165" x2="610" y2="165" stroke="#4a5a72" stroke-width="2"/>
+
+    <circle cx="80" cy="165" r="7" fill="#8a3b3b"/>
+    <text x="80" y="195" text-anchor="middle" font-size="12" fill="#1f2a3a">1959</text>
+    <text x="80" y="211" text-anchor="middle" font-size="11" fill="#555">scoperta giacimento</text>
+
+    <circle cx="230" cy="165" r="7" fill="#b7a24a"/>
+    <text x="230" y="135" text-anchor="middle" font-size="12" fill="#1f2a3a">1986</text>
+    <text x="230" y="119" text-anchor="middle" font-size="11" fill="#555">chiusura post-Chernobyl</text>
+
+    <circle cx="340" cy="165" r="7" fill="#b7a24a"/>
+    <text x="340" y="195" text-anchor="middle" font-size="12" fill="#1f2a3a">1987</text>
+    <text x="340" y="211" text-anchor="middle" font-size="11" fill="#555">referendum nucleare</text>
+
+    <circle cx="470" cy="165" r="8" fill="#4a5a72"/>
+    <text x="470" y="135" text-anchor="middle" font-size="12" fill="#1f2a3a">ago 2026</text>
+    <text x="470" y="119" text-anchor="middle" font-size="11" fill="#555">Comune si oppone alla VIA</text>
+
+    <circle cx="580" cy="165" r="9" fill="#3f6b4a"/>
+    <text x="580" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2a3a">3 nov 2026</text>
+    <text x="580" y="211" text-anchor="middle" font-size="11" fill="#3f6b4a">Reveille nomina Pessina</text>
+
+    <rect x="180" y="250" width="280" height="40" rx="6" fill="#ffffff" stroke="#3f6b4a" stroke-width="1.5"/>
+    <text x="320" y="275" text-anchor="middle" font-size="13" fill="#1f2a3a">Permessi di esplorazione al vaglio del Ministero</text>
+
+    <text x="320" y="312" text-anchor="middle" font-size="10" fill="#666">Date dai fatti riportati. Fonti: BergamoNews e Il Giorno, novembre 2026</text>
+  </svg>
+  <figcaption>Le principali tappe della vicenda della miniera di Novazza, a Valgoglio, dalla scoperta del giacimento alla nomina del nuovo consulente geologico. Fonti: BergamoNews e Il Giorno.</figcaption>
+</figure>
+
+<h2>Legambiente chiede l'"opzione zero"</h2>
+<p>Le richieste di permesso di esplorazione per Novazza e Val Vedello sono al vaglio del Ministero dell'Ambiente e della Sicurezza energetica, in vista di un'eventuale Valutazione di impatto ambientale (Via); una terza richiesta riguarderebbe l'area di spartiacque tra le due valli. Legambiente Lombardia ha depositato osservazioni alla procedura, redatte insieme ai circoli bergamaschi e valtellinesi, chiedendo di valutare le tre aree insieme e non separatamente. Secondo l'associazione, le nuove indagini non aggiungerebbero conoscenze rilevanti rispetto ai dati già raccolti decenni fa, e l'obiettivo reale potrebbe essere acquisire diritti su un futuro sfruttamento del giacimento. Per questo chiede al Ministero di non autorizzare il cantiere esplorativo, la cosiddetta "opzione zero". La presidente Barbara Meggetto ha dichiarato che "la spesa non vale l'impresa", sollevando anche dubbi sulla gestione e lo smaltimento di eventuali milioni di tonnellate di roccia estratta.</p>
+
+<h2>Il Comune: prima la bonifica del piazzale</h2>
+<p>Il sindaco di Valgoglio, Angelo Bosatelli, non chiude del tutto alle ricerche ma pone condizioni precise. Il Comune aveva già espresso ad agosto un parere negativo sull'iter, chiedendo al Ministero un riscontro sulla Via entro fine ottobre, mai arrivato. L'amministrazione contesta soprattutto il fatto che il piazzale davanti alla miniera sia sotto sequestro giudiziario, dopo che due imprese edili lo avevano usato come discarica abusiva, e che la strada comunale di accesso non sia considerata sicura. La società Tecme, di Villa d'Ogna, ha acquisito gran parte dell'area dal curatore fallimentare e ha proposto un piano di sgombero al Demanio e alla Procura, ma i tempi delle autorizzazioni non sono noti. Il Comune ha intanto acconsentito a un accesso della società alle bocche della miniera nella parte alta, limitato alle analisi necessarie per la procedura di Via. Un geologo incaricato dall'amministrazione ha inoltre segnalato che lo studio di impatto ambientale presentato finora sarebbe approfondito per il territorio esterno ma carente su due aspetti: la caratterizzazione della radioattività di fondo e del radon nelle gallerie, e un'indagine geomeccanica sulla stabilità dei cunicoli sotterranei.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/11/04/uranio-sulle-orobie-reveille-richiama-il-geologo-che-scavo-negli-anni-ottanta-legambiente-la-spesa-non-vale-limpresa/934100/" rel="noopener" target="_blank">BergamoNews - Uranio sulle Orobie, Reveille richiama il geologo che scavò negli anni Ottanta. Legambiente: «La spesa non vale l&#x27;impresa»</a></li><li><a href="https://www.ilgiorno.it/bergamo/economia/uranio-valgoglio-gwqok983" rel="noopener" target="_blank">Il Giorno - Il Comune di Valgoglio contro il progetto Zenith Energy per l&#x27;uranio di Novazza</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="valgoglio dice no alle ricerche di uranio nella miniera di novazza il comune di valgoglio ha inviato al ministero dell&#x27;ambiente un parere negativo sulla valutazione di impatto ambientale per le ricerche minerarie di uranio a novazza, citando il rischio frane, l&#x27;assenza di dati su radioattività e radon e il sequestro giudiziario del piazzale d&#x27;accesso. ambiente valgoglio novazza uranio val seriana" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-19-valgoglio-no-uranio-novazza/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Valgoglio dice no alle ricerche di uranio nella miniera di Novazza</h2><p class="card-summary">Il Comune di Valgoglio ha inviato al Ministero dell&#x27;Ambiente un parere negativo sulla valutazione di impatto ambientale per le ricerche minerarie di uranio a Novazza, citando il rischio frane, l&#x27;assenza di dati su radioattività e radon e il sequestro giudiziario del piazzale d&#x27;accesso.</p><p class="card-meta">19 agosto 2026</p></div></a></article><article class="card" data-search="maltempo record in bergamasca: frane isolano sei comuni tra val brembana e val seriana tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle orobie ha provocato frane e allagamenti in val brembana e val seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco. ambiente val brembana val seriana maltempo frane evacuazioni" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-08-22-bergamo-maltempo-val-brembana-frane-comuni-isolati/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Maltempo record in Bergamasca: frane isolano sei comuni tra Val Brembana e Val Seriana</h2><p class="card-summary">Tra mercoledì e venerdì un nubifragio con oltre 250 millimetri di pioggia sulle Orobie ha provocato frane e allagamenti in Val Brembana e Val Seriana: sei comuni isolati, circa 150 persone evacuate e oltre venti interventi dei vigili del fuoco.</p><p class="card-meta">22 agosto 2026</p></div></a></article><article class="card" data-search="cinque comuni della bergamasca uniti contro la crisi climatica: nasce &quot;comunità mosaico&quot; curno, mozzo, ponte san pietro, bonate sopra e treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da fondazione cariplo: rinaturalizzazione del brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica. ambiente bergamo curno clima fondazione cariplo" data-cat="Ambiente"><a class="card-link" href="../../articoli/2026-10-14-curno-comunita-mosaico-clima-cariplo/"><div class="card-body"><div class="tags"><span class="tag">Ambiente</span></div><h2 class="card-title">Cinque Comuni della Bergamasca uniti contro la crisi climatica: nasce &quot;Comunità Mosaico&quot;</h2><p class="card-summary">Curno, Mozzo, Ponte San Pietro, Bonate Sopra e Treviolo lanciano una strategia climatica intercomunale da 2,5 milioni di euro, finanziata in gran parte da Fondazione Cariplo: rinaturalizzazione del Brembo, nuovi alberi, piazze rifugio dal caldo e una comunità energetica.</p><p class="card-meta">14 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
