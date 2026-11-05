@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Presolana-Monte Pora: firmato l&#x27;accordo per il rilancio del comprensorio, 11 milioni di investimenti privati — TNT News</title>
+  <meta name="description" content="Dopo 13 anni di trattative, Regione Lombardia, Provincia di Bergamo e i Comuni di Castione della Presolana, Songavazzo, Rogno e Costa Volpino hanno sottoscritto l&#x27;accordo di programma per il comprensorio sciistico Presolana-Monte Pora. Previsti 11 milioni di euro di investimenti privati per impianti di innevamento, un parco avventura e opere per la destagionalizzazione.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-11-05-castione-presolana-monte-pora-accordo-11-milioni/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Presolana-Monte Pora: firmato l&#x27;accordo per il rilancio del comprensorio, 11 milioni di investimenti privati — TNT News">
+  <meta property="og:description" content="Dopo 13 anni di trattative, Regione Lombardia, Provincia di Bergamo e i Comuni di Castione della Presolana, Songavazzo, Rogno e Costa Volpino hanno sottoscritto l&#x27;accordo di programma per il comprensorio sciistico Presolana-Monte Pora. Previsti 11 milioni di euro di investimenti privati per impianti di innevamento, un parco avventura e opere per la destagionalizzazione.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-11-05-castione-presolana-monte-pora-accordo-11-milioni/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Presolana-Monte Pora: firmato l&#x27;accordo per il rilancio del comprensorio, 11 milioni di investimenti privati — TNT News">
+  <meta name="twitter:description" content="Dopo 13 anni di trattative, Regione Lombardia, Provincia di Bergamo e i Comuni di Castione della Presolana, Songavazzo, Rogno e Costa Volpino hanno sottoscritto l&#x27;accordo di programma per il comprensorio sciistico Presolana-Monte Pora. Previsti 11 milioni di euro di investimenti privati per impianti di innevamento, un parco avventura e opere per la destagionalizzazione.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/economia/">Economia</a><span class="tag">Val Seriana</span><span class="tag">Castione della Presolana</span><span class="tag">Monte Pora</span><span class="tag">Turismo</span></div>
+    <h1>Presolana-Monte Pora: firmato l&#x27;accordo per il rilancio del comprensorio, 11 milioni di investimenti privati</h1>
+    <p class="article-summary">Dopo 13 anni di trattative, Regione Lombardia, Provincia di Bergamo e i Comuni di Castione della Presolana, Songavazzo, Rogno e Costa Volpino hanno sottoscritto l&#x27;accordo di programma per il comprensorio sciistico Presolana-Monte Pora. Previsti 11 milioni di euro di investimenti privati per impianti di innevamento, un parco avventura e opere per la destagionalizzazione.</p>
+    <p class="article-meta">
+      <time datetime="2026-11-05">5 novembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Il 5 novembre il presidente della Provincia di Bergamo, <strong>Gianfranco Gafforelli</strong>, ha sottoscritto insieme a Regione Lombardia e ai Comuni di <strong>Castione della Presolana, Songavazzo, Rogno e Costa Volpino</strong> l'accordo di programma per il rilancio del comprensorio sciistico <strong>Presolana-Monte Pora</strong>, tra Val Seriana, Val di Scalve e Sebino. "È stato un lungo parto", ha commentato Gafforelli: le prime trattative erano iniziate nel 2013, tredici anni fa. All'intesa manca ancora il voto dei consigli comunali e un decreto attuativo della Regione.</p>
+
+<h2>Che cosa prevede l'accordo</h2>
+<p>Il piano mette insieme interventi per circa 11 milioni di euro, interamente a carico dei soggetti privati che gestiscono le due stazioni: <strong>Irta Spa</strong>, della famiglia Radici, per il versante di Monte Pora, e <strong>Neve Srl</strong>, della famiglia Pasinetti, per il versante della Presolana. Tra le opere approvate dalla Regione a luglio figurano due nuovi bacini per l'innevamento artificiale nelle località Cima Pora e Case del Termen, oltre all'ampliamento di uno già esistente. Sono previsti anche interventi per allungare la stagione turistica oltre l'inverno: un parco avventura sugli alberi, un parco acquatico per famiglie, una rete di percorsi per mountain bike e una pista di "fun bob" su rotaia. Completano il quadro un tapis roulant di collegamento verso il rifugio Pian de la Palù e il recupero, anche tramite demolizione e ricostruzione, di alcuni edifici esistenti.</p>
+
+<figure>
+  <svg viewBox="0 0 640 320" role="img" aria-label="Linea del tempo dell'accordo Presolana-Monte Pora: primi contatti nel 2013, via libera della Giunta regionale il 20 luglio 2026, sopralluogo dell'assessore Sertori il 4 novembre 2026, firma dell'accordo di programma il 5 novembre 2026, conclusione prevista dei lavori entro il 2030.">
+    <rect x="0" y="0" width="640" height="320" fill="#f7f5f0"/>
+    <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f2a3a">Presolana-Monte Pora: le tappe dell'accordo</text>
+
+    <line x1="50" y1="165" x2="610" y2="165" stroke="#4a5a72" stroke-width="2"/>
+
+    <circle cx="70" cy="165" r="7" fill="#8a3b3b"/>
+    <text x="70" y="195" text-anchor="middle" font-size="12" fill="#1f2a3a">2013</text>
+    <text x="70" y="211" text-anchor="middle" font-size="11" fill="#555">primi contatti</text>
+
+    <circle cx="260" cy="165" r="7" fill="#b7a24a"/>
+    <text x="260" y="135" text-anchor="middle" font-size="12" fill="#1f2a3a">20 lug 2026</text>
+    <text x="260" y="119" text-anchor="middle" font-size="11" fill="#555">via libera della Regione</text>
+
+    <circle cx="420" cy="165" r="7" fill="#b7a24a"/>
+    <text x="420" y="195" text-anchor="middle" font-size="12" fill="#1f2a3a">4 nov 2026</text>
+    <text x="420" y="211" text-anchor="middle" font-size="11" fill="#555">sopralluogo Sertori</text>
+
+    <circle cx="530" cy="165" r="9" fill="#3f6b4a"/>
+    <text x="530" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#1f2a3a">5 nov 2026</text>
+    <text x="530" y="119" text-anchor="middle" font-size="11" fill="#3f6b4a">firma dell'accordo</text>
+
+    <circle cx="600" cy="165" r="7" fill="#4a5a72"/>
+    <text x="600" y="195" text-anchor="middle" font-size="12" fill="#1f2a3a">2030</text>
+    <text x="600" y="211" text-anchor="middle" font-size="11" fill="#555">fine lavori prevista</text>
+
+    <rect x="150" y="250" width="340" height="40" rx="6" fill="#ffffff" stroke="#3f6b4a" stroke-width="1.5"/>
+    <text x="320" y="275" text-anchor="middle" font-size="13" fill="#1f2a3a">Investimenti privati stimati: circa 11 milioni di euro</text>
+
+    <text x="320" y="312" text-anchor="middle" font-size="10" fill="#666">Date dai fatti riportati. Fonti: BergamoNews e L'Eco di Bergamo</text>
+  </svg>
+  <figcaption>Le principali tappe dell'accordo di programma per il comprensorio Presolana-Monte Pora, dai primi contatti del 2013 alla firma del 5 novembre 2026. Fonti: BergamoNews e L'Eco di Bergamo.</figcaption>
+</figure>
+
+<h2>Il nodo della viabilità</h2>
+<p>Diversi amministratori hanno insistito sul tema dell'accesso alle due stazioni. Il presidente della Comunità montana della Valle Seriana, Giampiero Calegari, ha definito la viabilità "il nodo critico" del territorio, segnalando però due passi avanti: la variante delle Curve della Selva fino al semaforo di Colzate e l'inserimento del raddoppio della Provinciale 35 nel programma della Provincia. Gafforelli ha promesso di non aspettare altri tredici anni per risolvere anche la questione dei parcheggi, che potrebbe essere affrontata con un futuro patto territoriale, oggi non ancora definito.</p>
+
+<h2>Le voci dei gestori e dei sindaci</h2>
+<p>L'amministratore delegato di Neve, società della famiglia Pasinetti che gestisce il versante della Presolana, Lorenzo Pasinetti, ha respinto le ipotesi di speculazione immobiliare, spiegando che l'attività si concentra sugli impianti con l'obiettivo di creare occupazione in montagna. La presidente di Irta, Cristina Radici, ha ricordato che dal 2016 il fatturato e il numero di dipendenti della società sono raddoppiati, arrivando a 85 lavoratori nella stagione invernale, e ha sottolineato la difficoltà di programmare investimenti quando gli impianti diventano obsoleti in una decina d'anni.</p>
+
+<blockquote>"È stato un lungo parto": con queste parole il presidente della Provincia Gianfranco Gafforelli ha commentato la firma dell'accordo, arrivata dopo tredici anni di trattative.</blockquote>
+
+<p>Dai Comuni coinvolti sono arrivati toni di cauto sostegno. La sindaca di Castione della Presolana, Samantha Tagliaferri, ha parlato di un'intesa importante per definire i confini del demanio sciabile; il sindaco di Songavazzo, Giuliano Covelli, ha invece ricordato che, per quanto gli imprenditori chiedano tempi rapidi, i Comuni devono comunque rispettare le procedure amministrative previste dalla legge. Il cronoprogramma complessivo copre un arco di cinque anni, ma i tempi effettivi dipenderanno dalle singole autorizzazioni, le cui procedure dovrebbero avviarsi nelle prossime settimane.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.bergamonews.it/2026/11/05/comprensorio-presolana-monte-pora-dopo-13-anni-via-libera-al-piano-da-11-milioni-e-stato-un-lungo-parto/934471/" rel="noopener" target="_blank">BergamoNews - Comprensorio Presolana-Monte Pora, dopo 13 anni via libera al piano da 11 milioni: &quot;È stato un lungo parto&quot;</a></li><li><a href="https://www.ecodibergamo.it/stories/premium/valle-seriana/laghetti-parco-avventura-e-apres-ski-accordo-da-11-milioni-su-pora-presolana-o_3913513_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Laghetti, parco avventura e après-ski: accordo da 11 milioni su Pora-Presolana</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili l&#x27;osservatorio sul mercato del lavoro nel turismo di confcommercio bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in lombardia dopo milano. il 69,2% dei contratti è a tempo indeterminato. economia bergamo turismo lavoro confcommercio occupazione" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-20-bergamo-turismo-record-occupati-2025/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo bergamasco al record: nel 2025 quasi 3mila occupati in più, sette contratti su dieci stabili</h2><p class="card-summary">L&#x27;Osservatorio sul mercato del lavoro nel turismo di Confcommercio Bergamo certifica 32.567 dipendenti nel 2025, +9,7% sul 2024: la provincia sale al secondo posto in Lombardia dopo Milano. Il 69,2% dei contratti è a tempo indeterminato.</p><p class="card-meta">20 ottobre 2026</p></div></a></article><article class="card" data-search="turismo da record in bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva ad agosto le presenze turistiche in provincia di bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di filcams cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel nord-ovest, soprattutto donne. economia bergamo turismo lavoro salari" data-cat="Economia"><a class="card-link" href="../../articoli/2026-08-05-bergamo-turismo-record-lavoro-povero/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Turismo da record in Bergamasca, ma quasi 6 lavoratori su 10 sotto la soglia di povertà retributiva</h2><p class="card-summary">Ad agosto le presenze turistiche in provincia di Bergamo toccano nuovi massimi e gli occupati nel settore crescono del 14,8%, ma uno studio di Filcams Cgil segnala salari sotto soglia povertà per la maggioranza dei lavoratori del turismo nel Nord-Ovest, soprattutto donne.</p><p class="card-meta">5 agosto 2026</p></div></a></article><article class="card" data-search="bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a somet la camera di commercio di bergamo ha celebrato domenica la 64ª edizione del riconoscimento del lavoro e del progresso economico, con benemerenze a gian battista arrigoni, marco francesco eigenmann e andrea mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a somet. economia bergamo camera di commercio lavoro imprese sostenibilità" data-cat="Economia"><a class="card-link" href="../../articoli/2026-10-26-bergamo-camera-commercio-premio-lavoro-progresso/"><div class="card-body"><div class="tags"><span class="tag">Economia</span></div><h2 class="card-title">Bergamo premia il lavoro: 32 dipendenti storici, 32 imprese centenarie e il primo premio per la sostenibilità a Somet</h2><p class="card-summary">La Camera di commercio di Bergamo ha celebrato domenica la 64ª edizione del Riconoscimento del lavoro e del progresso economico, con benemerenze a Gian Battista Arrigoni, Marco Francesco Eigenmann e Andrea Mastrovito e, per la prima volta, un premio per la sostenibilità assegnato a Somet.</p><p class="card-meta">26 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
