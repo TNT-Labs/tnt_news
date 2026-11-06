@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-06",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole a Bergamo nella fascia di partenza (0,04 mm, probabilità 20%); cielo nuvoloso ma asciutto a Carugate e San Donato. Vento debole su tutta la tratta, temperature tra 7°C e 9°C.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Pioggia debole", "temp_c": 8, "precip_mm": 0.04, "wind_kmh": 3, "wind_dir": "E"},
+      {"name": "Carugate (08:15)", "cond": "Nuvoloso", "temp_c": 8, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NW"},
+      {"name": "San Donato (08:45)", "cond": "Nuvoloso", "temp_c": 8, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 67,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 29},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 24}
+    ],
+    "incidents": [
+      {"where": "A51, tra Allacciamento Tangenziale Nord Milano e Svincolo Gobba (Vimodrone), direzione A1 Milano-Napoli", "desc": "Incidente con circa 2 km di coda, segnalato nelle prime ore del mattino (04:46); possibile risoluzione prima del transito delle 08:15."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti con traffico previsto (29+14+24=67 min), tempi più bassi della media dei giorni scorsi (77-83 min): possibile traffico più leggero di venerdì mattina. CCISS RSS letto: 7 eventi su A51, di cui 1 pertinente (incidente con coda 2 km tra Tangenziale Nord Milano e Svincolo Gobba/Vimodrone, dir. A1, segnalato 04:46; gli altri sono rampe Lambrate/Segrate e chiusure notturne terminate alle 06:00, non pertinenti all'orario di transito). Nessun evento CCISS su A4 Bergamo-Agrate. Serravalle e Luceverde raggiungibili ma senza contenuto specifico per oggi (pagine generiche/mappa JS). Autostrade.it 404 come da nota storica. Ricerca web: nessuna conferma di eventi odierni; una tabella cantieri Serravalle di marzo 2026 segnalava lavori 'fino a revoca' sul Viadotto dei Parchi (A51 km 5-8) e restrizioni a Cologno Sud, non riportati per mancanza di conferma recente."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole prevista a Bergamo al momento della partenza (fascia 07:00-08:00): 0,04 mm, probabilità 20%",
+      "Il criterio è una soglia zero: anche precipitazioni minime in uno dei tre punti escludono la moto",
+      "Carugate e San Donato restano asciutti, ma la pioggia all'inizio del tragitto pregiudica l'intera corsa",
+      "Vento e visibilità non sono un problema: la sola criticità è la pioggia a Bergamo"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
