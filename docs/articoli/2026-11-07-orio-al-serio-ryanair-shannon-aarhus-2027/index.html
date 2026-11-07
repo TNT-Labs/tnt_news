@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Orio al Serio, Ryanair annuncia due nuove rotte per l&#x27;estate 2027: Shannon e Aarhus — TNT News</title>
+  <meta name="description" content="Ryanair collegherà Milano Bergamo a Shannon, in Irlanda, e ad Aarhus, in Danimarca, a partire dalla prossima stagione estiva. L&#x27;annuncio arriva mentre lo scalo bergamasco, dopo il record di 17,3 milioni di passeggeri nel 2024, ha chiuso il 2025 in leggero calo.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-11-07-orio-al-serio-ryanair-shannon-aarhus-2027/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Orio al Serio, Ryanair annuncia due nuove rotte per l&#x27;estate 2027: Shannon e Aarhus — TNT News">
+  <meta property="og:description" content="Ryanair collegherà Milano Bergamo a Shannon, in Irlanda, e ad Aarhus, in Danimarca, a partire dalla prossima stagione estiva. L&#x27;annuncio arriva mentre lo scalo bergamasco, dopo il record di 17,3 milioni di passeggeri nel 2024, ha chiuso il 2025 in leggero calo.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-11-07-orio-al-serio-ryanair-shannon-aarhus-2027/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Orio al Serio, Ryanair annuncia due nuove rotte per l&#x27;estate 2027: Shannon e Aarhus — TNT News">
+  <meta name="twitter:description" content="Ryanair collegherà Milano Bergamo a Shannon, in Irlanda, e ad Aarhus, in Danimarca, a partire dalla prossima stagione estiva. L&#x27;annuncio arriva mentre lo scalo bergamasco, dopo il record di 17,3 milioni di passeggeri nel 2024, ha chiuso il 2025 in leggero calo.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Orio al Serio</span><span class="tag">Ryanair</span><span class="tag">Aeroporto</span></div>
+    <h1>Orio al Serio, Ryanair annuncia due nuove rotte per l&#x27;estate 2027: Shannon e Aarhus</h1>
+    <p class="article-summary">Ryanair collegherà Milano Bergamo a Shannon, in Irlanda, e ad Aarhus, in Danimarca, a partire dalla prossima stagione estiva. L&#x27;annuncio arriva mentre lo scalo bergamasco, dopo il record di 17,3 milioni di passeggeri nel 2024, ha chiuso il 2025 in leggero calo.</p>
+    <p class="article-meta">
+      <time datetime="2026-11-07">7 novembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Ryanair ha annunciato due nuovi collegamenti da <strong>Milano Bergamo Orio al Serio</strong> per la stagione estiva 2027: uno verso <strong>Shannon</strong>, sulla costa occidentale dell'Irlanda, l'altro verso <strong>Aarhus</strong>, in Danimarca. Lo riporta L'Eco di Bergamo, che cita la compagnia low cost: i biglietti sono già in vendita, mentre il programma completo della prossima estate sarà presentato nei prossimi mesi.</p>
+
+<h2>Le nuove destinazioni</h2>
+<p>La rotta per Shannon punta su una delle zone turistiche più note dell'isola: nei dintorni si trovano le Scogliere di Moher, l'itinerario costiero della Wild Atlantic Way e la città di Limerick. Aarhus, seconda città della Danimarca per popolazione, viene invece presentata da Ryanair come meta culturale, con il centro storico del Quartiere Latino, il museo d'arte ARoS e il lungomare cittadino.</p>
+
+<p>Per Ryanair si tratta di un ulteriore passo nell'espansione della rete da Bergamo, che nella stagione invernale in corso ha già visto l'assegnazione di due aeromobili supplementari basati sullo scalo orobico.</p>
+
+<blockquote>«Siamo lieti di offrire ai clienti del Nord Italia un'anteprima delle nuove destinazioni», ha dichiarato Rossella Amato, Head of Communications Italy di Ryanair.</blockquote>
+
+<h2>Un aeroporto che cresce, ma con una frenata nel 2025</h2>
+<p>L'annuncio arriva in un momento di transizione per il traffico passeggeri di Orio al Serio. Il 2024 si era chiuso con un record storico di <strong>17,3 milioni di passeggeri</strong>, in crescita dell'8,6% sul 2023. Il 2025, invece, ha segnato una leggera flessione: secondo i dati approvati dall'assemblea di Sacbo, la società che gestisce lo scalo, i passeggeri sono stati <strong>16.937.976</strong>, comunque "al di sopra dei dati previsti dal budget". Nella stagione estiva in corso operano 23 compagnie aeree su una rete di 152 destinazioni in 44 Paesi, un anno prima erano 24 le compagnie e 158 le destinazioni in 42 Paesi.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Grafico a barre: passeggeri dell'aeroporto di Orio al Serio, 17,3 milioni nel 2024 e 16,94 milioni nel 2025. Fonte: L'Eco di Bergamo e Il Giorno.">
+    <rect x="0" y="0" width="640" height="300" fill="#f7f5f0"/>
+    <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f2a3a">Orio al Serio: passeggeri 2024-2025 (milioni)</text>
+
+    <line x1="80" y1="240" x2="560" y2="240" stroke="#4a5a72" stroke-width="2"/>
+
+    <rect x="180" y="70" width="90" height="170" fill="#3f6b4a"/>
+    <text x="225" y="60" text-anchor="middle" font-size="15" fill="#1f2a3a">17,3</text>
+    <text x="225" y="262" text-anchor="middle" font-size="12" fill="#555">2024 (record)</text>
+
+    <rect x="370" y="78" width="90" height="162" fill="#4a5a72"/>
+    <text x="415" y="68" text-anchor="middle" font-size="15" fill="#1f2a3a">16,94</text>
+    <text x="415" y="262" text-anchor="middle" font-size="12" fill="#555">2025</text>
+
+    <text x="320" y="286" text-anchor="middle" font-size="10" fill="#666">Fonte: L'Eco di Bergamo (dato 2024) e Il Giorno (dato 2025)</text>
+  </svg>
+  <figcaption>Passeggeri transitati da Orio al Serio nel 2024 e nel 2025, in milioni. Fonti: L'Eco di Bergamo e Il Giorno.</figcaption>
+</figure>
+
+<h2>Investimenti e prospettive</h2>
+<p>Nonostante il calo dei volumi, Sacbo ha confermato investimenti di gruppo per oltre <strong>53 milioni di euro</strong> nel solo 2025, cui si aggiungeranno quelli previsti dal Piano industriale 2026-2028 approvato dal consiglio di amministrazione, rinnovato fino al 2028 sotto la presidenza di Giovanni Sanga. Le nuove rotte Ryanair verso l'Irlanda e la Danimarca si inseriscono in questa strategia di allargamento della rete, pensata per attrarre sia il traffico turistico in entrata verso la Lombardia sia i viaggiatori bergamaschi diretti verso nuove destinazioni del Nord Europa. Resta da vedere, nei prossimi bilanci, se le nuove rotte contribuiranno a riportare il traffico dello scalo sopra la soglia dei 17 milioni di passeggeri toccata nel 2024.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/economia/ryanair-due-nuove-rotte-da-orio-al-serio-per-lestate-2027-voli-per-irlanda-e-o_3987429_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Ryanair, due nuove rotte da Orio al Serio per l&#x27;estate 2027: voli per Irlanda e Danimarca</a></li><li><a href="https://www.ilgiorno.it/bergamo/economia/orio-al-serio-aeroporto-nktaxcyt" rel="noopener" target="_blank">Il Giorno - Orio al Serio, aeroporto: bilancio 2025 e nuovo Cda</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="caro carburante, ryanair taglia i voli invernali: incertezza anche su orio al serio ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di bergamo orio al serio, tra i suoi storici scali italiani. trasporti bergamo orio al serio ryanair sacbo aeroporto" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-04-bergamo-orio-serio-ryanair-tagli-voli-invernali/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Caro carburante, Ryanair taglia i voli invernali: incertezza anche su Orio al Serio</h2><p class="card-summary">Ryanair riduce il programma invernale 2026-2027 per l&#x27;aumento dei costi del carburante e potrebbe coinvolgere anche l&#x27;aeroporto di Bergamo Orio al Serio, tra i suoi storici scali italiani.</p><p class="card-meta">4 settembre 2026</p></div></a></article><article class="card" data-search="guasto alla rete enav, caos voli in tutta italia: a orio al serio 14 cancellazioni un&#x27;anomalia nella rete di trasmissione dati di enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. a orio al serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore. trasporti bergamo orio al serio enav aeroporti trasporti aerei" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-10-17-bergamo-orio-al-serio-guasto-enav-voli-cancellati/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Guasto alla rete Enav, caos voli in tutta Italia: a Orio al Serio 14 cancellazioni</h2><p class="card-summary">Un&#x27;anomalia nella rete di trasmissione dati di Enav ha ridotto la capacità del traffico aereo italiano dalle 6 di venerdì 16 ottobre. A Orio al Serio cancellati 7 voli in partenza e 7 in arrivo, con ritardi fino a oltre tre ore.</p><p class="card-meta">17 ottobre 2026</p></div></a></article><article class="card" data-search="cantieri ferroviari a bergamo, rfi chiede la risoluzione del contratto: ritardi fino a gennaio rfi ha presentato al collegio consultivo tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della bergamo-ponte san pietro e del collegamento con l&#x27;aeroporto di orio al serio. comune e provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre. trasporti bergamo rfi cantieri ferroviari orio al serio ponte san pietro" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-09-30-bergamo-rfi-cantieri-ferroviari-risoluzione-contratto/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Cantieri ferroviari a Bergamo, RFI chiede la risoluzione del contratto: ritardi fino a gennaio</h2><p class="card-summary">RFI ha presentato al Collegio Consultivo Tecnico una richiesta di risoluzione del contratto per i lavori di raddoppio della Bergamo-Ponte San Pietro e del collegamento con l&#x27;aeroporto di Orio al Serio. Comune e Provincia chiedono un incontro urgente ai vertici politici, in programma il 2 ottobre.</p><p class="card-meta">30 settembre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
