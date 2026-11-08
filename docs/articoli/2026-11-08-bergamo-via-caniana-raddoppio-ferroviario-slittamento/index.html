@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    (function () {
+      var KEY = "tnt_access";
+      var PASS = "Redalert!";
+      var unlocked = false;
+      try { unlocked = localStorage.getItem(KEY) === PASS; } catch (e) {}
+      if (unlocked) return;
+      var root = document.documentElement;
+      root.classList.add("gate-locked");
+      function build() {
+        if (document.getElementById("gate")) return;
+        var gate = document.createElement("div");
+        gate.id = "gate";
+        var form = document.createElement("form");
+        form.id = "gate-form";
+        var input = document.createElement("input");
+        input.id = "gate-pass";
+        input.type = "password";
+        input.placeholder = "Password";
+        input.setAttribute("aria-label", "Password");
+        input.autocomplete = "current-password";
+        input.autofocus = true;
+        form.appendChild(input);
+        gate.appendChild(form);
+        document.body.appendChild(gate);
+        input.focus();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (input.value === PASS) {
+            try { localStorage.setItem(KEY, PASS); } catch (err) {}
+            root.classList.remove("gate-locked");
+            if (gate.parentNode) gate.parentNode.removeChild(gate);
+          } else {
+            gate.classList.add("gate-error");
+            input.value = "";
+            input.focus();
+          }
+        });
+      }
+      if (document.body) build();
+      else document.addEventListener("DOMContentLoaded", build);
+    })();
+  </script>
+  <title>Bergamo, via dei Caniana a doppio senso entro dicembre: il ponte del raddoppio ferroviario slitta al 2027 — TNT News</title>
+  <meta name="description" content="I lavori del cantiere ferroviario hanno ridotto da mesi via dei Caniana a una sola carreggiata, ma l&#x27;impresa ha accelerato e promette il ripristino della viabilità normale e della corsia bus entro inizio dicembre. RFI conferma però che il nuovo ponte del raddoppio Bergamo-Ponte San Pietro slitta di un anno, al 2027.">
+  <link rel="canonical" href="https://tnt-labs.github.io/tnt_news/articoli/2026-11-08-bergamo-via-caniana-raddoppio-ferroviario-slittamento/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TNT News">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Bergamo, via dei Caniana a doppio senso entro dicembre: il ponte del raddoppio ferroviario slitta al 2027 — TNT News">
+  <meta property="og:description" content="I lavori del cantiere ferroviario hanno ridotto da mesi via dei Caniana a una sola carreggiata, ma l&#x27;impresa ha accelerato e promette il ripristino della viabilità normale e della corsia bus entro inizio dicembre. RFI conferma però che il nuovo ponte del raddoppio Bergamo-Ponte San Pietro slitta di un anno, al 2027.">
+  <meta property="og:url" content="https://tnt-labs.github.io/tnt_news/articoli/2026-11-08-bergamo-via-caniana-raddoppio-ferroviario-slittamento/">
+  <meta property="og:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bergamo, via dei Caniana a doppio senso entro dicembre: il ponte del raddoppio ferroviario slitta al 2027 — TNT News">
+  <meta name="twitter:description" content="I lavori del cantiere ferroviario hanno ridotto da mesi via dei Caniana a una sola carreggiata, ma l&#x27;impresa ha accelerato e promette il ripristino della viabilità normale e della corsia bus entro inizio dicembre. RFI conferma però che il nuovo ponte del raddoppio Bergamo-Ponte San Pietro slitta di un anno, al 2027.">
+  <meta name="twitter:image" content="https://tnt-labs.github.io/tnt_news/og-default.png">
+
+  <link rel="alternate" type="application/rss+xml" title="TNT News" href="../../feed.xml">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-top">
+      <div class="header-links">
+        <a class="header-link" href="../../bollettino/">Bollettino</a>
+        <a class="header-link" href="../../ricarica/">Ricarica</a>
+        <a class="header-link" href="../../giochi/">Giochi</a>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambia tema">Tema scuro</button>
+    </div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">TNT</span><span class="brand-rest">News</span>
+    </a>
+    <p class="tagline">Notizie e fatti dalla Lombardia e dalla provincia di Bergamo</p>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../../index.html">&larr; Tutte le notizie</a>
+
+<article class="article">
+  <header class="article-header">
+    <div class="tags"><a class="tag tag-cat" href="../../categorie/trasporti/">Trasporti</a><span class="tag">Bergamo</span><span class="tag">Via dei Caniana</span><span class="tag">Raddoppio ferroviario</span><span class="tag">RFI</span></div>
+    <h1>Bergamo, via dei Caniana a doppio senso entro dicembre: il ponte del raddoppio ferroviario slitta al 2027</h1>
+    <p class="article-summary">I lavori del cantiere ferroviario hanno ridotto da mesi via dei Caniana a una sola carreggiata, ma l&#x27;impresa ha accelerato e promette il ripristino della viabilità normale e della corsia bus entro inizio dicembre. RFI conferma però che il nuovo ponte del raddoppio Bergamo-Ponte San Pietro slitta di un anno, al 2027.</p>
+    <p class="article-meta">
+      <time datetime="2026-11-08">8 novembre 2026</time> &middot; Redazione TNT News (Claude)
+    </p>
+  </header>
+
+  <div class="article-body">
+    <p>Da mesi <strong>via dei Caniana</strong>, a Bergamo, è ridotta a una sola carreggiata per il cantiere del raddoppio ferroviario Bergamo-Ponte San Pietro, affidato all'impresa D'Agostino. Lo riporta L'Eco di Bergamo: dopo un forte ritardo rispetto al cronoprogramma, l'impresa ha accelerato i lavori con turni serali e nei weekend e promette il ripristino della viabilità a doppio senso, con il ritorno della corsia riservata ai bus dell'e-Brt, nei primi giorni di <strong>dicembre 2026</strong>. Il ponte ferroviario nel suo complesso, però, non sarà pronto quest'anno: Rete Ferroviaria Italiana (Rfi) ha confermato, come riportato da Il Giorno, che la conclusione del raddoppio Bergamo-Ponte San Pietro slitta di un anno, da dicembre 2026 a <strong>dicembre 2027</strong>.</p>
+
+<h2>Il cantiere di via dei Caniana</h2>
+<p>Nel tratto tra largo Tironi e via Moroni resta una sola corsia per senso di marcia, mentre il marciapiede è stato eliminato e i pedoni devono attraversare sul lato opposto della strada. La corsia riservata all'e-Brt è stata temporaneamente soppressa per fare spazio ai mezzi di cantiere, e gli autobus restano per ora bloccati nel traffico ordinario. Secondo L'Eco di Bergamo, il cantiere aveva accumulato un ritardo significativo, con pochi operai al lavoro nelle settimane scorse; l'accelerazione recente dovrebbe consentire il ripristino completo della normale viabilità, corsia bus compresa, entro i primi giorni del mese prossimo.</p>
+
+<figure>
+  <svg viewBox="0 0 640 300" role="img" aria-label="Linea del tempo: lavori del raddoppio ferroviario Bergamo-Ponte San Pietro avviati nel febbraio 2024, riapertura di via dei Caniana prevista a inizio dicembre 2026, conclusione del ponte slittata da dicembre 2026 a dicembre 2027. Fonti: L'Eco di Bergamo e Il Giorno.">
+    <rect x="0" y="0" width="640" height="300" fill="#f7f5f0"/>
+    <text x="320" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f2a3a">Raddoppio Bergamo-Ponte San Pietro: tappe e slittamento</text>
+
+    <line x1="60" y1="150" x2="580" y2="150" stroke="#4a5a72" stroke-width="2"/>
+
+    <circle cx="90" cy="150" r="7" fill="#3f6b4a"/>
+    <text x="90" y="120" text-anchor="middle" font-size="12" fill="#1f2a3a">Avvio lavori</text>
+    <text x="90" y="136" text-anchor="middle" font-size="11" fill="#555">feb. 2024</text>
+
+    <circle cx="330" cy="150" r="7" fill="#4a5a72"/>
+    <text x="330" y="120" text-anchor="middle" font-size="12" fill="#1f2a3a">Via dei Caniana</text>
+    <text x="330" y="136" text-anchor="middle" font-size="11" fill="#555">a doppio senso</text>
+    <text x="330" y="180" text-anchor="middle" font-size="11" fill="#555">inizio dic. 2026</text>
+
+    <circle cx="470" cy="150" r="7" fill="#9c7a2e" stroke="#9c7a2e"/>
+    <text x="470" y="180" text-anchor="middle" font-size="11" fill="#555">scadenza originale</text>
+    <text x="470" y="196" text-anchor="middle" font-size="11" fill="#555">dic. 2026</text>
+
+    <circle cx="560" cy="150" r="7" fill="#b2452b"/>
+    <text x="560" y="120" text-anchor="middle" font-size="12" fill="#1f2a3a">Ponte completato</text>
+    <text x="560" y="136" text-anchor="middle" font-size="11" fill="#555">dic. 2027</text>
+
+    <line x1="470" y1="150" x2="560" y2="150" stroke="#b2452b" stroke-width="3" stroke-dasharray="4,3"/>
+    <text x="515" y="228" text-anchor="middle" font-size="12" fill="#b2452b" font-weight="bold">+1 anno di ritardo</text>
+
+    <text x="320" y="268" text-anchor="middle" font-size="10" fill="#666">Fonte: L'Eco di Bergamo (via dei Caniana) e Il Giorno (slittamento Rfi)</text>
+  </svg>
+  <figcaption>Le tappe del cantiere: la riapertura a doppio senso di via dei Caniana è prevista a inizio dicembre 2026, ma il completamento del ponte ferroviario slitta di un anno, da dicembre 2026 a dicembre 2027. Fonti: L'Eco di Bergamo e Il Giorno.</figcaption>
+</figure>
+
+<h2>Un progetto in ritardo di un anno</h2>
+<p>Il raddoppio della linea Bergamo-Ponte San Pietro fa parte del più ampio piano di potenziamento del nodo ferroviario di Bergamo, che comprende anche il collegamento con l'aeroporto di Orio al Serio, affidato alla stessa impresa esecutrice e colpito da un ritardo analogo. Secondo quanto riferito a Il Giorno dall'amministratore delegato di Rfi, Aldo Isi, il rinvio è legato a «interferenze» nate dal contesto urbano in cui si svolgono i lavori e a difficoltà incontrate con le imprese incaricate. Isi ha comunque ribadito l'intenzione di proseguire il rapporto con l'appaltatore e di contenere ulteriormente i ritardi con le ottimizzazioni possibili. Diverso l'andamento del piano regolatore generale della stazione di Bergamo, che secondo Rfi procede invece nei tempi previsti.</p>
+
+<h2>Cosa cambia per pendolari e residenti</h2>
+<p>Fino a inizio dicembre, chi si muove su via dei Caniana dovrà continuare a fare i conti con la carreggiata ridotta e con i bus dell'e-Brt che restano bloccati nel traffico ordinario. Una volta ripristinata la viabilità, L'Eco di Bergamo segnala che le lavorazioni successive alla posa dell'impalcato del nuovo ponte non dovrebbero più richiedere ulteriori deviazioni stradali in zona. Resta però il nodo più ampio dei tempi complessivi dell'opera: con il completamento del ponte spostato al 2027, pendolari e residenti dovranno convivere per un altro anno con un cantiere che, negli ultimi mesi, ha già incrociato altri interventi sulla viabilità cittadina, dal ponte di via San Bernardino alla passerella di Boccaleone.</p>
+
+  </div>
+
+  <section class="sources"><h2>Fonti</h2><ul><li><a href="https://www.ecodibergamo.it/stories/premium/bergamo-citta/via-dei-caniana-un-mese-per-la-riapertura-completa-e-tornera-la-corsia-dei-bus-o_3990241_11/" rel="noopener" target="_blank">L&#x27;Eco di Bergamo - Via dei Caniana, un mese per la riapertura completa. E tornerà la corsia dei bus</a></li><li><a href="https://www.ilgiorno.it/bergamo/cronaca/lavori-ferroviari-la-conclusione-slitta-7b9725dc" rel="noopener" target="_blank">Il Giorno - Lavori ferroviari, la conclusione slitta</a></li></ul></section>
+</article>
+
+<section class="related"><h2>Altre notizie</h2><div class="card-grid"><article class="card" data-search="bergamo, nuova stazione: posata la piattaforma del ponte ovest verso via gavazzeni nel cantiere di porta sud è stata posata la piattaforma del &quot;ponte ovest&quot;, il primo dei due land bridge che collegheranno piazzale marconi alla nuova via gavazzeni. i lavori, avviati quasi tre anni fa, procedono secondo il cronoprogramma: le prime funzioni sono previste nel 2027. trasporti bergamo stazione ferroviaria porta sud rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-11-03-bergamo-stazione-ponte-ovest-porta-sud/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, nuova stazione: posata la piattaforma del ponte ovest verso via Gavazzeni</h2><p class="card-summary">Nel cantiere di Porta Sud è stata posata la piattaforma del &quot;ponte ovest&quot;, il primo dei due land bridge che collegheranno piazzale Marconi alla nuova via Gavazzeni. I lavori, avviati quasi tre anni fa, procedono secondo il cronoprogramma: le prime funzioni sono previste nel 2027.</p><p class="card-meta">3 novembre 2026</p></div></a></article><article class="card" data-search="bergamo, a boccaleone apre la nuova passerella ciclopedonale sui binari: attesa di 22 mesi sabato 31 ottobre, senza annunci ufficiali, è stata aperta la nuova passerella ciclopedonale di boccaleone che collega via rovelli e via rosa, attesa da quasi due anni dopo la demolizione della vecchia struttura. i collaudi di alcune parti erano ancora in corso al momento dell&#x27;apertura. trasporti bergamo boccaleone mobilità ciclopedonale rfi" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-11-01-bergamo-boccaleone-passerella-apertura/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, a Boccaleone apre la nuova passerella ciclopedonale sui binari: attesa di 22 mesi</h2><p class="card-summary">Sabato 31 ottobre, senza annunci ufficiali, è stata aperta la nuova passerella ciclopedonale di Boccaleone che collega via Rovelli e via Rosa, attesa da quasi due anni dopo la demolizione della vecchia struttura. I collaudi di alcune parti erano ancora in corso al momento dell&#x27;apertura.</p><p class="card-meta">1 novembre 2026</p></div></a></article><article class="card" data-search="bergamo, riapre il ponte di via san bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere dalle 19 di venerdì 30 ottobre il ponte ferroviario di via san bernardino a bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea bergamo-ponte san pietro. il cantiere completo è previsto entro giugno 2027. trasporti bergamo viabilità rfi cantieri ferroviari" data-cat="Trasporti"><a class="card-link" href="../../articoli/2026-10-29-bergamo-ponte-san-bernardino-riapertura/"><div class="card-body"><div class="tags"><span class="tag">Trasporti</span></div><h2 class="card-title">Bergamo, riapre il ponte di via San Bernardino: doppio senso dal 30 ottobre dopo oltre un anno di cantiere</h2><p class="card-summary">Dalle 19 di venerdì 30 ottobre il ponte ferroviario di via San Bernardino a Bergamo torna transitabile a doppio senso su un&#x27;unica corsia, dopo oltre un anno di chiusura per i lavori di raddoppio della linea Bergamo-Ponte San Pietro. Il cantiere completo è previsto entro giugno 2027.</p><p class="card-meta">29 ottobre 2026</p></div></a></article></div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav class="cat-nav" aria-label="Categorie"><span class="cat-nav-label">Categorie:</span> <a href="../../categorie/cronaca/">Cronaca</a><a href="../../categorie/politica/">Politica</a><a href="../../categorie/economia/">Economia</a><a href="../../categorie/trasporti/">Trasporti</a><a href="../../categorie/sanita/">Sanità</a><a href="../../categorie/ambiente/">Ambiente</a><a href="../../categorie/cultura/">Cultura</a><a href="../../categorie/sport/">Sport</a><a href="../../categorie/attualita/">Attualità</a></nav>
+    <nav class="site-links" aria-label="Collegamenti del sito">
+      <a href="../../index.html">Home</a>
+      <a href="../../bollettino/">Bollettino pendolare</a>
+      <a href="../../ricarica/">Colonnine ricarica</a>
+      <a href="../../giochi/">Giochi</a>
+      <a href="../../chi-siamo/">Chi siamo</a>
+      <a href="../../note-legali/">Note legali e privacy</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+    <p>
+      <strong>TNT News</strong> &mdash; blog sperimentale a redazione automatica.
+      Contenuti generati da intelligenza artificiale e rielaborati a partire dalle fonti
+      citate in fondo a ciascun articolo.
+    </p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+</body>
+</html>
