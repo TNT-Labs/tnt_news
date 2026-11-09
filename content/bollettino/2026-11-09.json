@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-09",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso ma asciutto su tutta la tratta; freddo a Bergamo (6,5°C) al momento della partenza, temperature in leggero aumento verso San Donato (8°C).",
+    "by_point": [
+      {
+        "name": "Bergamo (07:30)",
+        "cond": "Nuvoloso",
+        "temp_c": 7,
+        "precip_mm": 0.0,
+        "wind_kmh": 3,
+        "wind_dir": "NNE"
+      },
+      {
+        "name": "Carugate (08:15)",
+        "cond": "Nuvoloso",
+        "temp_c": 8,
+        "precip_mm": 0.0,
+        "wind_kmh": 3,
+        "wind_dir": "N"
+      },
+      {
+        "name": "San Donato (08:45)",
+        "cond": "Nuvoloso",
+        "temp_c": 8,
+        "precip_mm": 0.0,
+        "wind_kmh": 2,
+        "wind_dir": "NNE"
+      }
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 81,
+    "segments": [
+      {
+        "name": "A4 Bergamo → Agrate",
+        "minutes": 37
+      },
+      {
+        "name": "Surface Agrate → Carugate",
+        "minutes": 14
+      },
+      {
+        "name": "A51 Carugate → San Donato Milanese",
+        "minutes": 30
+      }
+    ],
+    "incidents": [
+      {
+        "where": "A4 Milano-Brescia, tra gli svincoli di Bergamo/Dalmine e Capriate San Gervasio, dir. Milano",
+        "desc": "Incidente segnalato dalle 06:06, con code dalle 06:09 (fonte CCISS); il tempo stimato del segmento Bergamo→Agrate (37 min) incorpora già l'effetto della coda."
+      }
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti con traffico previsto (37+14+30=81 min), più lento della media dei giorni scorsi per l'incidente sull'A4. CCISS RSS letto: 2 eventi pertinenti su A4 Bergamo/Dalmine-Capriate dir. Milano (incidente+coda, 06:06-06:09), nessun evento su A51. Serravalle e Luceverde raggiungibili ma senza contenuto specifico per oggi. Autostrade.it 404 come da nota storica. Ricerca web: nessuna conferma aggiuntiva di eventi odierni su A4/A51 oltre a quanto già riportato da CCISS."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Nessuna pioggia prevista lungo tutto il tragitto (Bergamo, Carugate, San Donato)",
+      "Asfalto asciutto a Bergamo: 0 mm di pioggia nelle 3 ore precedenti la partenza",
+      "Temperatura di 6,5°C a Bergamo alle 07:30: sotto la soglia dei 7°C ma sopra i 4°C, quindi cautela per il freddo",
+      "Vento debole e raffiche contenute su tutta la tratta (massimo 11 km/h)"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Google Maps Directions API",
+      "url": "https://developers.google.com/maps/documentation/directions"
+    },
+    {
+      "name": "Google Weather API",
+      "url": "https://developers.google.com/maps/documentation/weather"
+    },
+    {
+      "name": "CCISS — Viaggiare Informati (RSS)",
+      "url": "https://www.cciss.it/rss"
+    },
+    {
+      "name": "Milano Serravalle — viabilità",
+      "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"
+    },
+    {
+      "name": "Luceverde",
+      "url": "https://www.luceverde.it/traffico"
+    },
+    {
+      "name": "Autostrade per l'Italia — traffico in tempo reale",
+      "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"
+    }
+  ]
+}
