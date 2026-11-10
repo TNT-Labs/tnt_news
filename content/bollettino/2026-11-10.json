@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-10",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole su Bergamo e Carugate, nuvoloso a San Donato: ombrello consigliato, asfalto bagnato su tutto il tragitto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Pioggia debole", "temp_c": 8.4, "precip_mm": 0.46, "wind_kmh": 2, "wind_dir": "OSO"},
+      {"name": "Carugate (08:15)",   "cond": "Pioggia debole", "temp_c": 8.9, "precip_mm": 0.1,  "wind_kmh": 3, "wind_dir": "OSO"},
+      {"name": "San Donato (08:45)","cond": "Nuvoloso",        "temp_c": 9.0, "precip_mm": 0.04, "wind_kmh": 5, "wind_dir": "OSO"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 83,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 36},
+      {"name": "Surface Agrate → Carugate",          "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 32}
+    ],
+    "incidents": [
+      {"where": "A51 tra svincolo Gobba e C.A.M.M. (Monlue), dir. A1 Milano-Napoli", "desc": "Lavori in corso, stesso senso di marcia dell'andata (sud)."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (36+15+32 min). Meteo Google OK sui 3 punti + storico Bergamo (0,67 mm pioggia nelle 3h precedenti: asfalto bagnato). CCISS RSS: 1 evento pertinente (lavori A51 Gobba-C.A.M.M., incluso); 1 evento 'pioggia' generico su tutta l'A51 non incluso perché non localizzato. Serravalle raggiungibile ma pagina statica senza elenco eventi. Luceverde raggiungibile, nessun evento su A4/A51. Autostrade per l'Italia: 404 (nota pagina storicamente non raggiungibile). Ricerca web: nessun ulteriore incidente/cantiere specifico per oggi."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole in atto a Bergamo e Carugate (precipitazioni >0 mm lungo il tragitto)",
+      "Asfalto bagnato: 0,67 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Temperatura nella norma (8-9 °C) ma condizioni di pioggia prevalenti sull'intero percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"}
+  ]
+}
