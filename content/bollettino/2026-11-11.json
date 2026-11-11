@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-11",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso lungo tutto il tragitto, nessuna precipitazione prevista, vento debole e temperature intorno ai 9-10°C.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",    "cond": "Nuvoloso", "temp_c": 9,  "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "ESE"},
+      {"name": "Carugate (08:15)",   "cond": "Nuvoloso", "temp_c": 10, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "SSW"},
+      {"name": "San Donato (08:45)", "cond": "Nuvoloso", "temp_c": 10, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "SW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 79,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                "minutes": 35},
+      {"name": "Surface Agrate → Carugate",          "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 29}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (traffic_model=best_guess). CCISS RSS letto: 2 eventi attivi, nessuno pertinente alla tratta A4 Bergamo-Agrate o A51 Carugate-San Donato (un incidente A4 Ospitaletto-Rovato e un'avaria A4 Sesto S.G.-Cormano, entrambi fuori tratta; segnalazione pioggia su A51 tra A1 Milano-Napoli e Lecco, fuori dal tratto Carugate-San Donato). Serravalle viabilità letto, nessun avviso specifico sulla tratta. Luceverde e Autostrade senza contenuto utile (come da fonti storicamente illeggibili). Ricerca web: nessun incidente o cantiere confermato per la data di oggi sulla tratta."
+  },
+  "moto": {
+    "verdict": "go",
+    "label": "Moto OK",
+    "reasons": [
+      "Niente pioggia prevista nei tre punti del tragitto (Bergamo, Carugate, San Donato)",
+      "Asfalto asciutto: 0 mm nelle 3 ore precedenti la partenza (storico Google Weather)",
+      "Temperatura intorno ai 9-10°C, sopra la soglia dei 7°C",
+      "Vento debole (~2 km/h) con raffiche contenute e visibilità 11-14 km"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
