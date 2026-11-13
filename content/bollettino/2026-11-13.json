@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-13",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole su Bergamo e Carugate, cielo nuvoloso in attenuazione verso San Donato.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Pioggia debole", "temp_c": 10.1, "precip_mm": 0.23, "wind_kmh": 3, "wind_dir": "N"},
+      {"name": "Carugate (08:15)", "cond": "Pioggia debole", "temp_c": 9.8, "precip_mm": 0.06, "wind_kmh": 3, "wind_dir": "W"},
+      {"name": "San Donato (08:45)", "cond": "Nuvoloso", "temp_c": 10.1, "precip_mm": 0.01, "wind_kmh": 6, "wind_dir": "WSW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 68,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 30},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 24}
+    ],
+    "incidents": [],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (tempi con traffico reale; venerdì presto, traffico scorrevole). CCISS RSS: nessun evento attivo su A4 Milano-Brescia o A51/Tangenziale Est. Serravalle viabilità: pagina leggibile, nessun incidente/cantiere segnalato su A51 Carugate-San Donato. Luceverde (tentativo unico, priorità C): leggibile ma senza dati su A4/A51. Autostrade per l'Italia (tentativo unico, priorità C): 404 come nelle esecuzioni precedenti. Ricerca web: nessun incidente/cantiere confermato per oggi; una tabella cantieri Serravalle di marzo 2026 con restrizioni 'fino a revoca' su A51 Cologno Sud/Carugate non è confermata per la giornata odierna, quindi non riportata come incidente."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole prevista a Bergamo (0,23 mm) e Carugate (0,06 mm) lungo il tragitto",
+      "Asfalto già bagnato: 0,57 mm di pioggia caduti nelle 3 ore precedenti a Bergamo",
+      "Probabilità di pioggia 35% al punto di partenza, sopra la soglia per il verdetto 'go'"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
