@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-16",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso su Bergamo in attenuazione, parzialmente soleggiato verso Carugate e San Donato; nessuna pioggia prevista lungo il tragitto, temperature fresche (5,7-5,9 °C).",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Prevalentemente nuvoloso", "temp_c": 5.7, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "O"},
+      {"name": "Carugate (08:15)", "cond": "Parzialmente soleggiato", "temp_c": 5.7, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "O"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato", "temp_c": 5.9, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "O"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 88,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 37},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 37}
+    ],
+    "incidents": [
+      {"where": "A4 - Svincolo Bergamo", "desc": "Incidente segnalato dalle 06:36 (direzione non specificata nel feed CCISS)."},
+      {"where": "A51 Tangenziale Est, tra Cologno Monzese e Linate", "desc": "Code a tratti per traffico intenso dalle 05:36, direzione Allacciamento A1 Milano-Napoli (sud, stessa direzione dell'andata)."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (tempi con traffico reale). Google Weather OK su 3 punti + storico 3h a Bergamo (0,84 mm di pioggia nelle 3 ore precedenti, ora cessata). CCISS RSS: incidente a Svincolo Bergamo (A4, dalle 06:36, direzione non indicata) e coda per traffico intenso su A51 tra Cologno Monzese e Linate direzione A1 Milano-Napoli (dalle 05:36), entrambi pertinenti alla tratta e direzione dell'andata. Serravalle viabilità: pagina istituzionale, nessun dato specifico su incidenti/cantieri. Luceverde (tentativo unico, priorità C): leggibile ma senza report su A4/A51. Autostrade per l'Italia (tentativo unico, priorità C): 404 come nelle esecuzioni precedenti. Ricerca web: nessuna notizia datata oggi che confermi altri eventi; un documento Serravalle di marzo 2026 con cantieri 'fino a revoca' su A51 Cologno Sud/Carugate non trova riscontro nel feed CCISS di oggi, quindi non riportato separatamente."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperatura tra 4 e 7 °C in tutti e tre i punti del tragitto (5,7-5,9 °C)",
+      "Asfalto non completamente asciutto a Bergamo: 0,84 mm di pioggia nelle 3 ore precedenti, ormai cessata",
+      "Nessuna pioggia prevista durante il transito e vento debole, senza ulteriori criticità"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
