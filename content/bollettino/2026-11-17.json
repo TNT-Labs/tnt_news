@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-17",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso lungo tutto il tragitto, nessuna pioggia prevista, temperature fresche in lieve aumento (5,7-6,9 °C) e vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Nuvoloso", "temp_c": 5.7, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)", "cond": "Nuvoloso", "temp_c": 6.8, "precip_mm": 0.0, "wind_kmh": 2, "wind_dir": "E"},
+      {"name": "San Donato (08:45)", "cond": "Nuvoloso", "temp_c": 6.9, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "ENE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 90,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 34},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 42}
+    ],
+    "incidents": [
+      {"where": "A51 Tangenziale Est, tra Cernusco sul Naviglio e Lambrate", "desc": "Code a tratti per traffico intenso dalle 05:49, direzione Allacciamento A1 Milano-Napoli (sud, stessa direzione dell'andata)."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (tempi con traffico reale). Sul segmento A51 Carugate→San Donato il tempo con traffico è 42 min contro i ~20 min senza traffico: coda significativa, coerente con l'incidente CCISS riportato sotto. Google Weather OK su 3 punti + storico 3h a Bergamo (0 mm di pioggia nelle 3 ore precedenti). CCISS RSS: coda a tratti su A51 tra Cernusco sul Naviglio e Lambrate, direzione Allacciamento A1 Milano-Napoli (dalle 05:49), pertinente a tratta e direzione dell'andata; scartati un evento su A51 a Svincolo Agrate B. (a nord di Carugate, fuori dal tratto considerato) e un evento su A4 Milano-Brescia in zona Milano città direzione Torino (fuori dal tratto Bergamo-Agrate e direzione opposta). Serravalle viabilità: pagina istituzionale, nessun dato specifico su incidenti/cantieri. Luceverde (tentativo unico, priorità C): pagina senza contenuto utile (solo-JS). Autostrade per l'Italia (tentativo unico, priorità C): 404 come nelle esecuzioni precedenti. Ricerca web: nessuna notizia datata oggi che confermi altri eventi sulla tratta; un documento Serravalle di marzo 2026 con restrizione 'fino a revoca' su A51 Cologno Sud/Carugate non trova riscontro nel feed CCISS di oggi, quindi non riportato separatamente."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperatura tra 4 e 7 °C in tutti e tre i punti del tragitto (5,7-6,9 °C)",
+      "Nessuna pioggia prevista lungo l'intero percorso (probabilità 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Vento debole e visibilità buona (14 km) in tutti i punti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
