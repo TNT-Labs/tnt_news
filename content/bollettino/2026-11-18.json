@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-18",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso lungo tutto il tragitto, nessuna pioggia prevista, temperature fresche (6,1-6,4 °C) e vento debole.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Parzialmente nuvoloso", "temp_c": 6.1, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)", "cond": "Parzialmente soleggiato", "temp_c": 6.2, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "W"},
+      {"name": "San Donato (08:45)", "cond": "Prevalentemente nuvoloso", "temp_c": 6.4, "precip_mm": 0.0, "wind_kmh": 8, "wind_dir": "W"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 89,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 35},
+      {"name": "Surface Agrate → Carugate", "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 39}
+    ],
+    "incidents": [
+      {"where": "A4, tra Dalmine e Cavenago-Cambiago, dir. Milano", "desc": "Traffico intenso con code dalle 06:08."},
+      {"where": "A4, tra Agrate e l'allacciamento con la Tangenziale Est, dir. Milano", "desc": "Versamento accidentale di liquido dalle 06:58."},
+      {"where": "A51 Tangenziale Est, tra Cologno Monzese e lo svincolo di Lambrate", "desc": "Traffico intenso, direzione allacciamento A1 Milano-Napoli (sud, stessa direzione dell'andata)."}
+    ],
+    "notice": "",
+    "debug": "Directions API OK sui 3 segmenti (tempi con traffico reale vs senza traffico): Bergamo-Agrate 35 min (28 senza traffico), Agrate-Carugate 15 min (13), Carugate-San Donato 39 min (21): coda significativa sul tratto A51, coerente con l'evento CCISS su Cologno Monzese-Lambrate. Google Weather OK su 3 punti + storico 3h a Bergamo (0 mm di pioggia nelle 3 ore precedenti). CCISS RSS: traffico intenso su A4 tra Dalmine e Cavenago (dalle 06:08) e versamento di liquido su A4 tra Agrate e l'allacciamento Tangenziale Est (dalle 06:58), entrambi dir. Milano; traffico intenso su A51 tra Cologno Monzese e lo svincolo di Lambrate dir. A1 Milano-Napoli; scartati gli eventi su A4 zona Cormano/Milano città e Monza-Sesto San Giovanni (fuori tratta o direzione opposta) e su A52 Tangenziale Nord (non pertinente). Serravalle viabilità: pagina istituzionale, nessun dato specifico su incidenti/cantieri. Luceverde (tentativo unico, priorità C): nessun contenuto utile (homepage generica, solo-JS). Autostrade per l'Italia (tentativo unico, priorità C): 404 come nelle esecuzioni precedenti. Ricerca web: nessuna notizia datata oggi che confermi altri eventi sulla tratta."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperatura tra 4 e 7 °C in tutti e tre i punti del tragitto (6,1-6,4 °C)",
+      "Nessuna pioggia prevista lungo l'intero percorso (probabilità massima 10%)",
+      "Asfalto asciutto: 0 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Vento debole (max 8 km/h) e visibilità buona (8-10 km) in tutti i punti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde — traffico", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia — traffico in tempo reale", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
