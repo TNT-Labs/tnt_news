@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-19",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole/moderata lungo tutto il tragitto, asfalto già bagnato nelle ore precedenti: condizioni da niente moto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Pioggia debole", "temp_c": 7.3, "precip_mm": 0.7, "wind_kmh": 6, "wind_dir": "NE"},
+      {"name": "Carugate (08:15)", "cond": "Pioggia da leggera a moderata", "temp_c": 7.7, "precip_mm": 1.45, "wind_kmh": 5, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)", "cond": "Pioggia debole", "temp_c": 7.6, "precip_mm": 1.15, "wind_kmh": 8, "wind_dir": "NE"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 93,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 37},
+      {"name": "Surface Agrate → Carugate", "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 41}
+    ],
+    "incidents": [
+      {"where": "A51, Svincolo Agrate B. (SP13 Melzo-Monza-Dogana, ingresso Carugate)", "desc": "Coda causa traffico intenso in direzione Allacciamento A1 Milano-Napoli (rilevato dal CCISS alle 06:10)."},
+      {"where": "A51, tra Svincolo Cologno Monzese e Svincolo Lambrate", "desc": "Coda a tratti causa traffico intenso in direzione Allacciamento A1 Milano-Napoli (rilevato dal CCISS alle 05:55)."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (37+15+41 min). CCISS RSS letto e filtrato: 2 eventi A51 pertinenti (direzione sud, tratta Carugate-San Donato), nessun evento su A4 Bergamo-Agrate. Serravalle raggiungibile ma pagina statica priva di elenco eventi utile. Luceverde e Autostrade senza contenuto utile (app solo-JS; Autostrade risponde 404), come nelle esecuzioni precedenti. Ricerca web: nessuna notizia datata 19/11/2026 su incidenti o cantieri nel tratto di interesse."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole/moderata prevista in tutti e tre i punti (0,7-1,45 mm, probabilità 51-62%)",
+      "Asfalto già bagnato: 0,74 mm di pioggia caduti a Bergamo nelle 3 ore precedenti",
+      "Visibilità ridotta lungo il percorso (6-11 km)",
+      "Temperatura intorno a 7-8°C, ma la pioggia esclude comunque la moto"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
