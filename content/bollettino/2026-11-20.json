@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-20",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo poco nuvoloso/parzialmente soleggiato lungo tutto il tragitto, assenza di piogge; temperature fredde (circa 4°C) richiedono cautela in moto.",
+    "by_point": [
+      {"name": "Bergamo (07:30)", "cond": "Parzialmente nuvoloso", "temp_c": 4.4, "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "NNE"},
+      {"name": "Carugate (08:15)", "cond": "Parzialmente soleggiato", "temp_c": 4.0, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "N"},
+      {"name": "San Donato (08:45)", "cond": "Parzialmente soleggiato", "temp_c": 4.2, "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "WNW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 71,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate", "minutes": 29},
+      {"name": "Surface Agrate → Carugate", "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese", "minutes": 28}
+    ],
+    "incidents": [
+      {"where": "A51 Sud, ingresso Carugate Ovest (km 19,25–18,85)", "desc": "Cantiere nuova stazione di rifornimento idrogeno: corsia di emergenza e accessi chiusi, fino al 30/06/2026."},
+      {"where": "A51 Sud, svincolo via Palmanova (km 10,75–10,32)", "desc": "Lavori di protezione barriera: parzializzazione del ramo di svincolo in entrata per carreggiata Sud, fino a revoca."},
+      {"where": "A51 Nord/Sud, Viadotto dei Parchi (km 8–5)", "desc": "Chiusura della corsia di emergenza a seguito di verifica di sicurezza del viadotto, fino a revoca."},
+      {"where": "A51 Sud, tra svincolo Mi-Forlanini/Linate e svincolo Mecenate (km 4,7–2,8, presso l'uscita San Donato)", "desc": "Cantieri di riqualificazione per Olimpiadi 2026: corsie a calibro ridotto, chiusura corsia di emergenza, parzializzazione svincoli; scadenze 30/06/2026 e 31/12/2026."},
+      {"where": "A51 Sud, km 0,6–0,5 (ultimo tratto verso San Donato)", "desc": "Parzializzazione della banchina in sinistra per protezione barriera ponte, fino a revoca."}
+    ],
+    "notice": "Alcuni cantieri A51 provengono da tabella Serravalle di marzo 2026: possibile non aggiornata.",
+    "debug": "Directions OK sui 3 segmenti (29+14+28 min). Meteo da Google Weather API (previsione + storico) sui 3 punti. CCISS RSS letto (11 eventi A4/A51 nel feed): nessuno ricade nella tratta Bergamo-Agrate su A4 o Carugate-San Donato su A51 direzione sud (eventi trovati sono a nord di Carugate, fuori tratta A4, o in direzione opposta). Serravalle viabilità raggiungibile ma senza elenco eventi. Trovata tramite ricerca web la tabella cantieri Serravalle 'TAB_Cantieri_MARZO_2026.pdf' (ultima disponibile): estratta con pdftotext, elenca lavori attivi su A51 Sud nella tratta Carugate-San Donato con scadenze 'fino a revoca' o nel 2026, inclusi in incidents; non è stata trovata una tabella più recente, quindi la data potrebbe non riflettere eventuali variazioni successive a marzo. Luceverde e Autostrade per l'Italia senza contenuto utile (Autostrade: 404), come nelle esecuzioni precedenti. Ricerca web: nessuna notizia di incidenti/cantieri datata 20/11/2026 nel tratto di interesse."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Niente pioggia prevista lungo il tragitto (probabilità ~5%)",
+      "Temperatura intorno ai 4°C in tutti i punti: sotto la soglia dei 7°C per il verde pieno",
+      "Vento debole (3-5 km/h) e raffiche contenute (6-10 km/h)",
+      "Asfalto asciutto: 0 mm di pioggia a Bergamo nelle 3 ore precedenti"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"},
+    {"name": "Milano Serravalle — tabella cantieri (marzo 2026)", "url": "https://www.serravalle.it/uploads/pagine/TAB_Cantieri_MARZO_2026.pdf"},
+    {"name": "Luceverde", "url": "https://www.luceverde.it/traffico"},
+    {"name": "Autostrade per l'Italia", "url": "https://www.autostrade.it/it/traffico-in-tempo-reale"}
+  ]
+}
