@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-24",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Cielo nuvoloso su tutto il tragitto, nessuna pioggia prevista, ma aria fredda: temperature tra 6 e 7°C.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Nuvoloso", "temp_c": 6,  "precip_mm": 0.0, "wind_kmh": 5, "wind_dir": "N"},
+      {"name": "Carugate (08:15)",       "cond": "Nuvoloso", "temp_c": 6,  "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "NE"},
+      {"name": "San Donato (08:45)",     "cond": "Nuvoloso", "temp_c": 7,  "precip_mm": 0.0, "wind_kmh": 3, "wind_dir": "E"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 91,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 35},
+      {"name": "Surface Agrate → Carugate",           "minutes": 14},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 42}
+    ],
+    "incidents": [
+      {"where": "A4 tra Dalmine e Trezzo sull'Adda, direzione Milano", "desc": "Code a tratti per traffico intenso dalle 06:23."},
+      {"where": "A51 tra Lambrate e Via Rubattino (Segrate-Città Studi), direzione San Donato/A1", "desc": "Incidente dalle 05:49, possibili rallentamenti."},
+      {"where": "A51 tra Cologno Monzese e C.A.M.M. (Monlue), direzione San Donato/A1", "desc": "Code a tratti per traffico intenso dalle 05:39."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (35+14+42 min, tempi con traffico reale). CCISS RSS letto: incidenti pertinenti su A4 Dalmine-Trezzo (direzione Milano) e A51 Lambrate-V.Rubattino / Cologno Monzese-C.A.M.M. (direzione A1/San Donato); escluso un evento A51 ad Agrate B. perché a nord di Carugate, fuori tratta. Serravalle: pagina raggiungibile ma solo menu statico, nessun dato viabilità in tempo reale. Luceverde e Autostrade.it: nessun contenuto utile (come da storico, un solo tentativo). WebSearch: nessuna notizia aggiuntiva verificata per oggi oltre a CCISS."
+  },
+  "moto": {
+    "verdict": "caution",
+    "label": "Moto con cautela",
+    "reasons": [
+      "Temperature tra 6°C e 7°C lungo il tragitto, sotto la soglia dei 7°C per il verde",
+      "Nessuna pioggia prevista (probabilità ~10%) e asfalto asciutto (0 mm nelle 3 ore precedenti a Bergamo)",
+      "Vento debole (3-5 km/h) e raffiche contenute (fino a 11 km/h)",
+      "Visibilità buona (16 km), cielo nuvoloso senza nebbia"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"}
+  ]
+}
