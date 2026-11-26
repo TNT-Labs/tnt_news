@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-26",
+  "direction": "andata",
+  "departure": "07:30",
+  "route": "Bergamo → A4 → uscita Agrate → viabilità ordinaria → ingresso A51 a Carugate → uscita San Donato Milanese",
+  "weather": {
+    "summary_text": "Pioggia debole e persistente su tutto il tragitto, temperature intorno a 7°C e asfalto già bagnato per le piogge delle ore precedenti.",
+    "by_point": [
+      {"name": "Bergamo (07:30)",        "cond": "Pioggia debole", "temp_c": 7, "precip_mm": 1.3,  "wind_kmh": 3, "wind_dir": "NW"},
+      {"name": "Carugate (08:15)",       "cond": "Pioggia debole", "temp_c": 7, "precip_mm": 1.0,  "wind_kmh": 5, "wind_dir": "SW"},
+      {"name": "San Donato (08:45)",     "cond": "Pioggia debole", "temp_c": 8, "precip_mm": 0.85, "wind_kmh": 6, "wind_dir": "SW"}
+    ]
+  },
+  "traffic": {
+    "estimated_minutes": 95,
+    "segments": [
+      {"name": "A4 Bergamo → Agrate",                 "minutes": 37},
+      {"name": "Surface Agrate → Carugate",           "minutes": 15},
+      {"name": "A51 Carugate → San Donato Milanese",  "minutes": 43}
+    ],
+    "incidents": [
+      {"where": "A4 Milano-Brescia tra Svincolo Capriate e Svincolo Cavenago, direzione Milano", "desc": "Code a tratti per traffico intenso dalle 06:31."},
+      {"where": "A51 Tangenziale Est tra Svincolo Cologno Monzese e Svincolo Linate, direzione A1/San Donato", "desc": "Code a tratti per traffico intenso."}
+    ],
+    "notice": "",
+    "debug": "Directions OK sui 3 segmenti (37+15+43 min, tempi con traffico reale, traffic_model=best_guess). CCISS RSS letto: 2 eventi pertinenti su A4 Capriate-Cavenago (dir. Milano) e A51 Cologno Monzese-Linate (dir. A1/San Donato); altri eventi CCISS scartati perché fuori tratta o direzione opposta. Google Weather storico (Bergamo): 10,21mm di pioggia nelle 3 ore precedenti, asfalto bagnato. Serravalle: pagina raggiungibile ma solo contenuto istituzionale statico, nessuna lista eventi in tempo reale. Luceverde e Autostrade.it (quest'ultima HTTP 404): nessun contenuto utile, come nelle esecuzioni precedenti. WebSearch: nessuna notizia aggiuntiva verificata e datata oggi oltre a CCISS."
+  },
+  "moto": {
+    "verdict": "no",
+    "label": "Niente moto",
+    "reasons": [
+      "Pioggia debole prevista in tutti e tre i punti del tragitto (0,85-1,3 mm, probabilità 76-90%)",
+      "Asfalto bagnato: 10,2 mm di pioggia nelle 3 ore precedenti a Bergamo",
+      "Precipitazioni e probabilità ben sopra le soglie di sicurezza lungo l'intero percorso"
+    ]
+  },
+  "sources": [
+    {"name": "Google Maps Directions API", "url": "https://developers.google.com/maps/documentation/directions"},
+    {"name": "Google Weather API", "url": "https://developers.google.com/maps/documentation/weather"},
+    {"name": "CCISS — Viaggiare Informati (RSS)", "url": "https://www.cciss.it/rss"},
+    {"name": "Milano Serravalle — viabilità", "url": "https://www.serravalle.it/index.php/pillar/apri/viabilita"}
+  ]
+}
